@@ -1,0 +1,284 @@
+@if $enable-font-awesome {
+  @font-face {
+    font-family: 'FontAwesome';
+    src: url('#{$fonts-default-path}/font-awesome/fontawesome-webfont.eot?v=3.0.1');
+    src: url('#{$fonts-default-path}/font-awesome/fontawesome-webfont.eot?#iefix&v=3.0.1') format("embedded-opentype"),
+      url('#{$fonts-default-path}/font-awesome/fontawesome-webfont.woff?v=3.0.1') format("woff"),
+      url('#{$fonts-default-path}/font-awesome/fontawesome-webfont.ttf?v=3.0.1') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+}
+
+  @mixin font-awesome($icon) {
+    display: inline-block;
+    font-family: 'FontAwesome';
+
+
+    @if      $icon == 'icon-glass'                { content: "\f000"; }
+    @else if $icon == 'icon-music'                { content: "\f001"; }
+    @else if $icon == 'icon-search'               { content: "\f002"; }
+    @else if $icon == 'icon-envelope'             { content: "\f003"; }
+    @else if $icon == 'icon-heart'                { content: "\f004"; }
+    @else if $icon == 'icon-star'                 { content: "\f005"; }
+    @else if $icon == 'icon-star-empty'           { content: "\f006"; }
+    @else if $icon == 'icon-user'                 { content: "\f007"; }
+    @else if $icon == 'icon-film'                 { content: "\f008"; }
+    @else if $icon == 'icon-th-large'             { content: "\f009"; }
+    @else if $icon == 'icon-th'                   { content: "\f00a"; }
+    @else if $icon == 'icon-th-list'              { content: "\f00b"; }
+    @else if $icon == 'icon-ok'                   { content: "\f00c"; }
+    @else if $icon == 'icon-remove'               { content: "\f00d"; }
+    @else if $icon == 'icon-zoom-in'              { content: "\f00e"; }
+
+    @else if $icon == 'icon-zoom-out'             { content: "\f010"; }
+    @else if $icon == 'icon-off'                  { content: "\f011"; }
+    @else if $icon == 'icon-signal'               { content: "\f012"; }
+    @else if $icon == 'icon-cog'                  { content: "\f013"; }
+    @else if $icon == 'icon-trash'                { content: "\f014"; }
+    @else if $icon == 'icon-home'                 { content: "\f015"; }
+    @else if $icon == 'icon-file'                 { content: "\f016"; }
+    @else if $icon == 'icon-time'                 { content: "\f017"; }
+    @else if $icon == 'icon-road'                 { content: "\f018"; }
+    @else if $icon == 'icon-download-alt'         { content: "\f019"; }
+    @else if $icon == 'icon-download'             { content: "\f01a"; }
+    @else if $icon == 'icon-upload'               { content: "\f01b"; }
+    @else if $icon == 'icon-inbox'                { content: "\f01c"; }
+    @else if $icon == 'icon-play-circle'          { content: "\f01d"; }
+    @else if $icon == 'icon-repeat'               { content: "\f01e"; }
+
+    @else if $icon == 'icon-refresh'              { content: "\f021"; }
+    @else if $icon == 'icon-list-alt'             { content: "\f022"; }
+    @else if $icon == 'icon-lock'                 { content: "\f023"; }
+    @else if $icon == 'icon-flag'                 { content: "\f024"; }
+    @else if $icon == 'icon-headphones'           { content: "\f025"; }
+    @else if $icon == 'icon-volume-off'           { content: "\f026"; }
+    @else if $icon == 'icon-volume-down'          { content: "\f027"; }
+    @else if $icon == 'icon-volume-up'            { content: "\f028"; }
+    @else if $icon == 'icon-qrcode'               { content: "\f029"; }
+    @else if $icon == 'icon-barcode'              { content: "\f02a"; }
+    @else if $icon == 'icon-tag'                  { content: "\f02b"; }
+    @else if $icon == 'icon-tags'                 { content: "\f02c"; }
+    @else if $icon == 'icon-book'                 { content: "\f02d"; }
+    @else if $icon == 'icon-bookmark'             { content: "\f02e"; }
+    @else if $icon == 'icon-print'                { content: "\f02f"; }
+
+    @else if $icon == 'icon-camera'               { content: "\f030"; }
+    @else if $icon == 'icon-font'                 { content: "\f031"; }
+    @else if $icon == 'icon-bold'                 { content: "\f032"; }
+    @else if $icon == 'icon-italic'               { content: "\f033"; }
+    @else if $icon == 'icon-text-height'          { content: "\f034"; }
+    @else if $icon == 'icon-text-width'           { content: "\f035"; }
+    @else if $icon == 'icon-align-left'           { content: "\f036"; }
+    @else if $icon == 'icon-align-center'         { content: "\f037"; }
+    @else if $icon == 'icon-align-right'          { content: "\f038"; }
+    @else if $icon == 'icon-align-justify'        { content: "\f039"; }
+    @else if $icon == 'icon-list'                 { content: "\f03a"; }
+    @else if $icon == 'icon-indent-left'          { content: "\f03b"; }
+    @else if $icon == 'icon-indent-right'         { content: "\f03c"; }
+    @else if $icon == 'icon-facetime-video'       { content: "\f03d"; }
+    @else if $icon == 'icon-picture'              { content: "\f03e"; }
+
+    @else if $icon == 'icon-pencil'               { content: "\f040"; }
+    @else if $icon == 'icon-map-marker'           { content: "\f041"; }
+    @else if $icon == 'icon-adjust'               { content: "\f042"; }
+    @else if $icon == 'icon-tint'                 { content: "\f043"; }
+    @else if $icon == 'icon-edit'                 { content: "\f044"; }
+    @else if $icon == 'icon-share'                { content: "\f045"; }
+    @else if $icon == 'icon-check'                { content: "\f046"; }
+    @else if $icon == 'icon-move'                 { content: "\f047"; }
+    @else if $icon == 'icon-step-backward'        { content: "\f048"; }
+    @else if $icon == 'icon-fast-backward'        { content: "\f049"; }
+    @else if $icon == 'icon-backward'             { content: "\f04a"; }
+    @else if $icon == 'icon-play'                 { content: "\f04b"; }
+    @else if $icon == 'icon-pause'                { content: "\f04c"; }
+    @else if $icon == 'icon-stop'                 { content: "\f04d"; }
+    @else if $icon == 'icon-forward'              { content: "\f04e"; }
+
+    @else if $icon == 'icon-fast-forward'         { content: "\f050"; }
+    @else if $icon == 'icon-step-forward'         { content: "\f051"; }
+    @else if $icon == 'icon-eject'                { content: "\f052"; }
+    @else if $icon == 'icon-chevron-left'         { content: "\f053"; }
+    @else if $icon == 'icon-chevron-right'        { content: "\f054"; }
+    @else if $icon == 'icon-plus-sign'            { content: "\f055"; }
+    @else if $icon == 'icon-minus-sign'           { content: "\f056"; }
+    @else if $icon == 'icon-remove-sign'          { content: "\f057"; }
+    @else if $icon == 'icon-ok-sign'              { content: "\f058"; }
+    @else if $icon == 'icon-question-sign'        { content: "\f059"; }
+    @else if $icon == 'icon-info-sign'            { content: "\f05a"; }
+    @else if $icon == 'icon-screenshot'           { content: "\f05b"; }
+    @else if $icon == 'icon-remove-circle'        { content: "\f05c"; }
+    @else if $icon == 'icon-ok-circle'            { content: "\f05d"; }
+    @else if $icon == 'icon-ban-circle'           { content: "\f05e"; }
+
+    @else if $icon == 'icon-arrow-left'           { content: "\f060"; }
+    @else if $icon == 'icon-arrow-right'          { content: "\f061"; }
+    @else if $icon == 'icon-arrow-up'             { content: "\f062"; }
+    @else if $icon == 'icon-arrow-down'           { content: "\f063"; }
+    @else if $icon == 'icon-share-alt'            { content: "\f064"; }
+    @else if $icon == 'icon-resize-full'          { content: "\f065"; }
+    @else if $icon == 'icon-resize-small'         { content: "\f066"; }
+    @else if $icon == 'icon-plus'                 { content: "\f067"; }
+    @else if $icon == 'icon-minus'                { content: "\f068"; }
+    @else if $icon == 'icon-asterisk'             { content: "\f069"; }
+    @else if $icon == 'icon-exclamation-sign'     { content: "\f06a"; }
+    @else if $icon == 'icon-gift'                 { content: "\f06b"; }
+    @else if $icon == 'icon-leaf'                 { content: "\f06c"; }
+    @else if $icon == 'icon-fire'                 { content: "\f06d"; }
+    @else if $icon == 'icon-eye-open'             { content: "\f06e"; }
+
+    @else if $icon == 'icon-eye-close'            { content: "\f070"; }
+    @else if $icon == 'icon-warning-sign'         { content: "\f071"; }
+    @else if $icon == 'icon-plane'                { content: "\f072"; }
+    @else if $icon == 'icon-calendar'             { content: "\f073"; }
+    @else if $icon == 'icon-random'               { content: "\f074"; }
+    @else if $icon == 'icon-comment'              { content: "\f075"; }
+    @else if $icon == 'icon-magnet'               { content: "\f076"; }
+    @else if $icon == 'icon-chevron-up'           { content: "\f077"; }
+    @else if $icon == 'icon-chevron-down'         { content: "\f078"; }
+    @else if $icon == 'icon-retweet'              { content: "\f079"; }
+    @else if $icon == 'icon-shopping-cart'        { content: "\f07a"; }
+    @else if $icon == 'icon-folder-close'         { content: "\f07b"; }
+    @else if $icon == 'icon-folder-open'          { content: "\f07c"; }
+    @else if $icon == 'icon-resize-vertical'      { content: "\f07d"; }
+    @else if $icon == 'icon-resize-horizontal'    { content: "\f07e"; }
+
+    @else if $icon == 'icon-bar-chart'            { content: "\f080"; }
+    @else if $icon == 'icon-twitter-sign'         { content: "\f081"; }
+    @else if $icon == 'icon-facebook-sign'        { content: "\f082"; }
+    @else if $icon == 'icon-camera-retro'         { content: "\f083"; }
+    @else if $icon == 'icon-key'                  { content: "\f084"; }
+    @else if $icon == 'icon-cogs'                 { content: "\f085"; }
+    @else if $icon == 'icon-comments'             { content: "\f086"; }
+    @else if $icon == 'icon-thumbs-up'            { content: "\f087"; }
+    @else if $icon == 'icon-thumbs-down'          { content: "\f088"; }
+    @else if $icon == 'icon-star-half'            { content: "\f089"; }
+    @else if $icon == 'icon-heart-empty'          { content: "\f08a"; }
+    @else if $icon == 'icon-signout'              { content: "\f08b"; }
+    @else if $icon == 'icon-linkedin-sign'        { content: "\f08c"; }
+    @else if $icon == 'icon-pushpin'              { content: "\f08d"; }
+    @else if $icon == 'icon-external-link'        { content: "\f08e"; }
+
+    @else if $icon == 'icon-signin'               { content: "\f090"; }
+    @else if $icon == 'icon-trophy'               { content: "\f091"; }
+    @else if $icon == 'icon-github-sign'          { content: "\f092"; }
+    @else if $icon == 'icon-upload-alt'           { content: "\f093"; }
+    @else if $icon == 'icon-lemon'                { content: "\f094"; }
+    @else if $icon == 'icon-phone'                { content: "\f095"; }
+    @else if $icon == 'icon-check-empty'          { content: "\f096"; }
+    @else if $icon == 'icon-bookmark-empty'       { content: "\f097"; }
+    @else if $icon == 'icon-phone-sign'           { content: "\f098"; }
+    @else if $icon == 'icon-twitter'              { content: "\f099"; }
+    @else if $icon == 'icon-facebook'             { content: "\f09a"; }
+    @else if $icon == 'icon-github'               { content: "\f09b"; }
+    @else if $icon == 'icon-unlock'               { content: "\f09c"; }
+    @else if $icon == 'icon-credit-card'          { content: "\f09d"; }
+    @else if $icon == 'icon-rss'                  { content: "\f09e"; }
+
+    @else if $icon == 'icon-hdd'                  { content: "\f0a0"; }
+    @else if $icon == 'icon-bullhorn'             { content: "\f0a1"; }
+    @else if $icon == 'icon-bell'                 { content: "\f0a2"; }
+    @else if $icon == 'icon-certificate'          { content: "\f0a3"; }
+    @else if $icon == 'icon-hand-right'           { content: "\f0a4"; }
+    @else if $icon == 'icon-hand-left'            { content: "\f0a5"; }
+    @else if $icon == 'icon-hand-up'              { content: "\f0a6"; }
+    @else if $icon == 'icon-hand-down'            { content: "\f0a7"; }
+    @else if $icon == 'icon-circle-arrow-left'    { content: "\f0a8"; }
+    @else if $icon == 'icon-circle-arrow-right'   { content: "\f0a9"; }
+    @else if $icon == 'icon-circle-arrow-up'      { content: "\f0aa"; }
+    @else if $icon == 'icon-circle-arrow-down'    { content: "\f0ab"; }
+    @else if $icon == 'icon-globe'                { content: "\f0ac"; }
+    @else if $icon == 'icon-wrench'               { content: "\f0ad"; }
+    @else if $icon == 'icon-tasks'                { content: "\f0ae"; }
+
+    @else if $icon == 'icon-filter'               { content: "\f0b0"; }
+    @else if $icon == 'icon-briefcase'            { content: "\f0b1"; }
+    @else if $icon == 'icon-fullscreen'           { content: "\f0b2"; }
+
+    @else if $icon == 'icon-group'                { content: "\f0c0"; }
+    @else if $icon == 'icon-link'                 { content: "\f0c1"; }
+    @else if $icon == 'icon-cloud'                { content: "\f0c2"; }
+    @else if $icon == 'icon-beaker'               { content: "\f0c3"; }
+    @else if $icon == 'icon-cut'                  { content: "\f0c4"; }
+    @else if $icon == 'icon-copy'                 { content: "\f0c5"; }
+    @else if $icon == 'icon-paper-clip'           { content: "\f0c6"; }
+    @else if $icon == 'icon-save'                 { content: "\f0c7"; }
+    @else if $icon == 'icon-sign-blank'           { content: "\f0c8"; }
+    @else if $icon == 'icon-reorder'              { content: "\f0c9"; }
+    @else if $icon == 'icon-list-ul'              { content: "\f0ca"; }
+    @else if $icon == 'icon-list-ol'              { content: "\f0cb"; }
+    @else if $icon == 'icon-strikethrough'        { content: "\f0cc"; }
+    @else if $icon == 'icon-underline'            { content: "\f0cd"; }
+    @else if $icon == 'icon-table'                { content: "\f0ce"; }
+
+    @else if $icon == 'icon-magic'                { content: "\f0d0"; }
+    @else if $icon == 'icon-truck'                { content: "\f0d1"; }
+    @else if $icon == 'icon-pinterest'            { content: "\f0d2"; }
+    @else if $icon == 'icon-pinterest-sign'       { content: "\f0d3"; }
+    @else if $icon == 'icon-google-plus-sign'     { content: "\f0d4"; }
+    @else if $icon == 'icon-google-plus'          { content: "\f0d5"; }
+    @else if $icon == 'icon-money'                { content: "\f0d6"; }
+    @else if $icon == 'icon-caret-down'           { content: "\f0d7"; }
+    @else if $icon == 'icon-caret-up'             { content: "\f0d8"; }
+    @else if $icon == 'icon-caret-left'           { content: "\f0d9"; }
+    @else if $icon == 'icon-caret-right'          { content: "\f0da"; }
+    @else if $icon == 'icon-columns'              { content: "\f0db"; }
+    @else if $icon == 'icon-sort'                 { content: "\f0dc"; }
+    @else if $icon == 'icon-sort-down'            { content: "\f0dd"; }
+    @else if $icon == 'icon-sort-up'              { content: "\f0de"; }
+
+    @else if $icon == 'icon-envelope-alt'         { content: "\f0e0"; }
+    @else if $icon == 'icon-linkedin'             { content: "\f0e1"; }
+    @else if $icon == 'icon-undo'                 { content: "\f0e2"; }
+    @else if $icon == 'icon-legal'                { content: "\f0e3"; }
+    @else if $icon == 'icon-dashboard'            { content: "\f0e4"; }
+    @else if $icon == 'icon-comment-alt'          { content: "\f0e5"; }
+    @else if $icon == 'icon-comments-alt'         { content: "\f0e6"; }
+    @else if $icon == 'icon-bolt'                 { content: "\f0e7"; }
+    @else if $icon == 'icon-sitemap'              { content: "\f0e8"; }
+    @else if $icon == 'icon-umbrella'             { content: "\f0e9"; }
+    @else if $icon == 'icon-paste'                { content: "\f0ea"; }
+    @else if $icon == 'icon-lightbulb'            { content: "\f0eb"; }
+    @else if $icon == 'icon-exchange'             { content: "\f0ec"; }
+    @else if $icon == 'icon-cloud-download'       { content: "\f0ed"; }
+    @else if $icon == 'icon-cloud-upload'         { content: "\f0ee"; }
+
+    @else if $icon == 'icon-user-md'              { content: "\f0f0"; }
+    @else if $icon == 'icon-stethoscope'          { content: "\f0f1"; }
+    @else if $icon == 'icon-suitcase'             { content: "\f0f2"; }
+    @else if $icon == 'icon-bell-alt'             { content: "\f0f3"; }
+    @else if $icon == 'icon-coffee'               { content: "\f0f4"; }
+    @else if $icon == 'icon-food'                 { content: "\f0f5"; }
+    @else if $icon == 'icon-file-alt'             { content: "\f0f6"; }
+    @else if $icon == 'icon-building'             { content: "\f0f7"; }
+    @else if $icon == 'icon-hospital'             { content: "\f0f8"; }
+    @else if $icon == 'icon-ambulance'            { content: "\f0f9"; }
+    @else if $icon == 'icon-medkit'               { content: "\f0fa"; }
+    @else if $icon == 'icon-fighter-jet'          { content: "\f0fb"; }
+    @else if $icon == 'icon-beer'                 { content: "\f0fc"; }
+    @else if $icon == 'icon-h-sign'               { content: "\f0fd"; }
+    @else if $icon == 'icon-plus-sign-alt'        { content: "\f0fe"; }
+
+    @else if $icon == 'icon-double-angle-left'    { content: "\f100"; }
+    @else if $icon == 'icon-double-angle-right'   { content: "\f101"; }
+    @else if $icon == 'icon-double-angle-up'      { content: "\f102"; }
+    @else if $icon == 'icon-double-angle-down'    { content: "\f103"; }
+    @else if $icon == 'icon-angle-left'           { content: "\f104"; }
+    @else if $icon == 'icon-angle-right'          { content: "\f105"; }
+    @else if $icon == 'icon-angle-up'             { content: "\f106"; }
+    @else if $icon == 'icon-angle-down'           { content: "\f107"; }
+    @else if $icon == 'icon-desktop'              { content: "\f108"; }
+    @else if $icon == 'icon-laptop'               { content: "\f109"; }
+    @else if $icon == 'icon-tablet'               { content: "\f10a"; }
+    @else if $icon == 'icon-mobile-phone'         { content: "\f10b"; }
+    @else if $icon == 'icon-circle-blank'         { content: "\f10c"; }
+    @else if $icon == 'icon-quote-left'           { content: "\f10d"; }
+    @else if $icon == 'icon-quote-right'          { content: "\f10e"; }
+
+    @else if $icon == 'icon-spinner'              { content: "\f110"; }
+    @else if $icon == 'icon-circle'               { content: "\f111"; }
+    @else if $icon == 'icon-reply'                { content: "\f112"; }
+    @else if $icon == 'icon-github-alt'           { content: "\f113"; }
+    @else if $icon == 'icon-folder-close-alt'     { content: "\f114"; }
+    @else if $icon == 'icon-folder-open-alt'      { content: "\f115"; }
+  }

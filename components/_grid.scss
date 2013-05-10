@@ -1,0 +1,32 @@
+
+// @include columns( $cols, $cols-container: $total-columns, $omega: false,  $nth-omega: false, $remove-omega: false, $from: left, $media: all, $highlight-omega: false );
+
+@mixin columns (
+		$cols, 
+		$cols-container: $total-columns, 
+		$omega: false, 
+		$nth-omega: false, 
+		$remove-omega: false, 
+		$from: left, 
+		$media: all,
+		$highlight-omega: false 
+	) {
+	
+	@include media($media) {			
+		$direction: left;
+		
+		@if $from != left { 
+			$direction: right;
+		}
+
+		@include span-columns($cols, $cols-container, $from: $direction); 
+		@if $omega { @include omega($from: $direction); }
+		@if $nth-omega { @include nth-omega($nth-omega, $from: $direction); }
+		@if $remove-omega { @include remove-omega; }
+		// background: red; 
+		@if $highlight-omega  { 				
+			@if $omega { background: blue; }
+			@if $nth-omega { &:nth-child(#{$nth-omega}) {background: blue;} }
+		}
+	}
+}

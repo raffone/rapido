@@ -1,0 +1,255 @@
+// Scaffolding
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+html {
+	@if $responsive-font-size {
+
+	    @each $step in $responsive-font-size {
+	    	@include media(nth($step, 1)) {
+	    		font-size: 100% * nth($step, 2) / 16px;
+	    	}    
+	    }   
+
+	} @else {
+		font-size: 100% * $base-font-size / 16px;
+	}
+}
+
+body {
+	@include adjust-font-size-to($base-font-size);
+	margin: 0;
+	font-family: $base-font-family;
+	color: $text-color;
+	
+}
+
+img {max-width: 100%;}
+
+a, button, textarea, input { outline: none; }
+
+
+// Links
+// -------------------------
+a {
+	color: $link-color;
+	text-decoration: none;
+}
+a:hover,
+a:focus {
+	color: $link-color-hover;
+	text-decoration: underline;
+}
+
+
+
+// Body text
+// -------------------------
+
+p {
+	margin: 0 0 rhythm(1);
+}
+
+.lead {
+	@include adjust-font-size-to($h4-size); 
+}
+
+.pull-left {float: left;}
+.pull-right {float: right;}
+.clearfix { @include clearfix;}
+
+// Emphasis & misc
+// -------------------------
+small   { @include adjust-font-size-to($milli-size); }
+
+strong  { font-weight: bold; }
+em      { font-style: italic; }
+cite    { font-style: normal; }
+
+.text-left           { text-align: left; }
+.text-right          { text-align: right; }
+.text-center         { text-align: center; }
+
+
+// Headings
+// -------------------------
+
+h1, h2, h3, h4, h5, h6 { 
+	margin: 0;
+	margin-bottom: rhythm(.5);
+	text-rendering: optimizelegibility;
+	small {
+		font-weight: normal;
+		line-height: 1;
+		color: $grayLight;
+	}
+}
+
+h4,
+h5,
+h6 {}
+
+h1 {@include adjust-font-size-to($h1-size, 2);}
+h2 {@include adjust-font-size-to($h2-size, 2);}
+h3 {@include adjust-font-size-to($h3-size, 2);}
+h4 {@include adjust-font-size-to($h4-size, 2);}
+h5 {@include adjust-font-size-to($h5-size, 2);}
+h6 {@include adjust-font-size-to($h6-size, 2);}
+
+
+h1 small { @include adjust-font-size-to($h3-size); }
+h2 small { @include adjust-font-size-to($h4-size); }
+h3 small { @include adjust-font-size-to($h5-size); }
+h4 small { @include adjust-font-size-to($h6-size); }
+
+// Lists
+// --------------------------------------------------
+
+.list_style_none {
+	padding: 0;
+	margin: 0;
+	list-style: none;	
+}
+
+// Unordered and Ordered lists
+ul, ol {
+	padding: 0;
+	margin: 0 0 rhythm(1) 25px;
+}
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+	margin-bottom: 0;
+}
+li {
+  // line-height: rhythm();
+}
+
+// Remove default list styles
+ul.unstyled,
+ol.unstyled {
+	margin-left: 0;
+	list-style: none;
+}
+
+// Single-line list items
+ul.inline,
+ol.inline {
+	margin-left: 0;
+	list-style: none;
+	> li {
+		display: inline-block;
+    // @include ie7-inline-block();
+    @include inline-block();
+    padding-left: 5px;
+    padding-right: 5px;
+}
+}
+
+// Description Lists
+dl {
+	margin-bottom: rhythm(1);
+}
+dt,
+dd {
+	line-height: rhythm(1);
+}
+dt {
+	font-weight: bold;
+}
+dd {
+	margin-left: rhythm(.5);
+}
+// Horizontal layout (like forms)
+.dl-horizontal {
+  @extend .clearfix; 
+  dt {
+  	float: left;
+  	width: $horizontal-offset - 20;
+  	clear: left;
+  	text-align: right;
+  	@include text-overflow();
+  }
+  dd {
+  	margin-left: $horizontal-offset;
+  }
+}
+
+// MISC
+// ----
+
+// Horizontal rules
+hr {
+	margin: rhythm(1) 0;
+	border: 0;
+  border-bottom: 1px solid $gray;
+}
+
+// Abbreviations and acronyms
+abbr[title],
+abbr[data-original-title] {
+	cursor: help;
+	border-bottom: 1px dotted $grayLight;
+}
+abbr.initialism {
+	font-size: 90%;
+	text-transform: uppercase;
+}
+
+// Blockquotes
+blockquote {
+	padding: 0 0 0 rhythm(1);
+	margin: 0;  
+	margin: 0 0 rhythm(1);
+	border-left: 5px solid $grayLighter;
+
+
+	p {
+		margin-bottom: 0;
+    font-weight: 300;
+}
+small {
+	display: block;
+    color: $grayLight;
+    &:before {
+    	content: '\2014 \00A0';
+    }
+}
+
+  // Float right with text-align: right
+  &.pull-right {
+  	float: right;
+  	padding-right: 15px;
+  	padding-left: 0;
+  	border-right: 5px solid $grayLighter;
+  	border-left: 0;
+  	p,
+  	small {
+  		text-align: right;
+  	}
+  	small {
+  		&:before {
+  			content: '';
+  		}
+  		&:after {
+  			content: '\00A0 \2014';
+  		}
+  	}
+  }
+}
+
+// Quotes
+q:before,
+q:after,
+blockquote:before,
+blockquote:after {
+	content: "";
+}
+
+// Addresses
+address {
+	display: block;
+	margin-bottom: rhythm(1);
+	font-style: normal;
+	line-height: rhythm(1);
+}

@@ -1,0 +1,15 @@
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// ANIMAZIONI  @include animate(...)
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+$animations: 										fadeIn, fadeOut										!default;
+$animations-classes:								true 												!default;
+
+$animations-duration: 								.3s 												!default;
+$animations-delay: 									0s 													!default;
+$animations-function: 								ease-out 											!default;
+$animations-mode:									both 												!default;
+
+// Transizioni @include transition(...)
+// ------------------------------------------------------------------------------------------------------------------------
+$default-transition-duration:  						$animations-duration								!default; 
+$default-transition-function: 						toBezier($animations-function) 						!default;

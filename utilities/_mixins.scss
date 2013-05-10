@@ -1,0 +1,255 @@
+//
+// Mixins
+// --------------------------------------------------
+
+
+// UTILITY MIXINS
+// --------------------------------------------------
+
+// Clearfix
+// --------
+// For clearing floats like a boss h5bp.com/q
+@mixin clearfix {
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+    // Fixes Opera/contenteditable bug:
+    // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+    line-height: 0;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// Webkit-style focus
+// ------------------
+@mixin tab-focus() {}
+
+// Center-align a block level element
+// ----------------------------------
+@mixin center-block() {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+// Sizing shortcuts
+// -------------------------
+@mixin size($height, $width) {
+  width: $width;
+  height: $height;
+}
+@mixin square($size) {
+  @include size($size, $size);
+}
+
+// Placeholder text
+// -------------------------
+@mixin placeholder($color: $gray) {
+  &:-moz-placeholder {
+    color: $color;
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+}
+
+// Text overflow
+// -------------------------
+// Requires inline-block or block for proper styling
+@mixin text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+@mixin hide-text {
+  color:            transparent;
+  font:             0/0 a;
+  text-shadow:      none;
+}
+
+@mixin reset-filter() {
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+
+@mixin position ($position: relative, $coordinates: 0 0 0 0) {
+
+  @if type-of($position) == list {
+    $coordinates: $position;
+    $position: relative;
+  }
+
+  $top: nth($coordinates, 1);
+  $right: nth($coordinates, 2);
+  $bottom: nth($coordinates, 3);
+  $left: nth($coordinates, 4);
+
+  position: $position;
+
+  @if $top == auto {
+    top: $top;
+  }
+  @else if not(unitless($top)) {
+    top: $top;
+  }
+
+  @if $right == auto {
+    right: $right;
+  }
+  @else if not(unitless($right)) {
+    right: $right;
+  }
+
+  @if $bottom == auto {
+    bottom: $bottom;
+  }
+  @else if not(unitless($bottom)) {
+    bottom: $bottom;
+  }
+
+  @if $left == auto {
+    left: $left;
+  }
+  @else if not(unitless($left)) {
+    left: $left;
+  }
+}
+
+
+@mixin triangle ($size, $color, $direction) {
+  height: 0;
+  width: 0;
+
+  @if ($direction == up) or ($direction == down) or ($direction == right) or ($direction == left) {
+    border-color: transparent;
+    border-style: solid;
+    border-width: $size / 2;
+
+    @if $direction == up {
+      border-bottom-color: $color;
+
+    } @else if $direction == right {
+      border-left-color:   $color;
+
+    } @else if $direction == down {
+      border-top-color:    $color;
+
+    } @else if $direction == left {
+      border-right-color:  $color;
+    }
+  }
+
+  @else if ($direction == up-right) or ($direction == up-left) {
+    border-top: $size solid $color;
+
+    @if $direction == up-right {
+      border-left:  $size solid transparent;
+
+    } @else if $direction == up-left {
+      border-right: $size solid transparent;
+    }
+  }
+
+  @else if ($direction == down-right) or ($direction == down-left) {
+    border-bottom: $size solid $color;
+
+    @if $direction == down-right {
+      border-left:  $size solid transparent;
+
+    } @else if $direction == down-left {
+      border-right: $size solid transparent;
+    }
+  }
+}
+
+@mixin text-inset-shadow($bg: #fff, $textcolor: #054d4a, $contrast:  #f43059) {
+	$shadow:    darken($textcolor, 30%);
+	
+	color: rgba($textcolor, 0.8);
+	text-shadow: 1px 5px 7px $bg, 0 0 0 rgba($shadow,.8);
+	// ::-moz-selection, ::selection {
+	// 	background: $contrast;
+	// 	color: $bg;
+	// 	text-shadow: none;
+	// }
+}
+
+@mixin alpha-color($color: #fff, $alpha: .5, $attribute: background) {
+	@if $attribute == color {
+		color: $color;
+		color: rgba($color, $alpha);		
+	} @else {
+		#{$attribute}-color: $color;
+		#{$attribute}-color: rgba($color, $alpha);
+	}
+}
+
+
+// Adds keyframes blocks for supported prefixes, removing redundant prefixes in the block's content
+@mixin keyframes($name) {
+  // $original-prefix-for-webkit:    $prefix-for-webkit;
+  // $original-prefix-for-mozilla:   $prefix-for-mozilla;
+  // $original-prefix-for-opera:     $prefix-for-opera;
+  // $original-prefix-for-spec:      $prefix-for-spec;
+
+  // @if $original-prefix-for-webkit {
+  //   @include disable-prefix-for-all();
+  //   $prefix-for-webkit: true;
+    @-webkit-keyframes #{$name} {
+      @content;
+    }
+  // }
+  // @if $original-prefix-for-mozilla {
+  //   @include disable-prefix-for-all();
+  //   $prefix-for-mozilla: true;
+    @-moz-keyframes #{$name} {
+      @content;
+    }
+  // }
+  // @if $original-prefix-for-opera {
+  //   @include disable-prefix-for-all();
+  //   $prefix-for-opera: true;
+    @-o-keyframes #{$name} {
+      @content;
+    }
+  // }
+  // @if $original-prefix-for-spec {
+  //   @include disable-prefix-for-all();
+  //   $prefix-for-spec: true;
+    @keyframes #{$name} {
+      @content;
+    }
+  // }
+
+}
+
+// COMPONENT MIXINS
+// --------------------------------------------------
+
+// Horizontal dividers
+// -------------------------
+// Dividers (basically an hr) within dropdowns and nav lists
+@mixin nav-divider($top: #e5e5e5, $bottom: false) {
+  *width: 100%;
+  
+  @if $bottom { 
+    height: 2px;
+  } @else {
+    height: 1px;
+  }
+  // margin: (($base-line-height / 2) - 1) 0; // 8px 1px
+  // *margin: -5px 0 5px;
+  overflow: hidden;
+  background-color: $top;
+  @if $bottom { border-bottom: 1px solid $bottom; }
+}

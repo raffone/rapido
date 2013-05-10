@@ -1,0 +1,77 @@
+
+// ********************************************************************************************************************
+// DIMENSIONI
+// ********************************************************************************************************************
+$base-border-radius:  				4px 																	!default;
+$horizontal-offset:       			em(180px)	 															!default;
+
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Caratteri
+// --------------------------------------------------------------------------------------------------------------------
+$giga-size:         				$base-font-size * 7 													!default;
+$mega-size:         				$base-font-size * 5 													!default;
+$kilo-size:         				$base-font-size * 3.4 													!default;
+												
+$h1-size:           				$base-font-size * 2.4													!default;
+$h2-size:           				$base-font-size * 2  													!default;
+$h3-size:           				$base-font-size * 1.8  													!default;
+$h4-size:           				$base-font-size * 1.4  													!default;
+$h5-size:           				$base-font-size * 1.2  													!default;
+$h6-size:           				$base-font-size * 1  													!default;
+												
+$milli-size:        				$base-font-size * .8 													!default;
+$micro-size:        				$base-font-size * .6 													!default;
+
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Forms
+// --------------------------------------------------------------------------------------------------------------------
+$control-margin-bottom:				em($base-line-height) 													!default;
+$label-margin-bottom: 				em($base-line-height) * .4 												!default;
+$input-border:						1px 																	!default;
+$input-padding-top: 				em($base-line-height) * .5 												!default;
+$input-padding-side:				em($base-line-height) * .6 												!default;
+
+// Calcoli (non modificare)
+$input-padding:						$input-padding-top $input-padding-side  								!default;
+$input-height: 						1em + ($input-padding-top * 2) + (em($input-border) * 2)				!default;				
+$control-min-height: 				em($base-line-height) + $label-margin-bottom + $input-height - em(5px) 	!default;
+
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Media Queries
+// --------------------------------------------------------------------------------------------------------------------
+$lap-start:         				481px 																	!default;
+$desk-start:        				768px 																	!default;
+$desk-end:        					1080px 																	!default;
+
+$palm-end:             				$lap-start - 1px;
+$lap-end:               			$desk-start - 1px;
+
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Griglie (Susy)
+// --------------------------------------------------------------------------------------------------------------------
+$total-columns: 					12 																		!default;
+$column-width: 						50px 																	!default;
+$gutter-width: 						30px 																	!default;
+$grid-padding: 						10px 																	!default;
+$container-style: 					fluid 																	!default;
+
+
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Nav (resposnive-nav)
+// --------------------------------------------------------------------------------------------------------------------
+$responsive-nav-breakpoint:			palm																	!default;
+$responsive-nav-type: 				slide 																	!default;
+$responsive-nav-outside-wrapper: 	'body'																	!default;
+$responsive-nav-inside-wrapper: 	'.internal-wrapper' 													!default;
+$responsive-nav-offset: 			70% 																	!default;
+$responsive-nav-dropdown-pos: 		right 																	!default;
+$responsive-nav-toggle-size: 		em(30px) 																!default;
+
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Modals (fancybox)
+// --------------------------------------------------------------------------------------------------------------------
+$modal-button-size: 				em(30px) 																!default;
+$modal-button-size-half: 			-($modal-button-size / 2)												!default;
+
+
+

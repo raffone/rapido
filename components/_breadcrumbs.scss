@@ -1,0 +1,17 @@
+//
+// Breadcrumbs
+// --------------------------------------------------
+
+
+.breadcrumb {
+  margin: 0 0 rhythm();
+  list-style: none;
+  @extend %breadcrumb-style;
+  
+  > li {
+    @include inline-block();
+  }
+  .active {
+
+  }
+}

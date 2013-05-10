@@ -1,0 +1,81 @@
+@if $bx-slider == true {
+
+	// Wrapper | 1st level
+	.bx-wrapper {
+		position: relative;
+		padding: 0;
+		*zoom: 1;
+		
+		img {
+			max-width: 100%;
+			display: block;
+		}
+		ul, li {margin: 0;}
+
+
+		// Viewport  | 2nd level
+		.bx-viewport { }
+
+
+		// Controls  | 2nd level
+		.bx-controls {
+
+			// Directions
+			//-------------------------------- 
+			.bx-controls-direction {
+
+				a {
+					@extend %slider-buttons-style;
+					@include position(absolute, 50% 0 0 0);
+
+					z-index: 200;
+					
+					i {font-style: normal;}
+					span {@include hide-text;}
+
+					&.disabled { display: none; }
+
+					&.bx-prev { left: 0; }
+					&.bx-next { right: 0; }
+				}
+
+
+			}
+
+			// Pager
+			//-------------------------------- 
+			.bx-pager {
+				width: 100%;				
+				text-align: center;
+				@extend %slider-pager-style;
+				
+				.bx-pager-item {
+					display: inline-block;
+					a {
+						display: block;
+						@include hide-text;
+					}
+				}
+			}
+		}
+
+
+		// Loading
+		.bx-loading {
+			min-height: 50px;
+			@include alpha-color(#000, .60);
+			@include square(100%);
+			@include position(absolute, 0px 0 0 0px);
+			@extend %slider-loading-style;
+			z-index: 2000;
+		}
+
+		.bx-caption {
+			@include position(absolute, 0 0 0px 0px);
+			width: 100%;
+			
+			span {@extend %slider-caption-style;}
+		}
+	}
+
+}

@@ -1,0 +1,407 @@
+
+@if $default-styles {
+
+	// Inputs
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	%input-style {
+		color: $text-color;
+		border-color: $gray;	
+		background-color: $grayLighter; 
+		
+		&:focus {
+			background-color: $grayLight; 
+		}		
+	}
+
+	%input-addon-style {
+		color: $text-color;
+		border-color: $grayLight;	
+		background-color: $grayLighter; 		
+	}
+	
+	// Selects
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+	%select-style {
+		color: $text-color;
+		border-color: $gray;	
+		background-color: $grayLighter; 
+		
+		&:hover {
+			background-color: $grayLight; 
+		}		
+	}
+	
+	// Buttons
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+	// Default
+	%btn-style {
+		color: $text-color; 
+		border-color: $gray;
+		background-color: $grayLight; 
+			
+		// Hover/focus state
+		&:hover,
+		&:focus {
+			background-color: darken($grayLight, 10% );      
+		}
+
+		// Active state
+		&.active,
+		&:active {
+			background-color: darken($grayLight, 20% ); 
+		}	
+	}
+
+	// Primary
+	%btn-primary-style {
+		color: #fff; 
+		border-color: darken(green, 10%);
+		background-color: green; 
+			
+		// Hover/focus state
+		&:hover,
+		&:focus {
+			background-color: darken(green, 5%);      
+		}
+
+		// Active state
+		&.active,
+		&:active {
+			background-color: darken(green, 10%); 
+		}	
+	}
+
+
+	%btn-secondary-style {
+		color: #fff; 
+		border-color: darken(red, 10%);
+		background-color: red; 
+			
+		// Hover/focus state
+		&:hover,
+		&:focus {
+			background-color: darken(red, 5%);      
+		}
+
+		// Active state
+		&.active,
+		&:active {
+			background-color: darken(red, 10%); 
+		}	
+	}
+
+
+	// Dropdown
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	%dropdown-style {
+		background: $grayLighter;
+		border-color: $gray;
+		
+		.divider { @include nav-divider($gray); margin-top: -1px }
+
+		> li > a { border-bottom: 1px dotted $gray; }
+
+		> li > a:hover,
+		> li > a:focus {
+		// .dropdown-submenu:hover > a,
+		// .dropdown-submenu:focus > a {
+			text-decoration: none;
+			background-color: $grayLight;
+		}
+	}
+
+	%dropdown-open-style {
+		background: $grayLighter;
+	    &:after {background-color: $grayLighter;}  		
+	}
+	
+
+	// CARET per Dropdown e Select
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	%caret-style {
+		$caret-width: em(10px);
+		min-width: $caret-width;
+		
+		&:after {
+			@include square(1em);
+			font-size: $caret-width;
+			@include font-awesome(icon-chevron-down);
+			text-align: center;
+			z-index: 2;		 
+			// background-color: #222;
+			// color: #FFF;
+		}
+	} 
+
+	%caret-side-style {
+		@extend %caret-style;
+		&:after {
+			@include font-awesome(icon-chevron-right);
+		}
+	}
+
+
+	// Tables
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	%table-style {
+		thead {
+			th, td {
+				background-color: $gray;
+				color: #FFF; 
+			}
+		}
+		tbody {
+			td {
+				border-bottom: 1px solid $grayLight;
+			}
+		}
+	}
+
+
+	// Responsive NAV
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+	%nav-style-big {
+
+	}
+	
+	%nav-style-small {
+		background-color: #272c33;
+		
+		a { 
+			color: #fff; 
+			padding: $input-padding;
+			// &:after { display: none;}			
+		}
+
+		ul, 
+		ul li, 
+		ul li a {
+			width: 100%;	
+			border: 0;
+			margin: 0;
+			float: none;
+			display: block;
+			position: static;
+			text-align: left;
+			@include border-radius(0);
+			background-color: transparent;
+		}	
+
+		.open {
+			background-color: lighten(#272c33, 10);
+			
+			.btn.dropdown-toggle[data-toggle=dropdown] {
+				background-color: darken(#272c33, 10);
+			}
+		}	
+	}
+
+
+
+	%nav-toggle-style {
+		@extend .btn;
+		@include square($responsive-nav-toggle-size);
+		font-size: $responsive-nav-toggle-size * .6;
+		padding: 0;
+		line-height: $responsive-nav-toggle-size;
+		span {@include hide-text();}
+		&:before {
+			@include font-awesome(icon-reorder);
+		}		
+	}
+
+
+	// Breadcrumbs
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	%breadcrumb-style {
+		// background-color: #f5f5f5;
+
+		> li {
+			&:after {
+				color: #ccc;
+				content: "›";
+				padding: 0 10px;
+			}
+			&:last-child {
+				&:after {
+					content: "";
+					padding-right: 0;
+				}
+			}
+		}
+		.active { color: $grayLight; }
+		
+	}
+
+	// Pagination
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	%pagination-style {
+		ul > li > a,
+		ul > li > span {
+		  background-color: $grayLight;
+		  border-color: $gray;
+		}
+		ul > li > a:hover,
+		ul > li > a:focus,
+		ul > .active > a,
+		ul > .active > span {
+		  background-color: $grayLighter;
+		}
+		ul > .active > a,
+		ul > .active > a:hover,
+		ul > .active > span {
+		  color: #fff;
+		  background-color: $gray;
+
+		}
+		ul > .disabled > span,
+		ul > .disabled > a,
+		ul > .disabled > a:hover,
+		ul > .disabled > a:focus {
+		  color: $grayLight;
+		  background-color: transparent;
+		  border-color: $grayLight;
+		}
+	}
+
+	// Pager
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	%pager-style {
+		li > a,
+		li > span {
+		  background-color: #fff;
+		  border-color: $grayLight;
+		}
+		li > a:hover,
+		li > a:focus {
+		  background-color: $grayLighter;
+		}
+		.disabled > a,
+		.disabled > a:hover,
+		.disabled > a:focus,
+		.disabled > span {
+		  color: $grayLight;
+		  background-color: #fff;
+		}	
+	}
+	
+
+	// Modals
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	
+	%modal-overlay {
+		background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNiqAcAAIgAgoGu+rEAAAAASUVORK5CYII=');		
+	}
+	
+	%modal-skin {
+		@include box-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
+		background: #fff;
+		@include border-radius($base-border-radius);		
+	}
+
+
+	%modal-title-over {
+		@include alpha-color(#000, .8, background);
+		color: #fff;
+		display: inline-block;
+		padding: $input-padding;
+	}
+
+	%modal-buttons-style {
+		@include alpha-color(#000, .6, background);
+		@include square($modal-button-size);
+		cursor: pointer;		
+		line-height: $modal-button-size;
+		text-align: center;
+		color: #fff;
+		text-decoration: none;
+		display: block;
+
+		&:hover {
+			color: #fff;
+			@include alpha-color(#000, .8, background);
+		}
+
+		&.fancybox-close:after {@include font-awesome(icon-remove);} 
+
+		&.btnPrev:after {		@include font-awesome(icon-step-backward); 	}
+		&.btnNext:after {		@include font-awesome(icon-step-forward); 	}
+		&.btnPlay:after {		@include font-awesome(icon-play); 			}
+		&.btnPlayOn:after {		@include font-awesome(icon-pause); 			}
+		&.btnToggle:after {		@include font-awesome(icon-resize-full); 	}
+		&.btnToggleOn:after {	@include font-awesome(icon-resize-small); 	}
+		&.btnClose:after {		@include font-awesome(icon-remove); 		}		
+	}	
+
+	.fancybox-prev span:after { @include font-awesome(icon-chevron-left); } 
+	.fancybox-next span:after { @include font-awesome(icon-chevron-right); } 
+
+
+	%modal-buttons-alt-style {
+		background-color: transparent;
+		color: $link-color;
+		&:hover {
+			color: $link-color-hover;
+		}
+	}
+
+
+	%modal-loading-style {		
+		margin-top: -22px;
+		margin-left: -22px;
+		opacity: 0.8;
+
+		div {
+			@include square(44px);
+			@extend %loader-ico;
+
+		}
+	}
+
+	%loader-ico {
+		background: 
+				url('//cdn.jsdelivr.net/wp-advanced-ajax-page-loader/2.5.12/loaders/SMALL%20-%20Spinning%20Arrows.gif') 
+				center center no-repeat;		
+	}
+
+	// Sliders
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	%slider-buttons-style {
+		@extend %modal-buttons-style;
+		margin-top: $modal-button-size-half;	
+
+		&.bx-prev i:after { @include font-awesome(icon-chevron-left); }
+		&.bx-next i:after { @include font-awesome(icon-chevron-right); }		
+
+	}
+	
+	%slider-pager-style {
+		@include position(absolute, 0 0 -30px 0);
+		padding-top: 20px;
+		.bx-pager-item {
+			a {
+				@include border-radius(5px);
+				@include square(10px);
+				background: $grayLight;
+				margin: 0 5px;
+				&:hover, &.active { background: $gray; }
+			}
+		}
+	}	
+
+
+	%slider-loading-style {
+		@extend %loader-ico;
+	}
+
+	%slider-caption-style {
+		@extend %modal-title-over;
+	}
+
+
+
+}		
+

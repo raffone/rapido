@@ -1,0 +1,258 @@
+.modal { display: none; }
+
+@if $modal {
+
+	// Resets
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	%modal-reset {
+		padding: 0;
+		margin: 0;
+		border: 0;
+		vertical-align: top;	
+		list-style-type: none;
+	}
+
+	.fancybox-wrap, .fancybox-skin, .fancybox-outer, .fancybox-inner, .fancybox-image { @extend %modal-reset; }
+	.fancybox-wrap { iframe, object { @extend %modal-reset; } }
+	.fancybox-nav { &, span { @extend %modal-reset; } }
+	.fancybox-tmp { @extend %modal-reset; }
+
+
+	// Container
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+	// Overlay | 1st level
+	.fancybox-overlay {
+		@extend %modal-overlay;
+		@include position(absolute, 0px 0 0 0px);
+		display: none;
+		overflow: hidden;
+		z-index: ($zindexModal -1);
+
+		&.fancybox-overlay-fixed {
+			@include position(fixed, 0 0px 0px 0 );
+		}
+
+		// Wrap | 2nd Level
+		.fancybox-wrap {
+			@include position(absolute, 0px 0 0 0px);
+			z-index: $zindexModal;
+			
+			&.fancybox-opened { z-index: $zindexModal +1; }
+			
+			// for Iframes
+			&.fancybox-type-iframe .fancybox-inner { -webkit-overflow-scrolling: touch; }
+			
+			// for Inline
+			&.fancybox-type-inline .fancybox-close { @extend %modal-buttons-alt-style; }
+
+			// Skin | 3rd Level
+			.fancybox-skin {
+				@extend %modal-skin;
+				position: relative;
+				
+				// Outer | 4th Level
+				.fancybox-outer {
+					position: relative;
+				
+					// Inner | 5th Level
+					.fancybox-inner {
+						position: relative;
+						overflow: hidden;
+
+					} // 5thst
+				} // 4th
+			} // 3rd	 		
+		} // 2nd
+	} // 1st
+
+	
+	// Backtground temp
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	.fancybox-tmp {
+		@include position(absolute, -9999px 0 0 -9999px);
+		visibility: hidden;
+		max-width: 99999px;
+		max-height: 99999px;
+		overflow: visible !important;
+	}
+
+
+	.fancybox-lock { overflow: hidden; }
+
+	.fancybox-lock .fancybox-overlay {
+		overflow: auto;
+		overflow-y: scroll;
+	}
+
+
+	// Content
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	.fancybox-error {
+		margin: 0;
+		padding: $input-padding;
+		white-space: nowrap;
+	}
+
+	.fancybox-image, .fancybox-iframe {
+		display: block;
+		@include square(100%);
+	}
+
+	.fancybox-image {
+		max-width: 100%;
+		max-height: 100%;
+		@include border-radius($base-border-radius);
+	}
+
+
+	#fancybox-loading {		
+		@include position(fixed, 50% 0 0 50%);
+		@extend %modal-loading-style;
+		cursor: pointer;
+		z-index: $zindexModal +4;
+	}
+	
+
+	// Buttons and Navigation
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	.fancybox-close {
+		@extend %modal-buttons-style;
+		@include border-radius(0 $base-border-radius 0 $base-border-radius);
+		@include position(absolute, 0px 0px 0 0);
+		z-index: $zindexModal +3;
+	}
+
+	.fancybox-nav {		
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+		@include position(absolute, 0px 0 0 0);
+		@include size(100%, 40%);
+		z-index: $zindexModal +2;
+
+		span {
+			@extend %modal-buttons-style;
+			@include position(absolute, 50% 0 0 0);
+			margin-top: $modal-button-size-half;
+			visibility: hidden;
+			z-index: $zindexModal +2;
+		}
+
+		&:hover span { visibility: visible; }
+
+		&.fancybox-prev {
+			left: 0; 
+			span { left: 0; }
+		}
+
+		&.fancybox-next {
+			right: 0;
+			span { right: 0; }
+		}
+
+	}
+
+	// Titles
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	.fancybox-title {
+		visibility: hidden;
+		position: relative;
+		text-shadow: none;
+		z-index: $zindexModal +3;
+	}
+
+	.fancybox-opened .fancybox-title {
+		visibility: visible;
+	}
+
+	.fancybox-title-float-wrap {		
+		@include position(absolute, 0 50% 0px 0);
+		margin-bottom: em(-35px);
+		text-align: center;
+		z-index: $zindexModal +3;
+
+		.child {
+			@include alpha-color(#000, .8, background);
+			@include border-radius($base-border-radius);
+			display: inline-block;
+			margin-right: -100%;
+			padding: em(2px) $input-padding-side;
+			color: #FFF;
+			font-weight: bold;
+			white-space: nowrap;
+		}
+	}
+
+	.fancybox-title-outside-wrap {
+		position: relative;
+		margin-top: $input-padding-top;
+		color: #fff;
+	}
+
+	// .fancybox-title-inside-wrap { padding-top: $input-padding-top; }
+
+	.fancybox-title-over-wrap {
+		@include position(absolute, 0 0 0px 0px);
+		@extend %modal-title-over;
+	}
+
+}
+
+@if $modal-buttons {
+	#fancybox-buttons {
+		@include position(fixed, 0 0 0 0px);
+		width: 100%;
+		z-index: $zindexModal +3;
+		&.top { top: em(10px); }
+		&.bottom { bottom: em(10px); }
+
+		ul {
+			@include size($modal-button-size, $modal-button-size * 5);
+			display: block;
+			list-style: none;
+			margin: 0 auto;
+			li {
+				float: left;
+				margin: 0;
+				a {
+					@extend %modal-buttons-style;
+					position: relative;					
+					&:hover { opacity: 1; }
+					&:after { @include position(absolute, 0px 0px 0 0px); }			
+				}
+			}
+		}		
+	}
+}
+
+@if $modal-thumbs {
+	#fancybox-thumbs {
+		@include position(fixed, 0 0 0 0px);
+		overflow: hidden;
+		width: 100%;
+		z-index: $zindexModal +3;
+
+		&.bottom { bottom: em(10px); }
+		&.top { top: em(10px); }
+
+		ul {
+			@extend %modal-reset;
+			position: relative;
+
+			li {
+				float: left;
+				margin-right: em(4px);
+				opacity: 0.5;
+				
+				&:hover { opacity: 0.75; }
+				&.active { opacity: 1; }				
+
+				a {
+					display: block;
+					overflow: hidden;
+					text-align: center;
+				}
+
+			}
+		}
+	}
+}
