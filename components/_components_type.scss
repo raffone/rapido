@@ -7,8 +7,8 @@ html {
 	    @each $step in $responsive-font-size {
 	    	@include media(nth($step, 1)) {
 	    		font-size: 100% * nth($step, 2) / 16px;
-	    	}    
-	    }   
+	    	}
+	    }
 
 	} @else {
 		font-size: 100% * $base-font-size / 16px;
@@ -20,7 +20,7 @@ body {
 	margin: 0;
 	font-family: $base-font-family;
 	color: $text-color;
-	
+
 }
 
 img {max-width: 100%;}
@@ -50,7 +50,7 @@ p {
 }
 
 .lead {
-	@include adjust-font-size-to($h4-size); 
+	@include adjust-font-size-to($h4-size);
 }
 
 .pull-left {float: left;}
@@ -73,7 +73,7 @@ cite    { font-style: normal; }
 // Headings
 // -------------------------
 
-h1, h2, h3, h4, h5, h6 { 
+h1, h2, h3, h4, h5, h6 {
 	margin: 0;
 	margin-bottom: rhythm(.5);
 	text-rendering: optimizelegibility;
@@ -107,7 +107,7 @@ h4 small { @include adjust-font-size-to($h6-size); }
 .list_style_none {
 	padding: 0;
 	margin: 0;
-	list-style: none;	
+	list-style: none;
 }
 
 // Unordered and Ordered lists
@@ -162,16 +162,16 @@ dd {
 }
 // Horizontal layout (like forms)
 .dl-horizontal {
-  @extend .clearfix; 
+  @extend .clearfix;
   dt {
   	float: left;
-  	width: $horizontal-offset - 20;
+  	width: em($horizontal-offset) - 20;
   	clear: left;
   	text-align: right;
   	@include text-overflow();
   }
   dd {
-  	margin-left: $horizontal-offset;
+  	margin-left: em($horizontal-offset);
   }
 }
 
@@ -199,7 +199,7 @@ abbr.initialism {
 // Blockquotes
 blockquote {
 	padding: 0 0 0 rhythm(1);
-	margin: 0;  
+	margin: 0;
 	margin: 0 0 rhythm(1);
 	border-left: 5px solid $grayLighter;
 

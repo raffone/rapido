@@ -3,7 +3,7 @@
 // GENERICI
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 form {
-	margin: 0 0 $base-line-height;
+	margin: 0 0 em($base-line-height);
 }
 fieldset {
 	padding: 0;
@@ -15,13 +15,13 @@ legend {
 	width: 100%;
 	padding: 0;
 	@include adjust-font-size-to($h5-size);
-	font-weight: bold; 
+	font-weight: bold;
 	border: 0;
 	padding-bottom: rhythm(.5);
 	margin-bottom: rhythm(.5) - 1;
 	border-bottom: 1px solid #e5e5e5;
 	small {
-		font-size: $base-font-size;
+		font-size: em($base-font-size);
 		color: $grayLight;
 	}
 }
@@ -42,8 +42,8 @@ textarea {
 }
 label {
 	display: block;
-	margin-bottom: $label-margin-bottom;
-	font-weight: bold; 
+	margin-bottom: em($label-margin-bottom);
+	font-weight: bold;
 	cursor: auto;
 }
 textarea,
@@ -67,17 +67,17 @@ input[type="color"],
 	// font-size: $base-font-size;
 	// line-height: $base-line-height;
 	// @include adjust-font-size-to($base-font-size);
-	padding: $input-padding; 
-	// padding: 0 $input-padding-side; 
+	padding: $input-padding;
+	// padding: 0 $input-padding-side;
 	vertical-align: middle;
 	height: $input-height;
 	// height: auto;
 	border-width: $input-border;
-	border-style: solid;	
+	border-style: solid;
 	@extend %input-style !optional;
 	&:focus {
 		outline: 0;
-	}	
+	}
 }
 select {
 	color: $text-color;
@@ -86,12 +86,12 @@ select {
 input,
 textarea,
 .uneditable-input {
-	width: 240px; 
+	width: 240px;
 }
 textarea {
 	height: auto;
 	line-height: rhythm(1);
-	padding: $input-padding; 
+	padding: $input-padding;
 }
 
 
@@ -109,14 +109,14 @@ input[type="reset"],
 input[type="button"],
 input[type="radio"],
 input[type="checkbox"] {
-	width: auto; 
+	width: auto;
 }
 select,
 input[type="file"] {
 	*margin-top: 4px; /* For IE7, add top margin to align select with labels */
 }
 select, .select {
-	width: 240px; 
+	width: 240px;
 }
 select[multiple],
 select[size] {
@@ -138,7 +138,7 @@ input[type="checkbox"]:focus {
 	cursor: not-allowed;
 }
 .uneditable-input {
-	overflow: hidden; 
+	overflow: hidden;
 	white-space: nowrap;
 }
 .uneditable-textarea {
@@ -154,11 +154,11 @@ textarea {
 // RADIO & CHECKBOX
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 .radio,
-.checkbox, 
+.checkbox,
 .select {
-	min-height: $base-line-height; 
+	min-height: em($base-line-height);
 	padding-left: 20px;
-	margin-bottom: 0; 
+	margin-bottom: 0;
 	font-weight: normal;
 	cursor: pointer;
 	line-height: rhythm(1);
@@ -181,13 +181,13 @@ textarea {
 }
 .radio.inline + .radio.inline,
 .checkbox.inline + .checkbox.inline {
-	margin-left: 20px; 
+	margin-left: 20px;
 }
 
 // SELECT
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
-span.select { 
+span.select {
 	@include border-radius(3px);
 	border-width: $input-border;
 	border-style: solid;
@@ -197,27 +197,27 @@ span.select {
 	width: 240px;
 	// width: 100%;
 	line-height: 1em;
-	height: $input-height;	
+	height: $input-height;
 	@extend %select-style !optional;
 	@extend %caret-style !optional;
-	
+
 	select {
 		padding: $input-padding;
 		width:100%;
 		background-color:transparent;
-		background-image:none; 
+		background-image:none;
 		@include appearance(none);
-		border:none; 
-		box-shadow:none; 
+		border:none;
+		box-shadow:none;
 		cursor: pointer;
 		z-index: 3;
 		position: relative;
-	}	
+	}
 
 	&:after {
 		position: absolute;
-		top: $input-padding-top / 1.5;
-		right: $input-padding-side * 1.5;
+		top: em($input-padding-top) / 1.5;
+		right: em($input-padding-side) * 1.5;
 		line-height: $input-height;
 	}
 
@@ -257,7 +257,7 @@ select:focus:invalid {
 	margin-bottom: rhythm(1);
 	border-top: 1px solid #e5e5e5;
 	clear: both;
-	@extend .clearfix; 
+	@extend .clearfix;
 }
 
 
@@ -265,10 +265,10 @@ select:focus:invalid {
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 .help-block,
 .help-inline {
-	color: lighten($text-color, 15%); 
+	color: lighten($text-color, 15%);
 }
 .help-block {
-	display: block; 
+	display: block;
 	padding: rhythm(.5) 0 0;
 }
 .help-inline {
@@ -289,7 +289,7 @@ select:focus:invalid {
 .input-prepend {
 	display: inline-block;
 	vertical-align: middle;
-	white-space: nowrap; 
+	white-space: nowrap;
 	margin-left: -$input-border;
 
 	input,
@@ -303,8 +303,8 @@ select:focus:invalid {
 	input,
 	select,
 	.uneditable-input {
-		position: relative; 
-		margin-bottom: 0; 
+		position: relative;
+		margin-bottom: 0;
 		*margin-left: 0;
 		vertical-align: top;
 		@include border-radius(0 $base-border-radius $base-border-radius 0);
@@ -352,14 +352,14 @@ select:focus:invalid {
 	}
 	input,
 	select,
-	.uneditable-input {margin-left: -$input-border * 2}	
+	.uneditable-input {margin-left: -$input-border * 2}
 }
 .input-append {
 	input,
 	select,
 	.uneditable-input {
 		@include border-radius($base-border-radius 0 0 $base-border-radius);
-		
+
 		+ .btn-group .btn:first-child {
 			@include border-radius(0);
 		}
@@ -377,7 +377,7 @@ select:focus:invalid {
 	/*.add-on:first-child,
 	.btn:first-child {
 		@include border-radius( 0);
-	}*/	
+	}*/
 	.add-on:last-child,
 	.btn:last-child,
 	.btn-group:last-child > .dropdown-toggle {
@@ -412,20 +412,20 @@ select:focus:invalid {
 // CONTROL GROUPS
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 .control-group {
-	margin-bottom: $control-margin-bottom;
+	margin-bottom: em($control-margin-bottom);
 	@extend .clearfix;
 	// background-color: red;
 }
 legend + .control-group {
-	margin-top: $base-line-height;
+	margin-top: em($base-line-height);
 	-webkit-margin-top-collapse: separate;
 }
 
 // INLINE
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-.form-inline {	
+.form-inline {
 	@extend .clearfix;
-	
+
 	input,
 	textarea,
 	select,
@@ -447,7 +447,7 @@ legend + .control-group {
 }
 
 .form-inline label {
-	padding-top: $input-padding-top; 
+	padding-top: em($input-padding-top);
 	margin-right: em(8px);
 }
 
@@ -483,17 +483,17 @@ legend + .control-group {
 	// }
 	.control-label {
 		float: left;
-		width: $horizontal-offset - em(20px);
-		padding-top: $input-padding-top; 
+		width: em($horizontal-offset) - em(20px);
+		padding-top: em($input-padding-top);
 		text-align: right;
 	}
 	.controls {
 		*display: inline-block;
 		*padding-left: 20px;
-		margin-left: $horizontal-offset;
+		margin-left: em($horizontal-offset);
 		*margin-left: 0;
 		&:first-child {
-			*padding-left: $horizontal-offset;
+			*padding-left: em($horizontal-offset);
 		}
 	}
 	.help-block {
@@ -510,20 +510,20 @@ legend + .control-group {
 		// }
 	}
 	select {
-		// margin-top: $input-padding-top; 
+		// margin-top: $input-padding-top;
 	}
 	.controls > .radio:first-child,
 	.controls > .checkbox:first-child {
-		padding-top: $input-padding-top - em(2px); 
-	}  
-	
+		padding-top: em($input-padding-top) - em(2px);
+	}
+
 	.controls > .radio.inline,
 	.controls > .checkbox.inline{
-		padding-top: $input-padding-top - em(2px); 
-	}  
+		padding-top: em($input-padding-top) - em(2px);
+	}
 
 	.form-actions {
-		padding-left: $horizontal-offset;
+		padding-left: em($horizontal-offset);
 	}
 
 	@include media(palm) {
@@ -549,17 +549,17 @@ legend + .control-group {
 .form-columns {
 	@extend .clearfix;
 	.control-group {
-		min-height: $control-min-height;     
-		.input-append, 
+		min-height: $control-min-height;
+		.input-append,
 		.input-prepend {
-			width: 100%; 
+			width: 100%;
 			.add-on {
-				padding: $input-padding-top 0;
+				padding: em($input-padding-top) 0;
 			}
-		}    
+		}
 	}
 
 	.input-prepend {
-		// .btn-group {margin-right: (-$input-border);}	
+		// .btn-group {margin-right: (-$input-border);}
 	}
 }

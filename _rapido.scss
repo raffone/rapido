@@ -1,12 +1,15 @@
 
+// Normalize
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+@import "utilities/utilities_normalize";
+
 // Functions
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 @import	"utilities/utilities_functions";
-@import "utilities/utilities_normalize";
 
 // Settings
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-@import "settings/settings";
+@import "settings";
 
 // Frameworks
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––

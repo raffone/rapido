@@ -7,25 +7,25 @@ $debug-mode:        								false 												!default;
 // FONTS
 // --------------------------------------------------------------------------------------------------------------------
 $base-font-size:    								14px 												!default;
-$base-line-height:  								20px 												!default;	
+$base-line-height:  								20px 												!default;
 $round-to-nearest-half-line: 						true 												!default;
-						
+
 // Cambia dimension dispositivi
 // --------------------------------------------------------------------------------------------------------------------
-$responsive-font-size:    							lap-and-up $base-font-size, palm 16px				!default;  
+$responsive-font-size:    							lap-and-up $base-font-size, palm 16px				!default;
 
 // Font-families di default
 // --------------------------------------------------------------------------------------------------------------------
 $font-sans:        									"Helvetica Neue", Helvetica, Arial, sans-serif 		!default;
 $font-serif:       									Georgia, "Times New Roman", Times, serif 			!default;
 $font-mono:        									Monaco, Menlo, Consolas, "Courier New", monospace 	!default;
-						
+
 $base-font-family:  								$font-sans 											!default;
 
 // Calcolo EM
 // --------------------------------------------------------------------------------------------------------------------
 @function em($to-size, $from-size: $base-font-size) {
-	@return 1em * $to-size / $from-size;
+	@return ($to-size / $from-size) + 0em;
 }
 
 // Font icons

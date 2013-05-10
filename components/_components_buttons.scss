@@ -14,11 +14,11 @@
 	@include border-radius($base-border-radius);
 	border-style: solid;
 	border-width: $input-border;
-	@extend %btn-style !optional;	
+	@extend %btn-style !optional;
   // line-height: 1em;
 	cursor: pointer;
 	margin-bottom: 0;
-	padding: $input-padding; 
+	padding: $input-padding;
 	height: $input-height;
 	text-align: center;
 	vertical-align: middle;
@@ -26,7 +26,7 @@
 	// Hover/focus state
 	&:hover,
 	&:focus {
-		text-decoration: none;  
+		text-decoration: none;
 	}
 
 	// Focus state for keyboard and accessibility

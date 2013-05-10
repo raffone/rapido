@@ -7,7 +7,7 @@
 .dropdown {
   position: relative;
   display: inline-block;
-  
+
 }
 .dropdown-toggle {
   // The caret makes the toggle a bit too tall in IE7
@@ -42,8 +42,8 @@
   border-width: $input-border;
   border-style: solid;
   @extend %dropdown-style !optional;
-  @include border-bottom-radius($base-border-radius);  
-           
+  @include border-bottom-radius($base-border-radius);
+
 
   // Aligns the dropdown menu to right
   &.pull-right {
@@ -110,19 +110,19 @@
 // Per dropdowns dentro nav vedere nav.scss
 .open {
   *z-index: $zindexDropdown ;
-  
-  .btn.dropdown-toggle[data-toggle=dropdown] {  
+
+  .btn.dropdown-toggle[data-toggle=dropdown] {
     @extend %dropdown-open-style !optional;
-    @include border-bottom-radius(0);   
-    z-index: $zindexDropdown + 1 !important; 
+    @include border-bottom-radius(0);
+    z-index: $zindexDropdown + 1 !important;
 
     &:after {
       content: "";
       position: absolute;
       bottom: -1px; left: 0; right: 0;
       height: 2px ;
-      z-index: $zindexDropdown + 2; 
-    }    
+      z-index: $zindexDropdown + 2;
+    }
   }
 
   & > .dropdown-menu {}
@@ -136,7 +136,7 @@
 }
 
 
-// Stili per tutti gli allineamenti 
+// Stili per tutti gli allineamenti
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 
@@ -173,7 +173,7 @@
   max-height: 0;
 }
 
-// .dropdown-submenu:hover > .dropdown-menu, 
+// .dropdown-submenu:hover > .dropdown-menu,
 .open > .dropdown-menu {
   opacity: 1;
   max-height: 600px;

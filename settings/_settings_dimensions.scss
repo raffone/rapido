@@ -3,7 +3,7 @@
 // DIMENSIONI
 // ********************************************************************************************************************
 $base-border-radius:  				4px 																	!default;
-$horizontal-offset:       			em(180px)	 															!default;
+$horizontal-offset:       			180px		 															!default;
 
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Caratteri
@@ -11,30 +11,30 @@ $horizontal-offset:       			em(180px)	 															!default;
 $giga-size:         				$base-font-size * 7 													!default;
 $mega-size:         				$base-font-size * 5 													!default;
 $kilo-size:         				$base-font-size * 3.4 													!default;
-												
+
 $h1-size:           				$base-font-size * 2.4													!default;
 $h2-size:           				$base-font-size * 2  													!default;
 $h3-size:           				$base-font-size * 1.8  													!default;
 $h4-size:           				$base-font-size * 1.4  													!default;
 $h5-size:           				$base-font-size * 1.2  													!default;
 $h6-size:           				$base-font-size * 1  													!default;
-												
+
 $milli-size:        				$base-font-size * .8 													!default;
 $micro-size:        				$base-font-size * .6 													!default;
 
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Forms
 // --------------------------------------------------------------------------------------------------------------------
-$control-margin-bottom:				em($base-line-height) 													!default;
-$label-margin-bottom: 				em($base-line-height) * .4 												!default;
+$control-margin-bottom:				$base-line-height 														!default;
+$label-margin-bottom: 				10px 													!default;
 $input-border:						1px 																	!default;
-$input-padding-top: 				em($base-line-height) * .5 												!default;
-$input-padding-side:				em($base-line-height) * .6 												!default;
+$input-padding-top: 				10px 													!default;
+$input-padding-side:				10px 													!default;
 
 // Calcoli (non modificare)
-$input-padding:						$input-padding-top $input-padding-side  								!default;
-$input-height: 						1em + ($input-padding-top * 2) + (em($input-border) * 2)				!default;				
-$control-min-height: 				em($base-line-height) + $label-margin-bottom + $input-height - em(5px) 	!default;
+$input-padding:						$input-padding-top $input-padding-side  								;
+$input-height: 						$base-font-size + ($input-padding-top * 2) + ($input-border * 2)		;
+$control-min-height: 				$base-line-height + $label-margin-bottom + $input-height - 5px 			;
 
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Media Queries
@@ -65,12 +65,12 @@ $responsive-nav-outside-wrapper: 	'body'																	!default;
 $responsive-nav-inside-wrapper: 	'.internal-wrapper' 													!default;
 $responsive-nav-offset: 			70% 																	!default;
 $responsive-nav-dropdown-pos: 		right 																	!default;
-$responsive-nav-toggle-size: 		em(30px) 																!default;
+$responsive-nav-toggle-size: 		30px 																	!default;
 
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Modals (fancybox)
 // --------------------------------------------------------------------------------------------------------------------
-$modal-button-size: 				em(30px) 																!default;
+$modal-button-size: 				30px 																	!default;
 $modal-button-size-half: 			-($modal-button-size / 2)												!default;
 
 
