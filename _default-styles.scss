@@ -5,91 +5,91 @@
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	%input-style {
 		color: $text-color;
-		border-color: $gray;	
-		background-color: $grayLighter; 
-		
+		border-color: $gray;
+		background-color: $grayLighter;
+
 		&:focus {
-			background-color: $grayLight; 
-		}		
+			background-color: $grayLight;
+		}
 	}
 
 	%input-addon-style {
 		color: $text-color;
-		border-color: $grayLight;	
-		background-color: $grayLighter; 		
+		border-color: $grayLight;
+		background-color: $grayLighter;
 	}
-	
+
 	// Selects
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	%select-style {
 		color: $text-color;
-		border-color: $gray;	
-		background-color: $grayLighter; 
-		
+		border-color: $gray;
+		background-color: $grayLighter;
+
 		&:hover {
-			background-color: $grayLight; 
-		}		
+			background-color: $grayLight;
+		}
 	}
-	
+
 	// Buttons
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	// Default
 	%btn-style {
-		color: $text-color; 
+		color: $text-color;
 		border-color: $gray;
-		background-color: $grayLight; 
-			
+		background-color: $grayLight;
+
 		// Hover/focus state
 		&:hover,
 		&:focus {
-			background-color: darken($grayLight, 10% );      
+			background-color: darken($grayLight, 10% );
 		}
 
 		// Active state
 		&.active,
 		&:active {
-			background-color: darken($grayLight, 20% ); 
-		}	
+			background-color: darken($grayLight, 20% );
+		}
 	}
 
 	// Primary
 	%btn-primary-style {
-		color: #fff; 
+		color: #fff;
 		border-color: darken(green, 10%);
-		background-color: green; 
-			
+		background-color: green;
+
 		// Hover/focus state
 		&:hover,
 		&:focus {
-			background-color: darken(green, 5%);      
+			background-color: darken(green, 5%);
 		}
 
 		// Active state
 		&.active,
 		&:active {
-			background-color: darken(green, 10%); 
-		}	
+			background-color: darken(green, 10%);
+		}
 	}
 
 
 	%btn-secondary-style {
-		color: #fff; 
+		color: #fff;
 		border-color: darken(red, 10%);
-		background-color: red; 
-			
+		background-color: red;
+
 		// Hover/focus state
 		&:hover,
 		&:focus {
-			background-color: darken(red, 5%);      
+			background-color: darken(red, 5%);
 		}
 
 		// Active state
 		&.active,
 		&:active {
-			background-color: darken(red, 10%); 
-		}	
+			background-color: darken(red, 10%);
+		}
 	}
 
 
@@ -98,7 +98,7 @@
 	%dropdown-style {
 		background: $grayLighter;
 		border-color: $gray;
-		
+
 		.divider { @include nav-divider($gray); margin-top: -1px }
 
 		> li > a { border-bottom: 1px dotted $gray; }
@@ -114,26 +114,26 @@
 
 	%dropdown-open-style {
 		background: $grayLighter;
-	    &:after {background-color: $grayLighter;}  		
+	    &:after {background-color: $grayLighter;}
 	}
-	
+
 
 	// CARET per Dropdown e Select
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	%caret-style {
 		$caret-width: em(10px);
 		min-width: $caret-width;
-		
+
 		&:after {
 			@include square(1em);
 			font-size: $caret-width;
 			@include font-awesome(icon-chevron-down);
 			text-align: center;
-			z-index: 2;		 
+			z-index: 2;
 			// background-color: #222;
 			// color: #FFF;
 		}
-	} 
+	}
 
 	%caret-side-style {
 		@extend %caret-style;
@@ -149,7 +149,7 @@
 		thead {
 			th, td {
 				background-color: $gray;
-				color: #FFF; 
+				color: #FFF;
 			}
 		}
 		tbody {
@@ -166,20 +166,20 @@
 	%nav-style-big {
 
 	}
-	
+
 	%nav-style-small {
 		background-color: #272c33;
-		
-		a { 
-			color: #fff; 
+
+		a {
+			color: #fff;
 			padding: $input-padding;
-			// &:after { display: none;}			
+			// &:after { display: none;}
 		}
 
-		ul, 
-		ul li, 
+		ul,
+		ul li,
 		ul li a {
-			width: 100%;	
+			width: 100%;
 			border: 0;
 			margin: 0;
 			float: none;
@@ -188,15 +188,15 @@
 			text-align: left;
 			@include border-radius(0);
 			background-color: transparent;
-		}	
+		}
 
 		.open {
 			background-color: lighten(#272c33, 10);
-			
+
 			.btn.dropdown-toggle[data-toggle=dropdown] {
 				background-color: darken(#272c33, 10);
 			}
-		}	
+		}
 	}
 
 
@@ -210,7 +210,7 @@
 		span {@include hide-text();}
 		&:before {
 			@include font-awesome(icon-reorder);
-		}		
+		}
 	}
 
 
@@ -233,7 +233,7 @@
 			}
 		}
 		.active { color: $grayLight; }
-		
+
 	}
 
 	// Pagination
@@ -285,21 +285,21 @@
 		.disabled > span {
 		  color: $grayLight;
 		  background-color: #fff;
-		}	
+		}
 	}
-	
+
 
 	// Modals
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	
+
 	%modal-overlay {
-		background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNiqAcAAIgAgoGu+rEAAAAASUVORK5CYII=');		
+		background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNiqAcAAIgAgoGu+rEAAAAASUVORK5CYII=');
 	}
-	
+
 	%modal-skin {
 		@include box-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
 		background: #fff;
-		@include border-radius($base-border-radius);		
+		@include border-radius($base-border-radius);
 	}
 
 
@@ -313,7 +313,7 @@
 	%modal-buttons-style {
 		@include alpha-color(#000, .6, background);
 		@include square($modal-button-size);
-		cursor: pointer;		
+		cursor: pointer;
 		line-height: $modal-button-size;
 		text-align: center;
 		color: #fff;
@@ -325,7 +325,7 @@
 			@include alpha-color(#000, .8, background);
 		}
 
-		&.fancybox-close:after {@include font-awesome(icon-remove);} 
+		&.fancybox-close:after {@include font-awesome(icon-remove);}
 
 		&.btnPrev:after {		@include font-awesome(icon-step-backward); 	}
 		&.btnNext:after {		@include font-awesome(icon-step-forward); 	}
@@ -333,11 +333,11 @@
 		&.btnPlayOn:after {		@include font-awesome(icon-pause); 			}
 		&.btnToggle:after {		@include font-awesome(icon-resize-full); 	}
 		&.btnToggleOn:after {	@include font-awesome(icon-resize-small); 	}
-		&.btnClose:after {		@include font-awesome(icon-remove); 		}		
-	}	
+		&.btnClose:after {		@include font-awesome(icon-remove); 		}
+	}
 
-	.fancybox-prev span:after { @include font-awesome(icon-chevron-left); } 
-	.fancybox-next span:after { @include font-awesome(icon-chevron-right); } 
+	.fancybox-prev span:after { @include font-awesome(icon-chevron-left); }
+	.fancybox-next span:after { @include font-awesome(icon-chevron-right); }
 
 
 	%modal-buttons-alt-style {
@@ -349,7 +349,7 @@
 	}
 
 
-	%modal-loading-style {		
+	%modal-loading-style {
 		margin-top: -22px;
 		margin-left: -22px;
 		opacity: 0.8;
@@ -362,22 +362,22 @@
 	}
 
 	%loader-ico {
-		background: 
-				url('//cdn.jsdelivr.net/wp-advanced-ajax-page-loader/2.5.12/loaders/SMALL%20-%20Spinning%20Arrows.gif') 
-				center center no-repeat;		
+		background:
+				url('//cdn.jsdelivr.net/wp-advanced-ajax-page-loader/2.5.12/loaders/SMALL%20-%20Spinning%20Arrows.gif')
+				center center no-repeat;
 	}
 
 	// Sliders
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	%slider-buttons-style {
 		@extend %modal-buttons-style;
-		margin-top: $modal-button-size-half;	
+		margin-top: $modal-button-size-half;
 
 		&.bx-prev i:after { @include font-awesome(icon-chevron-left); }
-		&.bx-next i:after { @include font-awesome(icon-chevron-right); }		
+		&.bx-next i:after { @include font-awesome(icon-chevron-right); }
 
 	}
-	
+
 	%slider-pager-style {
 		@include position(absolute, 0 0 -30px 0);
 		padding-top: 20px;
@@ -390,7 +390,7 @@
 				&:hover, &.active { background: $gray; }
 			}
 		}
-	}	
+	}
 
 
 	%slider-loading-style {
@@ -402,6 +402,41 @@
 	}
 
 
+	// Alerts
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
-}		
+	.alert {
+	  background-color: $grayLighter;
+	  border: 1px solid $grayLight;
+	}
+
+	.alert-success {
+	  // background-color: $successBackground;
+	  // border-color: $successBorder;
+	  // color: $successText;
+	}
+	.alert-success h4 {
+	  // color: $successText;
+	}
+	.alert-danger,
+	.alert-error {
+	  // background-color: $errorBackground;
+	  // border-color: $errorBorder;
+	  // color: $errorText;
+	}
+	.alert-danger h4,
+	.alert-error h4 {
+	  // color: $errorText;
+	}
+	.alert-info {
+	  // background-color: $infoBackground;
+	  // border-color: $infoBorder;
+	  // color: $infoText;
+	}
+	.alert-info h4 {
+	  // color: $infoText;
+	}
+
+
+}
 

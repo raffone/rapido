@@ -1,0 +1,50 @@
+//
+// Alerts
+// --------------------------------------------------
+
+
+// Base styles
+// -------------------------
+
+.alert {
+  padding: $input-padding;
+  margin-bottom: rhythm();
+  // @include border-radius($base-border-radius);
+}
+.alert,
+.alert h4 {
+  // Specified for the h4 to prevent conflicts of changing $headingsColor
+  // color: $warningText;
+}
+.alert h4 {
+  // margin: 0;
+}
+
+.alert p  {
+  margin: 0;
+}
+
+
+// Adjust close link position
+.alert .close {
+  position: relative;
+  top: 0;
+  right: 0;
+  // line-height: $baseLineHeight;
+}
+
+
+// Block alerts
+// -------------------------
+
+.alert-block {
+  // padding-top: 14px;
+  // padding-bottom: 14px;
+}
+.alert-block > p,
+.alert-block > ul {
+  // margin-bottom: 0;
+}
+.alert-block p + p {
+  // margin-top: 5px;
+}

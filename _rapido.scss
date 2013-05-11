@@ -9,12 +9,12 @@
 
 // Settings
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-@import "settings";
+@import "settings/settings";
 
 // Frameworks
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 @import "compass";
-@import "susy";
+@import "susy/susy";
 
 // Mixins
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -22,8 +22,8 @@
 
 // Icons
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-@import	"icons/iconic/fill/iconic_fill";
-@import	"icons/iconic/stroke/iconic_stroke";
+// @import	"icons/iconic/fill/iconic_fill";
+// @import	"icons/iconic/stroke/iconic_stroke";
 @import	"icons/font-awesome/font-awesome";
 
 
@@ -34,10 +34,11 @@
 @import	"utilities/utilities_base-classes";
 @import	"utilities/utilities_debug";
 @import	"utilities/utilities_animations";
+@import	"utilities/utilities_sprites";
 
 // Components
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-@import	"components";
+@import	"components/components";
 
 
 // Default Styles

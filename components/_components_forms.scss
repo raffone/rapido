@@ -409,9 +409,9 @@ select:focus:invalid {
 }
 
 
-// CONTROL GROUPS
+// CONTROLS / CONTROL GROUPS
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-.control-group {
+.controls {
 	margin-bottom: em($control-margin-bottom);
 	@extend .clearfix;
 	// background-color: red;
