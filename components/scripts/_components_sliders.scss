@@ -5,7 +5,9 @@
 		position: relative;
 		padding: 0;
 		*zoom: 1;
-		
+		z-index: $zindex-slider;
+		margin-bottom: rhythm();
+
 		img {
 			max-width: 100%;
 			display: block;
@@ -21,7 +23,7 @@
 		.bx-controls {
 
 			// Directions
-			//-------------------------------- 
+			//--------------------------------
 			.bx-controls-direction {
 
 				a {
@@ -29,7 +31,7 @@
 					@include position(absolute, 50% 0 0 0);
 
 					z-index: 200;
-					
+
 					i {font-style: normal;}
 					span {@include hide-text;}
 
@@ -43,12 +45,12 @@
 			}
 
 			// Pager
-			//-------------------------------- 
+			//--------------------------------
 			.bx-pager {
-				width: 100%;				
+				width: 100%;
 				text-align: center;
 				@extend %slider-pager-style;
-				
+
 				.bx-pager-item {
 					display: inline-block;
 					a {
@@ -73,7 +75,7 @@
 		.bx-caption {
 			@include position(absolute, 0 0 0px 0px);
 			width: 100%;
-			
+
 			span {@extend %slider-caption-style;}
 		}
 	}

@@ -10,12 +10,14 @@ $modal-thumbs: 						false !default;
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 $bx-slider:							false !default;
 
+// Sliders
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+$easytabs:							false !default;
 
 // Z-INDEX
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-$zindexDropdown:          			1000 !default;
-$zindexPopover:           			1010 !default;
-$zindexTooltip:           			1030 !default;
-$zindexFixedNavbar:       			1030 !default;
-$zindexModalBackdrop:     			1040 !default;
-$zindexModal:             			1050 !default;
+$zindex-dropdown:          			1000 !default;
+$zindex-popover:           			1010 !default;
+$zindex-tooltip:           			1030 !default;
+$zindex-slider:     				1040 !default;
+$zindex-modal:             			1050 !default;

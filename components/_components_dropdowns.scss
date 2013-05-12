@@ -33,7 +33,7 @@
   position: absolute;
   top: 100%;
   left: 0;
-  z-index: $zindexDropdown;
+  z-index: $zindex-dropdown;
   // display: none;
   float: left;
   min-width: em(160px);
@@ -109,19 +109,19 @@
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Per dropdowns dentro nav vedere nav.scss
 .open {
-  *z-index: $zindexDropdown ;
+  *z-index: $zindex-dropdown ;
 
   .btn.dropdown-toggle[data-toggle=dropdown] {
     @extend %dropdown-open-style !optional;
     @include border-bottom-radius(0);
-    z-index: $zindexDropdown + 1 !important;
+    z-index: $zindex-dropdown + 1 !important;
 
     &:after {
       content: "";
       position: absolute;
       bottom: -1px; left: 0; right: 0;
       height: 2px ;
-      z-index: $zindexDropdown + 2;
+      z-index: $zindex-dropdown + 2;
     }
   }
 

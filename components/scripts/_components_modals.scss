@@ -27,7 +27,7 @@
 		@include position(absolute, 0px 0 0 0px);
 		display: none;
 		overflow: hidden;
-		z-index: ($zindexModal -1);
+		z-index: ($zindex-modal - 1);
 
 		&.fancybox-overlay-fixed {
 			@include position(fixed, 0 0px 0px 0 );
@@ -36,9 +36,9 @@
 		// Wrap | 2nd Level
 		.fancybox-wrap {
 			@include position(absolute, 0px 0 0 0px);
-			z-index: $zindexModal;
+			z-index: $zindex-modal;
 
-			&.fancybox-opened { z-index: $zindexModal +1; }
+			&.fancybox-opened { z-index: ($zindex-modal + 1); }
 
 			// for Iframes
 			&.fancybox-type-iframe .fancybox-inner { -webkit-overflow-scrolling: touch; }
@@ -50,6 +50,7 @@
 			.fancybox-skin {
 				@extend %modal-skin;
 				position: relative;
+				padding: 0 !important;
 
 				// Outer | 4th Level
 				.fancybox-outer {
@@ -110,7 +111,7 @@
 		@include position(fixed, 50% 0 0 50%);
 		@extend %modal-loading-style;
 		cursor: pointer;
-		z-index: $zindexModal +4;
+		z-index: $zindex-modal +4;
 	}
 
 
@@ -120,21 +121,21 @@
 		@extend %modal-buttons-style;
 		@include border-radius(0 $base-border-radius 0 $base-border-radius);
 		@include position(absolute, 0px 0px 0 0);
-		z-index: $zindexModal +3;
+		z-index: ($zindex-modal + 3);
 	}
 
 	.fancybox-nav {
 		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 		@include position(absolute, 0px 0 0 0);
 		@include size(100%, 40%);
-		z-index: $zindexModal +2;
+		z-index: ($zindex-modal + 2);
 
 		span {
 			@extend %modal-buttons-style;
 			@include position(absolute, 50% 0 0 0);
 			margin-top: $modal-button-size-half;
 			visibility: hidden;
-			z-index: $zindexModal +2;
+			z-index: ($zindex-modal + 2);
 		}
 
 		&:hover span { visibility: visible; }
@@ -157,7 +158,7 @@
 		visibility: hidden;
 		position: relative;
 		text-shadow: none;
-		z-index: $zindexModal +3;
+		z-index: ($zindex-modal + 3);
 	}
 
 	.fancybox-opened .fancybox-title {
@@ -168,7 +169,7 @@
 		@include position(absolute, 0 50% 0px 0);
 		margin-bottom: em(-35px);
 		text-align: center;
-		z-index: $zindexModal +3;
+		z-index: ($zindex-modal + 3);
 
 		.child {
 			@include alpha-color(#000, .8, background);
@@ -201,7 +202,7 @@
 	#fancybox-buttons {
 		@include position(fixed, 0 0 0 0px);
 		width: 100%;
-		z-index: $zindexModal +3;
+		z-index: ($zindex-modal + 3);
 		&.top { top: em(10px); }
 		&.bottom { bottom: em(10px); }
 
@@ -229,7 +230,7 @@
 		@include position(fixed, 0 0 0 0px);
 		overflow: hidden;
 		width: 100%;
-		z-index: $zindexModal +3;
+		z-index: ($zindex-modal + 3);
 
 		&.bottom { bottom: em(10px); }
 		&.top { top: em(10px); }

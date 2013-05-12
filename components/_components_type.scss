@@ -49,9 +49,9 @@ p {
 	margin: 0 0 rhythm(1);
 }
 
-.lead {
-	@include adjust-font-size-to($h4-size);
-}
+.lead { @include adjust-font-size-to($h4-size); }
+
+.muted { color: $gray;}
 
 .pull-left {float: left;}
 .pull-right {float: right;}

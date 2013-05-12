@@ -174,7 +174,7 @@
 
 @mixin text-inset-shadow($bg: #fff, $textcolor: #054d4a, $contrast:  #f43059) {
 	$shadow:    darken($textcolor, 30%);
-	
+
 	color: rgba($textcolor, 0.8);
 	text-shadow: 1px 5px 7px $bg, 0 0 0 rgba($shadow,.8);
 	// ::-moz-selection, ::selection {
@@ -187,7 +187,7 @@
 @mixin alpha-color($color: #fff, $alpha: .5, $attribute: background) {
 	@if $attribute == color {
 		color: $color;
-		color: rgba($color, $alpha);		
+		color: rgba($color, $alpha);
 	} @else {
 		#{$attribute}-color: $color;
 		#{$attribute}-color: rgba($color, $alpha);
@@ -241,8 +241,8 @@
 // Dividers (basically an hr) within dropdowns and nav lists
 @mixin nav-divider($top: #e5e5e5, $bottom: false) {
   *width: 100%;
-  
-  @if $bottom { 
+
+  @if $bottom {
     height: 2px;
   } @else {
     height: 1px;
@@ -252,4 +252,40 @@
   overflow: hidden;
   background-color: $top;
   @if $bottom { border-bottom: 1px solid $bottom; }
+}
+
+
+
+// GRID
+
+// @include columns( $cols, $cols-container: $total-columns, $omega: false,  $nth-omega: false, $remove-omega: false, $from: left, $media: all, $highlight-omega: false );
+
+@mixin columns (
+    $cols,
+    $cols-container: $total-columns,
+    $omega: false,
+    $nth-omega: false,
+    $remove-omega: false,
+    $from: left,
+    $media: all,
+    $highlight-omega: false
+  ) {
+
+  @include media($media) {
+    $direction: left;
+
+    @if $from != left {
+      $direction: right;
+    }
+
+    @include span-columns($cols, $cols-container, $from: $direction);
+    @if $omega { @include omega($from: $direction); }
+    @if $nth-omega { @include nth-omega($nth-omega, $from: $direction); }
+    @if $remove-omega { @include remove-omega; }
+    // background: red;
+    @if $highlight-omega  {
+      @if $omega { background: blue; }
+      @if $nth-omega { &:nth-child(#{$nth-omega}) {background: blue;} }
+    }
+  }
 }
