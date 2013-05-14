@@ -127,7 +127,7 @@
 		&:after {
 			@include square(1em);
 			font-size: $caret-width;
-			@include font-awesome(icon-chevron-down);
+			@include icon-font(\f078);
 			text-align: center;
 			z-index: 2;
 			// background-color: #222;
@@ -138,7 +138,7 @@
 	%caret-side-style {
 		@extend %caret-style;
 		&:after {
-			@include font-awesome(icon-chevron-right);
+			@include icon-font(\f054);
 		}
 	}
 
@@ -209,7 +209,7 @@
 		line-height: $responsive-nav-toggle-size;
 		span {@include hide-text();}
 		&:before {
-			@include font-awesome(icon-reorder);
+			@include icon-font(\f0c9);
 		}
 	}
 
@@ -325,19 +325,19 @@
 			@include alpha-color(#000, .8, background);
 		}
 
-		&.fancybox-close:after {@include font-awesome(icon-remove);}
+		&.fancybox-close:after {@include icon-font(\f00d);}
 
-		&.btnPrev:after {		@include font-awesome(icon-step-backward); 	}
-		&.btnNext:after {		@include font-awesome(icon-step-forward); 	}
-		&.btnPlay:after {		@include font-awesome(icon-play); 			}
-		&.btnPlayOn:after {		@include font-awesome(icon-pause); 			}
-		&.btnToggle:after {		@include font-awesome(icon-resize-full); 	}
-		&.btnToggleOn:after {	@include font-awesome(icon-resize-small); 	}
-		&.btnClose:after {		@include font-awesome(icon-remove); 		}
+		&.btnPrev:after {		@include icon-font(\f04a); 	}
+		&.btnNext:after {		@include icon-font(\f051); 	}
+		&.btnPlay:after {		@include icon-font(\f04b); 			}
+		&.btnPlayOn:after {		@include icon-font(\f04c); 			}
+		&.btnToggle:after {		@include icon-font(\f065); 	}
+		&.btnToggleOn:after {	@include icon-font(\f066); 	}
+		&.btnClose:after {		@include icon-font(\f00d); 		}
 	}
 
-	.fancybox-prev span:after { @include font-awesome(icon-chevron-left); }
-	.fancybox-next span:after { @include font-awesome(icon-chevron-right); }
+	.fancybox-prev span:after { @include icon-font(\f053); }
+	.fancybox-next span:after { @include icon-font(\f054); }
 
 
 	%modal-buttons-alt-style {
@@ -373,8 +373,8 @@
 		@extend %modal-buttons-style;
 		margin-top: $modal-button-size-half;
 
-		&.bx-prev i:after { @include font-awesome(icon-chevron-left); }
-		&.bx-next i:after { @include font-awesome(icon-chevron-right); }
+		&.bx-prev i:after { @include icon-font(\f053); }
+		&.bx-next i:after { @include icon-font(\f054); }
 
 	}
 

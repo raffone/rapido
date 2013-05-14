@@ -22,17 +22,24 @@ $font-mono:        									Monaco, Menlo, Consolas, "Courier New", monospace 	!
 
 $base-font-family:  								$font-sans 											!default;
 
+// Font icons
+// --------------------------------------------------------------------------------------------------------------------
+$use-fontawesome: 									true 												!default;
+$use-brandico: 										false 												!default;
+$use-entypo: 										false 												!default;
+$use-fontelico: 									false 												!default;
+$use-maki: 											false 												!default;
+$use-openweb-icons: 								false 												!default;
+$use-typicons: 										false 												!default;
+$use-zocial: 										false 												!default;
+
+// Stili generici di scaffolding
+// --------------------------------------------------------------------------------------------------------------------
+$default-styles: 									true 												!default;
+
 // Calcolo EM
 // --------------------------------------------------------------------------------------------------------------------
 @function em($to-size, $from-size: $base-font-size) {
 	@return ($to-size / $from-size) + 0em;
 }
 
-// Font icons
-// --------------------------------------------------------------------------------------------------------------------
-$enable-font-awesome: 								true 												!default;
-$enable-iconic: 									false 												!default;
-
-// Stili generici di scaffolding
-// --------------------------------------------------------------------------------------------------------------------
-$default-styles: 									true 												!default;

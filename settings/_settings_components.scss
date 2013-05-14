@@ -1,23 +1,26 @@
 
+// Sprites
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+$magic-sprites: 					false 			!default;
 
 // Modals
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-$modal: 							false !default;
-$modal-buttons: 					false !default;
-$modal-thumbs: 						false !default;
+$modal: 							false 			!default;
+$modal-buttons: 					false 			!default;
+$modal-thumbs: 						false 			!default;
 
 // Sliders
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-$bx-slider:							false !default;
+$bx-slider:							false 			!default;
 
 // Sliders
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-$easytabs:							false !default;
+$easytabs:							false 			!default;
 
 // Z-INDEX
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-$zindex-dropdown:          			1000 !default;
-$zindex-popover:           			1010 !default;
-$zindex-tooltip:           			1030 !default;
-$zindex-slider:     				1040 !default;
-$zindex-modal:             			1050 !default;
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+$zindex-dropdown:          			1000 			!default;
+$zindex-popover:           			1010 			!default;
+$zindex-tooltip:           			1030 			!default;
+$zindex-slider:     				1040 			!default;
+$zindex-modal:             			1050 			!default;
