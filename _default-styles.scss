@@ -92,6 +92,23 @@
 		}
 	}
 
+	%btn-scripts-style {
+		@include alpha-color(#000, .6, background);
+		@include square($btn-scripts-size);
+		line-height: $btn-scripts-size;
+		color: #fff;
+		cursor: pointer;
+		display: block;
+		text-align: center;
+		text-decoration: none;
+
+		&:hover {
+			color: #fff;
+			@include alpha-color(#000, .8, background);
+		}
+	}
+
+
 
 	// Dropdown
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -125,13 +142,11 @@
 		min-width: $caret-width;
 
 		&:after {
+			@include icon-font(\f078);
 			@include square(1em);
 			font-size: $caret-width;
-			@include icon-font(\f078);
 			text-align: center;
 			z-index: 2;
-			// background-color: #222;
-			// color: #FFF;
 		}
 	}
 
@@ -159,66 +174,9 @@
 		}
 	}
 
-
-	// Responsive NAV
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-
-	%nav-style-big {
-
-	}
-
-	%nav-style-small {
-		background-color: #272c33;
-
-		a {
-			color: #fff;
-			padding: $input-padding;
-			// &:after { display: none;}
-		}
-
-		ul,
-		ul li,
-		ul li a {
-			width: 100%;
-			border: 0;
-			margin: 0;
-			float: none;
-			display: block;
-			position: static;
-			text-align: left;
-			@include border-radius(0);
-			background-color: transparent;
-		}
-
-		.open {
-			background-color: lighten(#272c33, 10);
-
-			.btn.dropdown-toggle[data-toggle=dropdown] {
-				background-color: darken(#272c33, 10);
-			}
-		}
-	}
-
-
-
-	%nav-toggle-style {
-		@extend .btn;
-		@include square($responsive-nav-toggle-size);
-		font-size: $responsive-nav-toggle-size * .6;
-		padding: 0;
-		line-height: $responsive-nav-toggle-size;
-		span {@include hide-text();}
-		&:before {
-			@include icon-font(\f0c9);
-		}
-	}
-
-
 	// Breadcrumbs
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	%breadcrumb-style {
-		// background-color: #f5f5f5;
-
 		> li {
 			&:after {
 				color: #ccc;
@@ -233,7 +191,6 @@
 			}
 		}
 		.active { color: $grayLight; }
-
 	}
 
 	// Pagination
@@ -289,6 +246,17 @@
 	}
 
 
+	// Captions
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	%caption-style {
+		@include alpha-color(#000, .8, background);
+		color: #fff;
+		display: inline-block;
+		padding: $input-padding;
+	}
+
+
+
 	// Modals
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
@@ -298,47 +266,29 @@
 
 	%modal-skin {
 		@include box-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
-		background: #fff;
 		@include border-radius($base-border-radius);
+		background: #fff;
 	}
 
 
-	%modal-title-over {
-		@include alpha-color(#000, .8, background);
-		color: #fff;
-		display: inline-block;
-		padding: $input-padding;
-	}
+	%modal-title-over { @extend %caption-style !optional; }
 
 	%modal-buttons-style {
-		@include alpha-color(#000, .6, background);
-		@include square($modal-button-size);
-		cursor: pointer;
-		line-height: $modal-button-size;
-		text-align: center;
-		color: #fff;
-		text-decoration: none;
-		display: block;
-
-		&:hover {
-			color: #fff;
-			@include alpha-color(#000, .8, background);
-		}
+		@extend %btn-scripts-style !optional;
 
 		&.fancybox-close:after {@include icon-font(\f00d);}
 
 		&.btnPrev:after {		@include icon-font(\f04a); 	}
 		&.btnNext:after {		@include icon-font(\f051); 	}
-		&.btnPlay:after {		@include icon-font(\f04b); 			}
-		&.btnPlayOn:after {		@include icon-font(\f04c); 			}
+		&.btnPlay:after {		@include icon-font(\f04b); 	}
+		&.btnPlayOn:after {		@include icon-font(\f04c); 	}
 		&.btnToggle:after {		@include icon-font(\f065); 	}
 		&.btnToggleOn:after {	@include icon-font(\f066); 	}
-		&.btnClose:after {		@include icon-font(\f00d); 		}
+		&.btnClose:after {		@include icon-font(\f00d); 	}
+
+		&.fancybox-prev span:after { @include icon-font(\f053); }
+		&.fancybox-next span:after { @include icon-font(\f054); }
 	}
-
-	.fancybox-prev span:after { @include icon-font(\f053); }
-	.fancybox-next span:after { @include icon-font(\f054); }
-
 
 	%modal-buttons-alt-style {
 		background-color: transparent;
@@ -355,23 +305,18 @@
 		opacity: 0.8;
 
 		div {
+			@extend %loader-ico !optional;
 			@include square(44px);
-			@extend %loader-ico;
 
 		}
 	}
 
-	%loader-ico {
-		background:
-				url('//cdn.jsdelivr.net/wp-advanced-ajax-page-loader/2.5.12/loaders/SMALL%20-%20Spinning%20Arrows.gif')
-				center center no-repeat;
-	}
 
 	// Sliders
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	%slider-buttons-style {
-		@extend %modal-buttons-style;
-		margin-top: $modal-button-size-half;
+		@extend %btn-scripts-style !optional;
+		margin-top: $btn-scripts-halfsize;
 
 		&.bx-prev i:after { @include icon-font(\f053); }
 		&.bx-next i:after { @include icon-font(\f054); }
@@ -392,13 +337,40 @@
 		}
 	}
 
+	%slider-loading-style { @extend %loader-ico !optional; }
+	%slider-caption-style { @extend %caption-style !optional; }
 
-	%slider-loading-style {
-		@extend %loader-ico;
+	// Tabs
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	%tab-tabs-style {
+		li {
+			background: $grayLighter;
+			border: solid 1px $grayLight;
+			border-bottom: none;
+
+			&.active {
+				border-color: $gray;
+				&:after {
+					background: $grayLighter;
+				}
+			}
+		}
 	}
 
-	%slider-caption-style {
-		@extend %modal-title-over;
+
+
+	%tab-container-style {
+		border: solid 1px $gray;
+		background: $grayLighter;
+	}
+
+
+	// Loader icon
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	%loader-ico {
+		background:
+				url('//cdn.jsdelivr.net/wp-advanced-ajax-page-loader/2.5.12/loaders/SMALL%20-%20Spinning%20Arrows.gif')
+				center center no-repeat;
 	}
 
 
@@ -410,33 +382,56 @@
 	  border: 1px solid $grayLight;
 	}
 
-	.alert-success {
-	  // background-color: $successBackground;
-	  // border-color: $successBorder;
-	  // color: $successText;
-	}
-	.alert-success h4 {
-	  // color: $successText;
-	}
-	.alert-danger,
-	.alert-error {
-	  // background-color: $errorBackground;
-	  // border-color: $errorBorder;
-	  // color: $errorText;
-	}
-	.alert-danger h4,
-	.alert-error h4 {
-	  // color: $errorText;
-	}
-	.alert-info {
-	  // background-color: $infoBackground;
-	  // border-color: $infoBorder;
-	  // color: $infoText;
-	}
-	.alert-info h4 {
-	  // color: $infoText;
+	// Responsive NAV
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+	%nav-style-big {}
+
+	%nav-style-small {
+		background-color: #272c33;
+
+		a {
+			color: #fff;
+			padding: $input-padding;
+			// &:after { display: none;}
+		}
+
+		ul,
+		ul li,
+		ul li a {
+			width: 100%;
+			border: 0;
+			margin: 0;
+			float: none;
+			display: block;
+			position: static;
+			text-align: left;
+			@include border-radius(0);
+			background-color: transparent;
+		}
+
+		.open {
+			background-color: lighten(#272c33, 10);
+
+			.btn.dropdown-toggle[data-toggle=dropdown] {
+				background-color: darken(#272c33, 10);
+			}
+		}
 	}
 
+
+
+	%nav-toggle-style {
+		@extend .btn;
+		@include square($responsive-nav-toggle-size);
+		font-size: $responsive-nav-toggle-size * .6;
+		padding: 0;
+		line-height: $responsive-nav-toggle-size;
+		span {@include hide-text();}
+		&:before {
+			@include icon-font(\f0c9);
+		}
+	}
 
 }
 

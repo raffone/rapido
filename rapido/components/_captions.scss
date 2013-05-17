@@ -1,0 +1,52 @@
+.caption {
+	position: relative;
+	display: inline-block;
+	width: auto;
+	overflow: hidden;
+	line-height: 0;
+
+
+	&:after {
+		@extend %caption-style;
+		content: attr(data-content);
+		position: absolute;
+		line-height: rhythm();
+	}
+
+	&[data-position*="top"]:after 		{ top:0; }
+	&[data-position*="bottom"]:after 	{ bottom:0; }
+	&[data-position*="left"]:after 		{ left:0; }
+	&[data-position*="right"]:after 	{ right:0; }
+
+	&[data-position="top"]:after,
+	&[data-position="bottom"]:after 	{ left: 0; right: 0; }
+
+	// Animations
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	&[data-animation="fade"],
+	&[data-animation="float"] {
+
+		&:after {
+			@include transition();
+			opacity: 0;
+			visibility: hidden;
+		}
+
+		&:hover:after {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+
+	// Float Animation
+	&[data-animation="float"][data-position*="top"] {
+		&:after { top: -10px; }
+		&:hover:after { top: 0; }
+	}
+
+	&[data-animation="float"][data-position*="bottom"] {
+		&:after { bottom: -10px; }
+		&:hover:after { bottom: 0; }
+	}
+
+}

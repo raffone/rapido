@@ -26,15 +26,22 @@ $micro-size:        				$base-font-size * .6 													!default;
 // Forms
 // --------------------------------------------------------------------------------------------------------------------
 $control-margin-bottom:				$base-line-height 														!default;
-$label-margin-bottom: 				10px 													!default;
+$label-margin-bottom: 				10px 																	!default;
 $input-border:						1px 																	!default;
-$input-padding-top: 				10px 													!default;
-$input-padding-side:				10px 													!default;
+$input-padding-top: 				10px 																	!default;
+$input-padding-side:				10px 																	!default;
 
-// Calcoli (non modificare)
-$input-padding:						$input-padding-top $input-padding-side  								;
-$input-height: 						$base-font-size + ($input-padding-top * 2) + ($input-border * 2)		;
-$control-min-height: 				$base-line-height + $label-margin-bottom + $input-height - 5px 			;
+// Calcoli
+$input-padding:						em($input-padding-top) em($input-padding-side)									;
+$input-height: 						em($base-font-size + ($input-padding-top * 2) + ($input-border * 2))			;
+$control-min-height: 				em($base-line-height + $label-margin-bottom) + $input-height - em(5px)  		;
+
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Buttons scripts
+// --------------------------------------------------------------------------------------------------------------------
+$btn-scripts-size: 					30px 																	!default;
+$btn-scripts-halfsize: 				-($btn-scripts-size / 2)														;
+
 
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Media Queries
@@ -66,12 +73,5 @@ $responsive-nav-inside-wrapper: 	'.internal-wrapper' 													!default;
 $responsive-nav-offset: 			70% 																	!default;
 $responsive-nav-dropdown-pos: 		right 																	!default;
 $responsive-nav-toggle-size: 		30px 																	!default;
-
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-// Modals (fancybox)
-// --------------------------------------------------------------------------------------------------------------------
-$modal-button-size: 				30px 																	!default;
-$modal-button-size-half: 			-($modal-button-size / 2)												!default;
-
 
 

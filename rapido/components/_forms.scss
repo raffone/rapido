@@ -188,30 +188,29 @@ textarea {
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 span.select {
+	@extend %caret-style !optional;
+	@extend %select-style !optional;
 	@include border-radius(3px);
-	border-width: $input-border;
 	border-style: solid;
+	border-width: $input-border;
 	cursor: pointer;
 	display: inline-block;
+	height: $input-height;
+	line-height: 1em;
 	position: relative;
 	width: 240px;
-	// width: 100%;
-	line-height: 1em;
-	height: $input-height;
-	@extend %select-style !optional;
-	@extend %caret-style !optional;
 
 	select {
-		padding: $input-padding;
-		width:100%;
+		@include appearance(none);
 		background-color:transparent;
 		background-image:none;
-		@include appearance(none);
 		border:none;
 		box-shadow:none;
 		cursor: pointer;
-		z-index: 3;
+		padding: $input-padding;
 		position: relative;
+		width:100%;
+		z-index: 3;
 	}
 
 	&:after {

@@ -1,47 +1,12 @@
 
-// Normalize
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-@import "utilities/utilities_normalize";
+@import "rapido/normalize";
+@import	"rapido/functions";
+@import "rapido/settings";
 
-// Functions
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-@import	"utilities/utilities_functions";
-
-// Settings
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-@import "settings/settings";
-
-// Frameworks
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 @import "compass";
-@import "susy/susy";
+@import "rapido/susy";
 
-// Mixins
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-@import	"utilities/utilities_mixins";
+@import	"rapido/utilities";
+@import	"rapido/components";
 
-// Icons
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-// @import	"icons/iconic/fill/iconic_fill";
-// @import	"icons/iconic/stroke/iconic_stroke";
-// @import	"icons/font-awesome/font-awesome";
-
-
-// Utilities
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-@import	"utilities/utilities_mixins";
-@import	"utilities/utilities_media-queries";
-@import	"utilities/utilities_base-classes";
-@import	"utilities/utilities_debug";
-@import	"utilities/utilities_animations";
-@import	"utilities/utilities_sprites";
-@import	"utilities/utilities_icon-fonts";
-
-// Components
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-@import	"components/components";
-
-
-// Default Styles
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 @import	"default-styles";

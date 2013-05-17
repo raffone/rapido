@@ -6,14 +6,12 @@
 		.etabs {
 			margin: 0;
 			padding: 0;
+			@extend %tab-tabs-style;
 
 			li {
 				display: inline-block;
 				zoom: 1;
-				background: $grayLighter;
-				border: solid 1px $grayLight;
 				line-height: 1em;
-				border-bottom: none;
 				@include border-radius($base-border-radius $base-border-radius 0 0);
 				a {
 					display: block;
@@ -26,13 +24,10 @@
 
 				&.active {
 					position: relative;
-					border-color: $gray;
 					font-weight: bold;
 					&:after {
 						@include position(absolute, 0 0px -1px 0px);
 						height: 2px;
-						background: $grayLighter;
-						// background-color: red;
 						display: block;
 						content: "";
 					}
@@ -42,8 +37,7 @@
 		}
 
 		.panel-container {
-			border: solid 1px $gray;
-			background: $grayLighter;
+			@extend %tab-container-style;
 			padding: $input-padding;
 			@include border-radius(0 $base-border-radius $base-border-radius );
 		}

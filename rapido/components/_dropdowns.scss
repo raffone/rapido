@@ -5,68 +5,68 @@
 
 // Use the .menu class on any <li> element within the topbar or ul.tabs and you'll get some superfancy dropdowns
 .dropdown {
-  position: relative;
-  display: inline-block;
+	position: relative;
+	display: inline-block;
 
 }
 .dropdown-toggle {
-  // The caret makes the toggle a bit too tall in IE7
-  // *margin-bottom: -3px;
-  line-height: 1em;
+	// The caret makes the toggle a bit too tall in IE7
+	// *margin-bottom: -3px;
+	line-height: 1em;
 }
 .dropdown-toggle:active,
 .open .dropdown-toggle {
-  outline: 0;
+	outline: 0;
 }
 
 // Dropdown arrow/caret
 // --------------------
 .caret {
-  display: inline-block;
-  @extend %caret-style !optional;
+	display: inline-block;
+	@extend %caret-style !optional;
 
 }
 
 // The dropdown menu (ul)
 // ----------------------
 .dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: $zindex-dropdown;
-  // display: none;
-  float: left;
-  min-width: em(160px);
-  margin: -$input-border 0 0 0;
-  list-style: none;
-  border-width: $input-border;
-  border-style: solid;
-  @extend %dropdown-style !optional;
-  @include border-bottom-radius($base-border-radius);
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: $zindex-dropdown;
+	// display: none;
+	float: left;
+	min-width: em(160px);
+	margin: -$input-border 0 0 0;
+	list-style: none;
+	border-width: $input-border;
+	border-style: solid;
+	@extend %dropdown-style !optional;
+	@include border-bottom-radius($base-border-radius);
 
 
-  // Aligns the dropdown menu to right
-  &.pull-right {
-    right: 0;
-    left: auto;
-  }
+	// Aligns the dropdown menu to right
+	&.pull-right {
+		right: 0;
+		left: auto;
+	}
 
 
-  // Semplice lista di links dentro al dropdown
-  > li > a {
-    @include adjust-font-size-to($base-font-size);
-    display: block;
-    padding: $input-padding;
-    line-height: 1em;
-    clear: both;
-    font-weight: normal;
-    white-space: nowrap;
-  }
+	// Semplice lista di links dentro al dropdown
+	> li > a {
+		@include adjust-font-size-to($base-font-size);
+		display: block;
+		padding: $input-padding;
+		line-height: 1em;
+		clear: both;
+		font-weight: normal;
+		white-space: nowrap;
+	}
 
-  > li:last-child > a {
-    @include border-bottom-radius($base-border-radius);
-    border-bottom: 0;
-  }
+	> li:last-child > a {
+		@include border-bottom-radius($base-border-radius);
+		border-bottom: 0;
+	}
 
 }
 
@@ -76,7 +76,7 @@
 .dropdown-menu > li > a:focus,
 .dropdown-submenu:hover > a,
 .dropdown-submenu:focus > a {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 // Active state
@@ -84,8 +84,8 @@
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:hover,
 .dropdown-menu > .active > a:focus {
-  text-decoration: none;
-  outline: 0;
+	text-decoration: none;
+	outline: 0;
 }
 
 // Disabled state
@@ -93,46 +93,46 @@
 .dropdown-menu > .disabled > a,
 .dropdown-menu > .disabled > a:hover,
 .dropdown-menu > .disabled > a:focus {
-  color: $grayLight;
+	color: $grayLight;
 }
 // Nuke hover/focus effects
 .dropdown-menu > .disabled > a:hover,
 .dropdown-menu > .disabled > a:focus {
-  text-decoration: none;
-  background-color: transparent;
-  background-image: none; // Remove CSS gradient
-  @include reset-filter();
-  cursor: default;
+	text-decoration: none;
+	background-color: transparent;
+	background-image: none; // Remove CSS gradient
+	// @include reset-filter();
+	cursor: default;
 }
 
 // Open state for the dropdown
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Per dropdowns dentro nav vedere nav.scss
 .open {
-  *z-index: $zindex-dropdown ;
+	*z-index: $zindex-dropdown ;
 
-  .btn.dropdown-toggle[data-toggle=dropdown] {
-    @extend %dropdown-open-style !optional;
-    @include border-bottom-radius(0);
-    z-index: $zindex-dropdown + 1 !important;
+	.btn.dropdown-toggle[data-toggle=dropdown] {
+		@extend %dropdown-open-style !optional;
+		@include border-bottom-radius(0);
+		z-index: $zindex-dropdown + 1 !important;
 
-    &:after {
-      content: "";
-      position: absolute;
-      bottom: -1px; left: 0; right: 0;
-      height: 2px ;
-      z-index: $zindex-dropdown + 2;
-    }
-  }
+		&:after {
+			content: "";
+			position: absolute;
+			bottom: -1px; left: 0; right: 0;
+			height: 2px ;
+			z-index: $zindex-dropdown + 2;
+		}
+	}
 
-  & > .dropdown-menu {}
+	& > .dropdown-menu {}
 }
 
 // Right aligned dropdowns
 // ---------------------------
 .pull-right > .dropdown-menu {
-  right: 0;
-  left: auto;
+	right: 0;
+	left: auto;
 }
 
 
@@ -143,23 +143,23 @@
 // // Sub menus
 // // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // .dropdown-submenu {
-//   position: relative;
+//	 position: relative;
 // }
 
 // .dropdown-submenu > .dropdown-menu {
-//   top: 0;
-//   left: 100%;
-//   @include border-radius(0 $base-border-radius $base-border-radius $base-border-radius);
+//	 top: 0;
+//	 left: 100%;
+//	 @include border-radius(0 $base-border-radius $base-border-radius $base-border-radius);
 // }
 
 // .dropdown-submenu:hover > .dropdown-menu {
-//   // display: block;
-//   // @extend %fadeIn;
+//	 // display: block;
+//	 // @extend %fadeIn;
 // }
 
 // .dropdown-submenu > a {
-//     @extend %caret-side-style !optional;
-//     &:after {margin-left: em(10px);}
+//		 @extend %caret-side-style !optional;
+//		 &:after {margin-left: em(10px);}
 // }
 
 
@@ -167,24 +167,24 @@
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 .dropdown-menu {
-  @include transition();
-  opacity: 0;
-  overflow: hidden;
-  max-height: 0;
+	@include transition();
+	opacity: 0;
+	overflow: hidden;
+	max-height: 0;
 }
 
 // .dropdown-submenu:hover > .dropdown-menu,
 .open > .dropdown-menu {
-  opacity: 1;
-  max-height: 600px;
+	opacity: 1;
+	max-height: 600px;
 }
 
 // Apertura on hover per dropdown se dentro <nav>
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 /*nav {
 
-  .dropdown:hover > .dropdown-menu {
-    display: block;
-  }
+	.dropdown:hover > .dropdown-menu {
+		display: block;
+	}
 
 }*/

@@ -119,8 +119,8 @@
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	.fancybox-close {
 		@extend %modal-buttons-style;
-		@include border-radius(0 $base-border-radius 0 $base-border-radius);
-		@include position(absolute, 0px 0px 0 0);
+		@include border-radius($base-border-radius);
+		@include position(absolute, 0px (-5 - $btn-scripts-size) 0 0);
 		z-index: ($zindex-modal + 3);
 	}
 
@@ -133,7 +133,7 @@
 		span {
 			@extend %modal-buttons-style;
 			@include position(absolute, 50% 0 0 0);
-			margin-top: $modal-button-size-half;
+			margin-top: $btn-scripts-halfsize;
 			visibility: hidden;
 			z-index: ($zindex-modal + 2);
 		}
@@ -189,8 +189,6 @@
 		color: #fff;
 	}
 
-	// .fancybox-title-inside-wrap { padding-top: $input-padding-top; }
-
 	.fancybox-title-over-wrap {
 		@include position(absolute, 0 0 0px 0px);
 		@extend %modal-title-over;
@@ -207,7 +205,7 @@
 		&.bottom { bottom: em(10px); }
 
 		ul {
-			@include size($modal-button-size, $modal-button-size * 5);
+			@include size($btn-scripts-size, $btn-scripts-size * 5);
 			display: block;
 			list-style: none;
 			margin: 0 auto;

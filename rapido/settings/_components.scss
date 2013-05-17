@@ -24,3 +24,19 @@ $zindex-popover:           			1010 			!default;
 $zindex-tooltip:           			1030 			!default;
 $zindex-slider:     				1040 			!default;
 $zindex-modal:             			1050 			!default;
+
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// ANIMAZIONI  @include animate(...)
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+$animations: 										fadeIn, fadeOut										!default;
+$animations-classes:								true 												!default;
+
+$animations-duration: 								.3s 												!default;
+$animations-delay: 									0s 													!default;
+$animations-function: 								ease-out 											!default;
+$animations-mode:									both 												!default;
+
+// Transizioni @include transition(...)
+// ------------------------------------------------------------------------------------------------------------------------
+$default-transition-duration:  						$animations-duration								!default;
+$default-transition-function: 						toBezier($animations-function) 						!default;
