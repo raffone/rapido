@@ -12,10 +12,17 @@
 		list-style-type: none;
 	}
 
-	.fancybox-wrap, .fancybox-skin, .fancybox-outer, .fancybox-inner, .fancybox-image { @extend %modal-reset; }
-	.fancybox-wrap { iframe, object { @extend %modal-reset; } }
-	.fancybox-nav { &, span { @extend %modal-reset; } }
-	.fancybox-tmp { @extend %modal-reset; }
+	.fancybox-wrap,
+	.fancybox-wrap iframe,
+	.fancybox-wrap object,
+	.fancybox-skin,
+	.fancybox-outer,
+	.fancybox-inner,
+	.fancybox-image,
+	.fancybox-nav span,
+	.fancybox-tmp {
+		@extend %modal-reset;
+	}
 
 
 	// Container
@@ -23,7 +30,7 @@
 
 	// Overlay | 1st level
 	.fancybox-overlay {
-		@extend %modal-overlay;
+		@extend %modal-overlay !optional;
 		@include position(absolute, 0px 0 0 0px);
 		display: none;
 		overflow: hidden;
@@ -43,12 +50,18 @@
 			// for Iframes
 			&.fancybox-type-iframe .fancybox-inner { -webkit-overflow-scrolling: touch; }
 
-			// for Inline
-			&.fancybox-type-inline .fancybox-close { @extend %modal-buttons-alt-style; }
+			// for Iframes, Inline and Ajax
+			&.fancybox-type-inline,
+			&.fancybox-type-iframe,
+			&.fancybox-type-ajax {
+				.fancybox-close {
+					@extend %modal-close-alt !optional;
+				}
+			}
 
 			// Skin | 3rd Level
 			.fancybox-skin {
-				@extend %modal-skin;
+				@extend %modal-skin !optional;
 				position: relative;
 				padding: 0 !important;
 
@@ -91,11 +104,12 @@
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	.fancybox-error {
 		margin: 0;
-		padding: $input-padding;
+		padding: $modals-error-padding;
 		white-space: nowrap;
 	}
 
-	.fancybox-image, .fancybox-iframe {
+	.fancybox-image,
+	.fancybox-iframe {
 		display: block;
 		@include square(100%);
 	}
@@ -109,7 +123,7 @@
 
 	#fancybox-loading {
 		@include position(fixed, 50% 0 0 50%);
-		@extend %modal-loading-style;
+		@extend %modal-loading !optional;
 		cursor: pointer;
 		z-index: $zindex-modal +4;
 	}
@@ -118,9 +132,9 @@
 	// Buttons and Navigation
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	.fancybox-close {
-		@extend %modal-buttons-style;
+		@extend %modal-buttons !optional;
+		@extend %modal-close !optional;
 		@include border-radius($base-border-radius);
-		@include position(absolute, 0px (-5 - $btn-scripts-size) 0 0);
 		z-index: ($zindex-modal + 3);
 	}
 
@@ -131,9 +145,9 @@
 		z-index: ($zindex-modal + 2);
 
 		span {
-			@extend %modal-buttons-style;
+			@extend %modal-buttons !optional;
+			@extend %modal-nav !optional;
 			@include position(absolute, 50% 0 0 0);
-			margin-top: $btn-scripts-halfsize;
 			visibility: hidden;
 			z-index: ($zindex-modal + 2);
 		}
@@ -191,7 +205,7 @@
 
 	.fancybox-title-over-wrap {
 		@include position(absolute, 0 0 0px 0px);
-		@extend %modal-title-over;
+		@extend %modal-title-over !optional;
 	}
 
 }
@@ -205,7 +219,7 @@
 		&.bottom { bottom: em(10px); }
 
 		ul {
-			@include size($btn-scripts-size, $btn-scripts-size * 5);
+			@extend %modal-navbar-size !optional;
 			display: block;
 			list-style: none;
 			margin: 0 auto;
@@ -213,7 +227,7 @@
 				float: left;
 				margin: 0;
 				a {
-					@extend %modal-buttons-style;
+					@extend %modal-buttons !optional;
 					position: relative;
 					&:hover { opacity: 1; }
 					&:after { @include position(absolute, 0px 0px 0 0px); }

@@ -27,7 +27,7 @@
 			.bx-controls-direction {
 
 				a {
-					@extend %slider-buttons-style;
+					@extend %slider-buttons !optional;
 					@include position(absolute, 50% 0 0 0);
 
 					z-index: 200;
@@ -49,7 +49,7 @@
 			.bx-pager {
 				width: 100%;
 				text-align: center;
-				@extend %slider-pager-style;
+				@extend %slider-pager !optional;
 
 				.bx-pager-item {
 					display: inline-block;
@@ -76,7 +76,7 @@
 			@include position(absolute, 0 0 0px 0px);
 			width: 100%;
 
-			span {@extend %slider-caption-style;}
+			span {@extend %slider-caption !optional;}
 		}
 	}
 

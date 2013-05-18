@@ -1,16 +1,14 @@
 @mixin shadow-comicbook($padding: 5px, $color: #bbb, $size: 15px, $distance: 10px) {
 
-	// $darkColor: darken($color, 25);
 	$lightColor: lighten($color, 8);
 	$degree: $size/1px;
 
 	@include box-shadow(0 1px 3px $color);
-	// background: #fff;
 	border:5px solid #fff;
 	display: inline-block;
 	line-height: 0;
 	position: relative;
-	
+
 	&:before,
 	&:after {
 		// border: 0;

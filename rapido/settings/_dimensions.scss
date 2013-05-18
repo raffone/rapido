@@ -36,11 +36,20 @@ $input-padding:						em($input-padding-top) em($input-padding-side)									;
 $input-height: 						em($base-font-size + ($input-padding-top * 2) + ($input-border * 2))			;
 $control-min-height: 				em($base-line-height + $label-margin-bottom) + $input-height - em(5px)  		;
 
+
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-// Buttons scripts
+// Paddings
 // --------------------------------------------------------------------------------------------------------------------
-$btn-scripts-size: 					30px 																	!default;
-$btn-scripts-halfsize: 				-($btn-scripts-size / 2)														;
+$pills-padding:						.15em .35em																!default;
+$alerts-padding: 					$input-padding 															!default;
+$captions-padding: 					$input-padding 															!default;
+$dropdowns-padding:					$input-padding 															!default;
+$pager-padding: 					$input-padding 															!default;
+$pagination-padding: 				$input-padding 															!default;
+$tables-padding: 					$input-padding 															!default;
+$tabs-tab-padding: 					$input-padding 															!default;
+$tabs-content-padding: 				$input-padding 															!default;
+$modals-error-padding:				$input-padding 															!default;
 
 
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––

@@ -7,7 +7,9 @@
 
 
 	&:after {
-		@extend %caption-style;
+		@extend %caption !optional;
+		display: inline-block;
+		padding: $captions-padding;
 		content: attr(data-content);
 		position: absolute;
 		line-height: rhythm();

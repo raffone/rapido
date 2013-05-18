@@ -7,7 +7,7 @@
 
 // Stile navigazione desktop
 .responsive-nav.notactive {
-	@extend %nav-style-big;
+	@extend %nav-big !optional;
 
 	ul > .dropdown:hover{
 		@extend .open;
@@ -16,7 +16,7 @@
 
 // Stile navigazione piccola
 .responsive-nav.active {
-	@extend %nav-style-small;	
+	@extend %nav-small !optional;	
 	
 	.dropdown-submenu:hover > .dropdown-menu {
 		// @include experimental(animation, 0);
@@ -25,7 +25,7 @@
 
 #nav-toggle {
 	display: none;
-	@extend %nav-toggle-style !optional;
+	@extend %nav-toggle !optional;
 }
 
 @include media($responsive-nav-breakpoint) {

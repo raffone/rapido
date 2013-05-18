@@ -6,7 +6,7 @@
 		.etabs {
 			margin: 0;
 			padding: 0;
-			@extend %tab-tabs-style;
+			@extend %tab-tabs !optional;
 
 			li {
 				display: inline-block;
@@ -15,7 +15,7 @@
 				@include border-radius($base-border-radius $base-border-radius 0 0);
 				a {
 					display: block;
-					padding: $input-padding;
+					padding: $tabs-tab-padding;
 					outline: none;
 					&:hover {
 						text-decoration: underline;
@@ -37,8 +37,8 @@
 		}
 
 		.panel-container {
-			@extend %tab-container-style;
-			padding: $input-padding;
+			@extend %tab-container !optional;
+			padding: $tabs-content-padding;
 			@include border-radius(0 $base-border-radius $base-border-radius );
 		}
 

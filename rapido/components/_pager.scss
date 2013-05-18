@@ -4,39 +4,39 @@
 
 
 .pager {
-  margin: rhythm() 0;
-  list-style: none;
-  text-align: center;
-  @include clearfix();
-  @extend %pager-style;
+	margin: rhythm() 0;
+	list-style: none;
+	text-align: center;
+	@include clearfix();
+	@extend %pager !optional;
 }
 .pager li {
-  display: inline;
+	display: inline;
 }
 .pager li > a,
 .pager li > span {
-  display: inline-block;
-  padding: $input-padding;
-  line-height: 1em;
-  border-width: 1px;
-  border-style: solid;
-  @include border-radius($base-border-radius);
+	display: inline-block;
+	padding: $pager-padding;
+	line-height: 1em;
+	border-width: 1px;
+	border-style: solid;
+	@include border-radius($base-border-radius);
 }
 .pager li > a:hover,
 .pager li > a:focus {
-  text-decoration: none;
+	text-decoration: none;
 }
 .pager .next > a,
 .pager .next > span {
-  float: right;
+	float: right;
 }
 .pager .previous > a,
 .pager .previous > span {
-  float: left;
+	float: left;
 }
 .pager .disabled > a,
 .pager .disabled > a:hover,
 .pager .disabled > a:focus,
 .pager .disabled > span {
-  cursor: default;
+	cursor: default;
 }

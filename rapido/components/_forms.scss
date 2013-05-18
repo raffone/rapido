@@ -74,7 +74,7 @@ input[type="color"],
 	// height: auto;
 	border-width: $input-border;
 	border-style: solid;
-	@extend %input-style !optional;
+	@extend %input !optional;
 	&:focus {
 		outline: 0;
 	}
@@ -188,8 +188,8 @@ textarea {
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 span.select {
-	@extend %caret-style !optional;
-	@extend %select-style !optional;
+	@extend %caret !optional;
+	@extend %select !optional;
 	@include border-radius(3px);
 	border-style: solid;
 	border-width: $input-border;
@@ -324,7 +324,7 @@ select:focus:invalid {
 		text-align: center;
 		border-width: $input-border;
 		border-style: solid;
-		@extend %input-addon-style;
+		@extend %input-addon !optional;
 	}
 	.btn-group {float: left;}
 	.add-on,

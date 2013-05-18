@@ -3,7 +3,7 @@
 
 	// Inputs
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	%input-style {
+	%input {
 		color: $text-color;
 		border-color: $gray;
 		background-color: $grayLighter;
@@ -13,7 +13,7 @@
 		}
 	}
 
-	%input-addon-style {
+	%input-addon {
 		color: $text-color;
 		border-color: $grayLight;
 		background-color: $grayLighter;
@@ -22,7 +22,7 @@
 	// Selects
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
-	%select-style {
+	%select {
 		color: $text-color;
 		border-color: $gray;
 		background-color: $grayLighter;
@@ -36,7 +36,7 @@
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	// Default
-	%btn-style {
+	%btn {
 		color: $text-color;
 		border-color: $gray;
 		background-color: $grayLight;
@@ -54,8 +54,7 @@
 		}
 	}
 
-	// Primary
-	%btn-primary-style {
+	%btn-primary {
 		color: #fff;
 		border-color: darken(green, 10%);
 		background-color: green;
@@ -74,7 +73,7 @@
 	}
 
 
-	%btn-secondary-style {
+	%btn-secondary {
 		color: #fff;
 		border-color: darken(red, 10%);
 		background-color: red;
@@ -92,10 +91,15 @@
 		}
 	}
 
-	%btn-scripts-style {
+	%btn-warning {}
+	%btn-danger {}
+	%btn-info {}
+	%btn-success {}
+	%btn-inverse {}
+
+	// Generic style for buttons used with the scripts
+	%btn-scripts {
 		@include alpha-color(#000, .6, background);
-		@include square($btn-scripts-size);
-		line-height: $btn-scripts-size;
 		color: #fff;
 		cursor: pointer;
 		display: block;
@@ -109,10 +113,23 @@
 	}
 
 
+	// Captions
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	%caption {
+		@include alpha-color(#000, .8, background);
+		color: #fff;
+	}
+
+	// Badges (Labels)
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	%pill {
+		background-color: $gray;
+		color: $white;
+	}
 
 	// Dropdown
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	%dropdown-style {
+	%dropdown {
 		background: $grayLighter;
 		border-color: $gray;
 
@@ -129,7 +146,7 @@
 		}
 	}
 
-	%dropdown-open-style {
+	%dropdown-open {
 		background: $grayLighter;
 	    &:after {background-color: $grayLighter;}
 	}
@@ -137,10 +154,11 @@
 
 	// CARET per Dropdown e Select
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	%caret-style {
-		$caret-width: em(10px);
-		min-width: $caret-width;
 
+	$caret-width: em(10px);
+
+	%caret {
+		min-width: $caret-width;
 		&:after {
 			@include icon-font(\f078);
 			@include square(1em);
@@ -150,8 +168,8 @@
 		}
 	}
 
-	%caret-side-style {
-		@extend %caret-style;
+	%caret-side {
+		@extend %caret;
 		&:after {
 			@include icon-font(\f054);
 		}
@@ -160,7 +178,7 @@
 
 	// Tables
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	%table-style {
+	%table-bordered {
 		thead {
 			th, td {
 				background-color: $gray;
@@ -168,15 +186,27 @@
 			}
 		}
 		tbody {
-			td {
-				border-bottom: 1px solid $grayLight;
+			td { border-bottom: 1px solid $grayLight; }
+		}
+	}
+
+	%table-striped { background-color: $grayLighter;}
+
+	%table-hover { background-color: $gray;}
+
+	%table-sortable {
+		thead {
+			th {
+				&:hover {background: $grayDark }
+				&.sorting-asc:after {content: "\25BC"; }
+				&.sorting-desc:after {content: "\25B2";}
 			}
 		}
 	}
 
 	// Breadcrumbs
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	%breadcrumb-style {
+	%breadcrumb {
 		> li {
 			&:after {
 				color: #ccc;
@@ -195,7 +225,7 @@
 
 	// Pagination
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	%pagination-style {
+	%pagination {
 		ul > li > a,
 		ul > li > span {
 		  background-color: $grayLight;
@@ -226,7 +256,7 @@
 
 	// Pager
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	%pager-style {
+	%pager {
 		li > a,
 		li > span {
 		  background-color: #fff;
@@ -246,20 +276,33 @@
 	}
 
 
-	// Captions
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	%caption-style {
-		@include alpha-color(#000, .8, background);
-		color: #fff;
-		display: inline-block;
-		padding: $input-padding;
-	}
-
-
-
 	// Modals
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	$modal-btn-size: em(30px);
 
+	// Buttons
+	%modal-buttons {
+		@extend %btn-scripts !optional;
+		@include square($modal-btn-size);
+		line-height: $modal-btn-size;
+	}
+
+	%modal-close {
+		@include position(absolute, 0px (em(-5px) - $modal-btn-size) 0 0);
+	}
+
+	%modal-close-alt {
+		@include position(absolute, 0px 0px 0 0);
+		background-color: transparent;
+		color: $link-color;
+		&:hover {
+			color: $link-color-hover;
+		}
+	}
+
+	%modal-navbar-size {@include size($modal-btn-size, $modal-btn-size * 5);}
+
+	// Other styles
 	%modal-overlay {
 		background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNiqAcAAIgAgoGu+rEAAAAASUVORK5CYII=');
 	}
@@ -268,38 +311,25 @@
 		@include box-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
 		@include border-radius($base-border-radius);
 		background: #fff;
+
+		// Icons
+		.fancybox-close:after 		{ @include icon-font(\f00d); }
+		.fancybox-prev span:after 	{ @include icon-font(\f053); }
+		.fancybox-next span:after 	{ @include icon-font(\f054); }
+		.btnPrev:after 				{ @include icon-font(\f04a); }
+		.btnNext:after 				{ @include icon-font(\f051); }
+		.btnPlay:after 				{ @include icon-font(\f04b); }
+		.btnPlayOn:after 			{ @include icon-font(\f04c); }
+		.btnToggle:after 			{ @include icon-font(\f065); }
+		.btnToggleOn:after 			{ @include icon-font(\f066); }
+		.btnClose:after 			{ @include icon-font(\f00d); }
 	}
 
+	%modal-nav { margin-top: (0 - ($modal-btn-size / 2)); }
 
-	%modal-title-over { @extend %caption-style !optional; }
+	%modal-title-over { @extend %caption !optional; }
 
-	%modal-buttons-style {
-		@extend %btn-scripts-style !optional;
-
-		&.fancybox-close:after {@include icon-font(\f00d);}
-
-		&.btnPrev:after {		@include icon-font(\f04a); 	}
-		&.btnNext:after {		@include icon-font(\f051); 	}
-		&.btnPlay:after {		@include icon-font(\f04b); 	}
-		&.btnPlayOn:after {		@include icon-font(\f04c); 	}
-		&.btnToggle:after {		@include icon-font(\f065); 	}
-		&.btnToggleOn:after {	@include icon-font(\f066); 	}
-		&.btnClose:after {		@include icon-font(\f00d); 	}
-
-		&.fancybox-prev span:after { @include icon-font(\f053); }
-		&.fancybox-next span:after { @include icon-font(\f054); }
-	}
-
-	%modal-buttons-alt-style {
-		background-color: transparent;
-		color: $link-color;
-		&:hover {
-			color: $link-color-hover;
-		}
-	}
-
-
-	%modal-loading-style {
+	%modal-loading {
 		margin-top: -22px;
 		margin-left: -22px;
 		opacity: 0.8;
@@ -314,16 +344,21 @@
 
 	// Sliders
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	%slider-buttons-style {
-		@extend %btn-scripts-style !optional;
-		margin-top: $btn-scripts-halfsize;
+	$slider-btn-size: em(30px);
+
+	// Buttons
+	%slider-buttons {
+		@extend %btn-scripts !optional;
+		@include square($slider-btn-size);
+		line-height: $slider-btn-size;
+		margin-top: -($slider-btn-size / 2);
 
 		&.bx-prev i:after { @include icon-font(\f053); }
 		&.bx-next i:after { @include icon-font(\f054); }
-
 	}
 
-	%slider-pager-style {
+	// Pager
+	%slider-pager {
 		@include position(absolute, 0 0 -30px 0);
 		padding-top: 20px;
 		.bx-pager-item {
@@ -337,12 +372,13 @@
 		}
 	}
 
-	%slider-loading-style { @extend %loader-ico !optional; }
-	%slider-caption-style { @extend %caption-style !optional; }
+	// Other styles
+	%slider-loading { @extend %loader-ico !optional; }
+	%slider-caption { @extend %caption !optional; }
 
 	// Tabs
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	%tab-tabs-style {
+	%tab-tabs {
 		li {
 			background: $grayLighter;
 			border: solid 1px $grayLight;
@@ -359,7 +395,7 @@
 
 
 
-	%tab-container-style {
+	%tab-container {
 		border: solid 1px $gray;
 		background: $grayLighter;
 	}
@@ -385,9 +421,9 @@
 	// Responsive NAV
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
-	%nav-style-big {}
+	%nav-big {}
 
-	%nav-style-small {
+	%nav-small {
 		background-color: #272c33;
 
 		a {
@@ -421,7 +457,7 @@
 
 
 
-	%nav-toggle-style {
+	%nav-toggle {
 		@extend .btn;
 		@include square($responsive-nav-toggle-size);
 		font-size: $responsive-nav-toggle-size * .6;

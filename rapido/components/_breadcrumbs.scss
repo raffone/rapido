@@ -4,14 +4,11 @@
 
 
 .breadcrumb {
-  margin: 0 0 rhythm();
-  list-style: none;
-  @extend %breadcrumb-style;
-  
-  > li {
-    @include inline-block();
-  }
-  .active {
+	margin: 0 0 rhythm();
+	list-style: none;
+	@extend %breadcrumb !optional;
 
-  }
+	> li { @include inline-block(); }
+
+	.active {}
 }
