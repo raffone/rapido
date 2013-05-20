@@ -1,32 +1,30 @@
-.caption {
+[class^="caption-"] {
 	position: relative;
 	display: inline-block;
 	width: auto;
 	overflow: hidden;
 	line-height: 0;
 
-
 	&:after {
 		@extend %caption !optional;
 		display: inline-block;
-		padding: $captions-padding;
 		content: attr(data-content);
 		position: absolute;
 		line-height: rhythm();
 	}
 
-	&[data-position*="top"]:after 		{ top:0; }
-	&[data-position*="bottom"]:after 	{ bottom:0; }
-	&[data-position*="left"]:after 		{ left:0; }
-	&[data-position*="right"]:after 	{ right:0; }
+	&[class*="top"]:after 		{ top:0; }
+	&[class*="bottom"]:after 	{ bottom:0; }
+	&[class*="left"]:after 		{ left:0; }
+	&[class*="right"]:after 	{ right:0; }
 
-	&[data-position="top"]:after,
-	&[data-position="bottom"]:after 	{ left: 0; right: 0; }
+	&[class$="top"]:after,
+	&[class$="bottom"]:after 	{ left: 0; right: 0; }
 
 	// Animations
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	&[data-animation="fade"],
-	&[data-animation="float"] {
+	&[class*="fade"],
+	&[class*="float"] {
 
 		&:after {
 			@include transition();
@@ -41,12 +39,12 @@
 	}
 
 	// Float Animation
-	&[data-animation="float"][data-position*="top"] {
+	&[class*="float"][class*="top"] {
 		&:after { top: -10px; }
 		&:hover:after { top: 0; }
 	}
 
-	&[data-animation="float"][data-position*="bottom"] {
+	&[class*="float"][class*="bottom"] {
 		&:after { bottom: -10px; }
 		&:hover:after { bottom: 0; }
 	}

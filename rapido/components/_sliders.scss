@@ -27,7 +27,7 @@
 			.bx-controls-direction {
 
 				a {
-					@extend %slider-buttons !optional;
+					@extend %slider-btn !optional;
 					@include position(absolute, 50% 0 0 0);
 
 					z-index: 200;
@@ -64,8 +64,6 @@
 
 		// Loading
 		.bx-loading {
-			min-height: 50px;
-			@include alpha-color(#000, .60);
 			@include square(100%);
 			@include position(absolute, 0px 0 0 0px);
 			@extend %slider-loading-style;
@@ -76,7 +74,10 @@
 			@include position(absolute, 0 0 0px 0px);
 			width: 100%;
 
-			span {@extend %slider-caption !optional;}
+			span {
+				display: inline-block;
+				@extend %slider-caption !optional;
+			}
 		}
 	}
 

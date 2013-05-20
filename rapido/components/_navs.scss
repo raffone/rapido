@@ -1,177 +1,86 @@
-//
+
+
 // Navs
-// --------------------------------------------------
-
-
-// BASE CLASS
-// ----------
-
-.nav {
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+[class^="nav"] {
+	@extend .clearfix;
+	list-style: none;
+	margin-bottom: rhythm();
 	margin-left: 0;
 	padding-left: 0;
-	margin-bottom: rhythm();
-	list-style: none;
-}
 
-// Make links block level
-.nav > li > a {
-	display: block;
-}
-.nav > li > a:hover,
-.nav > li > a:focus {
-	text-decoration: none;
-	background-color: $grayLighter;
-}
+	li {
 
-// Prevent IE8 from misplacing imgs
-// See https://github.com/h5bp/html5-boilerplate/issues/984#issuecomment-3985989
-.nav > li > a > img {
-	max-width: none;
-}
+		> a {
+			display: block;
+			padding: $navs-padding;
+			line-height: 1em;
+			@extend %nav-btn;
 
-// Redeclare pull classes because of specifity
-.nav > .pull-right {
-	float: right;
-}
+			&:hover, &:focus {
+				text-decoration: none;
+				// background-color: $grayLighter;
+				@extend %nav-btn_hover;
+			}
 
-// Nav headers (for dropdowns and lists)
-.nav-header {
-	display: block;
-	padding: $input-padding;
-	font-size: 11px;
-	font-weight: bold;
-	line-height: rhythm();
-	color: $grayLight;
-	// text-shadow: 0 1px 0 rgba(255,255,255,.5);
-	text-transform: uppercase;
-}
-// Space them out when they follow another list item (link)
-.nav li + .nav-header {
-	margin-top: 9px;
-}
+			img { max-width: none; }
+		}
+
+		&.active > a,
+		&.active > a:hover,
+		&.active > a:focus {
+			@extend %nav-btn_active;
+		}
+
+		// Disabled
+		&.disabled > a { @extend %nav-btn_disabled; }
+
+		&.disabled > a:hover,
+		&.disabled > a:focus {
+			text-decoration: none;
+			background-color: transparent;
+			cursor: default;
+		}
+	}
 
 
+	// Horizontal nav
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	&[class*="-o"] {
+		li { float: left;}
+	}
 
-// NAV LIST
-// --------
+	// Vertical nav
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	&[class*="-v"] {
 
-.nav-list {
-	padding-left: em($input-padding-side);
-	padding-right: em($input-padding-side);
-	margin-bottom: 0;
-}
-.nav-list > li > a,
-.nav-list .nav-header {
-	margin-left:  em(0 - $input-padding-side);
-	margin-right: em(0 - $input-padding-side);
-}
-.nav-list > li > a {
-	padding: $input-padding;
-}
-.nav-list > .active > a,
-.nav-list > .active > a:hover,
-.nav-list > .active > a:focus {
-	color: $white;
-  background-color: $link-color;
-}
+		.title {
+			@include adjust-font-size-to($milli-size);
+			color: $gray;
+			display: block;
+			font-weight: bold;
+			padding: $input-padding;
+			text-transform: uppercase;
+		}
 
-// Dividers (basically an hr) within the dropdown
-.nav-list .divider {
-	@include nav-divider();
-}
+		.divider { @include nav-divider(); }
+	}
 
+	// Pills
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	&[class*="-pills"] {
+		> li > a {
+			@include border-radius($base-border-radius);
+			margin-right: em(4px);
+		}
 
+		&[class*="-v-"] > li > a { margin-bottom: em(4px);  }
+		&[class*="-v-"] > li:last-child > a { margin-bottom: 0; }
+	}
 
-// TABS AND PILLS
-// -------------
-
-// Common styles
-.nav-tabs,
-.nav-pills {
-	@include clearfix();
-}
-.nav-tabs > li,
-.nav-pills > li {
-	float: left;
-}
-.nav-tabs > li > a,
-.nav-pills > li > a {
-	padding-right: em($input-padding-side);
-	padding-left: em($input-padding-side);
-	margin-right: em(2px);
-}
-
-// PILLS
-// -----
-
-// Links rendered as pills
-.nav-pills > li > a {
-	padding-top: 8px;
-	padding-bottom: 8px;
-	margin-top: 2px;
-	margin-bottom: 2px;
-	@include border-radius(5px);
-}
-
-// Active state
-.nav-pills > .active > a,
-.nav-pills > .active > a:hover,
-.nav-pills > .active > a:focus {
-	color: $white;
-	background-color: $link-color;
-}
+	// Position
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	&[class$="-right"]{ float: right; }
 
 
-// STACKED NAV
-// -----------
-
-// Stacked tabs and pills
-.nav-stacked > li {
-	float: none;
-}
-.nav-stacked > li > a {
-  margin-right: 0; // no need for the gap between nav items
-}
-
-// Tabs
-.nav-tabs.nav-stacked {
-	border-bottom: 0;
-}
-.nav-tabs.nav-stacked > li > a {
-	border: 1px solid #ddd;
-	@include border-radius(0);
-}
-.nav-tabs.nav-stacked > li:first-child > a {
-	@include border-top-radius(4px);
-}
-.nav-tabs.nav-stacked > li:last-child > a {
-	@include border-bottom-radius(4px);
-}
-.nav-tabs.nav-stacked > li > a:hover,
-.nav-tabs.nav-stacked > li > a:focus {
-	border-color: #ddd;
-	z-index: 2;
-}
-
-// Pills
-.nav-pills.nav-stacked > li > a {
-	margin-bottom: 3px;
-}
-.nav-pills.nav-stacked > li:last-child > a {
-  margin-bottom: 1px; // decrease margin to match sizing of stacked tabs
-}
-
-// DISABLED STATES
-// ---------------
-
-// Gray out text
-.nav > .disabled > a {
-	color: $grayLight;
-}
-// Nuke hover/focus effects
-.nav > .disabled > a:hover,
-.nav > .disabled > a:focus {
-	text-decoration: none;
-	background-color: transparent;
-	cursor: default;
 }

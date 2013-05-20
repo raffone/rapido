@@ -1,6 +1,15 @@
 
 @if $default-styles {
 
+	// Titles
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	%h1 {}
+	%h2 {}
+	%h3 {}
+	%h4 {}
+	%h5 {}
+	%h6 {}
+
 	// Inputs
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	%input {
@@ -97,7 +106,7 @@
 	%btn-success {}
 	%btn-inverse {}
 
-	// Generic style for buttons used with the scripts
+	// Generic style for buttons used by the scripts
 	%btn-scripts {
 		@include alpha-color(#000, .6, background);
 		color: #fff;
@@ -118,16 +127,17 @@
 	%caption {
 		@include alpha-color(#000, .8, background);
 		color: #fff;
+		padding: $captions-padding;
 	}
 
-	// Badges (Labels)
+	// Pills (Labels & Badges)
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	%pill {
 		background-color: $gray;
 		color: $white;
 	}
 
-	// Dropdown
+	// Dropdowns
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	%dropdown {
 		background: $grayLighter;
@@ -152,7 +162,7 @@
 	}
 
 
-	// CARET per Dropdown e Select
+	// Caret per Dropdown e Select
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	$caret-width: em(10px);
@@ -204,6 +214,20 @@
 		}
 	}
 
+	// Navs
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	%nav-btn {}
+
+	%nav-btn_hover { background-color: $grayLighter;}
+
+	%nav-btn_active {
+		color: $white;
+		background-color: $link-color;
+	}
+
+	%nav-btn_disabled {color: $grayLight;}
+
+
 	// Breadcrumbs
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	%breadcrumb {
@@ -225,63 +249,58 @@
 
 	// Pagination
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	%pagination {
-		ul > li > a,
-		ul > li > span {
+	%pagination_btn {
 		  background-color: $grayLight;
 		  border-color: $gray;
-		}
-		ul > li > a:hover,
-		ul > li > a:focus,
-		ul > .active > a,
-		ul > .active > span {
+	}
+
+	%pagination_btn-hover {
 		  background-color: $grayLighter;
-		}
-		ul > .active > a,
-		ul > .active > a:hover,
-		ul > .active > span {
+	}
+
+	%pagination_btn-active {
 		  color: #fff;
 		  background-color: $gray;
+	}
 
-		}
-		ul > .disabled > span,
-		ul > .disabled > a,
-		ul > .disabled > a:hover,
-		ul > .disabled > a:focus {
+	%pagination_btn-disabled {
 		  color: $grayLight;
 		  background-color: transparent;
 		  border-color: $grayLight;
-		}
 	}
+
 
 	// Pager
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	%pager {
-		li > a,
-		li > span {
-		  background-color: #fff;
-		  border-color: $grayLight;
-		}
-		li > a:hover,
-		li > a:focus {
-		  background-color: $grayLighter;
-		}
-		.disabled > a,
-		.disabled > a:hover,
-		.disabled > a:focus,
-		.disabled > span {
-		  color: $grayLight;
-		  background-color: #fff;
-		}
+	%pager-btn {
+		  background-color: $grayLight;
+		  border-color: $gray;
 	}
 
+	%pager-btn_hover {
+		background-color: $grayLighter;
+	}
+
+	%pager-btn_disabled {
+		  color: $grayLight;
+		  background-color: #fff;
+		  border-color: $grayLight;
+	}
+
+
+
+	// Loader icon
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	$loader-ico-size: 44px;
+
+	%loader-ico { background: url('//cdn.jsdelivr.net/wp-advanced-ajax-page-loader/2.5.12/loaders/SMALL%20-%20Spinning%20Arrows.gif') center center no-repeat; }
 
 	// Modals
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	$modal-btn-size: em(30px);
 
 	// Buttons
-	%modal-buttons {
+	%modal-btn {
 		@extend %btn-scripts !optional;
 		@include square($modal-btn-size);
 		line-height: $modal-btn-size;
@@ -300,12 +319,10 @@
 		}
 	}
 
-	%modal-navbar-size {@include size($modal-btn-size, $modal-btn-size * 5);}
+	%modal-btnbar-size {@include size($modal-btn-size, $modal-btn-size * 5);}
 
 	// Other styles
-	%modal-overlay {
-		background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNiqAcAAIgAgoGu+rEAAAAASUVORK5CYII=');
-	}
+	%modal-overlay { background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNiqAcAAIgAgoGu+rEAAAAASUVORK5CYII='); }
 
 	%modal-skin {
 		@include box-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
@@ -327,16 +344,16 @@
 
 	%modal-nav { margin-top: (0 - ($modal-btn-size / 2)); }
 
-	%modal-title-over { @extend %caption !optional; }
+	%modal-caption { @extend %caption !optional; }
 
 	%modal-loading {
-		margin-top: -22px;
-		margin-left: -22px;
+		margin-top: -($loader-ico-size / 2);
+		margin-left: -($loader-ico-size / 2);
 		opacity: 0.8;
 
 		div {
 			@extend %loader-ico !optional;
-			@include square(44px);
+			@include square($loader-ico-size);
 
 		}
 	}
@@ -347,7 +364,7 @@
 	$slider-btn-size: em(30px);
 
 	// Buttons
-	%slider-buttons {
+	%slider-btn {
 		@extend %btn-scripts !optional;
 		@include square($slider-btn-size);
 		line-height: $slider-btn-size;
@@ -373,27 +390,37 @@
 	}
 
 	// Other styles
-	%slider-loading { @extend %loader-ico !optional; }
 	%slider-caption { @extend %caption !optional; }
+
+	%slider-loading {
+		@extend %loader-ico !optional;
+		@include alpha-color(#000, .60);
+		min-height: $loader-ico-size;
+	}
 
 	// Tabs
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	%tab-tabs {
-		li {
-			background: $grayLighter;
-			border: solid 1px $grayLight;
-			border-bottom: none;
 
-			&.active {
-				border-color: $gray;
-				&:after {
-					background: $grayLighter;
-				}
-			}
-		}
+	%tab-nav {
+		//...
 	}
 
+	%tab-btn {
+		background: $grayLighter;
+		border: solid 1px $grayLight;
+		border-bottom: none;
+	}
 
+	%tab-btn_hover {
+		background: $grayLighter;
+		border: solid 1px $grayLight;
+		border-bottom: none;
+	}
+
+	%tab-btn_current {
+		border-color: $gray;
+		&:after { background: $grayLighter; }
+	}
 
 	%tab-container {
 		border: solid 1px $gray;
@@ -401,21 +428,12 @@
 	}
 
 
-	// Loader icon
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	%loader-ico {
-		background:
-				url('//cdn.jsdelivr.net/wp-advanced-ajax-page-loader/2.5.12/loaders/SMALL%20-%20Spinning%20Arrows.gif')
-				center center no-repeat;
-	}
-
-
 	// Alerts
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
-	.alert {
-	  background-color: $grayLighter;
-	  border: 1px solid $grayLight;
+	%alert {
+		background-color: $grayLighter;
+		border: 1px solid $grayLight;
 	}
 
 	// Responsive NAV
@@ -454,8 +472,6 @@
 			}
 		}
 	}
-
-
 
 	%nav-toggle {
 		@extend .btn;

@@ -19,8 +19,8 @@ $h4-size:           				$base-font-size * 1.4  													!default;
 $h5-size:           				$base-font-size * 1.2  													!default;
 $h6-size:           				$base-font-size * 1  													!default;
 
-$milli-size:        				$base-font-size * .8 													!default;
-$micro-size:        				$base-font-size * .6 													!default;
+$milli-size:        				$base-font-size * .85 													!default;
+$micro-size:        				$base-font-size * .7 													!default;
 
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Forms
@@ -40,16 +40,17 @@ $control-min-height: 				em($base-line-height + $label-margin-bottom) + $input-h
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Paddings
 // --------------------------------------------------------------------------------------------------------------------
-$pills-padding:						.15em .35em																!default;
 $alerts-padding: 					$input-padding 															!default;
 $captions-padding: 					$input-padding 															!default;
 $dropdowns-padding:					$input-padding 															!default;
+$modals-error-padding:				$input-padding 															!default;
+$navs-padding:						$input-padding 															!default;
 $pager-padding: 					$input-padding 															!default;
 $pagination-padding: 				$input-padding 															!default;
+$pills-padding:						.15em .35em																!default;
 $tables-padding: 					$input-padding 															!default;
-$tabs-tab-padding: 					$input-padding 															!default;
 $tabs-content-padding: 				$input-padding 															!default;
-$modals-error-padding:				$input-padding 															!default;
+$tabs-tab-padding: 					$input-padding 															!default;
 
 
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––

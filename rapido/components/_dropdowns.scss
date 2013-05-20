@@ -10,10 +10,9 @@
 
 }
 .dropdown-toggle {
-	// The caret makes the toggle a bit too tall in IE7
-	// *margin-bottom: -3px;
 	line-height: 1em;
 }
+
 .dropdown-toggle:active,
 .open .dropdown-toggle {
 	outline: 0;
@@ -30,19 +29,20 @@
 // The dropdown menu (ul)
 // ----------------------
 .dropdown-menu {
-	position: absolute;
-	top: 100%;
-	left: 0;
-	z-index: $zindex-dropdown;
-	// display: none;
-	float: left;
-	min-width: em(160px);
-	margin: -$input-border 0 0 0;
-	list-style: none;
-	border-width: $input-border;
-	border-style: solid;
 	@extend %dropdown !optional;
 	@include border-bottom-radius($base-border-radius);
+	border-style: solid;
+	border-width: $input-border;
+	float: left;
+	left: 0;
+	list-style: none;
+	margin: -$input-border 0 0 0;
+	min-width: em(160px);
+	position: absolute;
+	top: 100%;
+	z-index: $zindex-dropdown;
+
+	&[data-content] { min-width: em(600px); }
 
 
 	// Aligns the dropdown menu to right
@@ -107,7 +107,6 @@
 
 // Open state for the dropdown
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-// Per dropdowns dentro nav vedere nav.scss
 .open {
 	*z-index: $zindex-dropdown ;
 
@@ -181,10 +180,10 @@
 
 // Apertura on hover per dropdown se dentro <nav>
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-/*nav {
-
-	.dropdown:hover > .dropdown-menu {
-		display: block;
-	}
-
-}*/
+// nav {
+// 	.dropdown:hover > .dropdown-menu {
+// 		// display: block;
+// 		// @extend .open > .dropdown-menu;
+// 			opacity: 1;
+// 	}
+// }

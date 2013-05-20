@@ -8,35 +8,45 @@
 	list-style: none;
 	text-align: center;
 	@include clearfix();
-	@extend %pager !optional;
-}
-.pager li {
-	display: inline;
-}
-.pager li > a,
-.pager li > span {
-	display: inline-block;
-	padding: $pager-padding;
-	line-height: 1em;
-	border-width: 1px;
-	border-style: solid;
-	@include border-radius($base-border-radius);
-}
-.pager li > a:hover,
-.pager li > a:focus {
-	text-decoration: none;
-}
-.pager .next > a,
-.pager .next > span {
-	float: right;
-}
-.pager .previous > a,
-.pager .previous > span {
-	float: left;
-}
-.pager .disabled > a,
-.pager .disabled > a:hover,
-.pager .disabled > a:focus,
-.pager .disabled > span {
-	cursor: default;
+
+
+	li {
+		display: inline;
+
+		a,
+		span {
+			display: inline-block;
+			padding: $pager-padding;
+			line-height: 1em;
+			border-width: 1px;
+			border-style: solid;
+			@extend %pager-btn !optional;
+			@include border-radius($base-border-radius);
+		}
+
+		a:hover,
+		a:focus {
+			text-decoration: none;
+			@extend %pager-btn_hover !optional;
+		}
+	}
+
+	.next > a,
+	.next > span {
+		float: right;
+	}
+
+	.previous > a,
+	.previous > span {
+		float: left;
+	}
+
+	.disabled > a,
+	.disabled > a:hover,
+	.disabled > a:focus,
+	.disabled > span {
+		cursor: default;
+		@extend %pager-btn_disabled !optional;
+	}
+
 }

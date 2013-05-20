@@ -6,31 +6,40 @@
 		.etabs {
 			margin: 0;
 			padding: 0;
-			@extend %tab-tabs !optional;
+			@extend %tab-nav !optional;
 
 			li {
 				display: inline-block;
 				zoom: 1;
-				line-height: 1em;
-				@include border-radius($base-border-radius $base-border-radius 0 0);
+
 				a {
+					line-height: 1em;
 					display: block;
 					padding: $tabs-tab-padding;
 					outline: none;
+					@include border-radius($base-border-radius $base-border-radius 0 0);
+					@extend %tab-btn !optional;
+
 					&:hover {
 						text-decoration: underline;
+						@extend %tab-btn_hover !optional;
 					}
 				}
 
 				&.active {
-					position: relative;
-					font-weight: bold;
-					&:after {
-						@include position(absolute, 0 0px -1px 0px);
-						height: 2px;
-						display: block;
-						content: "";
+					a {
+						position: relative;
+						font-weight: bold;
+						@extend %tab-btn_current !optional;
+
+						&:after {
+							@include position(absolute, 0 0px -1px 0px);
+							height: 2px;
+							display: block;
+							content: "";
+						}
 					}
+
 				}
 
 			}
