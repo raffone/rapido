@@ -1,4 +1,4 @@
-@if $bx-slider == true {
+@if $slider == true {
 
 	// Wrapper | 1st level
 	.bx-wrapper {
@@ -12,73 +12,75 @@
 			max-width: 100%;
 			display: block;
 		}
-		ul, li {margin: 0;}
+
+		ul {@extend .list_style_none;}
+		// ul, li {margin: 0;}
+	}
+
+	// Viewport  | 2nd level
+	.bx-viewport { }
 
 
-		// Viewport  | 2nd level
-		.bx-viewport { }
+	// Controls  | 2nd level
+	// .bx-controls {
 
+		// Directions
+		//--------------------------------
+		.bx-controls-direction {
 
-		// Controls  | 2nd level
-		.bx-controls {
+			a {
+				@extend %slider-btn !optional;
+				@include position(absolute, 50% 0 0 0);
 
-			// Directions
-			//--------------------------------
-			.bx-controls-direction {
+				z-index: 200;
 
-				a {
-					@extend %slider-btn !optional;
-					@include position(absolute, 50% 0 0 0);
+				i {font-style: normal;}
+				span {@include hide-text;}
 
-					z-index: 200;
+				&.disabled { display: none; }
 
-					i {font-style: normal;}
-					span {@include hide-text;}
-
-					&.disabled { display: none; }
-
-					&.bx-prev { left: 0; }
-					&.bx-next { right: 0; }
-				}
-
-
+				&.bx-prev { left: 0; }
+				&.bx-next { right: 0; }
 			}
 
-			// Pager
-			//--------------------------------
-			.bx-pager {
-				width: 100%;
-				text-align: center;
-				@extend %slider-pager !optional;
 
-				.bx-pager-item {
-					display: inline-block;
-					a {
-						display: block;
-						@include hide-text;
-					}
-				}
-			}
 		}
 
-
-		// Loading
-		.bx-loading {
-			@include square(100%);
-			@include position(absolute, 0px 0 0 0px);
-			@extend %slider-loading-style;
-			z-index: 2000;
-		}
-
-		.bx-caption {
-			@include position(absolute, 0 0 0px 0px);
+		// Pager
+		//--------------------------------
+		.bx-pager {
 			width: 100%;
+			text-align: center;
+			@extend %slider-pager !optional;
 
-			span {
+			.bx-pager-item {
 				display: inline-block;
-				@extend %slider-caption !optional;
+				a {
+					display: inline-block;
+					// @include hide-text;
+				}
 			}
+		}
+	// }
+
+
+	// Loading
+	.bx-loading {
+		@include square(100%);
+		@include position(absolute, 0px 0 0 0px);
+		@extend %slider-loading-style;
+		z-index: 2000;
+	}
+
+	.bx-caption {
+		@include position(absolute, 0 0 0px 0px);
+		width: 100%;
+
+		span {
+			display: inline-block;
+			@extend %slider-caption !optional;
 		}
 	}
+
 
 }

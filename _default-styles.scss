@@ -165,23 +165,13 @@
 	// Caret per Dropdown e Select
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
-	$caret-width: em(10px);
+	$caret-width: em(12px);
 
 	%caret {
 		min-width: $caret-width;
 		&:after {
-			@include icon-font(\f078);
-			@include square(1em);
-			font-size: $caret-width;
-			text-align: center;
-			z-index: 2;
-		}
-	}
-
-	%caret-side {
-		@extend %caret;
-		&:after {
-			@include icon-font(\f054);
+			@include triangle($caret-width, $gray, down);
+			margin-top: -($caret-width / 4);
 		}
 	}
 
@@ -382,6 +372,7 @@
 			a {
 				@include border-radius(5px);
 				@include square(10px);
+				@include hide-text;
 				background: $grayLight;
 				margin: 0 5px;
 				&:hover, &.active { background: $gray; }

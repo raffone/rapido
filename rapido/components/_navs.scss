@@ -13,27 +13,14 @@
 
 		> a {
 			display: block;
-			padding: $navs-padding;
 			line-height: 1em;
-			@extend %nav-btn;
 
 			&:hover, &:focus {
 				text-decoration: none;
-				// background-color: $grayLighter;
-				@extend %nav-btn_hover;
 			}
 
 			img { max-width: none; }
 		}
-
-		&.active > a,
-		&.active > a:hover,
-		&.active > a:focus {
-			@extend %nav-btn_active;
-		}
-
-		// Disabled
-		&.disabled > a { @extend %nav-btn_disabled; }
 
 		&.disabled > a:hover,
 		&.disabled > a:focus {
@@ -41,6 +28,32 @@
 			background-color: transparent;
 			cursor: default;
 		}
+	}
+
+	&[class*="-btn"] {
+
+		li {
+
+			> a {
+				padding: $navs-padding;
+				@extend %nav-btn;
+
+				&:hover, &:focus {
+					@extend %nav-btn_hover;
+				}
+
+			}
+
+			&.active > a,
+			&.active > a:hover,
+			&.active > a:focus {
+				@extend %nav-btn_active;
+			}
+
+			// Disabled
+			&.disabled > a { @extend %nav-btn_disabled; }
+		}
+
 	}
 
 

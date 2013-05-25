@@ -1,42 +1,54 @@
 
-// Sprites
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-$magic-sprites: 					false 			!default;
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Enable Components
+// --------------------------------------------------------------------------------------------------------------------
+
+$alerts: 							true 																	!default;
+$buttons: 							true 																	!default;
+$dropdowns: 						true 																	!default;
+$modals: 							true 																	!default;
+$pagination: 						true 																	!default;
+$sliders: 							true 																	!default;
+$type: 								true 																	!default;
+$breadcrumbs: 						true 																	!default;
+$captions: 							true 																	!default;
+$forms: 							true 																	!default;
+$navs: 								true 																	!default;
+$pills: 							true 																	!default;
+$tables: 							true 																	!default;
+$button-groups: 					true 																	!default;
+$close: 							true 																	!default;
+$images: 							true 																	!default;
+$pager: 							true 																	!default;
+$responsive-navs: 					true 																	!default;
+$tabs: 								true 																	!default;
+
+
+// Responsive Nav
+// --------------------------------------------------------------------------------------------------------------------
+// $responsive-nav: 					false 																!default;
 
 // Modals
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-$modal: 							false 			!default;
-$modal-buttons: 					false 			!default;
-$modal-thumbs: 						false 			!default;
+// --------------------------------------------------------------------------------------------------------------------
+$modal: 							false 																	!default;
+$modal-buttons: 					false 																	!default;
+$modal-thumbs: 						false 																	!default;
 
 // Sliders
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-$bx-slider:							false 			!default;
+// --------------------------------------------------------------------------------------------------------------------
+$slider:							false 																	!default;
 
 // Sliders
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-$easytabs:							false 			!default;
+// --------------------------------------------------------------------------------------------------------------------
+$tabs:								false 																	!default;
 
-// Z-INDEX
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-$zindex-dropdown:          			1000 			!default;
-$zindex-popover:           			1010 			!default;
-$zindex-tooltip:           			1030 			!default;
-$zindex-slider:     				1040 			!default;
-$zindex-modal:             			1050 			!default;
-
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-// ANIMAZIONI  @include animate(...)
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-$animations: 										fadeIn, fadeOut										!default;
-$animations-classes:								true 												!default;
-
-$animations-duration: 								.3s 												!default;
-$animations-delay: 									0s 													!default;
-$animations-function: 								ease-out 											!default;
-$animations-mode:									both 												!default;
-
-// Transizioni @include transition(...)
-// ------------------------------------------------------------------------------------------------------------------------
-$default-transition-duration:  						$animations-duration								!default;
-$default-transition-function: 						toBezier($animations-function) 						!default;
+// Font icons
+// --------------------------------------------------------------------------------------------------------------------
+$use-fontawesome: 									true 													!default;
+$use-brandico: 										false 													!default;
+$use-entypo: 										false 													!default;
+$use-fontelico: 									false 													!default;
+$use-maki: 											false 													!default;
+$use-openweb-icons: 								false 													!default;
+$use-typicons: 										false 													!default;
+$use-zocial: 										false 													!default;

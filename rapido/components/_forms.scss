@@ -82,6 +82,7 @@ input[type="color"],
 select {
 	color: $text-color;
 	display: inline-block;
+	// option:disabled {color: $gray;}
 }
 input,
 textarea,
@@ -151,6 +152,7 @@ textarea {
 }
 
 
+
 // RADIO & CHECKBOX
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 .radio,
@@ -189,7 +191,6 @@ textarea {
 
 span.select {
 	@extend %caret !optional;
-	@extend %select !optional;
 	@include border-radius(3px);
 	border-style: solid;
 	border-width: $input-border;
@@ -211,14 +212,18 @@ span.select {
 		position: relative;
 		width:100%;
 		z-index: 3;
+		line-height: 1em;
 	}
 
 	&:after {
 		position: absolute;
-		top: em($input-padding-top) / 1.5;
-		right: em($input-padding-side) * 1.5;
-		line-height: $input-height;
+		top: 50%;
+		right: em($input-padding-side);
+		content: "";
+		display: block;
 	}
+
+ 	@extend %select !optional;
 
 }
 

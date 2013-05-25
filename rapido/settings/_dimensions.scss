@@ -1,12 +1,12 @@
 
 // ********************************************************************************************************************
-// DIMENSIONI
+// DIMENSIONS
 // ********************************************************************************************************************
 $base-border-radius:  				4px 																	!default;
 $horizontal-offset:       			180px		 															!default;
 
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-// Caratteri
+// Text
 // --------------------------------------------------------------------------------------------------------------------
 $giga-size:         				$base-font-size * 7 													!default;
 $mega-size:         				$base-font-size * 5 													!default;
@@ -31,7 +31,7 @@ $input-border:						1px 																	!default;
 $input-padding-top: 				10px 																	!default;
 $input-padding-side:				10px 																	!default;
 
-// Calcoli
+// Do not edit
 $input-padding:						em($input-padding-top) em($input-padding-side)									;
 $input-height: 						em($base-font-size + ($input-padding-top * 2) + ($input-border * 2))			;
 $control-min-height: 				em($base-line-height + $label-margin-bottom) + $input-height - em(5px)  		;
@@ -40,6 +40,14 @@ $control-min-height: 				em($base-line-height + $label-margin-bottom) + $input-h
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Paddings
 // --------------------------------------------------------------------------------------------------------------------
+
+// Buttons
+$btn-padding: 						$input-padding															!default;
+$btn-large-padding: 				$input-padding															!default;
+$btn-small-padding: 				em($input-padding-top * .5) em($input-padding-side * .8)				!default;
+$btn-mini-padding:  				em($input-padding-top * .1) em($input-padding-side * .6)				!default;
+
+// Components
 $alerts-padding: 					$input-padding 															!default;
 $captions-padding: 					$input-padding 															!default;
 $dropdowns-padding:					$input-padding 															!default;
@@ -64,7 +72,7 @@ $palm-end:             				$lap-start - 1px;
 $lap-end:               			$desk-start - 1px;
 
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-// Griglie (Susy)
+// Grid (Susy)
 // --------------------------------------------------------------------------------------------------------------------
 $total-columns: 					12 																		!default;
 $column-width: 						50px 																	!default;
@@ -85,3 +93,11 @@ $responsive-nav-dropdown-pos: 		right 																	!default;
 $responsive-nav-toggle-size: 		30px 																	!default;
 
 
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Z-INDEX order
+// --------------------------------------------------------------------------------------------------------------------
+$zindex-dropdown:          			1000 																	!default;
+$zindex-popover:           			1010 																	!default;
+$zindex-tooltip:           			1030 																	!default;
+$zindex-slider:     				1040 																	!default;
+$zindex-modal:             			1050 																	!default;

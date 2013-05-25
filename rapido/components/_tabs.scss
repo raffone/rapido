@@ -1,4 +1,4 @@
-@if $easytabs == true {
+@if $tabs == true {
 
 	.tab-container {
 		margin-bottom: rhythm();
@@ -21,7 +21,6 @@
 					@extend %tab-btn !optional;
 
 					&:hover {
-						text-decoration: underline;
 						@extend %tab-btn_hover !optional;
 					}
 				}
@@ -47,8 +46,8 @@
 
 		.panel-container {
 			@extend %tab-container !optional;
-			padding: $tabs-content-padding;
 			@include border-radius(0 $base-border-radius $base-border-radius );
+			> div {padding: $tabs-content-padding;}
 		}
 
 	}

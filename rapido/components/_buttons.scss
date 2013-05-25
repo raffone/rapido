@@ -18,9 +18,10 @@
 	display: inline-block;
 	height: $input-height;
 	margin-bottom: 0;
-	padding: $input-padding;
+	padding: $btn-padding;
 	text-align: center;
 	vertical-align: middle;
+	line-height: 1em;
 
 	// Hover/focus state
 	&:hover,
@@ -67,22 +68,22 @@
 
 // Large
 .btn-large {
-	padding: em($input-padding-top) em($input-padding-side * 1.2);
+	padding: $btn-large-padding;
 	height: auto;
-	@include adjust-font-size-to($h4-size);
+	@include adjust-font-size-to($h5-size);
 
 }
 
 // Small
 .btn-small {
-	padding: em($input-padding-top * .5) em($input-padding-side * .8);
+	padding: $btn-small-padding;
 	height: auto;
 	@include adjust-font-size-to($milli-size);
 }
 
 // Mini
 .btn-mini {
-	padding: em($input-padding-top * .1) em($input-padding-side * .6);
+	padding: $btn-mini-padding;
 	height: auto;
 	@include adjust-font-size-to($micro-size);
 }

@@ -1,24 +1,26 @@
-@if $magic-sprites == true {
+.s {
+	position:relative;
+	content: "";
+	top:-1px;
+	display: inline-block;
+	overflow:hidden;
+	vertical-align:middle;
+	text-align:center;
+	font-style:normal;
+	zoom:1;
+	*text-indent:-9999px;
 
-	.s {
-		position:relative;
-		top:-1px;
-		display: inline-block;
-		overflow:hidden;
-		vertical-align:middle;
-		text-align:center;
-		font-style:normal;
-		zoom:1;
-		*text-indent:-9999px;
+	// &:before{
+	// 	display:block;
+	// 	width:0;
+	// 	height:100%;
+	// 	content:"";
+	// }
+}
 
-		&:before{
-			display:block;
-			width:0;
-			height:100%;
-			content:"";
-		}
-	}
+@include all-s-sprites(true);
 
-	@include all-s-sprites(true);
-
+@mixin sprite($name) {
+	@extend .s;
+	@extend .s-#{$name};
 }

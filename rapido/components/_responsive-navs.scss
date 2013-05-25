@@ -1,164 +1,166 @@
-.responsive-nav {
-	position: relative;
-	// max-height: none;
-	ul {margin-left: 0;}
-}
-
-
-// Stile navigazione desktop
-.responsive-nav.notactive {
-	@extend %nav-big !optional;
-
-	ul > .dropdown:hover{
-		@extend .open;
-	}
-}
-
-// Stile navigazione piccola
-.responsive-nav.active {
-	@extend %nav-small !optional;	
-	
-	.dropdown-submenu:hover > .dropdown-menu {
-		// @include experimental(animation, 0);
-	}
-}
-
-#nav-toggle {
-	display: none;
-	@extend %nav-toggle !optional;
-}
-
-@include media($responsive-nav-breakpoint) {
-		
-	// Stili generici per la nav
-	#nav-toggle {
-		display: inline-block;		
-	}
-
+@if $responsive-navs {
 	.responsive-nav {
-		// ul, li, a {margin: 0;}
+		position: relative;
+		// max-height: none;
+		ul {margin-left: 0;}
+	}
 
-		ul {
-			li {
-				// margin: 0;
-				a {
-					// padding: $input-padding;
-					// &:after { display: none;}
+
+	// Stile navigazione desktop
+	.responsive-nav.notactive {
+		@extend %nav-big !optional;
+
+		ul > .dropdown:hover{
+			@extend .open;
+		}
+	}
+
+	// Stile navigazione piccola
+	.responsive-nav.active {
+		@extend %nav-small !optional;
+
+		.dropdown-submenu:hover > .dropdown-menu {
+			// @include experimental(animation, 0);
+		}
+	}
+
+	#nav-toggle {
+		display: none;
+		@extend %nav-toggle !optional;
+	}
+
+	@include media($responsive-nav-breakpoint) {
+
+		// Stili generici per la nav
+		#nav-toggle {
+			display: inline-block;
+		}
+
+		.responsive-nav {
+			// ul, li, a {margin: 0;}
+
+			ul {
+				li {
+					// margin: 0;
+					a {
+						// padding: $input-padding;
+						// &:after { display: none;}
+					}
+
+					// li a {padding-left: $input-padding-side*4;}
+					// li li a {padding-left: $input-padding-side*6 ;}
+				}
+			}
+
+			.dropdown-menu {
+				li a {
+					@include border-radius(0);
 				}
 
-				// li a {padding-left: $input-padding-side*4;}
-				// li li a {padding-left: $input-padding-side*6 ;}
 			}
+
+
 		}
 
-		.dropdown-menu {
-			li a {
-				@include border-radius(0);
-			}
-			
-		}
-
-
-	}
-
-	// SLIDE
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	@if $responsive-nav-type == slide {	
-		.responsive-nav {
-			clip: rect(0 0 0 0);
-			max-height: 0;
-			display: block;
-			overflow: hidden;
-			zoom: 1;
-			
-		
-			&.opened {max-height: 9999px;}
-		}
-	}
-
-	// DROPDOWN
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––	
-	@if $responsive-nav-type == dropdown {
-
-		#nav-origin {
-			position: relative;
-		}
-
-		#nav-toggle {
-			float: $responsive-nav-dropdown-pos;
-		}
-
-
-		.responsive-nav {
-			position: absolute;
-			max-height: 0;
-			display: block;
-			overflow: hidden;
-			zoom: 1;
-			top: $responsive-nav-toggle-size;
-			left: 0;
-			right: 0;
-
-			&.opened {max-height: 9999px;}
-		}
-	}
-
-	// OFFCANVAS
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	@if $responsive-nav-type == off-canvas {
-		
-		// Wrappers 
+		// SLIDE
 		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-		#{$responsive-nav-outside-wrapper}, 
-		#{$responsive-nav-inside-wrapper} {
-			position: relative;
-			width: 100%;	
-		}
-
-		#{$responsive-nav-outside-wrapper} {
-			overflow-x: hidden;
-		}
-
-		// Transitions
-		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-		#{$responsive-nav-inside-wrapper},
-		.responsive-nav {
-			@include transition(500ms);	
-			@include backface-visibility(hidden);
-		}
-
-		
-		// Animations
-		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-		#{$responsive-nav-inside-wrapper} {
-			@include transform(translate3d(0,0,0));
-			left: 0;
-		}
-
-		.responsive-nav {
-			width: $responsive-nav-offset;
-			position: absolute;
-			height: 100%;
-			bottom: 0;
-			left: 0;
-			top: 0;
-			opacity: 0;
-			@include transform(translate3d(-100%,0,0));
-			// left: -$responsive-nav-offset;
-		}
-
-		.nav-open {
-			#{$responsive-nav-inside-wrapper} {
-				@include transform(translate3d($responsive-nav-offset,0,0));
-				// left: $responsive-nav-offset;
-			}
+		@if $responsive-nav-type == slide {
 			.responsive-nav {
-				@include transform(translate3d(-100%,0,0)); 
-				opacity: 1;
+				clip: rect(0 0 0 0);
+				max-height: 0;
+				display: block;
+				overflow: hidden;
+				zoom: 1;
+
+
+				&.opened {max-height: 9999px;}
 			}
 		}
 
+		// DROPDOWN
+		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+		@if $responsive-nav-type == dropdown {
 
-	} 
+			#nav-origin {
+				position: relative;
+			}
 
+			#nav-toggle {
+				float: $responsive-nav-dropdown-pos;
+			}
+
+
+			.responsive-nav {
+				position: absolute;
+				max-height: 0;
+				display: block;
+				overflow: hidden;
+				zoom: 1;
+				top: $responsive-nav-toggle-size;
+				left: 0;
+				right: 0;
+
+				&.opened {max-height: 9999px;}
+			}
+		}
+
+		// OFFCANVAS
+		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+		@if $responsive-nav-type == off-canvas {
+
+			// Wrappers
+			// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+			#{$responsive-nav-outside-wrapper},
+			#{$responsive-nav-inside-wrapper} {
+				position: relative;
+				width: 100%;
+			}
+
+			#{$responsive-nav-outside-wrapper} {
+				overflow-x: hidden;
+			}
+
+			// Transitions
+			// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+			#{$responsive-nav-inside-wrapper},
+			.responsive-nav {
+				@include transition(500ms);
+				@include backface-visibility(hidden);
+			}
+
+
+			// Animations
+			// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+			#{$responsive-nav-inside-wrapper} {
+				@include transform(translate3d(0,0,0));
+				left: 0;
+			}
+
+			.responsive-nav {
+				width: $responsive-nav-offset;
+				position: absolute;
+				height: 100%;
+				bottom: 0;
+				left: 0;
+				top: 0;
+				opacity: 0;
+				@include transform(translate3d(-100%,0,0));
+				// left: -$responsive-nav-offset;
+			}
+
+			.nav-open {
+				#{$responsive-nav-inside-wrapper} {
+					@include transform(translate3d($responsive-nav-offset,0,0));
+					// left: $responsive-nav-offset;
+				}
+				.responsive-nav {
+					@include transform(translate3d(-100%,0,0));
+					opacity: 1;
+				}
+			}
+
+
+		}
+
+	}
 }

@@ -1,5 +1,6 @@
 // Scaffolding
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+*, *:before, *:after {@include box-sizing(border-box); outline: none;}
 
 html {
 	@if $responsive-font-size {
@@ -37,7 +38,7 @@ a {
 a:hover,
 a:focus {
 	color: $link-color-hover;
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 
@@ -73,15 +74,16 @@ cite    { font-style: normal; }
 // Headings
 // -------------------------
 
-h1, .h1,
-h2, .h2,
-h3, .h3,
-h4, .h4,
-h5, .h5,
-h6, .h6 {
-	margin: 0;
-	margin-bottom: rhythm(.5);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0 0 1em;
 	text-rendering: optimizelegibility;
+	@if $titles-font-family { font-family: $titles-font-family; }
+
 	small {
 		font-weight: normal;
 		line-height: 1;
@@ -89,33 +91,33 @@ h6, .h6 {
 	}
 }
 
-h1 {
-	@include adjust-font-size-to($h1-size, 2);
+h1, .h1 {
+	@include adjust-font-size-to($h1-size);
 	@extend %h1 !optional;
 }
 
-h2 {
-	@include adjust-font-size-to($h2-size, 2);
+h2, .h2 {
+	@include adjust-font-size-to($h2-size);
 	@extend %h2 !optional;
 }
 
-h3 {
-	@include adjust-font-size-to($h3-size, 2);
+h3, .h3 {
+	@include adjust-font-size-to($h3-size);
 	@extend %h3 !optional;
 }
 
-h4 {
-	@include adjust-font-size-to($h4-size, 2);
+h4, .h4 {
+	@include adjust-font-size-to($h4-size);
 	@extend %h4 !optional;
 }
 
-h5 {
-	@include adjust-font-size-to($h5-size, 2);
+h5, .h5 {
+	@include adjust-font-size-to($h5-size);
 	@extend %h5 !optional;
 }
 
-h6 {
-	@include adjust-font-size-to($h6-size, 2);
+h6, .h6 {
+	@include adjust-font-size-to($h6-size);
 	@extend %h6 !optional;
 }
 
