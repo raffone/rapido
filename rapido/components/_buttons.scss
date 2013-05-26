@@ -8,111 +8,123 @@
 
 // Core
 // .btn, a[class*="btn"], button[class*="btn"], input[class*="btn"] {
-.btn {
-	// @include ie7-inline-block();
-	// line-height: 1em;
+[class^="btn"] {
 	@include border-radius($base-border-radius);
 	border-style: solid;
 	border-width: $input-border;
 	cursor: pointer;
 	display: inline-block;
-	height: $input-height;
+	line-height: 1em;
 	margin-bottom: 0;
-	padding: $btn-padding;
 	text-align: center;
 	vertical-align: middle;
-	line-height: 1em;
 
-	// Hover/focus state
-	&:hover,
-	&:focus {
-		text-decoration: none;
-	}
+	&:hover, &:focus { text-decoration: none; }
 
-	// Focus state for keyboard and accessibility
-	&:focus {
-		@include tab-focus();
-	}
+	&:focus { @include tab-focus(); }
 
-	// Active state
-	&.active,
-	&:active {
-		outline: 0;
-	}
+	&.active, &:active {outline: 0; }
 
-	// Disabled state
-	&.disabled,
-	&[disabled] {
+	&.disabled, &[disabled] {
 		cursor: default;
 		background-image: none;
 		@include opacity(65);
 		@include box-shadow(none);
 	}
 
+
+	// Button Colors
+	// --------------------------------------------------
+	& 							{ @extend %btn !optional; }
+	&[class*="-primary"] 		{ @extend %btn-primary !optional; }
+	&[class*="-secondary"] 		{ @extend %btn-secondary !optional; }
+	&[class*="-warning"] 		{ @extend %btn-warning !optional; }
+	&[class*="-danger"] 		{ @extend %btn-danger !optional; }
+	&[class*="-info"] 			{ @extend %btn-info !optional; }
+	&[class*="-success"] 		{ @extend %btn-success !optional; }
+	&[class*="-inverse"] 		{ @extend %btn-inverse !optional; }
+
+	// Button Sizes
+	// --------------------------------------------------
+	& {
+		height: $input-height;
+		padding: $btn-padding;
+	}
+
+	&[class*="-large"],
+	&[class*="-small"],
+	&[class*="-mini"] {
+		height: auto;
+	}
+
+	&[class*="-large"] {
+		@include adjust-font-size-to($h5-size);
+		padding: $btn-large-padding;
+	}
+
+	&[class*="-small"] {
+		@include adjust-font-size-to($milli-size);
+		padding: $btn-small-padding;
+	}
+
+	&[class*="-mini"] {
+		@include adjust-font-size-to($micro-size);
+		padding: $btn-mini-padding;
+	}
+
+	// Block button
+	// -------------------------
+
+	&[class*="-block"] {
+		display: block;
+		width: 100%;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	&[class*="-block"] + [class^="btn"][class*="-block"] {
+		margin-top: rhythm(.5);
+	}
+
+	// Link buttons
+	// --------------------------------------------------
+	&[class*="-link"],
+	&[class*="-link"]:active,
+	&[class*="-link"][disabled] {
+		background-color: transparent;
+		background-image: none;
+		@include box-shadow(none);
+	}
+	&[class*="-link"] {
+		border-color: transparent;
+		cursor: pointer;
+		color: $link-color;
+		@include border-radius(0);
+	}
+	&[class*="-link"]:hover,
+	&[class*="-link"]:focus {
+		color: $link-color-hover;
+		text-decoration: underline;
+		background-color: transparent;
+	}
+	&[class*="-link"][disabled]:hover,
+	&[class*="-link"][disabled]:focus {
+		color: $grayDark;
+		text-decoration: none;
+	}
+
+
 }
 
-// Button Colors
-// --------------------------------------------------
-.btn 				{ @extend %btn !optional; }
-.btn-primary 		{ @extend %btn-primary !optional; }
-.btn-secondary 		{ @extend %btn-secondary !optional; }
-.btn-warning 		{ @extend %btn-warning !optional; }
-.btn-danger 		{ @extend %btn-danger !optional; }
-.btn-info 			{ @extend %btn-info !optional; }
-.btn-success 		{ @extend %btn-success !optional; }
-.btn-inverse 		{ @extend %btn-inverse !optional; }
-
-
-// Button Sizes
-// --------------------------------------------------
-
-// Large
-.btn-large {
-	padding: $btn-large-padding;
-	height: auto;
-	@include adjust-font-size-to($h5-size);
-
-}
-
-// Small
-.btn-small {
-	padding: $btn-small-padding;
-	height: auto;
-	@include adjust-font-size-to($milli-size);
-}
-
-// Mini
-.btn-mini {
-	padding: $btn-mini-padding;
-	height: auto;
-	@include adjust-font-size-to($micro-size);
-}
-
-
-// Block button
-// -------------------------
-
-.btn-block {
-	display: block;
-	width: 100%;
-	padding-left: 0;
-	padding-right: 0;
-	//@include box-sizing(border-box);
-}
-
-// Vertically space out multiple block buttons
-.btn-block + .btn-block {
-	margin-top: rhythm(.5);
-}
 
 // Specificity overrides
-input[type="submit"],
-input[type="reset"],
-input[type="button"] {
-	&.btn-block {
-		width: 100%;
-	}
-}
+// input[type="submit"],
+// input[type="reset"],
+// input[type="button"] {
+// 	&.btn-block {
+// 		width: 100%;
+// 	}
+// }
 
 
 // Cross-browser Jank
@@ -144,31 +156,3 @@ input[type="button"] {
 		*padding-bottom: 1px;
 	}*/
 // }
-
-
-// Link buttons
-// --------------------------------------------------
-.btn-link,
-.btn-link:active,
-.btn-link[disabled] {
-	background-color: transparent;
-	background-image: none;
-	@include box-shadow(none);
-}
-.btn-link {
-	border-color: transparent;
-	cursor: pointer;
-	color: $link-color;
-	@include border-radius(0);
-}
-.btn-link:hover,
-.btn-link:focus {
-	color: $link-color-hover;
-	text-decoration: underline;
-	background-color: transparent;
-}
-.btn-link[disabled]:hover,
-.btn-link[disabled]:focus {
-	color: $grayDark;
-	text-decoration: none;
-}
