@@ -301,6 +301,41 @@
 }
 
 
+// Images
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+@mixin shadow-comicbook($padding: 5px, $color: #bbb, $size: 15px, $distance: 10px) {
+
+	$lightColor: lighten($color, 8);
+	$degree: $size/1px;
+
+	@include box-shadow(0 1px 3px $color);
+	border:5px solid #fff;
+	display: inline-block;
+	line-height: 0;
+	position: relative;
+
+	&:before,
+	&:after {
+		// border: 0;
+		background-color: $lightColor;
+		content: '';
+		z-index: -1;
+		position: absolute;
+		left: $distance;
+		bottom: $distance;
+		width: 70%;
+		height: 55%;
+		@include box-shadow(0 $size $size+1 $lightColor);
+		@include transform(skew(-15deg) rotate(-6deg));
+	}
+
+	&:after {
+		left: auto;
+		right: $distance+1;
+		@include transform(skew(15deg) rotate(6deg));
+
+	}
+}
 
 // GRID
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
