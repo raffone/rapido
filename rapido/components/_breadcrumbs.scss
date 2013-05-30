@@ -2,13 +2,14 @@
 // Breadcrumbs
 // --------------------------------------------------
 
+@if $breadcrumbs {
+	.breadcrumb {
+		margin: 0 0 rhythm();
+		list-style: none;
+		@extend %breadcrumb !optional;
 
-.breadcrumb {
-	margin: 0 0 rhythm();
-	list-style: none;
-	@extend %breadcrumb !optional;
+		> li { @include inline-block(); }
 
-	> li { @include inline-block(); }
-
-	.active {}
+		.active {}
+	}
 }

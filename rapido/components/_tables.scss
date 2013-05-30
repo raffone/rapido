@@ -2,105 +2,107 @@
 // Tables
 // --------------------------------------------------
 
+@if $tables {
 
-// BASE TABLES
-// -----------------
+	// BASE TABLES
+	// -----------------
 
-table {
-	max-width: 100%;
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-// BASELINE STYLES
-// ---------------
-
-.table {
-	width: 100%;
-	margin-bottom: rhythm(1);
-
-	th,
-	td {
-		padding: $tables-padding;
-		line-height: rhythm(1);
-		text-align: left;
-		vertical-align: top;
+	table {
+		max-width: 100%;
+		border-collapse: collapse;
+		border-spacing: 0;
 	}
 
-	th { font-weight: bold; }
+	// BASELINE STYLES
+	// ---------------
 
-	thead th { vertical-align: bottom; }
+	.table {
+		width: 100%;
+		margin-bottom: rhythm(1);
 
-	caption + thead tr:first-child th,
-	caption + thead tr:first-child td,
-	colgroup + thead tr:first-child th,
-	colgroup + thead tr:first-child td,
-	thead:first-child tr:first-child th,
-	thead:first-child tr:first-child td {
-		border-top: 0;
+		th,
+		td {
+			padding: $tables-padding;
+			line-height: rhythm(1);
+			text-align: left;
+			vertical-align: top;
+		}
+
+		th { font-weight: bold; }
+
+		thead th { vertical-align: bottom; }
+
+		caption + thead tr:first-child th,
+		caption + thead tr:first-child td,
+		colgroup + thead tr:first-child th,
+		colgroup + thead tr:first-child td,
+		thead:first-child tr:first-child th,
+		thead:first-child tr:first-child td {
+			border-top: 0;
+
+		}
+
+		tbody + tbody { border-top: 2px solid $grayLight; }
 
 	}
 
-	tbody + tbody { border-top: 2px solid $grayLight; }
-
-}
 
 
+	// CONDENSED TABLE W/ HALF PADDING
+	// -------------------------------
+	.table-condensed {
+		th,
+		td { padding: em(4px) em(5px); }
+	}
 
-// CONDENSED TABLE W/ HALF PADDING
-// -------------------------------
-.table-condensed {
-	th,
-	td { padding: em(4px) em(5px); }
-}
-
-// ZEBRA-STRIPING
-// --------------
-.table-striped {
-	@extend .table;
-	tbody {
-		> tr:nth-child(odd) > td,
-		> tr:nth-child(odd) > th {
-			@extend %table-striped !optional;
+	// ZEBRA-STRIPING
+	// --------------
+	.table-striped {
+		@extend .table;
+		tbody {
+			> tr:nth-child(odd) > td,
+			> tr:nth-child(odd) > th {
+				@extend %table-striped !optional;
+			}
 		}
 	}
-}
 
 
-// BORDERED VERSION
-// ----------------
+	// BORDERED VERSION
+	// ----------------
 
-.table-bordered {
-	@extend .table;
-	@extend %table-bordered !optional;
-}
+	.table-bordered {
+		@extend .table;
+		@extend %table-bordered !optional;
+	}
 
 
-// HOVER EFFECT
-// ------------
-.table-hover {
-	@extend .table;
-	tbody {
-		tr:hover > td,
-		tr:hover > th {
-			@extend %table-hover !optional;
+	// HOVER EFFECT
+	// ------------
+	.table-hover {
+		@extend .table;
+		tbody {
+			tr:hover > td,
+			tr:hover > th {
+				@extend %table-hover !optional;
+			}
 		}
 	}
-}
 
-// STUPID TABLE
-// ---------------
-.table-sortable {
-	@extend .table;
-	@extend %table-sortable !optional;
+	// STUPID TABLE
+	// ---------------
+	.table-sortable {
+		@extend .table;
+		@extend %table-sortable !optional;
 
-	thead {
-		th {
-			cursor: pointer;
+		thead {
+			th {
+				cursor: pointer;
 
-			&.sorting-asc:after,
-			&.sorting-desc:after {
-				float: right;
+				&.sorting-asc:after,
+				&.sorting-desc:after {
+					float: right;
+				}
 			}
 		}
 	}

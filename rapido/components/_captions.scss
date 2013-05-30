@@ -1,52 +1,54 @@
-[class^="caption-"] {
-	position: relative;
-	display: inline-block;
-	width: auto;
-	overflow: hidden;
-	line-height: 0;
-
-	&:after {
-		@extend %caption !optional;
+@if $captions {
+	[class^="caption-"] {
+		position: relative;
 		display: inline-block;
-		content: attr(data-content);
-		position: absolute;
-		line-height: rhythm();
-	}
-
-	&[class*="top"]:after 		{ top:0; }
-	&[class*="bottom"]:after 	{ bottom:0; }
-	&[class*="left"]:after 		{ left:0; }
-	&[class*="right"]:after 	{ right:0; }
-
-	&[class$="top"]:after,
-	&[class$="bottom"]:after 	{ left: 0; right: 0; }
-
-	// Animations
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	&[class*="fade"],
-	&[class*="float"] {
+		width: auto;
+		overflow: hidden;
+		line-height: 0;
 
 		&:after {
-			@include transition();
-			opacity: 0;
-			visibility: hidden;
+			@extend %caption !optional;
+			display: inline-block;
+			content: attr(data-content);
+			position: absolute;
+			line-height: rhythm();
 		}
 
-		&:hover:after {
-			opacity: 1;
-			visibility: visible;
+		&[class*="top"]:after 		{ top:0; }
+		&[class*="bottom"]:after 	{ bottom:0; }
+		&[class*="left"]:after 		{ left:0; }
+		&[class*="right"]:after 	{ right:0; }
+
+		&[class$="top"]:after,
+		&[class$="bottom"]:after 	{ left: 0; right: 0; }
+
+		// Animations
+		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+		&[class*="fade"],
+		&[class*="float"] {
+
+			&:after {
+				@include transition();
+				opacity: 0;
+				visibility: hidden;
+			}
+
+			&:hover:after {
+				opacity: 1;
+				visibility: visible;
+			}
 		}
-	}
 
-	// Float Animation
-	&[class*="float"][class*="top"] {
-		&:after { top: -10px; }
-		&:hover:after { top: 0; }
-	}
+		// Float Animation
+		&[class*="float"][class*="top"] {
+			&:after { top: -10px; }
+			&:hover:after { top: 0; }
+		}
 
-	&[class*="float"][class*="bottom"] {
-		&:after { bottom: -10px; }
-		&:hover:after { bottom: 0; }
-	}
+		&[class*="float"][class*="bottom"] {
+			&:after { bottom: -10px; }
+			&:hover:after { bottom: 0; }
+		}
 
+	}
 }

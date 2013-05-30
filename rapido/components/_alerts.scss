@@ -2,22 +2,23 @@
 // Alerts
 // --------------------------------------------------
 
+@if $alerts {
+	[class^="alert"] {
+		padding: $alerts-padding;
+		margin-bottom: rhythm();
+		@extend %alert;
 
-[class^="alert"] {
-	padding: $alerts-padding;
-	margin-bottom: rhythm();
-	@extend %alert;
+		p { margin: 0; }
 
-	p { margin: 0; }
+		.close {
+			position: relative;
+			top: 0;
+			right: 0;
+		}
 
-	.close {
-		position: relative;
-		top: 0;
-		right: 0;
-	}
-
-	&[class*="-block"] {
-		p, ul { margin-bottom: 0; }
-		p + p {  margin-top: 5px; }
+		&[class*="-block"] {
+			p, ul { margin-bottom: 0; }
+			p + p {  margin-top: 5px; }
+		}
 	}
 }

@@ -1,63 +1,65 @@
 //
 // Button groups
 // --------------------------------------------------
-.btn-group {
-	@extend .clearfix;
-	@include inline-block;
-	margin-bottom: 0;
-	position: relative;
-	vertical-align: middle;
-	white-space: nowrap;
-		> li {
-		float: left;
-		list-style-type: none;
-		display: inline-block;
-	}
-
-
-	// Space multiple inline groups
-	+ .btn-group { margin-left: em(5px); }
-
-	// Float button and reapply border radius
-	> .btn,
-	> li .btn {
-		@include border-radius(0);
-		float: left;
+@if $button-groups {
+	.btn-group {
+		@extend .clearfix;
+		@include inline-block;
+		margin-bottom: 0;
 		position: relative;
+		vertical-align: middle;
+		white-space: nowrap;
+			> li {
+			float: left;
+			list-style-type: none;
+			display: inline-block;
+		}
+
+
+		// Space multiple inline groups
+		+ .btn-group { margin-left: em(5px); }
+
+		// Float button and reapply border radius
+		> .btn,
+		> li .btn {
+			@include border-radius(0);
+			float: left;
+			position: relative;
+		}
+
+		> .btn + .btn,
+		> li + li {
+			margin-left: -($input-border);
+		}
+
+
+		> .btn:first-child,
+		> li:first-child .btn {
+			margin-left: 0;
+			@include border-top-left-radius($base-border-radius);
+			@include border-bottom-left-radius($base-border-radius);
+		}
+
+		> .btn:last-child,
+		> .dropdown-toggle,
+		> li:last-child .btn{
+			@include border-top-right-radius($base-border-radius);
+			@include border-bottom-right-radius($base-border-radius);
+		}
+
+
+		// On hover/focus/active, bring the proper btn to front
+		> .btn:hover,
+		> .btn:focus,
+		> .btn:active,
+		> .btn.active {
+			z-index: 2;
+		}
+
+		// // On active and open, don't show outline
+		// .dropdown-toggle:active,
+		// &.open .dropdown-toggle {
+		// 	outline: 0;
+		// }
 	}
-
-	> .btn + .btn,
-	> li + li {
-		margin-left: -($input-border);
-	}
-
-
-	> .btn:first-child,
-	> li:first-child .btn {
-		margin-left: 0;
-		@include border-top-left-radius($base-border-radius);
-		@include border-bottom-left-radius($base-border-radius);
-	}
-
-	> .btn:last-child,
-	> .dropdown-toggle,
-	> li:last-child .btn{
-		@include border-top-right-radius($base-border-radius);
-		@include border-bottom-right-radius($base-border-radius);
-	}
-
-
-	// On hover/focus/active, bring the proper btn to front
-	> .btn:hover,
-	> .btn:focus,
-	> .btn:active,
-	> .btn.active {
-		z-index: 2;
-	}
-
-	// // On active and open, don't show outline
-	// .dropdown-toggle:active,
-	// &.open .dropdown-toggle {
-	// 	outline: 0;
-	// }
 }

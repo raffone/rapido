@@ -6,153 +6,116 @@
 // Base styles
 // --------------------------------------------------
 
-// Core
-// .btn, a[class*="btn"], button[class*="btn"], input[class*="btn"] {
-[class^="btn"] {
-	@include border-radius($base-border-radius);
-	border-style: solid;
-	border-width: $input-border;
-	cursor: pointer;
-	display: inline-block;
-	line-height: 1em;
-	margin-bottom: 0;
-	text-align: center;
-	vertical-align: middle;
-
-	&:hover, &:focus { text-decoration: none; }
-
-	&:focus { @include tab-focus(); }
-
-	&.active, &:active {outline: 0; }
-
-	&.disabled, &[disabled] {
-		cursor: default;
-		background-image: none;
-		@include opacity(65);
-		@include box-shadow(none);
-	}
-
-
-	// Button Colors
-	// --------------------------------------------------
-	& 							{ @extend %btn !optional; }
-	&[class*="-primary"] 		{ @extend %btn-primary !optional; }
-	&[class*="-secondary"] 		{ @extend %btn-secondary !optional; }
-	&[class*="-warning"] 		{ @extend %btn-warning !optional; }
-	&[class*="-danger"] 		{ @extend %btn-danger !optional; }
-	&[class*="-info"] 			{ @extend %btn-info !optional; }
-	&[class*="-success"] 		{ @extend %btn-success !optional; }
-	&[class*="-inverse"] 		{ @extend %btn-inverse !optional; }
-
-	// Button Sizes
-	// --------------------------------------------------
-	& {
-		height: $input-height;
-		padding: $btn-padding;
-	}
-
-	&[class*="-large"],
-	&[class*="-small"],
-	&[class*="-mini"] {
-		height: auto;
-	}
-
-	&[class*="-large"] {
-		@include adjust-font-size-to($h5-size);
-		padding: $btn-large-padding;
-	}
-
-	&[class*="-small"] {
-		@include adjust-font-size-to($milli-size);
-		padding: $btn-small-padding;
-	}
-
-	&[class*="-mini"] {
-		@include adjust-font-size-to($micro-size);
-		padding: $btn-mini-padding;
-	}
-
-	// Block button
-	// -------------------------
-
-	&[class*="-block"] {
-		display: block;
-		width: 100%;
-		padding-left: 0;
-		padding-right: 0;
-	}
-
-	&[class*="-block"] + [class^="btn"][class*="-block"] {
-		margin-top: rhythm(.5);
-	}
-
-	// Link buttons
-	// --------------------------------------------------
-	&[class*="-link"],
-	&[class*="-link"]:active,
-	&[class*="-link"][disabled] {
-		background-color: transparent;
-		background-image: none;
-		@include box-shadow(none);
-	}
-	&[class*="-link"] {
-		border-color: transparent;
+@if $buttons {
+	// Core
+	// .btn, a[class*="btn"], button[class*="btn"], input[class*="btn"] {
+	// [class^="btn"] {
+	[class*="btn"] {
+		@include border-radius($base-border-radius);
+		border-style: solid;
+		border-width: $input-border;
 		cursor: pointer;
-		color: $link-color;
-		@include border-radius(0);
-	}
-	&[class*="-link"]:hover,
-	&[class*="-link"]:focus {
-		color: $link-color-hover;
-		text-decoration: underline;
-		background-color: transparent;
-	}
-	&[class*="-link"][disabled]:hover,
-	&[class*="-link"][disabled]:focus {
-		color: $grayDark;
-		text-decoration: none;
-	}
+		display: inline-block;
+		line-height: 1em;
+		margin-bottom: 0;
+		text-align: center;
+		vertical-align: middle;
 
+		&:hover, &:focus { text-decoration: none; }
+
+		&:focus { @include tab-focus(); }
+
+		&.active, &:active {outline: 0; }
+
+		&.disabled, &[disabled] {
+			cursor: default;
+			background-image: none;
+			@include opacity(65);
+			@include box-shadow(none);
+		}
+
+
+		// Button Colors
+		// --------------------------------------------------
+		& 							{ @extend %btn !optional; }
+		&[class*="-primary"] 		{ @extend %btn-primary !optional; }
+		&[class*="-secondary"] 		{ @extend %btn-secondary !optional; }
+		&[class*="-warning"] 		{ @extend %btn-warning !optional; }
+		&[class*="-danger"] 		{ @extend %btn-danger !optional; }
+		&[class*="-info"] 			{ @extend %btn-info !optional; }
+		&[class*="-success"] 		{ @extend %btn-success !optional; }
+		&[class*="-inverse"] 		{ @extend %btn-inverse !optional; }
+
+		// Button Sizes
+		// --------------------------------------------------
+		& {
+			height: $input-height;
+			padding: $btn-padding;
+		}
+
+		&[class*="-large"],
+		&[class*="-small"],
+		&[class*="-mini"] {
+			height: auto;
+		}
+
+		&[class*="-large"] {
+			@include adjust-font-size-to($h5-size);
+			padding: $btn-large-padding;
+		}
+
+		&[class*="-small"] {
+			@include adjust-font-size-to($milli-size);
+			padding: $btn-small-padding;
+		}
+
+		&[class*="-mini"] {
+			@include adjust-font-size-to($micro-size);
+			padding: $btn-mini-padding;
+		}
+
+		// Block button
+		// -------------------------
+
+		&[class*="-block"] {
+			display: block;
+			width: 100%;
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		&[class*="-block"] + [class^="btn"][class*="-block"] {
+			margin-top: rhythm(.5);
+		}
+
+		// Link buttons
+		// --------------------------------------------------
+		&[class*="-link"],
+		&[class*="-link"]:active,
+		&[class*="-link"][disabled] {
+			background-color: transparent;
+			background-image: none;
+			@include box-shadow(none);
+		}
+		&[class*="-link"] {
+			border-color: transparent;
+			cursor: pointer;
+			color: $link-color;
+			@include border-radius(0);
+		}
+		&[class*="-link"]:hover,
+		&[class*="-link"]:focus {
+			color: $link-color-hover;
+			text-decoration: underline;
+			background-color: transparent;
+		}
+		&[class*="-link"][disabled]:hover,
+		&[class*="-link"][disabled]:focus {
+			color: $grayDark;
+			text-decoration: none;
+		}
+
+
+	}
 
 }
-
-
-// Specificity overrides
-// input[type="submit"],
-// input[type="reset"],
-// input[type="button"] {
-// 	&.btn-block {
-// 		width: 100%;
-// 	}
-// }
-
-
-// Cross-browser Jank
-// --------------------------------------------------
-
-// button.btn,
-// input[type="submit"].btn {
-
-// 	// Firefox 3.6 only I believe
-// 	&::-moz-focus-inner {
-// 		padding: 0;
-// 		border: 0;
-// 	}
-
-	// IE7 has some default padding on button controls
-	/**padding-top: 3px;
-	*padding-bottom: 3px;
-
-	&.btn-large {
-		*padding-top: 7px;
-		*padding-bottom: 7px;
-	}
-	&.btn-small {
-		*padding-top: 3px;
-		*padding-bottom: 3px;
-	}
-	&.btn-mini {
-		*padding-top: 1px;
-		*padding-bottom: 1px;
-	}*/
-// }

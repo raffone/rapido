@@ -1,82 +1,84 @@
 //
 // Pagination (multiple pages)
 // --------------------------------------------------
+@if $pagination {
 
-[class^="pagination"] {
-	margin: rhythm() 0;
+	[class^="pagination"] {
+		margin: rhythm() 0;
 
-	ul {
-		@include border-radius($base-border-radius);
-		@include inline-block();
-		margin-bottom: 0;
-		margin-left: $input-border;
-		margin-left: 0;
+		ul {
+			@include border-radius($base-border-radius);
+			@include inline-block();
+			margin-bottom: 0;
+			margin-left: $input-border;
+			margin-left: 0;
 
-		li {
-			display: inline;
+			li {
+				display: inline;
 
-			a,
-			span {
-				float: left;
-				padding: $pagination-padding;
-				line-height: 1em;
-				text-decoration: none;
-				border-left-width: 0;
-				border-width: $input-border;
-				border-style: solid;
-				margin-left: -$input-border;
-				@extend %pagination-btn !optional;
+				a,
+				span {
+					float: left;
+					padding: $pagination-padding;
+					line-height: 1em;
+					text-decoration: none;
+					border-left-width: 0;
+					border-width: $input-border;
+					border-style: solid;
+					margin-left: -$input-border;
+					@extend %pagination-btn !optional;
+				}
+			}
+
+
+			li > a:hover,
+			li > a:focus {
+				@extend %pagination-btn_hover !optional;
+			}
+
+			.active > a,
+			.active > a:hover,
+			.active > span,
+			.active > span:hover {
+				@extend %pagination-btn_active !optional;
+			}
+
+			.disabled > span,
+			.disabled > a,
+			.disabled > a:hover,
+			.disabled > a:focus {
+				@extend %pagination-btn_disabled !optional;
+			}
+
+			.active > a,
+			.active > span,
+			.disabled > span,
+			.disabled > a,
+			.disabled > a:hover,
+			.disabled > a:focus {
+				cursor: default;
 			}
 		}
 
+		// Alignment
+		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+		&[class*="-center"] {text-align: center; }
+		&[class*="-right"] 	{text-align: right; }
 
-		li > a:hover,
-		li > a:focus {
-			@extend %pagination-btn_hover !optional;
+		// Rounded sides
+		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+		&[class*="-rounded"] {
+			li:first-child > a,
+			li:first-child > span {
+				border-left-width: 1px;
+				@include border-left-radius($base-border-radius);
+			}
+
+			li:last-child > a,
+			li:last-child > span {
+				@include border-right-radius($base-border-radius);
+			}
 		}
 
-		.active > a,
-		.active > a:hover,
-		.active > span,
-		.active > span:hover {
-			@extend %pagination-btn_active !optional;
-		}
-
-		.disabled > span,
-		.disabled > a,
-		.disabled > a:hover,
-		.disabled > a:focus {
-			@extend %pagination-btn_disabled !optional;
-		}
-
-		.active > a,
-		.active > span,
-		.disabled > span,
-		.disabled > a,
-		.disabled > a:hover,
-		.disabled > a:focus {
-			cursor: default;
-		}
 	}
-
-	// Alignment
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	&[class*="-center"] {text-align: center; }
-	&[class*="-right"] 	{text-align: right; }
-
-	// Rounded sides
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	&[class*="-rounded"] {
-		li:first-child > a,
-		li:first-child > span {
-			border-left-width: 1px;
-			@include border-left-radius($base-border-radius);
-		}
-
-		li:last-child > a,
-		li:last-child > span {
-			@include border-right-radius($base-border-radius);
-		}
-	}
-
 }

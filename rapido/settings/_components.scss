@@ -3,52 +3,43 @@
 // Enable Components
 // --------------------------------------------------------------------------------------------------------------------
 
-$alerts: 							true 																	!default;
-$buttons: 							true 																	!default;
-$dropdowns: 						true 																	!default;
-$modals: 							true 																	!default;
-$pagination: 						true 																	!default;
-$sliders: 							true 																	!default;
-$type: 								true 																	!default;
-$breadcrumbs: 						true 																	!default;
-$captions: 							true 																	!default;
-$forms: 							true 																	!default;
-$navs: 								true 																	!default;
-$pills: 							true 																	!default;
-$tables: 							true 																	!default;
-$button-groups: 					true 																	!default;
-$close: 							true 																	!default;
-$images: 							true 																	!default;
-$pager: 							true 																	!default;
-$responsive-navs: 					true 																	!default;
-$tabs: 								true 																	!default;
+$alerts: 							true 		!default;
+$breadcrumbs: 						true 		!default;
+$button-groups: 					true 		!default;
+$buttons: 							true 		!default;
+$captions: 							true 		!default;
+$close: 							true 		!default;
+$dropdowns: 						true 		!default;
+
+$forms: 							true 		!default;
+	$forms-append:					true 		!default;
+	$forms-inline: 					true 		!default;
+	$forms-horizontal:				true 		!default;
+	$forms-columns: 				true 		!default;
+
+$modals: 							true 		!default;
+$navs: 								true 		!default;
+$pager: 							true 		!default;
+$pagination: 						true 		!default;
+$pills: 							true 		!default;
+$responsive-navs: 					true 		!default;
+$tables: 							true 		!default;
+
+$tabs:								true 		!default;
+$slider:							true 		!default;
+$modal: 							true 		!default;
+	$modal-buttons: 				true 		!default;
+	$modal-thumbs: 					true 		!default;
 
 
-// Responsive Nav
+// Icon Fonts
 // --------------------------------------------------------------------------------------------------------------------
-// $responsive-nav: 					false 																!default;
+$use-fontawesome: 					true 		!default;
 
-// Modals
-// --------------------------------------------------------------------------------------------------------------------
-$modal: 							false 																	!default;
-$modal-buttons: 					false 																	!default;
-$modal-thumbs: 						false 																	!default;
-
-// Sliders
-// --------------------------------------------------------------------------------------------------------------------
-$slider:							false 																	!default;
-
-// Sliders
-// --------------------------------------------------------------------------------------------------------------------
-$tabs:								false 																	!default;
-
-// Font icons
-// --------------------------------------------------------------------------------------------------------------------
-$use-fontawesome: 									true 													!default;
-$use-brandico: 										false 													!default;
-$use-entypo: 										false 													!default;
-$use-fontelico: 									false 													!default;
-$use-maki: 											false 													!default;
-$use-openweb-icons: 								false 													!default;
-$use-typicons: 										false 													!default;
-$use-zocial: 										false 													!default;
+$use-brandico: 						false 		!default;
+$use-entypo: 						false 		!default;
+$use-fontelico: 					false 		!default;
+$use-maki: 							false 		!default;
+$use-openweb-icons: 				false 		!default;
+$use-typicons: 						false 		!default;
+$use-zocial: 						false 		!default;

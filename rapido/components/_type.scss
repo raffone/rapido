@@ -131,9 +131,9 @@ h4 small { @include adjust-font-size-to($h6-size); }
 // Lists
 // --------------------------------------------------
 
-.list_style_none {
-	padding: 0;
-	margin: 0;
+.list_style_none, .list-style-none {
+	padding-left: 0;
+	margin-left: 0;
 	list-style: none;
 }
 

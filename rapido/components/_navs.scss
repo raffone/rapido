@@ -1,99 +1,102 @@
 
+@if $navs {
 
-// Navs
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-[class^="nav"] {
-	@extend .clearfix;
-	list-style: none;
-	margin-bottom: rhythm();
-	margin-left: 0;
-	padding-left: 0;
-
-	li {
-
-		> a {
-			display: block;
-			line-height: 1em;
-
-			&:hover, &:focus {
-				text-decoration: none;
-			}
-
-			img { max-width: none; }
-		}
-
-		&.disabled > a:hover,
-		&.disabled > a:focus {
-			text-decoration: none;
-			background-color: transparent;
-			cursor: default;
-		}
-	}
-
-	&[class*="-btn"] {
+	// Navs
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	[class^="nav"] {
+		@extend .clearfix;
+		list-style: none;
+		margin-bottom: rhythm();
+		margin-left: 0;
+		padding-left: 0;
 
 		li {
 
 			> a {
-				padding: $navs-padding;
-				@extend %nav-btn;
+				display: block;
+				line-height: 1em;
 
 				&:hover, &:focus {
-					@extend %nav-btn_hover;
+					text-decoration: none;
 				}
 
+				img { max-width: none; }
 			}
 
-			&.active > a,
-			&.active > a:hover,
-			&.active > a:focus {
-				@extend %nav-btn_active;
+			&.disabled > a:hover,
+			&.disabled > a:focus {
+				text-decoration: none;
+				background-color: transparent;
+				cursor: default;
+			}
+		}
+
+		&[class*="-btn"] {
+
+			li {
+
+				> a {
+					padding: $navs-padding;
+					@extend %nav-btn;
+
+					&:hover, &:focus {
+						@extend %nav-btn_hover;
+					}
+
+				}
+
+				&.active > a,
+				&.active > a:hover,
+				&.active > a:focus {
+					@extend %nav-btn_active;
+				}
+
+				// Disabled
+				&.disabled > a { @extend %nav-btn_disabled; }
 			}
 
-			// Disabled
-			&.disabled > a { @extend %nav-btn_disabled; }
 		}
 
-	}
 
-
-	// Horizontal nav
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	&[class*="-o"] {
-		li { float: left;}
-	}
-
-	// Vertical nav
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	&[class*="-v"] {
-
-		.title {
-			@include adjust-font-size-to($milli-size);
-			color: $gray;
-			display: block;
-			font-weight: bold;
-			padding: $input-padding;
-			text-transform: uppercase;
+		// Horizontal nav
+		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+		&[class*="-o"] {
+			li { float: left;}
 		}
 
-		.divider { @include nav-divider(); }
-	}
+		// Vertical nav
+		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+		&[class*="-v"] {
 
-	// Pills
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	&[class*="-pills"] {
-		> li > a {
-			@include border-radius($base-border-radius);
-			margin-right: em(4px);
+			.title {
+				@include adjust-font-size-to($milli-size);
+				color: $gray;
+				display: block;
+				font-weight: bold;
+				padding: $input-padding;
+				text-transform: uppercase;
+			}
+
+			.divider { @include nav-divider(); }
 		}
 
-		&[class*="-v-"] > li > a { margin-bottom: em(4px);  }
-		&[class*="-v-"] > li:last-child > a { margin-bottom: 0; }
+		// Pills
+		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+		&[class*="-pills"] {
+			> li > a {
+				@include border-radius($base-border-radius);
+				margin-right: em(4px);
+			}
+
+			&[class*="-v-"] > li > a { margin-bottom: em(4px);  }
+			&[class*="-v-"] > li:last-child > a { margin-bottom: 0; }
+		}
+
+		// Position
+		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+		&[class$="-right"]{ float: right; }
+
+
 	}
-
-	// Position
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	&[class$="-right"]{ float: right; }
-
 
 }

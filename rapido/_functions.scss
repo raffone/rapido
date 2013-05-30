@@ -36,5 +36,15 @@
 	@elseif $easing == easeInOutCirc  { @return cubic-bezier(0.785, 0.135, 0.150, 0.860); }
 	@elseif $easing == easeInOutBack  { @return cubic-bezier(.680, -0.550, 0.265, 1.550); }
 	@else 							  { @return null; }
-	
+
+}
+
+
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+@function rhythm_neg($i: 1) {
+	@return -(rhythm($i));
+}
+
+@function space_neg($w: 1, $c: 12) {
+	@return -(space($w, $c));
 }

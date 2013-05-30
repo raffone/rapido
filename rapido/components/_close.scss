@@ -1,26 +1,27 @@
 //
 // Close icons
 // --------------------------------------------------
-
-.close {
-	float: right;
-	font-size: 1em;
-	font-weight: bold;
-	color: $black;
-	@include opacity(20);
-	&:hover,
-	&:focus {
+@if $close {
+	.close {
+		float: right;
+		font-size: 1em;
+		font-weight: bold;
 		color: $black;
-		text-decoration: none;
-		cursor: pointer;
-		@include opacity(40);
+		@include opacity(20);
+		&:hover,
+		&:focus {
+			color: $black;
+			text-decoration: none;
+			cursor: pointer;
+			@include opacity(40);
+		}
 	}
-}
 
-button.close {
-	padding: 0;
-	cursor: pointer;
-	background: transparent;
-	border: 0;
-	-webkit-appearance: none;
+	button.close {
+		padding: 0;
+		cursor: pointer;
+		background: transparent;
+		border: 0;
+		-webkit-appearance: none;
+	}
 }
