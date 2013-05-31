@@ -6,7 +6,7 @@
 	[class^="pagination"] {
 		margin: rhythm() 0;
 
-		ul {
+		> * {
 			@include border-radius($base-border-radius);
 			@include inline-block();
 			margin-bottom: 0;
@@ -14,40 +14,46 @@
 			margin-left: 0;
 
 			li {
-				display: inline;
+				display: inline-block;
+				// float: left;
 
 				a,
 				span {
-					float: left;
+					display: inline-block;
 					padding: $pagination-padding;
 					line-height: 1em;
 					text-decoration: none;
-					border-left-width: 0;
 					border-width: $input-border;
+					border-left-width: 0;
 					border-style: solid;
 					margin-left: -$input-border;
-					@extend %pagination-btn !optional;
+					@extend %pagination_btn !optional;
 				}
 			}
 
 
 			li > a:hover,
 			li > a:focus {
-				@extend %pagination-btn_hover !optional;
+				@extend %pagination_btn-hover !optional;
 			}
 
+			// Bootstrap
 			.active > a,
 			.active > a:hover,
 			.active > span,
-			.active > span:hover {
-				@extend %pagination-btn_active !optional;
+			.active > span:hover,
+
+			// WP Paginate
+			.current,
+			.current:hover {
+				@extend %pagination_btn-active !optional;
 			}
 
 			.disabled > span,
 			.disabled > a,
 			.disabled > a:hover,
 			.disabled > a:focus {
-				@extend %pagination-btn_disabled !optional;
+				@extend %pagination_btn-disabled !optional;
 			}
 
 			.active > a,
