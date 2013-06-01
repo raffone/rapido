@@ -17,5 +17,4 @@ It's still a early alpha, when I'll fixed the majority of the bugs I'll write so
 
 == Copyright
 
-Copyright (c) 2013 Raffaele Rasini. See LICENSE.txt for
-further details.
+Copyright (c) 2013 Raffaele Rasini. See LICENSE.txt for further details.
