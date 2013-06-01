@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
     "lib/rapido-css.rb",
     "lib/rapido-css/rails.rb",
     "lib/rapido-css/rails/engine.rb",
+    "lib/rapido-css/version.rb",
     "rapido-css.gemspec",
     "stylesheets/rapido-css/_components.scss",
     "stylesheets/rapido-css/_default-styles.scss",
