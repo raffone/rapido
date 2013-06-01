@@ -19,8 +19,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "rapido-css"
   gem.homepage = "http://github.com/raffone/rapido-css"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = "Simple prototyping framework built on top of Bootstrap"
+  gem.description = "An early alpha gem for the framework"
   gem.email = "raffaele.rasini@gmail.com"
   gem.authors = ["Raffaele Rasini"]
   # dependencies defined in Gemfile
