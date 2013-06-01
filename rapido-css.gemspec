@@ -74,9 +74,7 @@ Gem::Specification.new do |s|
     "stylesheets/rapido-css/utilities/_media-queries.scss",
     "stylesheets/rapido-css/utilities/_mixins.scss",
     "stylesheets/rapido-css/utilities/_retina-sprites.scss",
-    "stylesheets/rapido-css/utilities/_sprites.scss",
-    "test/helper.rb",
-    "test/test_rapido-css.rb"
+    "stylesheets/rapido-css/utilities/_sprites.scss"
   ]
   s.homepage = "http://github.com/raffone/rapido-css"
   s.licenses = ["MIT"]
