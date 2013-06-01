@@ -1,7 +1,10 @@
+// ====================================================================================================================
+// SPRITES
+// ====================================================================================================================
+
+
 .s {
-	// position:relative;
 	content: "";
-	// top:-1px;
 	display: inline-block;
 	overflow:hidden;
 	vertical-align:middle;
@@ -9,13 +12,6 @@
 	font-style:normal;
 	zoom:1;
 	*text-indent:-9999px;
-
-	// &:before{
-	// 	display:block;
-	// 	width:0;
-	// 	height:100%;
-	// 	content:"";
-	// }
 }
 
 @include all-s-sprites(true);

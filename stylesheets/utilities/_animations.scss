@@ -1,6 +1,10 @@
+// ====================================================================================================================
+// ANIMATIONS
+// ====================================================================================================================
 
-// FALSE per tutte le animazione
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Disable all animations by default
+// --------------------------------------------------------------------------------------------------------------------
 $fadeIn:				false !default;
 $fadeOut:				false !default;
 $fadeInUp:				false !default;
@@ -44,9 +48,9 @@ $rotateIn:				false !default;
 $rotateOut:				false !default;
 $tada:					false !default;
 
-
-// ATTIVA ANIMAZIONI
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Enable animation from the settings
+// --------------------------------------------------------------------------------------------------------------------
 @each $animation in $animations {
 	@if $animation == 'fadeIn'              {$fadeIn:               true;}
 	@if $animation == 'fadeOut'             {$fadeOut:              true;}
@@ -92,12 +96,15 @@ $tada:					false !default;
 	@if $animation == 'tada'                {$tada:                 true;}
 }
 
+
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Animate Mixin Plugin;
+// --------------------------------------------------------------------------------------------------------------------
 @mixin animate($name, $duration: $animations-duration, $delay: $animations-delay, $function: $animations-function, $mode: $animations-mode) {
 	@include experimental(animation, $name $duration $delay $function $mode);
 }
 
-// Classi sileziose per le animazioni da usare con @extend;
+// Classes that can be used with @extend;
 @if $animations-classes {
 	@each $animation in $animations {
 		%#{$animation} {
@@ -106,8 +113,9 @@ $tada:					false !default;
 	}
 }
 
-
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Keyframes
+// --------------------------------------------------------------------------------------------------------------------
 @if $fadeIn == true {
 	@include keyframes(fadeIn) {
 		0% {    opacity: 0; }

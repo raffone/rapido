@@ -1,0 +1,39 @@
+// ====================================================================================================================
+// LABELS & BADGES
+// ====================================================================================================================
+
+@if $labels {
+
+	.label,
+	.badge {
+		@extend %pill !optional;
+		display: inline-block;
+		padding: $pills-padding;
+		vertical-align: baseline;
+		white-space: nowrap;
+	}
+
+	.label { @include border-radius($base-border-radius); }
+	.badge { @include border-radius(20px); }
+
+	.label, .badge {
+		&:empty { display: none; }
+	}
+
+	a {
+		&.label:hover,
+		&.label:focus,
+		&.badge:hover,
+		&.badge:focus {
+			color: $white;
+			text-decoration: none;
+			cursor: pointer;
+		}
+	}
+
+	.btn {
+		.label, .badge {
+			margin: -.2em -.35em 0 .35em ;
+		}
+	}
+}

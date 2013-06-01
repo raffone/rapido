@@ -1,22 +1,16 @@
-//
-// Mixins
-// --------------------------------------------------
+// ====================================================================================================================
+// MIXINS
+// ====================================================================================================================
 
-
-// UTILITY MIXINS
-// --------------------------------------------------
-
-// Clearfix
-// --------
-// For clearing floats like a boss h5bp.com/q
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Base
+// --------------------------------------------------------------------------------------------------------------------
 @mixin clearfix {
 	*zoom: 1;
 	&:before,
 	&:after {
 		display: table;
 		content: "";
-		// Fixes Opera/contenteditable bug:
-		// http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
 		line-height: 0;
 	}
 	&:after {
@@ -24,21 +18,12 @@
 	}
 }
 
-// Webkit-style focus
-// ------------------
-@mixin tab-focus() {}
-
-// Center-align a block level element
-// ----------------------------------
-@mixin center-block() {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
 
 
-// Sizing shortcuts
-// -------------------------
+
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Shortcuts
+// --------------------------------------------------------------------------------------------------------------------
 @mixin size($height, $width) {
 	width: $width;
 	height: $height;
@@ -46,41 +31,6 @@
 @mixin square($size) {
 	@include size($size, $size);
 }
-
-// Placeholder text
-// -------------------------
-@mixin placeholder($color: $gray) {
-	&:-moz-placeholder {
-		color: $color;
-	}
-	&:-ms-input-placeholder {
-		color: $color;
-	}
-	&::-webkit-input-placeholder {
-		color: $color;
-	}
-}
-
-// Text overflow
-// -------------------------
-// Requires inline-block or block for proper styling
-@mixin text-overflow() {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-}
-
-
-@mixin hide-text {
-	color:            transparent;
-	font:             0/0 a;
-	text-shadow:      none;
-}
-
-// @mixin reset-filter() {
-//   filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
-// }
-
 
 @mixin position ($position: relative, $coordinates: 0 0 0 0) {
 
@@ -125,6 +75,11 @@
 	}
 }
 
+@mixin center-block() {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
 
 @mixin center ($width, $height: null) {
 	@include position(absolute, 50% 0 0 50%);
@@ -133,7 +88,42 @@
 	@else { margin-top: -($width / 2);  }
 }
 
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Forms
+// --------------------------------------------------------------------------------------------------------------------
+@mixin placeholder($color: $gray) {
+	&:-moz-placeholder {
+		color: $color;
+	}
+	&:-ms-input-placeholder {
+		color: $color;
+	}
+	&::-webkit-input-placeholder {
+		color: $color;
+	}
+}
 
+@mixin tab-focus() {}
+
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Text overflow
+// --------------------------------------------------------------------------------------------------------------------
+@mixin text-overflow() {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+
+@mixin hide-text {
+	color:            transparent;
+	font:             0/0 a;
+	text-shadow:      none;
+}
+
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Pseudo Elements
+// --------------------------------------------------------------------------------------------------------------------
 @mixin triangle ($size, $color, $direction) {
 	height: 0;
 	width: 0;
@@ -183,7 +173,6 @@
 // For now only side triangles with border
 @mixin triangle_border($size, $color, $border-color, $border-width, $direction) {
 
-	// $border-width-fix: '';
 	$border-width-fix: '';
 
 	@if $border-width == 1px {
@@ -218,16 +207,14 @@
 }
 
 
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Colors
+// --------------------------------------------------------------------------------------------------------------------
 @mixin text-inset-shadow($bg: #fff, $textcolor: #054d4a, $contrast:  #f43059) {
 	$shadow: darken($textcolor, 30%);
 
 	color: rgba($textcolor, 0.8);
 	text-shadow: 1px 5px 7px $bg, 0 0 0 rgba($shadow,.8);
-	// ::-moz-selection, ::selection {
-	// 	background: $contrast;
-	// 	color: $bg;
-	// 	text-shadow: none;
-	// }
 }
 
 @mixin alpha-color($color: #fff, $alpha: .5, $attribute: background) {
@@ -240,51 +227,31 @@
 	}
 }
 
-
-// Adds keyframes blocks for supported prefixes, removing redundant prefixes in the block's content
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Keyframes support
+// --------------------------------------------------------------------------------------------------------------------
 @mixin keyframes($name) {
-	// $original-prefix-for-webkit:    $prefix-for-webkit;
-	// $original-prefix-for-mozilla:   $prefix-for-mozilla;
-	// $original-prefix-for-opera:     $prefix-for-opera;
-	// $original-prefix-for-spec:      $prefix-for-spec;
-
-	// @if $original-prefix-for-webkit {
-	//   @include disable-prefix-for-all();
-	//   $prefix-for-webkit: true;
 	@-webkit-keyframes #{$name} {
 		@content;
 	}
-	// }
-	// @if $original-prefix-for-mozilla {
-	//   @include disable-prefix-for-all();
-	//   $prefix-for-mozilla: true;
+
 	@-moz-keyframes #{$name} {
 		@content;
 	}
-	// }
-	// @if $original-prefix-for-opera {
-	//   @include disable-prefix-for-all();
-	//   $prefix-for-opera: true;
+
 	@-o-keyframes #{$name} {
 		@content;
 	}
-	// }
-	// @if $original-prefix-for-spec {
-	//   @include disable-prefix-for-all();
-	//   $prefix-for-spec: true;
 	@keyframes #{$name} {
 		@content;
 	}
-	// }
-
 }
 
-// COMPONENT MIXINS
-// --------------------------------------------------
 
-// Horizontal dividers
-// -------------------------
-// Dividers (basically an hr) within dropdowns and nav lists
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Components
+// --------------------------------------------------------------------------------------------------------------------
+
 @mixin nav-divider($top: #e5e5e5, $bottom: false) {
 	*width: 100%;
 
@@ -293,16 +260,15 @@
 	} @else {
 		height: 1px;
 	}
-	// margin: (($base-line-height / 2) - 1) 0; // 8px 1px
-	// *margin: -5px 0 5px;
+
 	overflow: hidden;
 	background-color: $top;
 	@if $bottom { border-bottom: 1px solid $bottom; }
 }
 
-
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Images
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// --------------------------------------------------------------------------------------------------------------------
 @mixin shadow-comicbook($padding: 5px, $color: #bbb, $size: 15px, $distance: 10px) {
 
 	$lightColor: lighten($color, 8);
@@ -337,8 +303,20 @@
 	}
 }
 
+
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Icon Fonts
+// --------------------------------------------------------------------------------------------------------------------
+@mixin icon-font($char: '\f013', $font: 'FontAwesome') {
+	display: inline-block;
+	font-family: $font;
+	content: "#{$char}";
+}
+
+
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // GRID
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// --------------------------------------------------------------------------------------------------------------------
 // @include columns( $cols, $cols-container: $total-columns, $omega: false,  $nth-omega: false, $remove-omega: false, $from: left, $media: all, $highlight-omega: false );
 
 @mixin columns (
@@ -355,15 +333,12 @@
 	@include media($media) {
 		$direction: left;
 
-		@if $from != left {
-			$direction: right;
-		}
+		@if $from != left { $direction: right; }
 
 		@include span-columns($cols, $cols-container, $from: $direction);
 		@if $omega { @include omega($from: $direction); }
 		@if $nth-omega { @include nth-omega($nth-omega, $from: $direction); }
 		@if $remove-omega { @include remove-omega; }
-		// background: red;
 		@if $highlight-omega  {
 			@if $omega { background: blue; }
 			@if $nth-omega { &:nth-child(#{$nth-omega}) {background: blue;} }

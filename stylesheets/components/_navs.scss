@@ -1,9 +1,14 @@
+// ====================================================================================================================
+// NAVS
+// ====================================================================================================================
 
 @if $navs {
 
-	// Navs
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	[class^="nav"] {
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Base
+// --------------------------------------------------------------------------------------------------------------------
+
+	.nav {
 		@extend .clearfix;
 		list-style: none;
 		margin-bottom: rhythm();
@@ -11,7 +16,6 @@
 		padding-left: 0;
 
 		li {
-
 			> a {
 				display: block;
 				line-height: 1em;
@@ -30,73 +34,67 @@
 				cursor: default;
 			}
 		}
+	}
 
-		&[class*="-btn"] {
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Horizontal nav
+// --------------------------------------------------------------------------------------------------------------------
+	.nav--inline {
+		li { float: left;}
+	}
 
-			li {
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Vertical nav
+// --------------------------------------------------------------------------------------------------------------------
+	.nav--vertical {
+		.title {
+			@include adjust-font-size-to($milli-size);
+			color: $gray;
+			display: block;
+			font-weight: bold;
+			padding: $input-padding;
+			text-transform: uppercase;
+		}
 
-				> a {
-					padding: $navs-padding;
-					@extend %nav-btn;
+		.divider { @include nav-divider(); }
+	}
 
-					&:hover, &:focus {
-						@extend %nav-btn_hover;
-					}
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Nav with blocky links
+// --------------------------------------------------------------------------------------------------------------------
+	.nav--btn {
+		li {
+			> a {
+				padding: $navs-padding;
+				@extend %nav-btn;
 
+				&:hover, &:focus {
+					@extend %nav-btn_hover;
 				}
-
-				&.active > a,
-				&.active > a:hover,
-				&.active > a:focus {
-					@extend %nav-btn_active;
-				}
-
-				// Disabled
-				&.disabled > a { @extend %nav-btn_disabled; }
 			}
 
-		}
-
-
-		// Horizontal nav
-		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-		&[class*="-o"] {
-			li { float: left;}
-		}
-
-		// Vertical nav
-		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-		&[class*="-v"] {
-
-			.title {
-				@include adjust-font-size-to($milli-size);
-				color: $gray;
-				display: block;
-				font-weight: bold;
-				padding: $input-padding;
-				text-transform: uppercase;
+			&.active > a,
+			&.active > a:hover,
+			&.active > a:focus {
+				@extend %nav-btn_active;
 			}
 
-			.divider { @include nav-divider(); }
+			// Disabled
+			&.disabled > a { @extend %nav-btn_disabled; }
+		}
+	}
+
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Nav with pills as links
+// --------------------------------------------------------------------------------------------------------------------
+	.nav--pills {
+		> li > a {
+			@include border-radius($base-border-radius);
+			margin-right: em(4px);
 		}
 
-		// Pills
-		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-		&[class*="-pills"] {
-			> li > a {
-				@include border-radius($base-border-radius);
-				margin-right: em(4px);
-			}
-
-			&[class*="-v-"] > li > a { margin-bottom: em(4px);  }
-			&[class*="-v-"] > li:last-child > a { margin-bottom: 0; }
-		}
-
-		// Position
-		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-		&[class$="-right"]{ float: right; }
-
-
+		&[class*="vertical"] > li > a { margin-bottom: em(4px);  }
+		&[class*="vertical"] > li:last-child > a { margin-bottom: 0; }
 	}
 
 }

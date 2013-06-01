@@ -1,16 +1,14 @@
-//
-// Buttons
-// --------------------------------------------------
-
-
-// Base styles
-// --------------------------------------------------
+// ====================================================================================================================
+// BUTTONS
+// ====================================================================================================================
 
 @if $buttons {
-	// Core
-	// .btn, a[class*="btn"], button[class*="btn"], input[class*="btn"] {
-	// [class^="btn"] {
-	[class*="btn"] {
+
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Base
+// --------------------------------------------------------------------------------------------------------------------
+
+	.btn {
 		@include border-radius($base-border-radius);
 		border-style: solid;
 		border-width: $input-border;
@@ -33,89 +31,92 @@
 			@include opacity(65);
 			@include box-shadow(none);
 		}
+	}
 
 
-		// Button Colors
-		// --------------------------------------------------
-		& 							{ @extend %btn !optional; }
-		&[class*="-primary"] 		{ @extend %btn-primary !optional; }
-		&[class*="-secondary"] 		{ @extend %btn-secondary !optional; }
-		&[class*="-warning"] 		{ @extend %btn-warning !optional; }
-		&[class*="-danger"] 		{ @extend %btn-danger !optional; }
-		&[class*="-info"] 			{ @extend %btn-info !optional; }
-		&[class*="-success"] 		{ @extend %btn-success !optional; }
-		&[class*="-inverse"] 		{ @extend %btn-inverse !optional; }
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Button Colors
+// --------------------------------------------------------------------------------------------------------------------
 
-		// Button Sizes
-		// --------------------------------------------------
-		& {
-			height: $input-height;
-			padding: $btn-padding;
-		}
+	.btn					{ @extend %btn !optional; }
+	.btn--primary 			{ @extend %btn-primary !optional; }
+	.btn--secondary 		{ @extend %btn-secondary !optional; }
+	.btn--warning 			{ @extend %btn-warning !optional; }
+	.btn--danger 			{ @extend %btn-danger !optional; }
+	.btn--info 				{ @extend %btn-info !optional; }
+	.btn--success 			{ @extend %btn-success !optional; }
+	.btn--inverse 			{ @extend %btn-inverse !optional; }
 
-		&[class*="-large"],
-		&[class*="-small"],
-		&[class*="-mini"] {
-			height: auto;
-		}
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Button Sizes
+// --------------------------------------------------------------------------------------------------------------------
 
-		&[class*="-large"] {
-			@include adjust-font-size-to($h5-size);
-			padding: $btn-large-padding;
-		}
+	.btn {
+		height: $input-height;
+		padding: $btn-padding;
+	}
 
-		&[class*="-small"] {
-			@include adjust-font-size-to($milli-size);
-			padding: $btn-small-padding;
-		}
+	.btn--large, .btn--small, .btn--mini {
+		height: auto;
+	}
 
-		&[class*="-mini"] {
-			@include adjust-font-size-to($micro-size);
-			padding: $btn-mini-padding;
-		}
+	.btn--large {
+		@include adjust-font-size-to($h5-size);
+		padding: $btn-large-padding;
+	}
 
-		// Block button
-		// -------------------------
+	.btn--small {
+		@include adjust-font-size-to($milli-size);
+		padding: $btn-small-padding;
+	}
 
-		&[class*="-block"] {
-			display: block;
-			width: 100%;
-			padding-left: 0;
-			padding-right: 0;
-		}
+	.btn--mini {
+		@include adjust-font-size-to($micro-size);
+		padding: $btn-mini-padding;
+	}
 
-		&[class*="-block"] + [class^="btn"][class*="-block"] {
+
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Block button
+// --------------------------------------------------------------------------------------------------------------------
+	.button--block {
+		display: block;
+		width: 100%;
+		padding-left: 0;
+		padding-right: 0;
+
+		+ .button--block {
 			margin-top: rhythm(.5);
 		}
 
-		// Link buttons
-		// --------------------------------------------------
-		&[class*="-link"],
-		&[class*="-link"]:active,
-		&[class*="-link"][disabled] {
-			background-color: transparent;
-			background-image: none;
-			@include box-shadow(none);
-		}
-		&[class*="-link"] {
-			border-color: transparent;
-			cursor: pointer;
-			color: $link-color;
-			@include border-radius(0);
-		}
-		&[class*="-link"]:hover,
-		&[class*="-link"]:focus {
+	}
+
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Link buttons
+// --------------------------------------------------------------------------------------------------------------------
+
+	.btn--link {
+		@include border-radius(0);
+		border-color: transparent;
+		color: $link-color;
+		cursor: pointer;
+
+		&:hover, &:focus {
 			color: $link-color-hover;
 			text-decoration: underline;
 			background-color: transparent;
 		}
-		&[class*="-link"][disabled]:hover,
-		&[class*="-link"][disabled]:focus {
+
+		&:active, &[disabled] {
+			background-color: transparent;
+			background-image: none;
+			@include box-shadow(none);
+		}
+
+		&[disabled]:hover, &[disabled]:focus {
 			color: $grayDark;
 			text-decoration: none;
 		}
-
-
 	}
 
 }

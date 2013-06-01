@@ -1,6 +1,12 @@
+// ====================================================================================================================
+// SLIDERS w/ BxSlider (https://github.com/wandoledzep/bxslider-4)
+// ====================================================================================================================
+
 @if $slider {
 
-	// Wrapper | 1st level
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Base
+// --------------------------------------------------------------------------------------------------------------------
 	.bx-wrapper {
 		position: relative;
 		padding: 0;
@@ -14,57 +20,54 @@
 		}
 
 		ul {@extend .list_style_none;}
-		// ul, li {margin: 0;}
 	}
 
-	// Viewport  | 2nd level
 	.bx-viewport { }
 
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Directions
+// --------------------------------------------------------------------------------------------------------------------
+	.bx-controls-direction {
 
-	// Controls  | 2nd level
-	// .bx-controls {
+		a {
+			@extend %slider-btn !optional;
+			@include position(absolute, 50% 0 0 0);
 
-		// Directions
-		//--------------------------------
-		.bx-controls-direction {
+			z-index: 200;
 
+			i {font-style: normal;}
+			span {@include hide-text;}
+
+			&.disabled { display: none; }
+
+			&.bx-prev { left: 0; }
+			&.bx-next { right: 0; }
+		}
+
+
+	}
+
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Pager
+// --------------------------------------------------------------------------------------------------------------------
+	.bx-pager {
+		width: 100%;
+		text-align: center;
+		@extend %slider-pager !optional;
+
+		.bx-pager-item {
+			display: inline-block;
 			a {
-				@extend %slider-btn !optional;
-				@include position(absolute, 50% 0 0 0);
-
-				z-index: 200;
-
-				i {font-style: normal;}
-				span {@include hide-text;}
-
-				&.disabled { display: none; }
-
-				&.bx-prev { left: 0; }
-				&.bx-next { right: 0; }
-			}
-
-
-		}
-
-		// Pager
-		//--------------------------------
-		.bx-pager {
-			width: 100%;
-			text-align: center;
-			@extend %slider-pager !optional;
-
-			.bx-pager-item {
 				display: inline-block;
-				a {
-					display: inline-block;
-					// @include hide-text;
-				}
+				// @include hide-text;
 			}
 		}
-	// }
+	}
 
 
-	// Loading
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Loading
+// --------------------------------------------------------------------------------------------------------------------
 	.bx-loading {
 		@include square(100%);
 		@include position(absolute, 0px 0 0 0px);
@@ -72,6 +75,9 @@
 		z-index: 2000;
 	}
 
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Captions
+// --------------------------------------------------------------------------------------------------------------------
 	.bx-caption {
 		@include position(absolute, 0 0 0px 0px);
 		width: 100%;
@@ -81,6 +87,5 @@
 			@extend %slider-caption !optional;
 		}
 	}
-
 
 }

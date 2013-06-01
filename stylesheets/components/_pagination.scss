@@ -1,9 +1,14 @@
-//
-// Pagination (multiple pages)
-// --------------------------------------------------
+// ====================================================================================================================
+// PAGINATION (multiple pages)
+// ====================================================================================================================
+
 @if $pagination {
 
-	[class^="pagination"] {
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Base
+// --------------------------------------------------------------------------------------------------------------------
+
+	.pagination {
 		margin: rhythm() 0;
 
 		> * {
@@ -15,10 +20,8 @@
 
 			li {
 				display: inline-block;
-				// float: left;
 
-				a,
-				span {
+				a, span {
 					display: inline-block;
 					padding: $pagination-padding;
 					line-height: 1em;
@@ -65,26 +68,28 @@
 				cursor: default;
 			}
 		}
+	}
 
-		// Alignment
-		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-		&[class*="-center"] {text-align: center; }
-		&[class*="-right"] 	{text-align: right; }
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Alignment
+// --------------------------------------------------------------------------------------------------------------------
+	.pagination--center {text-align: center; }
+	.pagination--right 	{text-align: right; }
 
-		// Rounded sides
-		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-		&[class*="-rounded"] {
-			li:first-child > a,
-			li:first-child > span {
-				border-left-width: 1px;
-				@include border-left-radius($base-border-radius);
-			}
-
-			li:last-child > a,
-			li:last-child > span {
-				@include border-right-radius($base-border-radius);
-			}
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Rounded sides
+// --------------------------------------------------------------------------------------------------------------------
+	.pagination--rounded {
+		li:first-child > a,
+		li:first-child > span {
+			border-left-width: 1px;
+			@include border-left-radius($base-border-radius);
 		}
 
+		li:last-child > a,
+		li:last-child > span {
+			@include border-right-radius($base-border-radius);
+		}
 	}
+
 }

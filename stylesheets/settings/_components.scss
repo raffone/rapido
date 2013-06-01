@@ -1,7 +1,6 @@
-
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-// Enable Components
-// --------------------------------------------------------------------------------------------------------------------
+// ====================================================================================================================
+// ENABLE COMPONENTS
+// ====================================================================================================================
 
 $alerts: 							true 		!default;
 $breadcrumbs: 						true 		!default;
@@ -13,15 +12,14 @@ $dropdowns: 						true 		!default;
 
 $forms: 							true 		!default;
 	$forms-append:					true 		!default;
-	$forms-inline: 					true 		!default;
-	$forms-horizontal:				true 		!default;
+	$forms-aligned:					true 		!default;
 	$forms-columns: 				true 		!default;
 
 $modals: 							true 		!default;
 $navs: 								true 		!default;
 $pager: 							true 		!default;
 $pagination: 						true 		!default;
-$pills: 							true 		!default;
+$labels: 							true 		!default;
 $responsive-navs: 					true 		!default;
 $tables: 							true 		!default;
 
@@ -31,7 +29,7 @@ $modal: 							true 		!default;
 	$modal-buttons: 				true 		!default;
 	$modal-thumbs: 					true 		!default;
 
-
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Icon Fonts
 // --------------------------------------------------------------------------------------------------------------------
 $use-fontawesome: 					true 		!default;

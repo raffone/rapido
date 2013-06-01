@@ -1,15 +1,21 @@
-// Scaffolding
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// ====================================================================================================================
+// SCAFFOLDING
+// ====================================================================================================================
+
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Base
+// --------------------------------------------------------------------------------------------------------------------
+
 *, *:before, *:after {@include box-sizing(border-box); outline: none;}
 
 html {
 	@if $responsive-font-size {
 
-	    @each $step in $responsive-font-size {
-	    	@include media(nth($step, 1)) {
-	    		font-size: 100% * nth($step, 2) / 16px;
-	    	}
-	    }
+		@each $step in $responsive-font-size {
+			@include media(nth($step, 1)) {
+				font-size: 100% * nth($step, 2) / 16px;
+			}
+		}
 
 	} @else {
 		font-size: 100% * $base-font-size / 16px;
@@ -28,9 +34,9 @@ img {max-width: 100%;}
 
 a, button, textarea, input { outline: none; }
 
-
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Links
-// -------------------------
+// --------------------------------------------------------------------------------------------------------------------
 a {
 	color: $link-color;
 	text-decoration: none;
@@ -42,37 +48,39 @@ a:focus {
 }
 
 
-
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Body text
-// -------------------------
+// --------------------------------------------------------------------------------------------------------------------
 
-p {
-	margin: 0 0 rhythm(1);
-}
+p 					{ margin: 0 0 rhythm(1);}
 
-.lead { @include adjust-font-size-to($h4-size); }
+.lead 				{ @include adjust-font-size-to($h4-size); }
 
-.muted { color: $gray;}
+.muted 				{ color: $gray; }
 
-.pull-left {float: left;}
-.pull-right {float: right;}
-.clearfix { @include clearfix;}
+.pull-left 			{ float: left; }
+.pull-right 		{ float: right; }
+.clearfix 			{ @include clearfix; }
 
+
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Emphasis & misc
-// -------------------------
-small   { @include adjust-font-size-to($milli-size); }
+// --------------------------------------------------------------------------------------------------------------------
 
-strong  { font-weight: bold; }
-em      { font-style: italic; }
-cite    { font-style: normal; }
+small   			{ @include adjust-font-size-to($milli-size); }
 
-.text-left           { text-align: left; }
-.text-right          { text-align: right; }
-.text-center         { text-align: center; }
+strong  			{ font-weight: bold; }
+em      			{ font-style: italic; }
+cite    			{ font-style: normal; }
+
+.text-left          { text-align: left; }
+.text-right         { text-align: right; }
+.text-center        { text-align: center; }
 
 
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Headings
-// -------------------------
+// --------------------------------------------------------------------------------------------------------------------
 
 h1,
 h2,
@@ -80,13 +88,13 @@ h3,
 h4,
 h5,
 h6 {
-	margin: 0 0 1em;
+	margin: 0 0 rhythm();
 	text-rendering: optimizelegibility;
 	@if $titles-font-family { font-family: $titles-font-family; }
 
 	small {
 		font-weight: normal;
-		line-height: 1;
+		line-height: rhythm();
 		color: $grayLight;
 	}
 }
@@ -128,8 +136,10 @@ h2 small { @include adjust-font-size-to($h4-size); }
 h3 small { @include adjust-font-size-to($h5-size); }
 h4 small { @include adjust-font-size-to($h6-size); }
 
+
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Lists
-// --------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
 
 .list_style_none, .list-style-none {
 	padding-left: 0;
@@ -138,6 +148,7 @@ h4 small { @include adjust-font-size-to($h6-size); }
 }
 
 // Unordered and Ordered lists
+// --------------------------------------------------------------------------------------------------------------------
 ul, ol {
 	padding: 0;
 	margin: 0 0 rhythm(1) 25px;
@@ -161,14 +172,14 @@ ol.inline {
 	margin-left: 0;
 	list-style: none;
 	> li {
-    	@include inline-block();
-    	padding-left: 5px;
-    	padding-right: 5px;
+		@include inline-block();
+		padding-left: 5px;
+		padding-right: 5px;
 	}
 }
 
 // Description lists
-
+// --------------------------------------------------------------------------------------------------------------------
 dl { margin-bottom: rhythm(1); }
 dt,
 dd { line-height: rhythm(1); }
@@ -179,18 +190,19 @@ dd { margin-left: rhythm(.5); }
 .dl-horizontal {
   @extend .clearfix;
   dt {
-  	float: left;
-  	width: em($horizontal-offset) - 20;
-  	clear: left;
-  	text-align: right;
-  	@include text-overflow();
+	float: left;
+	width: em($horizontal-offset) - 20;
+	clear: left;
+	text-align: right;
+	@include text-overflow();
   }
 
   dd { margin-left: em($horizontal-offset); }
 }
 
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // MISC
-// ----
+// --------------------------------------------------------------------------------------------------------------------
 
 hr {
 	margin: rhythm(1) 0;
@@ -199,6 +211,7 @@ hr {
 }
 
 // Abbreviations and acronyms
+// --------------------------------------------------------------------------------------------------------------------
 abbr[title],
 abbr[data-original-title] {
 	cursor: help;
@@ -210,6 +223,7 @@ abbr.initialism {
 }
 
 // Blockquotes
+// --------------------------------------------------------------------------------------------------------------------
 blockquote {
 	padding: 0 0 0 rhythm(1);
 	margin: 0;
@@ -218,7 +232,7 @@ blockquote {
 
 	p {
 		margin-bottom: 0;
-    	font-weight: 300;
+		font-weight: 300;
 	}
 
 	small {
@@ -229,27 +243,28 @@ blockquote {
 		}
 	}
 
-  // Float right with text-align: right
-  &.pull-right {
-  	float: right;
-  	padding-right: 15px;
-  	padding-left: 0;
-  	border-right: 5px solid $grayLighter;
-  	border-left: 0;
+	&.pull-right {
+		float: right;
+		padding-right: 15px;
+		padding-left: 0;
+		border-right: 5px solid $grayLighter;
+		border-left: 0;
 
-  	p,
-  	small {
-  		text-align: right;
-  	}
+		p,
+		small {
+			text-align: right;
+		}
 
-  	small {
-  		&:before { content: ''; }
-  		&:after { content: '\00A0 \2014'; }
-  	}
-  }
+		small {
+			&:before { content: ''; }
+			&:after { content: '\00A0 \2014'; }
+		}
+	}
 }
 
 // Quotes
+// --------------------------------------------------------------------------------------------------------------------
+
 q:before,
 q:after,
 blockquote:before,
@@ -258,6 +273,7 @@ blockquote:after {
 }
 
 // Addresses
+// --------------------------------------------------------------------------------------------------------------------
 address {
 	display: block;
 	margin-bottom: rhythm(1);
