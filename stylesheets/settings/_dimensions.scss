@@ -34,7 +34,7 @@ $input-padding-top: 				10px 																	!default;
 $input-padding-side:				10px 																	!default;
 
 // Do not edit
-$input-padding:						em($input-padding-top) em($input-padding-side)									;
+$input-padding:						0 em($input-padding-side)														;
 $input-height: 						em($base-font-size + ($input-padding-top * 2) + ($input-border * 2))			;
 $control-min-height: 				em($base-line-height + $label-margin-bottom) + $input-height - em(5px)  		;
 
