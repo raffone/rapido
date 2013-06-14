@@ -32,8 +32,10 @@
 	}
 
 	.btn {
-		.label, .badge {
-			margin: -.2em -.35em 0 .35em ;
+		.label,
+		.badge {
+			margin: -(nth($pills-padding, 1)) -(nth($pills-padding, 2)) 0 0 ;
 		}
 	}
+
 }
