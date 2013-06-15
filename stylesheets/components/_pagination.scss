@@ -12,32 +12,42 @@
 		margin: rhythm() 0;
 
 		> * {
+			@extend .clearfix;
 			@include border-radius($base-border-radius);
-			@include inline-block();
+			@include inline-block;
 			margin-bottom: 0;
 			margin-left: $input-border;
-			margin-left: 0;
 
 			li {
-				display: inline-block;
+				float: left;
+				list-style-type: none;
 
-				a, span {
+				a,
+				span {
 					display: inline-block;
 					padding: $pagination-padding;
 					line-height: 1em;
 					text-decoration: none;
 					border-width: $input-border;
-					border-left-width: 0;
+					// border-left-width: 0;
 					border-style: solid;
 					margin-left: -$input-border;
-					@extend %pagination_btn !optional;
+					@extend %pagination-btn !optional;
 				}
 			}
 
+			li:first-child > a,
+			li:first-child > span {
+				border-left-width: 1px;
+			}
 
 			li > a:hover,
 			li > a:focus {
-				@extend %pagination_btn-hover !optional;
+				@extend %pagination-btn_hover !optional;
+			}
+
+			li > a:active {
+				@extend %pagination-btn_active !optional;
 			}
 
 			// Bootstrap
@@ -49,14 +59,14 @@
 			// WP Paginate
 			.current,
 			.current:hover {
-				@extend %pagination_btn-active !optional;
+				@extend %pagination-btn_current !optional;
 			}
 
 			.disabled > span,
 			.disabled > a,
 			.disabled > a:hover,
 			.disabled > a:focus {
-				@extend %pagination_btn-disabled !optional;
+				@extend %pagination-btn_disabled !optional;
 			}
 
 			.active > a,
@@ -82,7 +92,6 @@
 	.pagination--rounded {
 		li:first-child > a,
 		li:first-child > span {
-			border-left-width: 1px;
 			@include border-left-radius($base-border-radius);
 		}
 

@@ -30,8 +30,10 @@
 
 			a:hover,
 			a:focus {
-				text-decoration: none;
 				@extend %pager-btn_hover !optional;
+			}
+			a:active {
+				@extend %pager-btn_active !optional;
 			}
 		}
 

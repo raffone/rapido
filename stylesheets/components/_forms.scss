@@ -60,7 +60,6 @@
 		input[type="tel"],
 		input[type="color"] {
 			display: inline-block;
-			// padding: $input-padding;
 			padding: 0 $input-padding-side;
 			vertical-align: middle;
 			height: $input-height;
@@ -248,10 +247,7 @@
 		}
 
 		&:after {
-			position: absolute;
-			top: 50%;
-			right: em($input-padding-side);
-			content: "";
+			@include position(absolute, em($input-padding-top) em($input-padding-side) 0 0);
 			display: block;
 		}
 
@@ -303,23 +299,17 @@
 			text-align: center;
 			border-width: $input-border;
 			border-style: solid;
-
 			@extend %input-addon !optional;
 		}
 
 		.btn-group {float: left;}
 
-		// .form__addon,
-		// .btn,
-		// .btn-group > .dropdown-toggle {
-		// 	@include border-radius(0);
-		// 	float: left;
-		// 	height: $input-height;
-		// 	line-height: 1em;
-		// 	vertical-align: top;
-		// }
+		.btn,
+		.btn-group > .dropdown-toggle,
+		.form__addon {
+			@include border-radius(0);
+		}
 
-		// .active {}
 	}
 
 	.form__prepend {
@@ -416,9 +406,6 @@
 			.form__append,
 			.form__prepend {
 				width: 100%;
-				// .form__addon {
-				// 	padding: em($input-padding-top) 0;
-				// }
 			}
 		}
 	}

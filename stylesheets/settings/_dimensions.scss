@@ -44,7 +44,7 @@ $control-min-height: 				em($base-line-height + $label-margin-bottom) + $input-h
 
 // Buttons
 $btn-padding: 						$input-padding															!default;
-$btn-large-padding: 				$input-padding															!default;
+$btn-large-padding: 				em($input-padding-top * 1) em($input-padding-side * 1.5)				!default;
 $btn-small-padding: 				em($input-padding-top * .5) em($input-padding-side * .8)				!default;
 $btn-mini-padding:  				em($input-padding-top * .1) em($input-padding-side * .6)				!default;
 

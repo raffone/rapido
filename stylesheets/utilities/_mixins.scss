@@ -135,13 +135,10 @@
 
 		@if $direction == up {
 			border-bottom-color: $color;
-
 		} @else if $direction == right {
 			border-left-color:   $color;
-
 		} @else if $direction == down {
 			border-top-color:    $color;
-
 		} @else if $direction == left {
 			border-right-color:  $color;
 		}
@@ -152,7 +149,6 @@
 
 		@if $direction == up-right {
 			border-left:  $size solid transparent;
-
 		} @else if $direction == up-left {
 			border-right: $size solid transparent;
 		}
@@ -163,7 +159,6 @@
 
 		@if $direction == down-right {
 			border-left:  $size solid transparent;
-
 		} @else if $direction == down-left {
 			border-right: $size solid transparent;
 		}

@@ -21,9 +21,7 @@
 	// Dropdown arrow/caret
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	.caret {
-		display: inline-block;
 		@extend %caret !optional;
-
 	}
 
 	// The dropdown menu (ul)
