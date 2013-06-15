@@ -166,7 +166,7 @@
 	.form__checkbox,
 	.form__select {
 		min-height: em($base-line-height);
-		padding-left: 20px;
+		padding-left: em($checkbox-padding-left);
 		font-weight: normal;
 		cursor: pointer;
 	}

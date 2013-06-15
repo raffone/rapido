@@ -35,7 +35,7 @@
 		left: 0;
 		list-style: none;
 		margin: -$input-border 0 0 0;
-		min-width: em(160px);
+		min-width: em($dropdowns-with);
 		position: absolute;
 		top: 100%;
 		z-index: $zindex-dropdown;
@@ -51,17 +51,21 @@
 
 
 		// Links list inside the dropdown
-		> li > a {
+		> li > a,
+		> li > label {
 			@include adjust-font-size-to($base-font-size);
 			display: block;
-			padding: $dropdowns-padding;
 			line-height: 1em;
 			clear: both;
 			font-weight: normal;
 			white-space: nowrap;
 		}
 
-		> li:last-child > a {
+		> li > a { padding: $dropdowns-padding;}
+		> li > label { padding: nth($dropdowns-padding, 1) nth($dropdowns-padding, 2) nth($dropdowns-padding, 1) (nth($dropdowns-padding, 2) + em($checkbox-padding-left) ) ;}
+
+		> li:last-child > a,
+		> li:last-child > label {
 			@include border-bottom-radius($base-border-radius);
 			border-bottom: 0;
 		}

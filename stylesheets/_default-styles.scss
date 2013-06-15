@@ -155,7 +155,8 @@
 
 		.divider { @include nav-divider($gray); margin-top: -1px }
 
-		> li > a { border-bottom: 1px dotted $gray; }
+		> li > a,
+		> li > label { border-bottom: 1px dotted $gray; }
 
 		> li > a:hover,
 		> li > a:focus {

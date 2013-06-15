@@ -4,6 +4,7 @@
 
 $base-border-radius:  				4px 																	!default;
 $horizontal-offset:       			180px		 															!default;
+$dropdowns-with:       				160px		 															!default;
 
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Text
@@ -32,6 +33,7 @@ $label-margin-bottom: 				10px 																	!default;
 $input-border:						1px 																	!default;
 $input-padding-top: 				10px 																	!default;
 $input-padding-side:				10px 																	!default;
+$checkbox-padding-left:       		20px		 															!default;
 
 // Do · not · edit
 $input-padding:						em($input-padding-top) em($input-padding-side)									;
