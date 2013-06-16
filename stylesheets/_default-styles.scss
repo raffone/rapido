@@ -19,7 +19,7 @@
 		@include background-image(linear-gradient(bottom, $white 0%, $grayLighter 100%));
 
 		&:focus {
-			@include background-image(linear-gradient(bottom, $white 0%, $white 100%));
+			@include background-image(linear-gradient(bottom, $white 50%, $grayLighter 100%));
 		}
 	}
 
@@ -167,19 +167,19 @@
 
 	%dropdown-open {
 		background: $grayLighter;
-	    &:after {background-color: $grayLighter;}
+		border-bottom: 1px solid $grayLighter;
 	}
 
 
 	// Caret per Dropdown e Select
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
-	$caret-width: em(12px);
-
 	%caret {
-		min-width: $caret-width;
+		// width: 50px;
+		// display: inline-block;
 		&:after {
-			content: "▼";
+			// content: "▼";
+			 @include icon-font(\f078);
 		}
 	}
 

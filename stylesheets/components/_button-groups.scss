@@ -5,13 +5,20 @@
 	.btn-group {
 		@extend .clearfix;
 		@include inline-block;
-		margin-bottom: 0;
+		margin: 0;
 		position: relative;
-		vertical-align: middle;
-		white-space: nowrap;
-			> li {
+
+		> li {
 			float: left;
 			list-style-type: none;
+			position: relative;
+		}
+
+		&[data-width] .btn,
+		> li[data-width] .btn {
+			@extend %width-100;
+			padding-left: 0;
+			padding-right: 0;
 		}
 
 		// Space multiple inline groups
@@ -20,33 +27,15 @@
 
 		// Float button and reapply border radius
 		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-		> .btn,
 		> li .btn {
 			@include border-radius(0);
 			float: left;
-			position: relative;
 		}
 
-		> .btn + .btn,
-		> li + li {
-			margin-left: -($input-border);
-		}
-
-
-		> .btn:first-child,
-		> li:first-child .btn {
-			margin-left: 0;
-			@include border-top-left-radius($base-border-radius);
-			@include border-bottom-left-radius($base-border-radius);
-		}
-
-		> .btn:last-child,
-		> .dropdown-toggle,
-		> li:last-child .btn{
-			@include border-top-right-radius($base-border-radius);
-			@include border-bottom-right-radius($base-border-radius);
-		}
-
+		> li + li 							{ margin-left: -$input-border; }
+		> li:first-child .btn 				{ @include border-radius($base-border-radius 0 0 $base-border-radius); }
+		> li:last-child .btn 				{ @include border-radius(0 $base-border-radius $base-border-radius 0); }
+		> li:last-child:first-child .btn 	{ @include border-radius($base-border-radius); }
 
 		// On hover/focus/active, bring the proper btn to front
 		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––

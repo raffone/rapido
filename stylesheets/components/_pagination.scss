@@ -29,7 +29,6 @@
 					line-height: 1em;
 					text-decoration: none;
 					border-width: $input-border;
-					// border-left-width: 0;
 					border-style: solid;
 					margin-left: -$input-border;
 					@extend %pagination-btn !optional;

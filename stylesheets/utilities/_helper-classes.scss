@@ -22,7 +22,7 @@
 
 $i: 100;
 @while $i > 0 {
-	.width-#{$i} { width: $i * 1% !important; }
+	%width-#{$i} { width: $i * 1% !important; }
 	$i: $i - 5;
 }
 

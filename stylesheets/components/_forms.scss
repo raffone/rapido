@@ -189,33 +189,6 @@
 	}
 
 
-
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-// Help
-// --------------------------------------------------------------------------------------------------------------------
-
-	.form__help--block,
-	.form__help--inline {
-		color: lighten($text-color, 15%);
-	}
-	.form__help--block {
-		display: block;
-		padding: rhythm(.5) 0 0;
-	}
-	.form__help--inline {
-		@include inline-block();
-		vertical-align: middle;
-		padding-left: 5px;
-	}
-
-
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-// Group % Controls
-// --------------------------------------------------------------------------------------------------------------------
-
-	.form__group { margin-bottom: em($control-margin-bottom); }
-	.form__controls { @extend .clearfix; }
-
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Custom Select
 // --------------------------------------------------------------------------------------------------------------------
@@ -255,37 +228,73 @@
 
 	}
 
+
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Help
+// --------------------------------------------------------------------------------------------------------------------
+
+	.form__help--block,
+	.form__help--inline {
+		color: lighten($text-color, 15%);
+	}
+	.form__help--block {
+		display: block;
+		padding: rhythm(.5) 0 0;
+	}
+	.form__help--inline {
+		@include inline-block();
+		vertical-align: middle;
+		padding-left: 5px;
+	}
+
+
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Group % Controls
+// --------------------------------------------------------------------------------------------------------------------
+
+	.form__group { margin-bottom: em($control-margin-bottom); }
+	.form__controls { @extend .clearfix; }
+
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Append & Prepend
 // --------------------------------------------------------------------------------------------------------------------
 
-	.form__append,
-	.form__prepend {
-		display: inline-block;
-		vertical-align: middle;
-		white-space: nowrap;
-		margin-left: -$input-border;
+	.form__controls--multi {
+		margin-left: $input-border;
 
-		input,
-		select,
-		.uneditable-input,
-		.dropdown-menu,
-		.popover {
+		> [type],
+		> [class] {
+			@include border-radius(0);
 			float: left;
+			margin-left: -$input-border;
+
+			&:first-child 	{ @include border-radius($base-border-radius 0 0 $base-border-radius); }
+			&:last-child 	{ @include border-radius(0 $base-border-radius $base-border-radius 0); }
 		}
 
-		input,
-		select,
-		.uneditable-input {
+		> ul.btn-group + * {
+			margin-left: -($input-border * 2);
+		}
+
+		> [type] {
 			position: relative;
-			margin-bottom: 0;
-			vertical-align: top;
-			@include border-radius(0 $base-border-radius $base-border-radius 0);
-
-			&:focus {
-				z-index: 2;
-			}
+			z-index: 2;
 		}
+
+		// Correct border radius
+		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+		> .btn-group:first-child > li:first-child .btn 				{ }
+		> .btn-group:first-child > li:last-child .btn 				{ @include border-right-radius(0); }
+		> div.btn-group:first-child .btn 							{ @include border-right-radius(0); }
+
+		> .btn-group:last-child > li:first-child .btn 				{ @include border-left-radius(0); }
+		> .btn-group:last-child > li:last-child .btn 				{ }
+		> div.btn-group:last-child > .btn 							{ @include border-left-radius(0); }
+
+
+		// Addon
+		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 		.form__addon {
 			display: inline-block;
@@ -302,81 +311,20 @@
 			@extend %input-addon !optional;
 		}
 
-		.btn-group {float: left;}
 
-		.btn,
-		.btn-group > .dropdown-toggle,
-		.form__addon {
-			@include border-radius(0);
-		}
+		/*
+			// DEBUG
 
-	}
+			> .btn-group:first-child > li:first-child .btn 				{ background: red !important; }
+			> .btn-group:first-child > li:last-child .btn 				{ background: blue !important; }
+			> div.btn-group:first-child .btn 							{ background: green !important; }
 
-	.form__prepend {
-		.form__addon,
-		.btn {
-			margin-left: -$input-border;
-		}
-		.btn-group {margin-left: 1px;}
-		.form__addon:first-child,
-		.btn:first-child {
-			@include border-radius($base-border-radius 0 0 $base-border-radius);
-		}
-		input,
-		select,
-		.uneditable-input {margin-left: -$input-border * 2}
-	}
+			> .btn-group:last-child > li:first-child .btn 				{ background: purple !important; }
+			> .btn-group:last-child > li:last-child .btn 				{ background: yellow !important; }
+			> div.btn-group:last-child > .btn 							{ background: teal !important; }
+		*/
 
-	.form__append {
-		input,
-		select,
-		.uneditable-input {
-			@include border-radius($base-border-radius 0 0 $base-border-radius);
 
-			+ .btn-group .btn:first-child {
-				@include border-radius(0);
-			}
-
-			+ .btn-group .btn:last-child {
-				@include border-radius(0 $base-border-radius $base-border-radius 0);
-			}
-		}
-
-		.form__addon,
-		.btn,
-		.btn-group {
-			margin-left: -$input-border;
-		}
-
-		.form__addon:last-child,
-		.btn:last-child,
-		.btn-group:last-child > .dropdown-toggle {
-			@include border-radius(0 $base-border-radius $base-border-radius 0);
-		}
-	}
-
-	.form__prepend.form__append {
-		input,
-		select,
-		.uneditable-input {
-			@include border-radius(0);
-			+ .btn-group .btn {
-				@include border-radius(0 $base-border-radius $base-border-radius 0);
-			}
-		}
-		.form__addon:first-child,
-		.btn:first-child {
-			margin-right: -$input-border;
-			@include border-radius($base-border-radius 0 0 $base-border-radius);
-		}
-		.form__addon:last-child,
-		.btn:last-child {
-			margin-left: -$input-border;
-			@include border-radius(0 $base-border-radius $base-border-radius 0);
-		}
-		.btn-group:first-child {
-			margin-left: 0;
-		}
 	}
 
 
@@ -400,12 +348,13 @@
 
 	@if $forms-grid {
 		.form--grid {
-			.form__group {
-				min-height: $control-min-height;
-			}
-			.form__append,
-			.form__prepend {
-				width: 100%;
+			.form__group { min-height: $control-min-height; }
+			.form__multi { width: 100%; }
+
+			$i: 100;
+			@while $i > 0 {
+				[data-width="#{$i}"] { @extend %width-#{$i}; }
+				$i: $i - 5;
 			}
 		}
 	}

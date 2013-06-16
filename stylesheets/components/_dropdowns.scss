@@ -4,13 +4,8 @@
 
 @if $dropdowns {
 
-	.dropdown {
-		position: relative;
-		display: inline-block;
-	}
-
 	.dropdown-toggle {
-		line-height: 1em;
+		position: relative;
 	}
 
 	.dropdown-toggle:active,
@@ -29,15 +24,12 @@
 	.dropdown-menu {
 		@extend %dropdown !optional;
 		@include border-bottom-radius($base-border-radius);
+		@include position(absolute, 100% 0 0 0px);
 		border-style: solid;
 		border-width: $input-border;
 		float: left;
-		left: 0;
 		list-style: none;
 		margin: -$input-border 0 0 0;
-		min-width: em($dropdowns-with);
-		position: absolute;
-		top: 100%;
 		z-index: $zindex-dropdown;
 
 		&[data-content] { min-width: em(600px); }
@@ -53,10 +45,8 @@
 		// Links list inside the dropdown
 		> li > a,
 		> li > label {
-			@include adjust-font-size-to($base-font-size);
-			display: block;
-			line-height: 1em;
 			clear: both;
+			display: block;
 			font-weight: normal;
 			white-space: nowrap;
 		}
@@ -66,7 +56,6 @@
 
 		> li:last-child > a,
 		> li:last-child > label {
-			@include border-bottom-radius($base-border-radius);
 			border-bottom: 0;
 		}
 
@@ -109,37 +98,27 @@
 	// Open state for the dropdown
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	.open {
-		*z-index: $zindex-dropdown ;
+		z-index: $zindex-dropdown ;
 
-		.btn.dropdown-toggle[data-toggle=dropdown] {
+		.btn.dropdown-toggle[data-toggle][class] {
 			@extend %dropdown-open !optional;
 			@include border-bottom-radius(0);
-			z-index: $zindex-dropdown + 1 !important;
-
-			&:after {
-				content: "";
-				position: absolute;
-				bottom: -1px; left: 0; right: 0;
-				height: 2px ;
-				z-index: $zindex-dropdown + 2;
-			}
+			z-index: $zindex-dropdown + 1;
 		}
-
-		& > .dropdown-menu {}
 	}
 
 	// Open/Close Animations
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	.dropdown-menu {
-		@include transition();
+		max-height: 0;
 		opacity: 0;
 		overflow: hidden;
-		max-height: 0;
 	}
 
 	.open > .dropdown-menu {
-		opacity: 1;
+		// @extend %fadeIn;
 		max-height: 600px;
+		opacity: 1;
 	}
 
 }
