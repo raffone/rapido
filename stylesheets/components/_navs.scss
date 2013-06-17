@@ -36,6 +36,16 @@
 		}
 	}
 
+	.nav__title {
+		@include adjust-font-size-to($milli-size);
+		color: $gray;
+		display: block;
+		font-weight: bold;
+		padding: $navs-padding;
+		padding-left: 0;
+		text-transform: uppercase;
+	}
+
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Horizontal nav
 // --------------------------------------------------------------------------------------------------------------------
@@ -43,21 +53,14 @@
 		li { float: left;}
 	}
 
+
+
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Vertical nav
 // --------------------------------------------------------------------------------------------------------------------
-	.nav--vertical {
-		.title {
-			@include adjust-font-size-to($milli-size);
-			color: $gray;
-			display: block;
-			font-weight: bold;
-			padding: $input-padding;
-			text-transform: uppercase;
-		}
-
-		.divider { @include nav-divider(); }
-	}
+	// .nav--vertical {
+	// 	.divider { @include nav-divider(); }
+	// }
 
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Nav with blocky links
@@ -90,10 +93,10 @@
 	.nav--pills {
 		> li > a {
 			@include border-radius($base-border-radius);
-			margin-right: em(4px);
+			margin-right: .25em;
 		}
 
-		&[class*="vertical"] > li > a { margin-bottom: em(4px);  }
+		&[class*="vertical"] > li > a { margin-bottom: .25em;  }
 		&[class*="vertical"] > li:last-child > a { margin-bottom: 0; }
 	}
 

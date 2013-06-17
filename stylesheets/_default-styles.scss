@@ -175,11 +175,8 @@
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 	%caret {
-		// width: 50px;
-		// display: inline-block;
 		&:after {
-			// content: "▼";
-			 @include icon-font(\f078);
+			@include icon-font(\f078);
 		}
 	}
 

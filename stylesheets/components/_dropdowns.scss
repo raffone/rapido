@@ -4,13 +4,9 @@
 
 @if $dropdowns {
 
-	.dropdown-toggle {
+	.dropdown,
+	.dropdown__toggle {
 		position: relative;
-	}
-
-	.dropdown-toggle:active,
-	.open .dropdown-toggle {
-		outline: 0;
 	}
 
 	// Dropdown arrow/caret
@@ -21,7 +17,7 @@
 
 	// The dropdown menu (ul)
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	.dropdown-menu {
+	.dropdown__menu {
 		@extend %dropdown !optional;
 		@include border-bottom-radius($base-border-radius);
 		@include position(absolute, 100% 0 0 0px);
@@ -63,32 +59,30 @@
 
 	// Hover/Focus state
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	.dropdown-menu > li > a:hover,
-	.dropdown-menu > li > a:focus,
-	.dropdown-submenu:hover > a,
-	.dropdown-submenu:focus > a {
+	.dropdown__menu > li > a:hover,
+	.dropdown__menu > li > a:focus {
 		text-decoration: none;
 	}
 
 	// Active state
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	.dropdown-menu > .active > a,
-	.dropdown-menu > .active > a:hover,
-	.dropdown-menu > .active > a:focus {
+	.dropdown__menu > .active > a,
+	.dropdown__menu > .active > a:hover,
+	.dropdown__menu > .active > a:focus {
 		text-decoration: none;
 		outline: 0;
 	}
 
 	// Disabled state
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	.dropdown-menu > .disabled > a,
-	.dropdown-menu > .disabled > a:hover,
-	.dropdown-menu > .disabled > a:focus {
+	.dropdown__menu > .disabled > a,
+	.dropdown__menu > .disabled > a:hover,
+	.dropdown__menu > .disabled > a:focus {
 		color: $grayLight;
 	}
 	// Nuke hover/focus effects
-	.dropdown-menu > .disabled > a:hover,
-	.dropdown-menu > .disabled > a:focus {
+	.dropdown__menu > .disabled > a:hover,
+	.dropdown__menu > .disabled > a:focus {
 		text-decoration: none;
 		background-color: transparent;
 		background-image: none;
@@ -100,7 +94,7 @@
 	.open {
 		z-index: $zindex-dropdown ;
 
-		.btn.dropdown-toggle[data-toggle][class] {
+		.btn.dropdown__toggle[data-toggle][class] {
 			@extend %dropdown-open !optional;
 			@include border-bottom-radius(0);
 			z-index: $zindex-dropdown + 1;
@@ -109,14 +103,13 @@
 
 	// Open/Close Animations
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	.dropdown-menu {
+	.dropdown__menu {
 		max-height: 0;
 		opacity: 0;
 		overflow: hidden;
 	}
 
-	.open > .dropdown-menu {
-		// @extend %fadeIn;
+	.open > .dropdown__menu {
 		max-height: 600px;
 		opacity: 1;
 	}

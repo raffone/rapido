@@ -25,11 +25,12 @@
 
 		&.active, &:active {outline: 0; }
 
-		&.disabled, &[disabled] {
-			cursor: default;
-			background-image: none;
-			@include opacity(65);
+		&.disabled, &.disabled:hover,
+		&[disabled],&[disabled]:hover {
 			@include box-shadow(none);
+			@include opacity(65);
+			background-image: none;
+			cursor: default;
 		}
 	}
 
@@ -79,13 +80,13 @@
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Block button
 // --------------------------------------------------------------------------------------------------------------------
-	.button--block {
+	.btn--block {
 		display: block;
 		width: 100%;
 		padding-left: 0;
 		padding-right: 0;
 
-		+ .button--block {
+		+ .btn--block {
 			margin-top: rhythm(.5);
 		}
 
