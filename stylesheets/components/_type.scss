@@ -90,7 +90,7 @@ h5,
 h6 {
 	margin: 0 0 rhythm();
 	text-rendering: optimizelegibility;
-	@if $titles-font-family { font-family: $titles-font-family; }
+	font-family: $titles-font-family;
 
 	small {
 		font-weight: normal;

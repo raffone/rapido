@@ -9,9 +9,11 @@
 		position: relative;
 	}
 
+	.dropdown__toggle:focus { outline: 0; }
+
 	// Dropdown arrow/caret
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	.caret {
+	.dropdown__caret {
 		@extend %caret !optional;
 	}
 
@@ -27,6 +29,7 @@
 		list-style: none;
 		margin: -$input-border 0 0 0;
 		z-index: $zindex-dropdown;
+		display: none;
 
 		&[data-content] { min-width: em(600px); }
 
@@ -36,7 +39,6 @@
 			right: 0;
 			left: auto;
 		}
-
 
 		// Links list inside the dropdown
 		> li > a,
@@ -91,27 +93,20 @@
 
 	// Open state for the dropdown
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	.open {
+	.dropdown.open {
 		z-index: $zindex-dropdown ;
 
-		.btn.dropdown__toggle[data-toggle][class] {
+		.dropdown__toggle {
 			@extend %dropdown-open !optional;
-			@include border-bottom-radius(0);
+			@include border-bottom-radius(0 !important);
 			z-index: $zindex-dropdown + 1;
 		}
+
+		.dropdown__menu {
+			display: block;
+		}
+
 	}
 
-	// Open/Close Animations
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	.dropdown__menu {
-		max-height: 0;
-		opacity: 0;
-		overflow: hidden;
-	}
-
-	.open > .dropdown__menu {
-		max-height: 600px;
-		opacity: 1;
-	}
 
 }

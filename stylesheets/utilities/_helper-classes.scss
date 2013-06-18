@@ -23,7 +23,8 @@
 $i: 100;
 @while $i > 0 {
 	%width-#{$i} { width: $i * 1% !important; }
-	$i: $i - 5;
+	[data-width="#{$i}"] { @extend %width-#{$i}; }
+	$i: $i - 1;
 }
 
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -39,7 +40,7 @@ $i: 100;
 }
 
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-// Text replacement
+// Text replacement (from http://html5boilerplate.com/)
 // --------------------------------------------------------------------------------------------------------------------
 .ir{background-color:transparent;border:0;overflow:hidden;text-indent:-9999px;line-height:0;font-size:0;}
 .ir:before{content:"";display:block;width:0;height:150%}

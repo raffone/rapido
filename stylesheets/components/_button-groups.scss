@@ -6,12 +6,12 @@
 		@extend .clearfix;
 		@include inline-block;
 		margin: 0;
-		position: relative;
+		// position: relative;
 
 		> li {
 			float: left;
 			list-style-type: none;
-			position: relative;
+			// position: relative;
 		}
 
 		&[data-width] .btn,
@@ -48,3 +48,4 @@
 
 	}
 }
+

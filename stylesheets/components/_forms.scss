@@ -44,6 +44,7 @@
 			@include border-radius($base-border-radius);
 		}
 
+		// input,
 		textarea,
 		input[type="text"],
 		input[type="password"],
@@ -61,10 +62,12 @@
 		input[type="color"] {
 			display: inline-block;
 			padding: 0 $input-padding-side;
+			// padding: $input-padding;
 			vertical-align: middle;
 			height: $input-height;
 			border-width: $input-border;
 			border-style: solid;
+			line-height /*\**/: $input-height \9; // Ugly IE8 Hack
 			@extend %input !optional;
 
 			&:focus {outline: 0;}
@@ -249,11 +252,46 @@
 
 
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Addon
+// --------------------------------------------------------------------------------------------------------------------
+
+	.form__addon {
+		display: inline-block;
+		width: auto;
+		min-width: em(16px);
+		padding: $input-padding;
+		line-height: 1em;
+		font-weight: normal;
+		float: left;
+		height: $input-height;
+		text-align: center;
+		border-width: $input-border;
+		border-style: solid;
+		@extend %input-addon !optional;
+	}
+
+
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Group % Controls
 // --------------------------------------------------------------------------------------------------------------------
 
 	.form__group { margin-bottom: em($control-margin-bottom); }
 	.form__controls { @extend .clearfix; }
+
+
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Form Actions
+// --------------------------------------------------------------------------------------------------------------------
+
+	.form__actions {
+		padding-top: rhythm(1);
+		margin-top: rhythm(1);
+		margin-bottom: rhythm(1);
+		border-top: 1px solid #e5e5e5;
+		clear: both;
+		@extend .clearfix;
+	}
+
 
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Append & Prepend
@@ -292,26 +330,6 @@
 		> .btn-group:last-child > li:last-child .btn 				{ }
 		> div.btn-group:last-child > .btn 							{ @include border-left-radius(0); }
 
-
-		// Addon
-		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-
-		.form__addon {
-			display: inline-block;
-			width: auto;
-			min-width: em(16px);
-			padding: $input-padding;
-			line-height: 1em;
-			font-weight: normal;
-			float: left;
-			height: $input-height;
-			text-align: center;
-			border-width: $input-border;
-			border-style: solid;
-			@extend %input-addon !optional;
-		}
-
-
 		/*
 			// DEBUG
 
@@ -329,20 +347,6 @@
 
 
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-// Form Actions
-// --------------------------------------------------------------------------------------------------------------------
-
-	.form__actions {
-		padding-top: rhythm(1);
-		margin-top: rhythm(1);
-		margin-bottom: rhythm(1);
-		border-top: 1px solid #e5e5e5;
-		clear: both;
-		@extend .clearfix;
-	}
-
-
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Form Grid
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -350,12 +354,13 @@
 		.form--grid {
 			.form__group { min-height: $control-min-height; }
 			.form__multi { width: 100%; }
+			input, button {padding: 0 $input-padding-side;}
 
-			$i: 100;
-			@while $i > 0 {
-				[data-width="#{$i}"] { @extend %width-#{$i}; }
-				$i: $i - 5;
-			}
+			// $i: 100;
+			// @while $i > 0 {
+			// 	[data-width="#{$i}"] { @extend %width-#{$i}; }
+			// 	$i: $i - 5;
+			// }
 		}
 	}
 
