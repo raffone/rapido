@@ -47,16 +47,24 @@
 		@include box-shadow(inset 0 1px 0 rgba(255,255,255,.5));
 		@include background-image(linear-gradient(bottom, $grayLight 0%, $grayLighter 100%));
 
+		// color: #FFF;
+		// border-color: $link-color;
+		// background-color: $link-color;
+		// @include box-shadow(inset 0 1px 0 rgba(255,255,255, .4));
+		// @include background-image(linear-gradient(bottom, $link-color-hover 0%, $link-color 100%));
+
 		// Hover/focus state
 		&:hover,
 		&:focus {
 			@include background-image(linear-gradient(bottom, $grayLight 0%, $white 100%));
+			// @include background-image(linear-gradient(bottom, $link-color-hover 0%, lighten($link-color, 10) 100%));
 		}
 
 		// Active state
 		&.active,
 		&:active {
 			@include background-image(linear-gradient(top, $grayLight 0%, $grayLighter 100%));
+			// @include background-image(linear-gradient(top, $link-color-hover 0%, $link-color 100%));
 		}
 	}
 
@@ -413,44 +421,34 @@
 	%nav-big {}
 
 	%nav-small {
-		background-color: #272c33;
+		background-color: $grayLighter;
 
-		a {
-			color: #fff;
-			padding: $input-padding;
-			// &:after { display: none;}
+		// li,
+		// li * {
+		// 	@include border-radius(0);
+		// 	background: transparent;
+		// 	border: 0;
+		// 	display: block;
+		// 	float: none;
+		// 	margin: 0;
+		// 	position: static;
+		// 	text-align: left;
+		// 	width: 100%;
+		// }
+
+		.btn {
+			background: $grayLight;
 		}
 
-		ul,
-		ul li,
-		ul li a {
-			width: 100%;
-			border: 0;
-			margin: 0;
-			float: none;
-			display: block;
-			position: static;
-			text-align: left;
-			@include border-radius(0);
-			background-color: transparent;
-		}
-
-		.open {
-			background-color: lighten(#272c33, 10);
-
-			.btn.dropdown-toggle[data-toggle=dropdown] {
-				background-color: darken(#272c33, 10);
-			}
-		}
 	}
 
 	%nav-toggle {
 		@extend .btn;
-		@include square($responsive-nav-toggle-size);
-		font-size: $responsive-nav-toggle-size * .6;
-		padding: 0;
-		line-height: $responsive-nav-toggle-size;
-		span {@include hide-text();}
+
+		span {
+			@include hide-text();
+		}
+
 		&:before {
 			@include icon-font(\f0c9);
 		}

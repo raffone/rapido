@@ -10,10 +10,15 @@
 
 	.nav {
 		@extend .clearfix;
-		list-style: none;
-		margin-bottom: rhythm();
-		margin-left: 0;
-		padding-left: 0;
+		position: relative;
+		display: inline-block;
+
+		&, > ul {
+			list-style: none;
+			margin-bottom: rhythm();
+			margin-left: 0;
+			padding-left: 0;
+		}
 
 		li {
 			> a {

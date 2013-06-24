@@ -6,8 +6,8 @@
 	@extend .clearfix;
 	margin: 0 auto;
 	max-width: $desk-end;
-	padding-left: 20px;
-	padding-right: 20px;
+	padding-left: $wrapper-padding;
+	padding-right: $wrapper-padding;
 }
 
 .fixed-wrapper, .fw {

@@ -63,6 +63,9 @@ $tables-padding: 					$input-padding 															!default;
 $tabs-content-padding: 				$input-padding 															!default;
 $tabs-tab-padding: 					$input-padding 															!default;
 
+// Helper classes
+$wrapper-padding: 					em(20px)	 															!default;
+
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Media Queries
 // --------------------------------------------------------------------------------------------------------------------
@@ -85,16 +88,16 @@ $grid-padding: 						10px 																	!default;
 $container-style: 					fluid 																	!default;
 
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-// Nav (resposnive-nav)
+// Nav Responsive Options
 // --------------------------------------------------------------------------------------------------------------------
 
-$responsive-nav-breakpoint:			palm																	!default;
-$responsive-nav-type: 				slide 																	!default;
-$responsive-nav-outside-wrapper: 	'body'																	!default;
-$responsive-nav-inside-wrapper: 	'.internal-wrapper' 													!default;
-$responsive-nav-offset: 			70% 																	!default;
-$responsive-nav-dropdown-pos: 		right 																	!default;
-$responsive-nav-toggle-size: 		30px 																	!default;
+$navs-responsive-breakpoint:		palm																	!default;
+$navs-responsive-type: 				slide 																	!default;
+$navs-responsive-dropdown-pos: 		right 																	!default;
+$navs-responsive-offset: 			70% 																	!default;
+
+$navs-responsive-outside-wrapper: 	'.external-wrapper'														!default;
+$navs-responsive-inside-wrapper: 	'.internal-wrapper' 													!default;
 
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Z-INDEX order

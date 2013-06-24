@@ -29,7 +29,11 @@
 		list-style: none;
 		margin: -$input-border 0 0 0;
 		z-index: $zindex-dropdown;
+
 		display: none;
+		// @include transition();
+		// max-height: 0;
+		// opacity: 0;
 
 		&[data-content] { min-width: em(600px); }
 
@@ -104,6 +108,8 @@
 
 		.dropdown__menu {
 			display: block;
+			// max-height: 666px;
+			// opacity: 1;
 		}
 
 	}

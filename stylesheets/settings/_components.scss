@@ -12,16 +12,15 @@ $dropdowns: 						true 		!default;
 
 $forms: 							true 		!default;
 	$forms-append:					true 		!default;
-	$forms-inline:					true 		!default;
+	$forms-grid: 					true 		!default;
 	$forms-aligned:					true 		!default;
-	$forms-grid: 				true 		!default;
+	$forms-inline:					true 		!default;
 
-$modals: 							true 		!default;
 $navs: 								true 		!default;
+$navs-responsive: 					true 		!default;
 $pager: 							true 		!default;
 $pagination: 						true 		!default;
 $labels: 							true 		!default;
-$responsive-navs: 					true 		!default;
 $tables: 							true 		!default;
 
 $tabs:								true 		!default;

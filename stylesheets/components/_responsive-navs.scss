@@ -1,166 +1,115 @@
 // ====================================================================================================================
-// RESPONSIVE NAVS w/ ResposnivNav,js (https://github.com/raffone/responsive-nav.js)
+// RESPONSIVE NAVS w/ responsive-nav.js (https://github.com/raffone/responsive-nav.js)
 // ====================================================================================================================
 
 
-@if $responsive-navs {
-	.responsive-nav {
-		position: relative;
-		// max-height: none;
-		ul {margin-left: 0;}
-	}
-
-
-	// Stile navigazione desktop
-	.responsive-nav.notactive {
-		@extend %nav-big !optional;
-
-		ul > .dropdown:hover{
-			@extend .open;
-		}
-	}
-
-	// Stile navigazione piccola
-	.responsive-nav.active {
-		@extend %nav-small !optional;
-
-		.dropdown-submenu:hover > .dropdown-menu {
-			// @include experimental(animation, 0);
-		}
-	}
+@if $navs-responsive {
 
 	#nav-toggle {
-		display: none;
 		@extend %nav-toggle !optional;
+		display: none;
+		float: $navs-responsive-dropdown-pos;
 	}
 
-	@include media($responsive-nav-breakpoint) {
 
-		// Stili generici per la nav
-		#nav-toggle {
-			display: inline-block;
-		}
+	.nav--responsive 				{}
+	.nav--responsive.notactive 		{ @extend %nav-big !optional; }
+	.nav--responsive.active 		{ @extend %nav-small !optional;	}
+	.nav--responsive.close 			{ max-height: none;	}
 
-		.responsive-nav {
-			// ul, li, a {margin: 0;}
 
-			ul {
-				li {
-					// margin: 0;
-					a {
-						// padding: $input-padding;
-						// &:after { display: none;}
-					}
+	@include media($navs-responsive-breakpoint) {
 
-					// li a {padding-left: $input-padding-side*4;}
-					// li li a {padding-left: $input-padding-side*6 ;}
-				}
+		#nav-toggle { display: block; }
+
+		.nav--responsive {
+			display: block;
+			margin: 0;
+			zoom: 1;
+			overflow: hidden;
+
+			> ul {
+				padding: $wrapper-padding;
 			}
 
-			.dropdown-menu {
-				li a {
-					@include border-radius(0);
-				}
-
+			ul, ul * {
+				@include border-radius(0);
+				background: transparent;
+				border: 0;
+				display: block;
+				float: none;
+				margin: 0;
+				position: static;
+				text-align: left;
+				width: 100%;
 			}
-
 
 		}
 
 		// SLIDE
 		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-		@if $responsive-nav-type == slide {
-			.responsive-nav {
+		@if $navs-responsive-type == 'slide' {
+
+			.nav--responsive {
 				clip: rect(0 0 0 0);
 				max-height: 0;
-				display: block;
-				overflow: hidden;
-				zoom: 1;
+				width: 100%;
 
+				&.opened {
+					max-height: 9999px;
+				}
 
-				&.opened {max-height: 9999px;}
-			}
-		}
-
-		// DROPDOWN
-		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-		@if $responsive-nav-type == dropdown {
-
-			#nav-origin {
-				position: relative;
 			}
 
-			#nav-toggle {
-				float: $responsive-nav-dropdown-pos;
-			}
-
-
-			.responsive-nav {
-				position: absolute;
-				max-height: 0;
-				display: block;
-				overflow: hidden;
-				zoom: 1;
-				top: $responsive-nav-toggle-size;
-				left: 0;
-				right: 0;
-
-				&.opened {max-height: 9999px;}
-			}
 		}
 
 		// OFFCANVAS
 		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-		@if $responsive-nav-type == off-canvas {
+		@if $navs-responsive-type == 'off-canvas' {
 
 			// Wrappers
 			// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-			#{$responsive-nav-outside-wrapper},
-			#{$responsive-nav-inside-wrapper} {
+			#{$navs-responsive-outside-wrapper},
+			#{$navs-responsive-inside-wrapper} {
 				position: relative;
 				width: 100%;
 			}
 
-			#{$responsive-nav-outside-wrapper} {
+			#{$navs-responsive-outside-wrapper} {
 				overflow-x: hidden;
 			}
 
 			// Transitions
 			// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-			#{$responsive-nav-inside-wrapper},
-			.responsive-nav {
-				@include transition(500ms);
+			#{$navs-responsive-inside-wrapper},
+			.nav--responsive {
+				@include transition();
 				@include backface-visibility(hidden);
 			}
 
 
 			// Animations
 			// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-			#{$responsive-nav-inside-wrapper} {
+			#{$navs-responsive-inside-wrapper} {
 				@include transform(translate3d(0,0,0));
 				left: 0;
 			}
 
-			.responsive-nav {
-				width: $responsive-nav-offset;
-				position: absolute;
+			.nav--responsive {
+				@include position(absolute, 0px 0px 0px 0);
+				@include transform(translate3d(100%,0,0));
 				height: 100%;
-				bottom: 0;
-				left: 0;
-				top: 0;
-				opacity: 0;
-				@include transform(translate3d(-100%,0,0));
-				// left: -$responsive-nav-offset;
+				width: $navs-responsive-offset;
 			}
 
 			.nav-open {
-				#{$responsive-nav-inside-wrapper} {
-					@include transform(translate3d($responsive-nav-offset,0,0));
-					// left: $responsive-nav-offset;
+				#{$navs-responsive-inside-wrapper} {
+					@include transform(translate3d((0 - $navs-responsive-offset),0,0));
+					position: relative;
 				}
-				.responsive-nav {
-					@include transform(translate3d(-100%,0,0));
-					opacity: 1;
+
+				.nav--responsive {
+					@include transform(translate3d(0,0,0));
 				}
 			}
 
