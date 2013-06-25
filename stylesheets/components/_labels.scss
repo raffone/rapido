@@ -1,11 +1,11 @@
 // ====================================================================================================================
-// LABELS & BADGES
+// BADGE & PILLS
 // ====================================================================================================================
 
 @if $labels {
 
-	.label,
-	.badge {
+	.badge,
+	.pill {
 		@extend %pill !optional;
 		display: inline-block;
 		padding: $pills-padding;
@@ -13,10 +13,10 @@
 		white-space: nowrap;
 	}
 
-	.label { @include border-radius($base-border-radius); }
-	.badge { @include border-radius(20px); }
+	.badge { @include border-radius($base-border-radius); }
+	.pill { @include border-radius(20px); }
 
-	.label, .badge {
+	.badge, .pill {
 		&:empty { display: none; }
 	}
 
@@ -32,8 +32,8 @@
 	}
 
 	.btn {
-		.label,
-		.badge {
+		.badge,
+		.pill {
 			margin: -(nth($pills-padding, 1)) -(nth($pills-padding, 2)) 0 0 ;
 		}
 	}

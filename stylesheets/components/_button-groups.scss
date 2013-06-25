@@ -8,14 +8,14 @@
 		margin: 0;
 		// position: relative;
 
-		> li {
+		> * {
 			float: left;
 			list-style-type: none;
 			// position: relative;
 		}
 
 		&[data-width] .btn,
-		> li[data-width] .btn {
+		> *[data-width] .btn {
 			@extend %width-100;
 			padding-left: 0;
 			padding-right: 0;
@@ -27,15 +27,19 @@
 
 		// Float button and reapply border radius
 		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-		> li .btn {
+		> .btn,
+		> * .btn {
 			@include border-radius(0);
 			float: left;
 		}
 
-		> li + li 							{ margin-left: -$input-border; }
-		> li:first-child .btn 				{ @include border-radius($base-border-radius 0 0 $base-border-radius); }
-		> li:last-child .btn 				{ @include border-radius(0 $base-border-radius $base-border-radius 0); }
-		> li:last-child:first-child .btn 	{ @include border-radius($base-border-radius); }
+		> * + * 							{ margin-left: -$input-border; }
+		> *:first-child,
+		> *:first-child .btn 				{ @include border-radius($base-border-radius 0 0 $base-border-radius); }
+		> *:last-child,
+		> *:last-child .btn 				{ @include border-radius(0 $base-border-radius $base-border-radius 0); }
+		> *:last-child:first-child,
+		> *:last-child:first-child .btn 	{ @include border-radius($base-border-radius); }
 
 		// On hover/focus/active, bring the proper btn to front
 		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––

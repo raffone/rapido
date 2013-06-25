@@ -151,7 +151,10 @@
 	// Pills (Labels & Badges)
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	%pill {
-		background-color: $gray;
+		// background-color: rgba(, );
+		@include alpha-color(#000, .35);
+		@include box-shadow(inset 0px 1px 1px rgba(0,0,0,.35));
+		text-shadow: 0 1px 1px rgba(0,0,0,.35);
 		color: $white;
 	}
 
