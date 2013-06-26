@@ -60,7 +60,7 @@
 		tbody {
 			> tr:nth-child(odd) > td,
 			> tr:nth-child(odd) > th {
-				@extend %table-striped !optional;
+				@extend %table--striped !optional;
 			}
 		}
 	}
@@ -69,7 +69,7 @@
 // Bordered Version
 // --------------------------------------------------------------------------------------------------------------------
 	.table--bordered {
-		@extend %table-bordered !optional;
+		@extend %table--bordered !optional;
 	}
 
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -80,7 +80,7 @@
 		tbody {
 			tr:hover > td,
 			tr:hover > th {
-				@extend %table-hover !optional;
+				@extend %table--hover !optional;
 			}
 		}
 	}
@@ -89,7 +89,7 @@
 // Sortable w/ StupidTable (https://github.com/joequery/Stupid-Table-Plugin)
 // --------------------------------------------------------------------------------------------------------------------
 	.table--sortable {
-		@extend %table-sortable !optional;
+		@extend %table--sortable !optional;
 
 		thead {
 			th {

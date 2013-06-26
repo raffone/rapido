@@ -40,13 +40,13 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 	.btn					{ @extend %btn !optional; }
-	.btn--primary 			{ @extend %btn-primary !optional; }
-	.btn--secondary 		{ @extend %btn-secondary !optional; }
-	.btn--warning 			{ @extend %btn-warning !optional; }
-	.btn--danger 			{ @extend %btn-danger !optional; }
-	.btn--info 				{ @extend %btn-info !optional; }
-	.btn--success 			{ @extend %btn-success !optional; }
-	.btn--inverse 			{ @extend %btn-inverse !optional; }
+	.btn--primary 			{ @extend %btn--primary !optional; }
+	.btn--secondary 		{ @extend %btn--secondary !optional; }
+	.btn--warning 			{ @extend %btn--warning !optional; }
+	.btn--danger 			{ @extend %btn--danger !optional; }
+	.btn--info 				{ @extend %btn--info !optional; }
+	.btn--success 			{ @extend %btn--success !optional; }
+	.btn--inverse 			{ @extend %btn--inverse !optional; }
 
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Button Sizes

@@ -31,7 +31,7 @@
 					border-width: $input-border;
 					border-style: solid;
 					margin-left: -$input-border;
-					@extend %pagination-btn !optional;
+					@extend %pagination--btn !optional;
 				}
 			}
 
@@ -42,11 +42,11 @@
 
 			li > a:hover,
 			li > a:focus {
-				@extend %pagination-btn_hover !optional;
+				@extend %pagination--btn__hover !optional;
 			}
 
 			li > a:active {
-				@extend %pagination-btn_active !optional;
+				@extend %pagination--btn__active !optional;
 			}
 
 			// Bootstrap
@@ -58,14 +58,14 @@
 			// WP Paginate
 			.current,
 			.current:hover {
-				@extend %pagination-btn_current !optional;
+				@extend %pagination--btn__current !optional;
 			}
 
 			.disabled > span,
 			.disabled > a,
 			.disabled > a:hover,
 			.disabled > a:focus {
-				@extend %pagination-btn_disabled !optional;
+				@extend %pagination--btn__disabled !optional;
 			}
 
 			.active > a,

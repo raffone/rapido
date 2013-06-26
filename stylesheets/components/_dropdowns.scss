@@ -101,7 +101,7 @@
 		z-index: $zindex-dropdown ;
 
 		.dropdown__toggle {
-			@extend %dropdown-open !optional;
+			@extend %dropdown--open !optional;
 			@include border-bottom-radius(0 !important);
 			z-index: $zindex-dropdown + 1;
 		}

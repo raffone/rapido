@@ -18,7 +18,7 @@
 	}
 
 	.alert--block {
-		p, ul { margin-bottom: 0; }
-		p + p {  margin-top: 5px; }
+		* { margin-bottom: 0; }
+		* + * {  margin-top: 5px; }
 	}
 }

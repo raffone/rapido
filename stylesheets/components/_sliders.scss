@@ -30,7 +30,7 @@
 	.bx-controls-direction {
 
 		a {
-			@extend %slider-btn !optional;
+			@extend %slider__btn !optional;
 			@include position(absolute, 50% 0 0 0);
 
 			z-index: 200;
@@ -53,7 +53,7 @@
 	.bx-pager {
 		width: 100%;
 		text-align: center;
-		@extend %slider-pager !optional;
+		@extend %slider__pager !optional;
 
 		.bx-pager-item {
 			display: inline-block;
@@ -71,7 +71,7 @@
 	.bx-loading {
 		@include square(100%);
 		@include position(absolute, 0px 0 0 0px);
-		@extend %slider-loading-style;
+		@extend %slider__loading-style;
 		z-index: 2000;
 	}
 
@@ -84,7 +84,7 @@
 
 		span {
 			display: inline-block;
-			@extend %slider-caption !optional;
+			@extend %slider__caption !optional;
 		}
 	}
 

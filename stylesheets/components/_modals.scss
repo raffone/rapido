@@ -35,7 +35,7 @@
 
 	// Overlay | 1st level
 	.fancybox-overlay {
-		@extend %modal-overlay !optional;
+		@extend %modal__overlay !optional;
 		@include position(absolute, 0px 0 0 0px);
 		display: none;
 		overflow: hidden;
@@ -60,13 +60,13 @@
 			&.fancybox-type-iframe,
 			&.fancybox-type-ajax {
 				.fancybox-close {
-					@extend %modal-close-alt !optional;
+					@extend %modal__close--alt !optional;
 				}
 			}
 
 			// Skin | 3rd Level
 			.fancybox-skin {
-				@extend %modal-skin !optional;
+				@extend %modal__skin !optional;
 				position: relative;
 				padding: 0 !important;
 
@@ -130,7 +130,7 @@
 
 	#fancybox-loading {
 		@include position(fixed, 50% 0 0 50%);
-		@extend %modal-loading !optional;
+		@extend %modal__loading !optional;
 		cursor: pointer;
 		z-index: $zindex-modal +4;
 	}
@@ -140,8 +140,8 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 	.fancybox-close {
-		@extend %modal-btn !optional;
-		@extend %modal-close !optional;
+		@extend %modal__btn !optional;
+		@extend %modal__close !optional;
 		@include border-radius($base-border-radius);
 		z-index: ($zindex-modal + 3);
 	}
@@ -153,8 +153,8 @@
 		z-index: ($zindex-modal + 2);
 
 		span {
-			@extend %modal-btn !optional;
-			@extend %modal-nav !optional;
+			@extend %modal__btn !optional;
+			@extend %modal__nav !optional;
 			@include position(absolute, 50% 0 0 0);
 			visibility: hidden;
 			z-index: ($zindex-modal + 2);
@@ -215,7 +215,7 @@
 
 	.fancybox-title-over-wrap {
 		@include position(absolute, 0 0 0px 0px);
-		@extend %modal-caption !optional;
+		@extend %modal__caption !optional;
 	}
 
 }
@@ -232,7 +232,7 @@
 		&.bottom { bottom: em(10px); }
 
 		ul {
-			@extend %modal-btnbar-size !optional;
+			@extend %modal__btnbar-size !optional;
 			display: block;
 			list-style: none;
 			margin: 0 auto;
@@ -240,7 +240,7 @@
 				float: left;
 				margin: 0;
 				a {
-					@extend %modal-btn !optional;
+					@extend %modal__btn !optional;
 					position: relative;
 					&:hover { opacity: 1; }
 					&:after { @include position(absolute, 0px 0px 0 0px); }

@@ -47,40 +47,32 @@
 		@include box-shadow(inset 0 1px 0 rgba(255,255,255,.5));
 		@include background-image(linear-gradient(bottom, $grayLight 0%, $grayLighter 100%));
 
-		// color: #FFF;
-		// border-color: $link-color;
-		// background-color: $link-color;
-		// @include box-shadow(inset 0 1px 0 rgba(255,255,255, .4));
-		// @include background-image(linear-gradient(bottom, $link-color-hover 0%, $link-color 100%));
-
 		// Hover/focus state
 		&:hover,
 		&:focus {
 			@include background-image(linear-gradient(bottom, $grayLight 0%, $white 100%));
-			// @include background-image(linear-gradient(bottom, $link-color-hover 0%, lighten($link-color, 10) 100%));
 		}
 
 		// Active state
 		&.active,
 		&:active {
 			@include background-image(linear-gradient(top, $grayLight 0%, $grayLighter 100%));
-			// @include background-image(linear-gradient(top, $link-color-hover 0%, $link-color 100%));
 		}
 	}
 
-	%btn_disabled {
+	%btn__disabled {
 		color: $grayLight;
 		border-color: $grayLight;
 		background: #FFF;
 	}
 
-	%btn_current {
+	%btn__current {
 		@include box-shadow(0 0 0);
 		background: $gray;
 		color: $white;
 	}
 
-	%btn-primary {
+	%btn--primary {
 		color: #fff;
 		border-color: darken(green, 10%);
 		background-color: green;
@@ -99,7 +91,7 @@
 		}
 	}
 
-	%btn-secondary {
+	%btn--secondary {
 		color: #fff;
 		border-color: darken(red, 10%);
 		background-color: red;
@@ -118,14 +110,14 @@
 		}
 	}
 
-	%btn-warning {}
-	%btn-danger {}
-	%btn-info {}
-	%btn-success {}
-	%btn-inverse {}
+	%btn--warning {}
+	%btn--danger {}
+	%btn--info {}
+	%btn--success {}
+	%btn--inverse {}
 
 	// Generic style for buttons used by the scripts
-	%btn-scripts {
+	%btn--scripts {
 		@include alpha-color(#000, .6, background);
 		color: #fff;
 		cursor: pointer;
@@ -176,7 +168,7 @@
 		}
 	}
 
-	%dropdown-open {
+	%dropdown--open {
 		background: $grayLighter;
 		border-bottom: 1px solid $grayLighter;
 	}
@@ -194,7 +186,7 @@
 
 	// Tables
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	%table-bordered {
+	%table--bordered {
 		thead {
 			th, td {
 				background-color: $gray;
@@ -206,11 +198,11 @@
 		}
 	}
 
-	%table-striped { background-color: $grayLighter;}
+	%table--striped { background-color: $grayLighter;}
 
-	%table-hover { background-color: $gray;}
+	%table--hover { background-color: $gray;}
 
-	%table-sortable {
+	%table--sortable {
 		thead {
 			th {
 				&:hover {background: $grayDark }
@@ -222,16 +214,16 @@
 
 	// Navs
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	%nav-btn {}
+	%nav--btn {}
 
-	%nav-btn_hover { background-color: $grayLighter;}
+	%nav--btn__hover { background-color: $grayLighter;}
 
-	%nav-btn_active {
+	%nav--btn__active {
 		color: $white;
 		background-color: $link-color;
 	}
 
-	%nav-btn_disabled {color: $grayLight;}
+	%nav--btn__disabled {color: $grayLight;}
 
 
 	// Breadcrumbs
@@ -255,18 +247,18 @@
 
 	// Pagination
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	%pagination-btn 			{ @extend %btn; }
-	%pagination-btn_hover 		{ }
-	%pagination-btn_active 		{ }
-	%pagination-btn_current 	{ @extend %btn_current; }
-	%pagination-btn_disabled 	{ @extend %btn_disabled; }
+	%pagination--btn 			{ @extend %btn; }
+	%pagination--btn__hover 		{ }
+	%pagination--btn__active 	{ }
+	%pagination--btn__current 	{ @extend %btn__current; }
+	%pagination--btn__disabled 	{ @extend %btn__disabled; }
 
 	// Pager
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	%pager-btn 					{ @extend %btn;}
-	%pager-btn_hover 			{ }
-	%pager-btn_active 			{ }
-	%pager-btn_disabled 		{ @extend %btn_disabled; }
+	%pager--btn 					{ @extend %btn;}
+	%pager--btn__hover 			{ }
+	%pager--btn__active 			{ }
+	%pager--btn__disabled 		{ @extend %btn__disabled; }
 
 
 
@@ -281,17 +273,17 @@
 	$modal-btn-size: em(30px);
 
 	// Buttons
-	%modal-btn {
-		@extend %btn-scripts !optional;
+	%modal__btn {
+		@extend %btn--scripts !optional;
 		@include square($modal-btn-size);
 		line-height: $modal-btn-size;
 	}
 
-	%modal-close {
+	%modal__close {
 		@include position(absolute, 0px (em(-5px) - $modal-btn-size) 0 0);
 	}
 
-	%modal-close-alt {
+	%modal__close--alt {
 		@include position(absolute, 0px 0px 0 0);
 		background-color: transparent;
 		color: $link-color;
@@ -300,10 +292,12 @@
 		}
 	}
 
-	%modal-btnbar-size {@include size($modal-btn-size, $modal-btn-size * 5);}
+	%modal__btnbar-size {@include size($modal-btn-size, $modal-btn-size * 5);}
 
 	// Other styles
-	%modal-overlay { background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNiqAcAAIgAgoGu+rEAAAAASUVORK5CYII='); }
+	%modal__overlay {
+		background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNiqAcAAIgAgoGu+rEAAAAASUVORK5CYII=');
+	}
 
 	%modal-skin {
 		@include box-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
@@ -323,11 +317,11 @@
 		.btnClose:after 			{ @include icon-font(\f00d); }
 	}
 
-	%modal-nav { margin-top: (0 - ($modal-btn-size / 2)); }
+	%modal__nav { margin-top: (0 - ($modal-btn-size / 2)); }
 
-	%modal-caption { @extend %caption !optional; }
+	%modal__caption { @extend %caption !optional; }
 
-	%modal-loading {
+	%modal__loading {
 		margin-top: -($loader-ico-size / 2);
 		margin-left: -($loader-ico-size / 2);
 		opacity: 0.8;
@@ -345,8 +339,8 @@
 	$slider-btn-size: em(30px);
 
 	// Buttons
-	%slider-btn {
-		@extend %btn-scripts !optional;
+	%slider__btn {
+		@extend %btn--scripts !optional;
 		@include square($slider-btn-size);
 		line-height: $slider-btn-size;
 		margin-top: -($slider-btn-size / 2);
@@ -356,7 +350,7 @@
 	}
 
 	// Pager
-	%slider-pager {
+	%slider__pager {
 		@include position(absolute, 0 0 -30px 0);
 		padding-top: 20px;
 		.bx-pager-item {
@@ -372,9 +366,9 @@
 	}
 
 	// Other styles
-	%slider-caption { @extend %caption !optional; }
+	%slider__caption { @extend %caption !optional; }
 
-	%slider-loading {
+	%slider__loading {
 		@extend %loader-ico !optional;
 		@include alpha-color(#000, .60);
 		min-height: $loader-ico-size;
@@ -383,28 +377,28 @@
 	// Tabs
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
-	%tab-nav {
+	%tab__nav {
 		//...
 	}
 
-	%tab-btn {
+	%tab__btn {
 		background: $grayLighter;
 		border: solid 1px $grayLight;
 		border-bottom: none;
 	}
 
-	%tab-btn_hover {
+	%tab__btn__hover {
 		background: $grayLighter;
 		border: solid 1px $grayLight;
 		border-bottom: none;
 	}
 
-	%tab-btn_current {
+	%tab__btn__current {
 		border-color: $gray;
 		&:after { background: $grayLighter; }
 	}
 
-	%tab-container {
+	%tab__container {
 		border: solid 1px $gray;
 		background: $grayLighter;
 	}
@@ -421,26 +415,14 @@
 	// Responsive NAV
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
-	%nav-big {}
-
-	%nav-small {
+	%nav--responsive {
 		background-color: $grayLighter;
 
-		// li,
-		// li * {
-		// 	@include border-radius(0);
-		// 	background: transparent;
-		// 	border: 0;
-		// 	display: block;
-		// 	float: none;
-		// 	margin: 0;
-		// 	position: static;
-		// 	text-align: left;
-		// 	width: 100%;
-		// }
+		a { padding: nth($btn-padding, 1) $wrapper-padding; }
 
-		.btn {
-			background: $grayLight;
+		> ul > li > a {
+			font-weight: bold;
+			background-color: $grayLight;
 		}
 
 	}

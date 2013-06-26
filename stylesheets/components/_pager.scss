@@ -25,15 +25,15 @@
 				display: inline-block;
 				line-height: 1em;
 				padding: $pager-padding;
-				@extend %pager-btn !optional;
+				@extend %pager--btn !optional;
 			}
 
 			a:hover,
 			a:focus {
-				@extend %pager-btn_hover !optional;
+				@extend %pager--btn__hover !optional;
 			}
 			a:active {
-				@extend %pager-btn_active !optional;
+				@extend %pager--btn__active !optional;
 			}
 		}
 
@@ -54,7 +54,7 @@
 		.disabled > a:focus,
 		.disabled > span {
 			cursor: default;
-			@extend %pager-btn_disabled !optional;
+			@extend %pager--btn__disabled !optional;
 		}
 
 	}

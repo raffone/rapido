@@ -18,9 +18,11 @@
 			margin-bottom: rhythm();
 			margin-left: 0;
 			padding-left: 0;
+			@extend .clearfix;
 		}
 
 		li {
+
 			> a {
 				display: block;
 				line-height: 1em;
@@ -74,21 +76,21 @@
 		li {
 			> a {
 				padding: $navs-padding;
-				@extend %nav-btn;
+				@extend %nav--btn;
 
 				&:hover, &:focus {
-					@extend %nav-btn_hover;
+					@extend %nav--btn__hover;
 				}
 			}
 
 			&.active > a,
 			&.active > a:hover,
 			&.active > a:focus {
-				@extend %nav-btn_active;
+				@extend %nav--btn__active;
 			}
 
 			// Disabled
-			&.disabled > a { @extend %nav-btn_disabled; }
+			&.disabled > a { @extend %nav--btn__disabled; }
 		}
 	}
 
