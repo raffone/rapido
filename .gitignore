@@ -7,3 +7,4 @@ original/*
 *.un~
 .DS_Store
 *.css
+config.rb
