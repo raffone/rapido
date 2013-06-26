@@ -1,0 +1,28 @@
+// ====================================================================================================================
+// GRIDS (classes)
+// ====================================================================================================================
+@each $device in palm, lap, desk {
+
+	$i: $total-columns + 1;
+
+
+	@include media($device) {
+
+		@while $i > 0 {
+
+			.#{$device}-#{$i} {
+				@include span-columns($i);
+			}
+
+
+			$i: $i - 1;
+		}
+
+		[class*="#{$device}-"]:last-child { @include omega() }
+		.#{$device}-hide { display: none !important; }
+		.#{$device}-show { display: block !important; }
+	}
+
+
+
+}
