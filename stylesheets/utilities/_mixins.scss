@@ -308,6 +308,54 @@
 	content: "#{$char}";
 }
 
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Media Queries
+// --------------------------------------------------------------------------------------------------------------------
+@mixin media($media-query){
+
+    @if $media-query == palm {
+        @media only screen and (max-width:$palm-end) {
+        	@content;
+        }
+    }
+
+    @elseif $media-query == lap{
+        @media only screen and (min-width:$lap-start) and (max-width:$lap-end) {
+        	@content;
+        }
+    }
+
+    @elseif $media-query == lap-and-up{
+        @media only screen and (min-width:$lap-start) {
+        	@content;
+        }
+    }
+
+    @elseif $media-query == portable{
+        @media only screen and (max-width:$lap-end) {
+        	@content;
+        }
+    }
+
+    @elseif $media-query == desk{
+        @media only screen and (min-width:$desk-start) {
+        	@content;
+        }
+    }
+
+    @elseif $media-query == desk-wide {
+        @media only screen and (min-width: $desk-wide-start) {
+        	@content;
+        }
+    }
+
+    // @else $media-query == all{
+    @else {
+        @content;
+    }
+
+}
+
 
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // GRID
