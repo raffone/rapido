@@ -44,6 +44,9 @@ $control-min-height: 				em($base-line-height + $label-margin-bottom) + $input-h
 // Paddings
 // --------------------------------------------------------------------------------------------------------------------
 
+// Helper classes
+$wrapper-padding: 					em(20px)	 															!default;
+
 // Buttons
 $btn-padding: 						$input-padding															!default;
 $btn-large-padding: 				em($input-padding-top * 1) em($input-padding-side * 1.5)				!default;
@@ -63,8 +66,7 @@ $tables-padding: 					$input-padding 															!default;
 $tabs-content-padding: 				$input-padding 															!default;
 $tabs-tab-padding: 					$input-padding 															!default;
 
-// Helper classes
-$wrapper-padding: 					em(20px)	 															!default;
+
 
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Media Queries
