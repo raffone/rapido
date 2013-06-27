@@ -28,18 +28,12 @@
 		// Float button and reapply border radius
 		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 		> .btn,
-		> * .btn {
-			@include border-radius(0);
+		> li .btn {
 			float: left;
+			@include border-radius(0);
 		}
 
-		> * + * 							{ margin-left: -$input-border; }
-		> *:first-child,
-		> *:first-child .btn 				{ @include border-radius($base-border-radius 0 0 $base-border-radius); }
-		> *:last-child,
-		> *:last-child .btn 				{ @include border-radius(0 $base-border-radius $base-border-radius 0); }
-		> *:last-child:first-child,
-		> *:last-child:first-child .btn 	{ @include border-radius($base-border-radius); }
+		> li + li { margin-left: -$input-border; }
 
 		// On hover/focus/active, bring the proper btn to front
 		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -50,6 +44,43 @@
 			z-index: 2;
 		}
 
+
 	}
+
+
+	// Rounded corners
+	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	/*
+		Debug colors:
+
+ 		# 1 : YellowGreen
+ 		# 2 : Wheat
+ 		# 3 : Tomato
+ 		# 4 : red
+ 		# 5 : blue
+ 		# 6 : green
+ 		# 7 : purple
+ 		# 8 : yellow
+ 		# 9 : teal
+	*/
+
+
+	// Generic
+	.btn-group > li:first-child .btn 						{ @include border-left-radius($base-border-radius); } 	// # 1
+	.btn-group > li:last-child .btn 						{ @include border-right-radius($base-border-radius);  } // # 2
+	div.btn-group .btn 										{ @include border-radius($base-border-radius); }		// # 3
+
+
+	// In Forms
+	.form__controls--multi {
+		.btn-group:first-child > li:first-child .btn 		{ }										// # 4
+		.btn-group:first-child > li:last-child .btn 		{ @include border-right-radius(0); }	// # 5
+		div.btn-group:first-child .btn 						{ @include border-right-radius(0); }	// # 6
+
+		.btn-group:last-child > li:first-child .btn 		{ @include border-left-radius(0); }		// # 7
+		.btn-group:last-child > li:last-child .btn 			{ }										// # 8
+		div.btn-group:last-child > .btn 					{ @include border-left-radius(0); }		// # 9
+	}
+
 }
 

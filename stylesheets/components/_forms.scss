@@ -36,7 +36,7 @@
 
 		label,
 		input,
-		// button,
+		button,
 		select,
 		textarea {
 			line-height: 1em;
@@ -322,25 +322,25 @@
 		// Correct border radius
 		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
-		> .btn-group:first-child > li:first-child .btn 				{ }
-		> .btn-group:first-child > li:last-child .btn 				{ @include border-right-radius(0); }
-		> div.btn-group:first-child .btn 							{ @include border-right-radius(0); }
+		// > .btn-group:first-child > li:first-child .btn 				{ }
+		// > .btn-group:first-child > li:last-child .btn 				{ @include border-right-radius(0); }
+		// > div.btn-group:first-child .btn 							{ @include border-right-radius(0); }
 
-		> .btn-group:last-child > li:first-child .btn 				{ @include border-left-radius(0); }
-		> .btn-group:last-child > li:last-child .btn 				{ }
-		> div.btn-group:last-child > .btn 							{ @include border-left-radius(0); }
+		// > .btn-group:last-child > li:first-child .btn 				{ @include border-left-radius(0); }
+		// > .btn-group:last-child > li:last-child .btn 				{ }
+		// > div.btn-group:last-child > .btn 							{ @include border-left-radius(0); }
 
-		/*
+
 			// DEBUG
 
-			> .btn-group:first-child > li:first-child .btn 				{ background: red !important; }
-			> .btn-group:first-child > li:last-child .btn 				{ background: blue !important; }
-			> div.btn-group:first-child .btn 							{ background: green !important; }
+			// > .btn-group:first-child > li:first-child .btn 				{ background: red !important; }
+			// > .btn-group:first-child > li:last-child .btn 				{ background: blue !important; }
+			// > div.btn-group:first-child .btn 							{ background: green !important; }
 
-			> .btn-group:last-child > li:first-child .btn 				{ background: purple !important; }
-			> .btn-group:last-child > li:last-child .btn 				{ background: yellow !important; }
-			> div.btn-group:last-child > .btn 							{ background: teal !important; }
-		*/
+			// > .btn-group:last-child > li:first-child .btn 				{ background: purple !important; }
+			// > .btn-group:last-child > li:last-child .btn 				{ background: yellow !important; }
+			// > div.btn-group:last-child > .btn 							{ background: teal !important; }
+
 
 
 	}
