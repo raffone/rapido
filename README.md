@@ -2,12 +2,12 @@
 
 ## Intro
 
-An easy and quick [**Sass**](http://sass-lang.com/) + [**Compass**](http://compass-style.org/) + [**Susy**](http://susy.oddbird.net/) + [**OOCSS**](http://oocss.org/) + [**BEM**](https://gist.github.com/necolas/1309546) prototyping framework based on Bootstrap without all the default styles.
+An easy and quick [**Sass**](http://sass-lang.com/) + [**Compass**](http://compass-style.org/) + [**Susy**](http://susy.oddbird.net/) + [**OOCSS**](http://oocss.org/) + [**BEM**](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) prototyping framework based on Bootstrap without all the default styles.
 
 ## Features
 
-* Most of the modules from Boostrap (some heavly modified and streamlined)
-* **CSS architecture and styling completely separated**, creating and sweitching complex themes is much easier
+* Most of the modules from Boostrap (some heavily modified and streamlined)
+* **CSS architecture and styling completely separated**, creating and switching complex themes is much easier
 * **Every unused component can be disabled** to slim the final css
 * All sizes are in **em** and respect the **vertical rhythm** of the page
 * **Super easy responsive layouts** with Susy and custom mixins
@@ -18,7 +18,7 @@ An easy and quick [**Sass**](http://sass-lang.com/) + [**Compass**](http://compa
 
 ## Why?
 
-The Rapido framework, is the result of a couple of months trying to figure out a way to incorporate a common framework in all my front-end projects, both for personal and client works. I started to look around at complete frameworks for quick prototyping and found three: [**Bootstrap**](https://github.com/twitter/bootstrap), [**Foundation**](https://github.com/zurb/foundation) and [**Inuit**](https://github.com/csswizardry/inuit.css). The first two are very similar, Bootstrap has more features that i never use so they where basically the same for me, Inuit is much smaller and more object oriented (ex: [BEM](https://gist.github.com/necolas/1309546) naming syntax).
+The Rapido framework, is the result of a couple of months trying to figure out a way to incorporate a common framework in all my front-end projects, both for personal and client works. I started to look around at complete frameworks for quick prototyping and found three: [**Bootstrap**](https://github.com/twitter/bootstrap), [**Foundation**](https://github.com/zurb/foundation) and [**Inuit**](https://github.com/csswizardry/inuit.css). The first two are very similar, Bootstrap has more features that i never use so they where basically the same for me, Inuit is much smaller and more object oriented (ex: [BEM](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) naming syntax).
 
 The problem was that after the first prototypes they where very difficult to tame and style like I wanted (and please, bootswatch.com and wrapbootstrap.com doesn't count, I mean real full designs). So I wanted to create a frankestein's framework with all the useful components from bootstrap, everything in variables like Foundation and the easy styling of Inuit.
 
@@ -36,8 +36,7 @@ This documentation is not mean for everyone, I've taken heavy from Bootstrap doc
 
 ### Alerts
 
-  Wrap any text and an optional dismiss button in `.alert` for a basic warning alert message.
-
+Wrap any text and an optional dismiss button in `.alert` for a basic warning alert message.
 
     <div class="alert">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -46,7 +45,7 @@ This documentation is not mean for everyone, I've taken heavy from Bootstrap doc
     
 #### Alert Block
 
-  For longer messages, increase the padding on the top and bottom of the alert wrapper by adding `.alert-block`.
+For longer messages, increase the padding on the top and bottom of the alert wrapper by adding `.alert-block`.
 
     <div class="alert alert--block">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -59,15 +58,59 @@ This documentation is not mean for everyone, I've taken heavy from Bootstrap doc
 
 ### Breadcrumbs
 
+Add a breadcrumb with a list with class `.breadcrumb`.
+
 	<ul class="breadcrumb">
 	  <li><a href="#">Home</a></li>
 	  <li><a href="#">Library</a></li>
 	  <li class="active">Data</li>
 	</ul>
+	
+#### States	
+
+* `.active`: Selected element style
     
+### Buttons
+
+
+Button styles can be applied to anything with the `.btn` class applied. However, typically you'll want to apply these to only `<a>` and `<button>` elements for the best rendering. 
+
+	<a href="#" class="btn">Button</a>   
+	<button class="btn">Button</button>   
+    
+#### Modifiers
+
+**Colors**
+
+* `.btn--primary`
+* `.btn--secondary`
+* `.btn--warning`
+* `.btn--danger`
+* `.btn--info`
+* `.btn--success`
+* `.btn--inverse`
+        
+**Sizes**
+
+* `.btn--large`
+* `.btn--small`
+* `.btn--mini`
+
+**Various**
+
+* `.btn--block`: Create block level buttons—those that span the full width of a parent.
+* `.btn--pill`: Button width rounded full corners.
+* `.btn--link`: Deemphasize a button by making it look like a link while maintaining button behavior.
+			
+#### States
+
+* `.hover`: Mouse hover state style
+* `.active`: Selected element style
+* `.disabled`: Disabled state style.
+
 ### Button-groups
 
-Wrap a series of buttons with .btn in .btn-group.
+Wrap a series of buttons with `.btn` in `.btn-group`.
 
     <ul class="btn-group">
       <li><button class="btn">Left</button></li>
@@ -75,71 +118,8 @@ Wrap a series of buttons with .btn in .btn-group.
       <li><button class="btn">Right</button></li>
     </ul>
     
-### Buttons
-
-
-Button styles can be applied to anything with the `.btn` class applied. However, typically you'll want to apply these to only `<a>` and `<button>` elements for the best rendering.
-
-
-    <button class="btn">Default</button>
-    <button class="btn hover">Hover</button>
-    <button class="btn active">Active</button>
-    <button class="btn disabled">Disabled</button>
-    
-
-#### Button colors
-
-Colored buttons with `btn--primary` (green) and `btn--secondary` (red).
-    <button class="btn">Default</button>
-    <button class="btn btn--primary">Primary</button>
-    <button class="btn btn--secondary">Secondary</button>
-    
-Also availables classes you that can be used: `.btn--warning`, `.btn--danger`, `.btn--info`, `.btn--success` and `.btn--inverse`. By they default are styless but you can personalize them in `_default-style.css`.
-
-
-    <button class="btn btn--warning">Warning</button>
-    <button class="btn btn--danger">Danger</button>
-    <button class="btn btn--info">Info</button>
-    <button class="btn btn--success">Success</button>
-    <button class="btn btn--inverse">Inverse</button>
-    
-#### Button sizes
-
-Fancy larger or smaller buttons? Add `.btn--large`, `.btn--small`, or `.btn--mini` for additional sizes.    
-
-    <button class="btn">Default</button>
-    <button class="btn btn--large">Large</button>
-    <button class="btn btn--small">Small</button>
-    <button class="btn btn--mini">Mini</button>
-    
-    
-#### Modifiers
-
-Create block level buttons—those that span the full width of a parent— by adding `.btn--block`.
-
-	<button class="btn btn--block">Block</button>    
-
-##### Button pill
-
-Button width rounded full corners with `.btn--pill`.
-    
-	<button class="btn btn--pill">Pill</button>
-	
-##### Block Link
-
-Deemphasize a button by making it look like a link while maintaining button behavior
-
-	<button class="btn btn--link">Link</button>			
-##### Disabled button
-
-Add the `.disabled` class to `<a>` and `<button>` buttons to add a disabled state style.
-
-	<a href="#" class="btn btn--large btn--primary disabled">Primary link</a>
-	<a href="#" class="btn btn--large disabled">Link</a>
 
 ### Captions
-
-  Position `bottomleft`.
 
   You can use: `top`, `right`, `bottom`, `left`, `topleft`, `topright`, `bottomright`, `bottomleft`.
 
@@ -149,19 +129,19 @@ Add the `.disabled` class to `<a>` and `<button>` buttons to add a disabled stat
 
 #### Animations
 
-##### Float
+**Float**
 
 Add fade slide animation form `top` or `bottom`.
 
-Ex. below: Float from top
+*Example below*: Float from top
 
     <figure class="caption--float-top" data-content="Caption text.">
       <img src="http://dummyimage.com/300x200/afe600/fff" />
     </figure>
 
-##### Fade
+**Fade**
 
-Ex. below: Fade from bottom
+*Example below*: Fade from bottom
 
     <figure class="caption--fade-bottom" data-content="Caption text.">
       <img src="http://dummyimage.com/300x200/afe600/fff" />
@@ -199,220 +179,282 @@ Looking at just the dropdown menu, here's the required HTML. You need to wrap th
         </ul>
     </div>
 
-#### Aligning the menus
-Add `.pull-right` to a `.dropdown__menu` to right align the dropdown menu.
+#### Elements
 
-	<ul class="dropdown__menu pull-right" role="menu" aria-labelledby="dLabel">
-	  ...
-	</ul>
+* `.dropdown__toggle`: The linkk or button to openthe dropdown
+* `.dropdown__caret`: A simple helper class is available to add an arrow for the dropdown button.
+* `.dropdown__menu`: List of the links to show in the dropdown.
+
+#### Modifier
+
+* `.pull-right`: Add it to a `.dropdown__menu` to right align the dropdown menu.
 	
-#### Disabled menu options
+#### States
 
-Add `.disabled` to a `<li>` in the dropdown to disable the link.
+Add to `<li>` in `.dropdown__menu`
 
-	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-	  <li><a tabindex="-1" href="#">Regular link</a></li>
-	  <li class="disabled"><a tabindex="-1" href="#">Disabled link</a></li>
-	  <li><a tabindex="-1" href="#">Another link</a></li>
-	</ul>
-	
-#### Caret icon	
-
-A simple helper class is available to add an arrow for the dropdown button.
-
-    <span class="dropdown__caret"></span>
-
+* `.disabled`: To disable the link.
+* `.divider`: For a line divider
 
 ### Forms
 
   Individual form controls receive default styling with `.form` Results in stacked, left-aligned labels on top of form controls.
 
-    <form class="form">
-      <fieldset>
-        <legend>Legend</legend>
-        <label>Label name</label>
-        <input type="text" placeholder="Type something…">
-        <span class="form__help--block">Example block-level help text here.</span>
-        <label class="form__checkbox">
-          <input type="checkbox"> Check me out
-        </label>
-        <button type="submit" class="btn">Submit</button>
-      </fieldset>
-    </form>
+	<form class="form">
+		<div class="form__group">
+			<label class="form__label">Label</label>
+			<div class="form__controls">
+				<input type="text" placeholder="Type something…">
+			</div>
+		</div>
+		<div class="form__group">
+			<label class="form__label">Select</label>
+			<div class="form__controls">
+				<span class="form__select">
+					<select>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+				</span>
+			</div>
+		</div>
+		<div class="form__group">
+			<label class="form__label">Inline Checkboxes</label>
+			<div class="form__controls">
+				<label class="form__checkbox inline">
+					<input type="checkbox" value="option1"> Option
+				</label>
+				<label class="form__checkbox inline">
+					<input type="checkbox" value="option2"> Option
+				</label>
+				<label class="form__checkbox inline">
+					<input type="checkbox" value="option3"> Option
+				</label>
+			</div>
+		</div>
+		<div class="form__group">
+			<label class="form__label">Append e Prepend</label>
+			<div class="form__controls form__controls--multi">
+				<span class="form__addon">$</span>
+				<input type="text">
+				<span class="form__addon">.00</span>
+			</div>
+		</div>
+	</form>	
 
-#### Labels
+#### Elements
 
-	<label class="form__label">Label</label>
+**Structure**
 
+* `.form__group`: Main container of a section of the form
+* `.form__controls`: Container of inputs, buttons and addons
 
-#### Radio & Checkbox
+**Basic**
 
+* `.form__label`: Main labels for the form.
+* `.form__checkbox`, `.form__radio`: Stacked list of checkboxes and radios.
+* `.form__checkbox.inline`, `.form__radio.inline`: Inline list of checkboxes and radios.
+* `.form__select`: Create custom style selects.
 
-Checkboxes are for selecting one or several options in a list while radios are for selecting one option from many.
+**Help**
 
+* `.form__help--block`: Block help text that appears under form controls.
+* `.form__help--inline`: Inline help text that appears aside form controls.
 
-##### Stacked controls
+**Append & Prepend**
 
+* `.form__addon`: Add text or buttons before or after any text-based input. Wrap a `.form__addon` and add `form__controls--multi` to `form__controls` to prepend or append text to an input. Add multiple `.btn` using a `.btn-group`.
 
-	<label class="form__checkbox">
-	  <input type="checkbox" value="">
-	  Option one is this and that—be sure to include why it's great
-	</label>
-	<label class="form__radio">
-	  <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-	  Option one is this and that—be sure to include why it's great
-	</label>
-	<label class="form__radio">
-	  <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-	  Option two can be something else and selecting it will deselect option one
-	</label>
+**Actions**
 
-
-##### Inline controls
-
-
-	<label class="form__checkbox inline">
-	  <input type="checkbox" value="option1"> Option
-	</label>
-	<label class="form__checkbox inline">
-	  <input type="checkbox" value="option2"> Option
-	</label>
-	<label class="form__checkbox inline">
-	  <input type="checkbox" value="option3"> Option
-	</label>
-
-#### Custom selects
-
-Create custom style selects with `.form__select`.
-
-	<span class="form__select">
-	  <select>
-	    <option>1</option>
-	    <option>2</option>
-	    <option>3</option>
-	    <option>4</option>
-	    <option>5</option>
-	  </select>
-	</span>
-	
-#### Help
-
-Inline and block level support for help text that appears around form controls.
-
-##### Inline help
-
-	<input type="text" placeholder="Type something…">
-	<span class="form__help--block">Help block</span>
-
-##### Block help	
-	
-	<input type="text" placeholder="Type something…">
-	<span class="form__help--inline">Help inline</span>
-
-#### Prepend & Append
-
-  Add text or buttons before or after any text-based input.
-
-  Wrap an `.form__addon` and add `form__controls--multi` to `form__controls` to prepend or append text to an input.
-
-##### Prepend
-
-	<div class="form__controls form__controls--multi">
-	  <span class="form__addon">$</span>
-	  <input type="text" placeholder="Type something…">
-	</div>
-	
-##### Append
-	
-	<div class="form__controls form__controls--multi">
-	  <input type="text" placeholder="Type something…">
-	  <span class="form__addon">.00</span>
-	</div>
-	
-##### Both Prepend and Append
-	
-	<div class="form__controls form__controls--multi">
-	  <span class="form__addon">$</span>
-	  <input type="text" placeholder="Type something…">
-	  <span class="form__addon">.00</span>
-	</div>
-
-##### Buttons
-
-Instead of a `<span>` with text, use a `.btn` to attach a button to an input.
-
-	<div class="form__controls form__controls--multi">
-	  <input type="text" placeholder="Type something…">
-	  <button class="btn">Go</button>
-	</div>
-
-Multiple button within `.btn-group`
+* `.form__actions`: End a form with a group of actions (buttons). When placed within a `.form__actions`, the buttons will automatically indent to line up with the form controls.
 
 
-	<div class="form__controls form__controls--multi">
-	  <input type="text" placeholder="Type something…">
-	  <div class="btn-group">
-	    <button class="btn">Go</button>
-	    <button class="btn">Go</button>
-	  </div>
-	</div>  
-
-#### Form actions
-
-
-End a form with a group of actions (buttons). When placed within a `.form__actions`, the buttons will automatically indent to line up with the form controls.
-
-    <form class="form">
-      <div class="form__actions">
-        <button type="submit" class="btn btn--primary pull-right">Primary</button>
-        <button type="button" class="btn btn--secondary">Secondary</button>
-      </div>
-    </form>
-
-#### Layouts
+#### Modifiers	
 
 There are a couple form layouts available to struture the form.
 
-##### Grid
+* `.form--grid`: Grid aligned `.form__group` with support for responsive layout with `columns` mixin.
+* `.form--aligned`: Right align labels and float them to the left to make them appear on the same line as controls. 
+* `.form--inline`: For left-aligned labels and inline-block controls for a compact layout. This layout doesn't support `.form__group`, `.form__addon`, `.form__actions`
 
-Grid aligned `.form__group` with support for responsive layout with `columns` mixin.
-
-* Add `.form--grid` to the form
-* Wrap labels and controls in `.form__group`
-* Add `.form__label` to the label
-* Wrap any associated controls in `.form__controls` for proper alignment
-  
-##### Aligned
-
-Right align labels and float them to the left to make them appear on the same line as controls. 
-
-Same html as grid but with `.form--aligned` instead of `.form--grid`.
-
-##### Inline
-
-Add `.form-inline` for left-aligned labels and inline-block controls for a compact layout.
-
-    <form class="form form--inline">
-      <label class="form__label">Example label</label>
-      <input type="text" placeholder="First Input">
-      <input type="text" placeholder="Second Input">
-      <button type="submit" class="btn">Default</button>
-    </form>
         
 ### Labels
 
+Lables are used to highlight a text; `badge` have small rounded corners and `pill` have full rounded corners.
+
+	<span class="badge">Badge Label</span>
+	<span class="pill">Pill label</span>
+
+Labels used in buttons.
+
+	<button class="btn">Action <span class="badge">2</span></button></li>
+	<button class="btn btn--pill">Action <span class="pill">2</span></button></li>
+
 ### Modals
+
+For modals is used the excellent [**fancyBox**](http://fancyapps.com/fancybox/) jQuery plugin, see full documentation for more in depth examples.
+
+First import it with:
+	
+	<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.pack.js"></script>
+
+To create a simple modal windows add to the html:
+	
+	<a class="open__modal" href="#modal">Open modal</a>
+
+And:
+	
+	<div id="modal" class="modal">
+      <h2>Lorem ipsum dolor sit amet</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+
+Add to your JS file:
+
+	$(document).ready(function() {
+		$(".open__modal").fancybox({
+			// Options…
+		});
+	}); 
 
 ### Navs
 
+All nav components here share the same base markup and styles through the `.nav` class.
+
+	<ul class="nav">
+		<li class="nav__title">Nav header</li>
+		<li class="active"><a href="#">Home</a></li>
+		<li class="disabled"><a href="#">Profile</a></li>
+		<li><a href="#">Messages</a></li>
+	</ul>
+	
+#### Elements
+
+* `.nav__title`: Nav titles
+
+#### Modifiers
+	
+* `.nav--btn`: Add blocky links.	
+* `.nav--pills`: Add rounded corners to links.
+* `.nav--inline`: Horizontal nav layout
+* `.nav--vertical`: Vertical nav layout
+
+#### States
+
+Add to `<li>`.
+
+* `.active`: Active button for current page
+* `.disabled`: Disabled state style
+* `.divider`: Add horizontal line as a divider
+
+
+
 ### Pager
 
+Quick previous and next links for simple pagination implementations with light markup and styles. It's great for simple sites like blogs or magazines.
+
+By default, the pager centers links.
+
+	<ul class="pager">
+		<li><a href="#">Previous</a></li>
+		<li><a href="#">Next</a></li>
+	</ul>
+	
+Alternatively, you can align each link to the sides:
+	
+	<ul class="pager">
+		<li class="previous">
+			<a href="#">Previous</a>
+		</li>
+		<li class="next">
+			<a href="#">Next</a>
+		</li>
+	</ul>
+	
+Pager links also use the general `.disabled` utility class from the pagination.
+
+	<ul class="pager">
+		<li class="previous disabled"><a href="#">← Older</a></li>
+		<li class="next"><a href="#">Newer →</a></li>
+	</ul>
+
+#### States
+
+Add to `<li>`.
+
+* `.disabled`: Disabled state style
+
+
 ### Pagination
+
+Simple pagination inspired by Rdio, great for apps and search results. The large block is hard to miss, easily scalable, and provides large click areas.
+
+Default pagination with `.pagination`, it also support [WP-Paginate](http://wordpress.org/plugins/wp-paginate/).
+
+	<div class="pagination">
+		<ul>
+			<li><a href="#">Prev</a></li>
+			<li><a href="#">1</a></li>
+			<li class="active"><a href="#">2</a></li>
+			<li><a href="#">3</a></li>
+			<li><a href="#">Next</a></li>
+		</ul>
+	</div>
+
+#### Modifiers	
+
+* `.pagination--center`: Center aligned pagination.
+* `.pagination--right`: Right aligned pagination.
+* `.pagination--rounded`: Rounded sides.
+	
+#### States
+
+Add to `<li>`.
+
+* `.active`: Active button for current page
+* `.disabled`: Disabled state style
+
 
 ### Sliders
 
 ### Tables
 
+
+For basic styling—light padding and only horizontal dividers—add the base class `.table` to any `<table>`.
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Test</th>
+				<th>Test</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>test</td>
+				<td>test</td>
+			</tr>
+			<tr>
+				<td>test</td>
+				<td>test</td>
+			</tr>
+			<tr>
+				<td>test</td>
+				<td>test</td>
+			</tr>
+		</tbody>
+	</table>
+
+#### Modifiers
+
+* `.table--striped`: Adds zebra-striping to any table row within the `<tbody>` via the :nth-child CSS selector *(not available in IE7-8)*
+* `.table--bordered`: Add borders and rounded corners to the table.
+* `.table--hover`: Enable a hover state on table rows within a <tbody>.
+* `.table--condensed`: Makes tables more compact by cutting cell padding in half.
 
 
 ## Utilities
@@ -726,7 +768,6 @@ Add media queries to css width simple naming convention.
 
 You can set the start/and with of each step from usins the variables `$lap-start`, `$desk-start`, `$desk-end`.
 
-Base variables: [Settings: Dimensions](https://github.com/raffone/rapido/wiki/Settings:-Dimensions).
 
 **<$media>**:
 
@@ -898,7 +939,7 @@ Icon Fonts ready to use with the mixin `icon-font`.
     $use-typicons:                      false
     $use-zocial:                        false
 
-### Dimenions
+### Dimensions
 
 #### Base
 
