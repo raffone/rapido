@@ -1,444 +1,448 @@
 
 @if $default-styles {
 
-	// Titles
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	%h1 {}
-	%h2 {}
-	%h3 {}
-	%h4 {}
-	%h5 {}
-	%h6 {}
+// Titles
+// ====================================================================================================================
+%h1 {}
+%h2 {}
+%h3 {}
+%h4 {}
+%h5 {}
+%h6 {}
 
-	// Inputs
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	%input {
-		border-color: $gray;
-		background-color: $grayLighter;
-		@include box-shadow(inset 0 1px 0 #fff);
-		@include background-image(linear-gradient(bottom, $white 0%, $grayLighter 100%));
+// Inputs
+// ====================================================================================================================
+%input {
+	border-color: $gray;
+	background-color: $grayLighter;
+	@include box-shadow(inset 0 1px 0 #fff);
+	@include background-image(linear-gradient(bottom, $white 0%, $grayLighter 100%));
 
-		&:focus {
-			@include background-image(linear-gradient(bottom, $white 50%, $grayLighter 100%));
-		}
+	&:focus {
+		@include background-image(linear-gradient(bottom, $white 50%, $grayLighter 100%));
+	}
+}
+
+%input-addon {
+	color: $text-color;
+	border-color: $grayLight;
+	background-color: $grayLighter;
+}
+
+// Selects
+// ====================================================================================================================
+
+%select {
+	@extend %input;
+}
+
+// Buttons
+// ====================================================================================================================
+
+// Default
+%btn {
+	color: $text-color;
+	border-color: $gray;
+	background-color: $grayLight;
+	@include box-shadow(inset 0 1px 0 rgba(255,255,255,.5));
+	@include background-image(linear-gradient(bottom, $grayLight 0%, $grayLighter 100%));
+
+	// Hover/focus state
+	&:hover,
+	&.hover,
+	&:focus {
+		@include background-image(linear-gradient(bottom, $grayLight 0%, $white 100%));
 	}
 
-	%input-addon {
-		color: $text-color;
-		border-color: $grayLight;
-		background-color: $grayLighter;
+	// Active state
+	&.active,
+	&:active {
+		@include background-image(linear-gradient(top, $grayLight 0%, $grayLighter 100%));
+	}
+}
+
+%btn__disabled {
+	color: $grayLight;
+	border-color: $grayLight;
+	background: #FFF;
+}
+
+%btn__current {
+	@include box-shadow(0 0 0);
+	background: $gray;
+	color: $white;
+}
+
+%btn--primary {
+	color: #fff;
+	border-color: darken(green, 10%);
+	background-color: green;
+	@include background-image(linear-gradient(bottom, darken(green, 10%) 0%, green 100%));
+
+	// Hover/focus state
+	&:hover,
+	&.hover,
+	&:focus {
+		@include background-image(linear-gradient(bottom, darken(green, 10%) 0%, lighten(green, 6) 100%));
 	}
 
-	// Selects
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	// Active state
+	&.active,
+	&:active {
+		@include background-image(linear-gradient(top, darken(green, 10%) 0%, green 100%));
+	}
+}
 
-	%select {
-		@extend %input;
+%btn--secondary {
+	color: #fff;
+	border-color: darken(red, 10%);
+	background-color: red;
+	@include background-image(linear-gradient(bottom, darken(red, 10%) 0%, red 100%));
+
+	// Hover/focus state
+	&:hover,
+	&.hover,
+	&:focus {
+		@include background-image(linear-gradient(bottom, darken(red, 10%) 0%, lighten(red, 20) 100%));
 	}
 
-	// Buttons
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-
-	// Default
-	%btn {
-		color: $text-color;
-		border-color: $gray;
-		background-color: $grayLight;
-		@include box-shadow(inset 0 1px 0 rgba(255,255,255,.5));
-		@include background-image(linear-gradient(bottom, $grayLight 0%, $grayLighter 100%));
-
-		// Hover/focus state
-		&:hover,
-		&:focus {
-			@include background-image(linear-gradient(bottom, $grayLight 0%, $white 100%));
-		}
-
-		// Active state
-		&.active,
-		&:active {
-			@include background-image(linear-gradient(top, $grayLight 0%, $grayLighter 100%));
-		}
-	}
-
-	%btn__disabled {
-		color: $grayLight;
-		border-color: $grayLight;
-		background: #FFF;
-	}
-
-	%btn__current {
-		@include box-shadow(0 0 0);
-		background: $gray;
-		color: $white;
-	}
-
-	%btn--primary {
-		color: #fff;
-		border-color: darken(green, 10%);
-		background-color: green;
-		@include background-image(linear-gradient(bottom, darken(green, 10%) 0%, green 100%));
-
-		// Hover/focus state
-		&:hover,
-		&:focus {
-			@include background-image(linear-gradient(bottom, darken(green, 10%) 0%, lighten(green, 6) 100%));
-		}
-
-		// Active state
-		&.active,
-		&:active {
-			@include background-image(linear-gradient(top, darken(green, 10%) 0%, green 100%));
-		}
-	}
-
-	%btn--secondary {
-		color: #fff;
-		border-color: darken(red, 10%);
-		background-color: red;
+	// Active state
+	&.active,
+	&.hover,
+	&:active {
 		@include background-image(linear-gradient(bottom, darken(red, 10%) 0%, red 100%));
-
-		// Hover/focus state
-		&:hover,
-		&:focus {
-			@include background-image(linear-gradient(bottom, darken(red, 10%) 0%, lighten(red, 20) 100%));
-		}
-
-		// Active state
-		&.active,
-		&:active {
-			@include background-image(linear-gradient(bottom, darken(red, 10%) 0%, red 100%));
-		}
 	}
+}
 
-	%btn--warning {}
-	%btn--danger {}
-	%btn--info {}
-	%btn--success {}
-	%btn--inverse {}
+%btn--warning {}
+%btn--danger {}
+%btn--info {}
+%btn--success {}
+%btn--inverse {}
 
-	// Generic style for buttons used by the scripts
-	%btn--scripts {
-		@include alpha-color(#000, .6, background);
+// Generic style for buttons used by the scripts
+%btn--scripts {
+	@include alpha-color(#000, .6, background);
+	color: #fff;
+	cursor: pointer;
+	display: block;
+	text-align: center;
+	text-decoration: none;
+
+	&:hover {
 		color: #fff;
-		cursor: pointer;
-		display: block;
-		text-align: center;
-		text-decoration: none;
-
-		&:hover {
-			color: #fff;
-			@include alpha-color(#000, .8, background);
-		}
-	}
-
-
-	// Captions
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	%caption {
 		@include alpha-color(#000, .8, background);
-		color: #fff;
-		padding: $captions-padding;
 	}
+}
 
-	// Pills (Labels & Badges)
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	%pill {
-		// background-color: rgba(, );
-		@include alpha-color(#000, .35);
-		@include box-shadow(inset 0px 1px 1px rgba(0,0,0,.35));
-		text-shadow: 0 1px 1px rgba(0,0,0,.35);
-		color: $white;
+
+// Captions
+// ====================================================================================================================
+%caption {
+	@include alpha-color(#000, .8, background);
+	color: #fff;
+	padding: $captions-padding;
+}
+
+// Pills (Labels & Badges)
+// ====================================================================================================================
+%pill {
+	// background-color: rgba(, );
+	@include alpha-color(#000, .35);
+	@include box-shadow(inset 0px 1px 1px rgba(0,0,0,.35));
+	text-shadow: 0 1px 1px rgba(0,0,0,.35);
+	color: $white;
+}
+
+// Dropdowns
+// ====================================================================================================================
+%dropdown {
+	background: $grayLighter;
+	border-color: $gray;
+
+	.divider { @include nav-divider($gray); margin-top: -1px }
+
+	> li > a,
+	> li > label { border-bottom: 1px dotted $gray; }
+
+	> li > a:hover,
+	> li > a:focus {
+		text-decoration: none;
+		background-color: $grayLight;
 	}
+}
 
-	// Dropdowns
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	%dropdown {
-		background: $grayLighter;
-		border-color: $gray;
+%dropdown--open {
+	background: $grayLighter;
+	border-bottom: 1px solid $grayLighter;
+}
 
-		.divider { @include nav-divider($gray); margin-top: -1px }
 
-		> li > a,
-		> li > label { border-bottom: 1px dotted $gray; }
+// Caret per Dropdown e Select
+// ====================================================================================================================
 
-		> li > a:hover,
-		> li > a:focus {
-			text-decoration: none;
-			background-color: $grayLight;
+%caret {
+	&:after {
+		@include icon-font(\f078);
+	}
+}
+
+
+// Tables
+// ====================================================================================================================
+%table--bordered {
+	thead {
+		th, td {
+			background-color: $gray;
+			color: #FFF;
 		}
 	}
-
-	%dropdown--open {
-		background: $grayLighter;
-		border-bottom: 1px solid $grayLighter;
+	tbody {
+		td { border-bottom: 1px solid $grayLight; }
 	}
+}
+
+%table--striped { background-color: $grayLighter;}
+
+%table--hover { background-color: $gray;}
+
+%table--sortable {
+	thead {
+		th {
+			&:hover {background: $grayDark }
+			&.sorting-asc:after {content: "\25BC"; }
+			&.sorting-desc:after {content: "\25B2";}
+		}
+	}
+}
+
+// Navs
+// ====================================================================================================================
+%nav--btn {}
+
+%nav--btn__hover { background-color: $grayLighter;}
+
+%nav--btn__active {
+	color: $white;
+	background-color: $link-color;
+}
+
+%nav--btn__disabled {color: $grayLight;}
 
 
-	// Caret per Dropdown e Select
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-
-	%caret {
+// Breadcrumbs
+// ====================================================================================================================
+%breadcrumb {
+	> li {
 		&:after {
-			@include icon-font(\f078);
+			color: #ccc;
+			content: "›";
+			padding: 0 10px;
 		}
-	}
-
-
-	// Tables
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	%table--bordered {
-		thead {
-			th, td {
-				background-color: $gray;
-				color: #FFF;
-			}
-		}
-		tbody {
-			td { border-bottom: 1px solid $grayLight; }
-		}
-	}
-
-	%table--striped { background-color: $grayLighter;}
-
-	%table--hover { background-color: $gray;}
-
-	%table--sortable {
-		thead {
-			th {
-				&:hover {background: $grayDark }
-				&.sorting-asc:after {content: "\25BC"; }
-				&.sorting-desc:after {content: "\25B2";}
-			}
-		}
-	}
-
-	// Navs
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	%nav--btn {}
-
-	%nav--btn__hover { background-color: $grayLighter;}
-
-	%nav--btn__active {
-		color: $white;
-		background-color: $link-color;
-	}
-
-	%nav--btn__disabled {color: $grayLight;}
-
-
-	// Breadcrumbs
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	%breadcrumb {
-		> li {
+		&:last-child {
 			&:after {
-				color: #ccc;
-				content: "›";
-				padding: 0 10px;
-			}
-			&:last-child {
-				&:after {
-					content: "";
-					padding-right: 0;
-				}
-			}
-		}
-		.active { color: $grayLight; }
-	}
-
-	// Pagination
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	%pagination--btn 			{ @extend %btn; }
-	%pagination--btn__hover 		{ }
-	%pagination--btn__active 	{ }
-	%pagination--btn__current 	{ @extend %btn__current; }
-	%pagination--btn__disabled 	{ @extend %btn__disabled; }
-
-	// Pager
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	%pager--btn 					{ @extend %btn;}
-	%pager--btn__hover 			{ }
-	%pager--btn__active 			{ }
-	%pager--btn__disabled 		{ @extend %btn__disabled; }
-
-
-
-	// Loader icon
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	$loader-ico-size: 44px;
-
-	%loader-ico { background: url('//cdn.jsdelivr.net/wp-advanced-ajax-page-loader/2.5.12/loaders/SMALL%20-%20Spinning%20Arrows.gif') center center no-repeat; }
-
-	// Modals
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	$modal-btn-size: em(30px);
-
-	// Buttons
-	%modal__btn {
-		@extend %btn--scripts !optional;
-		@include square($modal-btn-size);
-		line-height: $modal-btn-size;
-	}
-
-	%modal__close {
-		$offset: -$modal-btn-size;
-		@include position(absolute, $offset .5em 0 0);
-	}
-
-	%modal__close--alt {
-		@include position(absolute, 0px 0px 0 0);
-		background-color: transparent;
-		color: $link-color;
-		&:hover {
-			color: $link-color-hover;
-		}
-	}
-
-	%modal__btnbar-size {@include size($modal-btn-size, $modal-btn-size * 5);}
-
-	// Other styles
-	%modal__overlay {
-		background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNiqAcAAIgAgoGu+rEAAAAASUVORK5CYII=');
-	}
-
-	%modal__skin {
-		@include box-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
-		@include border-radius($base-border-radius);
-		background: #fff;
-
-		// Icons
-		.fancybox-close:after 		{ @include icon-font(\f00d); }
-		.fancybox-prev span:after 	{ @include icon-font(\f053); }
-		.fancybox-next span:after 	{ @include icon-font(\f054); }
-		.btnPrev:after 				{ @include icon-font(\f04a); }
-		.btnNext:after 				{ @include icon-font(\f051); }
-		.btnPlay:after 				{ @include icon-font(\f04b); }
-		.btnPlayOn:after 			{ @include icon-font(\f04c); }
-		.btnToggle:after 			{ @include icon-font(\f065); }
-		.btnToggleOn:after 			{ @include icon-font(\f066); }
-		.btnClose:after 			{ @include icon-font(\f00d); }
-	}
-
-	%modal__nav { margin-top: (0 - ($modal-btn-size / 2)); }
-
-	%modal__caption { @extend %caption !optional; }
-
-	%modal__loading {
-		margin-top: -($loader-ico-size / 2);
-		margin-left: -($loader-ico-size / 2);
-		opacity: 0.8;
-
-		div {
-			@extend %loader-ico !optional;
-			@include square($loader-ico-size);
-
-		}
-	}
-
-
-	// Sliders
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	$slider-btn-size: em(30px);
-
-	// Buttons
-	%slider__btn {
-		@extend %btn--scripts !optional;
-		@include square($slider-btn-size);
-		line-height: $slider-btn-size;
-		margin-top: -($slider-btn-size / 2);
-
-		&.bx-prev i:after { @include icon-font(\f053); }
-		&.bx-next i:after { @include icon-font(\f054); }
-	}
-
-	// Pager
-	%slider__pager {
-		@include position(absolute, 0 0 -30px 0);
-		padding-top: 20px;
-		.bx-pager-item {
-			a {
-				@include border-radius(5px);
-				@include square(10px);
-				@include hide-text;
-				background: $grayLight;
-				margin: 0 5px;
-				&:hover, &.active { background: $gray; }
+				content: "";
+				padding-right: 0;
 			}
 		}
 	}
+	.active { color: $grayLight; }
+}
 
-	// Other styles
-	%slider__caption { @extend %caption !optional; }
+// Pagination
+// ====================================================================================================================
+%pagination--btn 			{ @extend %btn; }
+%pagination--btn__hover 		{ }
+%pagination--btn__active 	{ }
+%pagination--btn__current 	{ @extend %btn__current; }
+%pagination--btn__disabled 	{ @extend %btn__disabled; }
 
-	%slider__loading {
+// Pager
+// ====================================================================================================================
+%pager--btn 					{ @extend %btn;}
+%pager--btn__hover 			{ }
+%pager--btn__active 			{ }
+%pager--btn__disabled 		{ @extend %btn__disabled; }
+
+
+
+// Loader icon
+// ====================================================================================================================
+$loader-ico-size: 44px;
+
+%loader-ico { background: url('//cdn.jsdelivr.net/wp-advanced-ajax-page-loader/2.5.12/loaders/SMALL%20-%20Spinning%20Arrows.gif') center center no-repeat; }
+
+// Modals
+// ====================================================================================================================
+$modal-btn-size: em(30px);
+
+// Buttons
+%modal__btn {
+	@extend %btn--scripts !optional;
+	@include square($modal-btn-size);
+	line-height: $modal-btn-size;
+}
+
+%modal__close {
+	$offset: -$modal-btn-size;
+	@include position(absolute, $offset .5em 0 0);
+}
+
+%modal__close--alt {
+	@include position(absolute, 0px 0px 0 0);
+	background-color: transparent;
+	color: $link-color;
+	&:hover {
+		color: $link-color-hover;
+	}
+}
+
+%modal__btnbar-size {@include size($modal-btn-size, $modal-btn-size * 5);}
+
+// Other styles
+%modal__overlay {
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNiqAcAAIgAgoGu+rEAAAAASUVORK5CYII=');
+}
+
+%modal__skin {
+	@include box-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
+	@include border-radius($base-border-radius);
+	background: #fff;
+
+	// Icons
+	.fancybox-close:after 		{ @include icon-font(\f00d); }
+	.fancybox-prev span:after 	{ @include icon-font(\f053); }
+	.fancybox-next span:after 	{ @include icon-font(\f054); }
+	.btnPrev:after 				{ @include icon-font(\f04a); }
+	.btnNext:after 				{ @include icon-font(\f051); }
+	.btnPlay:after 				{ @include icon-font(\f04b); }
+	.btnPlayOn:after 			{ @include icon-font(\f04c); }
+	.btnToggle:after 			{ @include icon-font(\f065); }
+	.btnToggleOn:after 			{ @include icon-font(\f066); }
+	.btnClose:after 			{ @include icon-font(\f00d); }
+}
+
+%modal__nav { margin-top: (0 - ($modal-btn-size / 2)); }
+
+%modal__caption { @extend %caption !optional; }
+
+%modal__loading {
+	margin-top: -($loader-ico-size / 2);
+	margin-left: -($loader-ico-size / 2);
+	opacity: 0.8;
+
+	div {
 		@extend %loader-ico !optional;
-		@include alpha-color(#000, .60);
-		min-height: $loader-ico-size;
-	}
-
-	// Tabs
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-
-	%tab__nav {
-		//...
-	}
-
-	%tab__btn {
-		background: $grayLighter;
-		border: solid 1px $grayLight;
-		border-bottom: none;
-	}
-
-	%tab__btn__hover {
-		background: $grayLighter;
-		border: solid 1px $grayLight;
-		border-bottom: none;
-	}
-
-	%tab__btn__current {
-		border-color: $gray;
-		&:after { background: $grayLighter; }
-	}
-
-	%tab__container {
-		border: solid 1px $gray;
-		background: $grayLighter;
-	}
-
-
-	// Alerts
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-
-	%alert {
-		background-color: $grayLighter;
-		border: 1px solid $grayLight;
-	}
-
-	// Responsive NAV
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-
-	%nav--responsive {
-		background-color: $grayLighter;
-
-		a { padding: nth($btn-padding, 1) $wrapper-padding; }
-
-		> ul > li > a {
-			font-weight: bold;
-			background-color: $grayLight;
-		}
+		@include square($loader-ico-size);
 
 	}
+}
 
-	%nav__toggle {
-		@extend .btn;
 
-		span {
-			@include hide-text();
-		}
+// Sliders
+// ====================================================================================================================
+$slider-btn-size: em(30px);
 
-		&:before {
-			@include icon-font(\f0c9);
+// Buttons
+%slider__btn {
+	@extend %btn--scripts !optional;
+	@include square($slider-btn-size);
+	line-height: $slider-btn-size;
+	margin-top: -($slider-btn-size / 2);
+
+	&.bx-prev i:after { @include icon-font(\f053); }
+	&.bx-next i:after { @include icon-font(\f054); }
+}
+
+// Pager
+%slider__pager {
+	@include position(absolute, 0 0 -30px 0);
+	padding-top: 20px;
+	.bx-pager-item {
+		a {
+			@include border-radius(5px);
+			@include square(10px);
+			@include hide-text;
+			background: $grayLight;
+			margin: 0 5px;
+			&:hover, &.active { background: $gray; }
 		}
 	}
+}
+
+// Other styles
+%slider__caption { @extend %caption !optional; }
+
+%slider__loading {
+	@extend %loader-ico !optional;
+	@include alpha-color(#000, .60);
+	min-height: $loader-ico-size;
+}
+
+// Tabs
+// ====================================================================================================================
+
+%tab__nav {
+	//...
+}
+
+%tab__btn {
+	background: $grayLighter;
+	border: solid 1px $grayLight;
+	border-bottom: none;
+}
+
+%tab__btn__hover {
+	background: $grayLighter;
+	border: solid 1px $grayLight;
+	border-bottom: none;
+}
+
+%tab__btn__current {
+	border-color: $gray;
+	&:after { background: $grayLighter; }
+}
+
+%tab__container {
+	border: solid 1px $gray;
+	background: $grayLighter;
+}
+
+
+// Alerts
+// ====================================================================================================================
+
+%alert {
+	background-color: $grayLighter;
+	border: 1px solid $grayLight;
+}
+
+// Responsive NAV
+// ====================================================================================================================
+
+%nav--responsive {
+	background-color: $grayLighter;
+
+	a { padding: nth($btn-padding, 1) $wrapper-padding; }
+
+	> ul > li > a {
+		font-weight: bold;
+		background-color: $grayLight;
+	}
+
+}
+
+%nav__toggle {
+	@extend .btn;
+
+	span {
+		@include hide-text();
+	}
+
+	&:before {
+		@include icon-font(\f0c9);
+	}
+}
 
 }
 

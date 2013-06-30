@@ -1,5 +1,4 @@
-// ====================================================================================================================
-// DEBUG MODE
+// Debug mode
 // ====================================================================================================================
 
 @if $debug-mode {
@@ -45,18 +44,18 @@
 
 	// btn-groups
 	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	.btn-group > li:first-child .btn 					{ background: YellowGreen  !important; }
-	.btn-group > li:last-child .btn 					{ background: Wheat  !important; }
-	div.btn-group .btn 									{ background: Tomato  !important; }
+	.btn-group > li:first-child .btn					{ background: YellowGreen	!important; }
+	.btn-group > li:last-child .btn						{ background: Wheat	!important; }
+	div.btn-group .btn									{ background: Tomato	!important; }
 
 	.form__controls--multi {
-		.btn-group:first-child > li:first-child .btn 	{ background: red !important; }
-		.btn-group:first-child > li:last-child .btn 	{ background: blue !important; }
-		div.btn-group:first-child .btn 					{ background: green !important; }
+		.btn-group:first-child > li:first-child .btn	{ background: red !important; }
+		.btn-group:first-child > li:last-child .btn		{ background: blue !important; }
+		div.btn-group:first-child .btn					{ background: green !important; }
 
-		.btn-group:last-child > li:first-child .btn 	{ background: purple !important; }
-		.btn-group:last-child > li:last-child .btn 		{ background: yellow !important; }
-		div.btn-group:last-child > .btn 				{ background: teal !important; }
+		.btn-group:last-child > li:first-child .btn		{ background: purple !important; }
+		.btn-group:last-child > li:last-child .btn		{ background: yellow !important; }
+		div.btn-group:last-child > .btn					{ background: teal !important; }
 	}
 
 }

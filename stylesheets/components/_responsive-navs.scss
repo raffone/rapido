@@ -1,12 +1,10 @@
+// Responsive Navs
 // ====================================================================================================================
-// RESPONSIVE NAVS w/ responsive-nav.js (https://github.com/raffone/responsive-nav.js)
-// ====================================================================================================================
-
 
 @if $navs-responsive {
 
-	.nav--responsive.active 		{ @extend %nav--responsive !optional;	}
-	.nav--responsive.close 			{ max-height: none;	}
+	.nav--responsive.active     { @extend %nav--responsive !optional;  }
+	.nav--responsive.close       { max-height: none;  }
 
 	#nav-toggle {
 		@extend %nav__toggle !optional;
@@ -42,8 +40,9 @@
 
 		}
 
-		// SLIDE
-		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Slide
+// --------------------------------------------------------------------------------------------------------------------
+
 		@if $navs-responsive-type == 'slide' {
 
 			.nav--responsive {
@@ -59,12 +58,12 @@
 
 		}
 
-		// OFFCANVAS
-		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Offcanvas
+// --------------------------------------------------------------------------------------------------------------------
+
 		@if $navs-responsive-type == 'off-canvas' {
 
 			// Wrappers
-			// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 			#{$navs-responsive-outside-wrapper},
 			#{$navs-responsive-inside-wrapper} {
 				position: relative;
@@ -76,7 +75,6 @@
 			}
 
 			// Transitions
-			// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 			#{$navs-responsive-inside-wrapper},
 			.nav--responsive {
 				@include transition();
@@ -85,7 +83,6 @@
 
 
 			// Animations
-			// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 			#{$navs-responsive-inside-wrapper} {
 				@include transform(translate3d(0,0,0));
 				left: 0;
@@ -110,6 +107,5 @@
 			}
 
 		}
-
 	}
 }

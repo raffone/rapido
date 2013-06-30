@@ -1,105 +1,104 @@
-// ====================================================================================================================
 // ANIMATIONS
 // ====================================================================================================================
 
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
 // Disable all animations by default
 // --------------------------------------------------------------------------------------------------------------------
-$fadeIn:				false !default;
-$fadeOut:				false !default;
-$fadeInUp:				false !default;
-$fadeOutUp:				false !default;
-$fadeInDown:			false !default;
-$fadeOutDown:			false !default;
-$fadeInRight:			false !default;
-$fadeOutLeft:			false !default;
-$fadeInLeft:			false !default;
-$fadeOutRight:			false !default;
-$fadeInUpBig:			false !default;
-$fadeOutUpBig:			false !default;
-$fadeInDownBig:			false !default;
-$fadeOutDownBig:		false !default;
-$fadeInRightBig:		false !default;
-$fadeOutLeftBig:		false !default;
-$fadeInLeftBig:			false !default;
-$fadeOutRightBig:		false !default;
-$bounceIn:				false !default;
-$bounceInDown:			false !default;
-$bounceInUp:			false !default;
-$bounceInRight:			false !default;
-$bounceInLeft:			false !default;
-$bounceOut:				false !default;
-$bounceOutUp:			false !default;
-$bounceOutDown:			false !default;
-$bounceOutLeft:			false !default;
-$bounceOutRight:		false !default;
-$flash:					false !default;
-$bounce:				false !default;
-$shake:					false !default;
-$rotateInDownLeft:		false !default;
-$rotateInUpLeft:		false !default;
-$rotateInUpRight:		false !default;
-$rotateInDownRight:		false !default;
-$rotateOutDownLeft:		false !default;
-$rotateOutUpLeft:		false !default;
-$rotateOutDownRight:	false !default;
-$rotateOutUpRight:		false !default;
-$rotateIn:				false !default;
-$rotateOut:				false !default;
-$tada:					false !default;
+$fadeIn:					false 	!default;
+$fadeOut:					false 	!default;
+$fadeInUp:					false 	!default;
+$fadeOutUp:					false 	!default;
+$fadeInDown:				false 	!default;
+$fadeOutDown:				false 	!default;
+$fadeInRight:				false 	!default;
+$fadeOutLeft:				false 	!default;
+$fadeInLeft:				false 	!default;
+$fadeOutRight:				false 	!default;
+$fadeInUpBig:				false 	!default;
+$fadeOutUpBig:				false 	!default;
+$fadeInDownBig:				false 	!default;
+$fadeOutDownBig:			false 	!default;
+$fadeInRightBig:			false 	!default;
+$fadeOutLeftBig:			false 	!default;
+$fadeInLeftBig:				false 	!default;
+$fadeOutRightBig:			false 	!default;
+$bounceIn:					false 	!default;
+$bounceInDown:				false 	!default;
+$bounceInUp:				false 	!default;
+$bounceInRight:				false 	!default;
+$bounceInLeft:				false 	!default;
+$bounceOut:					false 	!default;
+$bounceOutUp:				false 	!default;
+$bounceOutDown:				false 	!default;
+$bounceOutLeft:				false 	!default;
+$bounceOutRight:			false 	!default;
+$flash:						false 	!default;
+$bounce:					false 	!default;
+$shake:						false 	!default;
+$rotateInDownLeft:			false 	!default;
+$rotateInUpLeft:			false 	!default;
+$rotateInUpRight:			false 	!default;
+$rotateInDownRight:			false 	!default;
+$rotateOutDownLeft:			false 	!default;
+$rotateOutUpLeft:			false 	!default;
+$rotateOutDownRight:		false 	!default;
+$rotateOutUpRight:			false 	!default;
+$rotateIn:					false 	!default;
+$rotateOut:					false 	!default;
+$tada:						false 	!default;
 
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
 // Enable animation from the settings
 // --------------------------------------------------------------------------------------------------------------------
 @each $animation in $animations {
-	@if $animation == 'fadeIn'              {$fadeIn:               true;}
-	@if $animation == 'fadeOut'             {$fadeOut:              true;}
-	@if $animation == 'fadeInUp'            {$fadeInUp:             true;}
-	@if $animation == 'fadeOutUp'           {$fadeOutUp:            true;}
-	@if $animation == 'fadeInDown'          {$fadeInDown:           true;}
-	@if $animation == 'fadeOutDown'         {$fadeOutDown:          true;}
-	@if $animation == 'fadeInRight'         {$fadeInRight:          true;}
-	@if $animation == 'fadeOutLeft'         {$fadeOutLeft:          true;}
-	@if $animation == 'fadeInLeft'          {$fadeInLeft:           true;}
-	@if $animation == 'fadeOutRight'        {$fadeOutRight:         true;}
-	@if $animation == 'fadeInUpBig'         {$fadeInUpBig:          true;}
-	@if $animation == 'fadeOutUpBig'        {$fadeOutUpBig:         true;}
-	@if $animation == 'fadeInDownBig'       {$fadeInDownBig:        true;}
-	@if $animation == 'fadeOutDownBig'      {$fadeOutDownBig:       true;}
-	@if $animation == 'fadeInRightBig'      {$fadeInRightBig:       true;}
-	@if $animation == 'fadeOutLeftBig'      {$fadeOutLeftBig:       true;}
-	@if $animation == 'fadeInLeftBig'       {$fadeInLeftBig:        true;}
-	@if $animation == 'fadeOutRightBig'     {$fadeOutRightBig:      true;}
-	@if $animation == 'bounceIn'            {$bounceIn:             true;}
-	@if $animation == 'bounceInDown'        {$bounceInDown:         true;}
-	@if $animation == 'bounceInUp'          {$bounceInUp:           true;}
-	@if $animation == 'bounceInRight'       {$bounceInRight:        true;}
-	@if $animation == 'bounceInLeft'        {$bounceInLeft:         true;}
-	@if $animation == 'bounceOut'           {$bounceOut:            true;}
-	@if $animation == 'bounceOutUp'         {$bounceOutUp:          true;}
-	@if $animation == 'bounceOutDown'       {$bounceOutDown:        true;}
-	@if $animation == 'bounceOutLeft'       {$bounceOutLeft:        true;}
-	@if $animation == 'bounceOutRight'      {$bounceOutRight:       true;}
-	@if $animation == 'flash'               {$flash:                true;}
-	@if $animation == 'bounce'              {$bounce:               true;}
-	@if $animation == 'shake'               {$shake:                true;}
-	@if $animation == 'rotateInDownLeft'    {$rotateInDownLeft:     true;}
-	@if $animation == 'rotateInUpLeft'      {$rotateInUpLeft:       true;}
-	@if $animation == 'rotateInUpRight'     {$rotateInUpRight:      true;}
-	@if $animation == 'rotateInDownRight'   {$rotateInDownRight:    true;}
-	@if $animation == 'rotateOutDownLeft'   {$rotateOutDownLeft:    true;}
-	@if $animation == 'rotateOutUpLeft'     {$rotateOutUpLeft:      true;}
-	@if $animation == 'rotateOutDownRight'  {$rotateOutDownRight:   true;}
-	@if $animation == 'rotateOutUpRight'    {$rotateOutUpRight:     true;}
-	@if $animation == 'rotateIn'            {$rotateIn:             true;}
-	@if $animation == 'rotateOut'           {$rotateOut:            true;}
-	@if $animation == 'tada'                {$tada:                 true;}
+	@if $animation == 'fadeIn'						{$fadeIn:					true;}
+	@if $animation == 'fadeOut'						{$fadeOut:					true;}
+	@if $animation == 'fadeInUp'					{$fadeInUp:					true;}
+	@if $animation == 'fadeOutUp'					{$fadeOutUp:				true;}
+	@if $animation == 'fadeInDown'					{$fadeInDown:				true;}
+	@if $animation == 'fadeOutDown'					{$fadeOutDown:				true;}
+	@if $animation == 'fadeInRight'					{$fadeInRight:				true;}
+	@if $animation == 'fadeOutLeft'					{$fadeOutLeft:				true;}
+	@if $animation == 'fadeInLeft'					{$fadeInLeft:				true;}
+	@if $animation == 'fadeOutRight'				{$fadeOutRight:				true;}
+	@if $animation == 'fadeInUpBig'					{$fadeInUpBig:				true;}
+	@if $animation == 'fadeOutUpBig'				{$fadeOutUpBig:				true;}
+	@if $animation == 'fadeInDownBig'				{$fadeInDownBig:			true;}
+	@if $animation == 'fadeOutDownBig'				{$fadeOutDownBig:			true;}
+	@if $animation == 'fadeInRightBig'				{$fadeInRightBig:			true;}
+	@if $animation == 'fadeOutLeftBig'				{$fadeOutLeftBig:			true;}
+	@if $animation == 'fadeInLeftBig'				{$fadeInLeftBig:			true;}
+	@if $animation == 'fadeOutRightBig'				{$fadeOutRightBig:			true;}
+	@if $animation == 'bounceIn'					{$bounceIn:					true;}
+	@if $animation == 'bounceInDown'				{$bounceInDown:				true;}
+	@if $animation == 'bounceInUp'					{$bounceInUp:				true;}
+	@if $animation == 'bounceInRight'				{$bounceInRight:			true;}
+	@if $animation == 'bounceInLeft'				{$bounceInLeft:				true;}
+	@if $animation == 'bounceOut'					{$bounceOut:				true;}
+	@if $animation == 'bounceOutUp'					{$bounceOutUp:				true;}
+	@if $animation == 'bounceOutDown'				{$bounceOutDown:			true;}
+	@if $animation == 'bounceOutLeft'				{$bounceOutLeft:			true;}
+	@if $animation == 'bounceOutRight'				{$bounceOutRight:			true;}
+	@if $animation == 'flash'						{$flash:					true;}
+	@if $animation == 'bounce'						{$bounce:					true;}
+	@if $animation == 'shake'						{$shake:					true;}
+	@if $animation == 'rotateInDownLeft'			{$rotateInDownLeft:			true;}
+	@if $animation == 'rotateInUpLeft'				{$rotateInUpLeft:			true;}
+	@if $animation == 'rotateInUpRight'				{$rotateInUpRight:			true;}
+	@if $animation == 'rotateInDownRight'			{$rotateInDownRight:		true;}
+	@if $animation == 'rotateOutDownLeft'			{$rotateOutDownLeft:		true;}
+	@if $animation == 'rotateOutUpLeft'				{$rotateOutUpLeft:			true;}
+	@if $animation == 'rotateOutDownRight'			{$rotateOutDownRight:		true;}
+	@if $animation == 'rotateOutUpRight'			{$rotateOutUpRight:			true;}
+	@if $animation == 'rotateIn'					{$rotateIn:					true;}
+	@if $animation == 'rotateOut'					{$rotateOut:				true;}
+	@if $animation == 'tada'						{$tada:						true;}
 }
 
 
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
 // Animate Mixin Plugin;
-// --------------------------------------------------------------------------------------------------------------------
+// ====================================================================================================================
 @mixin animate($name, $duration: $animations-duration, $delay: $animations-delay, $function: $animations-function, $mode: $animations-mode) {
 	@include experimental(animation, $name $duration $delay $function $mode);
 }
@@ -113,19 +112,19 @@ $tada:					false !default;
 	}
 }
 
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
 // Keyframes
-// --------------------------------------------------------------------------------------------------------------------
+// ====================================================================================================================
 @if $fadeIn == true {
 	@include keyframes(fadeIn) {
-		0% {    opacity: 0; }
-		100% {  opacity: 1; }
+		0% {		opacity: 0; }
+		100% {	opacity: 1; }
 	}
 }
 @if $fadeOut == true {
 	@include keyframes(fadeOut) {
-		0% {    opacity: 1; }
-		100% {  opacity: 0; }
+		0% {		opacity: 1; }
+		100% {	opacity: 0; }
 	}
 }
 @if $fadeInUp == true {
@@ -490,37 +489,37 @@ $tada:					false !default;
 }
 @if $flash == true {
 	@include keyframes(flash) {
-		0% {    opacity: 1; }
-		25% {   opacity: 0; }
-		50% {   opacity: 1; }
-		75% {   opacity: 0; }
-		100% {  opacity: 1; }
+		0% {		opacity: 1; }
+		25% {	 opacity: 0; }
+		50% {	 opacity: 1; }
+		75% {	 opacity: 0; }
+		100% {	opacity: 1; }
 	}
 }
 @if $bounce == true {
 	@include keyframes(bounce) {
-		0% {    @include transform(translateY(0));        }
-		20% {   @include transform(translateY(0));        }
-		40% {   @include transform(translateY(-30px));    }
-		50% {   @include transform(translateY(0));        }
-		60% {   @include transform(translateY(-15px));    }
-		80% {   @include transform(translateY(0));        }
-		100% {  @include transform(translateY(0));        }
+		0% {		@include transform(translateY(0));				}
+		20% {	 @include transform(translateY(0));				}
+		40% {	 @include transform(translateY(-30px));		}
+		50% {	 @include transform(translateY(0));				}
+		60% {	 @include transform(translateY(-15px));		}
+		80% {	 @include transform(translateY(0));				}
+		100% {	@include transform(translateY(0));				}
 	}
 }
 @if $shake == true {
 	@include keyframes(shake) {
-		0% {    @include transform(translateX(0));         }
-		10% {   @include transform(translateX(-10px));     }
-		20% {   @include transform(translateX(10px));      }
-		30% {   @include transform(translateX(-10px));     }
-		40% {   @include transform(translateX(10px));      }
-		50% {   @include transform(translateX(-10px));     }
-		60% {   @include transform(translateX(10px));      }
-		70% {   @include transform(translateX(-10px));     }
-		80% {   @include transform(translateX(10px));      }
-		90% {   @include transform(translateX(-10px));     }
-		100% {  @include transform(translateX(0));         }
+		0% {		@include transform(translateX(0));				 }
+		10% {	 @include transform(translateX(-10px));		 }
+		20% {	 @include transform(translateX(10px));			}
+		30% {	 @include transform(translateX(-10px));		 }
+		40% {	 @include transform(translateX(10px));			}
+		50% {	 @include transform(translateX(-10px));		 }
+		60% {	 @include transform(translateX(10px));			}
+		70% {	 @include transform(translateX(-10px));		 }
+		80% {	 @include transform(translateX(10px));			}
+		90% {	 @include transform(translateX(-10px));		 }
+		100% {	@include transform(translateX(0));				 }
 	}
 }
 @if $rotateInDownLeft == true {
@@ -665,16 +664,16 @@ $tada:					false !default;
 }
 @if $tada == true {
 	@include keyframes(tada) {
-		0% {    @include transform(scale(1));					}
-		10% {   @include transform(scale(0.9) rotate(-3deg));   }
-		20% {   @include transform(scale(0.9) rotate(-3deg));	}
-		30% {   @include transform(scale(1.1) rotate(3deg)); 	}
-		40% {   @include transform(scale(1.1) rotate(-3deg));	}
-		50% {   @include transform(scale(1.1) rotate(3deg)); 	}
-		60% {   @include transform(scale(1.1) rotate(-3deg));	}
-		70% {   @include transform(scale(1.1) rotate(3deg)); 	}
-		80% {   @include transform(scale(1.1) rotate(-3deg));	}
-		90% {   @include transform(scale(1.1) rotate(3deg)); 	}
-		100% {  @include transform(scale(1) rotate(0));         }
+		0% {		@include transform(scale(1));				 }
+		10% {	 @include transform(scale(0.9) rotate(-3deg));	 }
+		20% {	 @include transform(scale(0.9) rotate(-3deg)); }
+		30% {	 @include transform(scale(1.1) rotate(3deg));	}
+		40% {	 @include transform(scale(1.1) rotate(-3deg)); }
+		50% {	 @include transform(scale(1.1) rotate(3deg));	}
+		60% {	 @include transform(scale(1.1) rotate(-3deg)); }
+		70% {	 @include transform(scale(1.1) rotate(3deg));	}
+		80% {	 @include transform(scale(1.1) rotate(-3deg)); }
+		90% {	 @include transform(scale(1.1) rotate(3deg));	}
+		100% {	@include transform(scale(1) rotate(0));				 }
 	}
 }

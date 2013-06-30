@@ -1,8 +1,6 @@
-// ====================================================================================================================
-// SCAFFOLDING
+// Type
 // ====================================================================================================================
 
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Base
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -27,16 +25,15 @@ body {
 	margin: 0;
 	font-family: $base-font-family;
 	color: $text-color;
-
 }
 
 img {max-width: 100%;}
 
 a, button, textarea, input { outline: none; }
 
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Links
 // --------------------------------------------------------------------------------------------------------------------
+
 a {
 	color: $link-color;
 	text-decoration: none;
@@ -48,37 +45,34 @@ a:focus {
 }
 
 
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Body text
 // --------------------------------------------------------------------------------------------------------------------
 
-p 					{ margin: 0 0 rhythm(1);}
+p           { margin: 0 0 rhythm(1);}
 
-.lead 				{ @include adjust-font-size-to($h4-size); }
+.lead         { @include adjust-font-size-to($h4-size); }
 
-.muted 				{ color: $gray; }
+.muted         { color: $gray; }
 
-.pull-left 			{ float: left; }
-.pull-right 		{ float: right; }
-.clearfix 			{ @include clearfix; }
+.pull-left       { float: left; }
+.pull-right     { float: right; }
+.clearfix       { @include clearfix; }
 
 
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Emphasis & misc
 // --------------------------------------------------------------------------------------------------------------------
 
-small   			{ @include adjust-font-size-to($milli-size); }
+small         { @include adjust-font-size-to($milli-size); }
 
-strong  			{ font-weight: bold; }
-em      			{ font-style: italic; }
-cite    			{ font-style: normal; }
+strong        { font-weight: bold; }
+em            { font-style: italic; }
+cite          { font-style: normal; }
 
 .text-left          { text-align: left; }
 .text-right         { text-align: right; }
 .text-center        { text-align: center; }
 
 
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Headings
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -129,15 +123,11 @@ h6, .h6 {
 	@extend %h6 !optional;
 }
 
-
-
 h1 small { @include adjust-font-size-to($h3-size); }
 h2 small { @include adjust-font-size-to($h4-size); }
 h3 small { @include adjust-font-size-to($h5-size); }
 h4 small { @include adjust-font-size-to($h6-size); }
 
-
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Lists
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -149,6 +139,7 @@ h4 small { @include adjust-font-size-to($h6-size); }
 
 // Unordered and Ordered lists
 // --------------------------------------------------------------------------------------------------------------------
+
 ul, ol {
 	padding: 0;
 	margin: 0 0 rhythm(1) 25px;
@@ -180,6 +171,7 @@ ol.inline {
 
 // Description lists
 // --------------------------------------------------------------------------------------------------------------------
+
 dl { margin-bottom: rhythm(1); }
 dt,
 dd { line-height: rhythm(1); }
@@ -188,19 +180,18 @@ dd { margin-left: rhythm(.5); }
 
 
 .dl-horizontal {
-  @extend .clearfix;
-  dt {
+	@extend .clearfix;
+	dt {
 	float: left;
 	width: em($horizontal-offset) - 20;
 	clear: left;
 	text-align: right;
 	@include text-overflow();
-  }
+	}
 
-  dd { margin-left: em($horizontal-offset); }
+	dd { margin-left: em($horizontal-offset); }
 }
 
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // MISC
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -212,6 +203,7 @@ hr {
 
 // Abbreviations and acronyms
 // --------------------------------------------------------------------------------------------------------------------
+
 abbr[title],
 abbr[data-original-title] {
 	cursor: help;
@@ -224,6 +216,7 @@ abbr.initialism {
 
 // Blockquotes
 // --------------------------------------------------------------------------------------------------------------------
+
 blockquote {
 	padding: 0 0 0 rhythm(1);
 	margin: 0;

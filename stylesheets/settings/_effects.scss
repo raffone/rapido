@@ -1,18 +1,20 @@
+// Effects
 // ====================================================================================================================
+
 // ANIMATIONS w/ @include animate(...)
 // --------------------------------------------------------------------------------------------------------------------
 
-$animations: 										fadeIn, fadeOut										!default;
-$animations-classes:								true 												!default;
+$animations:						fadeIn, fadeOut															!default;
+$animations-classes:				true																	!default;
 
-$animations-duration: 								.15s 												!default;
-$animations-delay: 									0s 													!default;
-$animations-function: 								ease-out 											!default;
-$animations-mode:									both 												!default;
+$animations-duration:				.15s																	!default;
+$animations-delay:					0s																		!default;
+$animations-function:				ease-out																!default;
+$animations-mode:					both																	!default;
 
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
 // Transitions w/ @include transition(...)
 // --------------------------------------------------------------------------------------------------------------------
 
-$default-transition-duration:  						$animations-duration								!default;
-$default-transition-function: 						toBezier($animations-function) 						!default;
+$default-transition-duration:		$animations-duration													!default;
+$default-transition-function:		toBezier($animations-function)											!default;

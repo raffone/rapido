@@ -1,112 +1,102 @@
-// ====================================================================================================================
 // DIMENSIONS
 // ====================================================================================================================
 
-$base-border-radius:  				4px 																	!default;
-$horizontal-offset:       			180px		 															!default;
-$dropdowns-with:       				160px		 															!default;
+$base-border-radius:				4px																		!default;
+$horizontal-offset:					180px																	!default;
+$dropdowns-with:					160px																	!default;
 
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Text
 // --------------------------------------------------------------------------------------------------------------------
 
-$giga-size:         				$base-font-size * 7 													!default;
-$mega-size:         				$base-font-size * 5 													!default;
-$kilo-size:         				$base-font-size * 3.4 													!default;
+$giga-size:							$base-font-size * 7														!default;
+$mega-size:							$base-font-size * 5														!default;
+$kilo-size:							$base-font-size * 3.4													!default;
 
-$h1-size:           				$base-font-size * 2.4													!default;
-$h2-size:           				$base-font-size * 2  													!default;
-$h3-size:           				$base-font-size * 1.8  													!default;
-$h4-size:           				$base-font-size * 1.4  													!default;
-$h5-size:           				$base-font-size * 1.2  													!default;
-$h6-size:           				$base-font-size * 1  													!default;
+$h1-size:							$base-font-size * 2.4													!default;
+$h2-size:							$base-font-size * 2														!default;
+$h3-size:							$base-font-size * 1.8													!default;
+$h4-size:							$base-font-size * 1.4													!default;
+$h5-size:							$base-font-size * 1.2													!default;
+$h6-size:							$base-font-size * 1														!default;
 
-$milli-size:        				$base-font-size * .85 													!default;
-$micro-size:        				$base-font-size * .7 													!default;
+$milli-size:						$base-font-size * .85													!default;
+$micro-size:						$base-font-size * .7													!default;
 
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Forms
 // --------------------------------------------------------------------------------------------------------------------
 
-$control-margin-bottom:				$base-line-height 														!default;
-$label-margin-bottom: 				10px 																	!default;
-$input-border:						1px 																	!default;
-$input-padding-top: 				10px 																	!default;
-$input-padding-side:				10px 																	!default;
-$checkbox-padding-left:       		20px		 															!default;
+$control-margin-bottom:				$base-line-height														!default;
+$label-margin-bottom:				10px																	!default;
+$input-border:						1px																		!default;
+$input-padding-top:					10px																	!default;
+$input-padding-side:				10px																	!default;
+$checkbox-padding-left:				20px																	!default;
 
 // Do · not · edit
 $input-padding:						em($input-padding-top) em($input-padding-side)									;
-$input-height: 						em($base-font-size + ($input-padding-top * 2) + ($input-border * 2))			;
-$control-min-height: 				em($base-line-height + $label-margin-bottom) + $input-height - em(5px)  		;
+$input-height:						em($base-font-size + ($input-padding-top * 2) + ($input-border * 2))			;
+$control-min-height:				em($base-line-height + $label-margin-bottom) + $input-height - em(5px)			;
 
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Paddings
 // --------------------------------------------------------------------------------------------------------------------
 
 // Helper classes
-$wrapper-padding: 					em(20px)	 															!default;
+$wrapper-padding:					em(20px)																!default;
 
 // Buttons
-$btn-padding: 						$input-padding															!default;
-$btn-large-padding: 				em($input-padding-top * 1) em($input-padding-side * 1.5)				!default;
-$btn-small-padding: 				em($input-padding-top * .5) em($input-padding-side * .8)				!default;
-$btn-mini-padding:  				em($input-padding-top * .1) em($input-padding-side * .6)				!default;
+$btn-padding:						$input-padding															!default;
+$btn-large-padding:					em($input-padding-top * 1) em($input-padding-side * 1.5)				!default;
+$btn-small-padding:					em($input-padding-top * .5) em($input-padding-side * .8)				!default;
+$btn-mini-padding:					em($input-padding-top * .1) em($input-padding-side * .6)				!default;
 
 // Components
-$alerts-padding: 					$input-padding 															!default;
-$captions-padding: 					$input-padding 															!default;
-$dropdowns-padding:					$input-padding 															!default;
-$modals-error-padding:				$input-padding 															!default;
-$navs-padding:						$input-padding 															!default;
-$pager-padding: 					$input-padding 															!default;
-$pagination-padding: 				$input-padding 															!default;
+$alerts-padding:					$input-padding															!default;
+$captions-padding:					$input-padding															!default;
+$dropdowns-padding:					$input-padding															!default;
+$modals-error-padding:				$input-padding															!default;
+$navs-padding:						$input-padding															!default;
+$pager-padding:						$input-padding															!default;
+$pagination-padding:				$input-padding															!default;
 $pills-padding:						.15em .35em																!default;
-$tables-padding: 					$input-padding 															!default;
-$tabs-content-padding: 				$input-padding 															!default;
-$tabs-tab-padding: 					$input-padding 															!default;
+$tables-padding:					$input-padding															!default;
+$tabs-content-padding:				$input-padding															!default;
+$tabs-tab-padding:					$input-padding															!default;
 
-
-
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Media Queries
 // --------------------------------------------------------------------------------------------------------------------
 
-$lap-start:         				481px 																	!default;
-$desk-start:        				768px 																	!default;
-$desk-end:        					1080px 																	!default;
+$lap-start:							481px																	!default;
+$desk-start:						768px																	!default;
+$desk-end:							1080px																	!default;
 
-$palm-end:             				$lap-start - 1px;
-$lap-end:               			$desk-start - 1px;
+$palm-end:							$lap-start - 1px;
+$lap-end:							$desk-start - 1px;
 
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Grid (Susy)
 // --------------------------------------------------------------------------------------------------------------------
 
-$total-columns: 					12 																		!default;
-$column-width: 						50px 																	!default;
-$gutter-width: 						30px 																	!default;
-$grid-padding: 						10px 																	!default;
-$container-style: 					fluid 																	!default;
+$total-columns:						12																		!default;
+$column-width:						50px																	!default;
+$gutter-width:						30px																	!default;
+$grid-padding:						10px																	!default;
+$container-style:					fluid																	!default;
 
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Nav Responsive Options
 // --------------------------------------------------------------------------------------------------------------------
 
 $navs-responsive-breakpoint:		palm																	!default;
-$navs-responsive-type: 				slide 																	!default;
-$navs-responsive-dropdown-pos: 		right 																	!default;
-$navs-responsive-offset: 			70% 																	!default;
+$navs-responsive-type:				slide																	!default;
+$navs-responsive-dropdown-pos:		right																	!default;
+$navs-responsive-offset:			70%																		!default;
 
-$navs-responsive-outside-wrapper: 	'.external-wrapper'														!default;
-$navs-responsive-inside-wrapper: 	'.internal-wrapper' 													!default;
+$navs-responsive-outside-wrapper:	'.external-wrapper'														!default;
+$navs-responsive-inside-wrapper:	'.internal-wrapper'														!default;
 
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Z-INDEX order
 // --------------------------------------------------------------------------------------------------------------------
 
-$zindex-dropdown:          			1000 																	!default;
-$zindex-popover:           			1010 																	!default;
-$zindex-tooltip:           			1030 																	!default;
-$zindex-slider:     				1040 																	!default;
-$zindex-modal:             			1050 																	!default;
+$zindex-dropdown:					1000																	!default;
+$zindex-popover:					1010																	!default;
+$zindex-tooltip:					1030																	!default;
+$zindex-slider:						1040																	!default;
+$zindex-modal:						1050																	!default;

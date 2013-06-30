@@ -1,8 +1,8 @@
-// ====================================================================================================================
-// CAPTIONS
+// Captions
 // ====================================================================================================================
 
 @if $captions {
+
 	[class^="caption-"] {
 		position: relative;
 		display: inline-block;
@@ -18,16 +18,17 @@
 			line-height: rhythm();
 		}
 
-		&[class*="top"]:after 		{ top:0; }
-		&[class*="bottom"]:after 	{ bottom:0; }
-		&[class*="left"]:after 		{ left:0; }
-		&[class*="right"]:after 	{ right:0; }
+		&[class*="top"]:after     { top:0; }
+		&[class*="bottom"]:after   { bottom:0; }
+		&[class*="left"]:after     { left:0; }
+		&[class*="right"]:after   { right:0; }
 
 		&[class$="top"]:after,
-		&[class$="bottom"]:after 	{ left: 0; right: 0; }
+		&[class$="bottom"]:after   { left: 0; right: 0; }
 
-		// Animations
-		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Animations
+// --------------------------------------------------------------------------------------------------------------------
+
 		&[class*="fade"],
 		&[class*="float"] {
 
@@ -55,4 +56,5 @@
 		}
 
 	}
+
 }

@@ -1,449 +1,404 @@
-// ====================================================================================================================
-// FORMS
+// Forms
 // ====================================================================================================================
 
 @if $forms {
 
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-// Base
-// --------------------------------------------------------------------------------------------------------------------
+.form {
+	@extend .clearfix;
+	margin: 0 0 em($base-line-height);
 
-	.form {
-		@extend .clearfix;
-		margin: 0 0 em($base-line-height);
+	fieldset {
+		padding: 0;
+		margin: 0;
+		border: 0;
+	}
 
-		fieldset {
-			padding: 0;
-			margin: 0;
-			border: 0;
-		}
-
-		legend {
-			@include adjust-font-size-to($h5-size);
-			display: block;
-			padding: 0;
-			width: 100%;
-			font-weight: bold;
-			border: 0;
-			padding-bottom: rhythm(.5);
-			margin-bottom: rhythm(.5);
-			border-bottom: 1px solid #e5e5e5;
-			small {
-				font-size: em($base-font-size);
-				color: $grayLight;
-			}
-		}
-
-		label,
-		input,
-		button,
-		select,
-		textarea {
-			line-height: 1em;
-			font-family: $base-font-family;
-			@include border-radius($base-border-radius);
-		}
-
-		// input,
-		textarea,
-		input[type="text"],
-		input[type="password"],
-		input[type="datetime"],
-		input[type="datetime-local"],
-		input[type="date"],
-		input[type="month"],
-		input[type="time"],
-		input[type="week"],
-		input[type="number"],
-		input[type="email"],
-		input[type="url"],
-		input[type="search"],
-		input[type="tel"],
-		input[type="color"] {
-			display: inline-block;
-			padding: 0 $input-padding-side;
-			// padding: $input-padding;
-			vertical-align: middle;
-			height: $input-height;
-			border-width: $input-border;
-			border-style: solid;
-			line-height /*\**/: $input-height \9; // Ugly IE8 Hack
-			@extend %input !optional;
-
-			&:focus {outline: 0;}
-		}
-
-		select {
-			color: $text-color;
-			display: inline-block;
-		}
-
-		label { display: block; }
-
-		input,
-		textarea {
-			width: 240px;
-		}
-
-		textarea {
-			height: auto;
-			line-height: rhythm(1);
-			padding: $input-padding;
-		}
-
-
-		input[type="radio"],
-		input[type="checkbox"] {
-			margin: em(1px) 0 0;
-		}
-
-		input[type="file"],
-		input[type="image"],
-		input[type="submit"],
-		input[type="reset"],
-		input[type="button"],
-		input[type="radio"],
-		input[type="checkbox"] {
-			width: auto;
-		}
-
-		select,
-		.form__select {
-			width: 240px;
-		}
-
-		select[multiple],
-		select[size] {
-			height: auto;
-		}
-
-
-		input,
-		textarea {
-			@include placeholder();
-		}
-
-		// DISABLED INPUTS
-		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-		input[disabled],
-		select[disabled],
-		textarea[disabled],
-		input[readonly],
-		select[readonly],
-		textarea[readonly] {
-			cursor: not-allowed;
-		}
-		input[type="radio"][disabled],
-		input[type="checkbox"][disabled],
-		input[type="radio"][readonly],
-		input[type="checkbox"][readonly] {
-			background-color: transparent;
-		}
-		input:focus:invalid,
-		textarea:focus:invalid,
-		select:focus:invalid {
-			color: #b94a48;
-			border-color: #ee5f5b;
-			&:focus {
-				border-color: darken(#ee5f5b, 10%);
-			}
+	legend {
+		@include adjust-font-size-to($h5-size);
+		display: block;
+		padding: 0;
+		width: 100%;
+		font-weight: bold;
+		border: 0;
+		padding-bottom: rhythm(.5);
+		margin-bottom: rhythm(.5);
+		border-bottom: 1px solid #e5e5e5;
+		small {
+			font-size: em($base-font-size);
+			color: $grayLight;
 		}
 	}
 
+	label,
+	input,
+	button,
+	select,
+	textarea {
+		line-height: 1em;
+		font-family: $base-font-family;
+		@include border-radius($base-border-radius);
+	}
 
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	// input,
+	textarea,
+	input[type="text"],
+	input[type="password"],
+	input[type="datetime"],
+	input[type="datetime-local"],
+	input[type="date"],
+	input[type="month"],
+	input[type="time"],
+	input[type="week"],
+	input[type="number"],
+	input[type="email"],
+	input[type="url"],
+	input[type="search"],
+	input[type="tel"],
+	input[type="color"] {
+		display: inline-block;
+		padding: 0 $input-padding-side;
+		vertical-align: middle;
+		height: $input-height;
+		border-width: $input-border;
+		border-style: solid;
+		line-height /*\**/: $input-height \9; // Ugly IE8 Hack
+		@extend %input !optional;
+
+		&:focus {outline: 0;}
+	}
+
+	select {
+		color: $text-color;
+		display: inline-block;
+	}
+
+	label { display: block; }
+
+	input,
+	textarea {
+		width: 240px;
+	}
+
+	textarea {
+		height: auto;
+		line-height: rhythm(1);
+		padding: $input-padding;
+	}
+
+
+	input[type="radio"],
+	input[type="checkbox"] {
+		margin: em(1px) 0 0;
+	}
+
+	input[type="file"],
+	input[type="image"],
+	input[type="submit"],
+	input[type="reset"],
+	input[type="button"],
+	input[type="radio"],
+	input[type="checkbox"] {
+		width: auto;
+	}
+
+	select,
+	.form__select {
+		width: 240px;
+	}
+
+	select[multiple],
+	select[size] {
+		height: auto;
+	}
+
+
+	input,
+	textarea {
+		@include placeholder();
+	}
+
+	input[disabled],
+	select[disabled],
+	textarea[disabled],
+	input[readonly],
+	select[readonly],
+	textarea[readonly] {
+		cursor: not-allowed;
+	}
+	input[type="radio"][disabled],
+	input[type="checkbox"][disabled],
+	input[type="radio"][readonly],
+	input[type="checkbox"][readonly] {
+		background-color: transparent;
+	}
+	input:focus:invalid,
+	textarea:focus:invalid,
+	select:focus:invalid {
+		color: #b94a48;
+		border-color: #ee5f5b;
+		&:focus {
+			border-color: darken(#ee5f5b, 10%);
+		}
+	}
+}
+
+
+
+.form__group + .form__group { margin-top: em($control-margin-bottom); }
+
+.form__controls { @extend .clearfix; }
+
+
+
 // Labels
 // --------------------------------------------------------------------------------------------------------------------
 
-	.form__label {
-		font-weight: bold;
-		margin-bottom: em($label-margin-bottom);
-		cursor: auto;
-	}
+.form__label {
+	font-weight: bold;
+	margin-bottom: em($label-margin-bottom);
+	cursor: auto;
+}
 
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
 // Radio & Checkbox
 // --------------------------------------------------------------------------------------------------------------------
 
-	.form__radio,
-	.form__checkbox,
-	.form__select {
-		min-height: em($base-line-height);
-		padding-left: em($checkbox-padding-left);
-		font-weight: normal;
-		cursor: pointer;
-	}
+.form__radio,
+.form__checkbox,
+.form__select {
+	min-height: em($base-line-height);
+	padding-left: em($checkbox-padding-left);
+	font-weight: normal;
+	cursor: pointer;
+}
 
-	.form__select {padding-left: 0;}
+.form__select {padding-left: 0;}
 
-	.form__radio input[type="radio"],
-	.form__checkbox input[type="checkbox"] {
-		float: left;
-		margin-left: -20px;
-	}
-	.form__radio.inline,
-	.form__checkbox.inline {
-		display: inline-block;
-		vertical-align: middle;
-	}
-	.form__radio.inline + .form__radio.inline,
-	.form__checkbox.inline + .form__checkbox.inline {
-		margin-left: 20px;
-	}
+.form__radio input[type="radio"],
+.form__checkbox input[type="checkbox"] {
+	float: left;
+	margin-left: -20px;
+}
+.form__radio.inline,
+.form__checkbox.inline {
+	display: inline-block;
+	vertical-align: middle;
+}
+.form__radio.inline + .form__radio.inline,
+.form__checkbox.inline + .form__checkbox.inline {
+	margin-left: 20px;
+}
 
 
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
 // Custom Select
 // --------------------------------------------------------------------------------------------------------------------
 
-	.form__select {
-		@extend %caret !optional;
-		@include border-radius(3px);
-		border-style: solid;
-		border-width: $input-border;
+.form__select {
+	@extend %caret !optional;
+	@include border-radius(3px);
+	border-style: solid;
+	border-width: $input-border;
+	cursor: pointer;
+	display: inline-block;
+	height: $input-height;
+	line-height: 1em;
+	position: relative;
+	width: 240px;
+
+	select {
+		@include appearance(none);
+		background-color:transparent;
+		background-image:none;
+		border:none;
+		box-shadow:none;
 		cursor: pointer;
-		display: inline-block;
-		height: $input-height;
-		line-height: 1em;
+		padding: $input-padding;
 		position: relative;
-		width: 240px;
-
-		select {
-			@include appearance(none);
-			background-color:transparent;
-			background-image:none;
-			border:none;
-			box-shadow:none;
-			cursor: pointer;
-			padding: $input-padding;
-			position: relative;
-			width:100%;
-			z-index: 3;
-			line-height: 1em;
-		}
-
-		&:after {
-			@include position(absolute, em($input-padding-top) em($input-padding-side) 0 0);
-			display: block;
-		}
-
-	 	@extend %select !optional;
-
+		width:100%;
+		z-index: 3;
+		line-height: 1em;
 	}
 
+	&:after {
+		@include position(absolute, em($input-padding-top) em($input-padding-side) 0 0);
+		display: block;
+	}
 
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	 @extend %select !optional;
+
+}
+
+
+
 // Help
 // --------------------------------------------------------------------------------------------------------------------
 
-	.form__help--block,
-	.form__help--inline {
-		color: lighten($text-color, 15%);
-	}
-	.form__help--block {
-		display: block;
-		padding: rhythm(.5) 0 0;
-	}
-	.form__help--inline {
-		@include inline-block();
-		vertical-align: middle;
-		padding-left: 5px;
-	}
+.form__help--block,
+.form__help--inline {
+	color: lighten($text-color, 15%);
+}
+.form__help--block {
+	display: block;
+	padding: rhythm(.5) 0 0;
+}
+.form__help--inline {
+	@include inline-block();
+	vertical-align: middle;
+	padding-left: 5px;
+}
 
 
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-// Addon
-// --------------------------------------------------------------------------------------------------------------------
 
-	.form__addon {
-		display: inline-block;
-		width: auto;
-		min-width: em(16px);
-		padding: $input-padding;
-		line-height: 1em;
-		font-weight: normal;
-		float: left;
-		height: $input-height;
-		text-align: center;
-		border-width: $input-border;
-		border-style: solid;
-		@extend %input-addon !optional;
-	}
-
-
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-// Group & Controls
-// --------------------------------------------------------------------------------------------------------------------
-
-	.form__group { margin-bottom: em($control-margin-bottom); }
-	.form__controls { @extend .clearfix; }
-
-
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-// Form Actions
-// --------------------------------------------------------------------------------------------------------------------
-
-	.form__actions {
-		padding-top: rhythm(1);
-		margin-top: rhythm(1);
-		margin-bottom: rhythm(1);
-		border-top: 1px solid #e5e5e5;
-		clear: both;
-		@extend .clearfix;
-	}
-
-
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Append & Prepend
 // --------------------------------------------------------------------------------------------------------------------
 
-	.form__controls--multi {
-		margin-left: $input-border;
+.form__addon {
+	display: inline-block;
+	width: auto;
+	min-width: em(16px);
+	padding: $input-padding;
+	line-height: 1em;
+	font-weight: normal;
+	float: left;
+	height: $input-height;
+	text-align: center;
+	border-width: $input-border;
+	border-style: solid;
+	@extend %input-addon !optional;
+}
 
-		> [type],
-		> [class] {
-			@include border-radius(0);
-			float: left;
-			margin-left: -$input-border;
+.form__controls--multi {
+	margin-left: $input-border;
 
-			&:first-child 	{ @include border-radius($base-border-radius 0 0 $base-border-radius); }
-			&:last-child 	{ @include border-radius(0 $base-border-radius $base-border-radius 0); }
-		}
+	> [type],
+	> [class] {
+		@include border-radius(0);
+		float: left;
+		margin-left: -$input-border;
 
-		> ul.btn-group + * {
-			margin-left: -($input-border * 2);
-		}
-
-		> [type] {
-			position: relative;
-			z-index: 2;
-		}
-
-		// Correct border radius
-		// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-
-		// > .btn-group:first-child > li:first-child .btn 				{ }
-		// > .btn-group:first-child > li:last-child .btn 				{ @include border-right-radius(0); }
-		// > div.btn-group:first-child .btn 							{ @include border-right-radius(0); }
-
-		// > .btn-group:last-child > li:first-child .btn 				{ @include border-left-radius(0); }
-		// > .btn-group:last-child > li:last-child .btn 				{ }
-		// > div.btn-group:last-child > .btn 							{ @include border-left-radius(0); }
-
-
-			// DEBUG
-
-			// > .btn-group:first-child > li:first-child .btn 				{ background: red !important; }
-			// > .btn-group:first-child > li:last-child .btn 				{ background: blue !important; }
-			// > div.btn-group:first-child .btn 							{ background: green !important; }
-
-			// > .btn-group:last-child > li:first-child .btn 				{ background: purple !important; }
-			// > .btn-group:last-child > li:last-child .btn 				{ background: yellow !important; }
-			// > div.btn-group:last-child > .btn 							{ background: teal !important; }
-
-
-
+		&:first-child   { @include border-radius($base-border-radius 0 0 $base-border-radius); }
+		&:last-child   { @include border-radius(0 $base-border-radius $base-border-radius 0); }
 	}
 
+	> ul.btn-group + * {
+		margin-left: -($input-border * 2);
+	}
 
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	> [type] {
+		position: relative;
+		z-index: 2;
+	}
+
+}
+
+
+// Form Actions
+// --------------------------------------------------------------------------------------------------------------------
+
+.form__actions {
+	padding-top: rhythm(1);
+	margin-top: rhythm(1);
+	margin-bottom: rhythm(1);
+	border-top: 1px solid #e5e5e5;
+	clear: both;
+	@extend .clearfix;
+}
+
+
+// Form Layouts
+// ====================================================================================================================
+
+
 // Form Grid
 // --------------------------------------------------------------------------------------------------------------------
 
-	@if $forms-grid {
-		.form--grid {
-			.form__group { min-height: $control-min-height; }
-			.form__multi { width: 100%; }
-			input, button {padding: 0 $input-padding-side;}
+@if $forms-grid {
+	.form--grid {
+		.form__group { min-height: $control-min-height; }
+		.form__multi { width: 100%; }
 
-			// $i: 100;
-			// @while $i > 0 {
-			// 	[data-width="#{$i}"] { @extend %width-#{$i}; }
-			// 	$i: $i - 5;
-			// }
-		}
 	}
+}
 
 
-
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Form Aligned
 // --------------------------------------------------------------------------------------------------------------------
 
-	@if $forms-aligned {
+@if $forms-aligned {
 
-		.form--aligned {
+	.form--aligned {
 
+		.form__label {
+			float: left;
+			width: em($horizontal-offset) - em(20px);
+			padding-top: em($input-padding-top);
+			text-align: right;
+		}
+
+		.form__controls { margin-left: em($horizontal-offset); }
+
+		.form__help--block { margin-bottom: 0; }
+
+		.form__controls > .form__radio:first-child,
+		.form__controls > .form__checkbox:first-child {
+			margin-top: em($input-padding-top);
+		}
+
+		.form__controls > .form__radio.inline,
+		.form__controls > .form__checkbox.inline{
+			margin-top: em($input-padding-top);
+		}
+
+		.form__actions {
+			padding-left: em($horizontal-offset);
+		}
+
+		@include media(palm) {
 			.form__label {
-				float: left;
-				width: em($horizontal-offset) - em(20px);
-				padding-top: em($input-padding-top);
-				text-align: right;
+				width: 100%;
+				float: none;
+				padding-top: 0;
+				text-align: left;
 			}
 
-			.form__controls { margin-left: em($horizontal-offset); }
-
-			.form__help--block { margin-bottom: 0; }
-
-			.form__controls > .form__radio:first-child,
-			.form__controls > .form__checkbox:first-child {
-				margin-top: em($input-padding-top);
-			}
-
-			.form__controls > .form__radio.inline,
-			.form__controls > .form__checkbox.inline{
-				margin-top: em($input-padding-top);
-			}
-
-			.form__actions {
-				padding-left: em($horizontal-offset);
-			}
-
-			@include media(palm) {
-				.form__label {
-					width: 100%;
-					float: none;
-					padding-top: 0;
-					text-align: left;
-				}
-
-				.form__controls { margin-left: 0; }
-				.form__actions { padding-left: 0; }
-			}
+			.form__controls { margin-left: 0; }
+			.form__actions { padding-left: 0; }
 		}
 	}
+}
 
 
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
 // Form Inline
 // --------------------------------------------------------------------------------------------------------------------
 
-	@if $forms-inline {
+@if $forms-inline {
 
-		.form--inline {
+	.form--inline {
 
-			> * {
-				float: left;
-				vertical-align: middle;
-				margin: 0 em(8px) 0 0;
-				padding-left: 0;
-			}
+		> * {
+			float: left;
+			vertical-align: middle;
+			margin: 0 em(8px) 0 0;
+			padding-left: 0;
+		}
 
-			.form__help--inline,
-			.form__label,
-			.form__radio,
-			.form__checkbox {
-				padding-top: em($input-padding-top);
-			}
+		.form__help--inline,
+		.form__label,
+		.form__radio,
+		.form__checkbox {
+			padding-top: em($input-padding-top);
+		}
 
-			.form__radio input[type="radio"],
-			.form__checkbox input[type="checkbox"] {
-				float: left;
-				margin-right: em(4px);
-				margin-left: 0;
-			}
+		.form__radio input[type="radio"],
+		.form__checkbox input[type="checkbox"] {
+			float: left;
+			margin-right: em(4px);
+			margin-left: 0;
 		}
 	}
+}
 
 
-} // end IF $forms
+}

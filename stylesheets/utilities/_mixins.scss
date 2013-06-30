@@ -1,10 +1,9 @@
-// ====================================================================================================================
 // MIXINS
 // ====================================================================================================================
 
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Base
 // --------------------------------------------------------------------------------------------------------------------
+
 @mixin clearfix {
 	*zoom: 1;
 	&:before,
@@ -18,16 +17,14 @@
 	}
 }
 
-
-
-
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Shortcuts
 // --------------------------------------------------------------------------------------------------------------------
+
 @mixin size($height, $width) {
 	width: $width;
 	height: $height;
 }
+
 @mixin square($size) {
 	@include size($size, $size);
 }
@@ -88,7 +85,6 @@
 	@else { margin-top: -($width / 2);  }
 }
 
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Forms
 // --------------------------------------------------------------------------------------------------------------------
 @mixin placeholder($color: $gray) {
@@ -105,7 +101,6 @@
 
 @mixin tab-focus() {}
 
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Text overflow
 // --------------------------------------------------------------------------------------------------------------------
 @mixin text-overflow() {
@@ -114,16 +109,15 @@
 	white-space: nowrap;
 }
 
-
 @mixin hide-text {
-	color:            transparent;
-	font:             0/0 a;
-	text-shadow:      none;
+	color:        transparent;
+	font:         0/0 a;
+	text-shadow:    none;
 }
 
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Pseudo Elements
 // --------------------------------------------------------------------------------------------------------------------
+
 @mixin triangle ($size, $color, $direction) {
 	height: 0;
 	width: 0;
@@ -136,9 +130,9 @@
 		@if $direction == up {
 			border-bottom-color: $color;
 		} @else if $direction == right {
-			border-left-color:   $color;
+			border-left-color:  $color;
 		} @else if $direction == down {
-			border-top-color:    $color;
+			border-top-color:   $color;
 		} @else if $direction == left {
 			border-right-color:  $color;
 		}
@@ -166,6 +160,7 @@
 }
 
 // For now only side triangles with border
+
 @mixin triangle_border($size, $color, $border-color, $border-width, $direction) {
 
 	$border-width-fix: '';
@@ -202,9 +197,10 @@
 }
 
 
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
 // Colors
 // --------------------------------------------------------------------------------------------------------------------
+
 @mixin text-inset-shadow($bg: #fff, $textcolor: #054d4a, $contrast:  #f43059) {
 	$shadow: darken($textcolor, 30%);
 
@@ -222,9 +218,10 @@
 	}
 }
 
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
 // Keyframes support
 // --------------------------------------------------------------------------------------------------------------------
+
 @mixin keyframes($name) {
 	@-webkit-keyframes #{$name} {
 		@content;
@@ -243,7 +240,7 @@
 }
 
 
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
 // Components
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -261,9 +258,10 @@
 	@if $bottom { border-bottom: 1px solid $bottom; }
 }
 
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
 // Images
 // --------------------------------------------------------------------------------------------------------------------
+
 @mixin shadow-comicbook($padding: 5px, $color: #bbb, $size: 15px, $distance: 10px) {
 
 	$lightColor: lighten($color, 8);
@@ -298,66 +296,64 @@
 	}
 }
 
-
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // Icon Fonts
 // --------------------------------------------------------------------------------------------------------------------
+
 @mixin icon-font($char: '\f013', $font: 'FontAwesome') {
 	display: inline-block;
 	font-family: $font;
 	content: "#{$char}";
 }
 
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
 // Media Queries
 // --------------------------------------------------------------------------------------------------------------------
+
 @mixin media($media-query){
 
-    @if $media-query == palm {
-        @media only screen and (max-width:$palm-end) {
-        	@content;
-        }
-    }
+	@if $media-query == palm {
+		@media only screen and (max-width:$palm-end) {
+			@content;
+		}
+	}
 
-    @elseif $media-query == lap{
-        @media only screen and (min-width:$lap-start) and (max-width:$lap-end) {
-        	@content;
-        }
-    }
+	@elseif $media-query == lap{
+		@media only screen and (min-width:$lap-start) and (max-width:$lap-end) {
+			@content;
+		}
+	}
 
-    @elseif $media-query == lap-and-up{
-        @media only screen and (min-width:$lap-start) {
-        	@content;
-        }
-    }
+	@elseif $media-query == lap-and-up{
+		@media only screen and (min-width:$lap-start) {
+			@content;
+		}
+	}
 
-    @elseif $media-query == portable{
-        @media only screen and (max-width:$lap-end) {
-        	@content;
-        }
-    }
+	@elseif $media-query == portable{
+		@media only screen and (max-width:$lap-end) {
+			@content;
+		}
+	}
 
-    @elseif $media-query == desk{
-        @media only screen and (min-width:$desk-start) {
-        	@content;
-        }
-    }
+	@elseif $media-query == desk{
+		@media only screen and (min-width:$desk-start) {
+			@content;
+		}
+	}
 
-    @elseif $media-query == desk-wide {
-        @media only screen and (min-width: $desk-wide-start) {
-        	@content;
-        }
-    }
+	@elseif $media-query == desk-wide {
+		@media only screen and (min-width: $desk-wide-start) {
+			@content;
+		}
+	}
 
-    // @else $media-query == all{
-    @else {
-        @content;
-    }
+	// @else $media-query == all{
+	@else {
+		@content;
+	}
 
 }
 
-
-// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // GRID
 // --------------------------------------------------------------------------------------------------------------------
 // @include columns( $cols, $cols-container: $total-columns, $omega: false,  $nth-omega: false, $remove-omega: false, $from: left, $media: all, $highlight-omega: false );

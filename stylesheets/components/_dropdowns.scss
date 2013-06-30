@@ -1,5 +1,4 @@
-// ====================================================================================================================
-// DROPDOWN MENUS
+// Dropdowns
 // ====================================================================================================================
 
 @if $dropdowns {
@@ -11,36 +10,36 @@
 
 	.dropdown__toggle:focus { outline: 0; }
 
-	// Dropdown arrow/caret
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Dropdown arrow/caret
+// --------------------------------------------------------------------------------------------------------------------
+
 	.dropdown__caret {
 		@extend %caret !optional;
 	}
 
-	// The dropdown menu (ul)
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// The dropdown menu (ul)
+// --------------------------------------------------------------------------------------------------------------------
+
 	.dropdown__menu {
 		@extend %dropdown !optional;
 		@include border-bottom-radius($base-border-radius);
 		@include position(absolute, 100% 0 0 0px);
+		@include transition();
 		border-style: solid;
 		border-width: $input-border;
 		float: left;
 		list-style: none;
 		margin: -$input-border 0 0 0;
+		min-width: 10em;
+		overflow: hidden;
 		z-index: $zindex-dropdown;
-
-		// display: none;
-
-		@include transition();
 		max-height: 0;
 		opacity: 0;
-		overflow: hidden;
 
 		&[data-content] { min-width: em(600px); }
 
 
-		// Aligns the dropdown menu to right
+
 		&.pull-right {
 			right: 0;
 			left: auto;
@@ -65,15 +64,11 @@
 
 	}
 
-	// Hover/Focus state
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	.dropdown__menu > li > a:hover,
 	.dropdown__menu > li > a:focus {
 		text-decoration: none;
 	}
 
-	// Active state
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	.dropdown__menu > .active > a,
 	.dropdown__menu > .active > a:hover,
 	.dropdown__menu > .active > a:focus {
@@ -81,14 +76,12 @@
 		outline: 0;
 	}
 
-	// Disabled state
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	.dropdown__menu > .disabled > a,
 	.dropdown__menu > .disabled > a:hover,
 	.dropdown__menu > .disabled > a:focus {
 		color: $grayLight;
 	}
-	// Nuke hover/focus effects
+
 	.dropdown__menu > .disabled > a:hover,
 	.dropdown__menu > .disabled > a:focus {
 		text-decoration: none;
@@ -97,8 +90,9 @@
 		cursor: default;
 	}
 
-	// Open state for the dropdown
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Dropdown open
+// --------------------------------------------------------------------------------------------------------------------
+
 	.dropdown.open {
 		z-index: $zindex-dropdown ;
 
@@ -109,7 +103,6 @@
 		}
 
 		.dropdown__menu {
-			// display: block;
 			max-height: 666px;
 			opacity: 1;
 		}

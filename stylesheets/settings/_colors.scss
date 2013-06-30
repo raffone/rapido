@@ -1,16 +1,15 @@
-// ====================================================================================================================
 // BASE COLORS
 // ====================================================================================================================
 
-$black:                 							#000;
-$grayDarker:            							lighten($black, 15);
-$grayDark:              							lighten($black, 30);
-$gray:                  							lighten($black, 60);
-$grayLight:             							lighten($black, 85);
-$grayLighter:           							lighten($black, 95);
-$white:                 							lighten($black, 100);
+$black:												#000;
+$grayDarker:										lighten($black, 15);
+$grayDark:											lighten($black, 30);
+$gray:												lighten($black, 60);
+$grayLight:											lighten($black, 85);
+$grayLighter:										lighten($black, 95);
+$white:												lighten($black, 100);
 
-$text-color:         								#333 												!default;
+$text-color:										#333 												!default;
 
-$link-color: 										#0066cc 											!default;
-$link-color-hover: 									darken($link-color, 10%) 							!default;
+$link-color:										#0066cc 											!default;
+$link-color-hover:									darken($link-color, 10%) 							!default;
