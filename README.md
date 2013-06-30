@@ -14,9 +14,224 @@ The problem was that after the first prototypes they where very difficult to tam
 I started taking off all the unnecessary bits from bootstrap, adding inuit variables and naming conventions and I was pretty happy with it, but then I started refactoring all the code, adding susy grids, structuring the files in a different way, cleaning all the unnecessary hacks for retro-compatibility, adding a bunch of useful mixing, and so on… so after all of this I thought that it may be useful for others.
 
 #### Feedbacks
+
 It was (and still is) made for my personal use so some stuff may seems strange but this is how I work, maybe with your help we can make it better, if you find a better solution of somethign covered in the framework please contact me and we'll se if it can work.
 
 ## Settings
+
+#### Base
+
+Debug Mode.
+
+    $debug-mode:                        false
+    $default-styles:                    true
+
+
+Text body size.
+
+    $base-font-size:                    14px
+    $base-line-height:                  20px
+    $round-to-nearest-half-line:        true
+
+Change text size with media query.
+
+    $responsive-font-size:              lap-and-up $base-font-size, palm 16px
+
+
+Font families.
+
+    $font-sans:                         "Helvetica Neue", Helvetica, Arial, sans-serif
+    $font-serif:                        Georgia, "Times New Roman", Times, serif
+    $font-mono:                         Monaco, Menlo, Consolas, "Courier New", monospace
+
+    $base-font-family:                  $font-sans
+    $titles-font-family:                $font-sans
+
+
+#### Colors
+
+Used for scaffolding
+
+    $black:                             #000
+    $grayDarker:                        lighten($black, 15)
+    $grayDark:                          lighten($black, 30)
+    $gray:                              lighten($black, 60)
+    $grayLight:                         lighten($black, 85)
+    $grayLighter:                       lighten($black, 95)
+    $white:                             #fff
+
+Base colors
+
+    $text-color: #333
+
+    $link-color:                        #0066cc
+    $link-color-hover:                  darken($link-color, 10%)
+
+
+#### Components
+
+
+Enable or disable components, so you can have in the css only what you need.
+
+    $alerts:                            true
+    $breadcrumbs:                       true
+    $button-groups:                     true
+    $buttons:                           true
+    $captions:                          true
+    $close:                             true
+    $dropdowns:                         true
+
+    $forms:                             true
+    $forms-append:                      true
+    $forms-grid:                        true
+    $forms-aligned:                     true
+    $forms-inline:                      true
+
+    $navs:                              true
+    $pager:                             true
+    $pagination:                        true
+    $labels:                            true
+    $responsive-navs:                   true
+    $tables:                            true
+
+    $tabs:                              true
+    $slider:                            true
+    $modal:                             true
+    $modal-buttons:                     true
+    $modal-thumbs:                      true
+
+
+Icon Fonts ready to use with the mixin `icon-font`.
+
+    $use-fontawesome:                   true
+
+    $use-brandico:                      false
+    $use-entypo:                        false
+    $use-fontelico:                     false
+    $use-maki:                          false
+    $use-openweb-icons:                 false
+    $use-typicons:                      false
+    $use-zocial:                        false
+
+#### Dimenions
+
+#### Base
+
+Border radius used as a standard on all elements.
+
+    $base-border-radius:                4px
+
+Labels width in horizontal forms.
+
+    $horizontal-offset:                 180px
+
+
+#### Text
+
+Font sizes you can used with the compass mixin `adjust-font-size-to()`. Naming convention from [inuit.css](http://inuitcss.com/).
+
+    $giga-size:                         $base-font-size * 7
+    $mega-size:                         $base-font-size * 5
+    $kilo-size:                         $base-font-size * 3.4
+
+    $h1-size:                           $base-font-size * 2.4
+    $h2-size:                           $base-font-size * 2
+    $h3-size:                           $base-font-size * 1.8
+    $h4-size:                           $base-font-size * 1.4
+    $h5-size:                           $base-font-size * 1.2
+    $h6-size:                           $base-font-size * 1
+
+    $milli-size:                        $base-font-size * .85
+    $micro-size:                        $base-font-size * .7
+
+
+#### Forms
+
+Padding and margins used in the forms.
+
+    $control-margin-bottom:             $base-line-height
+    $label-margin-bottom:               10px
+    $input-border:                      1px
+    $input-padding-top:                 10px
+    $input-padding-side:                10px
+    $checkbox-padding-left:             20px
+
+
+#### Paddings
+
+Padding specific to every component you can use to overwrite the base padding.
+
+    $btn-padding:                       $input-padding
+    $btn-large-padding:                 em($input-padding-top * 1) em($input-padding-side * 1.5)
+    $btn-small-padding:                 em($input-padding-top * .5) em($input-padding-side * .8)
+    $btn-mini-padding:                  em($input-padding-top * .1) em($input-padding-side * .6)
+
+    $alerts-padding:                    $input-padding
+    $captions-padding:                  $input-padding
+    $dropdowns-padding:                 $input-padding
+    $modals-error-padding:              $input-padding
+    $navs-padding:                      $input-padding
+    $pager-padding:                     $input-padding
+    $pagination-padding:                $input-padding
+    $pills-padding:                     .15em .35em
+    $tables-padding:                    $input-padding
+    $tabs-content-padding:              $input-padding
+    $tabs-tab-padding:                  $input-padding
+
+
+
+#### Media Queries
+
+Set the width of the three steps of the layout.
+
+    $lap-start:                         481px      // For Palm
+    $desk-start:                        768px      // For Lap
+    $desk-end:                          1080px     // For Desktop
+
+
+#### Grid (Susy)
+
+Default settings for susy grid. More info: [Susy](http://susy.oddbird.net/).
+
+    $total-columns:                     12
+    $column-width:                      50px
+    $gutter-width:                      30px
+    $grid-padding:                      10px
+    $container-style:                   fluid
+
+
+#### z-index order
+
+Default settings for overlay components, taken from Bootstrap.
+
+    $zindex-dropdown:                   1000
+    $zindex-popover:                    1010
+    $zindex-tooltip:                    1030
+    $zindex-slider:                     1040
+    $zindex-modal:                      1050
+    
+#### Animations
+
+Keyframe Animation w/ `@include animate(...)`
+
+
+    $animations:                              fadeIn, fadeOut
+    $animations-classes:                      true
+
+    $animations-duration:                     .15s
+    $animations-delay:                        0s
+    $animations-function:                     ease-out
+    $animations-mode:                         both
+
+
+Transitions w/ ```@include transition(...)```
+
+
+    $default-transition-duration:             $animations-duration
+    $default-transition-function:             toBezier($animations-function)
+
+    
+## Components
 
 ### Alerts
 
@@ -398,16 +613,14 @@ Add `.form-inline` for left-aligned labels and inline-block controls for a compa
 ### Tables
 
 
-## Settings
 
-
-### Credits:
+## Credits:
 
  * Bootstrap: https://github.com/twitter/bootstrap
  * Twitter Bootstrap - For Compass:  https://github.com/vwall/compass-twitter-bootstrap
  * Susy [a Compass plugin]: https://github.com/ericam/susy
  * HTML5 Boilerplate: https://github.com/h5bp/html5-boilerplate
 
-### License
+## License
 
 MIT License. Copyright 2013 Raffaele Rasini. http://creativebits.it
