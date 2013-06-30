@@ -2,12 +2,23 @@
 
 ## Intro
 
-An easy and quick **Sass** + **Compass** + **Susy** prototyping framework based on Bootstrap without all the default styles.
+An easy and quick [**Sass**](http://sass-lang.com/) + [**Compass**](http://compass-style.org/) + [**Susy**](http://susy.oddbird.net/) + [**OOCSS**](http://oocss.org/) + [**BEM**](https://gist.github.com/necolas/1309546) prototyping framework based on Bootstrap without all the default styles.
 
+## Features
+
+* Most of the modules from Boostrap (some heavly modified and streamlined)
+* **CSS architecture and styling completely separated**, creating and sweitching complex themes is much easier
+* **Every unused component can be disabled** to slim the final css
+* All sizes are in **em** and respect the **vertical rhythm** of the page
+* **Super easy responsive layouts** with Susy and custom mixins
+* Full support of **automatic sprite generation** (with Compass)
+* Full support of **icon fonts** with 8 fonts already included and custom mixin to remove any frictions
+* Complete set of **css animations** with custom mixin
+* There is a variable for almost everything
 
 ## Why?
 
-The Rapido framework, is the product of a couple of months trying to figure out a way to incorporate a common framework in all my front-end projects, both for personal and client works. I started to look around at complete frameworks for quick prototyping and found three: Bootstrap, Foundation and Inuit. The first two are very similar, Bootstrap has more features that i never use so they where basically the same for me, Inuit is much smaller and more object oriented (ex: BEM naming convention).
+The Rapido framework, is the result of a couple of months trying to figure out a way to incorporate a common framework in all my front-end projects, both for personal and client works. I started to look around at complete frameworks for quick prototyping and found three: [**Bootstrap**](https://github.com/twitter/bootstrap), [**Foundation**](https://github.com/zurb/foundation) and [**Inuit**](https://github.com/csswizardry/inuit.css). The first two are very similar, Bootstrap has more features that i never use so they where basically the same for me, Inuit is much smaller and more object oriented (ex: [BEM](https://gist.github.com/necolas/1309546) naming syntax).
 
 The problem was that after the first prototypes they where very difficult to tame and style like I wanted (and please, bootswatch.com and wrapbootstrap.com doesn't count, I mean real full designs). So I wanted to create a frankestein's framework with all the useful components from bootstrap, everything in variables like Foundation and the easy styling of Inuit.
 
@@ -17,220 +28,10 @@ I started taking off all the unnecessary bits from bootstrap, adding inuit varia
 
 It was (and still is) made for my personal use so some stuff may seems strange but this is how I work, maybe with your help we can make it better, if you find a better solution of somethign covered in the framework please contact me and we'll se if it can work.
 
-## Settings
+## Notes
 
-### Base
+This documentation is not mean for everyone, I've taken heavy from Bootstrap documentation for all common components that share the same characteristics and some parts are barebones because is meant to be a reference to other front-end developers that already know how Bootstrap (and css frameworks in general) work.
 
-Debug Mode.
-
-    $debug-mode:                        false
-    $default-styles:                    true
-
-
-Text body size.
-
-    $base-font-size:                    14px
-    $base-line-height:                  20px
-    $round-to-nearest-half-line:        true
-
-Change text size with media query.
-
-    $responsive-font-size:              lap-and-up $base-font-size, palm 16px
-
-
-Font families.
-
-    $font-sans:                         "Helvetica Neue", Helvetica, Arial, sans-serif
-    $font-serif:                        Georgia, "Times New Roman", Times, serif
-    $font-mono:                         Monaco, Menlo, Consolas, "Courier New", monospace
-
-    $base-font-family:                  $font-sans
-    $titles-font-family:                $font-sans
-
-
-### Colors
-
-Used for scaffolding
-
-    $black:                             #000
-    $grayDarker:                        lighten($black, 15)
-    $grayDark:                          lighten($black, 30)
-    $gray:                              lighten($black, 60)
-    $grayLight:                         lighten($black, 85)
-    $grayLighter:                       lighten($black, 95)
-    $white:                             #fff
-
-Base colors
-
-    $text-color: #333
-
-    $link-color:                        #0066cc
-    $link-color-hover:                  darken($link-color, 10%)
-
-
-### Components
-
-
-Enable or disable components, so you can have in the css only what you need.
-
-    $alerts:                            true
-    $breadcrumbs:                       true
-    $button-groups:                     true
-    $buttons:                           true
-    $captions:                          true
-    $close:                             true
-    $dropdowns:                         true
-
-    $forms:                             true
-    $forms-append:                      true
-    $forms-grid:                        true
-    $forms-aligned:                     true
-    $forms-inline:                      true
-
-    $navs:                              true
-    $pager:                             true
-    $pagination:                        true
-    $labels:                            true
-    $responsive-navs:                   true
-    $tables:                            true
-
-    $tabs:                              true
-    $slider:                            true
-    $modal:                             true
-    $modal-buttons:                     true
-    $modal-thumbs:                      true
-
-
-Icon Fonts ready to use with the mixin `icon-font`.
-
-    $use-fontawesome:                   true
-
-    $use-brandico:                      false
-    $use-entypo:                        false
-    $use-fontelico:                     false
-    $use-maki:                          false
-    $use-openweb-icons:                 false
-    $use-typicons:                      false
-    $use-zocial:                        false
-
-### Dimenions
-
-#### Base
-
-Border radius used as a standard on all elements.
-
-    $base-border-radius:                4px
-
-Labels width in horizontal forms.
-
-    $horizontal-offset:                 180px
-
-
-#### Text
-
-Font sizes you can used with the compass mixin `adjust-font-size-to()`. Naming convention from [Inuit](http://inuitcss.com/).
-
-    $giga-size:                         $base-font-size * 7
-    $mega-size:                         $base-font-size * 5
-    $kilo-size:                         $base-font-size * 3.4
-
-    $h1-size:                           $base-font-size * 2.4
-    $h2-size:                           $base-font-size * 2
-    $h3-size:                           $base-font-size * 1.8
-    $h4-size:                           $base-font-size * 1.4
-    $h5-size:                           $base-font-size * 1.2
-    $h6-size:                           $base-font-size * 1
-
-    $milli-size:                        $base-font-size * .85
-    $micro-size:                        $base-font-size * .7
-
-
-#### Forms
-
-Padding and margins used in the forms.
-
-    $control-margin-bottom:             $base-line-height
-    $label-margin-bottom:               10px
-    $input-border:                      1px
-    $input-padding-top:                 10px
-    $input-padding-side:                10px
-    $checkbox-padding-left:             20px
-
-
-#### Paddings
-
-Padding specific to every component you can use to overwrite the base padding.
-
-    $btn-padding:                       $input-padding
-    $btn-large-padding:                 em($input-padding-top * 1) em($input-padding-side * 1.5)
-    $btn-small-padding:                 em($input-padding-top * .5) em($input-padding-side * .8)
-    $btn-mini-padding:                  em($input-padding-top * .1) em($input-padding-side * .6)
-
-    $alerts-padding:                    $input-padding
-    $captions-padding:                  $input-padding
-    $dropdowns-padding:                 $input-padding
-    $modals-error-padding:              $input-padding
-    $navs-padding:                      $input-padding
-    $pager-padding:                     $input-padding
-    $pagination-padding:                $input-padding
-    $pills-padding:                     .15em .35em
-    $tables-padding:                    $input-padding
-    $tabs-content-padding:              $input-padding
-    $tabs-tab-padding:                  $input-padding
-
-
-
-#### Media Queries
-
-Set the width of the three steps of the layout.
-
-    $lap-start:                         481px      // For Palm
-    $desk-start:                        768px      // For Lap
-    $desk-end:                          1080px     // For Desktop
-
-
-#### Grid (Susy)
-
-Default settings for susy grid. More info: [Susy](http://susy.oddbird.net/).
-
-    $total-columns:                     12
-    $column-width:                      50px
-    $gutter-width:                      30px
-    $grid-padding:                      10px
-    $container-style:                   fluid
-
-
-#### z-index order
-
-Default settings for overlay components, taken from Bootstrap.
-
-    $zindex-dropdown:                   1000
-    $zindex-popover:                    1010
-    $zindex-tooltip:                    1030
-    $zindex-slider:                     1040
-    $zindex-modal:                      1050
-    
-### Animations
-
-Keyframe Animation w/ `@include animate(...)`
-
-
-    $animations:                              fadeIn, fadeOut
-    $animations-classes:                      true
-
-    $animations-duration:                     .15s
-    $animations-delay:                        0s
-    $animations-function:                     ease-out
-    $animations-mode:                         both
-
-
-Transitions w/ `@include transition(...)`
-
-
-    $default-transition-duration:             $animations-duration
-    $default-transition-function:             toBezier($animations-function)
-
-    
 ## Components
 
 ### Alerts
@@ -1000,6 +801,222 @@ Become:
 
 Similar to `rhythm_neg()` but for Susy's `space()` function, more info:  [Susy Reference](http://susy.oddbird.net/guides/reference/#ref-space).
 
+
+## Settings
+
+### Base
+
+Debug Mode.
+
+    $debug-mode:                        false
+    $default-styles:                    true
+
+
+Text body size.
+
+    $base-font-size:                    14px
+    $base-line-height:                  20px
+    $round-to-nearest-half-line:        true
+
+Change text size with media query.
+
+    $responsive-font-size:              lap-and-up $base-font-size, palm 16px
+
+
+Font families.
+
+    $font-sans:                         "Helvetica Neue", Helvetica, Arial, sans-serif
+    $font-serif:                        Georgia, "Times New Roman", Times, serif
+    $font-mono:                         Monaco, Menlo, Consolas, "Courier New", monospace
+
+    $base-font-family:                  $font-sans
+    $titles-font-family:                $font-sans
+
+
+### Colors
+
+Used for scaffolding
+
+    $black:                             #000
+    $grayDarker:                        lighten($black, 15)
+    $grayDark:                          lighten($black, 30)
+    $gray:                              lighten($black, 60)
+    $grayLight:                         lighten($black, 85)
+    $grayLighter:                       lighten($black, 95)
+    $white:                             #fff
+
+Base colors
+
+    $text-color: #333
+
+    $link-color:                        #0066cc
+    $link-color-hover:                  darken($link-color, 10%)
+
+
+### Components
+
+
+Enable or disable components, so you can have in the css only what you need.
+
+    $alerts:                            true
+    $breadcrumbs:                       true
+    $button-groups:                     true
+    $buttons:                           true
+    $captions:                          true
+    $close:                             true
+    $dropdowns:                         true
+
+    $forms:                             true
+    $forms-append:                      true
+    $forms-grid:                        true
+    $forms-aligned:                     true
+    $forms-inline:                      true
+
+    $navs:                              true
+    $pager:                             true
+    $pagination:                        true
+    $labels:                            true
+    $responsive-navs:                   true
+    $tables:                            true
+
+    $tabs:                              true
+    $slider:                            true
+    $modal:                             true
+    $modal-buttons:                     true
+    $modal-thumbs:                      true
+
+
+Icon Fonts ready to use with the mixin `icon-font`.
+
+    $use-fontawesome:                   true
+
+    $use-brandico:                      false
+    $use-entypo:                        false
+    $use-fontelico:                     false
+    $use-maki:                          false
+    $use-openweb-icons:                 false
+    $use-typicons:                      false
+    $use-zocial:                        false
+
+### Dimenions
+
+#### Base
+
+Border radius used as a standard on all elements.
+
+    $base-border-radius:                4px
+
+Labels width in horizontal forms.
+
+    $horizontal-offset:                 180px
+
+
+#### Text
+
+Font sizes you can used with the compass mixin `adjust-font-size-to()`. Naming convention from [Inuit](http://inuitcss.com/).
+
+    $giga-size:                         $base-font-size * 7
+    $mega-size:                         $base-font-size * 5
+    $kilo-size:                         $base-font-size * 3.4
+
+    $h1-size:                           $base-font-size * 2.4
+    $h2-size:                           $base-font-size * 2
+    $h3-size:                           $base-font-size * 1.8
+    $h4-size:                           $base-font-size * 1.4
+    $h5-size:                           $base-font-size * 1.2
+    $h6-size:                           $base-font-size * 1
+
+    $milli-size:                        $base-font-size * .85
+    $micro-size:                        $base-font-size * .7
+
+
+#### Forms
+
+Padding and margins used in the forms.
+
+    $control-margin-bottom:             $base-line-height
+    $label-margin-bottom:               10px
+    $input-border:                      1px
+    $input-padding-top:                 10px
+    $input-padding-side:                10px
+    $checkbox-padding-left:             20px
+
+
+#### Paddings
+
+Padding specific to every component you can use to overwrite the base padding.
+
+    $btn-padding:                       $input-padding
+    $btn-large-padding:                 em($input-padding-top * 1) em($input-padding-side * 1.5)
+    $btn-small-padding:                 em($input-padding-top * .5) em($input-padding-side * .8)
+    $btn-mini-padding:                  em($input-padding-top * .1) em($input-padding-side * .6)
+
+    $alerts-padding:                    $input-padding
+    $captions-padding:                  $input-padding
+    $dropdowns-padding:                 $input-padding
+    $modals-error-padding:              $input-padding
+    $navs-padding:                      $input-padding
+    $pager-padding:                     $input-padding
+    $pagination-padding:                $input-padding
+    $pills-padding:                     .15em .35em
+    $tables-padding:                    $input-padding
+    $tabs-content-padding:              $input-padding
+    $tabs-tab-padding:                  $input-padding
+
+
+
+#### Media Queries
+
+Set the width of the three steps of the layout.
+
+    $lap-start:                         481px      // For Palm
+    $desk-start:                        768px      // For Lap
+    $desk-end:                          1080px     // For Desktop
+
+
+#### Grid (Susy)
+
+Default settings for susy grid. More info: [Susy](http://susy.oddbird.net/).
+
+    $total-columns:                     12
+    $column-width:                      50px
+    $gutter-width:                      30px
+    $grid-padding:                      10px
+    $container-style:                   fluid
+
+
+#### z-index order
+
+Default settings for overlay components, taken from Bootstrap.
+
+    $zindex-dropdown:                   1000
+    $zindex-popover:                    1010
+    $zindex-tooltip:                    1030
+    $zindex-slider:                     1040
+    $zindex-modal:                      1050
+    
+### Animations
+
+Keyframe Animation w/ `@include animate(...)`
+
+
+    $animations:                              fadeIn, fadeOut
+    $animations-classes:                      true
+
+    $animations-duration:                     .15s
+    $animations-delay:                        0s
+    $animations-function:                     ease-out
+    $animations-mode:                         both
+
+
+Transitions w/ `@include transition(...)`
+
+
+    $default-transition-duration:             $animations-duration
+    $default-transition-function:             toBezier($animations-function)
+
+
+
 ## Default Styles
 
 One of the main reason of the existence of Rapido is because I wanted to separate pure framework code form styling. Every component refer to a silent class for styling form the `_default-style.scss` file. 
@@ -1155,6 +1172,7 @@ These are all the classes available by default, others can be added or removed b
 * [Twitter Bootstrap - For Compass](https://github.com/vwall/compass-twitter-bootstrap)
 * [Susy [a Compass plugin]](https://github.com/ericam/susy)
 * [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate)
+* [Inuit.css](https://github.com/csswizardry/inuit.css)
 
 ## License
 
