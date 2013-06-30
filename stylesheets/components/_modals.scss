@@ -53,12 +53,15 @@
 			&.fancybox-opened { z-index: ($zindex-modal + 1); }
 
 			// for Iframes
-			&.fancybox-type-iframe .fancybox-inner { -webkit-overflow-scrolling: touch; }
+			&.fancybox-type-iframe .fancybox-inner {
+				-webkit-overflow-scrolling: touch;
+			}
 
 			// for Iframes, Inline and Ajax
 			&.fancybox-type-inline,
 			&.fancybox-type-iframe,
 			&.fancybox-type-ajax {
+
 				.fancybox-close {
 					@extend %modal__close--alt !optional;
 				}
@@ -78,6 +81,8 @@
 					.fancybox-inner {
 						position: relative;
 						overflow: hidden;
+
+						> div { padding: rhythm(1); }
 
 					} // 5thst
 				} // 4th
