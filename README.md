@@ -30,7 +30,7 @@ It was (and still is) made for my personal use so some stuff may seems strange b
 
 ## Notes
 
-This documentation is not mean for everyone, I've taken heavy from Bootstrap documentation for all common components that share the same characteristics and some parts are barebones because is meant to be a reference to other front-end developers that already know how Bootstrap (and css frameworks in general) work.
+This documentation is not meant for everyone, I've taken heavily from Bootstrap documentation for all common components that share the same characteristics and some parts are barebones because are meant to be a reference to other front-end developers that already know how Bootstrap (and css frameworks in general) work.
 
 ## Components
 
