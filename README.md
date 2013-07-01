@@ -42,7 +42,7 @@ Wrap any text and an optional dismiss button in `.alert` for a basic warning ale
       <button type="button" class="close" data-dismiss="alert">&times;</button>
       <strong>Alert!</strong> Best check yourself, you're not looking too good.
     </div>
-    
+
 #### Alert Block
 
 For longer messages, increase the padding on the top and bottom of the alert wrapper by adding `.alert-block`.
@@ -65,19 +65,19 @@ Add a breadcrumb with a list with class `.breadcrumb`.
 	  <li><a href="#">Library</a></li>
 	  <li class="active">Data</li>
 	</ul>
-	
-#### States	
+
+#### States
 
 * `.active`: Selected element style
-    
+
 ### Buttons
 
 
-Button styles can be applied to anything with the `.btn` class applied. However, typically you'll want to apply these to only `<a>` and `<button>` elements for the best rendering. 
+Button styles can be applied to anything with the `.btn` class applied. However, typically you'll want to apply these to only `<a>` and `<button>` elements for the best rendering.
 
-	<a href="#" class="btn">Button</a>   
-	<button class="btn">Button</button>   
-    
+	<a href="#" class="btn">Button</a>
+	<button class="btn">Button</button>
+
 #### Modifiers
 
 **Colors**
@@ -89,7 +89,7 @@ Button styles can be applied to anything with the `.btn` class applied. However,
 * `.btn--info`
 * `.btn--success`
 * `.btn--inverse`
-        
+
 **Sizes**
 
 * `.btn--large`
@@ -101,7 +101,7 @@ Button styles can be applied to anything with the `.btn` class applied. However,
 * `.btn--block`: Create block level buttons—those that span the full width of a parent.
 * `.btn--pill`: Button width rounded full corners.
 * `.btn--link`: Deemphasize a button by making it look like a link while maintaining button behavior.
-			
+
 #### States
 
 * `.hover`: Mouse hover state style
@@ -117,7 +117,7 @@ Wrap a series of buttons with `.btn` in `.btn-group`.
       <li><button class="btn">Middle</button></li>
       <li><button class="btn">Right</button></li>
     </ul>
-    
+
 
 ### Captions
 
@@ -145,7 +145,7 @@ Add fade slide animation form `top` or `bottom`.
 
     <figure class="caption--fade-bottom" data-content="Caption text.">
       <img src="http://dummyimage.com/300x200/afe600/fff" />
-    </figure>    
+    </figure>
 
 ### Close
 
@@ -156,10 +156,10 @@ Link
 Button
 
     <button type="button" class="close">&times;</button>
-    
+
 ### Dropdowns
 
-Toggleable, contextual menu for displaying lists of links. 
+Toggleable, contextual menu for displaying lists of links.
 
 Made interactive with the [dropdown JavaScript plugin](http://twitter.github.io/bootstrap/javascript.html#dropdowns).
 
@@ -188,7 +188,7 @@ Looking at just the dropdown menu, here's the required HTML. You need to wrap th
 #### Modifier
 
 * `.pull-right`: Add it to a `.dropdown__menu` to right align the dropdown menu.
-	
+
 #### States
 
 Add to `<li>` in `.dropdown__menu`
@@ -243,7 +243,7 @@ Add to `<li>` in `.dropdown__menu`
 				<span class="form__addon">.00</span>
 			</div>
 		</div>
-	</form>	
+	</form>
 
 #### Elements
 
@@ -273,15 +273,15 @@ Add to `<li>` in `.dropdown__menu`
 * `.form__actions`: End a form with a group of actions (buttons). When placed within a `.form__actions`, the buttons will automatically indent to line up with the form controls.
 
 
-#### Modifiers	
+#### Modifiers
 
 There are a couple form layouts available to struture the form.
 
 * `.form--grid`: Grid aligned `.form__group` with support for responsive layout with `columns` mixin.
-* `.form--aligned`: Right align labels and float them to the left to make them appear on the same line as controls. 
+* `.form--aligned`: Right align labels and float them to the left to make them appear on the same line as controls.
 * `.form--inline`: For left-aligned labels and inline-block controls for a compact layout. This layout doesn't support `.form__group`, `.form__addon`, `.form__actions`
 
-        
+
 ### Labels
 
 Lables are used to highlight a text; `badge` have small rounded corners and `pill` have full rounded corners.
@@ -299,15 +299,15 @@ Labels used in buttons.
 For modals is used the excellent [**fancyBox**](http://fancyapps.com/fancybox/) jQuery plugin, see full documentation for more in depth examples.
 
 First import it with:
-	
+
 	<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.pack.js"></script>
 
 To create a simple modal windows add to the html:
-	
+
 	<a class="open__modal" href="#modal">Open modal</a>
 
 And:
-	
+
 	<div id="modal" class="modal">
       <h2>Lorem ipsum dolor sit amet</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -319,7 +319,7 @@ Add to your JS file:
 		$(".open__modal").fancybox({
 			// Options…
 		});
-	}); 
+	});
 
 ### Navs
 
@@ -331,14 +331,14 @@ All nav components here share the same base markup and styles through the `.nav`
 		<li class="disabled"><a href="#">Profile</a></li>
 		<li><a href="#">Messages</a></li>
 	</ul>
-	
+
 #### Elements
 
 * `.nav__title`: Nav titles
 
 #### Modifiers
-	
-* `.nav--btn`: Add blocky links.	
+
+* `.nav--btn`: Add blocky links.
 * `.nav--pills`: Add rounded corners to links.
 * `.nav--inline`: Horizontal nav layout
 * `.nav--vertical`: Vertical nav layout
@@ -363,9 +363,9 @@ By default, the pager centers links.
 		<li><a href="#">Previous</a></li>
 		<li><a href="#">Next</a></li>
 	</ul>
-	
+
 Alternatively, you can align each link to the sides:
-	
+
 	<ul class="pager">
 		<li class="previous">
 			<a href="#">Previous</a>
@@ -374,7 +374,7 @@ Alternatively, you can align each link to the sides:
 			<a href="#">Next</a>
 		</li>
 	</ul>
-	
+
 Pager links also use the general `.disabled` utility class from the pagination.
 
 	<ul class="pager">
@@ -405,12 +405,12 @@ Default pagination with `.pagination`, it also support [WP-Paginate](http://word
 		</ul>
 	</div>
 
-#### Modifiers	
+#### Modifiers
 
 * `.pagination--center`: Center aligned pagination.
 * `.pagination--right`: Right aligned pagination.
 * `.pagination--rounded`: Rounded sides.
-	
+
 #### States
 
 Add to `<li>`.
@@ -453,7 +453,7 @@ For basic styling—light padding and only horizontal dividers—add the base cl
 
 * `.table--striped`: Adds zebra-striping to any table row within the `<tbody>` via the :nth-child CSS selector *(not available in IE7-8)*
 * `.table--bordered`: Add borders and rounded corners to the table.
-* `.table--hover`: Enable a hover state on table rows within a <tbody>.
+* `.table--hover`: Enable a hover state on table rows within a `<tbody>`.
 * `.table--condensed`: Makes tables more compact by cutting cell padding in half.
 
 
@@ -560,12 +560,12 @@ Add `data-width="n"` to any html element to set the width.
 
 * **n**: Width in percentage in increments of 5 of the element.
 
-Example: 
+Example:
 
 	data-width="50"
-	
-Corrispond to: 
-	
+
+Corrispond to:
+
 	width: 50% !important;`
 
 #### Generic
@@ -588,7 +588,7 @@ All the text replacement classes from from [html5boilerplate](http://html5boiler
     .visuallyhidden
     .visuallyhidden
     .invisible
-    
+
 ### Mixins
 
 Some of them are from Bootstrap, others are custom.
@@ -798,16 +798,16 @@ You can set the start/and with of each step from usins the variables `$lap-start
 Rapido use the compass' [Sprites Mixin](http://compass-style.org/help/tutorials/spriting/) that make including sprites easily both in the html and directly in the css, for more info see the full documentation from the link.
 
 First you need to add to your scss file an import to import all of the seperate icons that will be compiled in a single image. For example if you have a folder named `icons` inside the main `images` folder add this line:
-	
+
 	@import "icons/*.png"; // Import all png from icons' folder
 
 Then add you have two options:
 
-Add the sprite in the html with (where `icon_name` is the filename of the icon). 
+Add the sprite in the html with (where `icon_name` is the filename of the icon).
 `.s` is the standard class the must be used with all sprites images.
 
 	<a href="#"><i class="s icons-icon_name"></i> Link</a>
-	
+
 Or via `@include` from the scss:
 
 	a:before {
@@ -835,7 +835,7 @@ Example:
 	margin-left: rhythm_neg(1);
 
 Become:
-	
+
 	margin-left: -1.42857em;
 
 ### space_neg()
@@ -1035,7 +1035,7 @@ Default settings for overlay components, taken from Bootstrap.
     $zindex-tooltip:                    1030
     $zindex-slider:                     1040
     $zindex-modal:                      1050
-    
+
 ### Animations
 
 Keyframe Animation w/ `@include animate(...)`
@@ -1060,7 +1060,7 @@ Transitions w/ `@include transition(...)`
 
 ## Default Styles
 
-One of the main reason of the existence of Rapido is because I wanted to separate pure framework code form styling. Every component refer to a silent class for styling form the `_default-style.scss` file. 
+One of the main reason of the existence of Rapido is because I wanted to separate pure framework code form styling. Every component refer to a silent class for styling form the `_default-style.scss` file.
 
 These are all the classes available by default, others can be added or removed based on what component you want to enable or disable.
 
