@@ -363,44 +363,44 @@ Start by adding `.nav--responsive` to the nav and a container with `#nav-origin`
 
 Example: a simple inline nav with 3 dropdowns:
 
-		<div id="nav-origin">
-			<nav class="nav nav--inline nav--btn nav--responsive" id="nav">
-				<ul>
-					<li class="dropdown">
-						<a href="#" class="dropdown__toggle " data-toggle="dropdown">
-							Dropdown 1
-						</a>
-						<ul class="dropdown__menu ">
-							<li><a href="#">Dropdown 1 - Sub 1</a></li>
-							<li><a href="#">Dropdown 1 - Sub 2</a></li>
-							<li><a href="#">Dropdown 1 - Sub 2</a></li>
-						</ul>
-					</li>
-					<li class="dropdown">
-						<a href="#" class="dropdown__toggle" data-toggle="dropdown">
-							Dropdown 2
-						</a>
-						<ul class="dropdown__menu">
-							<li><a href="#">Dropdown 2 - Sub 1</a></li>
-							<li><a href="#">Dropdown 2 - Sub 2</a></li>
-							<li class="divider"></li>
-							<li><a href="#">Dropdown 2 - Sub 4</a></li>
-						</ul>
-					</li>
-					<li class="dropdown">
-						<a href="#" class="dropdown__toggle " data-toggle="dropdown">
-							Dropdown 3
-						</a>
-						<ul class="dropdown__menu ">
-							<li><a href="#">Dropdown 3 - Sub 1</a></li>
-							<li><a href="#">Dropdown 3 - Sub 2</a></li>
-							<li><a href="#">Dropdown 3 - Sub 3</a></li>
-							<li><a href="#">Dropdown 3 - Sub 4</a></li>
-						</ul>
-					</li>
-				</ul>
-			</nav>
-		</div>
+	<div id="nav-origin">
+		<nav class="nav nav--inline nav--btn nav--responsive" id="nav">
+			<ul>
+				<li class="dropdown">
+					<a href="#" class="dropdown__toggle " data-toggle="dropdown">
+						Dropdown 1
+					</a>
+					<ul class="dropdown__menu ">
+						<li><a href="#">Dropdown 1 - Sub 1</a></li>
+						<li><a href="#">Dropdown 1 - Sub 2</a></li>
+						<li><a href="#">Dropdown 1 - Sub 2</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown__toggle" data-toggle="dropdown">
+						Dropdown 2
+					</a>
+					<ul class="dropdown__menu">
+						<li><a href="#">Dropdown 2 - Sub 1</a></li>
+						<li><a href="#">Dropdown 2 - Sub 2</a></li>
+						<li class="divider"></li>
+						<li><a href="#">Dropdown 2 - Sub 4</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown__toggle " data-toggle="dropdown">
+						Dropdown 3
+					</a>
+					<ul class="dropdown__menu ">
+						<li><a href="#">Dropdown 3 - Sub 1</a></li>
+						<li><a href="#">Dropdown 3 - Sub 2</a></li>
+						<li><a href="#">Dropdown 3 - Sub 3</a></li>
+						<li><a href="#">Dropdown 3 - Sub 4</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</div>
 
 Then add and empty div with `#nav-destination` for where the nav html will be moved when the media query kick in.
 
@@ -409,12 +409,12 @@ Then add and empty div with `#nav-destination` for where the nav html will be mo
 At the bottom of the page add `responsive-nav.js`. This is a modified version of [Responsive Nav](http://responsive-nav.com/) with extra options.
 
 	<script src="//rawgithub.com/raffone/responsive-nav.js/master/responsive-nav.js"></script>
-	
+
 And finally in your js file add:
-	
+
 	// Enable responsive nav
-	var navigation = responsiveNav("#nav");	
-	
+	var navigation = responsiveNav("#nav");
+
 	// Move html on breakpoint
 	function moveNavbar() {
 		if ( $(".nav--responsive").css("overflow") == 'hidden' ) {
@@ -423,11 +423,11 @@ And finally in your js file add:
 			$("#nav-origin").append($("#nav-destination .nav"));
 		}
 	}
-	
+
 	moveNavbar();
 	$(window).resize(function() { moveNavbar(); });
-	
-	
+
+
 That's it, when the with of the page reace the breakpoint for the nav defined with `$navs-responsive-breakpoint` the html will be moved to the destination.
 
 **Offset Layout**
@@ -435,7 +435,7 @@ That's it, when the with of the page reace the breakpoint for the nav defined wi
 First enable the layout:
 
 	$navs-responsive-type: 'off-canvas';
-	
+
 The offset layout require two more wrappers `.external-wrapper` and `.internal-wrapper`, example below:
 
 	<div class="external-wrapper">
@@ -449,17 +449,17 @@ The offset layout require two more wrappers `.external-wrapper` and `.internal-w
 
 Add this js instead of `var navigation = responsiveNav("#nav");`:
 
-		var navigation = responsiveNav("#nav", {
-			animate: false,
-			offcanvas: true,
-			open: function(){
-				$("body").addClass("nav-open");
-			},
-			close: function(){
-			    $("body").removeClass("nav-open");
-			}
-		});
-		
+	var navigation = responsiveNav("#nav", {
+		animate: false,
+		offcanvas: true,
+		open: function(){
+			$("body").addClass("nav-open");
+		},
+		close: function(){
+		    $("body").removeClass("nav-open");
+		}
+	});
+
 
 ### Pager
 
@@ -1113,9 +1113,9 @@ Padding specific to every component you can use to overwrite the base padding.
     $tabs-tab-padding:                  $input-padding
 
 #### Heights
-	
+
 Some elements need to have a max-height specified for smoother animations, like dropdowns:
-	
+
 	$dropdowns-height: 					  em(600px);
 
 #### Media Queries
@@ -1229,7 +1229,9 @@ These are all the classes available by default, others can be added or removed b
     %dropdown {...}
     %dropdown--open {...}
 
-### Caret per Dropdown e Select
+### Caret
+
+Arrow icon for dropdowns and selects
 
     %caret {...}
 
@@ -1329,4 +1331,22 @@ These are all the classes available by default, others can be added or removed b
 
 ## License
 
-MIT License. Copyright 2013 Raffaele Rasini. http://creativebits.it
+## License
+
+This code is made available under the same license as Twitter Bootstrap. 
+
+--
+
+Copyright 2013 [Raffaele Rasini](http://twitter.com/raffaele)
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
