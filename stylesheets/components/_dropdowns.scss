@@ -23,6 +23,7 @@
 	.dropdown__menu {
 		@extend %dropdown !optional;
 		@include border-bottom-radius($base-border-radius);
+		@include opacity(0);
 		@include position(absolute, 100% 0 0 0px);
 		@include transition();
 		border-style: solid;
@@ -30,11 +31,11 @@
 		float: left;
 		list-style: none;
 		margin: -$input-border 0 0 0;
+		max-height: 0;
 		min-width: 10em;
 		overflow: hidden;
 		z-index: $zindex-dropdown;
-		max-height: 0;
-		opacity: 0;
+		display/*\**/: none\9; // Ugly IE8 Hack
 
 		&[data-content] { min-width: em(600px); }
 
@@ -104,7 +105,8 @@
 
 		.dropdown__menu {
 			max-height: $dropdowns-height;
-			opacity: 1;
+			@include opacity(1);
+			display/*\**/: block\9; // Ugly IE8 Hack
 		}
 
 	}

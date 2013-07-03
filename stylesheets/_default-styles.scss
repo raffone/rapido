@@ -329,7 +329,7 @@ $modal-btn-size: em(30px);
 %modal__loading {
 	margin-top: -($loader-ico-size / 2);
 	margin-left: -($loader-ico-size / 2);
-	opacity: 0.8;
+	@include opacity(.8);
 
 	div {
 		@extend %loader-ico !optional;

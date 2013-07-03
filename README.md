@@ -1329,7 +1329,6 @@ Arrow icon for dropdowns and selects
 * [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate)
 * [Inuit.css](https://github.com/csswizardry/inuit.css)
 
-## License
 
 ## License
 

@@ -161,11 +161,11 @@
 			@extend %modal__btn !optional;
 			@extend %modal__nav !optional;
 			@include position(absolute, 50% 0 0 0);
-			visibility: hidden;
+			@include opacity(0);
 			z-index: ($zindex-modal + 2);
 		}
 
-		&:hover span { visibility: visible; }
+		&:hover span { @include opacity(1); }
 
 		&.fancybox-prev {
 			left: 0;
@@ -248,7 +248,7 @@
 				a {
 					@extend %modal__btn !optional;
 					position: relative;
-					&:hover { opacity: 1; }
+					&:hover { @include opacity(1); }
 					&:after { @include position(absolute, 0px 0px 0 0px); }
 				}
 			}
@@ -278,10 +278,10 @@
 			li {
 				float: left;
 				margin-right: em(4px);
-				opacity: 0.5;
+				@include opacity(.5);
 
-				&:hover { opacity: 0.75; }
-				&.active { opacity: 1; }
+				&:hover { @include opacity(.75);  }
+				&.active { @include opacity(1); }
 
 				a {
 					display: block;
