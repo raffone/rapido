@@ -13,7 +13,7 @@
 	}
 
 	.badge { @include border-radius($base-border-radius); }
-	.pill { @include border-radius(20px); }
+	.pill { @include border-radius(500em); }
 
 	.badge, .pill {
 		&:empty { display: none; }
