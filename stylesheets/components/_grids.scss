@@ -7,16 +7,19 @@
 
 	@include media($device) {
 
-		@while $i > 0 {
+		@if $grids {
+			@while $i > 0 {
 
-			.#{$device}-#{$i} {
-				@include span-columns($i);
+				.#{$device}-#{$i} {
+					@include span-columns($i);
+				}
+
+				$i: $i - 1;
 			}
 
-			$i: $i - 1;
+			[class*="#{$device}-"]:last-child { @include omega() }
 		}
 
-		[class*="#{$device}-"]:last-child { @include omega() }
 		.#{$device}-hide { display: none !important; }
 		.#{$device}-show { display: block !important; }
 	}
