@@ -1,11 +1,11 @@
 // Forms
 // ====================================================================================================================
 
-@if $forms {
+// @if $forms {
 
-.form {
+form {
 	@extend .clearfix;
-	margin: 0 0 em($base-line-height);
+	margin: 0 0 rhythm();
 
 	fieldset {
 		padding: 0;
@@ -398,7 +398,4 @@
 			margin-left: 0;
 		}
 	}
-}
-
-
 }
