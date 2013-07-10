@@ -119,8 +119,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 @mixin triangle ($size, $color, $direction) {
-	height: 0;
-	width: 0;
+	@include square(0);
 
 	@if ($direction == up) or ($direction == down) or ($direction == right) or ($direction == left) {
 		border-color: transparent;
@@ -311,38 +310,32 @@
 
 @mixin media($media-query){
 
-	@if $media-query == palm {
+	@if $media-query == palm { // Palm only
 		@media only screen and (max-width:$palm-end) {
 			@content;
 		}
 	}
 
-	@elseif $media-query == lap{
+	@elseif $media-query == lap{  // Lap only
 		@media only screen and (min-width:$lap-start) and (max-width:$lap-end) {
 			@content;
 		}
 	}
 
-	@elseif $media-query == lap-and-up{
+	@elseif $media-query == lap-and-up{ // Lap + Dektop
 		@media only screen and (min-width:$lap-start) {
 			@content;
 		}
 	}
 
-	@elseif $media-query == portable{
+	@elseif $media-query == portable{ // Palm + Lap
 		@media only screen and (max-width:$lap-end) {
 			@content;
 		}
 	}
 
-	@elseif $media-query == desk{
+	@elseif $media-query == desk{ // Desktop only
 		@media only screen and (min-width:$desk-start) {
-			@content;
-		}
-	}
-
-	@elseif $media-query == desk-wide {
-		@media only screen and (min-width: $desk-wide-start) {
 			@content;
 		}
 	}
@@ -353,6 +346,16 @@
 	}
 
 }
+
+
+// Sprites
+// --------------------------------------------------------------------------------------------------------------------
+
+@mixin sprite($name) {
+	@extend .s;
+	@extend .s-#{$name};
+}
+
 
 // GRID
 // --------------------------------------------------------------------------------------------------------------------

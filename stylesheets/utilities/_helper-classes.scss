@@ -25,10 +25,26 @@
 $i: 100;
 @while $i > 0 {
 	%width-#{$i} { width: $i * 1% !important; }
-	[data-width="#{$i}"] { @extend %width-#{$i}; }
+	@if $width-helper-classes {
+		[data-width="#{$i}"] { @extend %width-#{$i}; }
+	}
 	$i: $i - 1;
 }
 
+
+// Sprites
+// --------------------------------------------------------------------------------------------------------------------
+
+.s {
+	content: "";
+	display: inline-block;
+	overflow:hidden;
+	vertical-align:middle;
+	text-align:center;
+	font-style:normal;
+	zoom:1;
+	text-indent:-9999px;
+}
 
 // Transition class for @extend
 // --------------------------------------------------------------------------------------------------------------------
