@@ -37,13 +37,14 @@
 
 			i {font-style: normal;}
 			span {@include hide-text;}
-
-			&.disabled { display: none; }
-
-			&.bx-prev { left: 0; }
-			&.bx-next { right: 0; }
 		}
+
+		.disabled { display: none; }
+
 	}
+
+	.bx-prev { left: 0; }
+	.bx-next { right: 0; }
 
 
 // Pager
@@ -54,15 +55,15 @@
 		text-align: center;
 		@extend %slider__pager !optional;
 
-		.bx-pager-item {
-			display: inline-block;
-			a {
-				display: inline-block;
-				// @include hide-text;
-			}
-		}
 	}
 
+	.bx-pager-item {
+		display: inline-block;
+		a {
+			display: inline-block;
+			// @include hide-text;
+		}
+	}
 
 
 // Loading
