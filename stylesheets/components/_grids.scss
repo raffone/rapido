@@ -24,3 +24,11 @@
 		.#{$device}-show { display: block !important; }
 	}
 }
+
+@include media(portable) {
+	.mob-hide,
+	.portable-hide { display: none !important; }
+
+	.mob-show,
+	.portable-show { display: block !important; }
+}
