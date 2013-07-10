@@ -4,6 +4,7 @@
 @if $buttons {
 
 	.btn {
+		@extend %btn !optional;
 		@include border-radius($base-border-radius);
 		border-style: solid;
 		border-width: $input-border;
@@ -35,7 +36,7 @@
 // Colors
 // ====================================================================================================================
 
-	.btn                { @extend %btn !optional; }
+	.btn--default       { @extend %btn--default !optional; }
 	.btn--primary       { @extend %btn--primary !optional; }
 	.btn--secondary     { @extend %btn--secondary !optional; }
 	.btn--warning       { @extend %btn--warning !optional; }
