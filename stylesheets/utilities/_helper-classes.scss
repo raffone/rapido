@@ -1,6 +1,8 @@
 // HELPER CLASSES
 // ====================================================================================================================
 
+.clearfix { @include clearfix; }
+
 .wrapper, .w {
 	@extend .clearfix;
 	margin: 0 auto;
@@ -31,6 +33,18 @@ $i: 100;
 	$i: $i - 1;
 }
 
+
+// Typography
+// --------------------------------------------------------------------------------------------------------------------
+.lead			{ @include adjust-font-size-to($h4-size); }
+.muted			{ color: $gray; }
+
+.pull-left		{ float: left; }
+.pull-right		{ float: right; }
+
+.text-left		{ text-align: left; }
+.text-right		{ text-align: right; }
+.text-center	{ text-align: center; }
 
 // Sprites
 // --------------------------------------------------------------------------------------------------------------------
