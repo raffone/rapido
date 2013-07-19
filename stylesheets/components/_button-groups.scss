@@ -1,5 +1,14 @@
 // Button Groups
-// ====================================================================================================================
+//
+// Wrap a series of buttons with `.btn` in `.btn-group`.
+//
+// <ul class="btn-group">
+//   <li><button class="btn btn--default">Left</button></li>
+//   <li><button class="btn btn--default">Middle</button></li>
+//   <li><button class="btn btn--default">Right</button></li>
+// </ul>
+//
+// Styleguide 4
 
 @if $button-groups {
 

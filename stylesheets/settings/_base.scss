@@ -1,16 +1,22 @@
 // BASE Settings
-// ====================================================================================================================
+//
+
+
 
 
 // Debug Mode
-// --------------------------------------------------------------------------------------------------------------------
+//
+
+
 
 $debug-mode:        								false 												!default;
 $default-styles: 									true 												!default;
 
 
 // Text body size
-// --------------------------------------------------------------------------------------------------------------------
+//
+
+
 
 $base-font-size:    								14px 												!default;
 $base-line-height:  								20px 												!default;
@@ -21,7 +27,9 @@ $responsive-font-size:    							lap-and-up $base-font-size, palm 16px				!defau
 
 
 // Font families
-// --------------------------------------------------------------------------------------------------------------------
+//
+
+
 
 $font-sans:        									"Helvetica Neue", Helvetica, Arial, sans-serif 		!default;
 $font-serif:       									Georgia, "Times New Roman", Times, serif 			!default;
@@ -32,7 +40,9 @@ $titles-font-family:  								$font-sans 											!default;
 
 
 // Convert to Ems
-// --------------------------------------------------------------------------------------------------------------------
+//
+
+
 @function em($to-size, $from-size: $base-font-size) {
 	@return ($to-size / $from-size) + 0em;
 }

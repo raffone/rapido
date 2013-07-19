@@ -1,8 +1,12 @@
 // Effects
-// ====================================================================================================================
+//
+
+
 
 // ANIMATIONS w/ @include animate(...)
-// --------------------------------------------------------------------------------------------------------------------
+//
+
+
 
 $animations:						fadeIn, fadeOut															!default;
 $animations-classes:				true																	!default;
@@ -14,7 +18,9 @@ $animations-mode:					both																	!default;
 
 
 // Transitions w/ @include transition(...)
-// --------------------------------------------------------------------------------------------------------------------
+//
+
+
 
 $default-transition-duration:		$animations-duration													!default;
 $default-transition-function:		toBezier($animations-function)											!default;

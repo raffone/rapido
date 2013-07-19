@@ -1,5 +1,17 @@
 // Breadcrumbs
-// ====================================================================================================================
+//
+// Add a breadcrumb with a list with class `.breadcrumb`.
+//
+// 	<ul class="breadcrumb">
+// 	  <li><a href="#">Home</a></li>
+// 	  <li><a href="#">Library</a></li>
+// 	  <li class="active">Data</li>
+// 	</ul>
+//
+// **`.active`**: Selected element style
+//
+// Styleguide 2.1
+
 
 @if $breadcrumbs {
 

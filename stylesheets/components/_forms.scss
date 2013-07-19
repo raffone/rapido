@@ -1,146 +1,178 @@
 // Forms
-// ====================================================================================================================
+//
+// Individual form controls receive default styling with `form` Results in stacked, left-aligned labels on top of form controls.
+//
+// **Structure**
+//
+// ```
+// .form
+// +--.form__group
+//     |--.form__label
+//     +--.form__controls
+//          |--input
+//          |--textarea
+//          |--.form__select
+//          |--.form__checkbox
+//          |--.form__radio
+//          +--.form__addon
+// +--.form__actions
+// ```
+//
+// * `.form__group`: Main container of a section of the form
+// * `.form__label`: Main labels for the form.
+// * `.form__controls`: Container of inputs, buttons and addons
+// * `.form__checkbox`, `.form__radio`: Stacked list of checkboxes and radios.
+// * `.form__checkbox.inline`, `.form__radio.inline`: Inline list of checkboxes and radios.
+// * `.form__select`: Create custom style selects.
+// * `.form__help--block`: Block help text that appears under form controls.
+// * `.form__help--inline`: Inline help text that appears aside form controls.
+// * `.form__actions`: End a form with a group of actions (buttons). When placed within a `.form__actions`, the buttons will automatically indent to line up with the form controls.
+//
+// Styleguide 8
 
-// @if $forms {
+
+
+
 
 form {
 	@extend .clearfix;
 	margin: 0 0 rhythm();
+}
 
-	fieldset {
-		padding: 0;
-		margin: 0;
-		border: 0;
-	}
+fieldset {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
 
-	legend {
-		@include adjust-font-size-to($h5-size);
-		display: block;
-		padding: 0;
-		width: 100%;
-		font-weight: bold;
-		border: 0;
-		padding-bottom: rhythm(.5);
-		margin-bottom: rhythm(.5);
-		border-bottom: 1px solid #e5e5e5;
-		small {
-			font-size: em($base-font-size);
-			color: $grayLight;
-		}
-	}
-
-	label,
-	input,
-	button,
-	select,
-	textarea {
-		line-height: 1em;
-		font-family: $base-font-family;
-		@include border-radius($base-border-radius);
-	}
-
-	.input-text,
-	textarea,
-	input[type="text"],
-	input[type="password"],
-	input[type="datetime"],
-	input[type="datetime-local"],
-	input[type="date"],
-	input[type="month"],
-	input[type="time"],
-	input[type="week"],
-	input[type="number"],
-	input[type="email"],
-	input[type="url"],
-	input[type="search"],
-	input[type="tel"],
-	input[type="color"] {
-		display: inline-block;
-		padding: 0 $input-padding-side;
-		vertical-align: middle;
-		height: $input-height;
-		border-width: $input-border;
-		border-style: solid;
-		line-height /*\**/: $input-height \9; // Ugly IE8 Hack
-		@extend %input !optional;
-
-		&:focus {outline: 0;}
-	}
-
-	select {
-		color: $text-color;
-		display: inline-block;
-	}
-
-	label { display: block; }
-
-	input,
-	textarea {
-		width: 240px;
-	}
-
-	textarea {
-		height: auto;
-		line-height: rhythm(1);
-		padding: $input-padding;
-	}
-
-
-	input[type="radio"],
-	input[type="checkbox"] {
-		margin: em(1px) 0 0;
-	}
-
-	input[type="file"],
-	input[type="image"],
-	input[type="submit"],
-	input[type="reset"],
-	input[type="button"],
-	input[type="radio"],
-	input[type="checkbox"] {
-		width: auto;
-	}
-
-	select,
-	.form__select {
-		width: 240px;
-	}
-
-	select[multiple],
-	select[size] {
-		height: auto;
-	}
-
-
-	input,
-	textarea {
-		@include placeholder();
-	}
-
-	input[disabled],
-	select[disabled],
-	textarea[disabled],
-	input[readonly],
-	select[readonly],
-	textarea[readonly] {
-		cursor: not-allowed;
-	}
-	input[type="radio"][disabled],
-	input[type="checkbox"][disabled],
-	input[type="radio"][readonly],
-	input[type="checkbox"][readonly] {
-		background-color: transparent;
-	}
-	input:focus:invalid,
-	textarea:focus:invalid,
-	select:focus:invalid {
-		color: #b94a48;
-		border-color: #ee5f5b;
-		&:focus {
-			border-color: darken(#ee5f5b, 10%);
-		}
+legend {
+	@include adjust-font-size-to($h5-size);
+	display: block;
+	padding: 0;
+	width: 100%;
+	font-weight: bold;
+	border: 0;
+	padding-bottom: rhythm(.5);
+	margin-bottom: rhythm(.5);
+	border-bottom: 1px solid #e5e5e5;
+	small {
+		font-size: em($base-font-size);
+		color: $grayLight;
 	}
 }
+
+label,
+input,
+button,
+select,
+textarea {
+	line-height: 1em;
+	font-family: $base-font-family;
+	@include border-radius($base-border-radius);
+}
+
+.input-text,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+	display: inline-block;
+	padding: 0 $input-padding-side;
+	vertical-align: middle;
+	height: $input-height;
+	border-width: $input-border;
+	border-style: solid;
+	@media \0screen { line-height: $input-height; } // Ugly IE8 Hack
+	@extend %input !optional;
+
+	&:focus {outline: 0;}
+}
+
+select {
+	color: $text-color;
+	display: inline-block;
+}
+
+label { display: block; }
+
+input,
+textarea {
+	width: 240px;
+}
+
+textarea {
+	height: auto;
+	line-height: rhythm(1);
+	padding: $input-padding;
+}
+
+
+input[type="radio"],
+input[type="checkbox"] {
+	margin: em(1px) 0 0;
+}
+
+input[type="file"],
+input[type="image"],
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+input[type="radio"],
+input[type="checkbox"] {
+	width: auto;
+}
+
+select,
+.form__select {
+	width: 240px;
+}
+
+select[multiple],
+select[size] {
+	height: auto;
+}
+
+
+input,
+textarea {
+	@include placeholder();
+}
+
+input[disabled],
+select[disabled],
+textarea[disabled],
+input[readonly],
+select[readonly],
+textarea[readonly] {
+	cursor: not-allowed;
+}
+input[type="radio"][disabled],
+input[type="checkbox"][disabled],
+input[type="radio"][readonly],
+input[type="checkbox"][readonly] {
+	background-color: transparent;
+}
+input:focus:invalid,
+textarea:focus:invalid,
+select:focus:invalid {
+	color: #b94a48;
+	border-color: #ee5f5b;
+	&:focus {
+		border-color: darken(#ee5f5b, 10%);
+	}
+}
+// }
 
 
 
@@ -151,7 +183,12 @@ form {
 
 
 // Labels
-// --------------------------------------------------------------------------------------------------------------------
+//
+// Main labels for the form using `.form__label`
+//
+// Markup: <label class="form__label">Label</label>
+//
+// Styleguide 8.1
 
 .form__label {
 	font-weight: bold;
@@ -161,7 +198,19 @@ form {
 
 
 // Radio & Checkbox
-// --------------------------------------------------------------------------------------------------------------------
+//
+// Markup:
+// <div class="form__controls">
+//   <label class="form__radio {$modifiers}">
+//     <input type="radio" value="option1" checked> Option one is this</label>
+//   <label class="form__radio {$modifiers}">
+//     <input type="radio" value="option2"> Option two can be something else </label>
+//   </div>
+// </div>
+//
+// .inline - Inline alignment with `.inline`
+//
+// Styleguide 8.2
 
 .form__radio,
 .form__checkbox,
@@ -170,6 +219,7 @@ form {
 	padding-left: em($checkbox-padding-left);
 	font-weight: normal;
 	cursor: pointer;
+	display: block;
 }
 
 .form__select {padding-left: 0;}
@@ -192,7 +242,21 @@ form {
 
 
 // Custom Select
-// --------------------------------------------------------------------------------------------------------------------
+//
+// Add custom styling to a select element wrapping the `<select>` with a `<span>` with class `.form__select`.
+//
+// Markup:
+// <span class="form__select">
+//   <select>
+//     <option>1</option>
+//     <option>2</option>
+//     <option>3</option>
+//     <option>4</option>
+//     <option>5</option>
+//   </select>
+// </span>
+//
+// Styleguide 8.3
 
 .form__select {
 	@extend %caret !optional;
@@ -232,7 +296,30 @@ form {
 
 
 // Help
-// --------------------------------------------------------------------------------------------------------------------
+//
+// Add an help text block
+//
+// Styleguide 8.4
+
+// Block Help
+//
+// Markup:
+// <div class="form__controls">
+//   <input type="text">
+//   <span class="form__help--block">Help text</span>
+// </div>
+//
+// Styleguide 8.4.1
+
+// Help Inline
+//
+// Markup:
+// <div class="form__controls">
+//   <input type="text">
+//   <span class="form__help--inline">Help text</span>
+// </div>
+//
+// Styleguide 8.4.2
 
 .form__help--block,
 .form__help--inline {
@@ -251,7 +338,15 @@ form {
 
 
 // Append & Prepend
-// --------------------------------------------------------------------------------------------------------------------
+//
+// Markup:
+// <div class="form__controls form__controls--multi">
+//   <span class="form__addon">$</span>
+//   <input type="text">
+//   <span class="form__addon">.00</span>
+// </div>
+//
+// Styleguide 8.5
 
 .form__addon {
 	display: inline-block;
@@ -294,7 +389,17 @@ form {
 
 
 // Form Actions
-// --------------------------------------------------------------------------------------------------------------------
+//
+// End a form with a group of actions (buttons). When placed within a `.form__actions`, the buttons will automatically indent to line up with the form controls.
+//
+// Markup:
+// <div class="form__actions">
+//   <button type="submit" class="btn btn--default ">Save changes</button>
+//   <button type="submit" class="btn btn--default btn--primary pull-right">Save changes</button>
+//   <button type="button" class="btn btn--default btn--secondary">Cancel</button>
+// </div>
+//
+// Styleguide 8.6
 
 .form__actions {
 	padding-top: rhythm(1);
@@ -307,12 +412,40 @@ form {
 
 
 // Form Layouts
-// ====================================================================================================================
+//
+// Markup:
+// <form class="form {$modifiers}">
+//   <div class="form__group">
+//     <label class="form__label">Label</label>
+//     <div class="form__controls">
+//       <input type="text" placeholder="Type something…">
+//     </div>
+//   </div>
+//   <div class="form__group">
+//     <label class="form__label">Label</label>
+//     <div class="form__controls">
+//       <input type="text" placeholder="Type something…">
+//     </div>
+//   </div>
+//   <div class="form__group">
+//     <label class="form__label">Label</label>
+//     <div class="form__controls">
+//       <input type="text" placeholder="Type something…">
+//     </div>
+//   </div>
+//   <div class="form__actions">
+//     <button type="submit" class="btn btn--default ">Save changes</button>
+//   </div>
+// </form>
+//
+// .form--grid - Grid aligned `.form__group` with support for responsive layout with `columns` mixin.
+// .form--aligned - Right align labels and float them to the left to make them appear on the same line as controls.
+// .form--inline - For left-aligned labels and inline-block controls for a compact layout. This layout doesn't support `.form__group`, `.form__addon`, `.form__actions`
+//
+// Styleguide 8.7
 
 
 // Form Grid
-// --------------------------------------------------------------------------------------------------------------------
-
 @if $forms-grid {
 	.form--grid {
 		.form__group { min-height: $control-min-height; }
@@ -323,8 +456,6 @@ form {
 
 
 // Form Aligned
-// --------------------------------------------------------------------------------------------------------------------
-
 @if $forms-aligned {
 
 	.form--aligned {
@@ -371,24 +502,28 @@ form {
 
 
 // Form Inline
-// --------------------------------------------------------------------------------------------------------------------
-
 @if $forms-inline {
 
 	.form--inline {
 
-		> * {
-			float: left;
+		* {
+			float: none;
+			display: inline-block;
 			vertical-align: middle;
+			margin: 0;
+			padding: 0;
+			width: auto;
+		}
+
+		.form__group {
 			margin: 0 em(8px) 0 0;
-			padding-left: 0;
 		}
 
 		.form__help--inline,
 		.form__label,
 		.form__radio,
 		.form__checkbox {
-			padding-top: em($input-padding-top);
+			// padding-top: em($input-padding-top);
 		}
 
 		.form__radio input[type="radio"],
@@ -397,5 +532,10 @@ form {
 			margin-right: em(4px);
 			margin-left: 0;
 		}
+
+		.form__actions {
+			border: 0;
+		}
+
 	}
 }

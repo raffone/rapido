@@ -1,9 +1,13 @@
 // ANIMATIONS
-// ====================================================================================================================
+//
+
+
 
 
 // Disable all animations by default
-// --------------------------------------------------------------------------------------------------------------------
+//
+
+
 $fadeIn:					false 	!default;
 $fadeOut:					false 	!default;
 $fadeInUp:					false 	!default;
@@ -49,7 +53,9 @@ $tada:						false 	!default;
 
 
 // Enable animation from the settings
-// --------------------------------------------------------------------------------------------------------------------
+//
+
+
 @each $animation in $animations {
 	@if $animation == 'fadeIn'						{$fadeIn:					true;}
 	@if $animation == 'fadeOut'						{$fadeOut:					true;}
@@ -98,7 +104,9 @@ $tada:						false 	!default;
 
 
 // Animate Mixin Plugin;
-// ====================================================================================================================
+//
+
+
 @mixin animate($name, $duration: $animations-duration, $delay: $animations-delay, $function: $animations-function, $mode: $animations-mode) {
 	@include experimental(animation, $name $duration $delay $function $mode);
 }
@@ -114,7 +122,9 @@ $tada:						false 	!default;
 
 
 // Keyframes
-// ====================================================================================================================
+//
+
+
 @if $fadeIn == true {
 	@include keyframes(fadeIn) {
 		0% {		opacity: 0; }
