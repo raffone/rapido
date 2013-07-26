@@ -5,16 +5,16 @@ Forms
 Individual form controls receive default styling with `form` Results in stacked, left-aligned labels on top of form controls.
 
 	.form
-	  +-- .form__group
-	  |    |-- .form__label
-	  |    +-- .form__controls
-	  |         |-- input
-	  |         |-- textarea
-	  |         |-- .form__select
-	  |         |-- .form__checkbox
-	  |         |-- .form__radio
-	  |         +-- .form__addon
-	  +-- .form__actions
+	  +–– .form__group
+	  |    |–– .form__label
+	  |    +–– .form__controls
+	  |         |–– input
+	  |         |–– textarea
+	  |         |–– .form__select
+	  |         |–– .form__checkbox
+	  |         |–– .form__radio
+	  |         +–– .form__addon
+	  +–– .form__actions
 
 * **`.form__group`**: Main container of a section of the form
 	* **`.form__label`**: Main labels for the form.
@@ -452,7 +452,7 @@ Markup:
   </div>
 </form>
 
-.form--grid - Grid aligned `.form__group` with support for responsive layout with `columns` mixin.
+.form--grid - Grid aligned `.form__group` with support for responsive layout with `columns` mixin. Example of a responsive grid with 3 columns on desktop, 2 on tablets, and 1 on smartphones: **[Example code](https://gist.github.com/raffone/6091448)**
 .form--aligned - Right align labels and float them to the left to make them appear on the same line as controls.
 .form--inline - For left-aligned labels and inline-block controls for a compact layout. This layout doesn't support `.form__group`, `.form__addon`, `.form__actions`
 
@@ -465,8 +465,13 @@ Styleguide 8.7
 
 @if $forms-grid {
 	.form--grid {
-		.form__group { min-height: $control-min-height; }
+		.form__group {
+			min-height: $control-min-height;
+			margin: 0 0 em($control-margin-bottom) 0;
+		}
+
 		.form__multi { width: 100%; }
+
 
 	}
 }
