@@ -1,16 +1,20 @@
-// Buttons
-//
-// Button styles can be applied to anything with the `.btn` class applied. However, typically you'll want to apply these to only `<a>` and `<button>` elements for the best rendering.
-//
-// Markup:
-// <a href="#" class="btn btn--default {$modifiers}">Link Button</a>
-// <button class="btn btn--default {$modifiers}">Button Element</button>
-//
-// :hover - Mouse hover state style, also available with `.hover`
-// :active - Selected element style, also available with `.active`
-// .disabled - Disabled state style.
-//
-// Styleguide 3
+/* ====================================================================================================================
+
+Buttons
+
+Button styles can be applied to anything with the `.btn` class applied. However, typically you'll want to apply these to only `<a>` and `<button>` elements for the best rendering.
+
+Markup:
+<a href="#" class="btn btn--default {$modifiers}">Link Button</a>
+<button class="btn btn--default {$modifiers}">Button Element</button>
+
+:hover - Mouse hover state style, also available with `.hover`
+:active - Selected element style, also available with `.active`
+.disabled - Disabled state style.
+
+Styleguide 3
+
+==================================================================================================================== */
 
 @if $buttons {
 
@@ -26,10 +30,7 @@
 		text-align: center;
 		vertical-align: middle;
 
-		&:hover, &.hover,
-		&:focus { text-decoration: none; }
-
-		&:focus { @include tab-focus(); }
+		&:hover, &.hover, &:focus { text-decoration: none; }
 
 		&.active, &:active {outline: 0; }
 
@@ -42,30 +43,36 @@
 		}
 	}
 
+/* --------------------------------------------------------------------------------------------------------------------
 
+Colors
 
-// Colors
-//
-// Markup:
-// <a href="#" class="btn btn--default">Link Button</a>
-// <a href="#" class="btn btn--primary">Link Button</a>
-// <a href="#" class="btn btn--secondary">Link Button</a>
-//
-// Styleguide 3.1
+Markup:
+<a href="#" class="btn btn--default">Link Button</a>
+<a href="#" class="btn btn--primary">Link Button</a>
+<a href="#" class="btn btn--secondary">Link Button</a>
+
+Styleguide 3.1
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 	.btn--default       { @extend %btn--default !optional; }
 	.btn--primary       { @extend %btn--primary !optional; }
 	.btn--secondary     { @extend %btn--secondary !optional; }
 
-// Sizes
-//
-// Markup:
-// <a href="#" class="btn btn--default btn--large">Link Button</a>
-// <a href="#" class="btn btn--default">Link Button</a>
-// <a href="#" class="btn btn--default btn--small">Link Button</a>
-// <a href="#" class="btn btn--default btn--mini">Link Button</a>
-//
-// Styleguide 3.2
+/* --------------------------------------------------------------------------------------------------------------------
+
+Sizes
+
+Markup:
+<a href="#" class="btn btn--default btn--large">Link Button</a>
+<a href="#" class="btn btn--default">Link Button</a>
+<a href="#" class="btn btn--default btn--small">Link Button</a>
+<a href="#" class="btn btn--default btn--mini">Link Button</a>
+
+Styleguide 3.2
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 
 	.btn {
@@ -93,20 +100,27 @@
 	}
 
 
-// Modifiers
-//
-// Create block level buttons—those that span the full width of a parent.
-//
-// Markup: <a href="#" class="btn btn--default {$modifiers}">Link Button</a>
-//
-// .btn--block - Create block level buttons—those that span the full width of a parent.
-// .btn--pill - Button width rounded full corners.
-// .btn--link - Deemphasize a button by making it look like a link while maintaining button behavior.
-//
-// Styleguide 3.3
+/* --------------------------------------------------------------------------------------------------------------------
 
+Modifiers
 
-	// Block button
+Create block level buttons—those that span the full width of a parent.
+
+Markup:
+<a href="#" class="btn btn--default {$modifiers}">Link Button</a>
+<button class="btn btn--default {$modifiers}">Button Element</button>
+
+.btn--block - Create block level buttons—those that span the full width of a parent.
+.btn--pill - Button width rounded full corners.
+.btn--link - Deemphasize a button by making it look like a link while maintaining button behavior.
+
+Styleguide 3.3
+
+-------------------------------------------------------------------------------------------------------------------- */
+
+// Block button
+// --------------------------------------------------------------------------------------------------------------------
+
 	.btn--block {
 		display: block;
 		width: 100%;
@@ -119,13 +133,16 @@
 
 	}
 
-	// Pill button
+// Pill button
+// --------------------------------------------------------------------------------------------------------------------
+
 	.btn--pill {
 		@include border-radius(200px);
 	}
 
+// Link buttons
+// --------------------------------------------------------------------------------------------------------------------
 
-	// Link buttons
 	.btn--link {
 		@include border-radius(0);
 		border: 0 transparent;

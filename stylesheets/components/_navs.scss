@@ -1,7 +1,30 @@
-// Navs
-//
-// Styleguide 4.12.
+/* ====================================================================================================================
 
+Navs
+
+All nav components here share the same base markup and styles through the `.nav` class.
+
+* `.nav__title`: Nav titles
+* `.current`: Button for current page
+* `.disabled`: Disabled state style
+* `.divider`: Add horizontal line as a divider
+
+Markup:
+<ul class="nav {$modifiers}">
+  <li class="nav__title">Nav header</li>
+  <li class="current"><a href="#">Home</a></li>
+  <li><a href="#">Messages</a></li>
+  <li><a href="#">Friends</a></li>
+  <li class="disabled"><a href="#">Profile</a></li>
+</ul>
+
+.nav--inline.nav--btn - Horizontal and blocky links.
+.nav--inline.nav--btn.nav--pills -  Horizontal and blocky links with rounded corners.
+.nav--vertical.nav--btn - Vertical nav layout and blocky links
+
+Styleguide 12
+
+==================================================================================================================== */
 
 @if $navs {
 
@@ -41,9 +64,7 @@
 	}
 
 // Nav Title
-//
-
-
+// --------------------------------------------------------------------------------------------------------------------
 
 	.nav__title {
 		@include adjust-font-size-to($milli-size);
@@ -55,11 +76,8 @@
 		text-transform: uppercase;
 	}
 
-
 // Horizontal nav
-//
-
-
+// --------------------------------------------------------------------------------------------------------------------
 
 	.nav--inline {
 		& > li,
@@ -67,19 +85,19 @@
 	}
 
 // Vertical nav
-//
-
-
+// --------------------------------------------------------------------------------------------------------------------
 
 	.nav--vertical {
 		width: 100%;
+
+		li > a {
+			display: block;
+		}
 	}
 
 
 // Nav with blocky links
-//
-
-
+// --------------------------------------------------------------------------------------------------------------------
 
 	.nav--btn {
 		li {
@@ -92,10 +110,10 @@
 				}
 			}
 
-			&.active > a,
-			&.active > a:hover,
-			&.active > a:focus {
-				@extend %nav--btn__active;
+			&.current > a,
+			&.current > a:hover,
+			&.current > a:focus {
+				@extend %nav--btn__current;
 			}
 
 			// Disabled
@@ -105,9 +123,7 @@
 
 
 // Nav with pills as links
-//
-
-
+// --------------------------------------------------------------------------------------------------------------------
 
 	.nav--pills {
 		> li > a {

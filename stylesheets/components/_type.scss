@@ -1,14 +1,18 @@
-// Type
-//
-// Styleguide 4.19.
+/* ====================================================================================================================
 
+Type
+
+Styleguide 19
+
+==================================================================================================================== */
 
 // Base
-//
+// --------------------------------------------------------------------------------------------------------------------
 
-
-
-*, *:before, *:after {@include box-sizing(border-box); outline: none;}
+*, *:before, *:after {
+	@include box-sizing(border-box);
+	outline: none;
+}
 
 html {
 	@if $responsive-font-size {
@@ -36,33 +40,39 @@ img {max-width: 100%;}
 a, button, textarea, input { outline: none; }
 
 // Links
-//
-
-
+// --------------------------------------------------------------------------------------------------------------------
 
 a {
 	color: $link-color;
 	text-decoration: none;
+
+	&:hover,
+	&:focus {
+		color: $link-color-hover;
+		text-decoration: none;
+	}
+
 }
-a:hover,
-a:focus {
-	color: $link-color-hover;
-	text-decoration: none;
-}
 
 
-// Body text
-//
+/* --------------------------------------------------------------------------------------------------------------------
 
+Body text
+
+Markup:
+<p class="lead">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec id elit non mi porta gravida at eget metus.</p>
+<small><p>Tight pants next level keffiyeh. Photo booth beard raw denim letterpress vegan messenger bag stumptown.</small>
+
+Styleguide 19.1
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 
 p           { margin: 0 0 rhythm(1);}
 
-
 // Emphasis & misc
-//
-
-
+// --------------------------------------------------------------------------------------------------------------------
 
 small         { @include adjust-font-size-to($milli-size); }
 
@@ -70,19 +80,23 @@ strong        { font-weight: bold; }
 em            { font-style: italic; }
 cite          { font-style: normal; }
 
+/* --------------------------------------------------------------------------------------------------------------------
 
+Headings
 
-// Headings
-//
+Markup:
+<h1>h1. This is a very large header.</h1>
+<h2>h2. This is a large header.</h2>
+<h3>h3. This is a medium header.</h3>
+<h4>h4. This is a moderate header.</h4>
+<h5>h5. This is a small header. h1.</h5>
+<h6>h6. This is a tiny header. h1.</h6>
 
+Styleguide 19.2
 
+-------------------------------------------------------------------------------------------------------------------- */
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
 	margin: 0 0 rhythm();
 	text-rendering: optimizelegibility;
 	font-family: $titles-font-family;
@@ -95,32 +109,32 @@ h6 {
 }
 
 h1, .h1 {
-	@include adjust-font-size-to($h1-size);
+	@include adjust-font-size-to($h1-size, $h1-line-height);
 	@extend %h1 !optional;
 }
 
 h2, .h2 {
-	@include adjust-font-size-to($h2-size);
+	@include adjust-font-size-to($h2-size, $h2-line-height);
 	@extend %h2 !optional;
 }
 
 h3, .h3 {
-	@include adjust-font-size-to($h3-size);
+	@include adjust-font-size-to($h3-size, $h3-line-height);
 	@extend %h3 !optional;
 }
 
 h4, .h4 {
-	@include adjust-font-size-to($h4-size);
+	@include adjust-font-size-to($h4-size, $h4-line-height);
 	@extend %h4 !optional;
 }
 
 h5, .h5 {
-	@include adjust-font-size-to($h5-size);
+	@include adjust-font-size-to($h5-size, $h5-line-height);
 	@extend %h5 !optional;
 }
 
 h6, .h6 {
-	@include adjust-font-size-to($h6-size);
+	@include adjust-font-size-to($h6-size, $h6-line-height);
 	@extend %h6 !optional;
 }
 
@@ -129,10 +143,25 @@ h2 small { @include adjust-font-size-to($h4-size); }
 h3 small { @include adjust-font-size-to($h5-size); }
 h4 small { @include adjust-font-size-to($h6-size); }
 
-// Lists
-//
+/* --------------------------------------------------------------------------------------------------------------------
 
+Lists
 
+Markup:
+<ul>
+  <li>Unordered list item</li>
+  <li>Unordered list item</li>
+  <li>Unordered list item</li>
+</ul>
+<ol>
+  <li>Ordered list item</li>
+  <li>Ordered list item</li>
+  <li>Ordered list item</li>
+</ol>
+
+Styleguide 19.3
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 .list_style_none, .list-style-none {
 	padding-left: 0;
@@ -141,21 +170,18 @@ h4 small { @include adjust-font-size-to($h6-size); }
 }
 
 // Unordered and Ordered lists
-//
-
-
 
 ul, ol {
 	padding: 0;
 	margin: 0 0 rhythm(1) 25px;
 }
+
 ul ul,
 ul ol,
 ol ol,
 ol ul {
 	margin-bottom: 0;
 }
-li {}
 
 ul.unstyled,
 ol.unstyled {
@@ -174,35 +200,61 @@ ol.inline {
 	}
 }
 
-// Description lists
-//
+/* --------------------------------------------------------------------------------------------------------------------
 
+Definition lists
 
+Markup:
+<dl>
+  <dt>Rock Hammer</dt>
+  <dd>A geologist’s hammer, rock hammer, rock pick or geological pick is a hammer used for splitting and breaking rocks.</dd>
+</dl>
 
-dl { margin-bottom: rhythm(1); }
-dt,
-dd { line-height: rhythm(1); }
-dt { font-weight: bold; }
-dd { margin-left: rhythm(.5); }
+Styleguide 19.4
 
+-------------------------------------------------------------------------------------------------------------------- */
+
+dl 		{ margin-bottom: rhythm(1); }
+dt, dd 	{ }
+dt 		{ font-weight: bold; }
+dd 		{ margin-left: 0; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Horizontal definition list
+
+Markup:
+<dl class="dl-horizontal">
+  <dt>Rock Hammer</dt>
+  <dd>A geologist’s hammer, rock hammer, rock pick or geological pick is a hammer used for splitting and breaking rocks.</dd>
+</dl>
+
+Styleguide 19.4.1
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 .dl-horizontal {
 	@extend .clearfix;
 	dt {
-	float: left;
-	width: em($horizontal-offset) - 20;
-	clear: left;
-	text-align: right;
-	@include text-overflow();
+		@include text-overflow();
+		clear: left;
+		float: left;
+		text-align: right;
+		width: em($horizontal-offset) - 20;
 	}
 
-	dd { margin-left: em($horizontal-offset); }
+	dd { padding-left: em($horizontal-offset); }
 }
 
-// MISC
-//
+/* --------------------------------------------------------------------------------------------------------------------
 
+Horizontal line
 
+Markup: <hr />
+
+Styleguide 19.5
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 hr {
 	margin: rhythm(1) 0;
@@ -211,9 +263,7 @@ hr {
 }
 
 // Abbreviations and acronyms
-//
-
-
+// --------------------------------------------------------------------------------------------------------------------
 
 abbr[title],
 abbr[data-original-title] {
@@ -225,10 +275,19 @@ abbr.initialism {
 	text-transform: uppercase;
 }
 
-// Blockquotes
-//
+/* --------------------------------------------------------------------------------------------------------------------
 
+Blockquotes
 
+Markup:
+<blockquote>
+  <p>A geologist’s hammer, rock hammer, rock pick or geological pick is a hammer used for splitting and breaking rocks.</p>
+  <small><cite>Rock Hammer</cite></small>
+</blockquote>
+
+Styleguide 19.6
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 blockquote {
 	padding: 0 0 0 rhythm(1);
@@ -269,9 +328,7 @@ blockquote {
 }
 
 // Quotes
-//
-
-
+// --------------------------------------------------------------------------------------------------------------------
 
 q:before,
 q:after,
@@ -281,8 +338,7 @@ blockquote:after {
 }
 
 // Addresses
-//
-
+// --------------------------------------------------------------------------------------------------------------------
 
 address {
 	display: block;

@@ -1,7 +1,41 @@
-// ENABLE COMPONENTS
-//
+/* ====================================================================================================================
 
+Base Components
 
+Enable or disable components, so you can have in the css only what you need.
+
+    $alerts:                        true   # components/_alerts.scss
+    $breadcrumbs:                   true   # components/_breadcrumbs.scss
+    $button-groups:                 true   # components/_button-group.scss
+    $buttons:                       true   # components/_buttons.scss
+    $captions:                      true   # components/_captions.scss
+    $close:                         true   # components/_close.scss
+    $dropdowns:                     true   # components/_dropdowns.scss
+    $forms:                         true   # components/_forms.scss
+    $forms-aligned:                 true   # components/_forms.scss
+    $forms-append:                  true   # components/_forms.scss
+    $forms-grid:                    true   # components/_forms.scss
+    $forms-inline:                  true   # components/_forms.scss
+    $grids:                         true   # components/_grids.scss
+    $grids-helpers:                 true   # components/_grids.scss
+    $labels:                        true   # components/_labels.scss
+    $modal:                         true   # components/_modal.scss
+    $modal-buttons:                 true   # components/_modal.scss
+    $modal-thumbs:                  true   # components/_modal.scss
+    $navs-responsive:               true   # components/_navs-responsiv.scss
+    $navs:                          true   # components/_navs.scss
+    $pager:                         true   # components/_pager.scss
+    $pagination:                    true   # components/_pagination.scss
+    $slider:                        true   # components/_slider.scss
+    $sprites:                       true   # components/_sprites.scss
+    $tables:                        true   # components/_tables.scss
+    $tabs:                          true   # components/_tabs.scss
+
+    $width-helper-classes:          true   # "Elements width" helper class
+
+Styleguide 27
+
+==================================================================================================================== */
 
 $alerts: 							true 																	!default;
 $breadcrumbs: 						true 																	!default;
@@ -17,7 +51,9 @@ $forms: 							true 																	!default;
 	$forms-aligned:					true 																	!default;
 	$forms-inline:					true 																	!default;
 
-$grids: 							true 																	!default;
+$grids:                             true                                                                    !default;
+$grids-helpers: 					true 																	!default;
+
 $labels: 							true 																	!default;
 $navs-responsive: 					true 																	!default;
 $navs: 								true 																	!default;
@@ -34,10 +70,26 @@ $modal: 							true 																	!default;
 $sprites: 							true 																	!default;
 $width-helper-classes:				true 																	!default;
 
+/* --------------------------------------------------------------------------------------------------------------------
 
-// Icon Fonts
-//
+Icon Fonts
 
+Icon Fonts ready to use with the mixin `icon-font`.
+Font files are not required, is used the [We Love Icon Fonts](http://weloveiconfonts.com/) CDN.
+
+    $use-fontawesome:               true    # http://fortawesome.github.io/Font-Awesome/
+
+    $use-brandico:                  false   # http://fontello.github.io/brandico.font/demo.html
+    $use-entypo:                    false   # http://www.entypo.com/
+    $use-fontelico:                 false   # https://github.com/fontello/fontelico.font
+    $use-maki:                      false   # http://www.mapbox.com/maki/
+    $use-openweb-icons:             false   # http://pfefferle.github.io/openwebicons/
+    $use-typicons:                  false   # http://typicons.com/
+    $use-zocial:                    false   # http://zocial.smcllns.com/
+
+Styleguide 27.1
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 $use-fontawesome: 					true 																	!default;
 

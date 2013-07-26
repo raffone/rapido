@@ -1,12 +1,48 @@
-// Tabs
-//
-// Styleguide 4.18.
+/* ====================================================================================================================
+
+Tabs
+
+For tabs is used the excellent [**EasyTabs**](http://os.alfajango.com/easytabs/) jQuery plugin,
+see full documentation for more in depth examples.
+
+Markup:
+<div id="tabs" class="tabs">
+  <ul class='etabs'>
+    <li class='tab'><a href="#tabs1-html">HTML Markup</a></li>
+    <li class='tab'><a href="#tabs1-js">Required JS</a></li>
+    <li class='tab'><a href="#tabs1-css">Example CSS</a></li>
+  </ul>
+   <div class='panel-container'>
+  <div id="tabs1-html">
+    <h5>HTML Markup for these tabs</h5>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  </div>
+  <div id="tabs1-js">
+    <h5>JS for these tabs</h5>
+    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  </div>
+  <div id="tabs1-css">
+    <h5>CSS Styles for these tabs</h5>
+    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+  </div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#tabs').easytabs({
+      animate: false
+    });
+  });
+</script>
+
+Styleguide 18.
+
+==================================================================================================================== */
 
 
 
 @if $tabs {
 
-	.tab-container {
+	.tabs {
 		margin-bottom: rhythm();
 
 		.etabs {

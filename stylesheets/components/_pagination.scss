@@ -1,8 +1,29 @@
-// Pagination
-//
-// Styleguide 4.14.
+/* ====================================================================================================================
 
+Pagination
 
+Simple pagination inspired by Rdio, great for apps and search results. The large block is hard to miss, easily scalable, and provides large click areas.
+
+Default pagination with `.pagination`, it also support [WP-Paginate](http://wordpress.org/plugins/wp-paginate/).
+
+Markup:
+<div class="pagination {$modifiers}">
+  <ul>
+    <li><a href="#">Prev</a></li>
+    <li><a href="#">1</a></li>
+    <li class="current"><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">Next</a></li>
+  </ul>
+</div>
+
+.pagination--center - Center aligned pagination.
+.pagination--right - Right aligned pagination.
+.pagination--rounded - Rounded sides.
+
+Styleguide 14.
+
+==================================================================================================================== */
 
 @if $pagination {
 
@@ -38,8 +59,7 @@
 				border-left-width: 1px;
 			}
 
-			li > a:hover,
-			li > a:focus {
+			li > a:hover {
 				@extend %pagination--btn__hover !optional;
 			}
 
@@ -47,15 +67,12 @@
 				@extend %pagination--btn__active !optional;
 			}
 
-			// Bootstrap
-			.active > a,
-			.active > a:hover,
-			.active > span,
-			.active > span:hover,
+			li.current a,
+			li.current a:hover,
 
 			// WP Paginate
-			.current,
-			.current:hover {
+			a.current,
+			a.current:hover {
 				@extend %pagination--btn__current !optional;
 			}
 
@@ -77,20 +94,14 @@
 		}
 	}
 
-
 // Alternative alignments
-//
-
-
+// --------------------------------------------------------------------------------------------------------------------
 
 	.pagination--center {text-align: center; }
 	.pagination--right   {text-align: right; }
 
-
 // Rounded sides
-//
-
-
+// --------------------------------------------------------------------------------------------------------------------
 
 	.pagination--rounded {
 		li:first-child > a,

@@ -1,17 +1,43 @@
-// BASE COLORS
-//
+/* ====================================================================================================================
 
+Base Colors
 
+Used for scaffolding
 
-$black:												#000;
-$grayDarker:										lighten($black, 15);
-$grayDark:											lighten($black, 30);
-$gray:												lighten($black, 60);
-$grayLight:											lighten($black, 85);
-$grayLighter:										lighten($black, 95);
-$white:												lighten($black, 100);
+    $black:                             #000
+    $grayDarker:                        lighten($black, 15)
+    $grayDark:                          lighten($black, 30)
+    $gray:                              lighten($black, 60)
+    $grayLight:                         lighten($black, 85)
+    $grayLighter:                       lighten($black, 95)
+    $white:                             #fff
 
-$text-color:										#333 												!default;
+Styleguide 26
 
-$link-color:										#0066cc 											!default;
-$link-color-hover:									darken($link-color, 10%) 							!default;
+==================================================================================================================== */
+
+$black:									#000;
+$grayDarker:							lighten($black, 15);
+$grayDark:								lighten($black, 30);
+$gray:									lighten($black, 60);
+$grayLight:								lighten($black, 85);
+$grayLighter:							lighten($black, 95);
+$white:									lighten($black, 100);
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Default colors
+
+    $text-color:                        #333
+
+    $link-color:                        #0066cc
+    $link-color-hover:                  darken($link-color, 10%)
+
+Styleguide 26.1
+
+-------------------------------------------------------------------------------------------------------------------- */
+
+$text-color:							#333 																!default;
+
+$link-color:							#0066cc 															!default;
+$link-color-hover:						darken($link-color, 10) 											!default;

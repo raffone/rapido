@@ -1,11 +1,29 @@
-// Sliders
-//
-// Styleguide 4.16.
+/* ====================================================================================================================
 
+Sliders
 
-/*
-	w/ BxSlider (https://github.com/wandoledzep/bxslider-4)
-*/
+For modals is used the excellent [**BxSlider**](http://bxslider.com/) jQuery plugin,
+see full documentation for more in depth examples.
+
+Markup:
+<ul class="slider">
+  <li><img src="http://placehold.it/800x300/c7e843/fff.jpg" /></li>
+  <li><img src="http://placehold.it/800x300/f6ab48/fff.jpg" /></li>
+  <li><img src="http://placehold.it/800x300/3dced4/fff.jpg" /></li>
+</ul>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.slider').bxSlider({
+      nextText: '<i></i><span>Next</span>', // replace text with icon-font
+      prevText: '<i></i><span>Prev</span>', // replace text with icon-font
+    });
+  });
+</script>
+
+Styleguide 16.
+
+==================================================================================================================== */
+
 
 @if $slider {
 
@@ -26,11 +44,8 @@
 
 	.bx-viewport { }
 
-
 // Directions
-//
-
-
+// --------------------------------------------------------------------------------------------------------------------
 
 	.bx-controls-direction {
 		a {
@@ -50,11 +65,8 @@
 	.bx-prev { left: 0; }
 	.bx-next { right: 0; }
 
-
 // Pager
-//
-
-
+// --------------------------------------------------------------------------------------------------------------------
 
 	.bx-pager {
 		width: 100%;
@@ -71,11 +83,8 @@
 		}
 	}
 
-
 // Loading
-//
-
-
+// --------------------------------------------------------------------------------------------------------------------
 
 	.bx-loading {
 		@include square(100%);
@@ -86,9 +95,7 @@
 
 
 // Captions
-//
-
-
+// --------------------------------------------------------------------------------------------------------------------
 
 	.bx-caption {
 		@include position(absolute, 0 0 0px 0px);

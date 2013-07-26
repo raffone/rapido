@@ -1,7 +1,16 @@
-// Badge & Pills
-//
-// Styleguide 4.10.
+/* ====================================================================================================================
 
+Badge & Pills
+
+Lables are used to highlight a text; `badge` have small rounded corners and `pill` have full rounded corners.
+
+Markup:
+<span class="badge">Badge Label</span>
+<span class="pill">Pill label</span>
+
+Styleguide 10.
+
+==================================================================================================================== */
 
 @if $labels {
 
@@ -31,6 +40,18 @@
 			cursor: pointer;
 		}
 	}
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Labels used in buttons.
+
+Markup:
+<button class="btn btn--default">Action <span class="badge">2</span></button>
+<button class="btn btn--default btn--pill">Action <span class="pill">2</span></button>
+
+Styleguide 10.1
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 	.btn {
 		.badge,

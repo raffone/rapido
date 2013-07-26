@@ -1,21 +1,69 @@
-// MIXINS
-//
+/* ====================================================================================================================
 
+Mixins
 
+Some of them are from Bootstrap, others are custom.
 
-// Shortcuts
-//
+Styleguide 23
 
+==================================================================================================================== */
 
+/* --------------------------------------------------------------------------------------------------------------------
+
+Create a rectangle
+
+	@include size($height, $width);
+
+* `$height`: Height of the rectangle
+* `$width`: Width of the rectangle
+
+Styleguide 23.1
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 @mixin size($height, $width) {
 	width: $width;
 	height: $height;
 }
 
+/* --------------------------------------------------------------------------------------------------------------------
+
+Create a square
+
+	@include square($size);
+
+* `$size`: Dimension used both for width and height
+
+Styleguide 23.2
+
+-------------------------------------------------------------------------------------------------------------------- */
+
 @mixin square($size) {
 	@include size($size, $size);
 }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Position an element
+
+	@include position ($position, $coordinates);
+
+* `$position`: fixed, relative, absolute
+* `$coordinates`: 0 = null, 0px or more is a value used in the css.
+
+Example:
+
+	@include position (absolute, 0 0px 0px 0);
+
+Become:
+
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+
+Styleguide 23.3
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 @mixin position ($position: relative, $coordinates: 0 0 0 0) {
 
@@ -60,11 +108,42 @@
 	}
 }
 
+/* --------------------------------------------------------------------------------------------------------------------
+
+Center-block
+
+	@include center-block();
+
+Become:
+
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+
+Styleguide 23.4
+
+-------------------------------------------------------------------------------------------------------------------- */
+
 @mixin center-block() {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Center
+
+Vertical and horizontal centering with absolute positioning, using the element size and negative margin.
+
+	@include center($width, $height);
+
+* `$height`: Height of the element
+* `$width`: Width of the element
+
+Styleguide 23.5
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 @mixin center ($width, $height: null) {
 	@include position(absolute, 50% 0 0 50%);
@@ -74,7 +153,18 @@
 }
 
 
-// Extend (when using SASS syntax: +e(class_name))
+/* --------------------------------------------------------------------------------------------------------------------
+
+Extend
+
+When using SASS syntax.
+
+	+e(classname)
+
+Styleguide 23.6
+
+-------------------------------------------------------------------------------------------------------------------- */
+
 @mixin e($class) {
 	@if $class {
 		@extend .#{$class};
@@ -82,9 +172,17 @@
 }
 
 
-// Forms
-//
+/* --------------------------------------------------------------------------------------------------------------------
 
+Placeholder
+
+	@include placeholder($color);
+
+* `$color`: Set color of the placeholder of an input.
+
+Styleguide 23.7
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 @mixin placeholder($color: $gray) {
 	&:-moz-placeholder {
@@ -98,10 +196,24 @@
 	}
 }
 
-@mixin tab-focus() {}
 
-// Text overflow
-//
+/* --------------------------------------------------------------------------------------------------------------------
+
+Text overflow
+
+Wrap text with ellipsis (modern browsers only).
+
+	@include text-overflow();
+
+Become
+
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+
+Styleguide 23.8
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 
 @mixin text-overflow() {
@@ -110,16 +222,23 @@
 	white-space: nowrap;
 }
 
-@mixin hide-text {
-	color:        transparent;
-	font:         0/0 a;
-	text-shadow:    none;
-}
 
-// Pseudo Elements
-//
+/* --------------------------------------------------------------------------------------------------------------------
+
+Triangle
+
+Create a css-only triangle.
+
+	@include triangle($size, $color, $direction);
+
+* `$size`: Width of the triangle
+* `$color`: Color of the triangle
+* `$direction`: There are available up, up-right, right, down-right, down, down-left, left, up-left
+
+Styleguide 23.9
 
 
+-------------------------------------------------------------------------------------------------------------------- */
 
 @mixin triangle ($size, $color, $direction) {
 	@include square(0);
@@ -161,7 +280,24 @@
 	}
 }
 
-// For now only side triangles with border
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Triangle with Borders
+
+Add a css-only triangle width side borders, usefull for tooltips. For now only side triangles with border are suported.
+
+	@include triangle_border($size, $color, $border-color, $border-width, $direction);
+
+* `$size`: Same as `square`
+* `$color`: Color of the triangle
+* `$border-color`: Border color of the triangle
+* `$border-width`: Border width of the triangle
+* `$direction`: left or right
+
+Styleguide 23.10
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 @mixin triangle_border($size, $color, $border-color, $border-width, $direction) {
 
@@ -198,12 +334,19 @@
 	}
 }
 
+/* --------------------------------------------------------------------------------------------------------------------
 
+Text inset shadow
 
-// Colors
-//
+	@include text-inset-shadow($bg, $textcolor, $contrast);
 
+* `$bg`: Background color of the text
+* `$textcolor`: Color of the text
+* `$contrast`: How much stronger the inset will be
 
+Styleguide 23.11
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 @mixin text-inset-shadow($bg: #fff, $textcolor: #054d4a, $contrast:  #f43059) {
 	$shadow: darken($textcolor, 30%);
@@ -212,21 +355,54 @@
 	text-shadow: 1px 5px 7px $bg, 0 0 0 rgba($shadow,.8);
 }
 
+/* --------------------------------------------------------------------------------------------------------------------
+
+Alpha Color
+
+Alpha color with ie full opacity fallback (for IE)
+
+	@include alpha-color($color, $alpha, $attribute);
+
+* `$color`: Base HEX color
+* `$alpha`: Opacity
+* `$attribute`: On what attribute
+
+Example
+
+	@include alpha-color(#000, .5, color);
+
+Become
+
+	color: #000;
+	color: rgba(0,0,0,.5);
+
+Styleguide 23.12
+
+-------------------------------------------------------------------------------------------------------------------- */
+
 @mixin alpha-color($color: #fff, $alpha: .5, $attribute: background) {
 	@if $attribute == color {
 		color: $color;
 		color: rgba($color, $alpha);
 	} @else {
-		#{$attribute}-color: $color;
-		#{$attribute}-color: rgba($color, $alpha);
+		#{$attribute}: $color;
+		#{$attribute}: rgba($color, $alpha);
 	}
 }
 
+/* --------------------------------------------------------------------------------------------------------------------
 
-// Keyframes support
-//
+Keyframes support
 
+Used for creating custom animations.
 
+	@include keyframes($name);
+
+* `$name`: Name of the keyframe
+
+Styleguide 23.13
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 @mixin keyframes($name) {
 	@-webkit-keyframes #{$name} {
@@ -245,12 +421,18 @@
 	}
 }
 
+/* --------------------------------------------------------------------------------------------------------------------
 
+Nav divider
 
-// Components
-//
+	@include nav-divider($top $bottom);
 
+* `$top`: Color of the top border
+* `$bottom`: Color of the bottom border
 
+Styleguide 23.14
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 @mixin nav-divider($top: #e5e5e5, $bottom: false) {
 	*width: 100%;
@@ -266,11 +448,20 @@
 	@if $bottom { border-bottom: 1px solid $bottom; }
 }
 
+/* --------------------------------------------------------------------------------------------------------------------
 
-// Images
-//
+Comicbook Shadow
 
+	@include shadow-comicbook($padding $color $size $distance);
 
+* `$padding`: Border color
+* `$color`: Color of the shadow
+* `$size`: Size of the shadow
+* `$distance`: Distance of the shadow from the image
+
+Styleguide 23.15
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 @mixin shadow-comicbook($padding: 5px, $color: #bbb, $size: 15px, $distance: 10px) {
 
@@ -306,10 +497,25 @@
 	}
 }
 
-// Icon Fonts
-//
+/* --------------------------------------------------------------------------------------------------------------------
+
+Icon Fonts
+
+Use the unicode character from an icon font to insert it wherever you want.
+
+	@include icon-font($char $font);
+
+* `$char`: Unicode of the character †
+* `$font`: What font to use ‡
+
+† For example for: `&#xf000` use `xf000`
+
+‡ Fonts available: Fontawesome, Brandico, Entypo, Fontelico, Maki, Openweb-icons, Typicons, Zocial
 
 
+Styleguide 23.16
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 @mixin icon-font($char: '\f013', $font: 'FontAwesome') {
 	display: inline-block;
@@ -317,11 +523,26 @@
 	content: "#{$char}";
 }
 
+/* --------------------------------------------------------------------------------------------------------------------
 
-// Media Queries
-//
+Media Queries
 
+Add media queries to css width simple naming convention.
 
+    @include media(<$media>) {...};
+
+You can set the start/and with of each step from usins the variables `$lap-start`, `$desk-start`, `$desk-end`.
+
+* `$media`:
+	* `palm`: Only Palm
+	* `lap`:  Only Lap
+	* `lap-and-up`: Lap + Desktop
+	* `portable`: Lap + Palm
+	* `desk`: Only Desktop
+
+Styleguide 23.17
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 @mixin media($media-query){
 
@@ -355,30 +576,65 @@
 		}
 	}
 
-	// @else $media-query == all{
 	@else {
 		@content;
 	}
 
 }
 
+/* --------------------------------------------------------------------------------------------------------------------
 
-// Sprites
-//
+Sprites
 
+Rapido use the compass' [Sprites Mixin](http://compass-style.org/help/tutorials/spriting/) that make including sprites easily both in the html and directly in the css,
+for more info see the full documentation from the link.
 
+First you need to add to your scss file an import to import all of the seperate icons that will be compiled in a single image.
+For example if you have a folder named `icons` inside the main `images` folder add this line:
+
+	@import "icons/*.png";
+
+Then add you have two options:
+
+Add the sprite in the html with (where `icon_name` is the filename of the icon). .s` is the standard class the must be used with all sprites images.
+
+	<a href="#"><i class="s icons-icon_name"></i> Link</a>
+
+Or via `@include` from the scss:
+
+	a:before {
+		@include sprite(icon_name)
+	}
+
+The result is the same.
+
+Styleguide 23.18
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 @mixin sprite($name) {
 	@extend .s;
 	@extend .s-#{$name};
 }
 
+/* --------------------------------------------------------------------------------------------------------------------
 
-// GRID
-//
+Responsive grid
 
+	@include columns ($cols, $cols-container, $omega, $nth-omega, $remove-omega, $from, $media, $highlight-omega);
 
-// @include columns( $cols, $cols-container: $total-columns, $omega: false,  $nth-omega: false, $remove-omega: false, $from: left, $media: all, $highlight-omega: false );
+* `$cols`: How many columns
+* `$cols-container`: Columns of the container (default: $total-columns)
+* `$omega`: Bolean, us if is the last column
+* `$nth-omega`: If is a multi-row grid list use nth to apply omega to each element at the end of each row (example: `3n` to use omega every 3th element )
+* `$remove-omega`: Remove omega on previously applied omega (ignore it)
+* `$from`: Direction, left or right
+* `$media`: Media query to to use, for responsive grids
+* `$highlight-omega`: Bolean, used for debugging nth
+
+Styleguide 23.19
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 @mixin columns (
 	$cols,

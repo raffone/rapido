@@ -1,25 +1,29 @@
-// Dropdowns
-//
-// Toggleable, contextual menu for displaying lists of links. Made interactive with the [dropdown JavaScript plugin](http://twitter.github.io/bootstrap/javascript.html#dropdowns).
-//
-// Looking at just the dropdown menu, here's the required HTML. You need to wrap the dropdown's trigger and the dropdown menu within `.dropdown`. Then just create the menu.
-//
-// Markup:
-// <div class="dropdown {$modifiers}">
-//     <a href="#" class="btn btn--default dropdown__toggle " data-toggle="dropdown">
-//       Dropdown
-//       <span class="dropdown__caret"></span>
-//     </a>
-//     <ul class="dropdown__menu ">
-//       <li><a tabindex="-1" href="#">Action</a></li>
-//       <li><a tabindex="-1" href="#">Another action</a></li>
-//       <li><a tabindex="-1" href="#">Something else here</a></li>
-//       <li class="divider"></li>
-//       <li><a tabindex="-1" href="#">Separated link</a></li>
-//     </ul>
-// </div>
-//
-// Styleguide 7
+/* ====================================================================================================================
+
+Dropdowns
+
+Toggleable, contextual menu for displaying lists of links. Made interactive with the [dropdown JavaScript plugin](http://twitter.github.io/bootstrap/javascript.html#dropdowns).
+
+Looking at just the dropdown menu, here's the required HTML. You need to wrap the dropdown's trigger and the dropdown menu within `.dropdown`. Then just create the menu.
+
+Markup:
+<div class="dropdown {$modifiers}">
+    <a href="#" class="btn btn--default dropdown__toggle " data-toggle="dropdown">
+      Dropdown
+      <span class="dropdown__caret"></span>
+    </a>
+    <ul class="dropdown__menu ">
+      <li><a tabindex="-1" href="#">Action</a></li>
+      <li><a tabindex="-1" href="#">Another action</a></li>
+      <li><a tabindex="-1" href="#">Something else here</a></li>
+      <li class="divider"></li>
+      <li><a tabindex="-1" href="#">Separated link</a></li>
+    </ul>
+</div>
+
+Styleguide 7
+
+==================================================================================================================== */
 
 @if $dropdowns {
 
@@ -30,53 +34,56 @@
 
 	.dropdown__toggle:focus { outline: 0; }
 
-	// Dropdown arrow/caret
-	//
-	// A simple helper class is available to add an arrow for the dropdown button.
-	//
-	// Markup: <span class="dropdown__caret"></span>
-	//
-	// Styleguide 7.1
+/* --------------------------------------------------------------------------------------------------------------------
+
+Dropdown arrow/caret
+
+A simple helper class is available to add an arrow for the dropdown button.
+
+Markup: <span class="dropdown__caret"></span>
+
+Styleguide 7.1
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 	.dropdown__caret {
 		@extend %caret !optional;
 	}
 
-	// Dropdown menu
-	//
-	// List of the links to show in the dropdown.
-	//
-	// Markup:
-	// <ul class="dropdown__menu ">
-	//   <li><a tabindex="-1" href="#">Action</a></li>
-	//   <li><a tabindex="-1" href="#">Another action</a></li>
-	//   <li><a tabindex="-1" href="#">Something else here</a></li>
-	//   <li class="divider"></li>
-	//   <li><a tabindex="-1" href="#">Separated link</a></li>
-	// </ul>
-	//
-	// Styleguide 7.2
+/* --------------------------------------------------------------------------------------------------------------------
+
+Dropdown menu
+
+List of the links to show in the dropdown.
+
+Markup:
+<ul class="dropdown__menu ">
+  <li><a tabindex="-1" href="#">Action</a></li>
+  <li><a tabindex="-1" href="#">Another action</a></li>
+  <li><a tabindex="-1" href="#">Something else here</a></li>
+  <li class="divider"></li>
+  <li><a tabindex="-1" href="#">Separated link</a></li>
+</ul>
+
+Styleguide 7.2
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 	.dropdown__menu {
 		@extend %dropdown !optional;
 		@include border-bottom-radius($base-border-radius);
-
-
 		@include transition();
 		border-style: solid;
 		border-width: $input-border;
 		float: left;
 		list-style: none;
 		margin: -$input-border 0 0 0;
-
 		min-width: 10em;
 		overflow: hidden;
 		z-index: $zindex-dropdown;
 		display/*\**/: none\9; // Ugly IE8 Hack
 
 		&[data-content] { min-width: em(600px); }
-
-
 
 		&.pull-right {
 			right: 0;
@@ -136,7 +143,8 @@
 		max-height: 0;
 	}
 
-	// Dropdown open
+// Dropdown open
+// --------------------------------------------------------------------------------------------------------------------
 	.dropdown.open {
 		z-index: $zindex-dropdown ;
 
@@ -147,9 +155,9 @@
 		}
 
 		.dropdown__menu {
-			max-height: $dropdowns-height;
 			@include opacity(1);
 			display/*\**/: block\9; // Ugly IE8 Hack
+			max-height: $dropdowns-height;
 		}
 
 	}

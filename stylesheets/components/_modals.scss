@@ -1,17 +1,31 @@
-// Modals
-//
-// Styleguide 4.11.
+/* ====================================================================================================================
 
+Modals
+
+For modals is used the excellent [**fancyBox**](http://fancyapps.com/fancybox/) jQuery plugin, see full documentation for more in depth examples.
+
+Markup:
+<a class="open__modal  btn btn--default" href="#modal">Open modal</a>
+<div id="modal" class="modal">
+  <h2>Lorem ipsum dolor sit amet</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".open__modal").fancybox();
+  });
+</script>
+
+Styleguide 11.
+
+==================================================================================================================== */
 
 .modal { display: none; }
 
 @if $modal {
 
-
-
 // Resets
-//
-
+// --------------------------------------------------------------------------------------------------------------------
 
 	%modal-reset {
 		padding: 0;
@@ -33,11 +47,8 @@
 		@extend %modal-reset;
 	}
 
-
 // Container
-//
-
-
+// --------------------------------------------------------------------------------------------------------------------
 
 	// Overlay | 1st level
 	.fancybox-overlay {
@@ -98,9 +109,7 @@
 
 
 // Backtground temp
-//
-
-
+// --------------------------------------------------------------------------------------------------------------------
 
 	.fancybox-tmp {
 		@include position(absolute, -9999px 0 0 -9999px);
@@ -109,7 +118,6 @@
 		max-height: 99999px;
 		overflow: visible !important;
 	}
-
 
 	.fancybox-lock { overflow: hidden; }
 
@@ -120,9 +128,7 @@
 
 
 // Content
-//
-
-
+// --------------------------------------------------------------------------------------------------------------------
 
 	.fancybox-error {
 		margin: 0;
@@ -152,9 +158,7 @@
 
 
 // Buttons and Navigation
-//
-
-
+// --------------------------------------------------------------------------------------------------------------------
 
 	.fancybox-close {
 		@extend %modal__btn !optional;
@@ -188,14 +192,11 @@
 			right: 0;
 			span { right: 0; }
 		}
-
 	}
 
 
 // Titles
-//
-
-
+// --------------------------------------------------------------------------------------------------------------------
 
 	.fancybox-title {
 		visibility: hidden;
@@ -239,10 +240,37 @@
 
 	}
 
+/* --------------------------------------------------------------------------------------------------------------------
 
-// Modal Buttons
-//
+Modal Buttons
 
+Markup:
+<a class="fancybox-button" rel="fancybox-button" href="http://placehold.it/600x400/c7e843/fff.jpg">
+  <img src="http://placehold.it/60x60/c7e843/fff.jpg"/>
+</a>
+<a class="fancybox-button" rel="fancybox-button" href="http://placehold.it/600x400/f6ab48/fff.jpg">
+  <img src="http://placehold.it/60x60/f6ab48/fff.jpg"/>
+</a>
+<a class="fancybox-button" rel="fancybox-button" href="http://placehold.it/600x400/3dced4/fff.jpg">
+  <img src="http://placehold.it/60x60/3dced4/fff.jpg"/>
+</a>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".fancybox-button").fancybox({
+      prevEffect : 'none',
+      nextEffect : 'none',
+      closeBtn   : false,
+      helpers    : {
+        title    : { type : 'inside' },
+        buttons  : {}
+      }
+    });
+  });
+</script>
+
+Styleguide 11.1
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 @if $modal-buttons {
 
@@ -270,13 +298,43 @@
 			}
 		}
 	}
-
 }
 
+/* --------------------------------------------------------------------------------------------------------------------
 
-// Modal Thumbs
-//
+Modal Thumbs
 
+Markup:
+<a class="fancybox-thumb" rel="fancybox-thumb" href="http://placehold.it/600x400/c7e843/fff.jpg">
+  <img src="http://placehold.it/60x60/c7e843/fff.jpg"/>
+</a>
+<a class="fancybox-thumb" rel="fancybox-thumb" href="http://placehold.it/600x400/f6ab48/fff.jpg">
+  <img src="http://placehold.it/60x60/f6ab48/fff.jpg"/>
+</a>
+<a class="fancybox-thumb" rel="fancybox-thumb" href="http://placehold.it/600x400/3dced4/fff.jpg">
+  <img src="http://placehold.it/60x60/3dced4/fff.jpg"/>
+</a>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".fancybox-thumb").fancybox({
+      prevEffect : 'none',
+      nextEffect : 'none',
+      helpers    : {
+        title    : {
+          type: 'outside'
+        },
+        thumbs   : {
+          width  : 60,
+          height : 60
+        }
+      }
+    });
+  });
+</script>
+
+Styleguide 11.2
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 @if $modal-thumbs {
 
@@ -310,5 +368,4 @@
 			}
 		}
 	}
-
 }

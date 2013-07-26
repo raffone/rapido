@@ -1,7 +1,37 @@
-// Tables
-//
-// Styleguide 4.17.
+/* ====================================================================================================================
 
+Tables
+
+For basic styling—light padding and only horizontal dividers—add the base class `.table` to any `<table>`.
+
+Markup:
+<table class="table {$modifiers}">
+  <thead>
+    <tr>
+      <th>Test</th>
+      <th>Test</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>test</td>
+      <td>test</td>
+    </tr>
+    <tr>
+      <td>test</td>
+      <td>test</td>
+    </tr>
+  </tbody>
+</table>
+
+.table--striped - Adds zebra-striping to any table row within the `<tbody>` via the :nth-child CSS selector *(not available in IE8)*
+.table--bordered - Add borders and rounded corners to the table.
+.table--hover - Enable a hover state on table rows within a `<tbody>`.
+.table--condensed - Makes tables more compact by cutting cell padding in half.
+
+Styleguide 17.
+
+==================================================================================================================== */
 
 @if $tables {
 
@@ -41,11 +71,8 @@
 
 	}
 
-
 // Condensed Table w/ Half Padding
-//
-
-
+// --------------------------------------------------------------------------------------------------------------------
 
 	.table--condensed {
 		$half-top: nth($tables-padding, 1) / 2;
@@ -54,11 +81,8 @@
 		th, td { padding: $half-top $half-side; }
 	}
 
-
 // Zebra-striping
-//
-
-
+// --------------------------------------------------------------------------------------------------------------------
 
 	.table--striped {
 		tbody {
@@ -69,21 +93,15 @@
 		}
 	}
 
-
 // Bordered Version
-//
-
-
+// --------------------------------------------------------------------------------------------------------------------
 
 	.table--bordered {
 		@extend %table--bordered !optional;
 	}
 
-
 // Hover effect
-//
-
-
+// --------------------------------------------------------------------------------------------------------------------
 
 	.table--hover {
 		tbody {
@@ -94,11 +112,8 @@
 		}
 	}
 
-
 // Sortable
-//
-
-
+// --------------------------------------------------------------------------------------------------------------------
 
 	.table--sortable {
 		@extend %table--sortable !optional;
@@ -114,6 +129,4 @@
 			}
 		}
 	}
-
-
 }

@@ -1,6 +1,15 @@
+/* ====================================================================================================================
 
-// Conveert Easing from Transform to Transition
+Functions
 
+For 99% of the framework I used Compass' and Susy's functions but I've made some for covering edge cases.
+
+Styleguide 24
+
+==================================================================================================================== */
+
+// Convert Easing from Transform to Transition
+// --------------------------------------------------------------------------------------------------------------------
 
 @function toBezier($easing) {
 
@@ -41,16 +50,64 @@
 }
 
 
+/* --------------------------------------------------------------------------------------------------------------------
 
+neg()
+
+Convert a value to negative.
+
+Example:
+
+	left: neg(10em);
+
+Become:
+
+	left: -10em
+
+Styleguide 24.2
+
+-------------------------------------------------------------------------------------------------------------------- */
+
+@function neg($n) {
+	@return (0 - $n);
+}
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+rhythm_neg()
+
+Create a negative `rhythm()` value. More info about the rhythm function: [
+Vertical Rhythm](http://compass-style.org/reference/compass/typography/vertical_rhythm/#function-rhythm).
+
+Example:
+
+	margin-left: rhythm_neg(1);
+
+Become:
+
+	margin-left: -1.42857em;
+
+Styleguide 24.3
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 @function rhythm_neg($i: 1) {
 	@return -(rhythm($i));
 }
 
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+space_neg()
+
+Similar to `rhythm_neg()` but for Susy's `space()` function, more info:
+[Susy Reference](http://susy.oddbird.net/guides/reference/#ref-space).
+
+Styleguide 24.4
+
+-------------------------------------------------------------------------------------------------------------------- */
+
 @function space_neg($w: 1, $c: 12) {
 	@return -(space($w, $c));
 }
 
-@function neg($n) {
-	@return (0 - $n);
-}

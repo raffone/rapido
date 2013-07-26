@@ -1,7 +1,15 @@
-// Debug mode
-//
+/* ====================================================================================================================
 
+Debug mode
 
+Add different background colors and border for elements with different proprieties (has class, has id, has title, ect.),
+usefull for debugging code and finding errors. Taken form [Inuit](https://github.com/csswizardry/inuit.css).
+
+Enable it with `$debug-mode: true;`.
+
+Styleguide 21.
+
+==================================================================================================================== */
 
 @if $debug-mode {
 
@@ -44,8 +52,8 @@
 	[id] {outline: 5px solid yellow;}
 
 
-	// btn-groups
-	// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// btn-groups
+// --------------------------------------------------------------------------------------------------------------------
 	.btn-group > li:first-child .btn					{ background: YellowGreen	!important; }
 	.btn-group > li:last-child .btn						{ background: Wheat	!important; }
 	div.btn-group .btn									{ background: Tomato	!important; }

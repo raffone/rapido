@@ -1,10 +1,27 @@
-// Captions
-//
-// Styleguide 5
+/* ====================================================================================================================
+
+Captions
+
+Add captions to images. The position is defined by `data-position` and the content by `data-content`.
+It's possible to add an animation using `data-animation` with either `fade` or `float`.
+
+For positioning are available: `top`, `right`, `bottom`, `left`, `top-left`, `top-right`, `bottom-right`, `bottom-left`.
+
+Markup:
+<figure class="caption" data-position="bottom" data-animation="{$modifiers}" data-content="Caption text.">
+  <img src="http://dummyimage.com/300x200/afe600/fff" />
+</figure>
+
+fade - Add fade-in animation for the caption
+float - Add fade-in and slide-in animation for the caption
+
+Styleguide 5
+
+==================================================================================================================== */
 
 @if $captions {
 
-	[class^="caption-"] {
+	.caption {
 		position: relative;
 		display: inline-block;
 		width: auto;
@@ -19,18 +36,17 @@
 			line-height: rhythm();
 		}
 
-		&[class*="top"]:after     { top:0; }
-		&[class*="bottom"]:after   { bottom:0; }
-		&[class*="left"]:after     { left:0; }
-		&[class*="right"]:after   { right:0; }
+		&[data-position*="top"]:after     { top:0; }
+		&[data-position*="bottom"]:after   { bottom:0; }
+		&[data-position*="left"]:after     { left:0; }
+		&[data-position*="right"]:after   { right:0; }
 
-		&[class$="top"]:after,
-		&[class$="bottom"]:after   { left: 0; right: 0; }
+		&[data-position$="top"]:after,
+		&[data-position$="bottom"]:after   { left: 0; right: 0; }
 
-		// Animations
-
-		&[class*="fade"],
-		&[class*="float"] {
+        // Animations
+		&[data-animation*="fade"],
+		&[data-animation*="float"] {
 
 			&:after {
 				@include transition();
@@ -44,13 +60,14 @@
 			}
 		}
 
-		// Float Animation
-		&[class*="float"][class*="top"] {
+
+        // Float animation
+		&[data-animation*="float"][data-position*="top"] {
 			&:after { top: -10px; }
 			&:hover:after { top: 0; }
 		}
 
-		&[class*="float"][class*="bottom"] {
+		&[data-animation*="float"][data-position*="bottom"] {
 			&:after { bottom: -10px; }
 			&:hover:after { bottom: 0; }
 		}

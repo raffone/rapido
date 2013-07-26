@@ -1,38 +1,36 @@
-// Forms
-//
-// Individual form controls receive default styling with `form` Results in stacked, left-aligned labels on top of form controls.
-//
-// **Structure**
-//
-// ```
-// .form
-// +--.form__group
-//     |--.form__label
-//     +--.form__controls
-//          |--input
-//          |--textarea
-//          |--.form__select
-//          |--.form__checkbox
-//          |--.form__radio
-//          +--.form__addon
-// +--.form__actions
-// ```
-//
-// * `.form__group`: Main container of a section of the form
-// * `.form__label`: Main labels for the form.
-// * `.form__controls`: Container of inputs, buttons and addons
-// * `.form__checkbox`, `.form__radio`: Stacked list of checkboxes and radios.
-// * `.form__checkbox.inline`, `.form__radio.inline`: Inline list of checkboxes and radios.
-// * `.form__select`: Create custom style selects.
-// * `.form__help--block`: Block help text that appears under form controls.
-// * `.form__help--inline`: Inline help text that appears aside form controls.
-// * `.form__actions`: End a form with a group of actions (buttons). When placed within a `.form__actions`, the buttons will automatically indent to line up with the form controls.
-//
-// Styleguide 8
+/* ====================================================================================================================
 
+Forms
 
+Individual form controls receive default styling with `form` Results in stacked, left-aligned labels on top of form controls.
 
+	.form
+	  +-- .form__group
+	  |    |-- .form__label
+	  |    +-- .form__controls
+	  |         |-- input
+	  |         |-- textarea
+	  |         |-- .form__select
+	  |         |-- .form__checkbox
+	  |         |-- .form__radio
+	  |         +-- .form__addon
+	  +-- .form__actions
 
+* **`.form__group`**: Main container of a section of the form
+	* **`.form__label`**: Main labels for the form.
+	* **`.form__controls`**: Container of inputs, buttons and addons
+		* **`.form__checkbox`**, **`.form__radio`**: Stacked list of checkboxes and radios.
+		* **`.form__checkbox.inline`**, **`.form__radio.inline`**: Inline list of checkboxes and radios.
+		* **`.form__select`**: Create custom style selects.
+		* **`.form__help--block`**: Block help text that appears under form controls.
+		* **`.form__help--inline`**: Inline help text that appears aside form controls.
+* **`.form__actions`**: End a form with a group of actions (buttons). When placed within a `.form__actions`, the buttons will automatically indent to line up with the form controls.
+
+Styleguide 8
+
+==================================================================================================================== */
+
+@if $forms {
 
 form {
 	@extend .clearfix;
@@ -180,15 +178,17 @@ select:focus:invalid {
 
 .form__controls { @extend .clearfix; }
 
+/* --------------------------------------------------------------------------------------------------------------------
 
+Labels
 
-// Labels
-//
-// Main labels for the form using `.form__label`
-//
-// Markup: <label class="form__label">Label</label>
-//
-// Styleguide 8.1
+Main labels for the form using `.form__label`
+
+Markup: <label class="form__label">Label</label>
+
+Styleguide 8.1
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 .form__label {
 	font-weight: bold;
@@ -197,20 +197,24 @@ select:focus:invalid {
 }
 
 
-// Radio & Checkbox
-//
-// Markup:
-// <div class="form__controls">
-//   <label class="form__radio {$modifiers}">
-//     <input type="radio" value="option1" checked> Option one is this</label>
-//   <label class="form__radio {$modifiers}">
-//     <input type="radio" value="option2"> Option two can be something else </label>
-//   </div>
-// </div>
-//
-// .inline - Inline alignment with `.inline`
-//
-// Styleguide 8.2
+/* --------------------------------------------------------------------------------------------------------------------
+
+Radio & Checkbox
+
+Markup:
+<div class="form__controls">
+  <label class="form__radio {$modifiers}">
+    <input type="radio" value="option1" checked> Option one is this</label>
+  <label class="form__radio {$modifiers}">
+    <input type="radio" value="option2"> Option two can be something else </label>
+  </div>
+</div>
+
+.inline - Inline alignment with `.inline`
+
+Styleguide 8.2
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 .form__radio,
 .form__checkbox,
@@ -239,24 +243,26 @@ select:focus:invalid {
 	margin-left: 20px;
 }
 
+/* --------------------------------------------------------------------------------------------------------------------
 
+Custom Select
 
-// Custom Select
-//
-// Add custom styling to a select element wrapping the `<select>` with a `<span>` with class `.form__select`.
-//
-// Markup:
-// <span class="form__select">
-//   <select>
-//     <option>1</option>
-//     <option>2</option>
-//     <option>3</option>
-//     <option>4</option>
-//     <option>5</option>
-//   </select>
-// </span>
-//
-// Styleguide 8.3
+Add custom styling to a select element wrapping the `<select>` with a `<span>` with class `.form__select`.
+
+Markup:
+<span class="form__select">
+  <select>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+  </select>
+</span>
+
+Styleguide 8.3
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 .form__select {
 	@extend %caret !optional;
@@ -295,31 +301,29 @@ select:focus:invalid {
 
 
 
-// Help
-//
-// Add an help text block
-//
-// Styleguide 8.4
+/* --------------------------------------------------------------------------------------------------------------------
 
-// Block Help
-//
-// Markup:
-// <div class="form__controls">
-//   <input type="text">
-//   <span class="form__help--block">Help text</span>
-// </div>
-//
-// Styleguide 8.4.1
+Help
 
-// Help Inline
-//
-// Markup:
-// <div class="form__controls">
-//   <input type="text">
-//   <span class="form__help--inline">Help text</span>
-// </div>
-//
-// Styleguide 8.4.2
+Add an help text block
+
+**Block Help**
+
+	<div class="form__controls">
+	  <input type="text">
+	  <span class="form__help--block">Help text</span>
+	</div>
+
+**Help Inline**
+
+	<div class="form__controls">
+	  <input type="text">
+	  <span class="form__help--inline">Help text</span>
+	</div>
+
+Styleguide 8.4
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 .form__help--block,
 .form__help--inline {
@@ -337,16 +341,20 @@ select:focus:invalid {
 
 
 
-// Append & Prepend
-//
-// Markup:
-// <div class="form__controls form__controls--multi">
-//   <span class="form__addon">$</span>
-//   <input type="text">
-//   <span class="form__addon">.00</span>
-// </div>
-//
-// Styleguide 8.5
+/* --------------------------------------------------------------------------------------------------------------------
+
+Append & Prepend
+
+Markup:
+<div class="form__controls form__controls--multi">
+  <span class="form__addon">$</span>
+  <input type="text">
+  <span class="form__addon">.00</span>
+</div>
+
+Styleguide 8.5
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 .form__addon {
 	display: inline-block;
@@ -388,18 +396,22 @@ select:focus:invalid {
 }
 
 
-// Form Actions
-//
-// End a form with a group of actions (buttons). When placed within a `.form__actions`, the buttons will automatically indent to line up with the form controls.
-//
-// Markup:
-// <div class="form__actions">
-//   <button type="submit" class="btn btn--default ">Save changes</button>
-//   <button type="submit" class="btn btn--default btn--primary pull-right">Save changes</button>
-//   <button type="button" class="btn btn--default btn--secondary">Cancel</button>
-// </div>
-//
-// Styleguide 8.6
+/* --------------------------------------------------------------------------------------------------------------------
+
+Form Actions
+
+End a form with a group of actions (buttons). When placed within a `.form__actions`, the buttons will automatically indent to line up with the form controls.
+
+Markup:
+<div class="form__actions">
+  <button type="submit" class="btn btn--default ">Save changes</button>
+  <button type="submit" class="btn btn--default btn--primary pull-right">Save changes</button>
+  <button type="button" class="btn btn--default btn--secondary">Cancel</button>
+</div>
+
+Styleguide 8.6
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 .form__actions {
 	padding-top: rhythm(1);
@@ -411,41 +423,46 @@ select:focus:invalid {
 }
 
 
-// Form Layouts
-//
-// Markup:
-// <form class="form {$modifiers}">
-//   <div class="form__group">
-//     <label class="form__label">Label</label>
-//     <div class="form__controls">
-//       <input type="text" placeholder="Type something…">
-//     </div>
-//   </div>
-//   <div class="form__group">
-//     <label class="form__label">Label</label>
-//     <div class="form__controls">
-//       <input type="text" placeholder="Type something…">
-//     </div>
-//   </div>
-//   <div class="form__group">
-//     <label class="form__label">Label</label>
-//     <div class="form__controls">
-//       <input type="text" placeholder="Type something…">
-//     </div>
-//   </div>
-//   <div class="form__actions">
-//     <button type="submit" class="btn btn--default ">Save changes</button>
-//   </div>
-// </form>
-//
-// .form--grid - Grid aligned `.form__group` with support for responsive layout with `columns` mixin.
-// .form--aligned - Right align labels and float them to the left to make them appear on the same line as controls.
-// .form--inline - For left-aligned labels and inline-block controls for a compact layout. This layout doesn't support `.form__group`, `.form__addon`, `.form__actions`
-//
-// Styleguide 8.7
+/* --------------------------------------------------------------------------------------------------------------------
 
+Form Layouts
+
+Markup:
+<form class="form {$modifiers}">
+  <div class="form__group">
+    <label class="form__label">Label</label>
+    <div class="form__controls">
+      <input type="text" placeholder="Type something…">
+    </div>
+  </div>
+  <div class="form__group">
+    <label class="form__label">Label</label>
+    <div class="form__controls">
+      <input type="text" placeholder="Type something…">
+    </div>
+  </div>
+  <div class="form__group">
+    <label class="form__label">Label</label>
+    <div class="form__controls">
+      <input type="text" placeholder="Type something…">
+    </div>
+  </div>
+  <div class="form__actions">
+    <button type="submit" class="btn btn--default ">Save changes</button>
+  </div>
+</form>
+
+.form--grid - Grid aligned `.form__group` with support for responsive layout with `columns` mixin.
+.form--aligned - Right align labels and float them to the left to make them appear on the same line as controls.
+.form--inline - For left-aligned labels and inline-block controls for a compact layout. This layout doesn't support `.form__group`, `.form__addon`, `.form__actions`
+
+Styleguide 8.7
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 // Form Grid
+// --------------------------------------------------------------------------------------------------------------------
+
 @if $forms-grid {
 	.form--grid {
 		.form__group { min-height: $control-min-height; }
@@ -454,8 +471,9 @@ select:focus:invalid {
 	}
 }
 
-
 // Form Aligned
+// --------------------------------------------------------------------------------------------------------------------
+
 @if $forms-aligned {
 
 	.form--aligned {
@@ -500,8 +518,30 @@ select:focus:invalid {
 }
 
 
+/* --------------------------------------------------------------------------------------------------------------------
+
+Inline Form (semplified)
+
+The inline layout can also be used width a samplified markup.
+
+Markup:
+<form class="form form--inline">
+  <label class="form__label">Label</label>
+  <input type="text" placeholder="Type something…">
+  <label class="form__label">Label</label>
+  <input type="text" placeholder="Type something…">
+  <label class="form__label">Label</label>
+  <input type="text" placeholder="Type something…">
+  <button type="submit" class="btn btn--default ">Save changes</button>
+</form>
+
+Styleguide 8.7.1
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 // Form Inline
+// --------------------------------------------------------------------------------------------------------------------
+
 @if $forms-inline {
 
 	.form--inline {
@@ -515,22 +555,10 @@ select:focus:invalid {
 			width: auto;
 		}
 
+		> * + *,
+		> * > * + *,
 		.form__group {
-			margin: 0 em(8px) 0 0;
-		}
-
-		.form__help--inline,
-		.form__label,
-		.form__radio,
-		.form__checkbox {
-			// padding-top: em($input-padding-top);
-		}
-
-		.form__radio input[type="radio"],
-		.form__checkbox input[type="checkbox"] {
-			float: left;
-			margin-right: em(4px);
-			margin-left: 0;
+			margin: 0 0 0 em(10px);
 		}
 
 		.form__actions {
@@ -538,4 +566,6 @@ select:focus:invalid {
 		}
 
 	}
+}
+
 }

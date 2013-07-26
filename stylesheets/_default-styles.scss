@@ -1,9 +1,33 @@
+/* ====================================================================================================================
+
+Default Styles
+
+One of the main reason of the existence of Rapido is because I wanted to separate pure framework code form styling.
+Every component refer to a silent class from `_default-style.scss`.
+
+These are all the classes available by default, others can be added or removed based on what component you want
+to enable or disable.
+
+Styleguide 30
+
+==================================================================================================================== */
 
 @if $default-styles {
 
-// Titles
+/* --------------------------------------------------------------------------------------------------------------------
 
+Titles
 
+    %h1                             # For <h1>
+    %h2                             # For <h2>
+    %h3                             # For <h3>
+    %h4                             # For <h4>
+    %h5                             # For <h5>
+    %h6                             # For <h6>
+
+Styleguide 30.1
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 	%h1 {}
 	%h2 {}
@@ -12,9 +36,17 @@
 	%h5 {}
 	%h6 {}
 
-// Inputs
+/* --------------------------------------------------------------------------------------------------------------------
 
+Inputs and Selects
 
+    %input                          # For the <input> and <textarea>
+    %input-addon                    # For the addon texts in forms
+    %select                         # Custom select style, by default it use %input
+
+Styleguide 30.2
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 	%input {
 		border-color: $gray;
@@ -33,20 +65,27 @@
 		background-color: $grayLighter;
 	}
 
-// Selects
+    %select {
+        @extend %input;
+    }
 
+/* --------------------------------------------------------------------------------------------------------------------
 
+Buttons
 
+    %btn--default                   # Default button colors
+    %btn--primary                   # Default color for primary buttons
+    %btn--secondary                 # Default color for secondary buttons
+    %btn--scripts                   # Default buttons color for buttons used in scripts (slides, modals)
 
-	%select {
-		@extend %input;
-	}
+    %btn__disabled                  # For disabled button
+    %btn__current                   # For current button (es. used in Pagination)
 
-// Buttons
+Styleguide 30.3
 
+-------------------------------------------------------------------------------------------------------------------- */
 
-
-	// Default
+    // Default
 	%btn--default {
 		color: $text-color;
 		border-color: $gray;
@@ -58,6 +97,7 @@
 		&:hover,
 		&.hover,
 		&:focus {
+			color: inherit;
 			@include background-image(linear-gradient(bottom, $grayLight 0%, $white 100%));
 		}
 
@@ -90,6 +130,7 @@
 		&:hover,
 		&.hover,
 		&:focus {
+			color: #fff;
 			@include background-image(linear-gradient(bottom, darken(green, 10%) 0%, lighten(green, 6) 100%));
 		}
 
@@ -110,6 +151,7 @@
 		&:hover,
 		&.hover,
 		&:focus {
+			color: #fff;
 			@include background-image(linear-gradient(bottom, darken(red, 10%) 0%, lighten(red, 20) 100%));
 		}
 
@@ -121,13 +163,7 @@
 		}
 	}
 
-	%btn--warning {}
-	%btn--danger {}
-	%btn--info {}
-	%btn--success {}
-	%btn--inverse {}
-
-	// Generic style for buttons used by the scripts
+    // Generic style for buttons For the scripts
 	%btn--scripts {
 		@include alpha-color(#000, .6, background);
 		color: #fff;
@@ -143,9 +179,15 @@
 	}
 
 
-// Captions
+/* --------------------------------------------------------------------------------------------------------------------
 
+Captions
 
+    %caption                        # Used for the captions in .caption and modals
+
+Styleguide 30.4
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 	%caption {
 		@include alpha-color(#000, .8, background);
@@ -153,19 +195,31 @@
 		padding: $captions-padding;
 	}
 
-// Pills (Labels & Badges)
+/* --------------------------------------------------------------------------------------------------------------------
 
+Labels (Badges & Pills)
 
+    %pill                           # For the .badge and .pill
+
+Styleguide 30.5
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 	%pill {
-		// background-color: rgba(, );
 		@include alpha-color(#000, .35);
-		// @include box-shadow(inset 0px 1px 1px rgba(0,0,0,.35));
-		// text-shadow: 0 1px 1px rgba(0,0,0,.35);
 		color: $white;
 	}
 
-// Dropdowns
+/* --------------------------------------------------------------------------------------------------------------------
+
+Dropdowns
+
+    %dropdown                       # For the dropdown's list
+    %dropdown--open                 # For the drodpown button in .open state
+
+Styleguide 30.6
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 
 
@@ -191,18 +245,18 @@
 	}
 
 
-// Caret per Dropdown e Select
+/* --------------------------------------------------------------------------------------------------------------------
 
+Tables
 
+    %table--bordered                # For .table--bordered
+    %table--striped                 # For .table--striped
+    %table--hover                   # For .table--hover
+    %table--sortable                # For .table--sortable
 
-	%caret {
-		&:after {
-			@include icon-font(\f078);
-		}
-	}
+Styleguide 30.7
 
-
-// Tables
+-------------------------------------------------------------------------------------------------------------------- */
 
 
 
@@ -220,7 +274,7 @@
 
 	%table--striped { background-color: $grayLighter;}
 
-	%table--hover { background-color: $gray;}
+	%table--hover { background-color: $grayLighter;}
 
 	%table--sortable {
 		thead {
@@ -232,9 +286,18 @@
 		}
 	}
 
-// Navs
+/* --------------------------------------------------------------------------------------------------------------------
 
+Navs
 
+    %nav--btn                       # For links in navs with .nav--btn
+    %nav--btn__hover                # For the :hover state of %nav--btn
+    %nav--btn__current              # For the current selected link
+    %nav--btn__disabled             # For the disabled links
+
+Styleguide 30.8
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 	%nav--btn {}
 
@@ -248,9 +311,16 @@
 	%nav--btn__disabled {color: $grayLight;}
 
 
-// Breadcrumbs
+/* --------------------------------------------------------------------------------------------------------------------
 
+Breadcrumbs
 
+    %breadcrumb                     # Base style of breadcrumbs
+    %breadcrumb__current            # For the current selected link
+
+Styleguide 30.9
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 	%breadcrumb {
 		> li {
@@ -266,37 +336,67 @@
 				}
 			}
 		}
-		.active { color: $grayLight; }
 	}
 
-// Pagination
+    %breadcrumb__current { color: $grayLight; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Pagination
+
+    %pagination--btn                # For links in .pagination
+    %pagination--btn__hover         # For the :hover state of %pagination--btn
+    %pagination--btn__active        # For the :active  state of %pagination--btn
+    %pagination--btn__current       # For the current selected link
+    %pagination--btn__disabled      # For the disabled links
+
+Styleguide 30.10
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 
 
 	%pagination--btn 			{ @extend %btn--default;  }
-	%pagination--btn__hover 	{ }
+	%pagination--btn__hover 	{ @extend %btn--default:hover;}
 	%pagination--btn__active 	{ }
 	%pagination--btn__current 	{ @extend %btn__current; }
 	%pagination--btn__disabled 	{ @extend %btn__disabled; }
 
-// Pager
+/* --------------------------------------------------------------------------------------------------------------------
 
+Pager
 
+    %pager--btn                     # For the links in .pager
+    %pager--btn__hover              # For the :hover state of %pager--btn
+    %pager--btn__active             # For the :active  state of %pager--btn
+    %pager--btn__disabled           # For the disabled links
+
+Styleguide 30.11
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 	%pager--btn 				{ @extend %btn--default; }
 	%pager--btn__hover 			{ }
 	%pager--btn__active 		{ }
 	%pager--btn__disabled 		{ @extend %btn__disabled; }
 
+/* --------------------------------------------------------------------------------------------------------------------
 
+Modals
 
-// Loader icon
+    %modal__btn                     # For all button links in modals
+    %modal__close                   # For the default close button
+    %modal__close--alt              # Alternative style for close button in iframes
+    %modal__btnbar-size             # Width and height of #fancybox-buttons
+    %modal__overlay                 # Color of background overlay
+    %modal__skin                    # For the modal window
+    %modal__nav                     # For the Next and Prev buttons
+    %modal__caption                 # For the caption
+    %modal__loading                 # Position and style of the loading icon
 
+Styleguide 30.12
 
-
-	%loader-ico { background: url('//cdn.jsdelivr.net/wp-advanced-ajax-page-loader/2.5.12/loaders/SMALL%20-%20Spinning%20Arrows.gif') center center no-repeat; }
-
-// Modals
+-------------------------------------------------------------------------------------------------------------------- */
 
 
 
@@ -363,9 +463,18 @@
 	}
 
 
-// Sliders
+/* --------------------------------------------------------------------------------------------------------------------
 
+Sliders
 
+    %slider__btn                    # For all button links in sliders
+    %slider__pager                  # For the single  links in the pager
+    %slider__caption                # For the caption
+    %slider__loading                # Position and style of the loading icon
+
+Styleguide 30.13
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 	// Buttons
 	%slider__btn {
@@ -403,14 +512,21 @@
 		min-height: $loader-ico-size;
 	}
 
-// Tabs
+/* --------------------------------------------------------------------------------------------------------------------
 
+Tabs
 
+    %tab__nav                       # For the tabs links container
+    %tab__btn                       # For the single tabs link
+    %tab__btn__hover                # For the :hover state of tabs link
+    %tab__btn__current              # For the current selected tab link
+    %tab__container                 # For the content continer
 
+Styleguide 30.14
 
-	%tab__nav {
-		//...
-	}
+-------------------------------------------------------------------------------------------------------------------- */
+
+	%tab__nav { }
 
 	%tab__btn {
 		background: $grayLighter;
@@ -435,19 +551,31 @@
 	}
 
 
-// Alerts
+/* --------------------------------------------------------------------------------------------------------------------
 
+Alerts
 
+    %alert                          # For all alert messages
 
+Styleguide 30.15
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 	%alert {
 		background-color: $grayLighter;
 		border: 1px solid $grayLight;
 	}
 
-// Responsive NAV
+/* --------------------------------------------------------------------------------------------------------------------
 
+Responsive Nav
 
+    %nav--responsive                # For the open nav state in responsive mode
+    %nav__toggle                    # For the toggle open/close button in responsive mode
+
+Styleguide 30.16
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 
 	%nav--responsive {
@@ -473,6 +601,32 @@
 			@include icon-font(\f0c9);
 		}
 	}
+
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Shared
+
+Classes For other classes of generic elements
+
+    %caret                          # Side triangle For Dropdowns and Selects
+    %loader-ico                     # generic loader icon For all scripts
+
+Styleguide 30.17
+
+-------------------------------------------------------------------------------------------------------------------- */
+
+    %caret {
+        &:after {
+            @include icon-font(\f078);
+        }
+    }
+
+    %loader-ico {
+        background:
+            url('//cdn.jsdelivr.net/wp-advanced-ajax-page-loader/2.5.12/loaders/SMALL%20-%20Spinning%20Arrows.gif')
+            center center no-repeat;
+    }
 
 }
 

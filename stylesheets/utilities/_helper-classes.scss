@@ -1,7 +1,25 @@
-// HELPER CLASSES
-//
+/* ====================================================================================================================
 
+Helper Classes
 
+There are provided some helper classes usually used with `@extend` for applying effects or common styles.
+
+Styleguide 22.
+
+==================================================================================================================== */
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Generic
+
+Add a a simple `transition all`, used as a generic extend for element that can accept transition on all attributes.
+    .transition
+Simple divider class used in some components (like dropdowns).␣␣
+    .divider
+
+Styleguide 22.1
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 .clearfix {
 	&:after {
@@ -10,6 +28,32 @@
 		clear: both;
 	}
 }
+
+.transition {
+	@include transition();
+}
+
+.divider {
+	@include nav-divider();
+}
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Wrappers
+
+Flexible wrapper to center the layout, max-width width `$desk-end`.
+
+    .wrapper
+    .w
+
+Same a `.wrapper` but with fixed width.
+
+    .fixed-wrapper
+    .fw
+
+Styleguide 22.2
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 .wrapper, .w {
 	@extend .clearfix;
@@ -29,10 +73,28 @@
 .left {float: left;}
 .right {float: right;}
 
-// Sizes
-//
 
+/* --------------------------------------------------------------------------------------------------------------------
 
+Elements width
+
+Add `data-width="n"` to any html element to set the width.
+
+    [data-width="n"]
+
+* **n**: Width in percentage in increments of 5 of the element.
+
+Example:
+
+	data-width="50"
+
+Corrispond to:
+
+	width: 50% !important;
+
+Styleguide 22.3
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 $i: 100;
 @while $i > 0 {
@@ -43,10 +105,13 @@ $i: 100;
 	$i: $i - 1;
 }
 
+/* --------------------------------------------------------------------------------------------------------------------
 
-// Typography
-//
+Typography
 
+Styleguide 22.4
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 .lead			{ @include adjust-font-size-to($h4-size); }
 .muted			{ color: $gray; }
@@ -58,10 +123,13 @@ $i: 100;
 .text-right		{ text-align: right; }
 .text-center	{ text-align: center; }
 
-// Sprites
-//
+/* --------------------------------------------------------------------------------------------------------------------
 
+Sprites
 
+Styleguide 22.5
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 .s {
 	content: "";
@@ -74,24 +142,22 @@ $i: 100;
 	text-indent:-9999px;
 }
 
-// Transition class for @extend
-//
+/* --------------------------------------------------------------------------------------------------------------------
 
+Text replacement
 
+All the text replacement classes from from [html5boilerplate](http://html5boilerplate.com/).
 
-.transition {
-	@include transition();
-}
+    .ir
+    .ir
+    .hidden
+    .visuallyhidden
+    .visuallyhidden
+    .invisible
 
-.divider {
-	@include nav-divider();
-}
+Styleguide 22.6
 
-
-// Text replacement (from http://html5boilerplate.com/)
-//
-
-
+-------------------------------------------------------------------------------------------------------------------- */
 
 .ir{background-color:transparent;border:0;overflow:hidden;text-indent:-9999px;line-height:0;font-size:0;}
 .ir:before{content:"";display:block;width:0;height:150%}

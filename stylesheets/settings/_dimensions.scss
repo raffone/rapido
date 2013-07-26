@@ -1,35 +1,100 @@
-// DIMENSIONS
-//
+/* ====================================================================================================================
 
+Base Dimensions
+
+    $base-border-radius:            4px     # Border radius used as a standard on all elements.
+    $horizontal-offset:             180px   # Labels width in horizontal forms.
+
+Styleguide 28
+
+==================================================================================================================== */
 
 
 $base-border-radius:				4px																		!default;
 $horizontal-offset:					180px																	!default;
 $dropdowns-with:					160px																	!default;
 
-// Text
-//
+/* --------------------------------------------------------------------------------------------------------------------
 
+Text Size
 
+Font sizes you can used with the compass mixin `adjust-font-size-to()`. Naming convention from [Inuit](http://inuitcss.com/).
+
+    $giga-size:                     $base-font-size * 7     # 98px
+    $mega-size:                     $base-font-size * 5     # 70px
+    $kilo-size:                     $base-font-size * 3.5   # 49px
+
+    $h1-size:                       $base-font-size * 2.5   # 35px
+    $h2-size:                       $base-font-size * 2     # 28px
+    $h3-size:                       $base-font-size * 1.85  # 26px
+    $h4-size:                       $base-font-size * 1.5   # 21px
+    $h5-size:                       $base-font-size * 1.25  # 17.5px
+    $h6-size:                       $base-font-size * 1     # 14px
+
+    $milli-size:                    $base-font-size * .85   # 12px
+    $micro-size:                    $base-font-size * .7    # 10px
+
+Styleguide 28.1
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 $giga-size:							$base-font-size * 7														!default;
 $mega-size:							$base-font-size * 5														!default;
-$kilo-size:							$base-font-size * 3.4													!default;
+$kilo-size:							$base-font-size * 3.5													!default;
 
-$h1-size:							$base-font-size * 2.4													!default;
+$h1-size:							$base-font-size * 2.5													!default;
 $h2-size:							$base-font-size * 2														!default;
-$h3-size:							$base-font-size * 1.8													!default;
-$h4-size:							$base-font-size * 1.4													!default;
-$h5-size:							$base-font-size * 1.2													!default;
+$h3-size:							$base-font-size * 1.85													!default;
+$h4-size:							$base-font-size * 1.5													!default;
+$h5-size:							$base-font-size * 1.25													!default;
 $h6-size:							$base-font-size * 1														!default;
 
 $milli-size:						$base-font-size * .85													!default;
 $micro-size:						$base-font-size * .7													!default;
 
-// Forms
-//
+/* --------------------------------------------------------------------------------------------------------------------
 
+Line-Height
 
+By default all titles have a line-height based on the font-size, to ensure that it will allways respect the vertical rhythm.
+Sometimes this result is not what we expect/want so it's possible to override the default proportion width these.
+
+These values mean: X times the base line-height.
+
+    $h1-line-height:                2
+    $h2-line-height:                2
+    $h3-line-height:                2
+    $h4-line-height:                1.5
+    $h5-line-height:                1.5
+    $h6-line-height:                1.5
+
+Styleguide 28.1.1
+
+-------------------------------------------------------------------------------------------------------------------- */
+
+$h1-line-height:					2																		!default;
+$h2-line-height:					2																		!default;
+$h3-line-height:					2																		!default;
+$h4-line-height:					1.5																		!default;
+$h5-line-height:					1.5																		!default;
+$h6-line-height:					1.5																		!default;
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Forms
+
+Base padding and margins used in the forms.
+
+    $control-margin-bottom:         $base-line-height
+    $label-margin-bottom:           10px    # Margin below labels
+    $input-border:                  1px     # Border width used for inputs and buttons
+    $input-padding-top:             10px    # Base top padding
+    $input-padding-side:            10px    # Base side padding
+    $checkbox-padding-left:         20px    # Side padding used for checkboxes and radios
+
+Styleguide 28.2
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 $control-margin-bottom:				$base-line-height														!default;
 $label-margin-bottom:				10px																	!default;
@@ -43,9 +108,41 @@ $input-padding:						em($input-padding-top) em($input-padding-side)									;
 $input-height:						em($base-font-size + ($input-padding-top * 2) + ($input-border * 2))			;
 $control-min-height:				em($base-line-height + $label-margin-bottom) + $input-height - em(5px)			;
 
-// Paddings
-//
 
+/* --------------------------------------------------------------------------------------------------------------------
+
+Paddings
+
+Padding specific to every component you can use to overwrite the base padding.
+
+Helper classes
+
+    $wrapper-padding:               em(20px)    # Side padding used with .w and .wrapper
+
+Buttons
+
+    $btn-padding:                   $input-padding  # Buttons padding
+    $btn-large-padding:             em($input-padding-top * 1) em($input-padding-side * 1.5)
+    $btn-small-padding:             em($input-padding-top * .5) em($input-padding-side * .8)
+    $btn-mini-padding:              em($input-padding-top * .1) em($input-padding-side * .6)
+
+Components
+
+    $alerts-padding:                $input-padding  # Alerts padding
+    $captions-padding:              $input-padding  # Captions padding
+    $dropdowns-padding:             $input-padding  # Dropdowns padding
+    $modals-error-padding:          $input-padding  # Modals padding
+    $navs-padding:                  $input-padding  # Navs padding
+    $pager-padding:                 $input-padding  # Pager padding
+    $pagination-padding:            $input-padding  # Pagination padding
+    $pills-padding:                 .15em .35em     # Pills padding
+    $tables-padding:                $input-padding  # Tables padding
+    $tabs-content-padding:          $input-padding  # Tabs padding
+    $tabs-tab-padding:              $input-padding  # Tabs padding
+
+Styleguide 28.3
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 
 // Helper classes
@@ -71,24 +168,51 @@ $tabs-content-padding:				$input-padding															!default;
 $tabs-tab-padding:					$input-padding															!default;
 
 
-// Sizes
-//
+/* --------------------------------------------------------------------------------------------------------------------
 
+Sizes
+
+    $loader-ico-size:               44px        # Icon size of the loader used with some componets
+    $modal-btn-size:                em(30px)    # Size of buttons used with the modals
+    $slider-btn-size:               em(30px)    # Size of buttons used with the sliders
+
+Styleguide 28.4
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 $loader-ico-size: 					44px																	!default;
 $modal-btn-size: 					em(30px)																!default;
 $slider-btn-size: 					em(30px)																!default;
 
 
-// Heights
-//
+/* --------------------------------------------------------------------------------------------------------------------
+
+Heights
+
+Some elements need to have a max-height specified for smoother animations, like dropdowns:
+
+    $dropdowns-height:              em(600px);
+
+Styleguide 28.5
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 
 $dropdowns-height:					em(600px)																!default;
 
-// Media Queries
-//
+/* --------------------------------------------------------------------------------------------------------------------
 
+Media Queries
+
+Set the width of the three steps of the layout.
+
+    $lap-start:                     481px   # Max width of smartphone
+    $desk-start:                    768px   # Max width for tablet
+    $desk-end:                      1080px  # Max width for desktop
+
+Styleguide 28.6
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 
 $lap-start:							481px																	!default;
@@ -98,21 +222,42 @@ $desk-end:							1080px																	!default;
 $palm-end:							$lap-start - 1px;
 $lap-end:							$desk-start - 1px;
 
-// Grid (Susy)
-//
+/* --------------------------------------------------------------------------------------------------------------------
 
+Grid (Susy)
+
+Default settings for susy grid. More info: [Susy](http://susy.oddbird.net/).
+
+    $total-columns:                 12      # Number of columns
+    $column-width:                  50px    # Columns width
+    $gutter-width:                  30px    # Gutter width
+    $container-style:               fluid   # Grid style
+
+Styleguide 28.7
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 
 $total-columns:						12																		!default;
 $column-width:						50px																	!default;
 $gutter-width:						30px																	!default;
-$grid-padding:						10px																	!default;
 $container-style:					fluid																	!default;
 
-// Nav Responsive Options
-//
+/* --------------------------------------------------------------------------------------------------------------------
 
+Nav Responsive Options
 
+    $navs-responsive-breakpoint:        palm    # On what step to switch to the responsive nav
+    $navs-responsive-type:              slide   # Responsive nav style: slide or off-canvas
+    $navs-responsive-dropdown-pos:      right   # Position of the button to open the nav
+    $navs-responsive-offset:            70%     # How mutch to slide when using off-canvas
+
+    $navs-responsive-outside-wrapper:   '.external-wrapper'
+    $navs-responsive-inside-wrapper:    '.internal-wrapper'
+
+Styleguide 28.8
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 $navs-responsive-breakpoint:		palm																	!default;
 $navs-responsive-type:				slide																	!default;
@@ -122,9 +267,21 @@ $navs-responsive-offset:			70%																		!default;
 $navs-responsive-outside-wrapper:	'.external-wrapper'														!default;
 $navs-responsive-inside-wrapper:	'.internal-wrapper'														!default;
 
-// Z-INDEX order
-//
+/* --------------------------------------------------------------------------------------------------------------------
 
+Z-index
+
+Default settings for overlay components, taken from Bootstrap.
+
+    $zindex-dropdown:               1000    # Dropdowns
+    $zindex-popover:                1010    # Popovers
+    $zindex-tooltip:                1030    # Tooltips
+    $zindex-slider:                 1040    # Sliders
+    $zindex-modal:                  1050    # Modals
+
+Styleguide 28.9
+
+-------------------------------------------------------------------------------------------------------------------- */
 
 
 $zindex-dropdown:					1000																	!default;

@@ -1,36 +1,86 @@
-// Grids
-//
-// Styleguide 4.9.
+/* ====================================================================================================================
 
+Grids
 
-@each $device in palm, lap, desk {
+Grids usually are defined directly in the scss/sass files using the `columns` mixin.
+This is the best solution and keep the html free of classes that one day may be changed requiring more work
+that editing the stylesheet file and recompiling.
 
-	$i: $total-columns + 1;
+Sometimes is easier to add a class to the html for quick prototiping, in this case there are available several classes
+just for that.
 
-	@include media($device) {
+In this example the columns width is 3 on desktop, 6 on tablet and 12 on smartphone.
 
-		@if $grids {
+Markup:
+<div class="desk-3 lap-6 palm-12">1</div>
+<div class="desk-3 lap-6 palm-12">2</div>
+<div class="desk-3 lap-6 palm-12">3</div>
+<div class="desk-3 lap-6 palm-12">4</div>
+<div class="desk-3 lap-6 palm-12">5</div>
+<div class="desk-3 lap-6 palm-12">6</div>
+<div class="desk-3 lap-6 palm-12">7</div>
+<div class="desk-3 lap-6 palm-12">8</div>
+
+Styleguide 9
+
+==================================================================================================================== */
+
+$media-queries: palm, lap, portable, lap-and-up, desk;
+
+@if $grids {
+	@each $device in $media-queries {
+
+		$i: $total-columns + 1;
+
+		@include media($device) {
+
 			@while $i > 0 {
+
+				$nth: $total-columns / $i;
 
 				.#{$device}-#{$i} {
 					@include span-columns($i);
 				}
 
+				[class*="#{$device}-#{$i}"]:nth-child(#{$nth}n) {
+					@include omega()
+				}
+
 				$i: $i - 1;
+
 			}
-
-			[class*="#{$device}-"]:last-child { @include omega() }
 		}
-
-		.#{$device}-hide { display: none !important; }
-		.#{$device}-show { display: block !important; }
 	}
 }
 
-@include media(portable) {
-	.mob-hide,
-	.portable-hide { display: none !important; }
+/* --------------------------------------------------------------------------------------------------------------------
 
-	.mob-show,
-	.portable-show { display: block !important; }
+Show and Hide
+
+There're also available some helper classes:
+
+* **Hide element**: Used to hide an element at a breackpoint
+	* `.palm-hide`
+	* `.lap-hide`
+	* `.portable-hide`
+	* `.lap-and-up-hide`
+	* `.desk-hide`
+* **Show element**: Used to show an element at a breackpoint
+	* `.palm-show`
+	* `.lap-show`
+	* `.portable-show`
+	* `.lap-and-up-show`
+	* `.desk-show`
+
+Styleguide 9.1
+
+-------------------------------------------------------------------------------------------------------------------- */
+
+@if $grids-helpers {
+	@each $device in $media-queries {
+		@include media($device) {
+			.#{$device}-hide { display: none !important; }
+			.#{$device}-show { display: block !important; }
+		}
+	}
 }
