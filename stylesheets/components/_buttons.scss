@@ -19,7 +19,7 @@ Styleguide 3
 @if $buttons {
 
 	.btn {
-		@extend %btn !optional;
+		// @extend %btn !optional;
 		@include border-radius($base-border-radius);
 		border-style: solid;
 		border-width: $input-border;
@@ -77,7 +77,10 @@ Styleguide 3.2
 
 	.btn {
 		padding: $btn-padding;
-		height: $input-height;
+
+		@if $btn-padding == $input-padding {
+			height: $input-height;
+		}
 	}
 
 	.btn--large, .btn--small, .btn--mini {
