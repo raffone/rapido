@@ -195,8 +195,6 @@ ol.inline {
 	list-style: none;
 	> li {
 		@include inline-block();
-		padding-left: 5px;
-		padding-right: 5px;
 	}
 }
 
@@ -300,7 +298,7 @@ blockquote {
 		font-weight: 300;
 	}
 
-	small {
+	small, cite {
 		display: block;
 		color: $grayLight;
 		&:before {
