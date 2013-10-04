@@ -89,7 +89,7 @@ Styleguide 16.
 	.bx-loading {
 		@include square(100%);
 		@include position(absolute, 0px 0 0 0px);
-		@extend %slider__loading-style;
+		@extend %slider__loading-style  !optional;
 		z-index: 2000;
 	}
 

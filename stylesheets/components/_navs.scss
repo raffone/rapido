@@ -103,21 +103,21 @@ Styleguide 12
 		li {
 			> a {
 				padding: $navs-padding;
-				@extend %nav--btn;
+				@extend %nav--btn !optional;
 
 				&:hover, &:focus {
-					@extend %nav--btn__hover;
+					@extend %nav--btn__hover !optional;
 				}
 			}
 
 			&.current > a,
 			&.current > a:hover,
 			&.current > a:focus {
-				@extend %nav--btn__current;
+				@extend %nav--btn__current  !optional;
 			}
 
 			// Disabled
-			&.disabled > a { @extend %nav--btn__disabled; }
+			&.disabled > a { @extend %nav--btn__disabled !optional; }
 		}
 	}
 
