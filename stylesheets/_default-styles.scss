@@ -315,14 +315,14 @@ Styleguide 30.8
 
 Breadcrumbs
 
-    %breadcrumb                     # Base style of breadcrumbs
-    %breadcrumb__current            # For the current selected link
+    %breadcrumbs                     # Base style of breadcrumbs
+    %breadcrumbs__current            # For the current selected link
 
 Styleguide 30.9
 
 -------------------------------------------------------------------------------------------------------------------- */
 
-	%breadcrumb {
+	%breadcrumbs {
 		> li {
 			&:after {
 				color: #ccc;
@@ -338,7 +338,7 @@ Styleguide 30.9
 		}
 	}
 
-    %breadcrumb__current { color: $grayLight; }
+    %breadcrumbs__current { color: $grayLight; }
 
 /* --------------------------------------------------------------------------------------------------------------------
 

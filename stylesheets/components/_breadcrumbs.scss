@@ -4,7 +4,7 @@ Breadcrumbs
 
 Add a breadcrumb with a list with class `.breadcrumb`.
 
-	<ul class="breadcrumb">
+	<ul class="breadcrumbs">
 	  <li><a href="#">Home</a></li>
 	  <li><a href="#">Library</a></li>
 	  <li class="current">Data</li>
@@ -19,14 +19,14 @@ Styleguide 2.1
 
 @if $breadcrumbs {
 
-	.breadcrumb {
+	.breadcrumbs {
 		margin: 0 0 rhythm();
 		list-style: none;
-		@extend %breadcrumb !optional;
+		@extend %breadcrumbs !optional;
 
 		> li { @include inline-block(); }
 
-		.current {@extend %breadcrumb__current;}
+		.current {@extend %breadcrumbs__current !optional;}
 	}
 
 }
