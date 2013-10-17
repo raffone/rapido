@@ -52,6 +52,10 @@ $h6-size:							$base-font-size * 1														!default;
 $milli-size:						$base-font-size * .85													!default;
 $micro-size:						$base-font-size * .7													!default;
 
+$small-size:                        $milli-size                                                             !default;
+$smaller-size:                      $micro-size                                                             !default;
+
+
 /* --------------------------------------------------------------------------------------------------------------------
 
 Line-Height
