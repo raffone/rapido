@@ -132,15 +132,16 @@ Styleguide 22.5
 -------------------------------------------------------------------------------------------------------------------- */
 
 .s {
+	@include transition(none);
 	content: "";
 	display: inline-block;
-	overflow:hidden;
-	vertical-align:middle;
-	text-align:center;
 	font-style:normal;
-	zoom:1;
+	overflow:hidden;
+	text-align:center;
 	text-indent:-9999px;
-	@include transition-duration(0)
+	vertical-align:middle;
+	zoom:1;
+
 }
 
 /* --------------------------------------------------------------------------------------------------------------------
