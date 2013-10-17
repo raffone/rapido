@@ -147,14 +147,14 @@ textarea {
 	@include placeholder();
 }
 
-input[disabled],
-select[disabled],
-textarea[disabled],
-input[readonly],
-select[readonly],
-textarea[readonly] {
-	cursor: not-allowed;
-}
+// input[disabled],
+// select[disabled],
+// textarea[disabled],
+// input[readonly],
+// select[readonly],
+// textarea[readonly] {
+// 	cursor: not-allowed;
+// }
 input[type="radio"][disabled],
 input[type="checkbox"][disabled],
 input[type="radio"][readonly],
