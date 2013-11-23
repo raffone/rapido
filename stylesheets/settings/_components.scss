@@ -74,16 +74,15 @@ $width-helper-classes:				true 																	!default;
 
 Sprites
 
-    $s-sprite-dimensions:         true;
+    $s-sprite-dimensions:           true;
     $s-layout:                      smart;
 
 Styleguide 22.5
 
 -------------------------------------------------------------------------------------------------------------------- */
 
-$s-sprite-dimensions:             true;
-$s-layout:                          smart;
-
+$s-sprite-dimensions:               true                                                                    !default;
+$s-layout:                          smart                                                                   !default;
 
 
 /* --------------------------------------------------------------------------------------------------------------------
