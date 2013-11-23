@@ -144,7 +144,7 @@ select[size] {
 
 input,
 textarea {
-	@include placeholder();
+	@include placeholder($placeholder-color);
 }
 
 // input[disabled],
@@ -155,6 +155,7 @@ textarea {
 // textarea[readonly] {
 // 	cursor: not-allowed;
 // }
+
 input[type="radio"][disabled],
 input[type="checkbox"][disabled],
 input[type="radio"][readonly],
