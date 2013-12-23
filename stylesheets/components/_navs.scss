@@ -30,15 +30,19 @@ Styleguide 12
 
 	.nav {
 		@extend .clearfix;
-		position: relative;
 		display: inline-block;
+		margin-bottom: rhythm();
+		position: relative;
 
 		&, > ul {
+			@extend .clearfix;
 			list-style: none;
-			margin-bottom: rhythm();
 			margin-left: 0;
 			padding-left: 0;
-			@extend .clearfix;
+		}
+
+		> ul {
+			margin-bottom: 0;
 		}
 
 		li {
