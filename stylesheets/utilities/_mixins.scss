@@ -134,22 +134,17 @@ Styleguide 23.4
 
 Center
 
-Vertical and horizontal centering with absolute positioning, using the element size and negative margin.
+Vertical and horizontal centering with absolute positioning, using the posiztion absolute and negative translate.
 
-	@include center($width, $height);
-
-* `$height`: Height of the element
-* `$width`: Width of the element
+	@include center();
 
 Styleguide 23.5
 
 -------------------------------------------------------------------------------------------------------------------- */
 
-@mixin center ($width, $height: null) {
-	@include position(absolute, 50% 0 0 50%);
-	margin-left: -($width / 2);
-	@if $height { margin-top: -($height / 2); }
-	@else { margin-top: -($width / 2);  }
+@mixin center() {
+  @include position(absolute, 50% 0 0 50%);
+  @include translate(-50%, -50%);
 }
 
 
@@ -457,7 +452,7 @@ Styleguide 23.14
 
 Comicbook Shadow
 
-	@include shadow-comicbook($padding $color $size $distance);
+	@include shadow-comicbook($padding, $color, $size, $distance);
 
 * `$padding`: Border color
 * `$color`: Color of the shadow
@@ -509,7 +504,7 @@ Box Inset Shadow
 
 Usefull for adding inset shadows to sidebars or large block where the shadow is only on one side and full width/height.
 
-	@include shadow-shadow($position $size $color);
+	@include inset-shadow($position, $size, $color);
 
 * `$position`: top, right, bottom, left
 * `$size`: Size of the shadow
@@ -544,11 +539,32 @@ Styleguide 23.16
 
 /* --------------------------------------------------------------------------------------------------------------------
 
+Side Shadow
+
+Add Side Shadows to multi-line padded text for consistend side padding (Fabien Doiron's box-shadow Method).
+
+	@include side-shadow($size, $color);
+
+* `$size`: Size of the shadow
+* `$color`: Color of the shadow
+
+Styleguide 23.17
+
+-------------------------------------------------------------------------------------------------------------------- */
+
+@mixin side-shadow($size: 10px, $color: #000) {
+    @include box-shadow($size 0 0 $color, neg($size) 0 0 $color);
+    margin-left: $size;
+    margin-right: $size;
+}
+
+/* --------------------------------------------------------------------------------------------------------------------
+
 Icon Fonts
 
 Use the unicode character from an icon font to insert it wherever you want.
 
-	@include icon-font($char $font);
+	@include icon-font($char, $font);
 
 * `$char`: Unicode of the character †
 * `$font`: What font to use ‡
@@ -558,7 +574,7 @@ Use the unicode character from an icon font to insert it wherever you want.
 ‡ Fonts available: Fontawesome, Brandico, Entypo, Fontelico, Maki, Openweb-icons, Typicons, Zocial
 
 
-Styleguide 23.17
+Styleguide 23.18
 
 -------------------------------------------------------------------------------------------------------------------- */
 
@@ -585,39 +601,50 @@ You can set the start/and with of each step from usins the variables `$lap-start
 	* `portable`: Lap + Palm
 	* `desk`: Only Desktop
 
-Styleguide 23.18
+Styleguide 23.19
 
 -------------------------------------------------------------------------------------------------------------------- */
 
-@mixin media($media-query){
+@mixin media($media-query:null){
+	@if $media-query {
 
-	@if $media-query == palm { // Palm only
-		@media only screen and (max-width:$palm-end) {
-			@content;
+		@if $media-query == palm or $media-query == lap or $media-query == lap-and-up or $media-query == portable or $media-query == desk {
+
+			@if $media-query == palm {
+				@media only screen and (max-width:$palm-end) {
+					@content;
+				}
+			}
+
+			@elseif $media-query == lap {
+				@media only screen and (min-width:$lap-start) and (max-width:$lap-end) {
+					@content;
+				}
+			}
+
+			@elseif $media-query == lap-and-up {
+				@media only screen and (min-width:$lap-start) {
+					@content;
+				}
+			}
+
+			@elseif $media-query == portable {
+				@media only screen and (max-width:$lap-end) {
+					@content;
+				}
+			}
+
+			@elseif $media-query == desk {
+				@media only screen and (min-width:$desk-start) {
+					@content;
+				}
+			}
 		}
-	}
 
-	@elseif $media-query == lap{  // Lap only
-		@media only screen and (min-width:$lap-start) and (max-width:$lap-end) {
-			@content;
-		}
-	}
-
-	@elseif $media-query == lap-and-up{ // Lap + Dektop
-		@media only screen and (min-width:$lap-start) {
-			@content;
-		}
-	}
-
-	@elseif $media-query == portable{ // Palm + Lap
-		@media only screen and (max-width:$lap-end) {
-			@content;
-		}
-	}
-
-	@elseif $media-query == desk{ // Desktop only
-		@media only screen and (min-width:$desk-start) {
-			@content;
+		@else {
+			@media only screen and ($media-query) {
+				@content;
+			}
 		}
 	}
 
@@ -653,7 +680,7 @@ Or via `@include` from the scss:
 
 The result is the same.
 
-Styleguide 23.19
+Styleguide 23.20
 
 -------------------------------------------------------------------------------------------------------------------- */
 
@@ -677,7 +704,7 @@ Responsive grid
 * `$media`: Media query to to use, for responsive grids
 * `$highlight-omega`: Bolean, used for debugging nth
 
-Styleguide 23.20
+Styleguide 23.21
 
 -------------------------------------------------------------------------------------------------------------------- */
 
@@ -688,7 +715,7 @@ Styleguide 23.20
 	$nth-omega: false,
 	$remove-omega: false,
 	$from: left,
-	$media: all,
+	$media: null,
 	$highlight-omega: false
 	) {
 
