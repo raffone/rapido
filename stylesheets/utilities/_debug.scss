@@ -1,4 +1,4 @@
-/* ====================================================================================================================
+/* 
 
 Debug mode
 
@@ -9,7 +9,7 @@ Enable it with `$debug-mode: true;`.
 
 Styleguide 21.
 
-==================================================================================================================== */
+*/
 
 @if $debug-mode {
 
@@ -53,7 +53,7 @@ Styleguide 21.
 
 
 // btn-groups
-// --------------------------------------------------------------------------------------------------------------------
+// 
 	.btn-group > li:first-child .btn					{ background: YellowGreen	!important; }
 	.btn-group > li:last-child .btn						{ background: Wheat	!important; }
 	div.btn-group .btn									{ background: Tomato	!important; }

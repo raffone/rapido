@@ -1,4 +1,4 @@
-/* ====================================================================================================================
+/* 
 
 Button Groups
 
@@ -13,7 +13,7 @@ Markup:
 
 Styleguide 4
 
-==================================================================================================================== */
+*/
 
 @if $button-groups {
 
@@ -57,14 +57,14 @@ Styleguide 4
 	}
 
 // Generic
-// --------------------------------------------------------------------------------------------------------------------
+// 
 
 	.btn-group > li:first-child .btn					{ @include border-left-radius($base-border-radius); }
 	.btn-group > li:last-child .btn						{ @include border-right-radius($base-border-radius);	}
 	div.btn-group .btn									{ @include border-radius($base-border-radius); }
 
 // In Forms
-// --------------------------------------------------------------------------------------------------------------------
+// 
 
 	.form__controls--multi {
 		.btn-group:first-child > li:first-child .btn	{ }

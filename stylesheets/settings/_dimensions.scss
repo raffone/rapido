@@ -1,4 +1,4 @@
-/* ====================================================================================================================
+/* 
 
 Base Dimensions
 
@@ -7,14 +7,14 @@ Base Dimensions
 
 Styleguide 28
 
-==================================================================================================================== */
+*/
 
 
 $base-border-radius:				4px																		!default;
 $horizontal-offset:					180px																	!default;
 $dropdowns-with:					160px																	!default;
 
-/* --------------------------------------------------------------------------------------------------------------------
+/* 
 
 Text Size
 
@@ -36,7 +36,7 @@ Font sizes you can used with the compass mixin `adjust-font-size-to()`. Naming c
 
 Styleguide 28.1
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 
 $giga-size:							$base-font-size * 7														!default;
 $mega-size:							$base-font-size * 5														!default;
@@ -56,7 +56,7 @@ $small-size:                        $milli-size                                 
 $smaller-size:                      $micro-size                                                             !default;
 
 
-/* --------------------------------------------------------------------------------------------------------------------
+/* 
 
 Line-Height
 
@@ -74,7 +74,7 @@ These values mean: X times the base line-height.
 
 Styleguide 28.1.1
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 
 $h1-line-height:					2																		!default;
 $h2-line-height:					2																		!default;
@@ -83,7 +83,7 @@ $h4-line-height:					1.5																		!default;
 $h5-line-height:					1.5																		!default;
 $h6-line-height:					1.5																		!default;
 
-/* --------------------------------------------------------------------------------------------------------------------
+/* 
 
 Forms
 
@@ -98,7 +98,7 @@ Base padding and margins used in the forms.
 
 Styleguide 28.2
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 
 $control-margin-bottom:				$base-line-height														!default;
 $label-margin-bottom:				10px																	!default;
@@ -113,7 +113,7 @@ $input-height:						em($base-font-size + ($input-padding-top * 2) + ($input-bord
 $control-min-height:				em($base-line-height + $label-margin-bottom) + $input-height - em(5px)			;
 
 
-/* --------------------------------------------------------------------------------------------------------------------
+/* 
 
 Paddings
 
@@ -146,7 +146,7 @@ Components
 
 Styleguide 28.3
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 
 
 // Helper classes
@@ -172,7 +172,7 @@ $tabs-content-padding:				$input-padding															!default;
 $tabs-tab-padding:					$input-padding															!default;
 
 
-/* --------------------------------------------------------------------------------------------------------------------
+/* 
 
 Sizes
 
@@ -182,14 +182,14 @@ Sizes
 
 Styleguide 28.4
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 
 $loader-ico-size: 					44px																	!default;
 $modal-btn-size: 					em(30px)																!default;
 $slider-btn-size: 					em(30px)																!default;
 
 
-/* --------------------------------------------------------------------------------------------------------------------
+/* 
 
 Heights
 
@@ -199,12 +199,12 @@ Some elements need to have a max-height specified for smoother animations, like 
 
 Styleguide 28.5
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 
 
 $dropdowns-height:					em(600px)																!default;
 
-/* --------------------------------------------------------------------------------------------------------------------
+/* 
 
 Media Queries
 
@@ -216,7 +216,7 @@ Set the width of the three steps of the layout.
 
 Styleguide 28.6
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 
 
 $lap-start:							481px																	!default;
@@ -226,7 +226,7 @@ $desk-end:							1080px																	!default;
 $palm-end:							$lap-start - 1px;
 $lap-end:							$desk-start - 1px;
 
-/* --------------------------------------------------------------------------------------------------------------------
+/* 
 
 Grid (Susy)
 
@@ -239,7 +239,7 @@ Default settings for susy grid. More info: [Susy](http://susy.oddbird.net/).
 
 Styleguide 28.7
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 
 
 $total-columns:						12																		!default;
@@ -247,7 +247,7 @@ $column-width:						50px																	!default;
 $gutter-width:						30px																	!default;
 $container-style:					fluid																	!default;
 
-/* --------------------------------------------------------------------------------------------------------------------
+/* 
 
 Nav Responsive Options
 
@@ -261,7 +261,7 @@ Nav Responsive Options
 
 Styleguide 28.8
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 
 $navs-responsive-breakpoint:		palm																	!default;
 $navs-responsive-type:				slide																	!default;
@@ -271,7 +271,7 @@ $navs-responsive-offset:			70%																		!default;
 $navs-responsive-outside-wrapper:	'.external-wrapper'														!default;
 $navs-responsive-inside-wrapper:	'.internal-wrapper'														!default;
 
-/* --------------------------------------------------------------------------------------------------------------------
+/* 
 
 Z-index
 
@@ -285,7 +285,7 @@ Default settings for overlay components, taken from Bootstrap.
 
 Styleguide 28.9
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 
 
 $zindex-dropdown:					1000																	!default;
