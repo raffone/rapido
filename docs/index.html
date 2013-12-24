@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <title>KSS: Living Styleguide</title>
+  <meta name="description" content="">
+  <meta name="generator" content="kss-node" />
+
+  <meta name="viewport" content="width=device-width">
+
+  <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="public/kss.css">
+  <link rel="stylesheet" href="public/style.css">
+
+</head>
+<body><div id="kss-wrapper">
+  <div id="kss-nav">
+    <header id="kss-header">
+      <hgroup><h1>kss-node Styleguide</h1></hgroup>
+    </header>
+    <aside>
+      <nav><ul>
+        <li><a href="index.html">0.0: Overview</a></li>
+        
+          <li><a href="section-1.html">1.0: Alerts</a></li>
+        
+          <li><a href="section-3.html">3.0: Buttons</a></li>
+        
+          <li><a href="section-4.html">4.0: Button Groups</a></li>
+        
+          <li><a href="section-5.html">5.0: Captions</a></li>
+        
+          <li><a href="section-6.html">6.0: Close buttons</a></li>
+        
+          <li><a href="section-7.html">7.0: Dropdowns</a></li>
+        
+          <li><a href="section-8.html">8.0: Forms</a></li>
+        
+          <li><a href="section-9.html">9.0: Grids</a></li>
+        
+          <li><a href="section-10.html">10.0: Badge &amp; Pills</a></li>
+        
+          <li><a href="section-11.html">11.0: Modals</a></li>
+        
+          <li><a href="section-12.html">12.0: Navs</a></li>
+        
+          <li><a href="section-13.html">13.0: Pager</a></li>
+        
+          <li><a href="section-14.html">14.0: Pagination</a></li>
+        
+          <li><a href="section-15.html">15.0: Responsive Navs</a></li>
+        
+          <li><a href="section-16.html">16.0: Sliders</a></li>
+        
+          <li><a href="section-17.html">17.0: Tables</a></li>
+        
+          <li><a href="section-18.html">18.0: Tabs</a></li>
+        
+          <li><a href="section-19.html">19.0: Type</a></li>
+        
+          <li><a href="section-20.html">20.0: Animations</a></li>
+        
+          <li><a href="section-21.html">21.0: Debug mode</a></li>
+        
+          <li><a href="section-22.html">22.0: Helper Classes</a></li>
+        
+          <li><a href="section-23.html">23.0: Mixins</a></li>
+        
+          <li><a href="section-24.html">24.0: Functions</a></li>
+        
+          <li><a href="section-25.html">25.0: Base Settings</a></li>
+        
+          <li><a href="section-26.html">26.0: Base Colors</a></li>
+        
+          <li><a href="section-27.html">27.0: Base Components</a></li>
+        
+          <li><a href="section-28.html">28.0: Base Dimensions</a></li>
+        
+          <li><a href="section-30.html">30.0: Default Styles</a></li>
+        
+      </ul></nav>
+    </aside>
+  </div>
+  <div role="main" id="kss-main">
+    <article id="kss-content">
+      
+        <h1>Rapido Framework</h1>
+<h2>Intro</h2>
+<p>An easy and quick <a href="http://sass-lang.com/"><strong>Sass</strong></a> + <a href="http://compass-style.org/"><strong>Compass</strong></a> + <a href="http://susy.oddbird.net/"><strong>Susy</strong></a> + <a href="http://oocss.org/"><strong>OOCSS</strong></a> + <a href="http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/"><strong>BEM</strong></a> prototyping framework based on Bootstrap without all the default styles.
+
+</p>
+<h2>Features</h2>
+<ul>
+<li>Most of the modules from Boostrap (some heavily modified and streamlined)</li>
+<li><strong>CSS architecture and styling completely separated</strong>, creating and switching complex themes is much easier</li>
+<li><strong>Every unused component can be disabled</strong> to slim the final css</li>
+<li>All sizes are in <strong>em</strong> and respect the <strong>vertical rhythm</strong> of the page</li>
+<li><strong>Super easy responsive layouts</strong> with Susy and custom mixins</li>
+<li>Full support of <strong>automatic sprite generation</strong> (with Compass)</li>
+<li>Full support of <strong>icon fonts</strong> with 8 fonts already included and custom mixin to remove any frictions</li>
+<li>Complete set of <strong>css animations</strong> with custom mixin</li>
+<li>There is a variable for almost everything</li>
+</ul>
+<h2>Why?</h2>
+<p>The Rapido framework, is the result of a couple of months trying to figure out a way to incorporate a common framework in all my front-end projects, both for personal and client works. I started to look around at complete frameworks for quick prototyping and found three: <a href="https://github.com/twitter/bootstrap"><strong>Bootstrap</strong></a>, <a href="https://github.com/zurb/foundation"><strong>Foundation</strong></a> and <a href="https://github.com/csswizardry/inuit.css"><strong>Inuit</strong></a>. The first two are very similar, Bootstrap has more features that i never use so they where basically the same for me, Inuit is much smaller and more object oriented (ex: <a href="http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/">BEM</a> naming syntax).
+
+</p>
+<p>The problem was that after the first prototypes they where very difficult to tame and style like I wanted (and please, bootswatch.com and wrapbootstrap.com doesn&apos;t count, I mean real full designs). So I wanted to create a frankestein&apos;s framework with all the useful components from bootstrap, everything in variables like Foundation and the easy styling of Inuit.
+
+</p>
+<p>I started taking off all the unnecessary bits from bootstrap, adding inuit variables and naming conventions and I was pretty happy with it, but then I started refactoring all the code, adding susy grids, structuring the files in a different way, cleaning all the unnecessary hacks for retro-compatibility, adding a bunch of useful mixing, and so on… so after all of this I thought that it may be useful for others.
+
+</p>
+<h4>Feedbacks</h4>
+<p>It was (and still is) made for my personal use so some stuff may seems strange but this is how I work, maybe with your help we can make it better, if you find a better solution of somethign covered in the framework please contact me and we&apos;ll se if it can work.
+
+</p>
+<h2>Notes</h2>
+<p>This documentation is not meant for everyone, I&apos;ve taken heavily from Bootstrap documentation for all common components that share the same characteristics and some parts are barebones because are meant to be a reference to other front-end developers that already know how Bootstrap (and css frameworks in general) work.
+</p>
+
+      
+    </article>
+  </div>
+  <footer>
+    
+  </footer>
+  <!-- SCRIPTS -->
+  <script src="public/kss.js"></script>
+  <script src="public/prettify.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      var sidebarAdjust = function() {
+        // Match footer/body height
+        var height = Math.max($(window).height(), $('#kss-main').height());
+
+        if ($(window).width() <= 768) {
+          $('#kss-main, #kss-nav').height('auto');
+        } else {
+          $('#kss-main, #kss-nav').height(height);
+        }
+      };
+
+      $(window).resize(sidebarAdjust);
+      $(window).scroll(sidebarAdjust);
+      sidebarAdjust();
+
+      // Ensure code blocks are highlighted properly...
+      $('pre>code').addClass('prettyprint');
+      prettyPrint();
+
+    });
+  </script>
+
+  
+  
+</div></body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <title>KSS: Living Styleguide</title>
+  <meta name="description" content="">
+  <meta name="generator" content="kss-node" />
+
+  <meta name="viewport" content="width=device-width">
+
+  <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="public/kss.css">
+  <link rel="stylesheet" href="public/style.css">
+
+</head>
+<body><div id="kss-wrapper">
+  <div id="kss-nav">
+    <header id="kss-header">
+      <hgroup><h1>kss-node Styleguide</h1></hgroup>
+    </header>
+    <aside>
+      <nav><ul>
+        <li><a href="index.html">0.0: Overview</a></li>
+        
+          <li><a href="section-1.html">1.0: Alerts</a></li>
+        
+          <li><a href="section-3.html">3.0: Buttons</a></li>
+        
+          <li><a href="section-4.html">4.0: Button Groups</a></li>
+        
+          <li><a href="section-5.html">5.0: Captions</a></li>
+        
+          <li><a href="section-6.html">6.0: Close buttons</a></li>
+        
+          <li><a href="section-7.html">7.0: Dropdowns</a></li>
+        
+          <li><a href="section-8.html">8.0: Forms</a></li>
+        
+          <li><a href="section-9.html">9.0: Grids</a></li>
+        
+          <li><a href="section-10.html">10.0: Badge &amp; Pills</a></li>
+        
+          <li><a href="section-11.html">11.0: Modals</a></li>
+        
+          <li><a href="section-12.html">12.0: Navs</a></li>
+        
+          <li><a href="section-13.html">13.0: Pager</a></li>
+        
+          <li><a href="section-14.html">14.0: Pagination</a></li>
+        
+          <li><a href="section-15.html">15.0: Responsive Navs</a></li>
+        
+          <li><a href="section-16.html">16.0: Sliders</a></li>
+        
+          <li><a href="section-17.html">17.0: Tables</a></li>
+        
+          <li><a href="section-18.html">18.0: Tabs</a></li>
+        
+          <li><a href="section-19.html">19.0: Type</a></li>
+        
+          <li><a href="section-20.html">20.0: Animations</a></li>
+        
+          <li><a href="section-21.html">21.0: Debug mode</a></li>
+        
+          <li><a href="section-22.html">22.0: Helper Classes</a></li>
+        
+          <li><a href="section-23.html">23.0: Mixins</a></li>
+        
+          <li><a href="section-24.html">24.0: Functions</a></li>
+        
+          <li><a href="section-25.html">25.0: Base Settings</a></li>
+        
+          <li><a href="section-26.html">26.0: Base Colors</a></li>
+        
+          <li><a href="section-27.html">27.0: Base Components</a></li>
+        
+          <li><a href="section-28.html">28.0: Base Dimensions</a></li>
+        
+          <li><a href="section-30.html">30.0: Default Styles</a></li>
+        
+      </ul></nav>
+    </aside>
+  </div>
+  <div role="main" id="kss-main">
+    <article id="kss-content">
+      
+
+        
+        
+          
+            <h1 class="kss-title"><span class="kss-ref">4.0</span> - Button Groups</h1>
+          
+            
+                <div class="kss-box"><p>Wrap a series of buttons with <code>.btn</code> in <code>.btn-group</code>.</p>
+</div>
+                <table class="kss-mod-list">
+                  <tr class="kss-mod-desc-group">
+                    <td class="kss-mod-desc"><p>Default styling</p></td>
+                    <td class="kss-mod-name"></td>
+                  </tr>
+                  <tr class="kss-mod-example">
+                    <td colspan="2"><ul class="btn-group">
+  <li><button class="btn btn--default">Left</button></li>
+  <li><button class="btn btn--default">Middle</button></li>
+  <li><button class="btn btn--default">Right</button></li>
+</ul></td>
+                  </tr>
+                
+                </table>
+                <div class="kss-markup">
+                  <pre class="prettyprint lang-html">&lt;ul class=&quot;btn-group&quot;&gt;
+  &lt;li&gt;&lt;button class=&quot;btn btn--default&quot;&gt;Left&lt;/button&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;button class=&quot;btn btn--default&quot;&gt;Middle&lt;/button&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;button class=&quot;btn btn--default&quot;&gt;Right&lt;/button&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre>
+                </div>
+            
+           
+        
+      
+    </article>
+  </div>
+  <footer>
+    
+  </footer>
+  <!-- SCRIPTS -->
+  <script src="public/kss.js"></script>
+  <script src="public/prettify.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      var sidebarAdjust = function() {
+        // Match footer/body height
+        var height = Math.max($(window).height(), $('#kss-main').height());
+
+        if ($(window).width() <= 768) {
+          $('#kss-main, #kss-nav').height('auto');
+        } else {
+          $('#kss-main, #kss-nav').height(height);
+        }
+      };
+
+      $(window).resize(sidebarAdjust);
+      $(window).scroll(sidebarAdjust);
+      sidebarAdjust();
+
+      // Ensure code blocks are highlighted properly...
+      $('pre>code').addClass('prettyprint');
+      prettyPrint();
+
+    });
+  </script>
+
+  
+  
+</div></body>
+</html>

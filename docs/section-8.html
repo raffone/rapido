@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <title>KSS: Living Styleguide</title>
+  <meta name="description" content="">
+  <meta name="generator" content="kss-node" />
+
+  <meta name="viewport" content="width=device-width">
+
+  <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="public/kss.css">
+  <link rel="stylesheet" href="public/style.css">
+
+</head>
+<body><div id="kss-wrapper">
+  <div id="kss-nav">
+    <header id="kss-header">
+      <hgroup><h1>kss-node Styleguide</h1></hgroup>
+    </header>
+    <aside>
+      <nav><ul>
+        <li><a href="index.html">0.0: Overview</a></li>
+        
+          <li><a href="section-1.html">1.0: Alerts</a></li>
+        
+          <li><a href="section-3.html">3.0: Buttons</a></li>
+        
+          <li><a href="section-4.html">4.0: Button Groups</a></li>
+        
+          <li><a href="section-5.html">5.0: Captions</a></li>
+        
+          <li><a href="section-6.html">6.0: Close buttons</a></li>
+        
+          <li><a href="section-7.html">7.0: Dropdowns</a></li>
+        
+          <li><a href="section-8.html">8.0: Forms</a></li>
+        
+          <li><a href="section-9.html">9.0: Grids</a></li>
+        
+          <li><a href="section-10.html">10.0: Badge &amp; Pills</a></li>
+        
+          <li><a href="section-11.html">11.0: Modals</a></li>
+        
+          <li><a href="section-12.html">12.0: Navs</a></li>
+        
+          <li><a href="section-13.html">13.0: Pager</a></li>
+        
+          <li><a href="section-14.html">14.0: Pagination</a></li>
+        
+          <li><a href="section-15.html">15.0: Responsive Navs</a></li>
+        
+          <li><a href="section-16.html">16.0: Sliders</a></li>
+        
+          <li><a href="section-17.html">17.0: Tables</a></li>
+        
+          <li><a href="section-18.html">18.0: Tabs</a></li>
+        
+          <li><a href="section-19.html">19.0: Type</a></li>
+        
+          <li><a href="section-20.html">20.0: Animations</a></li>
+        
+          <li><a href="section-21.html">21.0: Debug mode</a></li>
+        
+          <li><a href="section-22.html">22.0: Helper Classes</a></li>
+        
+          <li><a href="section-23.html">23.0: Mixins</a></li>
+        
+          <li><a href="section-24.html">24.0: Functions</a></li>
+        
+          <li><a href="section-25.html">25.0: Base Settings</a></li>
+        
+          <li><a href="section-26.html">26.0: Base Colors</a></li>
+        
+          <li><a href="section-27.html">27.0: Base Components</a></li>
+        
+          <li><a href="section-28.html">28.0: Base Dimensions</a></li>
+        
+          <li><a href="section-30.html">30.0: Default Styles</a></li>
+        
+      </ul></nav>
+    </aside>
+  </div>
+  <div role="main" id="kss-main">
+    <article id="kss-content">
+      
+
+        
+        
+          
+            <h1 class="kss-title"><span class="kss-ref">8.0</span> - Forms</h1>
+          
+            
+                
+                  <p>Individual form controls receive default styling with <code>form</code> Results in stacked, left-aligned labels on top of form controls.
+
+</p>
+<pre><code>.form
+  +–– .form__group
+  |    |–– .form__label
+  |    +–– .form__controls
+  |         |–– input
+  |         |–– textarea
+  |         |–– .form__select
+  |         |–– .form__checkbox
+  |         |–– .form__radio
+  |         +–– .form__addon
+  +–– .form__actions</code></pre>
+<ul>
+<li><strong><code>.form__group</code></strong>: Main container of a section of the form<ul>
+<li><strong><code>.form__label</code></strong>: Main labels for the form.</li>
+<li><strong><code>.form__controls</code></strong>: Container of inputs, buttons and addons<ul>
+<li><strong><code>.form__checkbox</code></strong>, <strong><code>.form__radio</code></strong>: Stacked list of checkboxes and radios.</li>
+<li><strong><code>.form__checkbox.inline</code></strong>, <strong><code>.form__radio.inline</code></strong>: Inline list of checkboxes and radios.</li>
+<li><strong><code>.form__select</code></strong>: Create custom style selects.</li>
+<li><strong><code>.form__help--block</code></strong>: Block help text that appears under form controls.</li>
+<li><strong><code>.form__help--inline</code></strong>: Inline help text that appears aside form controls.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><code>.form__actions</code></strong>: End a form with a group of actions (buttons). When placed within a <code>.form__actions</code>, the buttons will automatically indent to line up with the form controls.</li>
+</ul>
+
+                
+            
+           
+        
+          
+           <section class="kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">8.1</span> - Labels</h1>
+          
+            
+                <div class="kss-box"><p>Main labels for the form using <code>.form__label</code></p>
+</div>
+                <table class="kss-mod-list">
+                  <tr class="kss-mod-desc-group">
+                    <td class="kss-mod-desc"><p>Default styling</p></td>
+                    <td class="kss-mod-name"></td>
+                  </tr>
+                  <tr class="kss-mod-example">
+                    <td colspan="2"><label class="form__label">Label</label></td>
+                  </tr>
+                
+                </table>
+                <div class="kss-markup">
+                  <pre class="prettyprint lang-html">&lt;label class=&quot;form__label&quot;&gt;Label&lt;/label&gt;</pre>
+                </div>
+            
+          
+            </section>
+          
+        
+          
+           <section class="kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">8.2</span> - Radio &amp; Checkbox</h1>
+          
+            
+                <div class="kss-box"></div>
+                <table class="kss-mod-list">
+                  <tr class="kss-mod-desc-group">
+                    <td class="kss-mod-desc"><p>Default styling</p></td>
+                    <td class="kss-mod-name"></td>
+                  </tr>
+                  <tr class="kss-mod-example">
+                    <td colspan="2"><div class="form__controls">
+  <label class="form__radio {$modifiers}">
+    <input type="radio" value="option1" checked> Option one is this</label>
+  <label class="form__radio {$modifiers}">
+    <input type="radio" value="option2"> Option two can be something else </label>
+  </div>
+</div></td>
+                  </tr>
+                
+                  <tr class="kss-mod-desc-group">
+                    <td class="kss-mod-desc"><p>Inline alignment with <code>.inline</code></p>
+</td>
+                    <td class="kss-mod-name"><p>.inline</p></td>
+                  </tr>
+                  <tr class="kss-mod-example">
+                    <td colspan="2"><div class="form__controls">
+  <label class="form__radio inline">
+    <input type="radio" value="option1" checked> Option one is this</label>
+  <label class="form__radio inline">
+    <input type="radio" value="option2"> Option two can be something else </label>
+  </div>
+</div></td>
+                  </tr>
+                
+                </table>
+                <div class="kss-markup">
+                  <pre class="prettyprint lang-html">&lt;div class=&quot;form__controls&quot;&gt;
+  &lt;label class=&quot;form__radio {$modifiers}&quot;&gt;
+    &lt;input type=&quot;radio&quot; value=&quot;option1&quot; checked&gt; Option one is this&lt;/label&gt;
+  &lt;label class=&quot;form__radio {$modifiers}&quot;&gt;
+    &lt;input type=&quot;radio&quot; value=&quot;option2&quot;&gt; Option two can be something else &lt;/label&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                </div>
+            
+          
+            </section>
+          
+        
+          
+           <section class="kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">8.3</span> - Custom Select</h1>
+          
+            
+                <div class="kss-box"><p>Add custom styling to a select element wrapping the <code>&lt;select&gt;</code> with a <code>&lt;span&gt;</code> with class <code>.form__select</code>.</p>
+</div>
+                <table class="kss-mod-list">
+                  <tr class="kss-mod-desc-group">
+                    <td class="kss-mod-desc"><p>Default styling</p></td>
+                    <td class="kss-mod-name"></td>
+                  </tr>
+                  <tr class="kss-mod-example">
+                    <td colspan="2"><span class="form__select">
+  <select>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+  </select>
+</span></td>
+                  </tr>
+                
+                </table>
+                <div class="kss-markup">
+                  <pre class="prettyprint lang-html">&lt;span class=&quot;form__select&quot;&gt;
+  &lt;select&gt;
+    &lt;option&gt;1&lt;/option&gt;
+    &lt;option&gt;2&lt;/option&gt;
+    &lt;option&gt;3&lt;/option&gt;
+    &lt;option&gt;4&lt;/option&gt;
+    &lt;option&gt;5&lt;/option&gt;
+  &lt;/select&gt;
+&lt;/span&gt;</pre>
+                </div>
+            
+          
+            </section>
+          
+        
+          
+           <section class="kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">8.4</span> - Help</h1>
+          
+            
+                
+                  <p>Add an help text block
+
+</p>
+<p><strong>Block Help</strong>
+
+</p>
+<pre><code>&lt;div class=&quot;form__controls&quot;&gt;
+  &lt;input type=&quot;text&quot;&gt;
+  &lt;span class=&quot;form__help--block&quot;&gt;Help text&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+<p><strong>Help Inline</strong>
+
+</p>
+<pre><code>&lt;div class=&quot;form__controls&quot;&gt;
+  &lt;input type=&quot;text&quot;&gt;
+  &lt;span class=&quot;form__help--inline&quot;&gt;Help text&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+
+                
+            
+          
+            </section>
+          
+        
+          
+           <section class="kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">8.5</span> - Append &amp; Prepend</h1>
+          
+            
+                <div class="kss-box"></div>
+                <table class="kss-mod-list">
+                  <tr class="kss-mod-desc-group">
+                    <td class="kss-mod-desc"><p>Default styling</p></td>
+                    <td class="kss-mod-name"></td>
+                  </tr>
+                  <tr class="kss-mod-example">
+                    <td colspan="2"><div class="form__controls form__controls--multi">
+  <span class="form__addon">$</span>
+  <input type="text">
+  <span class="form__addon">.00</span>
+</div></td>
+                  </tr>
+                
+                </table>
+                <div class="kss-markup">
+                  <pre class="prettyprint lang-html">&lt;div class=&quot;form__controls form__controls--multi&quot;&gt;
+  &lt;span class=&quot;form__addon&quot;&gt;$&lt;/span&gt;
+  &lt;input type=&quot;text&quot;&gt;
+  &lt;span class=&quot;form__addon&quot;&gt;.00&lt;/span&gt;
+&lt;/div&gt;</pre>
+                </div>
+            
+          
+            </section>
+          
+        
+          
+           <section class="kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">8.6</span> - Form Actions</h1>
+          
+            
+                <div class="kss-box"><p>End a form with a group of actions (buttons). When placed within a <code>.form__actions</code>, the buttons will automatically indent to line up with the form controls.</p>
+</div>
+                <table class="kss-mod-list">
+                  <tr class="kss-mod-desc-group">
+                    <td class="kss-mod-desc"><p>Default styling</p></td>
+                    <td class="kss-mod-name"></td>
+                  </tr>
+                  <tr class="kss-mod-example">
+                    <td colspan="2"><div class="form__actions">
+  <button type="submit" class="btn btn--default ">Save changes</button>
+  <button type="submit" class="btn btn--default btn--primary pull-right">Save changes</button>
+  <button type="button" class="btn btn--default btn--secondary">Cancel</button>
+</div></td>
+                  </tr>
+                
+                </table>
+                <div class="kss-markup">
+                  <pre class="prettyprint lang-html">&lt;div class=&quot;form__actions&quot;&gt;
+  &lt;button type=&quot;submit&quot; class=&quot;btn btn--default &quot;&gt;Save changes&lt;/button&gt;
+  &lt;button type=&quot;submit&quot; class=&quot;btn btn--default btn--primary pull-right&quot;&gt;Save changes&lt;/button&gt;
+  &lt;button type=&quot;button&quot; class=&quot;btn btn--default btn--secondary&quot;&gt;Cancel&lt;/button&gt;
+&lt;/div&gt;</pre>
+                </div>
+            
+          
+            </section>
+          
+        
+          
+           <section class="kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">8.7</span> - Form Layouts</h1>
+          
+            
+                <div class="kss-box"></div>
+                <table class="kss-mod-list">
+                  <tr class="kss-mod-desc-group">
+                    <td class="kss-mod-desc"><p>Default styling</p></td>
+                    <td class="kss-mod-name"></td>
+                  </tr>
+                  <tr class="kss-mod-example">
+                    <td colspan="2"><form class="form {$modifiers}">
+  <div class="form__group">
+    <label class="form__label">Label</label>
+    <div class="form__controls">
+      <input type="text" placeholder="Type something…">
+    </div>
+  </div>
+  <div class="form__group">
+    <label class="form__label">Label</label>
+    <div class="form__controls">
+      <input type="text" placeholder="Type something…">
+    </div>
+  </div>
+  <div class="form__group">
+    <label class="form__label">Label</label>
+    <div class="form__controls">
+      <input type="text" placeholder="Type something…">
+    </div>
+  </div>
+  <div class="form__actions">
+    <button type="submit" class="btn btn--default ">Save changes</button>
+  </div>
+</form></td>
+                  </tr>
+                
+                  <tr class="kss-mod-desc-group">
+                    <td class="kss-mod-desc"><p>Grid aligned <code>.form__group</code> with support for responsive layout with <code>columns</code> mixin. Example of a responsive grid with 3 columns on desktop, 2 on tablets, and 1 on smartphones: <strong><a href="https://gist.github.com/raffone/6091448">Example code</a></strong></p>
+</td>
+                    <td class="kss-mod-name"><p>.form--grid</p></td>
+                  </tr>
+                  <tr class="kss-mod-example">
+                    <td colspan="2"><form class="form form--grid">
+  <div class="form__group">
+    <label class="form__label">Label</label>
+    <div class="form__controls">
+      <input type="text" placeholder="Type something…">
+    </div>
+  </div>
+  <div class="form__group">
+    <label class="form__label">Label</label>
+    <div class="form__controls">
+      <input type="text" placeholder="Type something…">
+    </div>
+  </div>
+  <div class="form__group">
+    <label class="form__label">Label</label>
+    <div class="form__controls">
+      <input type="text" placeholder="Type something…">
+    </div>
+  </div>
+  <div class="form__actions">
+    <button type="submit" class="btn btn--default ">Save changes</button>
+  </div>
+</form></td>
+                  </tr>
+                
+                  <tr class="kss-mod-desc-group">
+                    <td class="kss-mod-desc"><p>Right align labels and float them to the left to make them appear on the same line as controls.</p>
+</td>
+                    <td class="kss-mod-name"><p>.form--aligned</p></td>
+                  </tr>
+                  <tr class="kss-mod-example">
+                    <td colspan="2"><form class="form form--aligned">
+  <div class="form__group">
+    <label class="form__label">Label</label>
+    <div class="form__controls">
+      <input type="text" placeholder="Type something…">
+    </div>
+  </div>
+  <div class="form__group">
+    <label class="form__label">Label</label>
+    <div class="form__controls">
+      <input type="text" placeholder="Type something…">
+    </div>
+  </div>
+  <div class="form__group">
+    <label class="form__label">Label</label>
+    <div class="form__controls">
+      <input type="text" placeholder="Type something…">
+    </div>
+  </div>
+  <div class="form__actions">
+    <button type="submit" class="btn btn--default ">Save changes</button>
+  </div>
+</form></td>
+                  </tr>
+                
+                  <tr class="kss-mod-desc-group">
+                    <td class="kss-mod-desc"><p>For left-aligned labels and inline-block controls for a compact layout. This layout doesn&apos;t support <code>.form__group</code>, <code>.form__addon</code>, <code>.form__actions</code></p>
+</td>
+                    <td class="kss-mod-name"><p>.form--inline</p></td>
+                  </tr>
+                  <tr class="kss-mod-example">
+                    <td colspan="2"><form class="form form--inline">
+  <div class="form__group">
+    <label class="form__label">Label</label>
+    <div class="form__controls">
+      <input type="text" placeholder="Type something…">
+    </div>
+  </div>
+  <div class="form__group">
+    <label class="form__label">Label</label>
+    <div class="form__controls">
+      <input type="text" placeholder="Type something…">
+    </div>
+  </div>
+  <div class="form__group">
+    <label class="form__label">Label</label>
+    <div class="form__controls">
+      <input type="text" placeholder="Type something…">
+    </div>
+  </div>
+  <div class="form__actions">
+    <button type="submit" class="btn btn--default ">Save changes</button>
+  </div>
+</form></td>
+                  </tr>
+                
+                </table>
+                <div class="kss-markup">
+                  <pre class="prettyprint lang-html">&lt;form class=&quot;form {$modifiers}&quot;&gt;
+  &lt;div class=&quot;form__group&quot;&gt;
+    &lt;label class=&quot;form__label&quot;&gt;Label&lt;/label&gt;
+    &lt;div class=&quot;form__controls&quot;&gt;
+      &lt;input type=&quot;text&quot; placeholder=&quot;Type something…&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form__group&quot;&gt;
+    &lt;label class=&quot;form__label&quot;&gt;Label&lt;/label&gt;
+    &lt;div class=&quot;form__controls&quot;&gt;
+      &lt;input type=&quot;text&quot; placeholder=&quot;Type something…&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form__group&quot;&gt;
+    &lt;label class=&quot;form__label&quot;&gt;Label&lt;/label&gt;
+    &lt;div class=&quot;form__controls&quot;&gt;
+      &lt;input type=&quot;text&quot; placeholder=&quot;Type something…&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form__actions&quot;&gt;
+    &lt;button type=&quot;submit&quot; class=&quot;btn btn--default &quot;&gt;Save changes&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/form&gt;</pre>
+                </div>
+            
+          
+            </section>
+          
+        
+          
+           <section class="kss-depth-3">
+            <h1 class="kss-title"><span class="kss-ref">8.7.1</span> - Inline Form (semplified)</h1>
+          
+            
+                <div class="kss-box"><p>The inline layout can also be used width a samplified markup.</p>
+</div>
+                <table class="kss-mod-list">
+                  <tr class="kss-mod-desc-group">
+                    <td class="kss-mod-desc"><p>Default styling</p></td>
+                    <td class="kss-mod-name"></td>
+                  </tr>
+                  <tr class="kss-mod-example">
+                    <td colspan="2"><form class="form form--inline">
+  <label class="form__label">Label</label>
+  <input type="text" placeholder="Type something…">
+  <label class="form__label">Label</label>
+  <input type="text" placeholder="Type something…">
+  <label class="form__label">Label</label>
+  <input type="text" placeholder="Type something…">
+  <button type="submit" class="btn btn--default ">Save changes</button>
+</form></td>
+                  </tr>
+                
+                </table>
+                <div class="kss-markup">
+                  <pre class="prettyprint lang-html">&lt;form class=&quot;form form--inline&quot;&gt;
+  &lt;label class=&quot;form__label&quot;&gt;Label&lt;/label&gt;
+  &lt;input type=&quot;text&quot; placeholder=&quot;Type something…&quot;&gt;
+  &lt;label class=&quot;form__label&quot;&gt;Label&lt;/label&gt;
+  &lt;input type=&quot;text&quot; placeholder=&quot;Type something…&quot;&gt;
+  &lt;label class=&quot;form__label&quot;&gt;Label&lt;/label&gt;
+  &lt;input type=&quot;text&quot; placeholder=&quot;Type something…&quot;&gt;
+  &lt;button type=&quot;submit&quot; class=&quot;btn btn--default &quot;&gt;Save changes&lt;/button&gt;
+&lt;/form&gt;</pre>
+                </div>
+            
+          
+            </section>
+          
+        
+      
+    </article>
+  </div>
+  <footer>
+    
+  </footer>
+  <!-- SCRIPTS -->
+  <script src="public/kss.js"></script>
+  <script src="public/prettify.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      var sidebarAdjust = function() {
+        // Match footer/body height
+        var height = Math.max($(window).height(), $('#kss-main').height());
+
+        if ($(window).width() <= 768) {
+          $('#kss-main, #kss-nav').height('auto');
+        } else {
+          $('#kss-main, #kss-nav').height(height);
+        }
+      };
+
+      $(window).resize(sidebarAdjust);
+      $(window).scroll(sidebarAdjust);
+      sidebarAdjust();
+
+      // Ensure code blocks are highlighted properly...
+      $('pre>code').addClass('prettyprint');
+      prettyPrint();
+
+    });
+  </script>
+
+  
+  
+</div></body>
+</html>

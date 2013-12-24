@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <title>KSS: Living Styleguide</title>
+  <meta name="description" content="">
+  <meta name="generator" content="kss-node" />
+
+  <meta name="viewport" content="width=device-width">
+
+  <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="public/kss.css">
+  <link rel="stylesheet" href="public/style.css">
+
+</head>
+<body><div id="kss-wrapper">
+  <div id="kss-nav">
+    <header id="kss-header">
+      <hgroup><h1>kss-node Styleguide</h1></hgroup>
+    </header>
+    <aside>
+      <nav><ul>
+        <li><a href="index.html">0.0: Overview</a></li>
+        
+          <li><a href="section-1.html">1.0: Alerts</a></li>
+        
+          <li><a href="section-3.html">3.0: Buttons</a></li>
+        
+          <li><a href="section-4.html">4.0: Button Groups</a></li>
+        
+          <li><a href="section-5.html">5.0: Captions</a></li>
+        
+          <li><a href="section-6.html">6.0: Close buttons</a></li>
+        
+          <li><a href="section-7.html">7.0: Dropdowns</a></li>
+        
+          <li><a href="section-8.html">8.0: Forms</a></li>
+        
+          <li><a href="section-9.html">9.0: Grids</a></li>
+        
+          <li><a href="section-10.html">10.0: Badge &amp; Pills</a></li>
+        
+          <li><a href="section-11.html">11.0: Modals</a></li>
+        
+          <li><a href="section-12.html">12.0: Navs</a></li>
+        
+          <li><a href="section-13.html">13.0: Pager</a></li>
+        
+          <li><a href="section-14.html">14.0: Pagination</a></li>
+        
+          <li><a href="section-15.html">15.0: Responsive Navs</a></li>
+        
+          <li><a href="section-16.html">16.0: Sliders</a></li>
+        
+          <li><a href="section-17.html">17.0: Tables</a></li>
+        
+          <li><a href="section-18.html">18.0: Tabs</a></li>
+        
+          <li><a href="section-19.html">19.0: Type</a></li>
+        
+          <li><a href="section-20.html">20.0: Animations</a></li>
+        
+          <li><a href="section-21.html">21.0: Debug mode</a></li>
+        
+          <li><a href="section-22.html">22.0: Helper Classes</a></li>
+        
+          <li><a href="section-23.html">23.0: Mixins</a></li>
+        
+          <li><a href="section-24.html">24.0: Functions</a></li>
+        
+          <li><a href="section-25.html">25.0: Base Settings</a></li>
+        
+          <li><a href="section-26.html">26.0: Base Colors</a></li>
+        
+          <li><a href="section-27.html">27.0: Base Components</a></li>
+        
+          <li><a href="section-28.html">28.0: Base Dimensions</a></li>
+        
+          <li><a href="section-30.html">30.0: Default Styles</a></li>
+        
+      </ul></nav>
+    </aside>
+  </div>
+  <div role="main" id="kss-main">
+    <article id="kss-content">
+      
+
+        
+        
+          
+            <h1 class="kss-title"><span class="kss-ref">23.0</span> - Mixins</h1>
+          
+            
+                
+                  <p>Some of them are from Bootstrap, others are custom.</p>
+
+                
+            
+           
+        
+          
+           <section class="kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">23.1</span> - Create a rectangle</h1>
+          
+            
+                
+                  <pre><code>@include size($height, $width);</code></pre>
+<ul>
+<li><code>$height</code>: Height of the rectangle</li>
+<li><code>$width</code>: Width of the rectangle</li>
+</ul>
+
+                
+            
+          
+            </section>
+          
+        
+          
+           <section class="kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">23.2</span> - Create a square</h1>
+          
+            
+                
+                  <pre><code>@include square($size);</code></pre>
+<ul>
+<li><code>$size</code>: Dimension used both for width and height</li>
+</ul>
+
+                
+            
+          
+            </section>
+          
+        
+          
+           <section class="kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">23.3</span> - Position an element</h1>
+          
+            
+                
+                  <pre><code>@include position ($position, $coordinates);</code></pre>
+<ul>
+<li><code>$position</code>: fixed, relative, absolute</li>
+<li><code>$coordinates</code>: 0 = null, 0px or more is a value used in the css.</li>
+</ul>
+<p>Example:
+
+</p>
+<pre><code>@include position (absolute, 0 0px 0px 0);</code></pre>
+<p>Become:
+
+</p>
+<pre><code>position: absolute;
+right: 0px;
+bottom: 0px;</code></pre>
+
+                
+            
+          
+            </section>
+          
+        
+          
+           <section class="kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">23.4</span> - Center-block</h1>
+          
+            
+                
+                  <pre><code>@include center-block();</code></pre>
+<p>Become:
+
+</p>
+<pre><code>display: block;
+margin-left: auto;
+margin-right: auto;</code></pre>
+
+                
+            
+          
+            </section>
+          
+        
+          
+           <section class="kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">23.5</span> - Center</h1>
+          
+            
+                
+                  <p>Vertical and horizontal centering with absolute positioning, using the posiztion absolute and negative translate.
+
+</p>
+<pre><code>@include center();</code></pre>
+
+                
+            
+          
+            </section>
+          
+        
+          
+           <section class="kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">23.6</span> - Extend</h1>
+          
+            
+                
+                  <p>When using SASS syntax.
+
+</p>
+<pre><code>+e(classname)</code></pre>
+
+                
+            
+          
+            </section>
+          
+        
+          
+           <section class="kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">23.7</span> - Placeholder</h1>
+          
+            
+                
+                  <pre><code>@include placeholder($color);</code></pre>
+<ul>
+<li><code>$color</code>: Set color of the placeholder of an input.</li>
+</ul>
+
+                
+            
+          
+            </section>
+          
+        
+          
+           <section class="kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">23.8</span> - Text overflow</h1>
+          
+            
+                
+                  <p>Wrap text with ellipsis (modern browsers only).
+
+</p>
+<pre><code>@include text-overflow();</code></pre>
+<p>Become
+
+</p>
+<pre><code>overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;</code></pre>
+
+                
+            
+          
+            </section>
+          
+        
+          
+           <section class="kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">23.10</span> - Triangle with Borders</h1>
+          
+            
+                
+                  <p>Add a css-only triangle width side borders, usefull for tooltips. For now only side triangles with border are suported.
+
+</p>
+<pre><code>@include triangle_border($size, $color, $border-color, $border-width, $direction);</code></pre>
+<ul>
+<li><code>$size</code>: Same as <code>square</code></li>
+<li><code>$color</code>: Color of the triangle</li>
+<li><code>$border-color</code>: Border color of the triangle</li>
+<li><code>$border-width</code>: Border width of the triangle</li>
+<li><code>$direction</code>: left or right</li>
+</ul>
+
+                
+            
+          
+            </section>
+          
+        
+          
+           <section class="kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">23.11</span> - Text inset shadow</h1>
+          
+            
+                
+                  <pre><code>@include text-inset-shadow($bg, $textcolor, $contrast);</code></pre>
+<ul>
+<li><code>$bg</code>: Background color of the text</li>
+<li><code>$textcolor</code>: Color of the text</li>
+<li><code>$contrast</code>: How much stronger the inset will be</li>
+</ul>
+
+                
+            
+          
+            </section>
+          
+        
+          
+           <section class="kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">23.12</span> - Alpha Color</h1>
+          
+            
+                
+                  <p>Alpha color with ie full opacity fallback (for IE)
+
+</p>
+<pre><code>@include alpha-color($color, $alpha, $attribute);</code></pre>
+<ul>
+<li><code>$color</code>: Base HEX color</li>
+<li><code>$alpha</code>: Opacity</li>
+<li><code>$attribute</code>: On what attribute</li>
+</ul>
+<p>Example
+
+</p>
+<pre><code>@include alpha-color(#000, .5, color);</code></pre>
+<p>Become
+
+</p>
+<pre><code>color: #000;
+color: rgba(0,0,0,.5);</code></pre>
+
+                
+            
+          
+            </section>
+          
+        
+          
+           <section class="kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">23.13</span> - Keyframes support</h1>
+          
+            
+                
+                  <p>Used for creating custom animations.
+
+</p>
+<pre><code>@include keyframes($name);</code></pre>
+<ul>
+<li><code>$name</code>: Name of the keyframe</li>
+</ul>
+
+                
+            
+          
+            </section>
+          
+        
+          
+           <section class="kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">23.14</span> - Nav divider</h1>
+          
+            
+                
+                  <pre><code>@include nav-divider($top $bottom);</code></pre>
+<ul>
+<li><code>$top</code>: Color of the top border</li>
+<li><code>$bottom</code>: Color of the bottom border</li>
+</ul>
+
+                
+            
+          
+            </section>
+          
+        
+          
+           <section class="kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">23.15</span> - Comicbook Shadow</h1>
+          
+            
+                
+                  <pre><code>@include shadow-comicbook($padding, $color, $size, $distance);</code></pre>
+<ul>
+<li><code>$padding</code>: Border color</li>
+<li><code>$color</code>: Color of the shadow</li>
+<li><code>$size</code>: Size of the shadow</li>
+<li><code>$distance</code>: Distance of the shadow from the image</li>
+</ul>
+
+                
+            
+          
+            </section>
+          
+        
+          
+           <section class="kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">23.16</span> - Box Inset Shadow</h1>
+          
+            
+                
+                  <p>Usefull for adding inset shadows to sidebars or large block where the shadow is only on one side and full width/height.
+
+</p>
+<pre><code>@include inset-shadow($position, $size, $color);</code></pre>
+<ul>
+<li><code>$position</code>: top, right, bottom, left</li>
+<li><code>$size</code>: Size of the shadow</li>
+<li><code>$color</code>: Color of the shadow</li>
+</ul>
+
+                
+            
+          
+            </section>
+          
+        
+          
+           <section class="kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">23.17</span> - Side Shadow</h1>
+          
+            
+                
+                  <p>Add Side Shadows to multi-line padded text for consistend side padding (Fabien Doiron&apos;s box-shadow Method).
+
+</p>
+<pre><code>@include side-shadow($size, $color);</code></pre>
+<ul>
+<li><code>$size</code>: Size of the shadow</li>
+<li><code>$color</code>: Color of the shadow</li>
+</ul>
+
+                
+            
+          
+            </section>
+          
+        
+          
+           <section class="kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">23.19</span> - Media Queries</h1>
+          
+            
+                
+                  <p>Add media queries to css width simple naming convention.
+
+</p>
+<pre><code>@include media(&lt;$media&gt;) {...};</code></pre>
+<p>You can set the start/and with of each step from usins the variables <code>$lap-start</code>, <code>$desk-start</code>, <code>$desk-end</code>.
+
+</p>
+<ul>
+<li><code>$media</code>:<ul>
+<li><code>palm</code>: Only Palm</li>
+<li><code>lap</code>:  Only Lap</li>
+<li><code>lap-and-up</code>: Lap + Desktop</li>
+<li><code>portable</code>: Lap + Palm</li>
+<li><code>desk</code>: Only Desktop</li>
+</ul>
+</li>
+</ul>
+
+                
+            
+          
+            </section>
+          
+        
+          
+           <section class="kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">23.20</span> - .png&quot;;</h1>
+          
+            
+                
+                  <p>Then add you have two options:
+
+</p>
+<p>Add the sprite in the html with (where <code>icon_name</code> is the filename of the icon). .s` is the standard class the must be used with all sprites images.
+
+</p>
+<pre><code>&lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;s icons-icon_name&quot;&gt;&lt;/i&gt; Link&lt;/a&gt;</code></pre>
+<p>Or via <code>@include</code> from the scss:
+
+</p>
+<pre><code>a:before {
+    @include sprite(icon_name)
+}</code></pre>
+<p>The result is the same.</p>
+
+                
+            
+          
+            </section>
+          
+        
+          
+           <section class="kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">23.21</span> - Responsive grid</h1>
+          
+            
+                
+                  <pre><code>@include columns ($cols, $cols-container, $omega, $nth-omega, $remove-omega, $from, $media, $highlight-omega);</code></pre>
+<ul>
+<li><code>$cols</code>: How many columns</li>
+<li><code>$cols-container</code>: Columns of the container (default: $total-columns)</li>
+<li><code>$omega</code>: Bolean, us if is the last column</li>
+<li><code>$nth-omega</code>: If is a multi-row grid list use nth to apply omega to each element at the end of each row (example: <code>3n</code> to use omega every 3th element )</li>
+<li><code>$remove-omega</code>: Remove omega on previously applied omega (ignore it)</li>
+<li><code>$from</code>: Direction, left or right</li>
+<li><code>$media</code>: Media query to to use, for responsive grids</li>
+<li><code>$highlight-omega</code>: Bolean, used for debugging nth</li>
+</ul>
+
+                
+            
+          
+            </section>
+          
+        
+      
+    </article>
+  </div>
+  <footer>
+    
+  </footer>
+  <!-- SCRIPTS -->
+  <script src="public/kss.js"></script>
+  <script src="public/prettify.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      var sidebarAdjust = function() {
+        // Match footer/body height
+        var height = Math.max($(window).height(), $('#kss-main').height());
+
+        if ($(window).width() <= 768) {
+          $('#kss-main, #kss-nav').height('auto');
+        } else {
+          $('#kss-main, #kss-nav').height(height);
+        }
+      };
+
+      $(window).resize(sidebarAdjust);
+      $(window).scroll(sidebarAdjust);
+      sidebarAdjust();
+
+      // Ensure code blocks are highlighted properly...
+      $('pre>code').addClass('prettyprint');
+      prettyPrint();
+
+    });
+  </script>
+
+  
+  
+</div></body>
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <title>KSS: Living Styleguide</title>
+  <meta name="description" content="">
+  <meta name="generator" content="kss-node" />
+
+  <meta name="viewport" content="width=device-width">
+
+  <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="public/kss.css">
+  <link rel="stylesheet" href="public/style.css">
+
+</head>
+<body><div id="kss-wrapper">
+  <div id="kss-nav">
+    <header id="kss-header">
+      <hgroup><h1>kss-node Styleguide</h1></hgroup>
+    </header>
+    <aside>
+      <nav><ul>
+        <li><a href="index.html">0.0: Overview</a></li>
+        
+          <li><a href="section-1.html">1.0: Alerts</a></li>
+        
+          <li><a href="section-3.html">3.0: Buttons</a></li>
+        
+          <li><a href="section-4.html">4.0: Button Groups</a></li>
+        
+          <li><a href="section-5.html">5.0: Captions</a></li>
+        
+          <li><a href="section-6.html">6.0: Close buttons</a></li>
+        
+          <li><a href="section-7.html">7.0: Dropdowns</a></li>
+        
+          <li><a href="section-8.html">8.0: Forms</a></li>
+        
+          <li><a href="section-9.html">9.0: Grids</a></li>
+        
+          <li><a href="section-10.html">10.0: Badge &amp; Pills</a></li>
+        
+          <li><a href="section-11.html">11.0: Modals</a></li>
+        
+          <li><a href="section-12.html">12.0: Navs</a></li>
+        
+          <li><a href="section-13.html">13.0: Pager</a></li>
+        
+          <li><a href="section-14.html">14.0: Pagination</a></li>
+        
+          <li><a href="section-15.html">15.0: Responsive Navs</a></li>
+        
+          <li><a href="section-16.html">16.0: Sliders</a></li>
+        
+          <li><a href="section-17.html">17.0: Tables</a></li>
+        
+          <li><a href="section-18.html">18.0: Tabs</a></li>
+        
+          <li><a href="section-19.html">19.0: Type</a></li>
+        
+          <li><a href="section-20.html">20.0: Animations</a></li>
+        
+          <li><a href="section-21.html">21.0: Debug mode</a></li>
+        
+          <li><a href="section-22.html">22.0: Helper Classes</a></li>
+        
+          <li><a href="section-23.html">23.0: Mixins</a></li>
+        
+          <li><a href="section-24.html">24.0: Functions</a></li>
+        
+          <li><a href="section-25.html">25.0: Base Settings</a></li>
+        
+          <li><a href="section-26.html">26.0: Base Colors</a></li>
+        
+          <li><a href="section-27.html">27.0: Base Components</a></li>
+        
+          <li><a href="section-28.html">28.0: Base Dimensions</a></li>
+        
+          <li><a href="section-30.html">30.0: Default Styles</a></li>
+        
+      </ul></nav>
+    </aside>
+  </div>
+  <div role="main" id="kss-main">
+    <article id="kss-content">
+      
+
+        
+        
+          
+            <h1 class="kss-title"><span class="kss-ref">28.0</span> - Base Dimensions</h1>
+          
+            
+                
+                  <pre><code>$base-border-radius:            4px     # Border radius used as a standard on all elements.
+$horizontal-offset:             180px   # Labels width in horizontal forms.</code></pre>
+
+                
+            
+           
+        
+          
+           <section class="kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">28.1</span> - Text Size</h1>
+          
+            
+                
+                  <p>Font sizes you can used with the compass mixin <code>adjust-font-size-to()</code>. Naming convention from <a href="http://inuitcss.com/">Inuit</a>.
+
+</p>
+<pre><code>$giga-size:                     $base-font-size * 7     # 98px
+$mega-size:                     $base-font-size * 5     # 70px
+$kilo-size:                     $base-font-size * 3.5   # 49px
+
+$h1-size:                       $base-font-size * 2.5   # 35px
+$h2-size:                       $base-font-size * 2     # 28px
+$h3-size:                       $base-font-size * 1.85  # 26px
+$h4-size:                       $base-font-size * 1.5   # 21px
+$h5-size:                       $base-font-size * 1.25  # 17.5px
+$h6-size:                       $base-font-size * 1     # 14px
+
+$milli-size:                    $base-font-size * .85   # 12px
+$micro-size:                    $base-font-size * .7    # 10px</code></pre>
+
+                
+            
+          
+            </section>
+          
+        
+          
+           <section class="kss-depth-3">
+            <h1 class="kss-title"><span class="kss-ref">28.1.1</span> - Line-Height</h1>
+          
+            
+                
+                  <p>By default all titles have a line-height based on the font-size, to ensure that it will allways respect the vertical rhythm.
+Sometimes this result is not what we expect/want so it&apos;s possible to override the default proportion width these.
+
+</p>
+<p>These values mean: X times the base line-height.
+
+</p>
+<pre><code>$h1-line-height:                2
+$h2-line-height:                2
+$h3-line-height:                2
+$h4-line-height:                1.5
+$h5-line-height:                1.5
+$h6-line-height:                1.5</code></pre>
+
+                
+            
+          
+            </section>
+          
+        
+          
+           <section class="kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">28.2</span> - Forms</h1>
+          
+            
+                
+                  <p>Base padding and margins used in the forms.
+
+</p>
+<pre><code>$control-margin-bottom:         $base-line-height
+$label-margin-bottom:           10px    # Margin below labels
+$input-border:                  1px     # Border width used for inputs and buttons
+$input-padding-top:             10px    # Base top padding
+$input-padding-side:            10px    # Base side padding
+$checkbox-padding-left:         20px    # Side padding used for checkboxes and radios</code></pre>
+
+                
+            
+          
+            </section>
+          
+        
+          
+           <section class="kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">28.3</span> - Paddings</h1>
+          
+            
+                
+                  <p>Padding specific to every component you can use to overwrite the base padding.
+
+</p>
+<p>Helper classes
+
+</p>
+<pre><code>$wrapper-padding:               em(20px)    # Side padding used with .w and .wrapper</code></pre>
+<p>Buttons
+
+</p>
+<pre><code>$btn-padding:                   $input-padding  # Buttons padding
+$btn-large-padding:             em($input-padding-top * 1) em($input-padding-side * 1.5)
+$btn-small-padding:             em($input-padding-top * .5) em($input-padding-side * .8)
+$btn-mini-padding:              em($input-padding-top * .1) em($input-padding-side * .6)</code></pre>
+<p>Components
+
+</p>
+<pre><code>$alerts-padding:                $input-padding  # Alerts padding
+$captions-padding:              $input-padding  # Captions padding
+$dropdowns-padding:             $input-padding  # Dropdowns padding
+$modals-error-padding:          $input-padding  # Modals padding
+$navs-padding:                  $input-padding  # Navs padding
+$pager-padding:                 $input-padding  # Pager padding
+$pagination-padding:            $input-padding  # Pagination padding
+$pills-padding:                 .15em .35em     # Pills padding
+$tables-padding:                $input-padding  # Tables padding
+$tabs-content-padding:          $input-padding  # Tabs padding
+$tabs-tab-padding:              $input-padding  # Tabs padding</code></pre>
+
+                
+            
+          
+            </section>
+          
+        
+          
+           <section class="kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">28.4</span> - Sizes</h1>
+          
+            
+                
+                  <pre><code>$loader-ico-size:               44px        # Icon size of the loader used with some componets
+$modal-btn-size:                em(30px)    # Size of buttons used with the modals
+$slider-btn-size:               em(30px)    # Size of buttons used with the sliders</code></pre>
+
+                
+            
+          
+            </section>
+          
+        
+          
+           <section class="kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">28.5</span> - Heights</h1>
+          
+            
+                
+                  <p>Some elements need to have a max-height specified for smoother animations, like dropdowns:
+
+</p>
+<pre><code>$dropdowns-height:              em(600px);</code></pre>
+
+                
+            
+          
+            </section>
+          
+        
+          
+           <section class="kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">28.6</span> - Media Queries</h1>
+          
+            
+                
+                  <p>Set the width of the three steps of the layout.
+
+</p>
+<pre><code>$lap-start:                     481px   # Max width of smartphone
+$desk-start:                    768px   # Max width for tablet
+$desk-end:                      1080px  # Max width for desktop</code></pre>
+
+                
+            
+          
+            </section>
+          
+        
+          
+           <section class="kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">28.7</span> - Grid (Susy)</h1>
+          
+            
+                
+                  <p>Default settings for susy grid. More info: <a href="http://susy.oddbird.net/">Susy</a>.
+
+</p>
+<pre><code>$total-columns:                 12      # Number of columns
+$column-width:                  50px    # Columns width
+$gutter-width:                  30px    # Gutter width
+$container-style:               fluid   # Grid style</code></pre>
+
+                
+            
+          
+            </section>
+          
+        
+          
+           <section class="kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">28.8</span> - Nav Responsive Options</h1>
+          
+            
+                
+                  <pre><code>$navs-responsive-breakpoint:        palm    # On what step to switch to the responsive nav
+$navs-responsive-type:              slide   # Responsive nav style: slide or off-canvas
+$navs-responsive-dropdown-pos:      right   # Position of the button to open the nav
+$navs-responsive-offset:            70%     # How mutch to slide when using off-canvas
+
+$navs-responsive-outside-wrapper:   &apos;.external-wrapper&apos;
+$navs-responsive-inside-wrapper:    &apos;.internal-wrapper&apos;</code></pre>
+
+                
+            
+          
+            </section>
+          
+        
+          
+           <section class="kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">28.9</span> - Z-index</h1>
+          
+            
+                
+                  <p>Default settings for overlay components, taken from Bootstrap.
+
+</p>
+<pre><code>$zindex-dropdown:               1000    # Dropdowns
+$zindex-popover:                1010    # Popovers
+$zindex-tooltip:                1030    # Tooltips
+$zindex-slider:                 1040    # Sliders
+$zindex-modal:                  1050    # Modals</code></pre>
+
+                
+            
+          
+            </section>
+          
+        
+      
+    </article>
+  </div>
+  <footer>
+    
+  </footer>
+  <!-- SCRIPTS -->
+  <script src="public/kss.js"></script>
+  <script src="public/prettify.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      var sidebarAdjust = function() {
+        // Match footer/body height
+        var height = Math.max($(window).height(), $('#kss-main').height());
+
+        if ($(window).width() <= 768) {
+          $('#kss-main, #kss-nav').height('auto');
+        } else {
+          $('#kss-main, #kss-nav').height(height);
+        }
+      };
+
+      $(window).resize(sidebarAdjust);
+      $(window).scroll(sidebarAdjust);
+      sidebarAdjust();
+
+      // Ensure code blocks are highlighted properly...
+      $('pre>code').addClass('prettyprint');
+      prettyPrint();
+
+    });
+  </script>
+
+  
+  
+</div></body>
+</html>

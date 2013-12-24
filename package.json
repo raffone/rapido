@@ -1,0 +1,12 @@
+{
+  "name": "rapido-css",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-compass": "~0.5.0",
+    "grunt-styleguide": "~0.2.13",
+    "grunt-kss": "~0.2.4"
+  },
+  "version": "0.0.1",
+  "main": "Gruntfile.js",
+  "author": "Raffaele Rasini"
+}

@@ -1,0 +1,5365 @@
+@charset "UTF-8";
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+  display: block; }
+
+audio, canvas, video {
+  display: inline-block; }
+
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+[hidden] {
+  display: none; }
+
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0; }
+
+a:focus {
+  outline: thin dotted; }
+
+a:active, a:hover {
+  outline: 0; }
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0; }
+
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+b, strong {
+  font-weight: bold; }
+
+dfn {
+  font-style: italic; }
+
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0; }
+
+mark {
+  background: #ff0;
+  color: #000; }
+
+code, kbd, pre, samp {
+  font-family: monospace, serif;
+  font-size: 1em; }
+
+pre {
+  white-space: pre-wrap; }
+
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019"; }
+
+small {
+  font-size: 80%; }
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+img {
+  border: 0; }
+
+svg:not(:root) {
+  overflow: hidden; }
+
+figure {
+  margin: 0; }
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em; }
+
+legend {
+  border: 0;
+  padding: 0; }
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0; }
+
+button, input {
+  line-height: normal; }
+
+button, select {
+  text-transform: none; }
+
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer; }
+
+button[disabled], html input[disabled] {
+  cursor: default; }
+
+input[type="checkbox"], input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0; }
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box; }
+
+input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+textarea {
+  overflow: auto;
+  vertical-align: top; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* ====================================================================================================================
+
+Functions
+
+For 99% of the framework I used Compass' and Susy's functions but I've made some for covering edge cases.
+
+Styleguide 24
+
+==================================================================================================================== */
+/* --------------------------------------------------------------------------------------------------------------------
+
+neg()
+
+Convert a value to negative.
+
+Example:
+
+	left: neg(10em);
+
+Become:
+
+	left: -10em
+
+Styleguide 24.2
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+rhythm_neg()
+
+Create a negative `rhythm()` value. More info about the rhythm function: [
+Vertical Rhythm](http://compass-style.org/reference/compass/typography/vertical_rhythm/#function-rhythm).
+
+Example:
+
+	margin-left: rhythm_neg(1);
+
+Become:
+
+	margin-left: -1.42857em;
+
+Styleguide 24.3
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+space_neg()
+
+Similar to `rhythm_neg()` but for Susy's `space()` function, more info:
+[Susy Reference](http://susy.oddbird.net/guides/reference/#ref-space).
+
+Styleguide 24.4
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* ====================================================================================================================
+
+Base Settings
+
+Styleguide 25
+
+==================================================================================================================== */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Debug Mode
+
+    $debug-mode:                        false   # Enable debug mode
+    $default-styles:                    true    # Use default styles in _default-styles.scss
+
+Styleguide 25.1
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Text body size
+
+    $base-font-size:                    14px    # Default text size to use on body text
+    $base-line-height:                  $base-font-size * 1.5     # Default line-height
+    $round-to-nearest-half-line:        true    # Round the line height for the adjust-font-size-to mixin
+
+Change text size with media query. On media query `lap-and-up` (tablet and desktop) use the default text size,
+on `palm` (smartphone) change the base size to 16px, it will be automatically converted to percentage to mantain em proportions.
+
+    $responsive-font-size:              lap-and-up $base-font-size, palm 16px
+
+Styleguide 25.2
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Font families
+
+    $font-sans:                         "Helvetica Neue", Helvetica, Arial, sans-serif
+    $font-serif:                        Georgia, "Times New Roman", Times, serif
+    $font-mono:                         Monaco, Menlo, Consolas, "Courier New", monospace
+
+    $base-font-family:                  $font-sans  # Default font family for body text
+    $titles-font-family:                $font-sans  # Default font family for titles
+
+Styleguide 25.3
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+em()
+
+To convert `PX` to `EM` using the `$base-font-size` as font size.
+
+	width: em(20px);
+
+Styleguide 24.1
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* ====================================================================================================================
+
+Base Colors
+
+Used for scaffolding
+
+    $black:                             #000
+    $grayDarker:                        lighten($black, 15)
+    $grayDark:                          lighten($black, 30)
+    $gray:                              lighten($black, 60)
+    $grayLight:                         lighten($black, 85)
+    $grayLighter:                       lighten($black, 95)
+    $white:                             #fff
+
+Styleguide 26
+
+==================================================================================================================== */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Default colors
+
+    $text-color:                        #333
+
+    $link-color:                        #0066cc
+    $link-color-hover:                  darken($link-color, 10%)
+
+Styleguide 26.1
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* ====================================================================================================================
+
+Base Dimensions
+
+    $base-border-radius:            4px     # Border radius used as a standard on all elements.
+    $horizontal-offset:             180px   # Labels width in horizontal forms.
+
+Styleguide 28
+
+==================================================================================================================== */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Text Size
+
+Font sizes you can used with the compass mixin `adjust-font-size-to()`. Naming convention from [Inuit](http://inuitcss.com/).
+
+    $giga-size:                     $base-font-size * 7     # 98px
+    $mega-size:                     $base-font-size * 5     # 70px
+    $kilo-size:                     $base-font-size * 3.5   # 49px
+
+    $h1-size:                       $base-font-size * 2.5   # 35px
+    $h2-size:                       $base-font-size * 2     # 28px
+    $h3-size:                       $base-font-size * 1.85  # 26px
+    $h4-size:                       $base-font-size * 1.5   # 21px
+    $h5-size:                       $base-font-size * 1.25  # 17.5px
+    $h6-size:                       $base-font-size * 1     # 14px
+
+    $milli-size:                    $base-font-size * .85   # 12px
+    $micro-size:                    $base-font-size * .7    # 10px
+
+Styleguide 28.1
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Line-Height
+
+By default all titles have a line-height based on the font-size, to ensure that it will allways respect the vertical rhythm.
+Sometimes this result is not what we expect/want so it's possible to override the default proportion width these.
+
+These values mean: X times the base line-height.
+
+    $h1-line-height:                2
+    $h2-line-height:                2
+    $h3-line-height:                2
+    $h4-line-height:                1.5
+    $h5-line-height:                1.5
+    $h6-line-height:                1.5
+
+Styleguide 28.1.1
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Forms
+
+Base padding and margins used in the forms.
+
+    $control-margin-bottom:         $base-line-height
+    $label-margin-bottom:           10px    # Margin below labels
+    $input-border:                  1px     # Border width used for inputs and buttons
+    $input-padding-top:             10px    # Base top padding
+    $input-padding-side:            10px    # Base side padding
+    $checkbox-padding-left:         20px    # Side padding used for checkboxes and radios
+
+Styleguide 28.2
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Paddings
+
+Padding specific to every component you can use to overwrite the base padding.
+
+Helper classes
+
+    $wrapper-padding:               em(20px)    # Side padding used with .w and .wrapper
+
+Buttons
+
+    $btn-padding:                   $input-padding  # Buttons padding
+    $btn-large-padding:             em($input-padding-top * 1) em($input-padding-side * 1.5)
+    $btn-small-padding:             em($input-padding-top * .5) em($input-padding-side * .8)
+    $btn-mini-padding:              em($input-padding-top * .1) em($input-padding-side * .6)
+
+Components
+
+    $alerts-padding:                $input-padding  # Alerts padding
+    $captions-padding:              $input-padding  # Captions padding
+    $dropdowns-padding:             $input-padding  # Dropdowns padding
+    $modals-error-padding:          $input-padding  # Modals padding
+    $navs-padding:                  $input-padding  # Navs padding
+    $pager-padding:                 $input-padding  # Pager padding
+    $pagination-padding:            $input-padding  # Pagination padding
+    $pills-padding:                 .15em .35em     # Pills padding
+    $tables-padding:                $input-padding  # Tables padding
+    $tabs-content-padding:          $input-padding  # Tabs padding
+    $tabs-tab-padding:              $input-padding  # Tabs padding
+
+Styleguide 28.3
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Sizes
+
+    $loader-ico-size:               44px        # Icon size of the loader used with some componets
+    $modal-btn-size:                em(30px)    # Size of buttons used with the modals
+    $slider-btn-size:               em(30px)    # Size of buttons used with the sliders
+
+Styleguide 28.4
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Heights
+
+Some elements need to have a max-height specified for smoother animations, like dropdowns:
+
+    $dropdowns-height:              em(600px);
+
+Styleguide 28.5
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Media Queries
+
+Set the width of the three steps of the layout.
+
+    $lap-start:                     481px   # Max width of smartphone
+    $desk-start:                    768px   # Max width for tablet
+    $desk-end:                      1080px  # Max width for desktop
+
+Styleguide 28.6
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Grid (Susy)
+
+Default settings for susy grid. More info: [Susy](http://susy.oddbird.net/).
+
+    $total-columns:                 12      # Number of columns
+    $column-width:                  50px    # Columns width
+    $gutter-width:                  30px    # Gutter width
+    $container-style:               fluid   # Grid style
+
+Styleguide 28.7
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Nav Responsive Options
+
+    $navs-responsive-breakpoint:        palm    # On what step to switch to the responsive nav
+    $navs-responsive-type:              slide   # Responsive nav style: slide or off-canvas
+    $navs-responsive-dropdown-pos:      right   # Position of the button to open the nav
+    $navs-responsive-offset:            70%     # How mutch to slide when using off-canvas
+
+    $navs-responsive-outside-wrapper:   '.external-wrapper'
+    $navs-responsive-inside-wrapper:    '.internal-wrapper'
+
+Styleguide 28.8
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Z-index
+
+Default settings for overlay components, taken from Bootstrap.
+
+    $zindex-dropdown:               1000    # Dropdowns
+    $zindex-popover:                1010    # Popovers
+    $zindex-tooltip:                1030    # Tooltips
+    $zindex-slider:                 1040    # Sliders
+    $zindex-modal:                  1050    # Modals
+
+Styleguide 28.9
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* ====================================================================================================================
+
+Base Components
+
+Enable or disable components, so you can have in the css only what you need.
+
+    $alerts:                        true   # components/_alerts.scss
+    $breadcrumbs:                   true   # components/_breadcrumbs.scss
+    $button-groups:                 true   # components/_button-group.scss
+    $buttons:                       true   # components/_buttons.scss
+    $captions:                      true   # components/_captions.scss
+    $close:                         true   # components/_close.scss
+    $dropdowns:                     true   # components/_dropdowns.scss
+    $forms:                         true   # components/_forms.scss
+    $forms-aligned:                 true   # components/_forms.scss
+    $forms-append:                  true   # components/_forms.scss
+    $forms-grid:                    true   # components/_forms.scss
+    $forms-inline:                  true   # components/_forms.scss
+    $grids:                         true   # components/_grids.scss
+    $grids-helpers:                 true   # components/_grids.scss
+    $labels:                        true   # components/_labels.scss
+    $modal:                         true   # components/_modal.scss
+    $modal-buttons:                 true   # components/_modal.scss
+    $modal-thumbs:                  true   # components/_modal.scss
+    $navs-responsive:               true   # components/_navs-responsiv.scss
+    $navs:                          true   # components/_navs.scss
+    $pager:                         true   # components/_pager.scss
+    $pagination:                    true   # components/_pagination.scss
+    $slider:                        true   # components/_slider.scss
+    $sprites:                       true   # components/_sprites.scss
+    $tables:                        true   # components/_tables.scss
+    $tabs:                          true   # components/_tabs.scss
+
+    $width-helper-classes:          true   # "Elements width" helper class
+
+Styleguide 27
+
+==================================================================================================================== */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Sprites
+
+    $s-sprite-dimensions:           true;
+    $s-layout:                      smart;
+
+Styleguide 22.5
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Icon Fonts
+
+Icon Fonts ready to use with the mixin `icon-font`.
+Font files are not required, is used the [We Love Icon Fonts](http://weloveiconfonts.com/) CDN.
+
+    $use-fontawesome:               true    # http://fortawesome.github.io/Font-Awesome/
+
+    $use-brandico:                  false   # http://fontello.github.io/brandico.font/demo.html
+    $use-entypo:                    false   # http://www.entypo.com/
+    $use-fontelico:                 false   # https://github.com/fontello/fontelico.font
+    $use-maki:                      false   # http://www.mapbox.com/maki/
+    $use-openweb-icons:             false   # http://pfefferle.github.io/openwebicons/
+    $use-typicons:                  false   # http://typicons.com/
+    $use-zocial:                    false   # http://zocial.smcllns.com/
+
+Styleguide 27.1
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* ====================================================================================================================
+
+Mixins
+
+Some of them are from Bootstrap, others are custom.
+
+Styleguide 23
+
+==================================================================================================================== */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Create a rectangle
+
+	@include size($height, $width);
+
+* `$height`: Height of the rectangle
+* `$width`: Width of the rectangle
+
+Styleguide 23.1
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Create a square
+
+	@include square($size);
+
+* `$size`: Dimension used both for width and height
+
+Styleguide 23.2
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Position an element
+
+	@include position ($position, $coordinates);
+
+* `$position`: fixed, relative, absolute
+* `$coordinates`: 0 = null, 0px or more is a value used in the css.
+
+Example:
+
+	@include position (absolute, 0 0px 0px 0);
+
+Become:
+
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+
+Styleguide 23.3
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Center-block
+
+	@include center-block();
+
+Become:
+
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+
+Styleguide 23.4
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Center
+
+Vertical and horizontal centering with absolute positioning, using the posiztion absolute and negative translate.
+
+	@include center();
+
+Styleguide 23.5
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Extend
+
+When using SASS syntax.
+
+	+e(classname)
+
+Styleguide 23.6
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Placeholder
+
+	@include placeholder($color);
+
+* `$color`: Set color of the placeholder of an input.
+
+Styleguide 23.7
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Text overflow
+
+Wrap text with ellipsis (modern browsers only).
+
+	@include text-overflow();
+
+Become
+
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+
+Styleguide 23.8
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Triangle
+
+Create a css-only triangle.
+
+	@include triangle($size, $color, $direction);
+
+* `$size`: Width of the triangle
+* `$color`: Color of the triangle
+* `$direction`: There are available up, up-right, right, down-right, down, down-left, left, up-left
+
+Styleguide 23.9
+
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Triangle with Borders
+
+Add a css-only triangle width side borders, usefull for tooltips. For now only side triangles with border are suported.
+
+	@include triangle_border($size, $color, $border-color, $border-width, $direction);
+
+* `$size`: Same as `square`
+* `$color`: Color of the triangle
+* `$border-color`: Border color of the triangle
+* `$border-width`: Border width of the triangle
+* `$direction`: left or right
+
+Styleguide 23.10
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Text inset shadow
+
+	@include text-inset-shadow($bg, $textcolor, $contrast);
+
+* `$bg`: Background color of the text
+* `$textcolor`: Color of the text
+* `$contrast`: How much stronger the inset will be
+
+Styleguide 23.11
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Alpha Color
+
+Alpha color with ie full opacity fallback (for IE)
+
+	@include alpha-color($color, $alpha, $attribute);
+
+* `$color`: Base HEX color
+* `$alpha`: Opacity
+* `$attribute`: On what attribute
+
+Example
+
+	@include alpha-color(#000, .5, color);
+
+Become
+
+	color: #000;
+	color: rgba(0,0,0,.5);
+
+Styleguide 23.12
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Keyframes support
+
+Used for creating custom animations.
+
+	@include keyframes($name);
+
+* `$name`: Name of the keyframe
+
+Styleguide 23.13
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Nav divider
+
+	@include nav-divider($top $bottom);
+
+* `$top`: Color of the top border
+* `$bottom`: Color of the bottom border
+
+Styleguide 23.14
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Comicbook Shadow
+
+	@include shadow-comicbook($padding, $color, $size, $distance);
+
+* `$padding`: Border color
+* `$color`: Color of the shadow
+* `$size`: Size of the shadow
+* `$distance`: Distance of the shadow from the image
+
+Styleguide 23.15
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Box Inset Shadow
+
+Usefull for adding inset shadows to sidebars or large block where the shadow is only on one side and full width/height.
+
+	@include inset-shadow($position, $size, $color);
+
+* `$position`: top, right, bottom, left
+* `$size`: Size of the shadow
+* `$color`: Color of the shadow
+
+Styleguide 23.16
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Side Shadow
+
+Add Side Shadows to multi-line padded text for consistend side padding (Fabien Doiron's box-shadow Method).
+
+	@include side-shadow($size, $color);
+
+* `$size`: Size of the shadow
+* `$color`: Color of the shadow
+
+Styleguide 23.17
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Icon Fonts
+
+Use the unicode character from an icon font to insert it wherever you want.
+
+	@include icon-font($char, $font);
+
+* `$char`: Unicode of the character †
+* `$font`: What font to use ‡
+
+† For example for: `&#xf000` use `xf000`
+
+‡ Fonts available: Fontawesome, Brandico, Entypo, Fontelico, Maki, Openweb-icons, Typicons, Zocial
+
+
+Styleguide 23.18
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Media Queries
+
+Add media queries to css width simple naming convention.
+
+    @include media(<$media>) {...};
+
+You can set the start/and with of each step from usins the variables `$lap-start`, `$desk-start`, `$desk-end`.
+
+* `$media`:
+	* `palm`: Only Palm
+	* `lap`:  Only Lap
+	* `lap-and-up`: Lap + Desktop
+	* `portable`: Lap + Palm
+	* `desk`: Only Desktop
+
+Styleguide 23.19
+
+-------------------------------------------------------------------------------------------------------------------- */
+	              /* --------------------------------------------------------------------------------------------------------------------
+
+Sprites
+
+Rapido use the compass' [Sprites Mixin](http://compass-style.org/help/tutorials/spriting/) that make including sprites easily both in the html and directly in the css,
+for more info see the full documentation from the link.
+
+First you need to add to your scss file an import to import all of the seperate icons that will be compiled in a single image.
+For example if you have a folder named `icons` inside the main `images` folder add this line:
+
+	@import "icons/*.png";
+
+Then add you have two options:
+
+Add the sprite in the html with (where `icon_name` is the filename of the icon). .s` is the standard class the must be used with all sprites images.
+
+	<a href="#"><i class="s icons-icon_name"></i> Link</a>
+
+Or via `@include` from the scss:
+
+	a:before {
+		@include sprite(icon_name)
+	}
+
+The result is the same.
+
+Styleguide 23.20
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Responsive grid
+
+	@include columns ($cols, $cols-container, $omega, $nth-omega, $remove-omega, $from, $media, $highlight-omega);
+
+* `$cols`: How many columns
+* `$cols-container`: Columns of the container (default: $total-columns)
+* `$omega`: Bolean, us if is the last column
+* `$nth-omega`: If is a multi-row grid list use nth to apply omega to each element at the end of each row (example: `3n` to use omega every 3th element )
+* `$remove-omega`: Remove omega on previously applied omega (ignore it)
+* `$from`: Direction, left or right
+* `$media`: Media query to to use, for responsive grids
+* `$highlight-omega`: Bolean, used for debugging nth
+
+Styleguide 23.21
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* ====================================================================================================================
+
+Helper Classes
+
+There are provided some helper classes usually used with `@extend` for applying effects or common styles.
+
+Styleguide 22.
+
+==================================================================================================================== */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Generic
+
+Add a a simple `transition all`, used as a generic extend for element that can accept transition on all attributes.
+    .transition
+Simple divider class used in some components (like dropdowns).␣␣
+    .divider
+
+Styleguide 22.1
+
+-------------------------------------------------------------------------------------------------------------------- */
+.clearfix:after, .wrapper:after, .w:after, .fixed-wrapper:after, .fw:after, .dl-horizontal:after, form:after, .form__controls:after, .form__actions:after, .btn-group:after, .nav:after, .nav > ul:after, .pagination > :after {
+  content: "";
+  display: table;
+  clear: both; }
+
+.transition {
+  -webkit-transition: all 0.15s ease-out;
+  -moz-transition: all 0.15s ease-out;
+  -o-transition: all 0.15s ease-out;
+  transition: all 0.15s ease-out; }
+
+.divider {
+  *width: 100%;
+  height: 1px;
+  overflow: hidden;
+  background-color: #e5e5e5; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Wrappers
+
+Flexible wrapper to center the layout, max-width width `$desk-end`.
+
+    .wrapper
+    .w
+
+Same a `.wrapper` but with fixed width.
+
+    .fixed-wrapper
+    .fw
+
+Styleguide 22.2
+
+-------------------------------------------------------------------------------------------------------------------- */
+.wrapper, .w {
+  margin: 0 auto;
+  max-width: 1080px;
+  padding-left: 1.42857em;
+  padding-right: 1.42857em; }
+
+.fixed-wrapper, .fw {
+  margin: 0 auto;
+  width: 1080px; }
+
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Elements width
+
+Add `data-width="n"` to any html element to set the width.
+
+    [data-width="n"]
+
+* **n**: Width in percentage in increments of 5 of the element.
+
+Example:
+
+	data-width="50"
+
+Corrispond to:
+
+	width: 50% !important;
+
+Styleguide 22.3
+
+-------------------------------------------------------------------------------------------------------------------- */
+[data-width="100"], .btn-group[data-width] .btn, .btn-group[data-width] #nav-toggle,
+.btn-group > *[data-width] .btn,
+.btn-group > *[data-width] #nav-toggle {
+  width: 100% !important; }
+
+[data-width="99"] {
+  width: 99% !important; }
+
+[data-width="98"] {
+  width: 98% !important; }
+
+[data-width="97"] {
+  width: 97% !important; }
+
+[data-width="96"] {
+  width: 96% !important; }
+
+[data-width="95"] {
+  width: 95% !important; }
+
+[data-width="94"] {
+  width: 94% !important; }
+
+[data-width="93"] {
+  width: 93% !important; }
+
+[data-width="92"] {
+  width: 92% !important; }
+
+[data-width="91"] {
+  width: 91% !important; }
+
+[data-width="90"] {
+  width: 90% !important; }
+
+[data-width="89"] {
+  width: 89% !important; }
+
+[data-width="88"] {
+  width: 88% !important; }
+
+[data-width="87"] {
+  width: 87% !important; }
+
+[data-width="86"] {
+  width: 86% !important; }
+
+[data-width="85"] {
+  width: 85% !important; }
+
+[data-width="84"] {
+  width: 84% !important; }
+
+[data-width="83"] {
+  width: 83% !important; }
+
+[data-width="82"] {
+  width: 82% !important; }
+
+[data-width="81"] {
+  width: 81% !important; }
+
+[data-width="80"] {
+  width: 80% !important; }
+
+[data-width="79"] {
+  width: 79% !important; }
+
+[data-width="78"] {
+  width: 78% !important; }
+
+[data-width="77"] {
+  width: 77% !important; }
+
+[data-width="76"] {
+  width: 76% !important; }
+
+[data-width="75"] {
+  width: 75% !important; }
+
+[data-width="74"] {
+  width: 74% !important; }
+
+[data-width="73"] {
+  width: 73% !important; }
+
+[data-width="72"] {
+  width: 72% !important; }
+
+[data-width="71"] {
+  width: 71% !important; }
+
+[data-width="70"] {
+  width: 70% !important; }
+
+[data-width="69"] {
+  width: 69% !important; }
+
+[data-width="68"] {
+  width: 68% !important; }
+
+[data-width="67"] {
+  width: 67% !important; }
+
+[data-width="66"] {
+  width: 66% !important; }
+
+[data-width="65"] {
+  width: 65% !important; }
+
+[data-width="64"] {
+  width: 64% !important; }
+
+[data-width="63"] {
+  width: 63% !important; }
+
+[data-width="62"] {
+  width: 62% !important; }
+
+[data-width="61"] {
+  width: 61% !important; }
+
+[data-width="60"] {
+  width: 60% !important; }
+
+[data-width="59"] {
+  width: 59% !important; }
+
+[data-width="58"] {
+  width: 58% !important; }
+
+[data-width="57"] {
+  width: 57% !important; }
+
+[data-width="56"] {
+  width: 56% !important; }
+
+[data-width="55"] {
+  width: 55% !important; }
+
+[data-width="54"] {
+  width: 54% !important; }
+
+[data-width="53"] {
+  width: 53% !important; }
+
+[data-width="52"] {
+  width: 52% !important; }
+
+[data-width="51"] {
+  width: 51% !important; }
+
+[data-width="50"] {
+  width: 50% !important; }
+
+[data-width="49"] {
+  width: 49% !important; }
+
+[data-width="48"] {
+  width: 48% !important; }
+
+[data-width="47"] {
+  width: 47% !important; }
+
+[data-width="46"] {
+  width: 46% !important; }
+
+[data-width="45"] {
+  width: 45% !important; }
+
+[data-width="44"] {
+  width: 44% !important; }
+
+[data-width="43"] {
+  width: 43% !important; }
+
+[data-width="42"] {
+  width: 42% !important; }
+
+[data-width="41"] {
+  width: 41% !important; }
+
+[data-width="40"] {
+  width: 40% !important; }
+
+[data-width="39"] {
+  width: 39% !important; }
+
+[data-width="38"] {
+  width: 38% !important; }
+
+[data-width="37"] {
+  width: 37% !important; }
+
+[data-width="36"] {
+  width: 36% !important; }
+
+[data-width="35"] {
+  width: 35% !important; }
+
+[data-width="34"] {
+  width: 34% !important; }
+
+[data-width="33"] {
+  width: 33% !important; }
+
+[data-width="32"] {
+  width: 32% !important; }
+
+[data-width="31"] {
+  width: 31% !important; }
+
+[data-width="30"] {
+  width: 30% !important; }
+
+[data-width="29"] {
+  width: 29% !important; }
+
+[data-width="28"] {
+  width: 28% !important; }
+
+[data-width="27"] {
+  width: 27% !important; }
+
+[data-width="26"] {
+  width: 26% !important; }
+
+[data-width="25"] {
+  width: 25% !important; }
+
+[data-width="24"] {
+  width: 24% !important; }
+
+[data-width="23"] {
+  width: 23% !important; }
+
+[data-width="22"] {
+  width: 22% !important; }
+
+[data-width="21"] {
+  width: 21% !important; }
+
+[data-width="20"] {
+  width: 20% !important; }
+
+[data-width="19"] {
+  width: 19% !important; }
+
+[data-width="18"] {
+  width: 18% !important; }
+
+[data-width="17"] {
+  width: 17% !important; }
+
+[data-width="16"] {
+  width: 16% !important; }
+
+[data-width="15"] {
+  width: 15% !important; }
+
+[data-width="14"] {
+  width: 14% !important; }
+
+[data-width="13"] {
+  width: 13% !important; }
+
+[data-width="12"] {
+  width: 12% !important; }
+
+[data-width="11"] {
+  width: 11% !important; }
+
+[data-width="10"] {
+  width: 10% !important; }
+
+[data-width="9"] {
+  width: 9% !important; }
+
+[data-width="8"] {
+  width: 8% !important; }
+
+[data-width="7"] {
+  width: 7% !important; }
+
+[data-width="6"] {
+  width: 6% !important; }
+
+[data-width="5"] {
+  width: 5% !important; }
+
+[data-width="4"] {
+  width: 4% !important; }
+
+[data-width="3"] {
+  width: 3% !important; }
+
+[data-width="2"] {
+  width: 2% !important; }
+
+[data-width="1"] {
+  width: 1% !important; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Typography
+
+Styleguide 22.4
+
+-------------------------------------------------------------------------------------------------------------------- */
+.lead {
+  font-size: 1.5em;
+  line-height: 1.5em; }
+
+.muted {
+  color: #999999; }
+
+.pull-left {
+  float: left; }
+
+.pull-right {
+  float: right; }
+
+.text-left {
+  text-align: left; }
+
+.text-right {
+  text-align: right; }
+
+.text-center {
+  text-align: center; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Sprites
+
+Styleguide 22.5
+
+-------------------------------------------------------------------------------------------------------------------- */
+.s {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+  content: "";
+  display: inline-block;
+  font-style: normal;
+  overflow: hidden;
+  text-align: center;
+  text-indent: -9999px;
+  vertical-align: middle;
+  zoom: 1; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Text replacement
+
+All the text replacement classes from from [html5boilerplate](http://html5boilerplate.com/).
+
+    .ir
+    .ir
+    .hidden
+    .visuallyhidden
+    .visuallyhidden
+    .invisible
+
+Styleguide 22.6
+
+-------------------------------------------------------------------------------------------------------------------- */
+.ir {
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+  text-indent: -9999px;
+  line-height: 0;
+  font-size: 0; }
+
+.ir:before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 150%; }
+
+.hidden {
+  display: none !important;
+  visibility: hidden; }
+
+.visuallyhidden {
+  border: 0;
+  clip: rect(0);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+  margin: -1px;
+  padding: 0; }
+
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  overflow: visible;
+  position: static;
+  width: auto;
+  margin: 0; }
+
+.invisible {
+  visibility: hidden; }
+
+/* ====================================================================================================================
+
+Debug mode
+
+Add different background colors and border for elements with different proprieties (has class, has id, has title, ect.),
+usefull for debugging code and finding errors. Taken form [Inuit](https://github.com/csswizardry/inuit.css).
+
+Enable it with `$debug-mode: true;`.
+
+Styleguide 21.
+
+==================================================================================================================== */
+/* =================================================================================================================
+
+Animations
+
+All the animations in [theCSSguru](https://twitter.com/theCSSguru)'s [Animate mixin](http://thecssguru.freeiz.com/animate/) are available with the same mixin.
+
+#### Use
+
+By default are only available `fadeIn` and `fadeOut`. To enable more animations add them to the `$animations` variable in `_effects.scss`.
+
+#### Mixin
+
+	@include animate(fadeIn);
+
+#### Silent classes
+
+There are also available silent classes for all enabled animations to use with `@extend`
+
+	@extend %fadeIn;
+
+Styleguide 20.
+
+================================================================================================================= */
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+
+  100% {
+    opacity: 1; } }
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+
+  100% {
+    opacity: 1; } }
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+
+  100% {
+    opacity: 1; } }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0; }
+
+  100% {
+    opacity: 1; } }
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1; }
+
+  100% {
+    opacity: 0; } }
+
+@-moz-keyframes fadeOut {
+  0% {
+    opacity: 1; }
+
+  100% {
+    opacity: 0; } }
+
+@-o-keyframes fadeOut {
+  0% {
+    opacity: 1; }
+
+  100% {
+    opacity: 0; } }
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1; }
+
+  100% {
+    opacity: 0; } }
+
+/* ====================================================================================================================
+
+Icon Fonts
+
+==================================================================================================================== */
+@font-face {
+  font-family: 'FontAwesome';
+  font-style: 'normal';
+  font-weight: 'normal';
+  src: url("http://weloveiconfonts.com/api/fonts/fontawesome/fontawesome-webfont.eot");
+  src: url("http://weloveiconfonts.com/api/fonts/fontawesome/fontawesome-webfont.eot?#iefix") format("eot"), url("http://weloveiconfonts.com/api/fonts/fontawesome/fontawesome-webfont.woff") format("woff"), url("http://weloveiconfonts.com/api/fonts/fontawesome/fontawesome-webfont.ttf") format("truetype"), url("http://weloveiconfonts.com/api/fonts/fontawesome/fontawesome-webfont.svg#FontAwesomeRegular") format("svg"); }
+
+/* ====================================================================================================================
+
+Type
+
+Styleguide 19
+
+==================================================================================================================== */
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  outline: none; }
+
+@media only screen and (min-width: 481px) {
+  html {
+    font-size: 87.5%; } }
+@media only screen and (max-width: 480px) {
+  html {
+    font-size: 100%; } }
+
+body {
+  font-size: 1em;
+  line-height: 1.5em;
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333333; }
+
+img {
+  max-width: 100%; }
+
+a, button, textarea, input {
+  outline: none; }
+
+a {
+  color: #0066cc;
+  text-decoration: none; }
+  a:hover, a:focus {
+    color: #004c99;
+    text-decoration: none; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Body text
+
+Markup:
+<p class="lead">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec id elit non mi porta gravida at eget metus.</p>
+<small><p>Tight pants next level keffiyeh. Photo booth beard raw denim letterpress vegan messenger bag stumptown.</small>
+
+Styleguide 19.1
+
+-------------------------------------------------------------------------------------------------------------------- */
+p {
+  margin: 0 0 1.5em; }
+
+small {
+  font-size: 0.85em;
+  line-height: 1.76471em; }
+
+strong {
+  font-weight: bold; }
+
+em {
+  font-style: italic; }
+
+cite {
+  font-style: normal; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Headings
+
+Markup:
+<h1>h1. This is a very large header.</h1>
+<h2>h2. This is a large header.</h2>
+<h3>h3. This is a medium header.</h3>
+<h4>h4. This is a moderate header.</h4>
+<h5>h5. This is a small header. h1.</h5>
+<h6>h6. This is a tiny header. h1.</h6>
+
+Styleguide 19.2
+
+-------------------------------------------------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 1.5em;
+  text-rendering: optimizelegibility;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333333; }
+  h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+    font-weight: normal;
+    line-height: 1.5em;
+    color: #d9d9d9; }
+
+h1, .h1 {
+  font-size: 2.5em;
+  line-height: 1.2em; }
+
+h2, .h2 {
+  font-size: 2em;
+  line-height: 1.5em; }
+
+h3, .h3 {
+  font-size: 1.85em;
+  line-height: 1.62162em; }
+
+h4, .h4 {
+  font-size: 1.5em;
+  line-height: 1.5em; }
+
+h5, .h5 {
+  font-size: 1.25em;
+  line-height: 1.8em; }
+
+h6, .h6 {
+  font-size: 1em;
+  line-height: 2.25em; }
+
+h1 small {
+  font-size: 1.85em;
+  line-height: 1.21622em; }
+
+h2 small {
+  font-size: 1.5em;
+  line-height: 1.5em; }
+
+h3 small {
+  font-size: 1.25em;
+  line-height: 1.8em; }
+
+h4 small {
+  font-size: 1em;
+  line-height: 1.5em; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Lists
+
+Markup:
+<ul>
+  <li>Unordered list item</li>
+  <li>Unordered list item</li>
+  <li>Unordered list item</li>
+</ul>
+<ol>
+  <li>Ordered list item</li>
+  <li>Ordered list item</li>
+  <li>Ordered list item</li>
+</ol>
+
+Styleguide 19.3
+
+-------------------------------------------------------------------------------------------------------------------- */
+.list_style_none, .bx-wrapper ul, .list-style-none {
+  padding-left: 0;
+  margin-left: 0;
+  list-style: none; }
+
+ul, ol {
+  padding: 0;
+  margin: 0 0 1.5em 25px; }
+
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+  margin-bottom: 0; }
+
+ul.unstyled,
+ol.unstyled {
+  margin-left: 0;
+  list-style: none; }
+
+ul.inline,
+ol.inline {
+  margin-left: 0;
+  list-style: none; }
+  ul.inline > li,
+  ol.inline > li {
+    display: -moz-inline-stack;
+    display: inline-block;
+    vertical-align: middle;
+    *vertical-align: auto;
+    zoom: 1;
+    *display: inline; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Definition lists
+
+Markup:
+<dl>
+  <dt>Rock Hammer</dt>
+  <dd>A geologist’s hammer, rock hammer, rock pick or geological pick is a hammer used for splitting and breaking rocks.</dd>
+</dl>
+
+Styleguide 19.4
+
+-------------------------------------------------------------------------------------------------------------------- */
+dl {
+  margin-bottom: 1.5em; }
+
+dt {
+  font-weight: bold; }
+
+dd {
+  margin-left: 0; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Horizontal definition list
+
+Markup:
+<dl class="dl-horizontal">
+  <dt>Rock Hammer</dt>
+  <dd>A geologist’s hammer, rock hammer, rock pick or geological pick is a hammer used for splitting and breaking rocks.</dd>
+</dl>
+
+Styleguide 19.4.1
+
+-------------------------------------------------------------------------------------------------------------------- */
+.dl-horizontal dt {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  clear: left;
+  float: left;
+  text-align: right;
+  width: -7.14286em; }
+.dl-horizontal dd {
+  padding-left: 12.85714em; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Horizontal line
+
+Markup: <hr />
+
+Styleguide 19.5
+
+-------------------------------------------------------------------------------------------------------------------- */
+hr {
+  margin: 1.5em 0;
+  border: 0;
+  border-bottom: 1px solid #999999; }
+
+abbr[title],
+abbr[data-original-title] {
+  cursor: help;
+  border-bottom: 1px dotted #d9d9d9; }
+
+abbr.initialism {
+  font-size: 90%;
+  text-transform: uppercase; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Blockquotes
+
+Markup:
+<blockquote>
+  <p>A geologist’s hammer, rock hammer, rock pick or geological pick is a hammer used for splitting and breaking rocks.</p>
+  <small><cite>Rock Hammer</cite></small>
+</blockquote>
+
+Styleguide 19.6
+
+-------------------------------------------------------------------------------------------------------------------- */
+blockquote {
+  padding: 0 0 0 1.5em;
+  margin: 0;
+  margin: 0 0 1.5em;
+  border-left: 5px solid #f2f2f2; }
+  blockquote p {
+    margin-bottom: 0;
+    font-weight: 300; }
+  blockquote small, blockquote cite {
+    display: block;
+    color: #d9d9d9; }
+    blockquote small:before, blockquote cite:before {
+      content: '\2014 \00A0'; }
+  blockquote.pull-right {
+    float: right;
+    padding-right: 15px;
+    padding-left: 0;
+    border-right: 5px solid #f2f2f2;
+    border-left: 0; }
+    blockquote.pull-right p,
+    blockquote.pull-right small {
+      text-align: right; }
+    blockquote.pull-right small:before {
+      content: ''; }
+    blockquote.pull-right small:after {
+      content: '\00A0 \2014'; }
+
+q:before,
+q:after,
+blockquote:before,
+blockquote:after {
+  content: ""; }
+
+address {
+  display: block;
+  margin-bottom: 1.5em;
+  font-style: normal;
+  line-height: 1.5em; }
+
+/* ====================================================================================================================
+
+Forms
+
+Individual form controls receive default styling with `form` Results in stacked, left-aligned labels on top of form controls.
+
+	.form
+	  +–– .form__group
+	  |    |–– .form__label
+	  |    +–– .form__controls
+	  |         |–– input
+	  |         |–– textarea
+	  |         |–– .form__select
+	  |         |–– .form__checkbox
+	  |         |–– .form__radio
+	  |         +–– .form__addon
+	  +–– .form__actions
+
+* **`.form__group`**: Main container of a section of the form
+	* **`.form__label`**: Main labels for the form.
+	* **`.form__controls`**: Container of inputs, buttons and addons
+		* **`.form__checkbox`**, **`.form__radio`**: Stacked list of checkboxes and radios.
+		* **`.form__checkbox.inline`**, **`.form__radio.inline`**: Inline list of checkboxes and radios.
+		* **`.form__select`**: Create custom style selects.
+		* **`.form__help--block`**: Block help text that appears under form controls.
+		* **`.form__help--inline`**: Inline help text that appears aside form controls.
+* **`.form__actions`**: End a form with a group of actions (buttons). When placed within a `.form__actions`, the buttons will automatically indent to line up with the form controls.
+
+Styleguide 8
+
+==================================================================================================================== */
+form {
+  margin: 0 0 1.5em; }
+
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0; }
+
+legend {
+  font-size: 1.25em;
+  line-height: 1.8em;
+  display: block;
+  padding: 0;
+  width: 100%;
+  font-weight: bold;
+  border: 0;
+  padding-bottom: 0.75em;
+  margin-bottom: 0.75em;
+  border-bottom: 1px solid #e5e5e5; }
+  legend small {
+    font-size: 1em;
+    color: #d9d9d9; }
+
+label,
+input,
+button,
+select,
+textarea {
+  line-height: 1em;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px; }
+
+.input-text,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+  display: inline-block;
+  padding: 0 10px;
+  vertical-align: middle;
+  height: 2.57143em;
+  border-width: 1px;
+  border-style: solid; }
+  @media \0screen {
+    .input-text,
+    textarea,
+    input[type="text"],
+    input[type="password"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="date"],
+    input[type="month"],
+    input[type="time"],
+    input[type="week"],
+    input[type="number"],
+    input[type="email"],
+    input[type="url"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="color"] {
+      line-height: 2.57143em; } }
+  .input-text:focus,
+  textarea:focus,
+  input[type="text"]:focus,
+  input[type="password"]:focus,
+  input[type="datetime"]:focus,
+  input[type="datetime-local"]:focus,
+  input[type="date"]:focus,
+  input[type="month"]:focus,
+  input[type="time"]:focus,
+  input[type="week"]:focus,
+  input[type="number"]:focus,
+  input[type="email"]:focus,
+  input[type="url"]:focus,
+  input[type="search"]:focus,
+  input[type="tel"]:focus,
+  input[type="color"]:focus {
+    outline: 0; }
+
+select {
+  color: #333333;
+  display: inline-block; }
+
+label {
+  display: block; }
+
+input,
+textarea {
+  width: 240px; }
+
+textarea {
+  height: auto;
+  line-height: 1.5em;
+  padding: 0.71429em 0.71429em; }
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 0.07143em 0 0; }
+
+input[type="file"],
+input[type="image"],
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+input[type="radio"],
+input[type="checkbox"] {
+  width: auto; }
+
+select,
+.form__select {
+  width: 240px; }
+
+select[multiple],
+select[size] {
+  height: auto; }
+
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+  color: #999999; }
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: #999999; }
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: #999999; }
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #999999; }
+
+input[type="radio"][disabled],
+input[type="checkbox"][disabled],
+input[type="radio"][readonly],
+input[type="checkbox"][readonly] {
+  background-color: transparent; }
+
+input:focus:invalid,
+textarea:focus:invalid,
+select:focus:invalid {
+  color: #b94a48;
+  border-color: #ee5f5b; }
+  input:focus:invalid:focus,
+  textarea:focus:invalid:focus,
+  select:focus:invalid:focus {
+    border-color: #e9322d; }
+
+.form__group + .form__group {
+  margin-top: 1.5em; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Labels
+
+Main labels for the form using `.form__label`
+
+Markup: <label class="form__label">Label</label>
+
+Styleguide 8.1
+
+-------------------------------------------------------------------------------------------------------------------- */
+.form__label {
+  font-weight: bold;
+  margin-bottom: 0.71429em;
+  cursor: auto; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Radio & Checkbox
+
+Markup:
+<div class="form__controls">
+  <label class="form__radio {$modifiers}">
+    <input type="radio" value="option1" checked> Option one is this</label>
+  <label class="form__radio {$modifiers}">
+    <input type="radio" value="option2"> Option two can be something else </label>
+  </div>
+</div>
+
+.inline - Inline alignment with `.inline`
+
+Styleguide 8.2
+
+-------------------------------------------------------------------------------------------------------------------- */
+.form__radio,
+.form__checkbox,
+.form__select {
+  min-height: 1.5em;
+  padding-left: 1.42857em;
+  font-weight: normal;
+  cursor: pointer;
+  display: block; }
+
+.form__select {
+  padding-left: 0; }
+
+.form__radio input[type="radio"],
+.form__checkbox input[type="checkbox"] {
+  float: left;
+  margin-left: -20px; }
+
+.form__radio.inline,
+.form__checkbox.inline {
+  display: inline-block;
+  vertical-align: middle; }
+
+.form__radio.inline + .form__radio.inline,
+.form__checkbox.inline + .form__checkbox.inline {
+  margin-left: 20px; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Custom Select
+
+Add custom styling to a select element wrapping the `<select>` with a `<span>` with class `.form__select`.
+
+Markup:
+<span class="form__select">
+  <select>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+  </select>
+</span>
+
+Styleguide 8.3
+
+-------------------------------------------------------------------------------------------------------------------- */
+.form__select {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  display: inline-block;
+  height: 2.57143em;
+  line-height: 1em;
+  position: relative;
+  width: 240px; }
+  .form__select select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+    padding: 0.71429em 0.71429em;
+    position: relative;
+    width: 100%;
+    z-index: 3;
+    line-height: 1em; }
+  .form__select:after {
+    position: absolute;
+    top: 0.71429em;
+    right: 0.71429em;
+    display: block; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Help
+
+Add an help text block
+
+**Block Help**
+
+	<div class="form__controls">
+	  <input type="text">
+	  <span class="form__help--block">Help text</span>
+	</div>
+
+**Help Inline**
+
+	<div class="form__controls">
+	  <input type="text">
+	  <span class="form__help--inline">Help text</span>
+	</div>
+
+Styleguide 8.4
+
+-------------------------------------------------------------------------------------------------------------------- */
+.form__help--block,
+.form__help--inline {
+  color: #595959; }
+
+.form__help--block {
+  display: block;
+  padding: 0.75em 0 0; }
+
+.form__help--inline {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  vertical-align: middle;
+  padding-left: 5px; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Append & Prepend
+
+Markup:
+<div class="form__controls form__controls--multi">
+  <span class="form__addon">$</span>
+  <input type="text">
+  <span class="form__addon">.00</span>
+</div>
+
+Styleguide 8.5
+
+-------------------------------------------------------------------------------------------------------------------- */
+.form__addon {
+  display: inline-block;
+  width: auto;
+  min-width: 1.14286em;
+  padding: 0.71429em 0.71429em;
+  line-height: 1em;
+  font-weight: normal;
+  float: left;
+  height: 2.57143em;
+  text-align: center;
+  border-width: 1px;
+  border-style: solid; }
+
+.form__controls--multi {
+  margin-left: 1px; }
+  .form__controls--multi > [type],
+  .form__controls--multi > [class] {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+    float: left;
+    margin-left: -1px; }
+    .form__controls--multi > [type]:first-child,
+    .form__controls--multi > [class]:first-child {
+      -webkit-border-radius: 4px 0 0 4px;
+      -moz-border-radius: 4px 0 0 4px;
+      -ms-border-radius: 4px 0 0 4px;
+      -o-border-radius: 4px 0 0 4px;
+      border-radius: 4px 0 0 4px; }
+    .form__controls--multi > [type]:last-child,
+    .form__controls--multi > [class]:last-child {
+      -webkit-border-radius: 0 4px 4px 0;
+      -moz-border-radius: 0 4px 4px 0;
+      -ms-border-radius: 0 4px 4px 0;
+      -o-border-radius: 0 4px 4px 0;
+      border-radius: 0 4px 4px 0; }
+  .form__controls--multi > ul.btn-group + * {
+    margin-left: -2px; }
+  .form__controls--multi > [type] {
+    position: relative;
+    z-index: 2; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Form Actions
+
+End a form with a group of actions (buttons). When placed within a `.form__actions`, the buttons will automatically indent to line up with the form controls.
+
+Markup:
+<div class="form__actions">
+  <button type="submit" class="btn btn--default ">Save changes</button>
+  <button type="submit" class="btn btn--default btn--primary pull-right">Save changes</button>
+  <button type="button" class="btn btn--default btn--secondary">Cancel</button>
+</div>
+
+Styleguide 8.6
+
+-------------------------------------------------------------------------------------------------------------------- */
+.form__actions {
+  padding-top: 1.5em;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  border-top: 1px solid #e5e5e5;
+  clear: both; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Form Layouts
+
+Markup:
+<form class="form {$modifiers}">
+  <div class="form__group">
+    <label class="form__label">Label</label>
+    <div class="form__controls">
+      <input type="text" placeholder="Type something…">
+    </div>
+  </div>
+  <div class="form__group">
+    <label class="form__label">Label</label>
+    <div class="form__controls">
+      <input type="text" placeholder="Type something…">
+    </div>
+  </div>
+  <div class="form__group">
+    <label class="form__label">Label</label>
+    <div class="form__controls">
+      <input type="text" placeholder="Type something…">
+    </div>
+  </div>
+  <div class="form__actions">
+    <button type="submit" class="btn btn--default ">Save changes</button>
+  </div>
+</form>
+
+.form--grid - Grid aligned `.form__group` with support for responsive layout with `columns` mixin. Example of a responsive grid with 3 columns on desktop, 2 on tablets, and 1 on smartphones: **[Example code](https://gist.github.com/raffone/6091448)**
+.form--aligned - Right align labels and float them to the left to make them appear on the same line as controls.
+.form--inline - For left-aligned labels and inline-block controls for a compact layout. This layout doesn't support `.form__group`, `.form__addon`, `.form__actions`
+
+Styleguide 8.7
+
+-------------------------------------------------------------------------------------------------------------------- */
+.form--grid .form__group {
+  min-height: 4.42857em;
+  margin: 0 0 1.5em 0; }
+.form--grid .form__multi {
+  width: 100%; }
+
+.form--aligned .form__label {
+  float: left;
+  width: 11.42857em;
+  padding-top: 0.71429em;
+  text-align: right; }
+.form--aligned .form__controls {
+  margin-left: 12.85714em; }
+.form--aligned .form__help--block {
+  margin-bottom: 0; }
+.form--aligned .form__controls > .form__radio:first-child,
+.form--aligned .form__controls > .form__checkbox:first-child {
+  margin-top: 0.71429em; }
+.form--aligned .form__controls > .form__radio.inline,
+.form--aligned .form__controls > .form__checkbox.inline {
+  margin-top: 0.71429em; }
+.form--aligned .form__actions {
+  padding-left: 12.85714em; }
+@media only screen and (max-width: 480px) {
+  .form--aligned .form__label {
+    width: 100%;
+    float: none;
+    padding-top: 0;
+    text-align: left; }
+  .form--aligned .form__controls {
+    margin-left: 0; }
+  .form--aligned .form__actions {
+    padding-left: 0; } }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Inline Form (semplified)
+
+The inline layout can also be used width a samplified markup.
+
+Markup:
+<form class="form form--inline">
+  <label class="form__label">Label</label>
+  <input type="text" placeholder="Type something…">
+  <label class="form__label">Label</label>
+  <input type="text" placeholder="Type something…">
+  <label class="form__label">Label</label>
+  <input type="text" placeholder="Type something…">
+  <button type="submit" class="btn btn--default ">Save changes</button>
+</form>
+
+Styleguide 8.7.1
+
+-------------------------------------------------------------------------------------------------------------------- */
+.form--inline * {
+  float: none;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+  width: auto; }
+.form--inline > * + *,
+.form--inline > * > * + *,
+.form--inline .form__group {
+  margin: 0 0 0 0.71429em; }
+.form--inline .form__actions {
+  border: 0; }
+
+/* ====================================================================================================================
+
+Tables
+
+For basic styling—light padding and only horizontal dividers—add the base class `.table` to any `<table>`.
+
+Markup:
+<table class="table {$modifiers}">
+  <thead>
+    <tr>
+      <th>Test</th>
+      <th>Test</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>test</td>
+      <td>test</td>
+    </tr>
+    <tr>
+      <td>test</td>
+      <td>test</td>
+    </tr>
+  </tbody>
+</table>
+
+.table--striped - Adds zebra-striping to any table row within the `<tbody>` via the :nth-child CSS selector *(not available in IE8)*
+.table--bordered - Add borders and rounded corners to the table.
+.table--hover - Enable a hover state on table rows within a `<tbody>`.
+.table--condensed - Makes tables more compact by cutting cell padding in half.
+
+Styleguide 17.
+
+==================================================================================================================== */
+table {
+  max-width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.table {
+  width: 100%;
+  margin-bottom: 1.5em; }
+  .table th,
+  .table td {
+    padding: 0.71429em 0.71429em;
+    line-height: 1.5em;
+    text-align: left;
+    vertical-align: top; }
+  .table th {
+    font-weight: bold; }
+  .table thead th {
+    vertical-align: bottom; }
+  .table caption + thead tr:first-child th,
+  .table caption + thead tr:first-child td,
+  .table colgroup + thead tr:first-child th,
+  .table colgroup + thead tr:first-child td,
+  .table thead:first-child tr:first-child th,
+  .table thead:first-child tr:first-child td {
+    border-top: 0; }
+  .table tbody + tbody {
+    border-top: 2px solid #d9d9d9; }
+
+.table--condensed th, .table--condensed td {
+  padding: 0.35714em 0.35714em; }
+
+.table--sortable thead th {
+  cursor: pointer; }
+  .table--sortable thead th.sorting-asc:after, .table--sortable thead th.sorting-desc:after {
+    float: right; }
+
+/* ====================================================================================================================
+
+Captions
+
+Add captions to images. The position is defined by `data-position` and the content by `data-content`.
+It's possible to add an animation using `data-animation` with either `fade` or `float`.
+
+For positioning are available: `top`, `right`, `bottom`, `left`, `top-left`, `top-right`, `bottom-right`, `bottom-left`.
+
+Markup:
+<figure class="caption" data-position="bottom" data-animation="{$modifiers}" data-content="Caption text.">
+  <img src="http://dummyimage.com/300x200/afe600/fff" />
+</figure>
+
+fade - Add fade-in animation for the caption
+float - Add fade-in and slide-in animation for the caption
+
+Styleguide 5
+
+==================================================================================================================== */
+.caption {
+  position: relative;
+  display: inline-block;
+  width: auto;
+  overflow: hidden;
+  line-height: 0; }
+  .caption:after {
+    display: inline-block;
+    content: attr(data-content);
+    position: absolute;
+    line-height: 1.5em; }
+  .caption[data-position*="top"]:after {
+    top: 0; }
+  .caption[data-position*="bottom"]:after {
+    bottom: 0; }
+  .caption[data-position*="left"]:after {
+    left: 0; }
+  .caption[data-position*="right"]:after {
+    right: 0; }
+  .caption[data-position$="top"]:after, .caption[data-position$="bottom"]:after {
+    left: 0;
+    right: 0; }
+  .caption[data-animation*="fade"]:after, .caption[data-animation*="float"]:after {
+    -webkit-transition: all 0.15s ease-out;
+    -moz-transition: all 0.15s ease-out;
+    -o-transition: all 0.15s ease-out;
+    transition: all 0.15s ease-out;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    visibility: hidden; }
+  .caption[data-animation*="fade"]:hover:after, .caption[data-animation*="float"]:hover:after {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+    visibility: visible; }
+  .caption[data-animation*="float"][data-position*="top"]:after {
+    top: -10px; }
+  .caption[data-animation*="float"][data-position*="top"]:hover:after {
+    top: 0; }
+  .caption[data-animation*="float"][data-position*="bottom"]:after {
+    bottom: -10px; }
+  .caption[data-animation*="float"][data-position*="bottom"]:hover:after {
+    bottom: 0; }
+
+/* ====================================================================================================================
+
+Buttons
+
+Button styles can be applied to anything with the `.btn` class applied. However, typically you'll want to apply these to only `<a>` and `<button>` elements for the best rendering.
+
+Markup:
+<a href="#" class="btn btn--default {$modifiers}">Link Button</a>
+<button class="btn btn--default {$modifiers}">Button Element</button>
+
+:hover - Mouse hover state style, also available with `.hover`
+:active - Selected element style, also available with `.active`
+.disabled - Disabled state style.
+
+Styleguide 3
+
+==================================================================================================================== */
+.btn, #nav-toggle {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1em;
+  margin-bottom: 0;
+  text-align: center;
+  vertical-align: middle; }
+  .btn:hover, #nav-toggle:hover, .btn.hover, .hover#nav-toggle, .btn:focus, #nav-toggle:focus {
+    text-decoration: none; }
+  .btn.active, .active#nav-toggle, .btn:active, #nav-toggle:active {
+    outline: 0; }
+  .btn.disabled, .disabled#nav-toggle, .btn.disabled:hover, .disabled#nav-toggle:hover, .btn[disabled], [disabled]#nav-toggle, .btn[disabled]:hover, [disabled]#nav-toggle:hover {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=6500);
+    opacity: 65;
+    background-image: none;
+    cursor: default; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Colors
+
+Markup:
+<a href="#" class="btn btn--default">Link Button</a>
+<a href="#" class="btn btn--primary">Link Button</a>
+<a href="#" class="btn btn--secondary">Link Button</a>
+
+Styleguide 3.1
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Sizes
+
+Markup:
+<a href="#" class="btn btn--default btn--large">Link Button</a>
+<a href="#" class="btn btn--default">Link Button</a>
+<a href="#" class="btn btn--default btn--small">Link Button</a>
+<a href="#" class="btn btn--default btn--mini">Link Button</a>
+
+Styleguide 3.2
+
+-------------------------------------------------------------------------------------------------------------------- */
+.btn, #nav-toggle {
+  padding: 0.71429em 0.71429em;
+  height: 2.57143em; }
+
+.btn--large, .btn--small, .btn--mini {
+  height: auto; }
+
+.btn--large {
+  font-size: 1.25em;
+  line-height: 1.8em;
+  padding: 0.71429em 1.07143em; }
+
+.btn--small {
+  font-size: 0.85em;
+  line-height: 1.76471em;
+  padding: 0.35714em 0.57143em; }
+
+.btn--mini {
+  font-size: 0.7em;
+  line-height: 2.14286em;
+  padding: 0.07143em 0.42857em; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Modifiers
+
+Create block level buttons—those that span the full width of a parent.
+
+Markup:
+<a href="#" class="btn btn--default {$modifiers}">Link Button</a>
+<button class="btn btn--default {$modifiers}">Button Element</button>
+
+.btn--block - Create block level buttons—those that span the full width of a parent.
+.btn--pill - Button width rounded full corners.
+.btn--link - Deemphasize a button by making it look like a link while maintaining button behavior.
+
+Styleguide 3.3
+
+-------------------------------------------------------------------------------------------------------------------- */
+.btn--block {
+  display: block;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0; }
+  .btn--block + .btn--block {
+    margin-top: 0.75em; }
+
+.btn--pill {
+  -webkit-border-radius: 200px;
+  -moz-border-radius: 200px;
+  -ms-border-radius: 200px;
+  -o-border-radius: 200px;
+  border-radius: 200px; }
+
+.btn--link {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  border: 0 transparent;
+  background: none;
+  color: #0066cc;
+  cursor: pointer; }
+  .btn--link:hover, .btn--link:focus {
+    color: #004c99;
+    text-decoration: underline;
+    background-color: transparent; }
+  .btn--link:active, .btn--link[disabled] {
+    background-color: transparent;
+    background-image: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none; }
+  .btn--link[disabled]:hover, .btn--link[disabled]:focus {
+    color: #4d4d4d;
+    text-decoration: none; }
+
+/* ====================================================================================================================
+
+Button Groups
+
+Wrap a series of buttons with `.btn` in `.btn-group`.
+
+Markup:
+<ul class="btn-group">
+  <li><button class="btn btn--default">Left</button></li>
+  <li><button class="btn btn--default">Middle</button></li>
+  <li><button class="btn btn--default">Right</button></li>
+</ul>
+
+Styleguide 4
+
+==================================================================================================================== */
+.btn-group {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  margin: 0; }
+  .btn-group > * {
+    float: left;
+    list-style-type: none; }
+  .btn-group[data-width] .btn, .btn-group[data-width] #nav-toggle,
+  .btn-group > *[data-width] .btn,
+  .btn-group > *[data-width] #nav-toggle {
+    padding-left: 0;
+    padding-right: 0; }
+  .btn-group + .btn-group {
+    margin-left: 0.35714em; }
+  .btn-group > .btn, .btn-group > #nav-toggle,
+  .btn-group > li .btn,
+  .btn-group > li #nav-toggle {
+    float: left;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0; }
+  .btn-group > li + li {
+    margin-left: -1px; }
+  .btn-group > .btn:hover, .btn-group > #nav-toggle:hover,
+  .btn-group > .btn:focus,
+  .btn-group > #nav-toggle:focus,
+  .btn-group > .btn:active,
+  .btn-group > #nav-toggle:active,
+  .btn-group > .btn.active,
+  .btn-group > .active#nav-toggle {
+    z-index: 2; }
+
+.btn-group > li:first-child .btn, .btn-group > li:first-child #nav-toggle {
+  -moz-border-radius-topleft: 4px;
+  -webkit-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-bottomleft: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px; }
+
+.btn-group > li:last-child .btn, .btn-group > li:last-child #nav-toggle {
+  -moz-border-radius-topright: 4px;
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px; }
+
+div.btn-group .btn, div.btn-group #nav-toggle {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px; }
+
+.form__controls--multi .btn-group:first-child > li:last-child .btn, .form__controls--multi .btn-group:first-child > li:last-child #nav-toggle {
+  -moz-border-radius-topright: 0;
+  -webkit-border-top-right-radius: 0;
+  border-top-right-radius: 0;
+  -moz-border-radius-bottomright: 0;
+  -webkit-border-bottom-right-radius: 0;
+  border-bottom-right-radius: 0; }
+.form__controls--multi div.btn-group:first-child .btn, .form__controls--multi div.btn-group:first-child #nav-toggle {
+  -moz-border-radius-topright: 0;
+  -webkit-border-top-right-radius: 0;
+  border-top-right-radius: 0;
+  -moz-border-radius-bottomright: 0;
+  -webkit-border-bottom-right-radius: 0;
+  border-bottom-right-radius: 0; }
+.form__controls--multi .btn-group:last-child > li:first-child .btn, .form__controls--multi .btn-group:last-child > li:first-child #nav-toggle {
+  -moz-border-radius-topleft: 0;
+  -webkit-border-top-left-radius: 0;
+  border-top-left-radius: 0;
+  -moz-border-radius-bottomleft: 0;
+  -webkit-border-bottom-left-radius: 0;
+  border-bottom-left-radius: 0; }
+.form__controls--multi div.btn-group:last-child > .btn, .form__controls--multi div.btn-group:last-child > #nav-toggle {
+  -moz-border-radius-topleft: 0;
+  -webkit-border-top-left-radius: 0;
+  border-top-left-radius: 0;
+  -moz-border-radius-bottomleft: 0;
+  -webkit-border-bottom-left-radius: 0;
+  border-bottom-left-radius: 0; }
+
+/* ====================================================================================================================
+
+Dropdowns
+
+Toggleable, contextual menu for displaying lists of links. Made interactive with the [dropdown JavaScript plugin](http://twitter.github.io/bootstrap/javascript.html#dropdowns).
+
+Looking at just the dropdown menu, here's the required HTML. You need to wrap the dropdown's trigger and the dropdown menu within `.dropdown`. Then just create the menu.
+
+Markup:
+<div class="dropdown {$modifiers}">
+    <a href="#" class="btn btn--default dropdown__toggle " data-toggle="dropdown">
+      Dropdown
+      <span class="dropdown__caret"></span>
+    </a>
+    <ul class="dropdown__menu ">
+      <li><a tabindex="-1" href="#">Action</a></li>
+      <li><a tabindex="-1" href="#">Another action</a></li>
+      <li><a tabindex="-1" href="#">Something else here</a></li>
+      <li class="divider"></li>
+      <li><a tabindex="-1" href="#">Separated link</a></li>
+    </ul>
+</div>
+
+Styleguide 7
+
+==================================================================================================================== */
+.dropdown,
+.dropdown__toggle {
+  position: relative; }
+
+.dropdown__toggle:focus {
+  outline: 0; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Dropdown arrow/caret
+
+A simple helper class is available to add an arrow for the dropdown button.
+
+Markup: <span class="dropdown__caret"></span>
+
+Styleguide 7.1
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Dropdown menu
+
+List of the links to show in the dropdown.
+
+Markup:
+<ul class="dropdown__menu ">
+  <li><a tabindex="-1" href="#">Action</a></li>
+  <li><a tabindex="-1" href="#">Another action</a></li>
+  <li><a tabindex="-1" href="#">Something else here</a></li>
+  <li class="divider"></li>
+  <li><a tabindex="-1" href="#">Separated link</a></li>
+</ul>
+
+Styleguide 7.2
+
+-------------------------------------------------------------------------------------------------------------------- */
+.dropdown__menu {
+  -moz-border-radius-bottomleft: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  -webkit-transition: all 0.15s ease-out;
+  -moz-transition: all 0.15s ease-out;
+  -o-transition: all 0.15s ease-out;
+  transition: all 0.15s ease-out;
+  border-style: solid;
+  border-width: 1px;
+  float: left;
+  list-style: none;
+  margin: -1px 0 0 0;
+  min-width: 10em;
+  overflow: hidden;
+  z-index: 1000;
+  display/*\**/: none\9; }
+  .dropdown__menu[data-content] {
+    min-width: 42.85714em; }
+  .dropdown__menu.pull-right {
+    right: 0;
+    left: auto; }
+  .dropdown__menu > li > a,
+  .dropdown__menu > li > label {
+    clear: both;
+    display: block;
+    font-weight: normal;
+    white-space: nowrap; }
+  .dropdown__menu > li > a {
+    padding: 0.71429em 0.71429em; }
+  .dropdown__menu > li > label {
+    padding: 0.71429em 0.71429em 0.71429em 2.14286em; }
+  .dropdown__menu > li:last-child > a,
+  .dropdown__menu > li:last-child > label {
+    border-bottom: 0; }
+
+.dropdown__menu > li > a:hover,
+.dropdown__menu > li > a:focus {
+  text-decoration: none; }
+
+.dropdown__menu > .active > a,
+.dropdown__menu > .active > a:hover,
+.dropdown__menu > .active > a:focus {
+  text-decoration: none;
+  outline: 0; }
+
+.dropdown__menu > .disabled > a,
+.dropdown__menu > .disabled > a:hover,
+.dropdown__menu > .disabled > a:focus {
+  color: #d9d9d9; }
+
+.dropdown__menu > .disabled > a:hover,
+.dropdown__menu > .disabled > a:focus {
+  text-decoration: none;
+  background-color: transparent;
+  background-image: none;
+  cursor: default; }
+
+.dropdown .dropdown__menu {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  position: absolute;
+  top: 100%;
+  left: 0px;
+  max-height: 0; }
+
+.dropdown.open {
+  z-index: 1000; }
+  .dropdown.open .dropdown__toggle {
+    -moz-border-radius-bottomleft: 0 !important;
+    -webkit-border-bottom-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    -moz-border-radius-bottomright: 0 !important;
+    -webkit-border-bottom-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    z-index: 1001; }
+  .dropdown.open .dropdown__menu {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+    display/*\**/: block\9;
+    max-height: 42.85714em; }
+
+/* ====================================================================================================================
+
+Badge & Pills
+
+Lables are used to highlight a text; `badge` have small rounded corners and `pill` have full rounded corners.
+
+Markup:
+<span class="badge">Badge Label</span>
+<span class="pill">Pill label</span>
+
+Styleguide 10.
+
+==================================================================================================================== */
+.badge,
+.pill {
+  display: inline-block;
+  padding: 0.15em 0.35em;
+  vertical-align: baseline;
+  white-space: nowrap; }
+
+.badge {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px; }
+
+.pill {
+  -webkit-border-radius: 500em;
+  -moz-border-radius: 500em;
+  -ms-border-radius: 500em;
+  -o-border-radius: 500em;
+  border-radius: 500em; }
+
+.badge:empty, .pill:empty {
+  display: none; }
+
+a.label:hover, a.label:focus, a.badge:hover, a.badge:focus {
+  color: white;
+  text-decoration: none;
+  cursor: pointer; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Labels used in buttons.
+
+Markup:
+<button class="btn btn--default">Action <span class="badge">2</span></button>
+<button class="btn btn--default btn--pill">Action <span class="pill">2</span></button>
+
+Styleguide 10.1
+
+-------------------------------------------------------------------------------------------------------------------- */
+.btn .badge, #nav-toggle .badge,
+.btn .pill,
+#nav-toggle .pill {
+  margin: -0.5em 0 0; }
+
+/* ====================================================================================================================
+
+Close buttons
+
+Markup:
+<a href="#" class="close">&times;</button>
+<button type="button" class="close">&times;</button>
+
+Styleguide 6
+
+==================================================================================================================== */
+.close {
+  float: right;
+  font-size: 1em;
+  font-weight: bold;
+  color: black;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=2000);
+  opacity: 20; }
+  .close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=4000);
+    opacity: 40; }
+
+button.close {
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none; }
+
+/* ====================================================================================================================
+
+Navs
+
+All nav components here share the same base markup and styles through the `.nav` class.
+
+* `.nav__title`: Nav titles
+* `.current`: Button for current page
+* `.disabled`: Disabled state style
+* `.divider`: Add horizontal line as a divider
+
+Markup:
+<ul class="nav {$modifiers}">
+  <li class="nav__title">Nav header</li>
+  <li class="current"><a href="#">Home</a></li>
+  <li><a href="#">Messages</a></li>
+  <li><a href="#">Friends</a></li>
+  <li class="disabled"><a href="#">Profile</a></li>
+</ul>
+
+.nav--inline.nav--btn - Horizontal and blocky links.
+.nav--inline.nav--btn.nav--pills -  Horizontal and blocky links with rounded corners.
+.nav--vertical.nav--btn - Vertical nav layout and blocky links
+
+Styleguide 12
+
+==================================================================================================================== */
+.nav {
+  display: inline-block;
+  margin-bottom: 1.5em;
+  position: relative; }
+  .nav, .nav > ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0; }
+  .nav > ul {
+    margin-bottom: 0; }
+  .nav li > a {
+    display: inline-block;
+    line-height: 1em; }
+    .nav li > a:hover, .nav li > a:focus {
+      text-decoration: none; }
+    .nav li > a img {
+      max-width: none; }
+  .nav li.disabled > a:hover, .nav li.disabled > a:focus {
+    text-decoration: none;
+    background-color: transparent;
+    cursor: default; }
+
+.nav__title {
+  font-size: 0.85em;
+  line-height: 1.76471em;
+  color: #999999;
+  display: block;
+  font-weight: bold;
+  padding: 0.71429em 0.71429em;
+  padding-left: 0;
+  text-transform: uppercase; }
+
+.nav--inline > li,
+.nav--inline > ul > li {
+  float: left; }
+
+.nav--vertical {
+  width: 100%; }
+  .nav--vertical li > a {
+    display: block; }
+
+.nav--btn li > a {
+  padding: 0.71429em 0.71429em; }
+
+.nav--pills > li > a {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  margin-right: .25em; }
+.nav--pills[class*="vertical"] > li > a {
+  margin-bottom: .25em; }
+.nav--pills[class*="vertical"] > li:last-child > a {
+  margin-bottom: 0; }
+
+/* ====================================================================================================================
+
+Responsive Navs
+
+The main nav can be made fully responsive (with two layouts available) with js and some extra elements for better styling.
+
+Styleguide 15
+
+==================================================================================================================== */
+.nav--responsive.close {
+  max-height: none; }
+
+#nav-toggle {
+  display: none;
+  float: right; }
+
+@media only screen and (max-width: 480px) {
+  #nav-toggle {
+    display: block; }
+
+  .nav.nav--responsive {
+    display: block;
+    margin: 0;
+    overflow: hidden;
+    zoom: 1; }
+    .nav.nav--responsive * {
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      -ms-border-radius: 0;
+      -o-border-radius: 0;
+      border-radius: 0;
+      background: transparent;
+      border: 0;
+      display: block;
+      float: none;
+      margin: 0;
+      padding: 0;
+      position: static;
+      text-align: left;
+      width: 100%;
+      max-height: 42.85714em;
+      opacity: 1; }
+
+  /* --------------------------------------------------------------------------------------------------------------------
+  
+  SlideIn Layout
+  
+  Start by adding `.nav--responsive` to the nav and a container with `#nav-origin`.
+  
+  Example: a simple inline nav with 3 dropdowns:
+  
+      <div id="nav-origin">
+        <nav class="nav nav--inline nav--btn nav--responsive" id="nav">
+          <ul>
+            <li class="dropdown">
+              <a href="#" class="dropdown__toggle " data-toggle="dropdown">
+                Dropdown 1
+              </a>
+              <ul class="dropdown__menu ">
+                <li><a href="#">Dropdown 1 - Sub 1</a></li>
+                <li><a href="#">Dropdown 1 - Sub 2</a></li>
+                <li><a href="#">Dropdown 1 - Sub 2</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown__toggle" data-toggle="dropdown">
+                Dropdown 2
+              </a>
+              <ul class="dropdown__menu">
+                <li><a href="#">Dropdown 2 - Sub 1</a></li>
+                <li><a href="#">Dropdown 2 - Sub 2</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Dropdown 2 - Sub 4</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown__toggle " data-toggle="dropdown">
+                Dropdown 3
+              </a>
+              <ul class="dropdown__menu ">
+                <li><a href="#">Dropdown 3 - Sub 1</a></li>
+                <li><a href="#">Dropdown 3 - Sub 2</a></li>
+                <li><a href="#">Dropdown 3 - Sub 3</a></li>
+                <li><a href="#">Dropdown 3 - Sub 4</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+  
+  Then add and empty div with `#nav-destination` for where the nav html will be moved when the media query kick in.
+  
+      <div id="nav-destination"></div>
+  
+  At the bottom of the page add `responsive-nav.js`. This is a modified version of
+  [Responsive Nav](http://responsive-nav.com/) with extra options.
+  
+      <script src="//rawgithub.com/raffone/responsive-nav.js/master/responsive-nav.js"></script>
+  
+  And finally in your js file add:
+  
+      // Enable responsive nav
+      var navigation = responsiveNav("#nav");
+  
+      // Move html on breakpoint
+      function moveNavbar() {
+        if ( $(".nav--responsive").css("overflow") == 'hidden' ) {
+          $("#nav-destination").append($("#nav-origin .nav"));
+        } else {
+          $("#nav-origin").append($("#nav-destination .nav"));
+        }
+      }
+  
+      moveNavbar();
+      $(window).resize(function() { moveNavbar(); });
+  
+  
+  That's it, when the with of the page reace the breakpoint for the nav defined with
+  `$navs-responsive-breakpoint` the html will be moved to the destination.
+  
+  Styleguide 15.1
+  
+  -------------------------------------------------------------------------------------------------------------------- */
+  .nav--responsive {
+    clip: rect(0 0 0 0);
+    max-height: 0;
+    width: 100%; }
+    .nav--responsive.opened {
+      max-height: 9999px; }
+
+  /* --------------------------------------------------------------------------------------------------------------------
+  
+  Offset Layout
+  
+  First enable the layout:
+  
+      $navs-responsive-type: 'off-canvas';
+  
+  The offset layout require two more wrappers `.external-wrapper` and `.internal-wrapper`, example below:
+  
+      <div class="external-wrapper">
+        <div id="nav-destination"></div>
+        <div class="internal-wrapper">
+          <div id="nav-origin">
+            …
+          </div>
+          [rest of the page…]
+        </div>
+      </div>
+  
+  Add this js instead of `var navigation = responsiveNav("#nav");`:
+  
+      var navigation = responsiveNav("#nav", {
+        animate: false,
+        offcanvas: true,
+        open: function(){
+          $("body").addClass("nav-open");
+        },
+        close: function(){
+            $("body").removeClass("nav-open");
+        }
+      });
+  
+  Styleguide 15.2
+  
+  -------------------------------------------------------------------------------------------------------------------- */ }
+/* ====================================================================================================================
+
+Breadcrumbs
+
+Add a breadcrumb with a list with class `.breadcrumb`.
+
+	<ul class="breadcrumbs">
+	  <li><a href="#">Home</a></li>
+	  <li><a href="#">Library</a></li>
+	  <li class="current">Data</li>
+	</ul>
+
+**`.active`**: Selected element style
+
+Styleguide 2.1
+
+==================================================================================================================== */
+.breadcrumbs {
+  margin: 0 0 1.5em;
+  list-style: none; }
+  .breadcrumbs > li {
+    display: -moz-inline-stack;
+    display: inline-block;
+    vertical-align: middle;
+    *vertical-align: auto;
+    zoom: 1;
+    *display: inline; }
+
+/* ====================================================================================================================
+
+Pagination
+
+Simple pagination inspired by Rdio, great for apps and search results. The large block is hard to miss, easily scalable, and provides large click areas.
+
+Default pagination with `.pagination`, it also support [WP-Paginate](http://wordpress.org/plugins/wp-paginate/).
+
+Markup:
+<div class="pagination {$modifiers}">
+  <ul>
+    <li><a href="#">Prev</a></li>
+    <li><a href="#">1</a></li>
+    <li class="current"><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">Next</a></li>
+  </ul>
+</div>
+
+.pagination--center - Center aligned pagination.
+.pagination--right - Right aligned pagination.
+.pagination--rounded - Rounded sides.
+
+Styleguide 14.
+
+==================================================================================================================== */
+.pagination {
+  margin: 1.5em 0; }
+  .pagination > * {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    display: -moz-inline-stack;
+    display: inline-block;
+    vertical-align: middle;
+    *vertical-align: auto;
+    zoom: 1;
+    *display: inline;
+    margin-bottom: 0;
+    margin-left: 1px; }
+    .pagination > * li {
+      float: left;
+      list-style-type: none; }
+      .pagination > * li a,
+      .pagination > * li span {
+        display: inline-block;
+        padding: 0.71429em 0.71429em;
+        line-height: 1em;
+        text-decoration: none;
+        border-width: 1px;
+        border-style: solid;
+        margin-left: -1px; }
+    .pagination > * li:first-child > a,
+    .pagination > * li:first-child > span {
+      border-left-width: 1px; }
+    .pagination > * .active > a,
+    .pagination > * .active > span,
+    .pagination > * .disabled > span,
+    .pagination > * .disabled > a,
+    .pagination > * .disabled > a:hover,
+    .pagination > * .disabled > a:focus {
+      cursor: default; }
+
+.pagination--center {
+  text-align: center; }
+
+.pagination--right {
+  text-align: right; }
+
+.pagination--rounded li:first-child > a,
+.pagination--rounded li:first-child > span {
+  -moz-border-radius-topleft: 4px;
+  -webkit-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-bottomleft: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px; }
+.pagination--rounded li:last-child > a,
+.pagination--rounded li:last-child > span {
+  -moz-border-radius-topright: 4px;
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px; }
+
+/* ====================================================================================================================
+
+Pager
+
+Quick previous and next links for simple pagination implementations with light markup and styles. It's great for simple sites like blogs or magazines.
+
+By default, the pager centers links.
+
+Markup:
+<ul class="pager">
+  <li><a href="#">Previous</a></li>
+  <li><a href="#">Next</a></li>
+</ul>
+
+Styleguide 13
+
+==================================================================================================================== */
+.pager {
+  overflow: hidden;
+  *zoom: 1;
+  list-style: none;
+  margin: 1.5em 0;
+  text-align: center;
+  /* --------------------------------------------------------------------------------------------------------------------
+  
+  Alignment
+  
+  Alternatively, you can align each link to the sides:
+  
+  Markup:
+  <ul class="pager">
+    <li class="previous"><a href="#">Previous</a></li>
+    <li class="next"><a href="#">Next</a></li>
+  </ul>
+  
+  Styleguide 13.1
+  
+  -------------------------------------------------------------------------------------------------------------------- */
+  /* --------------------------------------------------------------------------------------------------------------------
+  
+  Disabled state
+  
+  Pager links also use the general `.disabled` utility class from the pagination.
+  
+  Markup:
+  <ul class="pager">
+    <li class="previous disabled"><a href="#">← Older</a></li>
+    <li class="next"><a href="#">Newer →</a></li>
+  </ul>
+  
+  Styleguide 13.2
+  
+  -------------------------------------------------------------------------------------------------------------------- */ }
+  .pager li {
+    display: inline; }
+    .pager li a,
+    .pager li span {
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      -ms-border-radius: 4px;
+      -o-border-radius: 4px;
+      border-radius: 4px;
+      border-style: solid;
+      border-width: 1px;
+      display: inline-block;
+      line-height: 1em;
+      padding: 0.71429em 0.71429em; }
+  .pager [rel="next"],
+  .pager .next > a,
+  .pager .next > span {
+    float: right; }
+  .pager [rel="prev"],
+  .pager .previous > a,
+  .pager .previous > span {
+    float: left; }
+  .pager .disabled > a,
+  .pager .disabled > a:hover,
+  .pager .disabled > a:focus,
+  .pager .disabled > span {
+    cursor: default; }
+
+/* ====================================================================================================================
+
+Alerts
+
+Wrap any text and an optional dismiss button in `.alert` for a basic warning alert message.
+
+Markup:
+<div class="alert">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>Alert!</strong> Best check yourself, you're not looking too good.
+</div>
+
+Styleguide 1
+
+==================================================================================================================== */
+.alert {
+  padding: 0.71429em 0.71429em;
+  margin-bottom: 1.5em; }
+  .alert p {
+    margin: 0; }
+  .alert .close {
+    position: relative;
+    top: 0;
+    right: 0; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Alert Block
+
+For longer messages, increase the padding on the top and bottom of the alert wrapper by adding `.alert-block`.
+
+Markup:
+<div class="alert alert--block">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>Error</strong>
+  <p>The field Number is required and must contain a value.</p>
+  <p>The field Product Title is required and must contain a value.</p>
+  <p>The field Total Expenses is required and must contain a value.</p>
+</div>
+
+Styleguide 1.2
+
+-------------------------------------------------------------------------------------------------------------------- */
+.alert--block * {
+  margin-bottom: 0; }
+.alert--block * + * {
+  margin-top: 5px; }
+
+/* ====================================================================================================================
+
+Grids
+
+Grids usually are defined directly in the scss/sass files using the `columns` mixin.
+This is the best solution and keep the html free of classes that one day may be changed requiring more work
+that editing the stylesheet file and recompiling.
+
+Sometimes is easier to add a class to the html for quick prototiping, in this case there are available several classes
+just for that.
+
+In this example the columns width is 3 on desktop, 6 on tablet and 12 on smartphone.
+
+Markup:
+<div class="desk-3 lap-6 palm-12">1</div>
+<div class="desk-3 lap-6 palm-12">2</div>
+<div class="desk-3 lap-6 palm-12">3</div>
+<div class="desk-3 lap-6 palm-12">4</div>
+<div class="desk-3 lap-6 palm-12">5</div>
+<div class="desk-3 lap-6 palm-12">6</div>
+<div class="desk-3 lap-6 palm-12">7</div>
+<div class="desk-3 lap-6 palm-12">8</div>
+
+Styleguide 9
+
+==================================================================================================================== */
+@media only screen and (max-width: 480px) {
+  .palm-13 {
+    width: 108.60215%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="palm-13"]:nth-child(0.92308n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .palm-12 {
+    width: 100%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="palm-12"]:nth-child(1n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .palm-11 {
+    width: 91.39785%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="palm-11"]:nth-child(1.09091n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .palm-10 {
+    width: 82.7957%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="palm-10"]:nth-child(1.2n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .palm-9 {
+    width: 74.19355%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="palm-9"]:nth-child(1.33333n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .palm-8 {
+    width: 65.5914%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="palm-8"]:nth-child(1.5n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .palm-7 {
+    width: 56.98925%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="palm-7"]:nth-child(1.71429n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .palm-6 {
+    width: 48.3871%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="palm-6"]:nth-child(2n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .palm-5 {
+    width: 39.78495%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="palm-5"]:nth-child(2.4n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .palm-4 {
+    width: 31.1828%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="palm-4"]:nth-child(3n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .palm-3 {
+    width: 22.58065%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="palm-3"]:nth-child(4n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .palm-2 {
+    width: 13.97849%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="palm-2"]:nth-child(6n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .palm-1 {
+    width: 5.37634%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="palm-1"]:nth-child(12n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; } }
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+  .lap-13 {
+    width: 108.60215%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="lap-13"]:nth-child(0.92308n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .lap-12 {
+    width: 100%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="lap-12"]:nth-child(1n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .lap-11 {
+    width: 91.39785%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="lap-11"]:nth-child(1.09091n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .lap-10 {
+    width: 82.7957%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="lap-10"]:nth-child(1.2n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .lap-9 {
+    width: 74.19355%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="lap-9"]:nth-child(1.33333n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .lap-8 {
+    width: 65.5914%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="lap-8"]:nth-child(1.5n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .lap-7 {
+    width: 56.98925%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="lap-7"]:nth-child(1.71429n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .lap-6 {
+    width: 48.3871%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="lap-6"]:nth-child(2n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .lap-5 {
+    width: 39.78495%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="lap-5"]:nth-child(2.4n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .lap-4 {
+    width: 31.1828%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="lap-4"]:nth-child(3n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .lap-3 {
+    width: 22.58065%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="lap-3"]:nth-child(4n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .lap-2 {
+    width: 13.97849%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="lap-2"]:nth-child(6n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .lap-1 {
+    width: 5.37634%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="lap-1"]:nth-child(12n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; } }
+@media only screen and (max-width: 767px) {
+  .portable-13 {
+    width: 108.60215%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="portable-13"]:nth-child(0.92308n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .portable-12 {
+    width: 100%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="portable-12"]:nth-child(1n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .portable-11 {
+    width: 91.39785%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="portable-11"]:nth-child(1.09091n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .portable-10 {
+    width: 82.7957%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="portable-10"]:nth-child(1.2n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .portable-9 {
+    width: 74.19355%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="portable-9"]:nth-child(1.33333n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .portable-8 {
+    width: 65.5914%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="portable-8"]:nth-child(1.5n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .portable-7 {
+    width: 56.98925%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="portable-7"]:nth-child(1.71429n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .portable-6 {
+    width: 48.3871%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="portable-6"]:nth-child(2n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .portable-5 {
+    width: 39.78495%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="portable-5"]:nth-child(2.4n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .portable-4 {
+    width: 31.1828%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="portable-4"]:nth-child(3n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .portable-3 {
+    width: 22.58065%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="portable-3"]:nth-child(4n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .portable-2 {
+    width: 13.97849%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="portable-2"]:nth-child(6n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .portable-1 {
+    width: 5.37634%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="portable-1"]:nth-child(12n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; } }
+@media only screen and (min-width: 481px) {
+  .lap-and-up-13 {
+    width: 108.60215%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="lap-and-up-13"]:nth-child(0.92308n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .lap-and-up-12 {
+    width: 100%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="lap-and-up-12"]:nth-child(1n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .lap-and-up-11 {
+    width: 91.39785%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="lap-and-up-11"]:nth-child(1.09091n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .lap-and-up-10 {
+    width: 82.7957%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="lap-and-up-10"]:nth-child(1.2n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .lap-and-up-9 {
+    width: 74.19355%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="lap-and-up-9"]:nth-child(1.33333n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .lap-and-up-8 {
+    width: 65.5914%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="lap-and-up-8"]:nth-child(1.5n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .lap-and-up-7 {
+    width: 56.98925%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="lap-and-up-7"]:nth-child(1.71429n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .lap-and-up-6 {
+    width: 48.3871%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="lap-and-up-6"]:nth-child(2n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .lap-and-up-5 {
+    width: 39.78495%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="lap-and-up-5"]:nth-child(2.4n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .lap-and-up-4 {
+    width: 31.1828%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="lap-and-up-4"]:nth-child(3n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .lap-and-up-3 {
+    width: 22.58065%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="lap-and-up-3"]:nth-child(4n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .lap-and-up-2 {
+    width: 13.97849%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="lap-and-up-2"]:nth-child(6n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .lap-and-up-1 {
+    width: 5.37634%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="lap-and-up-1"]:nth-child(12n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; } }
+@media only screen and (min-width: 768px) {
+  .desk-13 {
+    width: 108.60215%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="desk-13"]:nth-child(0.92308n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .desk-12 {
+    width: 100%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="desk-12"]:nth-child(1n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .desk-11 {
+    width: 91.39785%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="desk-11"]:nth-child(1.09091n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .desk-10 {
+    width: 82.7957%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="desk-10"]:nth-child(1.2n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .desk-9 {
+    width: 74.19355%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="desk-9"]:nth-child(1.33333n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .desk-8 {
+    width: 65.5914%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="desk-8"]:nth-child(1.5n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .desk-7 {
+    width: 56.98925%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="desk-7"]:nth-child(1.71429n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .desk-6 {
+    width: 48.3871%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="desk-6"]:nth-child(2n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .desk-5 {
+    width: 39.78495%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="desk-5"]:nth-child(2.4n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .desk-4 {
+    width: 31.1828%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="desk-4"]:nth-child(3n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .desk-3 {
+    width: 22.58065%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="desk-3"]:nth-child(4n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .desk-2 {
+    width: 13.97849%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="desk-2"]:nth-child(6n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; }
+
+  .desk-1 {
+    width: 5.37634%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline; }
+
+  [class*="desk-1"]:nth-child(12n) {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline; } }
+/* --------------------------------------------------------------------------------------------------------------------
+
+Show and Hide
+
+There're also available some helper classes:
+
+* **Hide element**: Used to hide an element at a breackpoint
+	* `.palm-hide`
+	* `.lap-hide`
+	* `.portable-hide`
+	* `.lap-and-up-hide`
+	* `.desk-hide`
+* **Show element**: Used to show an element at a breackpoint
+	* `.palm-show`
+	* `.lap-show`
+	* `.portable-show`
+	* `.lap-and-up-show`
+	* `.desk-show`
+
+Styleguide 9.1
+
+-------------------------------------------------------------------------------------------------------------------- */
+@media only screen and (max-width: 480px) {
+  .palm-hide {
+    display: none !important; }
+
+  .palm-show {
+    display: block !important; } }
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+  .lap-hide {
+    display: none !important; }
+
+  .lap-show {
+    display: block !important; } }
+@media only screen and (max-width: 767px) {
+  .portable-hide {
+    display: none !important; }
+
+  .portable-show {
+    display: block !important; } }
+@media only screen and (min-width: 481px) {
+  .lap-and-up-hide {
+    display: none !important; }
+
+  .lap-and-up-show {
+    display: block !important; } }
+@media only screen and (min-width: 768px) {
+  .desk-hide {
+    display: none !important; }
+
+  .desk-show {
+    display: block !important; } }
+/* ====================================================================================================================
+
+Modals
+
+For modals is used the excellent [**fancyBox**](http://fancyapps.com/fancybox/) jQuery plugin, see full documentation for more in depth examples.
+
+Markup:
+<a class="open__modal  btn btn--default" href="#modal">Open modal</a>
+<div id="modal" class="modal">
+  <h2>Lorem ipsum dolor sit amet</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".open__modal").fancybox();
+  });
+</script>
+
+Styleguide 11.
+
+==================================================================================================================== */
+.modal {
+  display: none; }
+
+.fancybox-wrap,
+.fancybox-wrap iframe,
+.fancybox-wrap object,
+.fancybox-skin,
+.fancybox-outer,
+.fancybox-inner,
+.fancybox-image,
+.fancybox-nav span,
+.fancybox-tmp, #fancybox-thumbs ul {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  vertical-align: top;
+  list-style-type: none; }
+
+.fancybox-overlay {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: none;
+  overflow: hidden;
+  z-index: 1049; }
+  .fancybox-overlay.fancybox-overlay-fixed {
+    position: fixed;
+    right: 0px;
+    bottom: 0px; }
+  .fancybox-overlay .fancybox-wrap {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1050; }
+    .fancybox-overlay .fancybox-wrap.fancybox-opened {
+      z-index: 1051; }
+    .fancybox-overlay .fancybox-wrap.fancybox-type-iframe .fancybox-inner {
+      -webkit-overflow-scrolling: touch; }
+    .fancybox-overlay .fancybox-wrap .fancybox-skin {
+      position: relative;
+      padding: 0 !important; }
+      .fancybox-overlay .fancybox-wrap .fancybox-skin .fancybox-outer {
+        position: relative; }
+        .fancybox-overlay .fancybox-wrap .fancybox-skin .fancybox-outer .fancybox-inner {
+          position: relative;
+          overflow: hidden; }
+          .fancybox-overlay .fancybox-wrap .fancybox-skin .fancybox-outer .fancybox-inner > div {
+            padding: 1.5em; }
+
+.fancybox-tmp {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  visibility: hidden;
+  max-width: 99999px;
+  max-height: 99999px;
+  overflow: visible !important; }
+
+.fancybox-lock {
+  overflow: hidden; }
+
+.fancybox-lock .fancybox-overlay {
+  overflow: auto;
+  overflow-y: scroll; }
+
+.fancybox-error {
+  margin: 0;
+  padding: 0.71429em 0.71429em;
+  white-space: nowrap; }
+
+.fancybox-image,
+.fancybox-iframe {
+  display: block;
+  width: 100%;
+  height: 100%; }
+
+.fancybox-image {
+  max-width: 100%;
+  max-height: 100%; }
+
+#fancybox-loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  cursor: pointer;
+  z-index: 1054; }
+
+.fancybox-close {
+  z-index: 1053; }
+
+.fancybox-nav {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  position: absolute;
+  top: 0px;
+  width: 40%;
+  height: 100%;
+  z-index: 1052; }
+  .fancybox-nav span {
+    position: absolute;
+    top: 50%;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    z-index: 1052; }
+  .fancybox-nav:hover span {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1; }
+  .fancybox-nav.fancybox-prev {
+    left: 0; }
+    .fancybox-nav.fancybox-prev span {
+      left: 0; }
+  .fancybox-nav.fancybox-next {
+    right: 0; }
+    .fancybox-nav.fancybox-next span {
+      right: 0; }
+
+.fancybox-title {
+  visibility: hidden;
+  position: relative;
+  text-shadow: none;
+  z-index: 1053; }
+
+.fancybox-opened .fancybox-title {
+  visibility: visible; }
+
+.fancybox-title-float-wrap {
+  position: absolute;
+  right: 50%;
+  bottom: 0px;
+  margin-bottom: -2.5em;
+  text-align: center;
+  z-index: 1053; }
+  .fancybox-title-float-wrap .child {
+    background: black;
+    background: rgba(0, 0, 0, 0.8);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-right: -100%;
+    padding: 0.14286em 0.71429em;
+    color: #FFF;
+    font-weight: bold;
+    white-space: nowrap; }
+
+.fancybox-title-outside-wrap {
+  position: relative;
+  margin-top: 0.71429em;
+  color: #fff; }
+
+.fancybox-title-over-wrap {
+  position: absolute;
+  bottom: 0px;
+  left: 0px; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Modal Buttons
+
+Markup:
+<a class="fancybox-button" rel="fancybox-button" href="http://placehold.it/600x400/c7e843/fff.jpg">
+  <img src="http://placehold.it/60x60/c7e843/fff.jpg"/>
+</a>
+<a class="fancybox-button" rel="fancybox-button" href="http://placehold.it/600x400/f6ab48/fff.jpg">
+  <img src="http://placehold.it/60x60/f6ab48/fff.jpg"/>
+</a>
+<a class="fancybox-button" rel="fancybox-button" href="http://placehold.it/600x400/3dced4/fff.jpg">
+  <img src="http://placehold.it/60x60/3dced4/fff.jpg"/>
+</a>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".fancybox-button").fancybox({
+      prevEffect : 'none',
+      nextEffect : 'none',
+      closeBtn   : false,
+      helpers    : {
+        title    : { type : 'inside' },
+        buttons  : {}
+      }
+    });
+  });
+</script>
+
+Styleguide 11.1
+
+-------------------------------------------------------------------------------------------------------------------- */
+#fancybox-buttons {
+  position: fixed;
+  left: 0px;
+  width: 100%;
+  z-index: 1053; }
+  #fancybox-buttons.top {
+    top: 0.71429em; }
+  #fancybox-buttons.bottom {
+    bottom: 0.71429em; }
+  #fancybox-buttons ul {
+    display: block;
+    list-style: none;
+    margin: 0 auto; }
+    #fancybox-buttons ul li {
+      float: left;
+      margin: 0; }
+      #fancybox-buttons ul li a {
+        position: relative; }
+        #fancybox-buttons ul li a:hover {
+          filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+          opacity: 1; }
+        #fancybox-buttons ul li a:after {
+          position: absolute;
+          top: 0px;
+          right: 0px;
+          left: 0px; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Modal Thumbs
+
+Markup:
+<a class="fancybox-thumb" rel="fancybox-thumb" href="http://placehold.it/600x400/c7e843/fff.jpg">
+  <img src="http://placehold.it/60x60/c7e843/fff.jpg"/>
+</a>
+<a class="fancybox-thumb" rel="fancybox-thumb" href="http://placehold.it/600x400/f6ab48/fff.jpg">
+  <img src="http://placehold.it/60x60/f6ab48/fff.jpg"/>
+</a>
+<a class="fancybox-thumb" rel="fancybox-thumb" href="http://placehold.it/600x400/3dced4/fff.jpg">
+  <img src="http://placehold.it/60x60/3dced4/fff.jpg"/>
+</a>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".fancybox-thumb").fancybox({
+      prevEffect : 'none',
+      nextEffect : 'none',
+      helpers    : {
+        title    : {
+          type: 'outside'
+        },
+        thumbs   : {
+          width  : 60,
+          height : 60
+        }
+      }
+    });
+  });
+</script>
+
+Styleguide 11.2
+
+-------------------------------------------------------------------------------------------------------------------- */
+#fancybox-thumbs {
+  position: fixed;
+  left: 0px;
+  overflow: hidden;
+  width: 100%;
+  z-index: 1053; }
+  #fancybox-thumbs.bottom {
+    bottom: 0.71429em; }
+  #fancybox-thumbs.top {
+    top: 0.71429em; }
+  #fancybox-thumbs ul {
+    position: relative; }
+    #fancybox-thumbs ul li {
+      float: left;
+      margin-right: 0.28571em;
+      filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+      opacity: 0.5; }
+      #fancybox-thumbs ul li:hover {
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=75);
+        opacity: 0.75; }
+      #fancybox-thumbs ul li.active {
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+        opacity: 1; }
+      #fancybox-thumbs ul li a {
+        display: block;
+        overflow: hidden;
+        text-align: center; }
+
+/* ====================================================================================================================
+
+Sliders
+
+For modals is used the excellent [**BxSlider**](http://bxslider.com/) jQuery plugin,
+see full documentation for more in depth examples.
+
+Markup:
+<ul class="slider">
+  <li><img src="http://placehold.it/800x300/c7e843/fff.jpg" /></li>
+  <li><img src="http://placehold.it/800x300/f6ab48/fff.jpg" /></li>
+  <li><img src="http://placehold.it/800x300/3dced4/fff.jpg" /></li>
+</ul>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.slider').bxSlider({
+      nextText: '<i></i><span>Next</span>', // replace text with icon-font
+      prevText: '<i></i><span>Prev</span>', // replace text with icon-font
+    });
+  });
+</script>
+
+Styleguide 16.
+
+==================================================================================================================== */
+.bx-wrapper {
+  position: relative;
+  padding: 0;
+  *zoom: 1;
+  z-index: 1040;
+  margin-bottom: 1.5em; }
+  .bx-wrapper img {
+    max-width: 100%;
+    display: block; }
+
+.bx-controls-direction a {
+  position: absolute;
+  top: 50%;
+  z-index: 200; }
+  .bx-controls-direction a i {
+    font-style: normal; }
+  .bx-controls-direction a span {
+    text-indent: -119988px;
+    overflow: hidden;
+    text-align: left; }
+.bx-controls-direction .disabled {
+  display: none; }
+
+.bx-prev {
+  left: 0; }
+
+.bx-next {
+  right: 0; }
+
+.bx-pager {
+  width: 100%;
+  text-align: center; }
+
+.bx-pager-item {
+  display: inline-block; }
+  .bx-pager-item a {
+    display: inline-block; }
+
+.bx-loading {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 2000; }
+
+.bx-caption {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%; }
+  .bx-caption span {
+    display: inline-block; }
+
+/* ====================================================================================================================
+
+Tabs
+
+For tabs is used the excellent [**EasyTabs**](http://os.alfajango.com/easytabs/) jQuery plugin,
+see full documentation for more in depth examples.
+
+Markup:
+<div id="tabs" class="tabs">
+  <ul class='etabs'>
+    <li class='tab'><a href="#tabs1-html">HTML Markup</a></li>
+    <li class='tab'><a href="#tabs1-js">Required JS</a></li>
+    <li class='tab'><a href="#tabs1-css">Example CSS</a></li>
+  </ul>
+   <div class='panel-container'>
+  <div id="tabs1-html">
+    <h5>HTML Markup for these tabs</h5>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  </div>
+  <div id="tabs1-js">
+    <h5>JS for these tabs</h5>
+    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  </div>
+  <div id="tabs1-css">
+    <h5>CSS Styles for these tabs</h5>
+    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+  </div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#tabs').easytabs({
+      animate: false
+    });
+  });
+</script>
+
+Styleguide 18.
+
+==================================================================================================================== */
+.tabs {
+  margin-bottom: 1.5em; }
+  .tabs .etabs {
+    margin: 0;
+    padding: 0; }
+    .tabs .etabs li {
+      display: inline-block;
+      zoom: 1; }
+      .tabs .etabs li a {
+        line-height: 1em;
+        display: block;
+        padding: 0.71429em 0.71429em;
+        outline: none;
+        -webkit-border-radius: 4px 4px 0 0;
+        -moz-border-radius: 4px 4px 0 0;
+        -ms-border-radius: 4px 4px 0 0;
+        -o-border-radius: 4px 4px 0 0;
+        border-radius: 4px 4px 0 0; }
+      .tabs .etabs li.active a {
+        position: relative;
+        font-weight: bold; }
+        .tabs .etabs li.active a:after {
+          position: absolute;
+          right: 0px;
+          bottom: -1px;
+          left: 0px;
+          height: 2px;
+          display: block;
+          content: ""; }
+  .tabs .panel-container {
+    -webkit-border-radius: 0 4px 4px;
+    -moz-border-radius: 0 4px 4px;
+    -ms-border-radius: 0 4px 4px;
+    -o-border-radius: 0 4px 4px;
+    border-radius: 0 4px 4px; }
+    .tabs .panel-container > div {
+      padding: 0.71429em 0.71429em; }
+
+/* ====================================================================================================================
+
+Default Styles
+
+One of the main reason of the existence of Rapido is because I wanted to separate pure framework code form styling.
+Every component refer to a silent class from `_default-style.scss`.
+
+These are all the classes available by default, others can be added or removed based on what component you want
+to enable or disable.
+
+Styleguide 30
+
+==================================================================================================================== */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Titles
+
+    %h1                             # For <h1>
+    %h2                             # For <h2>
+    %h3                             # For <h3>
+    %h4                             # For <h4>
+    %h5                             # For <h5>
+    %h6                             # For <h6>
+
+Styleguide 30.1
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Inputs and Selects
+
+    %input                          # For the <input> and <textarea>
+    %input-addon                    # For the addon texts in forms
+    %select                         # Custom select style, by default it use %input
+
+Styleguide 30.2
+
+-------------------------------------------------------------------------------------------------------------------- */
+.input-text,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"], .form__select {
+  border-color: #999999;
+  background-color: #f2f2f2;
+  -webkit-box-shadow: inset 0 1px 0 white;
+  -moz-box-shadow: inset 0 1px 0 white;
+  box-shadow: inset 0 1px 0 white;
+  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #ffffff), color-stop(100%, #f2f2f2));
+  background-image: -webkit-linear-gradient(bottom, #ffffff 0%, #f2f2f2 100%);
+  background-image: -moz-linear-gradient(bottom, #ffffff 0%, #f2f2f2 100%);
+  background-image: -o-linear-gradient(bottom, #ffffff 0%, #f2f2f2 100%);
+  background-image: linear-gradient(bottom, #ffffff 0%, #f2f2f2 100%); }
+  .input-text:focus,
+  textarea:focus,
+  input[type="text"]:focus,
+  input[type="password"]:focus,
+  input[type="datetime"]:focus,
+  input[type="datetime-local"]:focus,
+  input[type="date"]:focus,
+  input[type="month"]:focus,
+  input[type="time"]:focus,
+  input[type="week"]:focus,
+  input[type="number"]:focus,
+  input[type="email"]:focus,
+  input[type="url"]:focus,
+  input[type="search"]:focus,
+  input[type="tel"]:focus,
+  input[type="color"]:focus, .form__select:focus {
+    background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(50%, #ffffff), color-stop(100%, #f2f2f2));
+    background-image: -webkit-linear-gradient(bottom, #ffffff 50%, #f2f2f2 100%);
+    background-image: -moz-linear-gradient(bottom, #ffffff 50%, #f2f2f2 100%);
+    background-image: -o-linear-gradient(bottom, #ffffff 50%, #f2f2f2 100%);
+    background-image: linear-gradient(bottom, #ffffff 50%, #f2f2f2 100%); }
+
+.form__addon {
+  color: #333333;
+  border-color: #d9d9d9;
+  background-color: #f2f2f2; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Buttons
+
+    %btn--default                   # Default button colors
+    %btn--primary                   # Default color for primary buttons
+    %btn--secondary                 # Default color for secondary buttons
+    %btn--scripts                   # Default buttons color for buttons used in scripts (slides, modals)
+
+    %btn__disabled                  # For disabled button
+    %btn__current                   # For current button (es. used in Pagination)
+
+Styleguide 30.3
+
+-------------------------------------------------------------------------------------------------------------------- */
+.btn--default, .pagination > * li a,
+.pagination > * li span, .pager li a,
+.pager li span {
+  color: #333333;
+  border-color: #999999;
+  background-color: #d9d9d9;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #d9d9d9), color-stop(100%, #f2f2f2));
+  background-image: -webkit-linear-gradient(bottom, #d9d9d9 0%, #f2f2f2 100%);
+  background-image: -moz-linear-gradient(bottom, #d9d9d9 0%, #f2f2f2 100%);
+  background-image: -o-linear-gradient(bottom, #d9d9d9 0%, #f2f2f2 100%);
+  background-image: linear-gradient(bottom, #d9d9d9 0%, #f2f2f2 100%); }
+  .btn--default:hover, .pagination > * li a:hover,
+  .pagination > * li span:hover, .pager li a:hover,
+  .pager li span:hover, .hover.btn--default, .pagination > * li a.hover,
+  .pagination > * li span.hover, .pager li a.hover,
+  .pager li span.hover, .btn--default:focus, .pagination > * li a:focus,
+  .pagination > * li span:focus, .pager li a:focus,
+  .pager li span:focus {
+    color: inherit;
+    background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #d9d9d9), color-stop(100%, #ffffff));
+    background-image: -webkit-linear-gradient(bottom, #d9d9d9 0%, #ffffff 100%);
+    background-image: -moz-linear-gradient(bottom, #d9d9d9 0%, #ffffff 100%);
+    background-image: -o-linear-gradient(bottom, #d9d9d9 0%, #ffffff 100%);
+    background-image: linear-gradient(bottom, #d9d9d9 0%, #ffffff 100%); }
+  .active.btn--default, .pagination > * li a.active,
+  .pagination > * li span.active, .pager li a.active,
+  .pager li span.active, .btn--default:active, .pagination > * li a:active,
+  .pagination > * li span:active, .pager li a:active,
+  .pager li span:active {
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #d9d9d9), color-stop(100%, #f2f2f2));
+    background-image: -webkit-linear-gradient(top, #d9d9d9 0%, #f2f2f2 100%);
+    background-image: -moz-linear-gradient(top, #d9d9d9 0%, #f2f2f2 100%);
+    background-image: -o-linear-gradient(top, #d9d9d9 0%, #f2f2f2 100%);
+    background-image: linear-gradient(top, #d9d9d9 0%, #f2f2f2 100%); }
+
+.pagination > * .disabled > span,
+.pagination > * .disabled > a,
+.pagination > * .disabled > a:hover,
+.pagination > * .disabled > a:focus, .pager .disabled > a,
+.pager .disabled > a:hover,
+.pager .disabled > a:focus,
+.pager .disabled > span {
+  color: #d9d9d9;
+  border-color: #d9d9d9;
+  background: #FFF; }
+
+.pagination > * li.current a,
+.pagination > * li.current a:hover,
+.pagination > * a.current,
+.pagination > * a.current:hover {
+  -webkit-box-shadow: 0 0 0;
+  -moz-box-shadow: 0 0 0;
+  box-shadow: 0 0 0;
+  background: #999999;
+  color: white; }
+
+.btn--primary {
+  color: #fff;
+  border-color: #004d00;
+  background-color: green;
+  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #004d00), color-stop(100%, #008000));
+  background-image: -webkit-linear-gradient(bottom, #004d00 0%, #008000 100%);
+  background-image: -moz-linear-gradient(bottom, #004d00 0%, #008000 100%);
+  background-image: -o-linear-gradient(bottom, #004d00 0%, #008000 100%);
+  background-image: linear-gradient(bottom, #004d00 0%, #008000 100%); }
+  .btn--primary:hover, .hover.btn--primary, .btn--primary:focus {
+    color: #fff;
+    background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #004d00), color-stop(100%, #009f00));
+    background-image: -webkit-linear-gradient(bottom, #004d00 0%, #009f00 100%);
+    background-image: -moz-linear-gradient(bottom, #004d00 0%, #009f00 100%);
+    background-image: -o-linear-gradient(bottom, #004d00 0%, #009f00 100%);
+    background-image: linear-gradient(bottom, #004d00 0%, #009f00 100%); }
+  .active.btn--primary, .btn--primary:active {
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #004d00), color-stop(100%, #008000));
+    background-image: -webkit-linear-gradient(top, #004d00 0%, #008000 100%);
+    background-image: -moz-linear-gradient(top, #004d00 0%, #008000 100%);
+    background-image: -o-linear-gradient(top, #004d00 0%, #008000 100%);
+    background-image: linear-gradient(top, #004d00 0%, #008000 100%); }
+
+.btn--secondary {
+  color: #fff;
+  border-color: #cc0000;
+  background-color: red;
+  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #cc0000), color-stop(100%, #ff0000));
+  background-image: -webkit-linear-gradient(bottom, #cc0000 0%, #ff0000 100%);
+  background-image: -moz-linear-gradient(bottom, #cc0000 0%, #ff0000 100%);
+  background-image: -o-linear-gradient(bottom, #cc0000 0%, #ff0000 100%);
+  background-image: linear-gradient(bottom, #cc0000 0%, #ff0000 100%); }
+  .btn--secondary:hover, .hover.btn--secondary, .btn--secondary:focus {
+    color: #fff;
+    background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #cc0000), color-stop(100%, #ff6666));
+    background-image: -webkit-linear-gradient(bottom, #cc0000 0%, #ff6666 100%);
+    background-image: -moz-linear-gradient(bottom, #cc0000 0%, #ff6666 100%);
+    background-image: -o-linear-gradient(bottom, #cc0000 0%, #ff6666 100%);
+    background-image: linear-gradient(bottom, #cc0000 0%, #ff6666 100%); }
+  .active.btn--secondary, .hover.btn--secondary, .btn--secondary:active {
+    background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #cc0000), color-stop(100%, #ff0000));
+    background-image: -webkit-linear-gradient(bottom, #cc0000 0%, #ff0000 100%);
+    background-image: -moz-linear-gradient(bottom, #cc0000 0%, #ff0000 100%);
+    background-image: -o-linear-gradient(bottom, #cc0000 0%, #ff0000 100%);
+    background-image: linear-gradient(bottom, #cc0000 0%, #ff0000 100%); }
+
+.fancybox-close, .fancybox-nav span, #fancybox-buttons ul li a, .bx-controls-direction a {
+  background: black;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  text-align: center;
+  text-decoration: none; }
+  .fancybox-close:hover, .fancybox-nav span:hover, #fancybox-buttons ul li a:hover, .bx-controls-direction a:hover {
+    color: #fff;
+    background: black;
+    background: rgba(0, 0, 0, 0.8); }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Captions
+
+    %caption                        # Used for the captions in .caption and modals
+
+Styleguide 30.4
+
+-------------------------------------------------------------------------------------------------------------------- */
+.caption:after, .fancybox-title-over-wrap, .bx-caption span {
+  background: black;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 0.71429em 0.71429em; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Labels (Badges & Pills)
+
+    %pill                           # For the .badge and .pill
+
+Styleguide 30.5
+
+-------------------------------------------------------------------------------------------------------------------- */
+.badge,
+.pill {
+  background: black;
+  background: rgba(0, 0, 0, 0.35);
+  color: white; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Dropdowns
+
+    %dropdown                       # For the dropdown's list
+    %dropdown--open                 # For the drodpown button in .open state
+
+Styleguide 30.6
+
+-------------------------------------------------------------------------------------------------------------------- */
+.dropdown__menu {
+  background: #f2f2f2;
+  border-color: #999999; }
+  .dropdown__menu .divider {
+    *width: 100%;
+    height: 1px;
+    overflow: hidden;
+    background-color: #999999;
+    margin-top: -1px; }
+  .dropdown__menu > li > a,
+  .dropdown__menu > li > label {
+    border-bottom: 1px dotted #999999; }
+  .dropdown__menu > li > a:hover,
+  .dropdown__menu > li > a:focus {
+    text-decoration: none;
+    background-color: #d9d9d9; }
+
+.dropdown.open .dropdown__toggle {
+  background: #f2f2f2;
+  border-bottom: 1px solid #f2f2f2; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Tables
+
+    %table--bordered                # For .table--bordered
+    %table--striped                 # For .table--striped
+    %table--hover                   # For .table--hover
+    %table--sortable                # For .table--sortable
+
+Styleguide 30.7
+
+-------------------------------------------------------------------------------------------------------------------- */
+.table--bordered thead th, .table--bordered thead td {
+  background-color: #999999;
+  color: #FFF; }
+.table--bordered tbody td {
+  border-bottom: 1px solid #d9d9d9; }
+
+.table--striped tbody > tr:nth-child(odd) > td,
+.table--striped tbody > tr:nth-child(odd) > th {
+  background-color: #f2f2f2; }
+
+.table--hover tbody tr:hover > td,
+.table--hover tbody tr:hover > th {
+  background-color: #f2f2f2; }
+
+.table--sortable thead th:hover {
+  background: #4d4d4d; }
+.table--sortable thead th.sorting-asc:after {
+  content: "\25BC"; }
+.table--sortable thead th.sorting-desc:after {
+  content: "\25B2"; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Navs
+
+    %nav--btn                       # For links in navs with .nav--btn
+    %nav--btn__hover                # For the :hover state of %nav--btn
+    %nav--btn__current              # For the current selected link
+    %nav--btn__disabled             # For the disabled links
+
+Styleguide 30.8
+
+-------------------------------------------------------------------------------------------------------------------- */
+.nav--btn li > a:hover, .nav--btn li > a:focus {
+  background-color: #f2f2f2; }
+
+.nav--btn li.disabled > a {
+  color: #d9d9d9; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Breadcrumbs
+
+    %breadcrumbs                     # Base style of breadcrumbs
+    %breadcrumbs__current            # For the current selected link
+
+Styleguide 30.9
+
+-------------------------------------------------------------------------------------------------------------------- */
+.breadcrumbs > li:after {
+  color: #ccc;
+  content: "›";
+  padding: 0 10px; }
+.breadcrumbs > li:last-child:after {
+  content: "";
+  padding-right: 0; }
+
+.breadcrumbs .current {
+  color: #d9d9d9; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Pagination
+
+    %pagination--btn                # For links in .pagination
+    %pagination--btn__hover         # For the :hover state of %pagination--btn
+    %pagination--btn__active        # For the :active  state of %pagination--btn
+    %pagination--btn__current       # For the current selected link
+    %pagination--btn__disabled      # For the disabled links
+
+Styleguide 30.10
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Pager
+
+    %pager--btn                     # For the links in .pager
+    %pager--btn__hover              # For the :hover state of %pager--btn
+    %pager--btn__active             # For the :active  state of %pager--btn
+    %pager--btn__disabled           # For the disabled links
+
+Styleguide 30.11
+
+-------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------
+
+Modals
+
+    %modal__btn                     # For all button links in modals
+    %modal__close                   # For the default close button
+    %modal__close--alt              # Alternative style for close button in iframes
+    %modal__btnbar-size             # Width and height of #fancybox-buttons
+    %modal__overlay                 # Color of background overlay
+    %modal__skin                    # For the modal window
+    %modal__nav                     # For the Next and Prev buttons
+    %modal__caption                 # For the caption
+    %modal__loading                 # Position and style of the loading icon
+
+Styleguide 30.12
+
+-------------------------------------------------------------------------------------------------------------------- */
+.fancybox-close, .fancybox-nav span, #fancybox-buttons ul li a {
+  width: 2.14286em;
+  height: 2.14286em;
+  line-height: 2.14286em; }
+
+.fancybox-close {
+  position: absolute;
+  top: -2.14286em;
+  right: 0.5em; }
+
+.fancybox-overlay .fancybox-wrap.fancybox-type-inline .fancybox-close, .fancybox-overlay .fancybox-wrap.fancybox-type-iframe .fancybox-close, .fancybox-overlay .fancybox-wrap.fancybox-type-ajax .fancybox-close {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background-color: transparent;
+  color: #0066cc; }
+  .fancybox-overlay .fancybox-wrap.fancybox-type-inline .fancybox-close:hover, .fancybox-overlay .fancybox-wrap.fancybox-type-iframe .fancybox-close:hover, .fancybox-overlay .fancybox-wrap.fancybox-type-ajax .fancybox-close:hover {
+    color: #004c99; }
+
+#fancybox-buttons ul {
+  width: 10.71429em;
+  height: 2.14286em; }
+
+.fancybox-overlay {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNiqAcAAIgAgoGu+rEAAAAASUVORK5CYII="); }
+
+.fancybox-overlay .fancybox-wrap .fancybox-skin {
+  -webkit-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  background: #fff; }
+  .fancybox-overlay .fancybox-wrap .fancybox-skin .fancybox-close:after {
+    display: inline-block;
+    font-family: "FontAwesome";
+    content: "\f00d"; }
+  .fancybox-overlay .fancybox-wrap .fancybox-skin .fancybox-prev span:after {
+    display: inline-block;
+    font-family: "FontAwesome";
+    content: "\f053"; }
+  .fancybox-overlay .fancybox-wrap .fancybox-skin .fancybox-next span:after {
+    display: inline-block;
+    font-family: "FontAwesome";
+    content: "\f054"; }
+  .fancybox-overlay .fancybox-wrap .fancybox-skin .btnPrev:after {
+    display: inline-block;
+    font-family: "FontAwesome";
+    content: "\f04a"; }
+  .fancybox-overlay .fancybox-wrap .fancybox-skin .btnNext:after {
+    display: inline-block;
+    font-family: "FontAwesome";
+    content: "\f051"; }
+  .fancybox-overlay .fancybox-wrap .fancybox-skin .btnPlay:after {
+    display: inline-block;
+    font-family: "FontAwesome";
+    content: "\f04b"; }
+  .fancybox-overlay .fancybox-wrap .fancybox-skin .btnPlayOn:after {
+    display: inline-block;
+    font-family: "FontAwesome";
+    content: "\f04c"; }
+  .fancybox-overlay .fancybox-wrap .fancybox-skin .btnToggle:after {
+    display: inline-block;
+    font-family: "FontAwesome";
+    content: "\f065"; }
+  .fancybox-overlay .fancybox-wrap .fancybox-skin .btnToggleOn:after {
+    display: inline-block;
+    font-family: "FontAwesome";
+    content: "\f066"; }
+  .fancybox-overlay .fancybox-wrap .fancybox-skin .btnClose:after {
+    display: inline-block;
+    font-family: "FontAwesome";
+    content: "\f00d"; }
+
+.fancybox-nav span {
+  margin-top: -1.07143em; }
+
+#fancybox-loading {
+  margin-top: -22px;
+  margin-left: -22px;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+  opacity: 0.8; }
+  #fancybox-loading div {
+    width: 44px;
+    height: 44px; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Sliders
+
+    %slider__btn                    # For all button links in sliders
+    %slider__pager                  # For the single  links in the pager
+    %slider__caption                # For the caption
+    %slider__loading                # Position and style of the loading icon
+
+Styleguide 30.13
+
+-------------------------------------------------------------------------------------------------------------------- */
+.bx-controls-direction a {
+  width: 2.14286em;
+  height: 2.14286em;
+  line-height: 2.14286em;
+  margin-top: -1.07143em; }
+  .bx-controls-direction a.bx-prev i:after {
+    display: inline-block;
+    font-family: "FontAwesome";
+    content: "\f053"; }
+  .bx-controls-direction a.bx-next i:after {
+    display: inline-block;
+    font-family: "FontAwesome";
+    content: "\f054"; }
+
+.bx-pager {
+  position: absolute;
+  bottom: -30px;
+  padding-top: 20px; }
+  .bx-pager .bx-pager-item a {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    width: 10px;
+    height: 10px;
+    text-indent: -119988px;
+    overflow: hidden;
+    text-align: left;
+    background: #d9d9d9;
+    margin: 0 5px; }
+    .bx-pager .bx-pager-item a:hover, .bx-pager .bx-pager-item a.active {
+      background: #999999; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Tabs
+
+    %tab__nav                       # For the tabs links container
+    %tab__btn                       # For the single tabs link
+    %tab__btn__hover                # For the :hover state of tabs link
+    %tab__btn__current              # For the current selected tab link
+    %tab__container                 # For the content continer
+
+Styleguide 30.14
+
+-------------------------------------------------------------------------------------------------------------------- */
+.tabs .etabs li a {
+  background: #f2f2f2;
+  border: solid 1px #d9d9d9;
+  border-bottom: none; }
+
+.tabs .etabs li a:hover {
+  background: #f2f2f2;
+  border: solid 1px #d9d9d9;
+  border-bottom: none; }
+
+.tabs .etabs li.active a {
+  border-color: #999999; }
+  .tabs .etabs li.active a:after {
+    background: #f2f2f2; }
+
+.tabs .panel-container {
+  border: solid 1px #999999;
+  background: #f2f2f2; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Alerts
+
+    %alert                          # For all alert messages
+
+Styleguide 30.15
+
+-------------------------------------------------------------------------------------------------------------------- */
+.alert {
+  background-color: #f2f2f2;
+  border: 1px solid #d9d9d9; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Responsive Nav
+
+    %nav--responsive                # For the open nav state in responsive mode
+    %nav__toggle                    # For the toggle open/close button in responsive mode
+
+Styleguide 30.16
+
+-------------------------------------------------------------------------------------------------------------------- */
+.nav--responsive.active {
+  background-color: #f2f2f2; }
+  .nav--responsive.active a {
+    padding: 0.71429em 1.42857em; }
+  .nav--responsive.active > ul > li > a {
+    font-weight: bold;
+    background-color: #d9d9d9; }
+
+#nav-toggle span {
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left; }
+#nav-toggle:before {
+  display: inline-block;
+  font-family: "FontAwesome";
+  content: "\f0c9"; }
+
+/* --------------------------------------------------------------------------------------------------------------------
+
+Shared
+
+Classes For other classes of generic elements
+
+    %caret                          # Side triangle For Dropdowns and Selects
+    %loader-ico                     # generic loader icon For all scripts
+
+Styleguide 30.17
+
+-------------------------------------------------------------------------------------------------------------------- */
+.form__select:after, .dropdown__caret:after {
+  display: inline-block;
+  font-family: "FontAwesome";
+  content: "\f078"; }
+
+#fancybox-loading div {
+  background: url("//cdn.jsdelivr.net/wp-advanced-ajax-page-loader/2.5.12/loaders/SMALL%20-%20Spinning%20Arrows.gif") center center no-repeat; }
