@@ -1,8 +1,8 @@
 module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-compass');
-  grunt.loadNpmTasks('grunt-styleguide');
   grunt.loadNpmTasks('grunt-kss');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   grunt.initConfig({
 
@@ -28,10 +28,18 @@ module.exports = function(grunt) {
           'docs': ['stylesheets']
         }
       }
+    },
+
+    copy: {
+      main: {
+        files: [
+          {expand: true, cwd: 'docs/', src: ['**'], dest: '../../server/sites/raffone/rapido'},
+        ]
+      }
     }
 
   });
 
-  grunt.registerTask('compile', ['compass', 'kss']);
+  grunt.registerTask('docs', ['compass', 'kss', 'copy']);
 
 };
