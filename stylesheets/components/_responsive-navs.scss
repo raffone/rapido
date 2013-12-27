@@ -1,4 +1,4 @@
-/* 
+/*
 
 Responsive Navs
 
@@ -10,45 +10,45 @@ Styleguide 15
 
 @if $navs-responsive {
 
-	.nav--responsive.active     { @extend %nav--responsive !optional;  }
-	.nav--responsive.close       { max-height: none;  }
+    .nav--responsive.active     { @extend %nav--responsive !optional;  }
+    .nav--responsive.close       { max-height: none;  }
 
-	#nav-toggle {
-		@extend %nav__toggle !optional;
-		display: none;
-		float: $navs-responsive-dropdown-pos;
-	}
+    #nav-toggle {
+        @extend %nav__toggle !optional;
+        display: none;
+        float: $navs-responsive-dropdown-pos;
+    }
 
-	@include media($navs-responsive-breakpoint) {
+    @include media($navs-responsive-breakpoint) {
 
-		#nav-toggle { display: block; }
+        #nav-toggle { display: block; }
 
 
-		// Reset styling of normal nav
-		.nav.nav--responsive {
+        // Reset styling of normal nav
+        .nav.nav--responsive {
 
-			display: block;
-			margin: 0;
-			overflow: hidden;
-			zoom: 1;
+            display: block;
+            margin: 0;
+            overflow: hidden;
+            zoom: 1;
 
-			* {
-				@include border-radius(0);
-				background: transparent;
-				border: 0;
-				display: block;
-				float: none;
-				margin: 0;
-				padding: 0;
-				position: static;
-				text-align: left;
-				width: 100%;
-				max-height: $dropdowns-height;
-				opacity: 1;
-			}
-		}
+            * {
+                @include border-radius(0);
+                background: transparent;
+                border: 0;
+                display: block;
+                float: none;
+                margin: 0;
+                padding: 0;
+                position: static;
+                text-align: left;
+                width: 100%;
+                max-height: $dropdowns-height;
+                opacity: 1;
+            }
+        }
 
-/* 
+/*
 
 SlideIn Layout
 
@@ -130,22 +130,22 @@ Styleguide 15.1
 */
 
 
-		@if $navs-responsive-type == 'slide' {
+        @if $navs-responsive-type == 'slide' {
 
-			.nav--responsive {
-				clip: rect(0 0 0 0);
-				max-height: 0;
-				width: 100%;
+            .nav--responsive {
+                clip: rect(0 0 0 0);
+                max-height: 0;
+                width: 100%;
 
-				&.opened {
-					max-height: 9999px;
-				}
+                &.opened {
+                    max-height: 9999px;
+                }
 
-			}
+            }
 
-		}
+        }
 
-/* 
+/*
 
 Offset Layout
 
@@ -183,51 +183,51 @@ Styleguide 15.2
 */
 
 
-		@if $navs-responsive-type == 'off-canvas' {
+        @if $navs-responsive-type == 'off-canvas' {
 
-			// Wrappers
-			#{$navs-responsive-outside-wrapper},
-			#{$navs-responsive-inside-wrapper} {
-				position: relative;
-				width: 100%;
-			}
+            // Wrappers
+            #{$navs-responsive-outside-wrapper},
+            #{$navs-responsive-inside-wrapper} {
+                position: relative;
+                width: 100%;
+            }
 
-			#{$navs-responsive-outside-wrapper} {
-				overflow-x: hidden;
-			}
+            #{$navs-responsive-outside-wrapper} {
+                overflow-x: hidden;
+            }
 
-			// Transitions
-			#{$navs-responsive-inside-wrapper},
-			.nav--responsive {
-				@include transition();
-				@include backface-visibility(hidden);
-			}
+            // Transitions
+            #{$navs-responsive-inside-wrapper},
+            .nav--responsive {
+                @include transition();
+                @include backface-visibility(hidden);
+            }
 
 
-			// Animations
-			#{$navs-responsive-inside-wrapper} {
-				@include transform(translate3d(0,0,0));
-				left: 0;
-			}
+            // Animations
+            #{$navs-responsive-inside-wrapper} {
+                @include transform(translate3d(0,0,0));
+                left: 0;
+            }
 
-			.nav--responsive {
-				@include position(absolute, 0px 0px 0px 0);
-				@include transform(translate3d(100%,0,0));
-				height: 100%;
-				width: $navs-responsive-offset;
-			}
+            .nav--responsive {
+                @include position(absolute, 0px 0px 0px 0);
+                @include transform(translate3d(100%,0,0));
+                height: 100%;
+                width: $navs-responsive-offset;
+            }
 
-			.nav-open {
-				#{$navs-responsive-inside-wrapper} {
-					@include transform(translate3d((0 - $navs-responsive-offset),0,0));
-					position: relative;
-				}
+            .nav-open {
+                #{$navs-responsive-inside-wrapper} {
+                    @include transform(translate3d((0 - $navs-responsive-offset),0,0));
+                    position: relative;
+                }
 
-				.nav--responsive {
-					@include transform(translate3d(0,0,0));
-				}
-			}
+                .nav--responsive {
+                    @include transform(translate3d(0,0,0));
+                }
+            }
 
-		}
-	}
+        }
+    }
 }

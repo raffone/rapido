@@ -1,4 +1,4 @@
-/* 
+/*
 
 Modals
 
@@ -16,7 +16,7 @@ Markup:
   });
 </script>
 
-Styleguide 11.
+Styleguide 11
 
 */
 
@@ -25,222 +25,216 @@ Styleguide 11.
 @if $modal {
 
 // Resets
-// 
 
-	%modal-reset {
-		padding: 0;
-		margin: 0;
-		border: 0;
-		vertical-align: top;
-		list-style-type: none;
-	}
+    %modal-reset {
+        padding: 0;
+        margin: 0;
+        border: 0;
+        vertical-align: top;
+        list-style-type: none;
+    }
 
-	.fancybox-wrap,
-	.fancybox-wrap iframe,
-	.fancybox-wrap object,
-	.fancybox-skin,
-	.fancybox-outer,
-	.fancybox-inner,
-	.fancybox-image,
-	.fancybox-nav span,
-	.fancybox-tmp {
-		@extend %modal-reset;
-	}
+    .fancybox-wrap,
+    .fancybox-wrap iframe,
+    .fancybox-wrap object,
+    .fancybox-skin,
+    .fancybox-outer,
+    .fancybox-inner,
+    .fancybox-image,
+    .fancybox-nav span,
+    .fancybox-tmp {
+        @extend %modal-reset;
+    }
 
 // Container
-// 
 
-	// Overlay | 1st level
-	.fancybox-overlay {
-		@extend %modal__overlay !optional;
-		@include position(absolute, 0px 0 0 0px);
-		display: none;
-		overflow: hidden;
-		z-index: ($zindex-modal - 1);
+    // Overlay | 1st level
+    .fancybox-overlay {
+        @extend %modal__overlay !optional;
+        @include position(absolute, 0px 0 0 0px);
+        display: none;
+        overflow: hidden;
+        z-index: ($zindex-modal - 1);
 
-		&.fancybox-overlay-fixed {
-			@include position(fixed, 0 0px 0px 0 );
-		}
+        &.fancybox-overlay-fixed {
+            @include position(fixed, 0 0px 0px 0 );
+        }
 
-		// Wrap | 2nd Level
-		.fancybox-wrap {
-			@include position(absolute, 0px 0 0 0px);
-			z-index: $zindex-modal;
+        // Wrap | 2nd Level
+        .fancybox-wrap {
+            @include position(absolute, 0px 0 0 0px);
+            z-index: $zindex-modal;
 
-			&.fancybox-opened { z-index: ($zindex-modal + 1); }
+            &.fancybox-opened { z-index: ($zindex-modal + 1); }
 
-			// for Iframes
-			&.fancybox-type-iframe .fancybox-inner {
-				-webkit-overflow-scrolling: touch;
-			}
+            // for Iframes
+            &.fancybox-type-iframe .fancybox-inner {
+                -webkit-overflow-scrolling: touch;
+            }
 
-			// for Iframes, Inline and Ajax
-			&.fancybox-type-inline,
-			&.fancybox-type-iframe,
-			&.fancybox-type-ajax {
+            // for Iframes, Inline and Ajax
+            &.fancybox-type-inline,
+            &.fancybox-type-iframe,
+            &.fancybox-type-ajax {
 
-				.fancybox-close {
-					@extend %modal__close--alt !optional;
-				}
-			}
+                .fancybox-close {
+                    @extend %modal__close--alt !optional;
+                }
+            }
 
-			// Skin | 3rd Level
-			.fancybox-skin {
-				@extend %modal__skin !optional;
-				position: relative;
-				padding: 0 !important;
+            // Skin | 3rd Level
+            .fancybox-skin {
+                @extend %modal__skin !optional;
+                position: relative;
+                padding: 0 !important;
 
-				// Outer | 4th Level
-				.fancybox-outer {
-					position: relative;
+                // Outer | 4th Level
+                .fancybox-outer {
+                    position: relative;
 
-					// Inner | 5th Level
-					.fancybox-inner {
-						position: relative;
-						overflow: hidden;
+                    // Inner | 5th Level
+                    .fancybox-inner {
+                        position: relative;
+                        overflow: hidden;
 
-						> div { padding: rhythm(1); }
+                        > div { padding: rhythm(1); }
 
-					} // 5thst
-				} // 4th
-			} // 3rd
-		} // 2nd
-	} // 1st
+                    } // 5thst
+                } // 4th
+            } // 3rd
+        } // 2nd
+    } // 1st
 
 
 // Backtground temp
-// 
 
-	.fancybox-tmp {
-		@include position(absolute, -9999px 0 0 -9999px);
-		visibility: hidden;
-		max-width: 99999px;
-		max-height: 99999px;
-		overflow: visible !important;
-	}
+    .fancybox-tmp {
+        @include position(absolute, -9999px 0 0 -9999px);
+        visibility: hidden;
+        max-width: 99999px;
+        max-height: 99999px;
+        overflow: visible !important;
+    }
 
-	.fancybox-lock { overflow: hidden; }
+    .fancybox-lock { overflow: hidden; }
 
-	.fancybox-lock .fancybox-overlay {
-		overflow: auto;
-		overflow-y: scroll;
-	}
+    .fancybox-lock .fancybox-overlay {
+        overflow: auto;
+        overflow-y: scroll;
+    }
 
 
 // Content
-// 
 
-	.fancybox-error {
-		margin: 0;
-		padding: $modals-error-padding;
-		white-space: nowrap;
-	}
+    .fancybox-error {
+        margin: 0;
+        padding: $modals-error-padding;
+        white-space: nowrap;
+    }
 
-	.fancybox-image,
-	.fancybox-iframe {
-		display: block;
-		@include square(100%);
-	}
+    .fancybox-image,
+    .fancybox-iframe {
+        display: block;
+        @include square(100%);
+    }
 
-	.fancybox-image {
-		max-width: 100%;
-		max-height: 100%;
-		// @include border-radius($base-border-radius);
-	}
+    .fancybox-image {
+        max-width: 100%;
+        max-height: 100%;
+        // @include border-radius($base-border-radius);
+    }
 
 
-	#fancybox-loading {
-		@include position(fixed, 50% 0 0 50%);
-		@extend %modal__loading !optional;
-		cursor: pointer;
-		z-index: $zindex-modal +4;
-	}
+    #fancybox-loading {
+        @include position(fixed, 50% 0 0 50%);
+        @extend %modal__loading !optional;
+        cursor: pointer;
+        z-index: $zindex-modal +4;
+    }
 
 
 // Buttons and Navigation
-// 
 
-	.fancybox-close {
-		@extend %modal__btn !optional;
-		@extend %modal__close !optional;
-		// @include border-radius($base-border-radius);
-		z-index: ($zindex-modal + 3);
-	}
+    .fancybox-close {
+        @extend %modal__btn !optional;
+        @extend %modal__close !optional;
+        // @include border-radius($base-border-radius);
+        z-index: ($zindex-modal + 3);
+    }
 
-	.fancybox-nav {
-		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-		@include position(absolute, 0px 0 0 0);
-		@include size(100%, 40%);
-		z-index: ($zindex-modal + 2);
+    .fancybox-nav {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        @include position(absolute, 0px 0 0 0);
+        @include size(100%, 40%);
+        z-index: ($zindex-modal + 2);
 
-		span {
-			@extend %modal__btn !optional;
-			@extend %modal__nav !optional;
-			@include position(absolute, 50% 0 0 0);
-			@include opacity(0);
-			z-index: ($zindex-modal + 2);
-		}
+        span {
+            @extend %modal__btn !optional;
+            @extend %modal__nav !optional;
+            @include position(absolute, 50% 0 0 0);
+            @include opacity(0);
+            z-index: ($zindex-modal + 2);
+        }
 
-		&:hover span { @include opacity(1); }
+        &:hover span { @include opacity(1); }
 
-		&.fancybox-prev {
-			left: 0;
-			span { left: 0; }
-		}
+        &.fancybox-prev {
+            left: 0;
+            span { left: 0; }
+        }
 
-		&.fancybox-next {
-			right: 0;
-			span { right: 0; }
-		}
-	}
+        &.fancybox-next {
+            right: 0;
+            span { right: 0; }
+        }
+    }
 
 
 // Titles
-// 
 
-	.fancybox-title {
-		visibility: hidden;
-		position: relative;
-		text-shadow: none;
-		z-index: ($zindex-modal + 3);
-	}
+    .fancybox-title {
+        visibility: hidden;
+        position: relative;
+        text-shadow: none;
+        z-index: ($zindex-modal + 3);
+    }
 
-	.fancybox-opened .fancybox-title {
-		visibility: visible;
-	}
+    .fancybox-opened .fancybox-title {
+        visibility: visible;
+    }
 
-	.fancybox-title-float-wrap {
-		@include position(absolute, 0 50% 0px 0);
-		margin-bottom: em(-35px);
-		text-align: center;
-		z-index: ($zindex-modal + 3);
+    .fancybox-title-float-wrap {
+        @include position(absolute, 0 50% 0px 0);
+        margin-bottom: em(-35px);
+        text-align: center;
+        z-index: ($zindex-modal + 3);
 
-		.child {
-			@include alpha-color(#000, .8, background);
-			@include border-radius($base-border-radius);
-			display: inline-block;
-			margin-right: -100%;
-			padding: em(2px) em($input-padding-side);
-			color: #FFF;
-			font-weight: bold;
-			white-space: nowrap;
-		}
-	}
+        .child {
+            @include alpha-color(#000, .8, background);
+            @include border-radius($base-border-radius);
+            display: inline-block;
+            margin-right: -100%;
+            padding: em(2px) em($input-padding-side);
+            color: #FFF;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+    }
 
-	.fancybox-title-outside-wrap {
-		position: relative;
-		margin-top: em($input-padding-top);
-		color: #fff;
-	}
+    .fancybox-title-outside-wrap {
+        position: relative;
+        margin-top: em($input-padding-top);
+        color: #fff;
+    }
 
-	.fancybox-title-over-wrap {
-		@include position(absolute, 0 0 0px 0px);
-		@extend %modal__caption !optional;
-	}
+    .fancybox-title-over-wrap {
+        @include position(absolute, 0 0 0px 0px);
+        @extend %modal__caption !optional;
+    }
 
-	}
+    }
 
-/* 
+/*
 
 Modal Buttons
 
@@ -274,33 +268,33 @@ Styleguide 11.1
 
 @if $modal-buttons {
 
-	#fancybox-buttons {
-		@include position(fixed, 0 0 0 0px);
-		width: 100%;
-		z-index: ($zindex-modal + 3);
-		&.top { top: em(10px); }
-		&.bottom { bottom: em(10px); }
+    #fancybox-buttons {
+        @include position(fixed, 0 0 0 0px);
+        width: 100%;
+        z-index: ($zindex-modal + 3);
+        &.top { top: em(10px); }
+        &.bottom { bottom: em(10px); }
 
-		ul {
-			@extend %modal__btnbar-size !optional;
-			display: block;
-			list-style: none;
-			margin: 0 auto;
-			li {
-				float: left;
-				margin: 0;
-				a {
-					@extend %modal__btn !optional;
-					position: relative;
-					&:hover { @include opacity(1); }
-					&:after { @include position(absolute, 0px 0px 0 0px); }
-				}
-			}
-		}
-	}
+        ul {
+            @extend %modal__btnbar-size !optional;
+            display: block;
+            list-style: none;
+            margin: 0 auto;
+            li {
+                float: left;
+                margin: 0;
+                a {
+                    @extend %modal__btn !optional;
+                    position: relative;
+                    &:hover { @include opacity(1); }
+                    &:after { @include position(absolute, 0px 0px 0 0px); }
+                }
+            }
+        }
+    }
 }
 
-/* 
+/*
 
 Modal Thumbs
 
@@ -338,34 +332,34 @@ Styleguide 11.2
 
 @if $modal-thumbs {
 
-	#fancybox-thumbs {
-		@include position(fixed, 0 0 0 0px);
-		overflow: hidden;
-		width: 100%;
-		z-index: ($zindex-modal + 3);
+    #fancybox-thumbs {
+        @include position(fixed, 0 0 0 0px);
+        overflow: hidden;
+        width: 100%;
+        z-index: ($zindex-modal + 3);
 
-		&.bottom { bottom: em(10px); }
-		&.top { top: em(10px); }
+        &.bottom { bottom: em(10px); }
+        &.top { top: em(10px); }
 
-		ul {
-			@extend %modal-reset;
-			position: relative;
+        ul {
+            @extend %modal-reset;
+            position: relative;
 
-			li {
-				float: left;
-				margin-right: em(4px);
-				@include opacity(.5);
+            li {
+                float: left;
+                margin-right: em(4px);
+                @include opacity(.5);
 
-				&:hover { @include opacity(.75);  }
-				&.active { @include opacity(1); }
+                &:hover { @include opacity(.75);  }
+                &.active { @include opacity(1); }
 
-				a {
-					display: block;
-					overflow: hidden;
-					text-align: center;
-				}
+                a {
+                    display: block;
+                    overflow: hidden;
+                    text-align: center;
+                }
 
-			}
-		}
-	}
+            }
+        }
+    }
 }

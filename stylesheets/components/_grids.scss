@@ -1,4 +1,4 @@
-/* 
+/*
 
 Grids
 
@@ -28,59 +28,59 @@ Styleguide 9
 $media-queries: palm, lap, portable, lap-and-up, desk;
 
 @if $grids {
-	@each $device in $media-queries {
+    @each $device in $media-queries {
 
-		$i: $total-columns + 1;
+        $i: $total-columns + 1;
 
-		@include media($device) {
+        @include media($device) {
 
-			@while $i > 0 {
+            @while $i > 0 {
 
-				$nth: $total-columns / $i;
+                $nth: $total-columns / $i;
 
-				.#{$device}-#{$i} {
-					@include span-columns($i);
-				}
+                .#{$device}-#{$i} {
+                    @include span-columns($i);
+                }
 
-				[class*="#{$device}-#{$i}"]:nth-child(#{$nth}n) {
-					@include omega()
-				}
+                [class*="#{$device}-#{$i}"]:nth-child(#{$nth}n) {
+                    @include omega()
+                }
 
-				$i: $i - 1;
+                $i: $i - 1;
 
-			}
-		}
-	}
+            }
+        }
+    }
 }
 
-/* 
+/*
 
 Show and Hide
 
 There're also available some helper classes:
 
 * **Hide element**: Used to hide an element at a breackpoint
-	* `.palm-hide`
-	* `.lap-hide`
-	* `.portable-hide`
-	* `.lap-and-up-hide`
-	* `.desk-hide`
+    * `.palm-hide`
+    * `.lap-hide`
+    * `.portable-hide`
+    * `.lap-and-up-hide`
+    * `.desk-hide`
 * **Show element**: Used to show an element at a breackpoint
-	* `.palm-show`
-	* `.lap-show`
-	* `.portable-show`
-	* `.lap-and-up-show`
-	* `.desk-show`
+    * `.palm-show`
+    * `.lap-show`
+    * `.portable-show`
+    * `.lap-and-up-show`
+    * `.desk-show`
 
 Styleguide 9.1
 
 */
 
 @if $grids-helpers {
-	@each $device in $media-queries {
-		@include media($device) {
-			.#{$device}-hide { display: none !important; }
-			.#{$device}-show { display: block !important; }
-		}
-	}
+    @each $device in $media-queries {
+        @include media($device) {
+            .#{$device}-hide { display: none !important; }
+            .#{$device}-show { display: block !important; }
+        }
+    }
 }

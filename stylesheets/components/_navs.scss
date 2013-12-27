@@ -1,4 +1,4 @@
-/* 
+/*
 
 Navs
 
@@ -28,115 +28,110 @@ Styleguide 12
 
 @if $navs {
 
-	.nav {
-		@extend .clearfix;
-		display: inline-block;
-		margin-bottom: rhythm();
-		position: relative;
+    .nav {
+        @extend .clearfix;
+        display: inline-block;
+        margin-bottom: rhythm();
+        position: relative;
 
-		&, > ul {
-			@extend .clearfix;
-			list-style: none;
-			margin-left: 0;
-			padding-left: 0;
-		}
+        &, > ul {
+            @extend .clearfix;
+            list-style: none;
+            margin-left: 0;
+            padding-left: 0;
+        }
 
-		> ul {
-			margin-bottom: 0;
-		}
+        > ul {
+            margin-bottom: 0;
+        }
 
-		li {
+        li {
 
-			> a {
-				display: inline-block;
-				line-height: 1em;
+            > a {
+                display: inline-block;
+                line-height: 1em;
 
-				&:hover, &:focus {
-					text-decoration: none;
-				}
+                &:hover, &:focus {
+                    text-decoration: none;
+                }
 
-				img { max-width: none; }
-			}
+                img { max-width: none; }
+            }
 
-			&.disabled > a:hover,
-			&.disabled > a:focus {
-				text-decoration: none;
-				background-color: transparent;
-				cursor: default;
-			}
-		}
-	}
+            &.disabled > a:hover,
+            &.disabled > a:focus {
+                text-decoration: none;
+                background-color: transparent;
+                cursor: default;
+            }
+        }
+    }
 
 // Nav Title
-// 
 
-	.nav__title {
-		@include adjust-font-size-to($milli-size);
-		color: $gray;
-		display: block;
-		font-weight: bold;
-		padding: $navs-padding;
-		padding-left: 0;
-		text-transform: uppercase;
-	}
+    .nav__title {
+        @include adjust-font-size-to($milli-size);
+        color: $gray;
+        display: block;
+        font-weight: bold;
+        padding: $navs-padding;
+        padding-left: 0;
+        text-transform: uppercase;
+    }
 
 // Horizontal nav
-// 
 
-	.nav--inline {
-		& > li,
-		> ul > li { float: left;}
-	}
+    .nav--inline {
+        & > li,
+        > ul > li { float: left;}
+    }
 
 // Vertical nav
-// 
 
-	.nav--vertical {
-		width: 100%;
+    .nav--vertical {
+        width: 100%;
 
-		li > a {
-			display: block;
-		}
-	}
+        li > a {
+            display: block;
+        }
+    }
 
 
 // Nav with blocky links
-// 
 
-	.nav--btn {
-		li {
-			> a {
-				padding: $navs-padding;
-				@extend %nav--btn !optional;
+    .nav--btn {
+        li {
+            > a {
+                padding: $navs-padding;
+                @extend %nav--btn !optional;
 
-				&:hover, &:focus {
-					@extend %nav--btn__hover !optional;
-				}
-			}
+                &:hover, &:focus {
+                    @extend %nav--btn__hover !optional;
+                }
+            }
 
-			&.current > a,
-			&.current > a:hover,
-			&.current > a:focus {
-				@extend %nav--btn__current  !optional;
-			}
+            &.current > a,
+            &.current > a:hover,
+            &.current > a:focus {
+                @extend %nav--btn__current  !optional;
+            }
 
-			// Disabled
-			&.disabled > a { @extend %nav--btn__disabled !optional; }
-		}
-	}
+            // Disabled
+            &.disabled > a { @extend %nav--btn__disabled !optional; }
+        }
+    }
 
 
 // Nav with pills as links
-// 
 
-	.nav--pills {
-		> li > a {
-			@include border-radius($base-border-radius);
-			margin-right: .25em;
-		}
+    .nav--pills {
+        > li > a {
+            @include border-radius($base-border-radius);
+            margin-right: .25em;
+        }
 
-		&[class*="vertical"] > li > a { margin-bottom: .25em;  }
-		&[class*="vertical"] > li:last-child > a { margin-bottom: 0; }
-	}
+        &[class*="vertical"] > li > a { margin-bottom: .25em;  }
+        &[class*="vertical"] > li:last-child > a { margin-bottom: 0; }
+    }
 
 }

@@ -1,4 +1,4 @@
-/* 
+/*
 
 Mixins
 
@@ -8,11 +8,11 @@ Styleguide 23
 
 */
 
-/* 
+/*
 
 Create a rectangle
 
-	@include size($height, $width);
+    @include size($height, $width);
 
 * `$height`: Height of the rectangle
 * `$width`: Width of the rectangle
@@ -22,15 +22,15 @@ Styleguide 23.1
 */
 
 @mixin size($height, $width) {
-	width: $width;
-	height: $height;
+    width: $width;
+    height: $height;
 }
 
-/* 
+/*
 
 Create a square
 
-	@include square($size);
+    @include square($size);
 
 * `$size`: Dimension used both for width and height
 
@@ -39,27 +39,27 @@ Styleguide 23.2
 */
 
 @mixin square($size) {
-	@include size($size, $size);
+    @include size($size, $size);
 }
 
-/* 
+/*
 
 Position an element
 
-	@include position ($position, $coordinates);
+    @include position ($position, $coordinates);
 
 * `$position`: fixed, relative, absolute
 * `$coordinates`: 0 = null, 0px or more is a value used in the css.
 
 Example:
 
-	@include position (absolute, 0 0px 0px 0);
+    @include position (absolute, 0 0px 0px 0);
 
 Become:
 
-	position: absolute;
-	right: 0px;
-	bottom: 0px;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
 
 Styleguide 23.3
 
@@ -67,76 +67,76 @@ Styleguide 23.3
 
 @mixin position ($position: relative, $coordinates: 0 0 0 0) {
 
-	@if type-of($position) == list {
-		$coordinates: $position;
-		$position: relative;
-	}
+    @if type-of($position) == list {
+        $coordinates: $position;
+        $position: relative;
+    }
 
-	$top: nth($coordinates, 1);
-	$right: nth($coordinates, 2);
-	$bottom: nth($coordinates, 3);
-	$left: nth($coordinates, 4);
+    $top: nth($coordinates, 1);
+    $right: nth($coordinates, 2);
+    $bottom: nth($coordinates, 3);
+    $left: nth($coordinates, 4);
 
-	position: $position;
+    position: $position;
 
-	@if $top == auto {
-		top: $top;
-	}
-	@else if not(unitless($top)) {
-		top: $top;
-	}
+    @if $top == auto {
+        top: $top;
+    }
+    @else if not(unitless($top)) {
+        top: $top;
+    }
 
-	@if $right == auto {
-		right: $right;
-	}
-	@else if not(unitless($right)) {
-		right: $right;
-	}
+    @if $right == auto {
+        right: $right;
+    }
+    @else if not(unitless($right)) {
+        right: $right;
+    }
 
-	@if $bottom == auto {
-		bottom: $bottom;
-	}
-	@else if not(unitless($bottom)) {
-		bottom: $bottom;
-	}
+    @if $bottom == auto {
+        bottom: $bottom;
+    }
+    @else if not(unitless($bottom)) {
+        bottom: $bottom;
+    }
 
-	@if $left == auto {
-		left: $left;
-	}
-	@else if not(unitless($left)) {
-		left: $left;
-	}
+    @if $left == auto {
+        left: $left;
+    }
+    @else if not(unitless($left)) {
+        left: $left;
+    }
 }
 
-/* 
+/*
 
 Center-block
 
-	@include center-block();
+    @include center-block();
 
 Become:
 
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 
 Styleguide 23.4
 
 */
 
 @mixin center-block() {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* 
+/*
 
 Center
 
 Vertical and horizontal centering with absolute positioning, using the posiztion absolute and negative translate.
 
-	@include center();
+    @include center();
 
 Styleguide 23.5
 
@@ -148,30 +148,30 @@ Styleguide 23.5
 }
 
 
-/* 
+/*
 
 Extend
 
 When using SASS syntax.
 
-	+e(classname)
+    +e(classname)
 
 Styleguide 23.6
 
 */
 
 @mixin e($class) {
-	@if $class {
-		@extend .#{$class};
-	}
+    @if $class {
+        @extend .#{$class};
+    }
 }
 
 
-/* 
+/*
 
 Placeholder
 
-	@include placeholder($color);
+    @include placeholder($color);
 
 * `$color`: Set color of the placeholder of an input.
 
@@ -197,19 +197,19 @@ Styleguide 23.7
 }
 
 
-/* 
+/*
 
 Text overflow
 
 Wrap text with ellipsis (modern browsers only).
 
-	@include text-overflow();
+    @include text-overflow();
 
 Become
 
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 
 Styleguide 23.8
 
@@ -217,19 +217,19 @@ Styleguide 23.8
 
 
 @mixin text-overflow() {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 
-/* 
+/*
 
 Triangle
 
 Create a css-only triangle.
 
-	@include triangle($size, $color, $direction);
+    @include triangle($size, $color, $direction);
 
 * `$size`: Width of the triangle
 * `$color`: Color of the triangle
@@ -241,53 +241,53 @@ Styleguide 23.9
 */
 
 @mixin triangle ($size, $color, $direction) {
-	@include square(0);
+    @include square(0);
 
-	@if ($direction == up) or ($direction == down) or ($direction == right) or ($direction == left) {
-		border-color: transparent;
-		border-style: solid;
-		border-width: $size / 2;
+    @if ($direction == up) or ($direction == down) or ($direction == right) or ($direction == left) {
+        border-color: transparent;
+        border-style: solid;
+        border-width: $size / 2;
 
-		@if $direction == up {
-			border-bottom-color: $color;
-		} @else if $direction == right {
-			border-left-color:  $color;
-		} @else if $direction == down {
-			border-top-color:   $color;
-		} @else if $direction == left {
-			border-right-color:  $color;
-		}
-	}
+        @if $direction == up {
+            border-bottom-color: $color;
+        } @else if $direction == right {
+            border-left-color:  $color;
+        } @else if $direction == down {
+            border-top-color:   $color;
+        } @else if $direction == left {
+            border-right-color:  $color;
+        }
+    }
 
-	@else if ($direction == up-right) or ($direction == up-left) {
-		border-top: $size solid $color;
+    @else if ($direction == up-right) or ($direction == up-left) {
+        border-top: $size solid $color;
 
-		@if $direction == up-right {
-			border-left:  $size solid transparent;
-		} @else if $direction == up-left {
-			border-right: $size solid transparent;
-		}
-	}
+        @if $direction == up-right {
+            border-left:  $size solid transparent;
+        } @else if $direction == up-left {
+            border-right: $size solid transparent;
+        }
+    }
 
-	@else if ($direction == down-right) or ($direction == down-left) {
-		border-bottom: $size solid $color;
+    @else if ($direction == down-right) or ($direction == down-left) {
+        border-bottom: $size solid $color;
 
-		@if $direction == down-right {
-			border-left:  $size solid transparent;
-		} @else if $direction == down-left {
-			border-right: $size solid transparent;
-		}
-	}
+        @if $direction == down-right {
+            border-left:  $size solid transparent;
+        } @else if $direction == down-left {
+            border-right: $size solid transparent;
+        }
+    }
 }
 
 
-/* 
+/*
 
 Triangle with Borders
 
 Add a css-only triangle width side borders, usefull for tooltips. For now only side triangles with border are suported.
 
-	@include triangle_border($size, $color, $border-color, $border-width, $direction);
+    @include triangle_border($size, $color, $border-color, $border-width, $direction);
 
 * `$size`: Same as `square`
 * `$color`: Color of the triangle
@@ -301,44 +301,44 @@ Styleguide 23.10
 
 @mixin triangle_border($size, $color, $border-color, $border-width, $direction) {
 
-	$border-width-fix: '';
+    $border-width-fix: '';
 
-	@if $border-width == 1px {
-		$border-width-fix: $border-width * 4;
-	} @else {
-		$border-width-fix: $border-width * 2;
-	}
+    @if $border-width == 1px {
+        $border-width-fix: $border-width * 4;
+    } @else {
+        $border-width-fix: $border-width * 2;
+    }
 
-	$bg-size: $size + $border-width-fix;
+    $bg-size: $size + $border-width-fix;
 
-	&:before, &:after {
-		content: "";
-		display: block;
-		position: absolute;
-		top: 50%;
+    &:before, &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
 
-		@if $direction == 'right' { left: -($border-width); }
-		@if $direction == 'left' { right: -($border-width); }
-	}
+        @if $direction == 'right' { left: -($border-width); }
+        @if $direction == 'left' { right: -($border-width); }
+    }
 
-	&:before {
-		@include triangle($size, $color, $direction);
-		margin-top: -($size / 2);
-		z-index: 2;
-	}
+    &:before {
+        @include triangle($size, $color, $direction);
+        margin-top: -($size / 2);
+        z-index: 2;
+    }
 
-	&:after {
-		@include triangle($bg-size, $border-color, $direction);
-		margin-top: -($bg-size / 2);
-		zoom: 1;
-	}
+    &:after {
+        @include triangle($bg-size, $border-color, $direction);
+        margin-top: -($bg-size / 2);
+        zoom: 1;
+    }
 }
 
-/* 
+/*
 
 Text inset shadow
 
-	@include text-inset-shadow($bg, $textcolor, $contrast);
+    @include text-inset-shadow($bg, $textcolor, $contrast);
 
 * `$bg`: Background color of the text
 * `$textcolor`: Color of the text
@@ -349,19 +349,19 @@ Styleguide 23.11
 */
 
 @mixin text-inset-shadow($bg: #fff, $textcolor: #054d4a, $contrast:  #f43059) {
-	$shadow: darken($textcolor, 30%);
+    $shadow: darken($textcolor, 30%);
 
-	color: rgba($textcolor, 0.8);
-	text-shadow: 1px 5px 7px $bg, 0 0 0 rgba($shadow,.8);
+    color: rgba($textcolor, 0.8);
+    text-shadow: 1px 5px 7px $bg, 0 0 0 rgba($shadow,.8);
 }
 
-/* 
+/*
 
 Alpha Color
 
 Alpha color with ie full opacity fallback (for IE)
 
-	@include alpha-color($color, $alpha, $attribute);
+    @include alpha-color($color, $alpha, $attribute);
 
 * `$color`: Base HEX color
 * `$alpha`: Opacity
@@ -369,34 +369,34 @@ Alpha color with ie full opacity fallback (for IE)
 
 Example
 
-	@include alpha-color(#000, .5, color);
+    @include alpha-color(#000, .5, color);
 
 Become
 
-	color: #000;
-	color: rgba(0,0,0,.5);
+    color: #000;
+    color: rgba(0,0,0,.5);
 
 Styleguide 23.12
 
 */
 
 @mixin alpha-color($color: #fff, $alpha: .5, $attribute: background) {
-	@if $attribute == color {
-		color: $color;
-		color: rgba($color, $alpha);
-	} @else {
-		#{$attribute}: $color;
-		#{$attribute}: rgba($color, $alpha);
-	}
+    @if $attribute == color {
+        color: $color;
+        color: rgba($color, $alpha);
+    } @else {
+        #{$attribute}: $color;
+        #{$attribute}: rgba($color, $alpha);
+    }
 }
 
-/* 
+/*
 
 Keyframes support
 
 Used for creating custom animations.
 
-	@include keyframes($name);
+    @include keyframes($name);
 
 * `$name`: Name of the keyframe
 
@@ -405,27 +405,27 @@ Styleguide 23.13
 */
 
 @mixin keyframes($name) {
-	@-webkit-keyframes #{$name} {
-		@content;
-	}
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
 
-	@-moz-keyframes #{$name} {
-		@content;
-	}
+    @-moz-keyframes #{$name} {
+        @content;
+    }
 
-	@-o-keyframes #{$name} {
-		@content;
-	}
-	@keyframes #{$name} {
-		@content;
-	}
+    @-o-keyframes #{$name} {
+        @content;
+    }
+    @keyframes #{$name} {
+        @content;
+    }
 }
 
-/* 
+/*
 
 Nav divider
 
-	@include nav-divider($top $bottom);
+    @include nav-divider($top $bottom);
 
 * `$top`: Color of the top border
 * `$bottom`: Color of the bottom border
@@ -435,24 +435,24 @@ Styleguide 23.14
 */
 
 @mixin nav-divider($top: #e5e5e5, $bottom: false) {
-	*width: 100%;
+    *width: 100%;
 
-	@if $bottom {
-		height: 2px;
-	} @else {
-		height: 1px;
-	}
+    @if $bottom {
+        height: 2px;
+    } @else {
+        height: 1px;
+    }
 
-	overflow: hidden;
-	background-color: $top;
-	@if $bottom { border-bottom: 1px solid $bottom; }
+    overflow: hidden;
+    background-color: $top;
+    @if $bottom { border-bottom: 1px solid $bottom; }
 }
 
-/* 
+/*
 
 Comicbook Shadow
 
-	@include shadow-comicbook($padding, $color, $size, $distance);
+    @include shadow-comicbook($padding, $color, $size, $distance);
 
 * `$padding`: Border color
 * `$color`: Color of the shadow
@@ -465,46 +465,46 @@ Styleguide 23.15
 
 @mixin shadow-comicbook($padding: 5px, $color: #bbb, $size: 15px, $distance: 10px) {
 
-	$lightColor: lighten($color, 8);
-	$degree: $size/1px;
+    $lightColor: lighten($color, 8);
+    $degree: $size/1px;
 
-	@include box-shadow(0 1px 3px $color);
-	border:5px solid #fff;
-	display: inline-block;
-	line-height: 0;
-	position: relative;
+    @include box-shadow(0 1px 3px $color);
+    border:5px solid #fff;
+    display: inline-block;
+    line-height: 0;
+    position: relative;
 
-	&:before,
-	&:after {
-		// border: 0;
-		background-color: $lightColor;
-		content: '';
-		z-index: -1;
-		position: absolute;
-		left: $distance;
-		bottom: $distance;
-		width: 70%;
-		height: 55%;
-		@include box-shadow(0 $size $size+1 $lightColor);
-		@include transform(skew(-15deg) rotate(-6deg));
-	}
+    &:before,
+    &:after {
+        // border: 0;
+        background-color: $lightColor;
+        content: '';
+        z-index: -1;
+        position: absolute;
+        left: $distance;
+        bottom: $distance;
+        width: 70%;
+        height: 55%;
+        @include box-shadow(0 $size $size+1 $lightColor);
+        @include transform(skew(-15deg) rotate(-6deg));
+    }
 
-	&:after {
-		left: auto;
-		right: $distance+1;
-		@include transform(skew(15deg) rotate(6deg));
+    &:after {
+        left: auto;
+        right: $distance+1;
+        @include transform(skew(15deg) rotate(6deg));
 
-	}
+    }
 }
 
 
-/* 
+/*
 
 Box Inset Shadow
 
 Usefull for adding inset shadows to sidebars or large block where the shadow is only on one side and full width/height.
 
-	@include inset-shadow($position, $size, $color);
+    @include inset-shadow($position, $size, $color);
 
 * `$position`: top, right, bottom, left
 * `$size`: Size of the shadow
@@ -516,34 +516,34 @@ Styleguide 23.16
 
 @mixin inset-shadow($position: right, $size: 10px, $color: #000) {
 
-	$size: $size*2;
+    $size: $size*2;
 
-	@if $position == 'top' {
-		@include box-shadow(inset 0 $size $size $size $color)
-	}
+    @if $position == 'top' {
+        @include box-shadow(inset 0 $size $size $size $color)
+    }
 
-	@if $position == 'right' {
-		@include box-shadow(inset neg($size) 0 $size neg($size) $color)
-	}
+    @if $position == 'right' {
+        @include box-shadow(inset neg($size) 0 $size neg($size) $color)
+    }
 
-	@if $position == 'bottom' {
-		@include box-shadow(inset 0 neg($size) $size neg($size) $color)
-	}
+    @if $position == 'bottom' {
+        @include box-shadow(inset 0 neg($size) $size neg($size) $color)
+    }
 
-	@if $position == 'left' {
-		@include box-shadow(inset $size 0 $size $size $color)
-	}
+    @if $position == 'left' {
+        @include box-shadow(inset $size 0 $size $size $color)
+    }
 
 
 }
 
-/* 
+/*
 
 Side Shadow
 
 Add Side Shadows to multi-line padded text for consistend side padding (Fabien Doiron's box-shadow Method).
 
-	@include side-shadow($size, $color);
+    @include side-shadow($size, $color);
 
 * `$size`: Size of the shadow
 * `$color`: Color of the shadow
@@ -558,13 +558,13 @@ Styleguide 23.17
     margin-right: $size;
 }
 
-/* 
+/*
 
 Icon Fonts
 
 Use the unicode character from an icon font to insert it wherever you want.
 
-	@include icon-font($char, $font);
+    @include icon-font($char, $font);
 
 * `$char`: Unicode of the character †
 * `$font`: What font to use ‡
@@ -579,12 +579,12 @@ Styleguide 23.18
 */
 
 @mixin icon-font($char: '\f013', $font: 'FontAwesome') {
-	display: inline-block;
-	font-family: $font;
-	content: "#{$char}";
+    display: inline-block;
+    font-family: $font;
+    content: "#{$char}";
 }
 
-/* 
+/*
 
 Media Queries
 
@@ -595,66 +595,66 @@ Add media queries to css width simple naming convention.
 You can set the start/and with of each step from usins the variables `$lap-start`, `$desk-start`, `$desk-end`.
 
 * `$media`:
-	* `palm`: Only Palm
-	* `lap`:  Only Lap
-	* `lap-and-up`: Lap + Desktop
-	* `portable`: Lap + Palm
-	* `desk`: Only Desktop
+    * `palm`: Only Palm
+    * `lap`:  Only Lap
+    * `lap-and-up`: Lap + Desktop
+    * `portable`: Lap + Palm
+    * `desk`: Only Desktop
 
 Styleguide 23.19
 
 */
 
 @mixin media($media-query:null){
-	@if $media-query {
+    @if $media-query {
 
-		@if $media-query == palm or $media-query == lap or $media-query == lap-and-up or $media-query == portable or $media-query == desk {
+        @if $media-query == palm or $media-query == lap or $media-query == lap-and-up or $media-query == portable or $media-query == desk {
 
-			@if $media-query == palm {
-				@media only screen and (max-width:$palm-end) {
-					@content;
-				}
-			}
+            @if $media-query == palm {
+                @media only screen and (max-width:$palm-end) {
+                    @content;
+                }
+            }
 
-			@elseif $media-query == lap {
-				@media only screen and (min-width:$lap-start) and (max-width:$lap-end) {
-					@content;
-				}
-			}
+            @elseif $media-query == lap {
+                @media only screen and (min-width:$lap-start) and (max-width:$lap-end) {
+                    @content;
+                }
+            }
 
-			@elseif $media-query == lap-and-up {
-				@media only screen and (min-width:$lap-start) {
-					@content;
-				}
-			}
+            @elseif $media-query == lap-and-up {
+                @media only screen and (min-width:$lap-start) {
+                    @content;
+                }
+            }
 
-			@elseif $media-query == portable {
-				@media only screen and (max-width:$lap-end) {
-					@content;
-				}
-			}
+            @elseif $media-query == portable {
+                @media only screen and (max-width:$lap-end) {
+                    @content;
+                }
+            }
 
-			@elseif $media-query == desk {
-				@media only screen and (min-width:$desk-start) {
-					@content;
-				}
-			}
-		}
+            @elseif $media-query == desk {
+                @media only screen and (min-width:$desk-start) {
+                    @content;
+                }
+            }
+        }
 
-		@else {
-			@media only screen and ($media-query) {
-				@content;
-			}
-		}
-	}
+        @else {
+            @media only screen and ($media-query) {
+                @content;
+            }
+        }
+    }
 
-	@else {
-		@content;
-	}
+    @else {
+        @content;
+    }
 
 }
 
-/* 
+/*
 
 Sprites
 
@@ -664,19 +664,19 @@ for more info see the full documentation from the link.
 First you need to add to your scss file an import to import all of the seperate icons that will be compiled in a single image.
 For example if you have a folder named `icons` inside the main `images` folder add this line:
 
-	@import "icons/*.png";
+    @import 'icons/ *.png';
 
 Then add you have two options:
 
 Add the sprite in the html with (where `icon_name` is the filename of the icon). .s` is the standard class the must be used with all sprites images.
 
-	<a href="#"><i class="s icons-icon_name"></i> Link</a>
+    <a href="#"><i class="s icons-icon_name"></i> Link</a>
 
 Or via `@include` from the scss:
 
-	a:before {
-		@include sprite(icon_name)
-	}
+    a:before {
+        @include sprite(icon_name)
+    }
 
 The result is the same.
 
@@ -685,15 +685,15 @@ Styleguide 23.20
 */
 
 @mixin s($name) {
-	@extend .s;
-	@extend .s-#{$name};
+    @extend .s;
+    @extend .s-#{$name};
 }
 
-/* 
+/*
 
 Responsive grid
 
-	@include columns ($cols, $cols-container, $omega, $nth-omega, $remove-omega, $from, $media, $highlight-omega);
+    @include columns ($cols, $cols-container, $omega, $nth-omega, $remove-omega, $from, $media, $highlight-omega);
 
 * `$cols`: How many columns
 * `$cols-container`: Columns of the container (default: $total-columns)
@@ -709,28 +709,55 @@ Styleguide 23.21
 */
 
 @mixin columns (
-	$cols,
-	$cols-container: $total-columns,
-	$omega: false,
-	$nth-omega: false,
-	$remove-omega: false,
-	$from: left,
-	$media: null,
-	$highlight-omega: false
-	) {
+    $cols,
+    $cols-container: $total-columns,
+    $omega: false,
+    $nth-omega: false,
+    $remove-omega: false,
+    $from: left,
+    $media: null,
+    $highlight-omega: false
+    ) {
 
-	@include media($media) {
-		$direction: left;
+    @include media($media) {
+        $direction: left;
 
-		@if $from != left { $direction: right; }
+        @if $from != left { $direction: right; }
 
-		@include span-columns($cols, $cols-container, $from: $direction);
-		@if $omega { @include omega($from: $direction); }
-		@if $nth-omega { @include nth-omega($nth-omega, $from: $direction); }
-		@if $remove-omega { @include remove-omega; }
-		@if $highlight-omega  {
-			@if $omega { background: blue; }
-			@if $nth-omega { &:nth-child(#{$nth-omega}) {background: blue;} }
-		}
-	}
+        @include span-columns($cols, $cols-container, $from: $direction);
+        @if $omega { @include omega($from: $direction); }
+        @if $nth-omega { @include nth-omega($nth-omega, $from: $direction); }
+        @if $remove-omega { @include remove-omega; }
+        @if $highlight-omega  {
+            @if $omega { background: blue; }
+            @if $nth-omega { &:nth-child(#{$nth-omega}) {background: blue;} }
+        }
+    }
 }
+
+/*
+
+Animations
+
+    @include animate($name, $duration, $delay, $function, $mode);
+
+* `$name`: Name of the animations to use, it must be enabled first. For more information see the Animations section.
+* `$duration`: Duration of the animation
+* `$delay`: Delay before the animation
+* `$function`: Easing, see 20.2 for a list of all easing options available
+* `$mode`: animation-fill-mode (http://mzl.la/1g6ixCc), default to *both*
+
+Styleguide 23.22
+
+*/
+
+@mixin animate(
+  $name,
+  $duration: $animations-duration,
+  $delay: $animations-delay,
+  $function: $animations-function,
+  $mode: $animations-mode
+) {
+    @include experimental(animation, $name $duration $delay $function $mode);
+}
+

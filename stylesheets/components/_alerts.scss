@@ -1,4 +1,4 @@
-/* 
+/*
 
 Alerts
 
@@ -16,21 +16,21 @@ Styleguide 1
 
 @if $alerts {
 
-	.alert {
-		padding: $alerts-padding;
-		margin-bottom: rhythm();
-		@extend %alert;
+  .alert {
+    padding: $alerts-padding;
+    margin-bottom: rhythm();
+    @extend %alert;
 
-		p { margin: 0; }
+    p { margin: 0; }
 
-		.close {
-			position: relative;
-			top: 0;
-			right: 0;
-		}
-	}
+    .close {
+      position: relative;
+      top: 0;
+      right: 0;
+    }
+  }
 
-/* 
+/*
 
 Alert Block
 
@@ -45,14 +45,14 @@ Markup:
   <p>The field Total Expenses is required and must contain a value.</p>
 </div>
 
-Styleguide 1.2
+Styleguide 1.1
 
 */
 
 
-	.alert--block {
-		* { margin-bottom: 0; }
-		* + * {  margin-top: 5px; }
-	}
+  .alert--block {
+    * { margin-bottom: 0; }
+    * + * {  margin-top: 5px; }
+  }
 
 }

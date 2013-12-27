@@ -1,4 +1,4 @@
-/* 
+/*
 
 Badge & Pills
 
@@ -8,40 +8,40 @@ Markup:
 <span class="badge">Badge Label</span>
 <span class="pill">Pill label</span>
 
-Styleguide 10.
+Styleguide 10
 
 */
 
 @if $labels {
 
-	.badge,
-	.pill {
-		@extend %pill !optional;
-		display: inline-block;
-		padding: $pills-padding;
-		vertical-align: baseline;
-		white-space: nowrap;
-	}
+    .badge,
+    .pill {
+        @extend %pill !optional;
+        display: inline-block;
+        padding: $pills-padding;
+        vertical-align: baseline;
+        white-space: nowrap;
+    }
 
-	.badge { @include border-radius($base-border-radius); }
-	.pill { @include border-radius(500em); }
+    .badge { @include border-radius($base-border-radius); }
+    .pill { @include border-radius(500em); }
 
-	.badge, .pill {
-		&:empty { display: none; }
-	}
+    .badge, .pill {
+        &:empty { display: none; }
+    }
 
-	a {
-		&.label:hover,
-		&.label:focus,
-		&.badge:hover,
-		&.badge:focus {
-			color: $white;
-			text-decoration: none;
-			cursor: pointer;
-		}
-	}
+    a {
+        &.label:hover,
+        &.label:focus,
+        &.badge:hover,
+        &.badge:focus {
+            color: $white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    }
 
-/* 
+/*
 
 Labels used in buttons.
 
@@ -53,11 +53,11 @@ Styleguide 10.1
 
 */
 
-	.btn {
-		.badge,
-		.pill {
-			margin: -(nth($pills-padding, 1)) -(nth($pills-padding, 2)) 0 0 ;
-		}
-	}
+    .btn {
+        .badge,
+        .pill {
+            margin: -(nth($pills-padding, 1)) -(nth($pills-padding, 2)) 0 0 ;
+        }
+    }
 
 }

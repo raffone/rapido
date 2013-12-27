@@ -1,26 +1,40 @@
-// Effects
-//
+/*
 
+Settings
 
+These are the default settings for all animations and transitions within the framework.
 
-// ANIMATIONS w/ @include animate(...)
-//
+By default all animations but fadeIn and fadeOut are disabled, use the  ```$animations``` list to enable/disable them.
 
+    $animations:                      fadeIn, fadeOut
 
+If true it generate a placeholder class for every animation with the default settings to use as an ````@extend```.
 
-$animations:						fadeIn, fadeOut															!default;
-$animations-classes:				true																	!default;
+    $animations-classes:              true
 
-$animations-duration:				.15s																	!default;
-$animations-delay:					0s																		!default;
-$animations-function:				ease-out																!default;
-$animations-mode:					both																	!default;
+Base settings for animations
 
+    $animations-duration:             .15s      # Duration
+    $animations-delay:                0s        # Start delay
+    $animations-function:             ease-out  # Easing
+    $animations-mode:                 both      # animation-fill-mode
 
-// Transitions w/ @include transition(...)
-//
+For transitions you can use other settings for duration and easing, by default the use the same settings as the animations.
 
+    $default-transition-duration:     $animations-duration
+    $default-transition-function:     $animations-function
 
+Styleguide 20.1
 
-$default-transition-duration:		$animations-duration													!default;
-$default-transition-function:		toBezier($animations-function)											!default;
+*/
+
+$animations:                        fadeIn, fadeOut                                                         !default;
+$animations-classes:                true                                                                    !default;
+
+$animations-duration:               .15s                                                                    !default;
+$animations-delay:                  0s                                                                      !default;
+$animations-function:               ease-out                                                                !default;
+$animations-mode:                   both                                                                    !default;
+
+$default-transition-duration:       $animations-duration                                                    !default;
+$default-transition-function:       toBezier($animations-function)                                          !default;

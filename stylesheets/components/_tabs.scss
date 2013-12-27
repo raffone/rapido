@@ -1,4 +1,4 @@
-/* 
+/*
 
 Tabs
 
@@ -34,7 +34,7 @@ Markup:
   });
 </script>
 
-Styleguide 18.
+Styleguide 18
 
 */
 
@@ -42,56 +42,56 @@ Styleguide 18.
 
 @if $tabs {
 
-	.tabs {
-		margin-bottom: rhythm();
+    .tabs {
+        margin-bottom: rhythm();
 
-		.etabs {
-			margin: 0;
-			padding: 0;
-			@extend %tab__nav !optional;
+        .etabs {
+            margin: 0;
+            padding: 0;
+            @extend %tab__nav !optional;
 
-			li {
-				display: inline-block;
-				zoom: 1;
+            li {
+                display: inline-block;
+                zoom: 1;
 
-				a {
-					line-height: 1em;
-					display: block;
-					padding: $tabs-tab-padding;
-					outline: none;
-					@include border-radius($base-border-radius $base-border-radius 0 0);
-					@extend %tab__btn !optional;
+                a {
+                    line-height: 1em;
+                    display: block;
+                    padding: $tabs-tab-padding;
+                    outline: none;
+                    @include border-radius($base-border-radius $base-border-radius 0 0);
+                    @extend %tab__btn !optional;
 
-					&:hover {
-						@extend %tab__btn__hover !optional;
-					}
-				}
+                    &:hover {
+                        @extend %tab__btn__hover !optional;
+                    }
+                }
 
-				&.active {
-					a {
-						position: relative;
-						font-weight: bold;
-						@extend %tab__btn__current !optional;
+                &.active {
+                    a {
+                        position: relative;
+                        font-weight: bold;
+                        @extend %tab__btn__current !optional;
 
-						&:after {
-							@include position(absolute, 0 0px -1px 0px);
-							height: 2px;
-							display: block;
-							content: "";
-						}
-					}
+                        &:after {
+                            @include position(absolute, 0 0px -1px 0px);
+                            height: 2px;
+                            display: block;
+                            content: "";
+                        }
+                    }
 
-				}
+                }
 
-			}
-		}
+            }
+        }
 
-		.panel-container {
-			@extend %tab__container !optional;
-			@include border-radius(0 $base-border-radius $base-border-radius );
-			> div {padding: $tabs-content-padding;}
-		}
+        .panel-container {
+            @extend %tab__container !optional;
+            @include border-radius(0 $base-border-radius $base-border-radius );
+            > div {padding: $tabs-content-padding;}
+        }
 
-	}
+    }
 
 }

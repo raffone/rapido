@@ -1,4 +1,4 @@
-/* 
+/*
 
 Type
 
@@ -7,32 +7,31 @@ Styleguide 19
 */
 
 // Base
-// 
 
 *, *:before, *:after {
-	@include box-sizing(border-box);
-	outline: none;
+    @include box-sizing(border-box);
+    outline: none;
 }
 
 html {
-	@if $responsive-font-size {
+    @if $responsive-font-size {
 
-		@each $step in $responsive-font-size {
-			@include media(nth($step, 1)) {
-				font-size: 100% * nth($step, 2) / 16px;
-			}
-		}
+        @each $step in $responsive-font-size {
+            @include media(nth($step, 1)) {
+                font-size: 100% * nth($step, 2) / 16px;
+            }
+        }
 
-	} @else {
-		font-size: 100% * $base-font-size / 16px;
-	}
+    } @else {
+        font-size: 100% * $base-font-size / 16px;
+    }
 }
 
 body {
-	@include adjust-font-size-to($base-font-size);
-	margin: 0;
-	font-family: $base-font-family;
-	color: $text-color;
+    @include adjust-font-size-to($base-font-size);
+    margin: 0;
+    font-family: $base-font-family;
+    color: $text-color;
 }
 
 img {max-width: 100%;}
@@ -40,22 +39,21 @@ img {max-width: 100%;}
 a, button, textarea, input { outline: none; }
 
 // Links
-// 
 
 a {
-	color: $link-color;
-	text-decoration: none;
+    color: $link-color;
+    text-decoration: none;
 
-	&:hover,
-	&:focus {
-		color: $link-color-hover;
-		text-decoration: none;
-	}
+    &:hover,
+    &:focus {
+        color: $link-color-hover;
+        text-decoration: none;
+    }
 
 }
 
 
-/* 
+/*
 
 Body text
 
@@ -72,7 +70,6 @@ Styleguide 19.1
 p           { margin: 0 0 rhythm(1);}
 
 // Emphasis & misc
-// 
 
 small         { @include adjust-font-size-to($milli-size); }
 
@@ -80,7 +77,7 @@ strong        { font-weight: bold; }
 em            { font-style: italic; }
 cite          { font-style: normal; }
 
-/* 
+/*
 
 Headings
 
@@ -97,46 +94,46 @@ Styleguide 19.2
 */
 
 h1, h2, h3, h4, h5, h6 {
-	margin: 0 0 rhythm();
-	text-rendering: optimizelegibility;
-	font-family: $titles-font-family;
-	color: $title-color;
+    margin: 0 0 rhythm();
+    text-rendering: optimizelegibility;
+    font-family: $titles-font-family;
+    color: $title-color;
 
-	small {
-		font-weight: normal;
-		line-height: rhythm();
-		color: $grayLight;
-	}
+    small {
+        font-weight: normal;
+        line-height: rhythm();
+        color: $grayLight;
+    }
 }
 
 h1, .h1 {
-	@include adjust-font-size-to($h1-size, $h1-line-height);
-	@extend %h1 !optional;
+    @include adjust-font-size-to($h1-size, $h1-line-height);
+    @extend %h1 !optional;
 }
 
 h2, .h2 {
-	@include adjust-font-size-to($h2-size, $h2-line-height);
-	@extend %h2 !optional;
+    @include adjust-font-size-to($h2-size, $h2-line-height);
+    @extend %h2 !optional;
 }
 
 h3, .h3 {
-	@include adjust-font-size-to($h3-size, $h3-line-height);
-	@extend %h3 !optional;
+    @include adjust-font-size-to($h3-size, $h3-line-height);
+    @extend %h3 !optional;
 }
 
 h4, .h4 {
-	@include adjust-font-size-to($h4-size, $h4-line-height);
-	@extend %h4 !optional;
+    @include adjust-font-size-to($h4-size, $h4-line-height);
+    @extend %h4 !optional;
 }
 
 h5, .h5 {
-	@include adjust-font-size-to($h5-size, $h5-line-height);
-	@extend %h5 !optional;
+    @include adjust-font-size-to($h5-size, $h5-line-height);
+    @extend %h5 !optional;
 }
 
 h6, .h6 {
-	@include adjust-font-size-to($h6-size, $h6-line-height);
-	@extend %h6 !optional;
+    @include adjust-font-size-to($h6-size, $h6-line-height);
+    @extend %h6 !optional;
 }
 
 h1 small { @include adjust-font-size-to($h3-size); }
@@ -144,7 +141,7 @@ h2 small { @include adjust-font-size-to($h4-size); }
 h3 small { @include adjust-font-size-to($h5-size); }
 h4 small { @include adjust-font-size-to($h6-size); }
 
-/* 
+/*
 
 Lists
 
@@ -165,41 +162,41 @@ Styleguide 19.3
 */
 
 .list_style_none, .list-style-none {
-	padding-left: 0;
-	margin-left: 0;
-	list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+    list-style: none;
 }
 
 // Unordered and Ordered lists
 
 ul, ol {
-	padding: 0;
-	margin: 0 0 rhythm(1) 25px;
+    padding: 0;
+    margin: 0 0 rhythm(1) 25px;
 }
 
 ul ul,
 ul ol,
 ol ol,
 ol ul {
-	margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 ul.unstyled,
 ol.unstyled {
-	margin-left: 0;
-	list-style: none;
+    margin-left: 0;
+    list-style: none;
 }
 
 ul.inline,
 ol.inline {
-	margin-left: 0;
-	list-style: none;
-	> li {
-		@include inline-block();
-	}
+    margin-left: 0;
+    list-style: none;
+    > li {
+        @include inline-block();
+    }
 }
 
-/* 
+/*
 
 Definition lists
 
@@ -213,12 +210,12 @@ Styleguide 19.4
 
 */
 
-dl 		{ margin-bottom: rhythm(1); }
-dt, dd 	{ }
-dt 		{ font-weight: bold; }
-dd 		{ margin-left: 0; }
+dl      { margin-bottom: rhythm(1); }
+dt, dd  { }
+dt      { font-weight: bold; }
+dd      { margin-left: 0; }
 
-/* 
+/*
 
 Horizontal definition list
 
@@ -233,19 +230,19 @@ Styleguide 19.4.1
 */
 
 .dl-horizontal {
-	@extend .clearfix;
-	dt {
-		@include text-overflow();
-		clear: left;
-		float: left;
-		text-align: right;
-		width: em($horizontal-offset) - 20;
-	}
+    @extend .clearfix;
+    dt {
+        @include text-overflow();
+        clear: left;
+        float: left;
+        text-align: right;
+        width: em($horizontal-offset) - 20;
+    }
 
-	dd { padding-left: em($horizontal-offset); }
+    dd { padding-left: em($horizontal-offset); }
 }
 
-/* 
+/*
 
 Horizontal line
 
@@ -256,25 +253,24 @@ Styleguide 19.5
 */
 
 hr {
-	margin: rhythm(1) 0;
-	border: 0;
-	border-bottom: 1px solid $gray;
+    margin: rhythm(1) 0;
+    border: 0;
+    border-bottom: 1px solid $gray;
 }
 
 // Abbreviations and acronyms
-// 
 
 abbr[title],
 abbr[data-original-title] {
-	cursor: help;
-	border-bottom: 1px dotted $grayLight;
+    cursor: help;
+    border-bottom: 1px dotted $grayLight;
 }
 abbr.initialism {
-	font-size: 90%;
-	text-transform: uppercase;
+    font-size: 90%;
+    text-transform: uppercase;
 }
 
-/* 
+/*
 
 Blockquotes
 
@@ -289,59 +285,57 @@ Styleguide 19.6
 */
 
 blockquote {
-	padding: 0 0 0 rhythm(1);
-	margin: 0;
-	margin: 0 0 rhythm(1);
-	border-left: 5px solid $grayLighter;
+    padding: 0 0 0 rhythm(1);
+    margin: 0;
+    margin: 0 0 rhythm(1);
+    border-left: 5px solid $grayLighter;
 
-	p {
-		margin-bottom: 0;
-		font-weight: 300;
-	}
+    p {
+        margin-bottom: 0;
+        font-weight: 300;
+    }
 
-	small, cite {
-		display: block;
-		color: $grayLight;
-		&:before {
-			content: '\2014 \00A0';
-		}
-	}
+    small, cite {
+        display: block;
+        color: $grayLight;
+        &:before {
+            content: '\2014 \00A0';
+        }
+    }
 
-	&.pull-right {
-		float: right;
-		padding-right: 15px;
-		padding-left: 0;
-		border-right: 5px solid $grayLighter;
-		border-left: 0;
+    &.pull-right {
+        float: right;
+        padding-right: 15px;
+        padding-left: 0;
+        border-right: 5px solid $grayLighter;
+        border-left: 0;
 
-		p,
-		small {
-			text-align: right;
-		}
+        p,
+        small {
+            text-align: right;
+        }
 
-		small {
-			&:before { content: ''; }
-			&:after { content: '\00A0 \2014'; }
-		}
-	}
+        small {
+            &:before { content: ''; }
+            &:after { content: '\00A0 \2014'; }
+        }
+    }
 }
 
 // Quotes
-// 
 
 q:before,
 q:after,
 blockquote:before,
 blockquote:after {
-	content: "";
+    content: "";
 }
 
 // Addresses
-// 
 
 address {
-	display: block;
-	margin-bottom: rhythm(1);
-	font-style: normal;
-	line-height: rhythm(1);
+    display: block;
+    margin-bottom: rhythm(1);
+    font-style: normal;
+    line-height: rhythm(1);
 }

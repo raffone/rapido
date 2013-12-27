@@ -1,4 +1,4 @@
-/* 
+/*
 
 Base Settings
 
@@ -6,7 +6,7 @@ Styleguide 25
 
 */
 
-/* 
+/*
 
 Debug Mode
 
@@ -17,11 +17,11 @@ Styleguide 25.1
 
 */
 
-$debug-mode:        					false 																!default;
-$default-styles: 						true 																!default;
+$debug-mode:                            false                                                               !default;
+$default-styles:                        true                                                                !default;
 
 
-/* 
+/*
 
 Text body size
 
@@ -38,14 +38,14 @@ Styleguide 25.2
 
 */
 
-$base-font-size:    					14px 																!default;
-$base-line-height:  					$base-font-size * 1.5 												!default;
-$round-to-nearest-half-line: 			true 																!default;
+$base-font-size:                        14px                                                                !default;
+$base-line-height:                      $base-font-size * 1.5                                               !default;
+$round-to-nearest-half-line:            true                                                                !default;
 
-$responsive-font-size:    				lap-and-up $base-font-size, palm 16px								!default;
+$responsive-font-size:                  lap-and-up $base-font-size, palm 16px                               !default;
 
 
-/* 
+/*
 
 Font families
 
@@ -60,26 +60,26 @@ Styleguide 25.3
 
 */
 
-$font-sans:        						"Helvetica Neue", Helvetica, Arial, sans-serif 						!default;
-$font-serif:       						Georgia, "Times New Roman", Times, serif 							!default;
-$font-mono:        						Monaco, Menlo, Consolas, "Courier New", monospace 					!default;
+$font-sans:                             "Helvetica Neue", Helvetica, Arial, sans-serif                      !default;
+$font-serif:                            Georgia, "Times New Roman", Times, serif                            !default;
+$font-mono:                             Monaco, Menlo, Consolas, "Courier New", monospace                   !default;
 
-$base-font-family:  					$font-sans 															!default;
-$titles-font-family:  					$font-sans 															!default;
+$base-font-family:                      $font-sans                                                          !default;
+$titles-font-family:                    $font-sans                                                          !default;
 
 
-/* 
+/*
 
 em()
 
 To convert `PX` to `EM` using the `$base-font-size` as font size.
 
-	width: em(20px);
+    width: em(20px);
 
 Styleguide 24.1
 
 */
 
 @function em($to-size, $from-size: $base-font-size) {
-	@return ($to-size / $from-size) + 0em;
+    @return ($to-size / $from-size) + 0em;
 }

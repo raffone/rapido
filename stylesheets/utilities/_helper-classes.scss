@@ -1,14 +1,14 @@
-/* 
+/*
 
 Helper Classes
 
 There are provided some helper classes usually used with `@extend` for applying effects or common styles.
 
-Styleguide 22.
+Styleguide 22
 
 */
 
-/* 
+/*
 
 Generic
 
@@ -22,22 +22,22 @@ Styleguide 22.1
 */
 
 .clearfix {
-	&:after {
-		content: "";
-		display: table;
-		clear: both;
-	}
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
 }
 
 .transition {
-	@include transition();
+    @include transition();
 }
 
 .divider {
-	@include nav-divider();
+    @include nav-divider();
 }
 
-/* 
+/*
 
 Wrappers
 
@@ -56,17 +56,17 @@ Styleguide 22.2
 */
 
 .wrapper, .w {
-	@extend .clearfix;
-	margin: 0 auto;
-	max-width: $desk-end;
-	padding-left: $wrapper-padding;
-	padding-right: $wrapper-padding;
+    @extend .clearfix;
+    margin: 0 auto;
+    max-width: $desk-end;
+    padding-left: $wrapper-padding;
+    padding-right: $wrapper-padding;
 }
 
 .fixed-wrapper, .fw {
-	@extend .clearfix;
-	margin: 0 auto;
-	width: $desk-end;
+    @extend .clearfix;
+    margin: 0 auto;
+    width: $desk-end;
 }
 
 
@@ -74,7 +74,7 @@ Styleguide 22.2
 .right {float: right;}
 
 
-/* 
+/*
 
 Elements width
 
@@ -86,11 +86,11 @@ Add `data-width="n"` to any html element to set the width.
 
 Example:
 
-	data-width="50"
+    data-width="50"
 
 Corrispond to:
 
-	width: 50% !important;
+    width: 50% !important;
 
 Styleguide 22.3
 
@@ -98,53 +98,69 @@ Styleguide 22.3
 
 $i: 100;
 @while $i > 0 {
-	%width-#{$i} { width: $i * 1% !important; }
-	@if $width-helper-classes {
-		[data-width="#{$i}"] { @extend %width-#{$i}; }
-	}
-	$i: $i - 1;
+    %width-#{$i} { width: $i * 1% !important; }
+    @if $width-helper-classes {
+        [data-width="#{$i}"] { @extend %width-#{$i}; }
+    }
+    $i: $i - 1;
 }
 
-/* 
+/*
 
 Typography
+
+Some common classes for fixing the typography, to be used sparingly.
+
+    .lead           # Bigger font size
+    .muted          # color: $gray
+
+    .pull-left      # float: left
+    .pull-right     # float: right
+
+    .text-left      # text-align: left
+    .text-right     # text-align: right
+    .text-center    # text-align: center
 
 Styleguide 22.4
 
 */
 
-.lead			{ @include adjust-font-size-to($h4-size); }
-.muted			{ color: $gray; }
+.lead           { @include adjust-font-size-to($h4-size); }
+.muted          { color: $gray; }
 
-.pull-left		{ float: left; }
-.pull-right		{ float: right; }
+.pull-left      { float: left; }
+.pull-right     { float: right; }
 
-.text-left		{ text-align: left; }
-.text-right		{ text-align: right; }
-.text-center	{ text-align: center; }
+.text-left      { text-align: left; }
+.text-right     { text-align: right; }
+.text-center    { text-align: center; }
 
-/* 
+/*
 
 Sprites
+
+Simple class used for spriting.
+
+    .s
 
 Styleguide 22.5
 
 */
 
 .s {
-	@include transition(none);
-	content: "";
-	display: inline-block;
-	font-style:normal;
-	overflow:hidden;
-	text-align:center;
-	text-indent:-9999px;
-	vertical-align:middle;
-	zoom:1;
+    @include transition(none);
+    content: "";
+    display: inline-block;
+    font-style:normal;
+    overflow:hidden;
+    text-align:center;
+    text-indent:-9999px;
+    vertical-align:middle;
+    zoom:1;
 
 }
 
-/* 
+/*
 
 Text replacement
 
