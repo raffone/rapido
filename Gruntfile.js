@@ -21,6 +21,7 @@ module.exports = function(grunt) {
     kss: {
       options: {
         includeType: 'css',
+        template: '../../forks/kss-node-template/template/',
         includePath: 'dist/rapido.css',
       },
       dist: {
