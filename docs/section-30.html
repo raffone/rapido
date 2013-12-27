@@ -1,155 +1,253 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>kss-node Styleguide</title>
+    <meta name="description" content="" />
+    <meta name="generator" content="kss-node" />
+    <link rel="stylesheet" href="public/kss.css" />
+    <link rel="stylesheet" href="public/style.css" />
+    <!--[if lt IE 9]>
+    <script src="public/html5shiv.js"></script>
+    <![endif]-->
 
-  <title>KSS: Living Styleguide</title>
-  <meta name="description" content="">
-  <meta name="generator" content="kss-node" />
 
-  <meta name="viewport" content="width=device-width">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 
-  <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+    <script src="public/kss.js"></script>
 
-  <link rel="stylesheet" href="public/kss.css">
-  <link rel="stylesheet" href="public/style.css">
 
-</head>
-<body><div id="kss-wrapper">
-  <div id="kss-nav">
-    <header id="kss-header">
-      <hgroup><h1>kss-node Styleguide</h1></hgroup>
-    </header>
-    <aside>
-      <nav><ul>
-        <li><a href="index.html">0.0: Overview</a></li>
-        
-          <li><a href="section-1.html">1.0: Alerts</a></li>
-        
-          <li><a href="section-3.html">3.0: Buttons</a></li>
-        
-          <li><a href="section-4.html">4.0: Button Groups</a></li>
-        
-          <li><a href="section-5.html">5.0: Captions</a></li>
-        
-          <li><a href="section-6.html">6.0: Close buttons</a></li>
-        
-          <li><a href="section-7.html">7.0: Dropdowns</a></li>
-        
-          <li><a href="section-8.html">8.0: Forms</a></li>
-        
-          <li><a href="section-9.html">9.0: Grids</a></li>
-        
-          <li><a href="section-10.html">10.0: Badge &amp; Pills</a></li>
-        
-          <li><a href="section-11.html">11.0: Modals</a></li>
-        
-          <li><a href="section-12.html">12.0: Navs</a></li>
-        
-          <li><a href="section-13.html">13.0: Pager</a></li>
-        
-          <li><a href="section-14.html">14.0: Pagination</a></li>
-        
-          <li><a href="section-15.html">15.0: Responsive Navs</a></li>
-        
-          <li><a href="section-16.html">16.0: Sliders</a></li>
-        
-          <li><a href="section-17.html">17.0: Tables</a></li>
-        
-          <li><a href="section-18.html">18.0: Tabs</a></li>
-        
-          <li><a href="section-19.html">19.0: Type</a></li>
-        
-          <li><a href="section-20.html">20.0: Animations</a></li>
-        
-          <li><a href="section-21.html">21.0: Debug mode</a></li>
-        
-          <li><a href="section-22.html">22.0: Helper Classes</a></li>
-        
-          <li><a href="section-23.html">23.0: Mixins</a></li>
-        
-          <li><a href="section-24.html">24.0: Functions</a></li>
-        
-          <li><a href="section-25.html">25.0: Base Settings</a></li>
-        
-          <li><a href="section-26.html">26.0: Base Colors</a></li>
-        
-          <li><a href="section-27.html">27.0: Base Components</a></li>
-        
-          <li><a href="section-28.html">28.0: Base Dimensions</a></li>
-        
-          <li><a href="section-30.html">30.0: Default Styles</a></li>
-        
-      </ul></nav>
-    </aside>
-  </div>
-  <div role="main" id="kss-main">
-    <article id="kss-content">
-      
+    <!--[if gt IE 8]><!-->
+    <script src="public/rainbow.min.js"></script>
+    <!--<![endif]-->
 
-        
-        
-          
-            <h1 class="kss-title"><span class="kss-ref">30.0</span> - Default Styles</h1>
-          
+    <script src="public/main.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.pack.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.easytabs/3.2.0/jquery.easytabs.min.js"></script>
+
+    <script src="http://rawgithub.com/wandoledzep/bxslider-4/master/jquery.bxslider.min.js"></script>
+    <script src="http://rawgithub.com/raffone/responsive-nav.js/master/responsive-nav.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap-affix.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap-button.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap-dropdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap-alert.min.js"></script>
+
+
+
+
+  </head>
+  <body id="kss-node">
+    <div class="kss-wrapper">
+      <div class="kss-sidebar">
+        <div class="kss-sidebar-inner">
+          <header class="kss-header">
+            <h1 class="kss-doc-title"><a href="./">Rapido CSS</a></h1>
+          </header>
+          <nav class="kss-nav">
+            <ul class="kss-menu" data-kss-ref="30">
+              <li class="kss-menu-item"><a href="./"><span class="kss-ref">0</span><span class="kss-name">Overview</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-1.html"><span class="kss-ref">1</span><span class="kss-name">Alerts</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-2.html"><span class="kss-ref">2</span><span class="kss-name">Breadcrumbs</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-3.html"><span class="kss-ref">3</span><span class="kss-name">Buttons</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-4.html"><span class="kss-ref">4</span><span class="kss-name">Button Groups</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-5.html"><span class="kss-ref">5</span><span class="kss-name">Captions</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-6.html"><span class="kss-ref">6</span><span class="kss-name">Close buttons</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-7.html"><span class="kss-ref">7</span><span class="kss-name">Dropdowns</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-8.html"><span class="kss-ref">8</span><span class="kss-name">Forms</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-9.html"><span class="kss-ref">9</span><span class="kss-name">Grids</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-10.html"><span class="kss-ref">10</span><span class="kss-name">Badge &amp; Pills</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-11.html"><span class="kss-ref">11</span><span class="kss-name">Modals</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-12.html"><span class="kss-ref">12</span><span class="kss-name">Navs</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-13.html"><span class="kss-ref">13</span><span class="kss-name">Pager</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-14.html"><span class="kss-ref">14</span><span class="kss-name">Pagination</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-15.html"><span class="kss-ref">15</span><span class="kss-name">Responsive Navs</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-16.html"><span class="kss-ref">16</span><span class="kss-name">Sliders</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-17.html"><span class="kss-ref">17</span><span class="kss-name">Tables</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-18.html"><span class="kss-ref">18</span><span class="kss-name">Tabs</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-19.html"><span class="kss-ref">19</span><span class="kss-name">Type</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-20.html"><span class="kss-ref">20</span><span class="kss-name">Animations</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-21.html"><span class="kss-ref">21</span><span class="kss-name">Debug mode</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-22.html"><span class="kss-ref">22</span><span class="kss-name">Helper Classes</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-23.html"><span class="kss-ref">23</span><span class="kss-name">Mixins</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-24.html"><span class="kss-ref">24</span><span class="kss-name">Functions</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-25.html"><span class="kss-ref">25</span><span class="kss-name">Base Settings</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-26.html"><span class="kss-ref">26</span><span class="kss-name">Base Colors</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-27.html"><span class="kss-ref">27</span><span class="kss-name">Base Components</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-28.html"><span class="kss-ref">28</span><span class="kss-name">Base Dimensions</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-30.html"><span class="kss-ref">30</span><span class="kss-name">Default Styles</span></a></li>
+              
+            </ul>
             
-                
-                  <p>One of the main reason of the existence of Rapido is because I wanted to separate pure framework code form styling.
+            <ul class="kss-menu-child">
+              
+              
+              
+              
+              
+              <li class="kss-menu-item"><a href="#section-30.1"><span class="kss-ref">30.1</span><span class="kss-name">Titles</span></a></li>
+              
+              
+              
+              <li class="kss-menu-item"><a href="#section-30.2"><span class="kss-ref">30.2</span><span class="kss-name">Inputs and Selects</span></a></li>
+              
+              
+              
+              <li class="kss-menu-item"><a href="#section-30.3"><span class="kss-ref">30.3</span><span class="kss-name">Buttons</span></a></li>
+              
+              
+              
+              <li class="kss-menu-item"><a href="#section-30.4"><span class="kss-ref">30.4</span><span class="kss-name">Captions</span></a></li>
+              
+              
+              
+              <li class="kss-menu-item"><a href="#section-30.5"><span class="kss-ref">30.5</span><span class="kss-name">Labels (Badges &amp; Pills)</span></a></li>
+              
+              
+              
+              <li class="kss-menu-item"><a href="#section-30.6"><span class="kss-ref">30.6</span><span class="kss-name">Dropdowns</span></a></li>
+              
+              
+              
+              <li class="kss-menu-item"><a href="#section-30.7"><span class="kss-ref">30.7</span><span class="kss-name">Tables</span></a></li>
+              
+              
+              
+              <li class="kss-menu-item"><a href="#section-30.8"><span class="kss-ref">30.8</span><span class="kss-name">Navs</span></a></li>
+              
+              
+              
+              <li class="kss-menu-item"><a href="#section-30.9"><span class="kss-ref">30.9</span><span class="kss-name">Breadcrumbs</span></a></li>
+              
+              
+              
+              <li class="kss-menu-item"><a href="#section-30.10"><span class="kss-ref">30.10</span><span class="kss-name">Pagination</span></a></li>
+              
+              
+              
+              <li class="kss-menu-item"><a href="#section-30.11"><span class="kss-ref">30.11</span><span class="kss-name">Pager</span></a></li>
+              
+              
+              
+              <li class="kss-menu-item"><a href="#section-30.12"><span class="kss-ref">30.12</span><span class="kss-name">Modals</span></a></li>
+              
+              
+              
+              <li class="kss-menu-item"><a href="#section-30.13"><span class="kss-ref">30.13</span><span class="kss-name">Sliders</span></a></li>
+              
+              
+              
+              <li class="kss-menu-item"><a href="#section-30.14"><span class="kss-ref">30.14</span><span class="kss-name">Tabs</span></a></li>
+              
+              
+              
+              <li class="kss-menu-item"><a href="#section-30.15"><span class="kss-ref">30.15</span><span class="kss-name">Alerts</span></a></li>
+              
+              
+              
+              <li class="kss-menu-item"><a href="#section-30.16"><span class="kss-ref">30.16</span><span class="kss-name">Responsive Nav</span></a></li>
+              
+              
+              
+              <li class="kss-menu-item"><a href="#section-30.17"><span class="kss-ref">30.17</span><span class="kss-name">Shared</span></a></li>
+              
+              
+            </ul>
+            
+          </nav>
+        </div>
+      </div>
+      <div class="kss-content">
+        <article class="kss-article">
+          
+          
+          <section id="section-30" class="kss-section kss-depth-1">
+            <h1 class="kss-title"><span class="kss-ref">30</span> Default Styles</h1>
+            
+            
+            <div class="kss-description">
+              <p>One of the main reason of the existence of Rapido is because I wanted to separate pure framework code form styling.
 Every component refer to a silent class from <code>_default-style.scss</code>.
 
 </p>
 <p>These are all the classes available by default, others can be added or removed based on what component you want
 to enable or disable.</p>
 
-                
+            </div>
             
-           
-        
-          
-           <section class="kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">30.1</span> - Titles</h1>
-          
             
-                
-                  <pre><code>%h1                             # For &lt;h1&gt;
+          </section>
+          
+          <section id="section-30.1" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">30.1</span> Titles</h1>
+            
+            
+            <div class="kss-description">
+              <pre><code>%h1                             # For &lt;h1&gt;
 %h2                             # For &lt;h2&gt;
 %h3                             # For &lt;h3&gt;
 %h4                             # For &lt;h4&gt;
 %h5                             # For &lt;h5&gt;
 %h6                             # For &lt;h6&gt;</code></pre>
 
-                
+            </div>
             
-          
-            </section>
-          
-        
-          
-           <section class="kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">30.2</span> - Inputs and Selects</h1>
-          
             
-                
-                  <pre><code>%input                          # For the &lt;input&gt; and &lt;textarea&gt;
+          </section>
+          
+          <section id="section-30.2" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">30.2</span> Inputs and Selects</h1>
+            
+            
+            <div class="kss-description">
+              <pre><code>%input                          # For the &lt;input&gt; and &lt;textarea&gt;
 %input-addon                    # For the addon texts in forms
 %select                         # Custom select style, by default it use %input</code></pre>
 
-                
+            </div>
             
-          
-            </section>
-          
-        
-          
-           <section class="kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">30.3</span> - Buttons</h1>
-          
             
-                
-                  <pre><code>%btn--default                   # Default button colors
+          </section>
+          
+          <section id="section-30.3" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">30.3</span> Buttons</h1>
+            
+            
+            <div class="kss-description">
+              <pre><code>%btn--default                   # Default button colors
 %btn--primary                   # Default color for primary buttons
 %btn--secondary                 # Default color for secondary buttons
 %btn--scripts                   # Default buttons color for buttons used in scripts (slides, modals)
@@ -157,146 +255,128 @@ to enable or disable.</p>
 %btn__disabled                  # For disabled button
 %btn__current                   # For current button (es. used in Pagination)</code></pre>
 
-                
+            </div>
             
-          
-            </section>
-          
-        
-          
-           <section class="kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">30.4</span> - Captions</h1>
-          
             
-                
-                  <pre><code>%caption                        # Used for the captions in .caption and modals</code></pre>
+          </section>
+          
+          <section id="section-30.4" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">30.4</span> Captions</h1>
+            
+            
+            <div class="kss-description">
+              <pre><code>%caption                        # Used for the captions in .caption and modals</code></pre>
 
-                
+            </div>
             
-          
-            </section>
-          
-        
-          
-           <section class="kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">30.5</span> - Labels (Badges &amp; Pills)</h1>
-          
             
-                
-                  <pre><code>%pill                           # For the .badge and .pill</code></pre>
+          </section>
+          
+          <section id="section-30.5" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">30.5</span> Labels (Badges &amp; Pills)</h1>
+            
+            
+            <div class="kss-description">
+              <pre><code>%pill                           # For the .badge and .pill</code></pre>
 
-                
+            </div>
             
-          
-            </section>
-          
-        
-          
-           <section class="kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">30.6</span> - Dropdowns</h1>
-          
             
-                
-                  <pre><code>%dropdown                       # For the dropdown&apos;s list
+          </section>
+          
+          <section id="section-30.6" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">30.6</span> Dropdowns</h1>
+            
+            
+            <div class="kss-description">
+              <pre><code>%dropdown                       # For the dropdown&apos;s list
 %dropdown--open                 # For the drodpown button in .open state</code></pre>
 
-                
+            </div>
             
-          
-            </section>
-          
-        
-          
-           <section class="kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">30.7</span> - Tables</h1>
-          
             
-                
-                  <pre><code>%table--bordered                # For .table--bordered
+          </section>
+          
+          <section id="section-30.7" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">30.7</span> Tables</h1>
+            
+            
+            <div class="kss-description">
+              <pre><code>%table--bordered                # For .table--bordered
 %table--striped                 # For .table--striped
 %table--hover                   # For .table--hover
 %table--sortable                # For .table--sortable</code></pre>
 
-                
+            </div>
             
-          
-            </section>
-          
-        
-          
-           <section class="kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">30.8</span> - Navs</h1>
-          
             
-                
-                  <pre><code>%nav--btn                       # For links in navs with .nav--btn
+          </section>
+          
+          <section id="section-30.8" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">30.8</span> Navs</h1>
+            
+            
+            <div class="kss-description">
+              <pre><code>%nav--btn                       # For links in navs with .nav--btn
 %nav--btn__hover                # For the :hover state of %nav--btn
 %nav--btn__current              # For the current selected link
 %nav--btn__disabled             # For the disabled links</code></pre>
 
-                
+            </div>
             
-          
-            </section>
-          
-        
-          
-           <section class="kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">30.9</span> - Breadcrumbs</h1>
-          
             
-                
-                  <pre><code>%breadcrumbs                     # Base style of breadcrumbs
+          </section>
+          
+          <section id="section-30.9" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">30.9</span> Breadcrumbs</h1>
+            
+            
+            <div class="kss-description">
+              <pre><code>%breadcrumbs                     # Base style of breadcrumbs
 %breadcrumbs__current            # For the current selected link</code></pre>
 
-                
+            </div>
             
-          
-            </section>
-          
-        
-          
-           <section class="kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">30.10</span> - Pagination</h1>
-          
             
-                
-                  <pre><code>%pagination--btn                # For links in .pagination
+          </section>
+          
+          <section id="section-30.10" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">30.10</span> Pagination</h1>
+            
+            
+            <div class="kss-description">
+              <pre><code>%pagination--btn                # For links in .pagination
 %pagination--btn__hover         # For the :hover state of %pagination--btn
 %pagination--btn__active        # For the :active  state of %pagination--btn
 %pagination--btn__current       # For the current selected link
 %pagination--btn__disabled      # For the disabled links</code></pre>
 
-                
+            </div>
             
-          
-            </section>
-          
-        
-          
-           <section class="kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">30.11</span> - Pager</h1>
-          
             
-                
-                  <pre><code>%pager--btn                     # For the links in .pager
+          </section>
+          
+          <section id="section-30.11" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">30.11</span> Pager</h1>
+            
+            
+            <div class="kss-description">
+              <pre><code>%pager--btn                     # For the links in .pager
 %pager--btn__hover              # For the :hover state of %pager--btn
 %pager--btn__active             # For the :active  state of %pager--btn
 %pager--btn__disabled           # For the disabled links</code></pre>
 
-                
+            </div>
             
-          
-            </section>
-          
-        
-          
-           <section class="kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">30.12</span> - Modals</h1>
-          
             
-                
-                  <pre><code>%modal__btn                     # For all button links in modals
+          </section>
+          
+          <section id="section-30.12" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">30.12</span> Modals</h1>
+            
+            
+            <div class="kss-description">
+              <pre><code>%modal__btn                     # For all button links in modals
 %modal__close                   # For the default close button
 %modal__close--alt              # Alternative style for close button in iframes
 %modal__btnbar-size             # Width and height of #fancybox-buttons
@@ -306,129 +386,89 @@ to enable or disable.</p>
 %modal__caption                 # For the caption
 %modal__loading                 # Position and style of the loading icon</code></pre>
 
-                
+            </div>
             
-          
-            </section>
-          
-        
-          
-           <section class="kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">30.13</span> - Sliders</h1>
-          
             
-                
-                  <pre><code>%slider__btn                    # For all button links in sliders
+          </section>
+          
+          <section id="section-30.13" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">30.13</span> Sliders</h1>
+            
+            
+            <div class="kss-description">
+              <pre><code>%slider__btn                    # For all button links in sliders
 %slider__pager                  # For the single  links in the pager
 %slider__caption                # For the caption
 %slider__loading                # Position and style of the loading icon</code></pre>
 
-                
+            </div>
             
-          
-            </section>
-          
-        
-          
-           <section class="kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">30.14</span> - Tabs</h1>
-          
             
-                
-                  <pre><code>%tab__nav                       # For the tabs links container
+          </section>
+          
+          <section id="section-30.14" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">30.14</span> Tabs</h1>
+            
+            
+            <div class="kss-description">
+              <pre><code>%tab__nav                       # For the tabs links container
 %tab__btn                       # For the single tabs link
 %tab__btn__hover                # For the :hover state of tabs link
 %tab__btn__current              # For the current selected tab link
 %tab__container                 # For the content continer</code></pre>
 
-                
+            </div>
             
-          
-            </section>
-          
-        
-          
-           <section class="kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">30.15</span> - Alerts</h1>
-          
             
-                
-                  <pre><code>%alert                          # For all alert messages</code></pre>
+          </section>
+          
+          <section id="section-30.15" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">30.15</span> Alerts</h1>
+            
+            
+            <div class="kss-description">
+              <pre><code>%alert                          # For all alert messages</code></pre>
 
-                
+            </div>
             
-          
-            </section>
-          
-        
-          
-           <section class="kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">30.16</span> - Responsive Nav</h1>
-          
             
-                
-                  <pre><code>%nav--responsive                # For the open nav state in responsive mode
+          </section>
+          
+          <section id="section-30.16" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">30.16</span> Responsive Nav</h1>
+            
+            
+            <div class="kss-description">
+              <pre><code>%nav--responsive                # For the open nav state in responsive mode
 %nav__toggle                    # For the toggle open/close button in responsive mode</code></pre>
 
-                
+            </div>
             
-          
-            </section>
-          
-        
-          
-           <section class="kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">30.17</span> - Shared</h1>
-          
             
-                
-                  <p>Classes For other classes of generic elements
+          </section>
+          
+          <section id="section-30.17" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">30.17</span> Shared</h1>
+            
+            
+            <div class="kss-description">
+              <p>Classes For other classes of generic elements
 
 </p>
 <pre><code>%caret                          # Side triangle For Dropdowns and Selects
 %loader-ico                     # generic loader icon For all scripts</code></pre>
 
-                
+            </div>
             
+            
+          </section>
           
-            </section>
           
-        
-      
-    </article>
-  </div>
-  <footer>
-    
-  </footer>
-  <!-- SCRIPTS -->
-  <script src="public/kss.js"></script>
-  <script src="public/prettify.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script>
-    $(document).ready(function(){
-      var sidebarAdjust = function() {
-        // Match footer/body height
-        var height = Math.max($(window).height(), $('#kss-main').height());
-
-        if ($(window).width() <= 768) {
-          $('#kss-main, #kss-nav').height('auto');
-        } else {
-          $('#kss-main, #kss-nav').height(height);
-        }
-      };
-
-      $(window).resize(sidebarAdjust);
-      $(window).scroll(sidebarAdjust);
-      sidebarAdjust();
-
-      // Ensure code blocks are highlighted properly...
-      $('pre>code').addClass('prettyprint');
-      prettyPrint();
-
-    });
-  </script>
-
-  
-  
-</div></body>
+        </article>
+        <footer class="kss-footer">
+          <div>Created using <a href="https://github.com/hughsk/kss-node">kss-node</a> and <a href="https://github.com/htanjo/kss-node-template">kss-node-template</a>.</div>
+        </footer>
+      </div>
+    </div>
+    </body>
 </html>

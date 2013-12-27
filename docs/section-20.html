@@ -1,156 +1,257 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>kss-node Styleguide</title>
+    <meta name="description" content="" />
+    <meta name="generator" content="kss-node" />
+    <link rel="stylesheet" href="public/kss.css" />
+    <link rel="stylesheet" href="public/style.css" />
+    <!--[if lt IE 9]>
+    <script src="public/html5shiv.js"></script>
+    <![endif]-->
 
-  <title>KSS: Living Styleguide</title>
-  <meta name="description" content="">
-  <meta name="generator" content="kss-node" />
 
-  <meta name="viewport" content="width=device-width">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 
-  <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+    <script src="public/kss.js"></script>
 
-  <link rel="stylesheet" href="public/kss.css">
-  <link rel="stylesheet" href="public/style.css">
 
-</head>
-<body><div id="kss-wrapper">
-  <div id="kss-nav">
-    <header id="kss-header">
-      <hgroup><h1>kss-node Styleguide</h1></hgroup>
-    </header>
-    <aside>
-      <nav><ul>
-        <li><a href="index.html">0.0: Overview</a></li>
-        
-          <li><a href="section-1.html">1.0: Alerts</a></li>
-        
-          <li><a href="section-3.html">3.0: Buttons</a></li>
-        
-          <li><a href="section-4.html">4.0: Button Groups</a></li>
-        
-          <li><a href="section-5.html">5.0: Captions</a></li>
-        
-          <li><a href="section-6.html">6.0: Close buttons</a></li>
-        
-          <li><a href="section-7.html">7.0: Dropdowns</a></li>
-        
-          <li><a href="section-8.html">8.0: Forms</a></li>
-        
-          <li><a href="section-9.html">9.0: Grids</a></li>
-        
-          <li><a href="section-10.html">10.0: Badge &amp; Pills</a></li>
-        
-          <li><a href="section-11.html">11.0: Modals</a></li>
-        
-          <li><a href="section-12.html">12.0: Navs</a></li>
-        
-          <li><a href="section-13.html">13.0: Pager</a></li>
-        
-          <li><a href="section-14.html">14.0: Pagination</a></li>
-        
-          <li><a href="section-15.html">15.0: Responsive Navs</a></li>
-        
-          <li><a href="section-16.html">16.0: Sliders</a></li>
-        
-          <li><a href="section-17.html">17.0: Tables</a></li>
-        
-          <li><a href="section-18.html">18.0: Tabs</a></li>
-        
-          <li><a href="section-19.html">19.0: Type</a></li>
-        
-          <li><a href="section-20.html">20.0: Animations</a></li>
-        
-          <li><a href="section-21.html">21.0: Debug mode</a></li>
-        
-          <li><a href="section-22.html">22.0: Helper Classes</a></li>
-        
-          <li><a href="section-23.html">23.0: Mixins</a></li>
-        
-          <li><a href="section-24.html">24.0: Functions</a></li>
-        
-          <li><a href="section-25.html">25.0: Base Settings</a></li>
-        
-          <li><a href="section-26.html">26.0: Base Colors</a></li>
-        
-          <li><a href="section-27.html">27.0: Base Components</a></li>
-        
-          <li><a href="section-28.html">28.0: Base Dimensions</a></li>
-        
-          <li><a href="section-30.html">30.0: Default Styles</a></li>
-        
-      </ul></nav>
-    </aside>
-  </div>
-  <div role="main" id="kss-main">
-    <article id="kss-content">
-      
+    <!--[if gt IE 8]><!-->
+    <script src="public/rainbow.min.js"></script>
+    <!--<![endif]-->
 
-        
-        
-          
-            <h1 class="kss-title"><span class="kss-ref">20.0</span> - Animations</h1>
-          
+    <script src="public/main.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.pack.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.easytabs/3.2.0/jquery.easytabs.min.js"></script>
+
+    <script src="http://rawgithub.com/wandoledzep/bxslider-4/master/jquery.bxslider.min.js"></script>
+    <script src="http://rawgithub.com/raffone/responsive-nav.js/master/responsive-nav.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap-affix.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap-button.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap-dropdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap-alert.min.js"></script>
+
+
+
+
+  </head>
+  <body id="kss-node">
+    <div class="kss-wrapper">
+      <div class="kss-sidebar">
+        <div class="kss-sidebar-inner">
+          <header class="kss-header">
+            <h1 class="kss-doc-title"><a href="./">Rapido CSS</a></h1>
+          </header>
+          <nav class="kss-nav">
+            <ul class="kss-menu" data-kss-ref="20">
+              <li class="kss-menu-item"><a href="./"><span class="kss-ref">0</span><span class="kss-name">Overview</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-1.html"><span class="kss-ref">1</span><span class="kss-name">Alerts</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-2.html"><span class="kss-ref">2</span><span class="kss-name">Breadcrumbs</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-3.html"><span class="kss-ref">3</span><span class="kss-name">Buttons</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-4.html"><span class="kss-ref">4</span><span class="kss-name">Button Groups</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-5.html"><span class="kss-ref">5</span><span class="kss-name">Captions</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-6.html"><span class="kss-ref">6</span><span class="kss-name">Close buttons</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-7.html"><span class="kss-ref">7</span><span class="kss-name">Dropdowns</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-8.html"><span class="kss-ref">8</span><span class="kss-name">Forms</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-9.html"><span class="kss-ref">9</span><span class="kss-name">Grids</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-10.html"><span class="kss-ref">10</span><span class="kss-name">Badge &amp; Pills</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-11.html"><span class="kss-ref">11</span><span class="kss-name">Modals</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-12.html"><span class="kss-ref">12</span><span class="kss-name">Navs</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-13.html"><span class="kss-ref">13</span><span class="kss-name">Pager</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-14.html"><span class="kss-ref">14</span><span class="kss-name">Pagination</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-15.html"><span class="kss-ref">15</span><span class="kss-name">Responsive Navs</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-16.html"><span class="kss-ref">16</span><span class="kss-name">Sliders</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-17.html"><span class="kss-ref">17</span><span class="kss-name">Tables</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-18.html"><span class="kss-ref">18</span><span class="kss-name">Tabs</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-19.html"><span class="kss-ref">19</span><span class="kss-name">Type</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-20.html"><span class="kss-ref">20</span><span class="kss-name">Animations</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-21.html"><span class="kss-ref">21</span><span class="kss-name">Debug mode</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-22.html"><span class="kss-ref">22</span><span class="kss-name">Helper Classes</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-23.html"><span class="kss-ref">23</span><span class="kss-name">Mixins</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-24.html"><span class="kss-ref">24</span><span class="kss-name">Functions</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-25.html"><span class="kss-ref">25</span><span class="kss-name">Base Settings</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-26.html"><span class="kss-ref">26</span><span class="kss-name">Base Colors</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-27.html"><span class="kss-ref">27</span><span class="kss-name">Base Components</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-28.html"><span class="kss-ref">28</span><span class="kss-name">Base Dimensions</span></a></li>
+              
+              <li class="kss-menu-item"><a href="section-30.html"><span class="kss-ref">30</span><span class="kss-name">Default Styles</span></a></li>
+              
+            </ul>
             
-                
-                  <p>All the animations in <a href="https://twitter.com/theCSSguru">theCSSguru</a>&apos;s <a href="http://thecssguru.freeiz.com/animate/">Animate mixin</a> are available with the same mixin.
+            <ul class="kss-menu-child">
+              
+              
+              
+              
+              
+              <li class="kss-menu-item"><a href="#section-20.1"><span class="kss-ref">20.1</span><span class="kss-name">Settings</span></a></li>
+              
+              
+              
+              <li class="kss-menu-item"><a href="#section-20.2"><span class="kss-ref">20.2</span><span class="kss-name">Easing</span></a></li>
+              
+              
+              
+              <li class="kss-menu-item"><a href="#section-20.3"><span class="kss-ref">20.3</span><span class="kss-name">Silent classes</span></a></li>
+              
+              
+              
+              <li class="kss-menu-item"><a href="#section-20.4"><span class="kss-ref">20.4</span><span class="kss-name">Animation mixin</span></a></li>
+              
+              
+            </ul>
+            
+          </nav>
+        </div>
+      </div>
+      <div class="kss-content">
+        <article class="kss-article">
+          
+          
+          <section id="section-20" class="kss-section kss-depth-1">
+            <h1 class="kss-title"><span class="kss-ref">20</span> Animations</h1>
+            
+            
+            <div class="kss-description">
+              <p>All the animations in <a href="https://twitter.com/theCSSguru">theCSSguru</a>&apos;s <a href="http://thecssguru.freeiz.com/animate/">Animate mixin</a> are available with the same mixin:
 
 </p>
-<h4>Use</h4>
-<p>By default are only available <code>fadeIn</code> and <code>fadeOut</code>. To enable more animations add them to the <code>$animations</code> variable in <code>_effects.scss</code>.
+<ul>
+<li><strong>Attention seekers:</strong> flash, bounce, shake, tada</li>
+<li><strong>Fading entrances:</strong> , fadeIn, fadeInUp, fadeInDown, fadeInLeft, fadeInRight, fadeInUpBig, fadeInDownBig, fadeInLeftBig, fadeInRightBig</li>
+<li><strong>Fading exits</strong>: fadeOut, fadeOutUp, fadeOutDown, fadeOutLeft, fadeOutRight, fadeOutUpBig, fadeOutDownBig, fadeOutLeftBig, fadeOutRightBig</li>
+<li><strong>Bouncing entrances:</strong> bounceIn, bounceInDown, bounceInUp, bounceInLeft, bounceInRight</li>
+<li><strong>Bouncing exits:</strong> bounceOut, bounceOutDown, bounceOutUp, bounceOutLeft, bounceOutRight</li>
+<li><strong>Rotating entrances:</strong> rotateIn, rotateInDownLeft, rotateInDownRight, rotateInUpLeft, rotateInUpRight</li>
+<li><strong>Rotating exits:</strong> rotateOut, rotateOutDownLeft, rotateOutDownRight, rotateOutUpLeft, rotateOutUpRight</li>
+</ul>
+
+            </div>
+            
+            
+          </section>
+          
+          <section id="section-20.1" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">20.1</span> Settings</h1>
+            
+            
+            <div class="kss-description">
+              <p>These are the default settings for all animations and transitions within the framework.
 
 </p>
-<h4>Mixin</h4>
-<pre><code>@include animate(fadeIn);</code></pre>
-<h4>Silent classes</h4>
-<p>There are also available silent classes for all enabled animations to use with <code>@extend</code>
+<p>By default all animations but fadeIn and fadeOut are disabled, use the  <code>$animations</code> list to enable/disable them.
+
+</p>
+<pre><code>$animations:                      fadeIn, fadeOut</code></pre>
+<p>If true it generate a placeholder class for every animation with the default settings to use as an <code>`@extend</code>.
+
+</p>
+<pre><code>$animations-classes:              true</code></pre>
+<p>Base settings for animations
+
+</p>
+<pre><code>$animations-duration:             .15s      # Duration
+$animations-delay:                0s        # Start delay
+$animations-function:             ease-out  # Easing
+$animations-mode:                 both      # animation-fill-mode</code></pre>
+<p>For transitions you can use other settings for duration and easing, by default the use the same settings as the animations.
+
+</p>
+<pre><code>$default-transition-duration:     $animations-duration
+$default-transition-function:     $animations-function</code></pre>
+
+            </div>
+            
+            
+          </section>
+          
+          <section id="section-20.2" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">20.2</span> Easing</h1>
+            
+            
+            <div class="kss-description">
+              <p>There are lots of easing options available, from the basic <code>linear</code> or <code>ease-in</code> to more complex like <code>easeInOutCirc</code>. For an example of all of these in use see <a href="http://easings.net">Easings.net</a>.
+
+</p>
+<ul>
+<li><strong>Base</strong>: linear, ease, ease-in, ease-out, ease-in-out</li>
+<li><strong>easeIn</strong>: easeInQuad, easeInCubic, easeInQuart, easeInQuint, easeInSine, easeInExpo, easeInCirc, easeInBack</li>
+<li><strong>easeOut</strong>: easeOutQuad, easeOutCubic, easeOutQuart, easeOutQuint, easeOutSine, easeOutExpo, easeOutCirc, easeOutBack</li>
+<li><strong>easeInOut</strong>: easeInOutQuad, easeInOutCubic, easeInOutQuart, easeInOutQuint, easeInOutSine, easeInOutExpo, easeInOutCirc, easeInOutBack</li>
+</ul>
+
+            </div>
+            
+            
+          </section>
+          
+          <section id="section-20.3" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">20.3</span> Silent classes</h1>
+            
+            
+            <div class="kss-description">
+              <p>There are also available silent classes for all enabled animations to use with <code>@extend</code>
 
 </p>
 <pre><code>@extend %fadeIn;</code></pre>
 
-                
+            </div>
             
-           
-        
-      
-    </article>
-  </div>
-  <footer>
-    
-  </footer>
-  <!-- SCRIPTS -->
-  <script src="public/kss.js"></script>
-  <script src="public/prettify.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script>
-    $(document).ready(function(){
-      var sidebarAdjust = function() {
-        // Match footer/body height
-        var height = Math.max($(window).height(), $('#kss-main').height());
+            
+          </section>
+          
+          <section id="section-20.4" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">20.4</span> Animation mixin</h1>
+            
+            
+            <div class="kss-description">
+              <p>Also available is an &quot;animate&quot; mixin, for more information see the Mixins section.</p>
 
-        if ($(window).width() <= 768) {
-          $('#kss-main, #kss-nav').height('auto');
-        } else {
-          $('#kss-main, #kss-nav').height(height);
-        }
-      };
-
-      $(window).resize(sidebarAdjust);
-      $(window).scroll(sidebarAdjust);
-      sidebarAdjust();
-
-      // Ensure code blocks are highlighted properly...
-      $('pre>code').addClass('prettyprint');
-      prettyPrint();
-
-    });
-  </script>
-
-  
-  
-</div></body>
+            </div>
+            
+            
+          </section>
+          
+          
+        </article>
+        <footer class="kss-footer">
+          <div>Created using <a href="https://github.com/hughsk/kss-node">kss-node</a> and <a href="https://github.com/htanjo/kss-node-template">kss-node-template</a>.</div>
+        </footer>
+      </div>
+    </div>
+    </body>
 </html>
