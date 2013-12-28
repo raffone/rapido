@@ -32,7 +32,7 @@ $animations:                        fadeIn, fadeOut                             
 $animations-classes:                true                                                                    !default;
 
 $animations-duration:               .15s                                                                    !default;
-$animations-delay:                  0s                                                                      !default;
+$animations-delay:                  null                                                                    !default;
 $animations-function:               ease-out                                                                !default;
 $animations-mode:                   both                                                                    !default;
 
