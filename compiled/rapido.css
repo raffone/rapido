@@ -204,6 +204,16 @@ Styleguide 24.4
 */
 /*
 
+strip_units()
+
+Remove eny type of unit from a number, more info:
+[StackOverflow](http://stackoverflow.com/questions/12328259/how-do-you-strip-the-unit-from-any-number-in-sass).
+
+Styleguide 24.5
+
+*/
+/*
+
 Base Settings
 
 Styleguide 25
@@ -652,9 +662,12 @@ Styleguide 23.5
 
 Extend
 
-When using SASS syntax.
+Abbrieviantion for extendingt normal class (.) or a placeholder class (%) when using SASS syntax.
 
-    +e(classname)
+     +e($name, $silent);
+
+* `$name`: Name of the class
+* `$silent`: Set to true if is a placeholder class
 
 Styleguide 23.6
 
@@ -1472,22 +1485,108 @@ Styleguide 20
 */
 /*
 
-Silent classes
+Classes for animations
 
-There are also available silent classes for all enabled animations to use with `@extend`
+There are available  classes for all enabled animations to use with `@extend`.
+
+Example:
 
     @extend %fadeIn;
 
 Styleguide 20.3
 
 */
+.fadeIn {
+  -webkit-animation: fadeIn 0.15s ease-out both;
+  -moz-animation: fadeIn 0.15s ease-out both;
+  -ms-animation: fadeIn 0.15s ease-out both;
+  -o-animation: fadeIn 0.15s ease-out both;
+  animation: fadeIn 0.15s ease-out both; }
+
+.fadeOut {
+  -webkit-animation: fadeOut 0.15s ease-out both;
+  -moz-animation: fadeOut 0.15s ease-out both;
+  -ms-animation: fadeOut 0.15s ease-out both;
+  -o-animation: fadeOut 0.15s ease-out both;
+  animation: fadeOut 0.15s ease-out both; }
+
+/*
+
+Classes for delays
+
+Like classes for the animations are also available 8 classes for delays.
+Available delays: .delay-25, .delay-50, .delay-75, .delay-100, .delay-125, .delay-150, .delay-175, .delay-200.
+
+Example:
+
+    @extend .delay-50;
+
+Styleguide 20.4
+
+*/
+.delay-25 {
+  -webkit-animation-delay: 0.25s;
+  -moz-animation-delay: 0.25s;
+  -ms-animation-delay: 0.25s;
+  -o-animation-delay: 0.25s;
+  animation-delay: 0.25s; }
+
+.delay-50 {
+  -webkit-animation-delay: 0.5s;
+  -moz-animation-delay: 0.5s;
+  -ms-animation-delay: 0.5s;
+  -o-animation-delay: 0.5s;
+  animation-delay: 0.5s; }
+
+.delay-75 {
+  -webkit-animation-delay: 0.75s;
+  -moz-animation-delay: 0.75s;
+  -ms-animation-delay: 0.75s;
+  -o-animation-delay: 0.75s;
+  animation-delay: 0.75s; }
+
+.delay-100 {
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  -ms-animation-delay: 1s;
+  -o-animation-delay: 1s;
+  animation-delay: 1s; }
+
+.delay-125 {
+  -webkit-animation-delay: 1.25s;
+  -moz-animation-delay: 1.25s;
+  -ms-animation-delay: 1.25s;
+  -o-animation-delay: 1.25s;
+  animation-delay: 1.25s; }
+
+.delay-150 {
+  -webkit-animation-delay: 1.5s;
+  -moz-animation-delay: 1.5s;
+  -ms-animation-delay: 1.5s;
+  -o-animation-delay: 1.5s;
+  animation-delay: 1.5s; }
+
+.delay-175 {
+  -webkit-animation-delay: 1.75s;
+  -moz-animation-delay: 1.75s;
+  -ms-animation-delay: 1.75s;
+  -o-animation-delay: 1.75s;
+  animation-delay: 1.75s; }
+
+.delay-200 {
+  -webkit-animation-delay: 2s;
+  -moz-animation-delay: 2s;
+  -ms-animation-delay: 2s;
+  -o-animation-delay: 2s;
+  animation-delay: 2s; }
+
 /*
 
 Animation mixin
 
 Also available is an "animate" mixin, for more information see the Mixins section.
 
-Styleguide 20.4
+Styleguide 20.5
 
 */
 @-webkit-keyframes fadeIn {

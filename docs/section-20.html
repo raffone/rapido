@@ -126,11 +126,15 @@
               
               
               
-              <li class="kss-menu-item"><a href="#section-20.3"><span class="kss-ref">20.3</span><span class="kss-name">Silent classes</span></a></li>
+              <li class="kss-menu-item"><a href="#section-20.3"><span class="kss-ref">20.3</span><span class="kss-name">Classes for animations</span></a></li>
               
               
               
-              <li class="kss-menu-item"><a href="#section-20.4"><span class="kss-ref">20.4</span><span class="kss-name">Animation mixin</span></a></li>
+              <li class="kss-menu-item"><a href="#section-20.4"><span class="kss-ref">20.4</span><span class="kss-name">Classes for delays</span></a></li>
+              
+              
+              
+              <li class="kss-menu-item"><a href="#section-20.5"><span class="kss-ref">20.5</span><span class="kss-name">Animation mixin</span></a></li>
               
               
             </ul>
@@ -220,11 +224,14 @@ $default-transition-function:     $animations-function</code></pre>
           </section>
           
           <section id="section-20.3" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">20.3</span> Silent classes</h1>
+            <h1 class="kss-title"><span class="kss-ref">20.3</span> Classes for animations</h1>
             
             
             <div class="kss-description">
-              <p>There are also available silent classes for all enabled animations to use with <code>@extend</code>
+              <p>There are available  classes for all enabled animations to use with <code>@extend</code>.
+
+</p>
+<p>Example:
 
 </p>
 <pre><code>@extend %fadeIn;</code></pre>
@@ -235,7 +242,26 @@ $default-transition-function:     $animations-function</code></pre>
           </section>
           
           <section id="section-20.4" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">20.4</span> Animation mixin</h1>
+            <h1 class="kss-title"><span class="kss-ref">20.4</span> Classes for delays</h1>
+            
+            
+            <div class="kss-description">
+              <p>Like classes for the animations are also available 8 classes for delays.
+Available delays: .delay-25, .delay-50, .delay-75, .delay-100, .delay-125, .delay-150, .delay-175, .delay-200.
+
+</p>
+<p>Example:
+
+</p>
+<pre><code>@extend .delay-50;</code></pre>
+
+            </div>
+            
+            
+          </section>
+          
+          <section id="section-20.5" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">20.5</span> Animation mixin</h1>
             
             
             <div class="kss-description">
