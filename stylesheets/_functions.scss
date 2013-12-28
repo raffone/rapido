@@ -123,3 +123,18 @@ Styleguide 24.4
     @return -(space($w, $c));
 }
 
+/*
+
+strip_units()
+
+Remove eny type of unit from a number, more info:
+[StackOverflow](http://stackoverflow.com/questions/12328259/how-do-you-strip-the-unit-from-any-number-in-sass).
+
+Styleguide 24.5
+
+*/
+
+
+@function strip_units($number) {
+    @return $number / ($number * 0 + 1);
+}
