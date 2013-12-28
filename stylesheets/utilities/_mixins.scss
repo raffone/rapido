@@ -152,18 +152,24 @@ Styleguide 23.5
 
 Extend
 
-When using SASS syntax.
+Abbrieviantion for extendingt normal class (.) or a placeholder class (%) when using SASS syntax.
 
-    +e(classname)
+     +e($name, $silent);
+
+* `$name`: Name of the class
+* `$silent`: Set to true if it's a placeholder class
 
 Styleguide 23.6
 
 */
 
-@mixin e($class) {
-    @if $class {
-        @extend .#{$class};
+@mixin e($name, $silent: false) {
+    @if ($silent == true) {
+        @extend %#{$name};
+    } @else {
+        @extend .#{$name};
     }
+
 }
 
 
