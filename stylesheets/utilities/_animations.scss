@@ -111,9 +111,11 @@ $tada:                      false   !default;
 
 /*
 
-Silent classes
+Classes for animations
 
-There are also available silent classes for all enabled animations to use with `@extend`
+There are available  classes for all enabled animations to use with `@extend`.
+
+Example:
 
     @extend %fadeIn;
 
@@ -123,7 +125,7 @@ Styleguide 20.3
 
 @if $animations-classes {
     @each $animation in $animations {
-        %#{$animation} {
+        .#{$animation} {
             @include animate($animation);
         }
     }
@@ -131,11 +133,45 @@ Styleguide 20.3
 
 /*
 
+Classes for delays
+
+Like classes for the animations are also available 8 classes for delays.
+Available delays: .delay-25, .delay-50, .delay-75, .delay-100, .delay-125, .delay-150, .delay-175, .delay-200.
+
+Example:
+
+    @extend .delay-50;
+
+Styleguide 20.4
+
+*/
+
+@if $animations-classes {
+    $delays: 0.25s, 0.50s, 0.75s, 1.00s, 1.25s, 1.50s, 1.75s, 2.00s;
+    @each $delay in $delays {
+        $delay-stripped: "";
+        @if($delay == 0.25s) { $delay-stripped: 025; }
+        @if($delay == 0.50s) { $delay-stripped: 050; }
+        @if($delay == 0.75s) { $delay-stripped: 075; }
+        @if($delay == 1.00s) { $delay-stripped: 100; }
+        @if($delay == 1.25s) { $delay-stripped: 125; }
+        @if($delay == 1.50s) { $delay-stripped: 150; }
+        @if($delay == 1.75s) { $delay-stripped: 175; }
+        @if($delay == 2.00s) { $delay-stripped: 200; }
+        .delay-#{$delay-stripped} {
+            @include experimental(animation-delay, $delay);
+        }
+    }
+}
+
+
+/*
+
 Animation mixin
 
 Also available is an "animate" mixin, for more information see the Mixins section.
 
-Styleguide 20.4
+Styleguide 20.5
 
 */
 
