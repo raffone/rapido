@@ -204,6 +204,8 @@ Markup:
 <dl>
   <dt>Rock Hammer</dt>
   <dd>A geologist’s hammer, rock hammer, rock pick or geological pick is a hammer used for splitting and breaking rocks.</dd>
+  <dt>Rock Hammer</dt>
+  <dd>A geologist’s hammer, rock hammer, rock pick or geological pick is a hammer used for splitting and breaking rocks.</dd>
 </dl>
 
 Styleguide 19.4
@@ -221,6 +223,8 @@ Horizontal definition list
 
 Markup:
 <dl class="dl-horizontal">
+  <dt>Rock Hammer</dt>
+  <dd>A geologist’s hammer, rock hammer, rock pick or geological pick is a hammer used for splitting and breaking rocks.</dd>
   <dt>Rock Hammer</dt>
   <dd>A geologist’s hammer, rock hammer, rock pick or geological pick is a hammer used for splitting and breaking rocks.</dd>
 </dl>
@@ -295,7 +299,7 @@ blockquote {
         font-weight: 300;
     }
 
-    small, cite {
+    cite {
         display: block;
         color: $grayLight;
         &:before {
