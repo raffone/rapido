@@ -142,14 +142,16 @@
               <p>Toggleable, contextual menu for displaying lists of links. Made interactive with the <a href="http://twitter.github.io/bootstrap/javascript.html#dropdowns">dropdown JavaScript plugin</a>.
 
 </p>
-<p>Looking at just the dropdown menu, here&apos;s the required HTML. You need to wrap the dropdown&apos;s trigger and the dropdown menu within <code>.dropdown</code>. Then just create the menu.</p>
+<p>Looking at just the dropdown menu, here&apos;s the required HTML. You need to wrap the dropdown&apos;s trigger and the dropdown menu within <code>.dropdown</code>. Then just create the menu.
+
+</p>
 
             </div>
             
             <div class="kss-modifier-block">
               <div class="kss-modifier kss-modifier-original">
                 <div class="kss-modifier-example">
-                  <div class="dropdown {$modifiers}">
+                  <div class="dropdown">
   <a href="#" class="btn btn--default dropdown__toggle " data-toggle="dropdown">
     Dropdown
     <span class="dropdown__caret"></span>
@@ -162,16 +164,42 @@
     <li><a tabindex="-1" href="#">Separated link</a></li>
   </ul>
 </div>
+<div class="dropdown">
+  <a href="#" class="btn btn--default dropdown__toggle " data-toggle="dropdown">
+    Dropdown
+    <span class="dropdown__caret"></span>
+  </a>
+  <ul class="dropdown__menu pull-right ">
+    <li><a tabindex="-1" href="#">Action</a></li>
+    <li><a tabindex="-1" href="#">Another action</a></li>
+    <li><a tabindex="-1" href="#">Something else here</a></li>
+    <li class="divider"></li>
+    <li><a tabindex="-1" href="#">Separated link</a></li>
+  </ul>
+</div>
                 </div>
               </div>
               
               <div class="kss-markup">
-                <pre><code data-language="html">&lt;div class=&quot;dropdown {$modifiers}&quot;&gt;
+                <pre><code data-language="html">&lt;div class=&quot;dropdown&quot;&gt;
   &lt;a href=&quot;#&quot; class=&quot;btn btn--default dropdown__toggle &quot; data-toggle=&quot;dropdown&quot;&gt;
     Dropdown
     &lt;span class=&quot;dropdown__caret&quot;&gt;&lt;/span&gt;
   &lt;/a&gt;
   &lt;ul class=&quot;dropdown__menu &quot;&gt;
+    &lt;li&gt;&lt;a tabindex=&quot;-1&quot; href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a tabindex=&quot;-1&quot; href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a tabindex=&quot;-1&quot; href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a tabindex=&quot;-1&quot; href=&quot;#&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;dropdown&quot;&gt;
+  &lt;a href=&quot;#&quot; class=&quot;btn btn--default dropdown__toggle &quot; data-toggle=&quot;dropdown&quot;&gt;
+    Dropdown
+    &lt;span class=&quot;dropdown__caret&quot;&gt;&lt;/span&gt;
+  &lt;/a&gt;
+  &lt;ul class=&quot;dropdown__menu pull-right &quot;&gt;
     &lt;li&gt;&lt;a tabindex=&quot;-1&quot; href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a tabindex=&quot;-1&quot; href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a tabindex=&quot;-1&quot; href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
@@ -212,33 +240,20 @@
             
             
             <div class="kss-description">
-              <p>List of the links to show in the dropdown.</p>
+              <p>List of the links to show in the dropdown.
+
+
+</p>
+<pre><code>&lt;ul class=&quot;dropdown__menu &quot;&gt;
+  &lt;li&gt;&lt;a tabindex=&quot;-1&quot; href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a tabindex=&quot;-1&quot; href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a tabindex=&quot;-1&quot; href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+  &lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a tabindex=&quot;-1&quot; href=&quot;#&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
 
             </div>
             
-            <div class="kss-modifier-block">
-              <div class="kss-modifier kss-modifier-original">
-                <div class="kss-modifier-example">
-                    <ul class="dropdown__menu ">
-    <li><a tabindex="-1" href="#">Action</a></li>
-    <li><a tabindex="-1" href="#">Another action</a></li>
-    <li><a tabindex="-1" href="#">Something else here</a></li>
-    <li class="divider"></li>
-    <li><a tabindex="-1" href="#">Separated link</a></li>
-  </ul>
-                </div>
-              </div>
-              
-              <div class="kss-markup">
-                <pre><code data-language="html">  &lt;ul class=&quot;dropdown__menu &quot;&gt;
-    &lt;li&gt;&lt;a tabindex=&quot;-1&quot; href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a tabindex=&quot;-1&quot; href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a tabindex=&quot;-1&quot; href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a tabindex=&quot;-1&quot; href=&quot;#&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
-  &lt;/ul&gt;</code></pre>
-              </div>
-            </div>
             
           </section>
           

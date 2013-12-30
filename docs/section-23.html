@@ -280,7 +280,10 @@ bottom: 0px;</code></pre>
             
             
             <div class="kss-description">
-              <pre><code>@include center-block();</code></pre>
+              <p>Horizzontally center an element.
+
+</p>
+<pre><code>@include center-block();</code></pre>
 <p>Become:
 
 </p>
@@ -298,7 +301,7 @@ margin-right: auto;</code></pre>
             
             
             <div class="kss-description">
-              <p>Vertical and horizontal centering with absolute positioning, using the posiztion absolute and negative translate.
+              <p>Vertical and horizontal centering with absolute positioning, using the position absolute and negative translate.
 
 </p>
 <pre><code>@include center();</code></pre>
@@ -319,7 +322,7 @@ margin-right: auto;</code></pre>
 <pre><code> +e($name, $silent);</code></pre>
 <ul>
 <li><code>$name</code>: Name of the class</li>
-<li><code>$silent</code>: Set to true if is a placeholder class</li>
+<li><code>$silent</code>: Set to true if it&apos;s a placeholder class</li>
 </ul>
 
             </div>
@@ -439,7 +442,9 @@ color: rgba(0,0,0,.5);</code></pre>
               <p>Used for creating custom animations.
 
 </p>
-<pre><code>@include keyframes($name);</code></pre>
+<pre><code>@include keyframes($name) {
+  ...keyframes...
+}</code></pre>
 <ul>
 <li><code>$name</code>: Name of the keyframe</li>
 </ul>
@@ -560,22 +565,22 @@ for more info see the full documentation from the link.
 
 </p>
 <p>First you need to add to your scss file an import to import all of the seperate icons that will be compiled in a single image.
-For example if you have a folder named <code>icons</code> inside the main <code>images</code> folder add this line:
+For example if you have a folder named <code>s</code> inside the main <code>images</code> folder add this line:
 
 </p>
-<pre><code>@import &apos;icons/ *.png&apos;;</code></pre>
+<pre><code>@import &apos;s/ *.png&apos;;</code></pre>
 <p>Then add you have two options:
 
 </p>
 <p>Add the sprite in the html with (where <code>icon_name</code> is the filename of the icon). .s` is the standard class the must be used with all sprites images.
 
 </p>
-<pre><code>&lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;s icons-icon_name&quot;&gt;&lt;/i&gt; Link&lt;/a&gt;</code></pre>
+<pre><code>&lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;s s-icon_name&quot;&gt;&lt;/i&gt; Link&lt;/a&gt;</code></pre>
 <p>Or via <code>@include</code> from the scss:
 
 </p>
 <pre><code>a:before {
-    @include sprite(icon_name)
+    @include s(icon_name)
 }</code></pre>
 <p>The result is the same.</p>
 
