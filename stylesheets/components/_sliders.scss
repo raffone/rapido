@@ -54,7 +54,7 @@ Styleguide 16
             z-index: 200;
 
             i {font-style: normal;}
-            span {@include hide-text;}
+            span {@extend .visuallyhidden;}
         }
 
         .disabled { display: none; }
