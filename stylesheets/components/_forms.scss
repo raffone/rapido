@@ -210,7 +210,6 @@ Markup:
   <label class="form__radio {$modifiers}">
     <input type="radio" value="option2"> Option two can be something else
   </label>
-  </div>
 </div>
 
 .inline - Inline alignment with `.inline`
@@ -431,7 +430,7 @@ Styleguide 8.6
 Form Layouts
 
 Markup:
-<form class="form {$modifiers}">
+<form class="{$modifiers}">
   <div class="form__group">
     <label class="form__label">Label</label>
     <div class="form__controls">
@@ -531,7 +530,7 @@ Inline Form (semplified)
 The inline layout can also be used width a samplified markup.
 
 Markup:
-<form class="form form--inline">
+<form class="form--inline">
   <label class="form__label">Label</label>
   <input type="text" placeholder="Type something…">
   <label class="form__label">Label</label>
