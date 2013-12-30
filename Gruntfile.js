@@ -16,6 +16,15 @@ module.exports = function(grunt) {
           outputStyle: 'nested'
         }
       },
+      min: {
+        options: {
+          sassDir: 'stylesheets',
+          cssDir: 'dist',
+          specify: 'stylesheets/rapido.min.scss',
+          noLineComments: true,
+          outputStyle: 'compressed'
+        }
+      },
     },
 
     kss: {

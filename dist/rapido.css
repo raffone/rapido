@@ -134,7 +134,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-/* ====================================================================================================================
+/*
 
 Functions
 
@@ -142,8 +142,22 @@ For 99% of the framework I used Compass' and Susy's functions but I've made some
 
 Styleguide 24
 
-==================================================================================================================== */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
+
+Easing
+
+There are lots of easing options available, from the basic ``linear`` or ``ease-in`` to more complex like ``easeInOutCirc``. For an example of all of these in use see [Easings.net](http://easings.net).
+
+* **Base**: linear, ease, ease-in, ease-out, ease-in-out
+* **easeIn**: easeInQuad, easeInCubic, easeInQuart, easeInQuint, easeInSine, easeInExpo, easeInCirc, easeInBack
+* **easeOut**: easeOutQuad, easeOutCubic, easeOutQuart, easeOutQuint, easeOutSine, easeOutExpo, easeOutCirc, easeOutBack
+* **easeInOut**: easeInOutQuad, easeInOutCubic, easeInOutQuart, easeInOutQuint, easeInOutSine, easeInOutExpo, easeInOutCirc, easeInOutBack
+
+Styleguide 20.2
+
+*/
+/*
 
 neg()
 
@@ -151,16 +165,16 @@ Convert a value to negative.
 
 Example:
 
-	left: neg(10em);
+    left: neg(10em);
 
 Become:
 
-	left: -10em
+    left: -10em
 
 Styleguide 24.2
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 rhythm_neg()
 
@@ -169,16 +183,16 @@ Vertical Rhythm](http://compass-style.org/reference/compass/typography/vertical_
 
 Example:
 
-	margin-left: rhythm_neg(1);
+    margin-left: rhythm_neg(1);
 
 Become:
 
-	margin-left: -1.42857em;
+    margin-left: -1.42857em;
 
 Styleguide 24.3
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 space_neg()
 
@@ -187,15 +201,25 @@ Similar to `rhythm_neg()` but for Susy's `space()` function, more info:
 
 Styleguide 24.4
 
--------------------------------------------------------------------------------------------------------------------- */
-/* ====================================================================================================================
+*/
+/*
+
+strip_units()
+
+Remove eny type of unit from a number, more info:
+[StackOverflow](http://stackoverflow.com/questions/12328259/how-do-you-strip-the-unit-from-any-number-in-sass).
+
+Styleguide 24.5
+
+*/
+/*
 
 Base Settings
 
 Styleguide 25
 
-==================================================================================================================== */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Debug Mode
 
@@ -204,8 +228,8 @@ Debug Mode
 
 Styleguide 25.1
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Text body size
 
@@ -220,8 +244,8 @@ on `palm` (smartphone) change the base size to 16px, it will be automatically co
 
 Styleguide 25.2
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Font families
 
@@ -234,19 +258,19 @@ Font families
 
 Styleguide 25.3
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 em()
 
 To convert `PX` to `EM` using the `$base-font-size` as font size.
 
-	width: em(20px);
+    width: em(20px);
 
 Styleguide 24.1
 
--------------------------------------------------------------------------------------------------------------------- */
-/* ====================================================================================================================
+*/
+/*
 
 Base Colors
 
@@ -262,8 +286,8 @@ Used for scaffolding
 
 Styleguide 26
 
-==================================================================================================================== */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Default colors
 
@@ -274,8 +298,8 @@ Default colors
 
 Styleguide 26.1
 
--------------------------------------------------------------------------------------------------------------------- */
-/* ====================================================================================================================
+*/
+/*
 
 Base Dimensions
 
@@ -284,8 +308,8 @@ Base Dimensions
 
 Styleguide 28
 
-==================================================================================================================== */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Text Size
 
@@ -302,20 +326,21 @@ Font sizes you can used with the compass mixin `adjust-font-size-to()`. Naming c
     $h5-size:                       $base-font-size * 1.25  # 17.5px
     $h6-size:                       $base-font-size * 1     # 14px
 
-    $milli-size:                    $base-font-size * .85   # 12px
-    $micro-size:                    $base-font-size * .7    # 10px
+    $small-size:                    $base-font-size * .85   # 12px
+    $smaller-size:                  $base-font-size * .7    # 10px
+    $smallest-size:                 $base-font-size * .5    # 7px
 
 Styleguide 28.1
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Line-Height
 
 By default all titles have a line-height based on the font-size, to ensure that it will allways respect the vertical rhythm.
 Sometimes this result is not what we expect/want so it's possible to override the default proportion width these.
 
-These values mean: X times the base line-height.
+These values mean: n times the base line-height.
 
     $h1-line-height:                2
     $h2-line-height:                2
@@ -326,8 +351,8 @@ These values mean: X times the base line-height.
 
 Styleguide 28.1.1
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Forms
 
@@ -342,8 +367,8 @@ Base padding and margins used in the forms.
 
 Styleguide 28.2
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Paddings
 
@@ -376,8 +401,8 @@ Components
 
 Styleguide 28.3
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Sizes
 
@@ -387,8 +412,8 @@ Sizes
 
 Styleguide 28.4
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Heights
 
@@ -398,8 +423,8 @@ Some elements need to have a max-height specified for smoother animations, like 
 
 Styleguide 28.5
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Media Queries
 
@@ -411,8 +436,8 @@ Set the width of the three steps of the layout.
 
 Styleguide 28.6
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Grid (Susy)
 
@@ -425,8 +450,8 @@ Default settings for susy grid. More info: [Susy](http://susy.oddbird.net/).
 
 Styleguide 28.7
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Nav Responsive Options
 
@@ -440,8 +465,8 @@ Nav Responsive Options
 
 Styleguide 28.8
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Z-index
 
@@ -455,8 +480,8 @@ Default settings for overlay components, taken from Bootstrap.
 
 Styleguide 28.9
 
--------------------------------------------------------------------------------------------------------------------- */
-/* ====================================================================================================================
+*/
+/*
 
 Base Components
 
@@ -493,23 +518,24 @@ Enable or disable components, so you can have in the css only what you need.
 
 Styleguide 27
 
-==================================================================================================================== */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Sprites
 
     $s-sprite-dimensions:           true;
     $s-layout:                      smart;
 
-Styleguide 22.5
+Styleguide 27.1
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Icon Fonts
 
 Icon Fonts ready to use with the mixin `icon-font`.
 Font files are not required, is used the [We Love Icon Fonts](http://weloveiconfonts.com/) CDN.
+
 
     $use-fontawesome:               true    # http://fortawesome.github.io/Font-Awesome/
 
@@ -521,10 +547,39 @@ Font files are not required, is used the [We Love Icon Fonts](http://weloveiconf
     $use-typicons:                  false   # http://typicons.com/
     $use-zocial:                    false   # http://zocial.smcllns.com/
 
-Styleguide 27.1
+Styleguide 27.2
 
--------------------------------------------------------------------------------------------------------------------- */
-/* ====================================================================================================================
+*/
+/*
+
+Settings
+
+These are the default settings for all animations and transitions within the framework.
+
+By default all animations but fadeIn and fadeOut are disabled, use the  ```$animations``` list to enable/disable them.
+
+    $animations:                      fadeIn, fadeOut
+
+If true it generate a placeholder class for every animation with the default settings to use as an ````@extend```.
+
+    $animations-classes:              true
+
+Base settings for animations
+
+    $animations-duration:             .15s      # Duration
+    $animations-delay:                0s        # Start delay
+    $animations-function:             ease-out  # Easing
+    $animations-mode:                 both      # animation-fill-mode
+
+For transitions you can use other settings for duration and easing, by default the use the same settings as the animations.
+
+    $default-transition-duration:     $animations-duration
+    $default-transition-function:     $animations-function
+
+Styleguide 20.1
+
+*/
+/*
 
 Mixins
 
@@ -532,124 +587,129 @@ Some of them are from Bootstrap, others are custom.
 
 Styleguide 23
 
-==================================================================================================================== */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Create a rectangle
 
-	@include size($height, $width);
+    @include size($height, $width);
 
 * `$height`: Height of the rectangle
 * `$width`: Width of the rectangle
 
 Styleguide 23.1
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Create a square
 
-	@include square($size);
+    @include square($size);
 
 * `$size`: Dimension used both for width and height
 
 Styleguide 23.2
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Position an element
 
-	@include position ($position, $coordinates);
+    @include position ($position, $coordinates);
 
 * `$position`: fixed, relative, absolute
 * `$coordinates`: 0 = null, 0px or more is a value used in the css.
 
 Example:
 
-	@include position (absolute, 0 0px 0px 0);
+    @include position (absolute, 0 0px 0px 0);
 
 Become:
 
-	position: absolute;
-	right: 0px;
-	bottom: 0px;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
 
 Styleguide 23.3
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Center-block
 
-	@include center-block();
+Horizzontally center an element.
+
+    @include center-block();
 
 Become:
 
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 
 Styleguide 23.4
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Center
 
-Vertical and horizontal centering with absolute positioning, using the posiztion absolute and negative translate.
+Vertical and horizontal centering with absolute positioning, using the position absolute and negative translate.
 
-	@include center();
+    @include center();
 
 Styleguide 23.5
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Extend
 
-When using SASS syntax.
+Abbrieviantion for extendingt normal class (.) or a placeholder class (%) when using SASS syntax.
 
-	+e(classname)
+     +e($name, $silent);
+
+* `$name`: Name of the class
+* `$silent`: Set to true if it's a placeholder class
 
 Styleguide 23.6
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Placeholder
 
-	@include placeholder($color);
+    @include placeholder($color);
 
 * `$color`: Set color of the placeholder of an input.
 
 Styleguide 23.7
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Text overflow
 
 Wrap text with ellipsis (modern browsers only).
 
-	@include text-overflow();
+    @include text-overflow();
 
 Become
 
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 
 Styleguide 23.8
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Triangle
 
 Create a css-only triangle.
 
-	@include triangle($size, $color, $direction);
+    @include triangle($size, $color, $direction);
 
 * `$size`: Width of the triangle
 * `$color`: Color of the triangle
@@ -658,14 +718,14 @@ Create a css-only triangle.
 Styleguide 23.9
 
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Triangle with Borders
 
 Add a css-only triangle width side borders, usefull for tooltips. For now only side triangles with border are suported.
 
-	@include triangle_border($size, $color, $border-color, $border-width, $direction);
+    @include triangle_border($size, $color, $border-color, $border-width, $direction);
 
 * `$size`: Same as `square`
 * `$color`: Color of the triangle
@@ -675,12 +735,12 @@ Add a css-only triangle width side borders, usefull for tooltips. For now only s
 
 Styleguide 23.10
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Text inset shadow
 
-	@include text-inset-shadow($bg, $textcolor, $contrast);
+    @include text-inset-shadow($bg, $textcolor, $contrast);
 
 * `$bg`: Background color of the text
 * `$textcolor`: Color of the text
@@ -688,14 +748,14 @@ Text inset shadow
 
 Styleguide 23.11
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Alpha Color
 
 Alpha color with ie full opacity fallback (for IE)
 
-	@include alpha-color($color, $alpha, $attribute);
+    @include alpha-color($color, $alpha, $attribute);
 
 * `$color`: Base HEX color
 * `$alpha`: Opacity
@@ -703,46 +763,48 @@ Alpha color with ie full opacity fallback (for IE)
 
 Example
 
-	@include alpha-color(#000, .5, color);
+    @include alpha-color(#000, .5, color);
 
 Become
 
-	color: #000;
-	color: rgba(0,0,0,.5);
+    color: #000;
+    color: rgba(0,0,0,.5);
 
 Styleguide 23.12
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Keyframes support
 
 Used for creating custom animations.
 
-	@include keyframes($name);
+    @include keyframes($name) {
+      ...keyframes...
+    }
 
 * `$name`: Name of the keyframe
 
 Styleguide 23.13
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Nav divider
 
-	@include nav-divider($top $bottom);
+    @include nav-divider($top $bottom);
 
 * `$top`: Color of the top border
 * `$bottom`: Color of the bottom border
 
 Styleguide 23.14
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Comicbook Shadow
 
-	@include shadow-comicbook($padding, $color, $size, $distance);
+    @include shadow-comicbook($padding, $color, $size, $distance);
 
 * `$padding`: Border color
 * `$color`: Color of the shadow
@@ -751,14 +813,14 @@ Comicbook Shadow
 
 Styleguide 23.15
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Box Inset Shadow
 
 Usefull for adding inset shadows to sidebars or large block where the shadow is only on one side and full width/height.
 
-	@include inset-shadow($position, $size, $color);
+    @include inset-shadow($position, $size, $color);
 
 * `$position`: top, right, bottom, left
 * `$size`: Size of the shadow
@@ -766,28 +828,28 @@ Usefull for adding inset shadows to sidebars or large block where the shadow is 
 
 Styleguide 23.16
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Side Shadow
 
 Add Side Shadows to multi-line padded text for consistend side padding (Fabien Doiron's box-shadow Method).
 
-	@include side-shadow($size, $color);
+    @include side-shadow($size, $color);
 
 * `$size`: Size of the shadow
 * `$color`: Color of the shadow
 
 Styleguide 23.17
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Icon Fonts
 
 Use the unicode character from an icon font to insert it wherever you want.
 
-	@include icon-font($char, $font);
+    @include icon-font($char, $font);
 
 * `$char`: Unicode of the character †
 * `$font`: What font to use ‡
@@ -799,8 +861,8 @@ Use the unicode character from an icon font to insert it wherever you want.
 
 Styleguide 23.18
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Media Queries
 
@@ -811,16 +873,16 @@ Add media queries to css width simple naming convention.
 You can set the start/and with of each step from usins the variables `$lap-start`, `$desk-start`, `$desk-end`.
 
 * `$media`:
-	* `palm`: Only Palm
-	* `lap`:  Only Lap
-	* `lap-and-up`: Lap + Desktop
-	* `portable`: Lap + Palm
-	* `desk`: Only Desktop
+    * `palm`: Only Palm
+    * `lap`:  Only Lap
+    * `lap-and-up`: Lap + Desktop
+    * `portable`: Lap + Palm
+    * `desk`: Only Desktop
 
 Styleguide 23.19
 
--------------------------------------------------------------------------------------------------------------------- */
-	              /* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Sprites
 
@@ -828,32 +890,32 @@ Rapido use the compass' [Sprites Mixin](http://compass-style.org/help/tutorials/
 for more info see the full documentation from the link.
 
 First you need to add to your scss file an import to import all of the seperate icons that will be compiled in a single image.
-For example if you have a folder named `icons` inside the main `images` folder add this line:
+For example if you have a folder named `s` inside the main `images` folder add this line:
 
-	@import "icons/*.png";
+    @import 's/ *.png';
 
 Then add you have two options:
 
 Add the sprite in the html with (where `icon_name` is the filename of the icon). .s` is the standard class the must be used with all sprites images.
 
-	<a href="#"><i class="s icons-icon_name"></i> Link</a>
+    <a href="#"><i class="s s-icon_name"></i> Link</a>
 
 Or via `@include` from the scss:
 
-	a:before {
-		@include sprite(icon_name)
-	}
+    a:before {
+        @include s(icon_name)
+    }
 
 The result is the same.
 
 Styleguide 23.20
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Responsive grid
 
-	@include columns ($cols, $cols-container, $omega, $nth-omega, $remove-omega, $from, $media, $highlight-omega);
+    @include columns ($cols, $cols-container, $omega, $nth-omega, $remove-omega, $from, $media, $highlight-omega);
 
 * `$cols`: How many columns
 * `$cols-container`: Columns of the container (default: $total-columns)
@@ -866,28 +928,46 @@ Responsive grid
 
 Styleguide 23.21
 
--------------------------------------------------------------------------------------------------------------------- */
-/* ====================================================================================================================
+*/
+/*
+
+Animations
+
+    @include animate($name, $duration, $delay, $function, $mode);
+
+* `$name`: Name of the animations to use, it must be enabled first. For more information see the Animations section.
+* `$duration`: Duration of the animation
+* `$delay`: Delay before the animation
+* `$function`: Easing, see 20.2 for a list of all easing options available
+* `$mode`: animation-fill-mode (http://mzl.la/1g6ixCc), default to *both*
+
+Styleguide 23.22
+
+*/
+/*
 
 Helper Classes
 
 There are provided some helper classes usually used with `@extend` for applying effects or common styles.
 
-Styleguide 22.
+Styleguide 22
 
-==================================================================================================================== */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Generic
 
 Add a a simple `transition all`, used as a generic extend for element that can accept transition on all attributes.
+
     .transition
-Simple divider class used in some components (like dropdowns).␣␣
+
+Simple divider class used in some components (like dropdowns).
+
     .divider
 
 Styleguide 22.1
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 .clearfix:after, .wrapper:after, .w:after, .fixed-wrapper:after, .fw:after, .dl-horizontal:after, form:after, .form__controls:after, .form__actions:after, .btn-group:after, .nav:after, .nav > ul:after, .pagination > :after {
   content: "";
   display: table;
@@ -905,7 +985,7 @@ Styleguide 22.1
   overflow: hidden;
   background-color: #e5e5e5; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Wrappers
 
@@ -921,7 +1001,7 @@ Same a `.wrapper` but with fixed width.
 
 Styleguide 22.2
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 .wrapper, .w {
   margin: 0 auto;
   max-width: 1080px;
@@ -938,7 +1018,7 @@ Styleguide 22.2
 .right {
   float: right; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Elements width
 
@@ -950,15 +1030,15 @@ Add `data-width="n"` to any html element to set the width.
 
 Example:
 
-	data-width="50"
+    data-width="50"
 
 Corrispond to:
 
-	width: 50% !important;
+    width: 50% !important;
 
 Styleguide 22.3
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 [data-width="100"], .btn-group[data-width] .btn, .btn-group[data-width] #nav-toggle,
 .btn-group > *[data-width] .btn,
 .btn-group > *[data-width] #nav-toggle {
@@ -1261,13 +1341,25 @@ Styleguide 22.3
 [data-width="1"] {
   width: 1% !important; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Typography
 
+Some common classes for fixing the typography, to be used sparingly.
+
+    .lead           # Bigger font size
+    .muted          # color: $gray
+
+    .pull-left      # float: left
+    .pull-right     # float: right
+
+    .text-left      # text-align: left
+    .text-right     # text-align: right
+    .text-center    # text-align: center
+
 Styleguide 22.4
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 .lead {
   font-size: 1.5em;
   line-height: 1.5em; }
@@ -1290,13 +1382,17 @@ Styleguide 22.4
 .text-center {
   text-align: center; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Sprites
 
+Simple class used for spriting.
+
+    .s
+
 Styleguide 22.5
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 .s {
   -webkit-transition: none;
   -moz-transition: none;
@@ -1311,7 +1407,7 @@ Styleguide 22.5
   vertical-align: middle;
   zoom: 1; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Text replacement
 
@@ -1326,7 +1422,7 @@ All the text replacement classes from from [html5boilerplate](http://html5boiler
 
 Styleguide 22.6
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 .ir {
   background-color: transparent;
   border: 0;
@@ -1345,7 +1441,7 @@ Styleguide 22.6
   display: none !important;
   visibility: hidden; }
 
-.visuallyhidden {
+.visuallyhidden, .bx-controls-direction a span {
   border: 0;
   clip: rect(0);
   height: 1px;
@@ -1355,7 +1451,7 @@ Styleguide 22.6
   margin: -1px;
   padding: 0; }
 
-.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
+.visuallyhidden.focusable:active, .bx-controls-direction a span.focusable:active, .visuallyhidden.focusable:focus, .bx-controls-direction a span.focusable:focus {
   clip: auto;
   height: auto;
   overflow: visible;
@@ -1366,7 +1462,7 @@ Styleguide 22.6
 .invisible {
   visibility: hidden; }
 
-/* ====================================================================================================================
+/*
 
 Debug mode
 
@@ -1375,32 +1471,132 @@ usefull for debugging code and finding errors. Taken form [Inuit](https://github
 
 Enable it with `$debug-mode: true;`.
 
-Styleguide 21.
+Styleguide 21
 
-==================================================================================================================== */
-/* =================================================================================================================
+*/
+/*
 
 Animations
 
-All the animations in [theCSSguru](https://twitter.com/theCSSguru)'s [Animate mixin](http://thecssguru.freeiz.com/animate/) are available with the same mixin.
+All the animations in [theCSSguru](https://twitter.com/theCSSguru)'s [Animate mixin](http://thecssguru.freeiz.com/animate/) are available with the same mixin:
 
-#### Use
+* **Attention seekers:** flash, bounce, shake, tada
+* **Fading entrances:** , fadeIn, fadeInUp, fadeInDown, fadeInLeft, fadeInRight, fadeInUpBig, fadeInDownBig, fadeInLeftBig, fadeInRightBig
+* **Fading exits**: fadeOut, fadeOutUp, fadeOutDown, fadeOutLeft, fadeOutRight, fadeOutUpBig, fadeOutDownBig, fadeOutLeftBig, fadeOutRightBig
+* **Bouncing entrances:** bounceIn, bounceInDown, bounceInUp, bounceInLeft, bounceInRight
+* **Bouncing exits:** bounceOut, bounceOutDown, bounceOutUp, bounceOutLeft, bounceOutRight
+* **Rotating entrances:** rotateIn, rotateInDownLeft, rotateInDownRight, rotateInUpLeft, rotateInUpRight
+* **Rotating exits:** rotateOut, rotateOutDownLeft, rotateOutDownRight, rotateOutUpLeft, rotateOutUpRight
 
-By default are only available `fadeIn` and `fadeOut`. To enable more animations add them to the `$animations` variable in `_effects.scss`.
+Styleguide 20
 
-#### Mixin
+*/
+/*
 
-	@include animate(fadeIn);
+Classes for animations
 
-#### Silent classes
+There are available  classes for all enabled animations to use with `@extend`.
 
-There are also available silent classes for all enabled animations to use with `@extend`
+Example:
 
-	@extend %fadeIn;
+    @extend %fadeIn;
 
-Styleguide 20.
+Styleguide 20.3
 
-================================================================================================================= */
+*/
+.fadeIn {
+  -webkit-animation: fadeIn 0.15s ease-out both;
+  -moz-animation: fadeIn 0.15s ease-out both;
+  -ms-animation: fadeIn 0.15s ease-out both;
+  -o-animation: fadeIn 0.15s ease-out both;
+  animation: fadeIn 0.15s ease-out both; }
+
+.fadeOut {
+  -webkit-animation: fadeOut 0.15s ease-out both;
+  -moz-animation: fadeOut 0.15s ease-out both;
+  -ms-animation: fadeOut 0.15s ease-out both;
+  -o-animation: fadeOut 0.15s ease-out both;
+  animation: fadeOut 0.15s ease-out both; }
+
+/*
+
+Classes for delays
+
+Like classes for the animations are also available 8 classes for delays.
+Available delays: .delay-25, .delay-50, .delay-75, .delay-100, .delay-125, .delay-150, .delay-175, .delay-200.
+
+Example:
+
+    @extend .delay-50;
+
+Styleguide 20.4
+
+*/
+.delay-25 {
+  -webkit-animation-delay: 0.25s;
+  -moz-animation-delay: 0.25s;
+  -ms-animation-delay: 0.25s;
+  -o-animation-delay: 0.25s;
+  animation-delay: 0.25s; }
+
+.delay-50 {
+  -webkit-animation-delay: 0.5s;
+  -moz-animation-delay: 0.5s;
+  -ms-animation-delay: 0.5s;
+  -o-animation-delay: 0.5s;
+  animation-delay: 0.5s; }
+
+.delay-75 {
+  -webkit-animation-delay: 0.75s;
+  -moz-animation-delay: 0.75s;
+  -ms-animation-delay: 0.75s;
+  -o-animation-delay: 0.75s;
+  animation-delay: 0.75s; }
+
+.delay-100 {
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  -ms-animation-delay: 1s;
+  -o-animation-delay: 1s;
+  animation-delay: 1s; }
+
+.delay-125 {
+  -webkit-animation-delay: 1.25s;
+  -moz-animation-delay: 1.25s;
+  -ms-animation-delay: 1.25s;
+  -o-animation-delay: 1.25s;
+  animation-delay: 1.25s; }
+
+.delay-150 {
+  -webkit-animation-delay: 1.5s;
+  -moz-animation-delay: 1.5s;
+  -ms-animation-delay: 1.5s;
+  -o-animation-delay: 1.5s;
+  animation-delay: 1.5s; }
+
+.delay-175 {
+  -webkit-animation-delay: 1.75s;
+  -moz-animation-delay: 1.75s;
+  -ms-animation-delay: 1.75s;
+  -o-animation-delay: 1.75s;
+  animation-delay: 1.75s; }
+
+.delay-200 {
+  -webkit-animation-delay: 2s;
+  -moz-animation-delay: 2s;
+  -ms-animation-delay: 2s;
+  -o-animation-delay: 2s;
+  animation-delay: 2s; }
+
+/*
+
+Animation mixin
+
+Also available is an "animate" mixin, for more information see the Mixins section.
+
+Styleguide 20.5
+
+*/
 @-webkit-keyframes fadeIn {
   0% {
     opacity: 0; }
@@ -1457,11 +1653,11 @@ Styleguide 20.
   100% {
     opacity: 0; } }
 
-/* ====================================================================================================================
+/*
 
 Icon Fonts
 
-==================================================================================================================== */
+*/
 @font-face {
   font-family: 'FontAwesome';
   font-style: 'normal';
@@ -1469,13 +1665,13 @@ Icon Fonts
   src: url("http://weloveiconfonts.com/api/fonts/fontawesome/fontawesome-webfont.eot");
   src: url("http://weloveiconfonts.com/api/fonts/fontawesome/fontawesome-webfont.eot?#iefix") format("eot"), url("http://weloveiconfonts.com/api/fonts/fontawesome/fontawesome-webfont.woff") format("woff"), url("http://weloveiconfonts.com/api/fonts/fontawesome/fontawesome-webfont.ttf") format("truetype"), url("http://weloveiconfonts.com/api/fonts/fontawesome/fontawesome-webfont.svg#FontAwesomeRegular") format("svg"); }
 
-/* ====================================================================================================================
+/*
 
 Type
 
 Styleguide 19
 
-==================================================================================================================== */
+*/
 *, *:before, *:after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1509,7 +1705,7 @@ a {
     color: #004c99;
     text-decoration: none; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Body text
 
@@ -1520,7 +1716,7 @@ Markup:
 
 Styleguide 19.1
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 p {
   margin: 0 0 1.5em; }
 
@@ -1537,7 +1733,7 @@ em {
 cite {
   font-style: normal; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Headings
 
@@ -1551,7 +1747,7 @@ Markup:
 
 Styleguide 19.2
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 h1, h2, h3, h4, h5, h6 {
   margin: 0 0 1.5em;
   text-rendering: optimizelegibility;
@@ -1602,7 +1798,7 @@ h4 small {
   font-size: 1em;
   line-height: 1.5em; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Lists
 
@@ -1620,7 +1816,7 @@ Markup:
 
 Styleguide 19.3
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 .list_style_none, .bx-wrapper ul, .list-style-none {
   padding-left: 0;
   margin-left: 0;
@@ -1654,7 +1850,7 @@ ol.inline {
     zoom: 1;
     *display: inline; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Definition lists
 
@@ -1662,11 +1858,13 @@ Markup:
 <dl>
   <dt>Rock Hammer</dt>
   <dd>A geologist’s hammer, rock hammer, rock pick or geological pick is a hammer used for splitting and breaking rocks.</dd>
+  <dt>Rock Hammer</dt>
+  <dd>A geologist’s hammer, rock hammer, rock pick or geological pick is a hammer used for splitting and breaking rocks.</dd>
 </dl>
 
 Styleguide 19.4
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 dl {
   margin-bottom: 1.5em; }
 
@@ -1676,7 +1874,7 @@ dt {
 dd {
   margin-left: 0; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Horizontal definition list
 
@@ -1684,11 +1882,13 @@ Markup:
 <dl class="dl-horizontal">
   <dt>Rock Hammer</dt>
   <dd>A geologist’s hammer, rock hammer, rock pick or geological pick is a hammer used for splitting and breaking rocks.</dd>
+  <dt>Rock Hammer</dt>
+  <dd>A geologist’s hammer, rock hammer, rock pick or geological pick is a hammer used for splitting and breaking rocks.</dd>
 </dl>
 
 Styleguide 19.4.1
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 .dl-horizontal dt {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1700,7 +1900,7 @@ Styleguide 19.4.1
 .dl-horizontal dd {
   padding-left: 12.85714em; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Horizontal line
 
@@ -1708,7 +1908,7 @@ Markup: <hr />
 
 Styleguide 19.5
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 hr {
   margin: 1.5em 0;
   border: 0;
@@ -1723,7 +1923,7 @@ abbr.initialism {
   font-size: 90%;
   text-transform: uppercase; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Blockquotes
 
@@ -1735,7 +1935,7 @@ Markup:
 
 Styleguide 19.6
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 blockquote {
   padding: 0 0 0 1.5em;
   margin: 0;
@@ -1744,10 +1944,10 @@ blockquote {
   blockquote p {
     margin-bottom: 0;
     font-weight: 300; }
-  blockquote small, blockquote cite {
+  blockquote cite {
     display: block;
     color: #d9d9d9; }
-    blockquote small:before, blockquote cite:before {
+    blockquote cite:before {
       content: '\2014 \00A0'; }
   blockquote.pull-right {
     float: right;
@@ -1775,37 +1975,37 @@ address {
   font-style: normal;
   line-height: 1.5em; }
 
-/* ====================================================================================================================
+/*
 
 Forms
 
 Individual form controls receive default styling with `form` Results in stacked, left-aligned labels on top of form controls.
 
-	.form
-	  +–– .form__group
-	  |    |–– .form__label
-	  |    +–– .form__controls
-	  |         |–– input
-	  |         |–– textarea
-	  |         |–– .form__select
-	  |         |–– .form__checkbox
-	  |         |–– .form__radio
-	  |         +–– .form__addon
-	  +–– .form__actions
+    form
+      +–– .form__group
+      |    |–– .form__label
+      |    +–– .form__controls
+      |         |–– input
+      |         |–– textarea
+      |         |–– .form__select
+      |         |–– .form__checkbox
+      |         |–– .form__radio
+      |         +–– .form__addon
+      +–– .form__actions
 
 * **`.form__group`**: Main container of a section of the form
-	* **`.form__label`**: Main labels for the form.
-	* **`.form__controls`**: Container of inputs, buttons and addons
-		* **`.form__checkbox`**, **`.form__radio`**: Stacked list of checkboxes and radios.
-		* **`.form__checkbox.inline`**, **`.form__radio.inline`**: Inline list of checkboxes and radios.
-		* **`.form__select`**: Create custom style selects.
-		* **`.form__help--block`**: Block help text that appears under form controls.
-		* **`.form__help--inline`**: Inline help text that appears aside form controls.
+    * **`.form__label`**: Main labels for the form.
+    * **`.form__controls`**: Container of inputs, buttons and addons
+        * **`.form__checkbox`**, **`.form__radio`**: Stacked list of checkboxes and radios.
+        * **`.form__checkbox.inline`**, **`.form__radio.inline`**: Inline list of checkboxes and radios.
+        * **`.form__select`**: Create custom style selects.
+        * **`.form__help--block`**: Block help text that appears under form controls.
+        * **`.form__help--inline`**: Inline help text that appears aside form controls.
 * **`.form__actions`**: End a form with a group of actions (buttons). When placed within a `.form__actions`, the buttons will automatically indent to line up with the form controls.
 
 Styleguide 8
 
-==================================================================================================================== */
+*/
 form {
   margin: 0 0 1.5em; }
 
@@ -1969,7 +2169,7 @@ select:focus:invalid {
 .form__group + .form__group {
   margin-top: 1.5em; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Labels
 
@@ -1979,30 +2179,31 @@ Markup: <label class="form__label">Label</label>
 
 Styleguide 8.1
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 .form__label {
   font-weight: bold;
   margin-bottom: 0.71429em;
   cursor: auto; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Radio & Checkbox
 
 Markup:
 <div class="form__controls">
   <label class="form__radio {$modifiers}">
-    <input type="radio" value="option1" checked> Option one is this</label>
+    <input type="radio" value="option1" checked> Option one is this
+  </label>
   <label class="form__radio {$modifiers}">
-    <input type="radio" value="option2"> Option two can be something else </label>
-  </div>
+    <input type="radio" value="option2"> Option two can be something else
+  </label>
 </div>
 
 .inline - Inline alignment with `.inline`
 
 Styleguide 8.2
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 .form__radio,
 .form__checkbox,
 .form__select {
@@ -2029,7 +2230,7 @@ Styleguide 8.2
 .form__checkbox.inline + .form__checkbox.inline {
   margin-left: 20px; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Custom Select
 
@@ -2048,7 +2249,7 @@ Markup:
 
 Styleguide 8.3
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 .form__select {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -2083,7 +2284,7 @@ Styleguide 8.3
     right: 0.71429em;
     display: block; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Help
 
@@ -2091,21 +2292,21 @@ Add an help text block
 
 **Block Help**
 
-	<div class="form__controls">
-	  <input type="text">
-	  <span class="form__help--block">Help text</span>
-	</div>
+    <div class="form__controls">
+      <input type="text">
+      <span class="form__help--block">Help text</span>
+    </div>
 
 **Help Inline**
 
-	<div class="form__controls">
-	  <input type="text">
-	  <span class="form__help--inline">Help text</span>
-	</div>
+    <div class="form__controls">
+      <input type="text">
+      <span class="form__help--inline">Help text</span>
+    </div>
 
 Styleguide 8.4
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 .form__help--block,
 .form__help--inline {
   color: #595959; }
@@ -2124,7 +2325,7 @@ Styleguide 8.4
   vertical-align: middle;
   padding-left: 5px; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Append & Prepend
 
@@ -2137,7 +2338,7 @@ Markup:
 
 Styleguide 8.5
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 .form__addon {
   display: inline-block;
   width: auto;
@@ -2182,7 +2383,7 @@ Styleguide 8.5
     position: relative;
     z-index: 2; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Form Actions
 
@@ -2197,7 +2398,7 @@ Markup:
 
 Styleguide 8.6
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 .form__actions {
   padding-top: 1.5em;
   margin-top: 1.5em;
@@ -2205,12 +2406,12 @@ Styleguide 8.6
   border-top: 1px solid #e5e5e5;
   clear: both; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Form Layouts
 
 Markup:
-<form class="form {$modifiers}">
+<form class="{$modifiers}">
   <div class="form__group">
     <label class="form__label">Label</label>
     <div class="form__controls">
@@ -2240,7 +2441,7 @@ Markup:
 
 Styleguide 8.7
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 .form--grid .form__group {
   min-height: 4.42857em;
   margin: 0 0 1.5em 0; }
@@ -2275,14 +2476,14 @@ Styleguide 8.7
   .form--aligned .form__actions {
     padding-left: 0; } }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Inline Form (semplified)
 
 The inline layout can also be used width a samplified markup.
 
 Markup:
-<form class="form form--inline">
+<form class="form--inline">
   <label class="form__label">Label</label>
   <input type="text" placeholder="Type something…">
   <label class="form__label">Label</label>
@@ -2294,7 +2495,7 @@ Markup:
 
 Styleguide 8.7.1
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 .form--inline * {
   float: none;
   display: inline-block;
@@ -2309,7 +2510,7 @@ Styleguide 8.7.1
 .form--inline .form__actions {
   border: 0; }
 
-/* ====================================================================================================================
+/*
 
 Tables
 
@@ -2340,9 +2541,9 @@ Markup:
 .table--hover - Enable a hover state on table rows within a `<tbody>`.
 .table--condensed - Makes tables more compact by cutting cell padding in half.
 
-Styleguide 17.
+Styleguide 17
 
-==================================================================================================================== */
+*/
 table {
   max-width: 100%;
   border-collapse: collapse;
@@ -2379,7 +2580,7 @@ table {
   .table--sortable thead th.sorting-asc:after, .table--sortable thead th.sorting-desc:after {
     float: right; }
 
-/* ====================================================================================================================
+/*
 
 Captions
 
@@ -2398,7 +2599,7 @@ float - Add fade-in and slide-in animation for the caption
 
 Styleguide 5
 
-==================================================================================================================== */
+*/
 .caption {
   position: relative;
   display: inline-block;
@@ -2442,7 +2643,7 @@ Styleguide 5
   .caption[data-animation*="float"][data-position*="bottom"]:hover:after {
     bottom: 0; }
 
-/* ====================================================================================================================
+/*
 
 Buttons
 
@@ -2458,7 +2659,7 @@ Markup:
 
 Styleguide 3
 
-==================================================================================================================== */
+*/
 .btn, #nav-toggle {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -2486,7 +2687,7 @@ Styleguide 3
     background-image: none;
     cursor: default; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Colors
 
@@ -2497,8 +2698,8 @@ Markup:
 
 Styleguide 3.1
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Sizes
 
@@ -2510,7 +2711,7 @@ Markup:
 
 Styleguide 3.2
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 .btn, #nav-toggle {
   padding: 0.71429em 0.71429em;
   height: 2.57143em; }
@@ -2533,7 +2734,7 @@ Styleguide 3.2
   line-height: 2.14286em;
   padding: 0.07143em 0.42857em; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Modifiers
 
@@ -2549,7 +2750,7 @@ Markup:
 
 Styleguide 3.3
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 .btn--block {
   display: block;
   width: 100%;
@@ -2565,6 +2766,19 @@ Styleguide 3.3
   -o-border-radius: 200px;
   border-radius: 200px; }
 
+/*
+
+Link
+
+Deemphasize a button by making it look like a link while maintaining button behavior.
+
+Markup:
+<a href="#" class="btn btn--link ">Link Button</a>
+<button class="btn btn--link">Button Element</button>
+
+Styleguide 3.4
+
+*/
 .btn--link {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -2589,7 +2803,7 @@ Styleguide 3.3
     color: #4d4d4d;
     text-decoration: none; }
 
-/* ====================================================================================================================
+/*
 
 Button Groups
 
@@ -2604,7 +2818,7 @@ Markup:
 
 Styleguide 4
 
-==================================================================================================================== */
+*/
 .btn-group {
   display: -moz-inline-stack;
   display: inline-block;
@@ -2695,7 +2909,7 @@ div.btn-group .btn, div.btn-group #nav-toggle {
   -webkit-border-bottom-left-radius: 0;
   border-bottom-left-radius: 0; }
 
-/* ====================================================================================================================
+/*
 
 Dropdowns
 
@@ -2704,31 +2918,47 @@ Toggleable, contextual menu for displaying lists of links. Made interactive with
 Looking at just the dropdown menu, here's the required HTML. You need to wrap the dropdown's trigger and the dropdown menu within `.dropdown`. Then just create the menu.
 
 Markup:
-<div class="dropdown {$modifiers}">
-    <a href="#" class="btn btn--default dropdown__toggle " data-toggle="dropdown">
-      Dropdown
-      <span class="dropdown__caret"></span>
-    </a>
-    <ul class="dropdown__menu ">
-      <li><a tabindex="-1" href="#">Action</a></li>
-      <li><a tabindex="-1" href="#">Another action</a></li>
-      <li><a tabindex="-1" href="#">Something else here</a></li>
-      <li class="divider"></li>
-      <li><a tabindex="-1" href="#">Separated link</a></li>
-    </ul>
+<div class="dropdown">
+  <a href="#" class="btn btn--default dropdown__toggle " data-toggle="dropdown">
+    Dropdown
+    <span class="dropdown__caret"></span>
+  </a>
+  <ul class="dropdown__menu ">
+    <li><a tabindex="-1" href="#">Action</a></li>
+    <li><a tabindex="-1" href="#">Another action</a></li>
+    <li><a tabindex="-1" href="#">Something else here</a></li>
+    <li class="divider"></li>
+    <li><a tabindex="-1" href="#">Separated link</a></li>
+  </ul>
 </div>
+<div class="dropdown">
+  <a href="#" class="btn btn--default dropdown__toggle " data-toggle="dropdown">
+    Dropdown
+    <span class="dropdown__caret"></span>
+  </a>
+  <ul class="dropdown__menu pull-right ">
+    <li><a tabindex="-1" href="#">Action</a></li>
+    <li><a tabindex="-1" href="#">Another action</a></li>
+    <li><a tabindex="-1" href="#">Something else here</a></li>
+    <li class="divider"></li>
+    <li><a tabindex="-1" href="#">Separated link</a></li>
+  </ul>
+</div>
+
+
 
 Styleguide 7
 
-==================================================================================================================== */
+*/
 .dropdown,
 .dropdown__toggle {
-  position: relative; }
+  position: relative;
+  display: inline-block; }
 
 .dropdown__toggle:focus {
   outline: 0; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Dropdown arrow/caret
 
@@ -2738,25 +2968,25 @@ Markup: <span class="dropdown__caret"></span>
 
 Styleguide 7.1
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Dropdown menu
 
 List of the links to show in the dropdown.
 
-Markup:
-<ul class="dropdown__menu ">
-  <li><a tabindex="-1" href="#">Action</a></li>
-  <li><a tabindex="-1" href="#">Another action</a></li>
-  <li><a tabindex="-1" href="#">Something else here</a></li>
-  <li class="divider"></li>
-  <li><a tabindex="-1" href="#">Separated link</a></li>
-</ul>
+
+    <ul class="dropdown__menu ">
+      <li><a tabindex="-1" href="#">Action</a></li>
+      <li><a tabindex="-1" href="#">Another action</a></li>
+      <li><a tabindex="-1" href="#">Something else here</a></li>
+      <li class="divider"></li>
+      <li><a tabindex="-1" href="#">Separated link</a></li>
+    </ul>
 
 Styleguide 7.2
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 .dropdown__menu {
   -moz-border-radius-bottomleft: 4px;
   -webkit-border-bottom-left-radius: 4px;
@@ -2764,19 +2994,25 @@ Styleguide 7.2
   -moz-border-radius-bottomright: 4px;
   -webkit-border-bottom-right-radius: 4px;
   border-bottom-right-radius: 4px;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  position: absolute;
+  top: 100%;
+  left: 0px;
   -webkit-transition: all 0.15s ease-out;
   -moz-transition: all 0.15s ease-out;
   -o-transition: all 0.15s ease-out;
   transition: all 0.15s ease-out;
   border-style: solid;
   border-width: 1px;
+  display/*\**/: none\9;
   float: left;
   list-style: none;
   margin: -1px 0 0 0;
+  max-height: 0;
   min-width: 10em;
   overflow: hidden;
-  z-index: 1000;
-  display/*\**/: none\9; }
+  z-index: 1000; }
   .dropdown__menu[data-content] {
     min-width: 42.85714em; }
   .dropdown__menu.pull-right {
@@ -2818,14 +3054,6 @@ Styleguide 7.2
   background-image: none;
   cursor: default; }
 
-.dropdown .dropdown__menu {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-  position: absolute;
-  top: 100%;
-  left: 0px;
-  max-height: 0; }
-
 .dropdown.open {
   z-index: 1000; }
   .dropdown.open .dropdown__toggle {
@@ -2842,7 +3070,7 @@ Styleguide 7.2
     display/*\**/: block\9;
     max-height: 42.85714em; }
 
-/* ====================================================================================================================
+/*
 
 Badge & Pills
 
@@ -2852,9 +3080,9 @@ Markup:
 <span class="badge">Badge Label</span>
 <span class="pill">Pill label</span>
 
-Styleguide 10.
+Styleguide 10
 
-==================================================================================================================== */
+*/
 .badge,
 .pill {
   display: inline-block;
@@ -2884,7 +3112,7 @@ a.label:hover, a.label:focus, a.badge:hover, a.badge:focus {
   text-decoration: none;
   cursor: pointer; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Labels used in buttons.
 
@@ -2894,23 +3122,23 @@ Markup:
 
 Styleguide 10.1
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 .btn .badge, #nav-toggle .badge,
 .btn .pill,
 #nav-toggle .pill {
   margin: -0.5em 0 0; }
 
-/* ====================================================================================================================
+/*
 
 Close buttons
 
 Markup:
-<a href="#" class="close">&times;</button>
+<a href="#" class="close">&times;</a>
 <button type="button" class="close">&times;</button>
 
 Styleguide 6
 
-==================================================================================================================== */
+*/
 .close {
   float: right;
   font-size: 1em;
@@ -2932,7 +3160,7 @@ button.close {
   border: 0;
   -webkit-appearance: none; }
 
-/* ====================================================================================================================
+/*
 
 Navs
 
@@ -2958,7 +3186,7 @@ Markup:
 
 Styleguide 12
 
-==================================================================================================================== */
+*/
 .nav {
   display: inline-block;
   margin-bottom: 1.5em;
@@ -3015,7 +3243,7 @@ Styleguide 12
 .nav--pills[class*="vertical"] > li:last-child > a {
   margin-bottom: 0; }
 
-/* ====================================================================================================================
+/*
 
 Responsive Navs
 
@@ -3023,7 +3251,7 @@ The main nav can be made fully responsive (with two layouts available) with js a
 
 Styleguide 15
 
-==================================================================================================================== */
+*/
 .nav--responsive.close {
   max-height: none; }
 
@@ -3058,7 +3286,7 @@ Styleguide 15
       max-height: 42.85714em;
       opacity: 1; }
 
-  /* --------------------------------------------------------------------------------------------------------------------
+  /*
   
   SlideIn Layout
   
@@ -3137,7 +3365,7 @@ Styleguide 15
   
   Styleguide 15.1
   
-  -------------------------------------------------------------------------------------------------------------------- */
+  */
   .nav--responsive {
     clip: rect(0 0 0 0);
     max-height: 0;
@@ -3145,7 +3373,7 @@ Styleguide 15
     .nav--responsive.opened {
       max-height: 9999px; }
 
-  /* --------------------------------------------------------------------------------------------------------------------
+  /*
   
   Offset Layout
   
@@ -3180,24 +3408,25 @@ Styleguide 15
   
   Styleguide 15.2
   
-  -------------------------------------------------------------------------------------------------------------------- */ }
-/* ====================================================================================================================
+  */ }
+/*
 
 Breadcrumbs
 
 Add a breadcrumb with a list with class `.breadcrumb`.
 
-	<ul class="breadcrumbs">
-	  <li><a href="#">Home</a></li>
-	  <li><a href="#">Library</a></li>
-	  <li class="current">Data</li>
-	</ul>
+Markup:
+    <ul class="breadcrumbs">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Library</a></li>
+      <li class="current">Data</li>
+    </ul>
 
 **`.active`**: Selected element style
 
-Styleguide 2.1
+Styleguide 2
 
-==================================================================================================================== */
+*/
 .breadcrumbs {
   margin: 0 0 1.5em;
   list-style: none; }
@@ -3209,7 +3438,7 @@ Styleguide 2.1
     zoom: 1;
     *display: inline; }
 
-/* ====================================================================================================================
+/*
 
 Pagination
 
@@ -3232,9 +3461,9 @@ Markup:
 .pagination--right - Right aligned pagination.
 .pagination--rounded - Rounded sides.
 
-Styleguide 14.
+Styleguide 14
 
-==================================================================================================================== */
+*/
 .pagination {
   margin: 1.5em 0; }
   .pagination > * {
@@ -3297,7 +3526,7 @@ Styleguide 14.
   -webkit-border-bottom-right-radius: 4px;
   border-bottom-right-radius: 4px; }
 
-/* ====================================================================================================================
+/*
 
 Pager
 
@@ -3313,14 +3542,14 @@ Markup:
 
 Styleguide 13
 
-==================================================================================================================== */
+*/
 .pager {
   overflow: hidden;
   *zoom: 1;
   list-style: none;
   margin: 1.5em 0;
   text-align: center;
-  /* --------------------------------------------------------------------------------------------------------------------
+  /*
   
   Alignment
   
@@ -3334,8 +3563,8 @@ Styleguide 13
   
   Styleguide 13.1
   
-  -------------------------------------------------------------------------------------------------------------------- */
-  /* --------------------------------------------------------------------------------------------------------------------
+  */
+  /*
   
   Disabled state
   
@@ -3349,7 +3578,7 @@ Styleguide 13
   
   Styleguide 13.2
   
-  -------------------------------------------------------------------------------------------------------------------- */ }
+  */ }
   .pager li {
     display: inline; }
     .pager li a,
@@ -3378,7 +3607,7 @@ Styleguide 13
   .pager .disabled > span {
     cursor: default; }
 
-/* ====================================================================================================================
+/*
 
 Alerts
 
@@ -3392,7 +3621,7 @@ Markup:
 
 Styleguide 1
 
-==================================================================================================================== */
+*/
 .alert {
   padding: 0.71429em 0.71429em;
   margin-bottom: 1.5em; }
@@ -3403,7 +3632,7 @@ Styleguide 1
     top: 0;
     right: 0; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Alert Block
 
@@ -3418,15 +3647,15 @@ Markup:
   <p>The field Total Expenses is required and must contain a value.</p>
 </div>
 
-Styleguide 1.2
+Styleguide 1.1
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 .alert--block * {
   margin-bottom: 0; }
 .alert--block * + * {
   margin-top: 5px; }
 
-/* ====================================================================================================================
+/*
 
 Grids
 
@@ -3451,7 +3680,7 @@ Markup:
 
 Styleguide 9
 
-==================================================================================================================== */
+*/
 @media only screen and (max-width: 480px) {
   .palm-13 {
     width: 108.60215%;
@@ -4232,28 +4461,28 @@ Styleguide 9
     margin-right: 0;
     *margin-left: -30px;
     display: inline; } }
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Show and Hide
 
 There're also available some helper classes:
 
 * **Hide element**: Used to hide an element at a breackpoint
-	* `.palm-hide`
-	* `.lap-hide`
-	* `.portable-hide`
-	* `.lap-and-up-hide`
-	* `.desk-hide`
+    * `.palm-hide`
+    * `.lap-hide`
+    * `.portable-hide`
+    * `.lap-and-up-hide`
+    * `.desk-hide`
 * **Show element**: Used to show an element at a breackpoint
-	* `.palm-show`
-	* `.lap-show`
-	* `.portable-show`
-	* `.lap-and-up-show`
-	* `.desk-show`
+    * `.palm-show`
+    * `.lap-show`
+    * `.portable-show`
+    * `.lap-and-up-show`
+    * `.desk-show`
 
 Styleguide 9.1
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 @media only screen and (max-width: 480px) {
   .palm-hide {
     display: none !important; }
@@ -4284,7 +4513,7 @@ Styleguide 9.1
 
   .desk-show {
     display: block !important; } }
-/* ====================================================================================================================
+/*
 
 Modals
 
@@ -4302,9 +4531,9 @@ Markup:
   });
 </script>
 
-Styleguide 11.
+Styleguide 11
 
-==================================================================================================================== */
+*/
 .modal {
   display: none; }
 
@@ -4461,7 +4690,7 @@ Styleguide 11.
   bottom: 0px;
   left: 0px; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Modal Buttons
 
@@ -4491,7 +4720,7 @@ Markup:
 
 Styleguide 11.1
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 #fancybox-buttons {
   position: fixed;
   left: 0px;
@@ -4519,7 +4748,7 @@ Styleguide 11.1
           right: 0px;
           left: 0px; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Modal Thumbs
 
@@ -4553,7 +4782,7 @@ Markup:
 
 Styleguide 11.2
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 #fancybox-thumbs {
   position: fixed;
   left: 0px;
@@ -4582,7 +4811,7 @@ Styleguide 11.2
         overflow: hidden;
         text-align: center; }
 
-/* ====================================================================================================================
+/*
 
 Sliders
 
@@ -4604,9 +4833,9 @@ Markup:
   });
 </script>
 
-Styleguide 16.
+Styleguide 16
 
-==================================================================================================================== */
+*/
 .bx-wrapper {
   position: relative;
   padding: 0;
@@ -4623,10 +4852,6 @@ Styleguide 16.
   z-index: 200; }
   .bx-controls-direction a i {
     font-style: normal; }
-  .bx-controls-direction a span {
-    text-indent: -119988px;
-    overflow: hidden;
-    text-align: left; }
 .bx-controls-direction .disabled {
   display: none; }
 
@@ -4661,7 +4886,7 @@ Styleguide 16.
   .bx-caption span {
     display: inline-block; }
 
-/* ====================================================================================================================
+/*
 
 Tabs
 
@@ -4697,9 +4922,9 @@ Markup:
   });
 </script>
 
-Styleguide 18.
+Styleguide 18
 
-==================================================================================================================== */
+*/
 .tabs {
   margin-bottom: 1.5em; }
   .tabs .etabs {
@@ -4738,7 +4963,7 @@ Styleguide 18.
     .tabs .panel-container > div {
       padding: 0.71429em 0.71429em; }
 
-/* ====================================================================================================================
+/*
 
 Default Styles
 
@@ -4750,8 +4975,8 @@ to enable or disable.
 
 Styleguide 30
 
-==================================================================================================================== */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Titles
 
@@ -4764,8 +4989,8 @@ Titles
 
 Styleguide 30.1
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Inputs and Selects
 
@@ -4775,7 +5000,7 @@ Inputs and Selects
 
 Styleguide 30.2
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 .input-text,
 textarea,
 input[type="text"],
@@ -4829,7 +5054,7 @@ input[type="color"], .form__select {
   border-color: #d9d9d9;
   background-color: #f2f2f2; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Buttons
 
@@ -4843,7 +5068,7 @@ Buttons
 
 Styleguide 30.3
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 .btn--default, .pagination > * li a,
 .pagination > * li span, .pager li a,
 .pager li span {
@@ -4962,7 +5187,7 @@ Styleguide 30.3
     background: black;
     background: rgba(0, 0, 0, 0.8); }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Captions
 
@@ -4970,14 +5195,14 @@ Captions
 
 Styleguide 30.4
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 .caption:after, .fancybox-title-over-wrap, .bx-caption span {
   background: black;
   background: rgba(0, 0, 0, 0.8);
   color: #fff;
   padding: 0.71429em 0.71429em; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Labels (Badges & Pills)
 
@@ -4985,14 +5210,14 @@ Labels (Badges & Pills)
 
 Styleguide 30.5
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 .badge,
 .pill {
-  background: black;
-  background: rgba(0, 0, 0, 0.35);
+  color: black;
+  color: rgba(0, 0, 0, 0.35);
   color: white; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Dropdowns
 
@@ -5001,7 +5226,7 @@ Dropdowns
 
 Styleguide 30.6
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 .dropdown__menu {
   background: #f2f2f2;
   border-color: #999999; }
@@ -5023,7 +5248,7 @@ Styleguide 30.6
   background: #f2f2f2;
   border-bottom: 1px solid #f2f2f2; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Tables
 
@@ -5034,7 +5259,7 @@ Tables
 
 Styleguide 30.7
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 .table--bordered thead th, .table--bordered thead td {
   background-color: #999999;
   color: #FFF; }
@@ -5056,7 +5281,7 @@ Styleguide 30.7
 .table--sortable thead th.sorting-desc:after {
   content: "\25B2"; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Navs
 
@@ -5067,14 +5292,14 @@ Navs
 
 Styleguide 30.8
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 .nav--btn li > a:hover, .nav--btn li > a:focus {
   background-color: #f2f2f2; }
 
 .nav--btn li.disabled > a {
   color: #d9d9d9; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Breadcrumbs
 
@@ -5083,7 +5308,7 @@ Breadcrumbs
 
 Styleguide 30.9
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 .breadcrumbs > li:after {
   color: #ccc;
   content: "›";
@@ -5095,7 +5320,7 @@ Styleguide 30.9
 .breadcrumbs .current {
   color: #d9d9d9; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Pagination
 
@@ -5107,8 +5332,8 @@ Pagination
 
 Styleguide 30.10
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Pager
 
@@ -5119,8 +5344,8 @@ Pager
 
 Styleguide 30.11
 
--------------------------------------------------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------
+*/
+/*
 
 Modals
 
@@ -5136,7 +5361,7 @@ Modals
 
 Styleguide 30.12
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 .fancybox-close, .fancybox-nav span, #fancybox-buttons ul li a {
   width: 2.14286em;
   height: 2.14286em;
@@ -5226,7 +5451,7 @@ Styleguide 30.12
     width: 44px;
     height: 44px; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Sliders
 
@@ -5237,7 +5462,7 @@ Sliders
 
 Styleguide 30.13
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 .bx-controls-direction a {
   width: 2.14286em;
   height: 2.14286em;
@@ -5272,7 +5497,7 @@ Styleguide 30.13
     .bx-pager .bx-pager-item a:hover, .bx-pager .bx-pager-item a.active {
       background: #999999; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Tabs
 
@@ -5284,7 +5509,7 @@ Tabs
 
 Styleguide 30.14
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 .tabs .etabs li a {
   background: #f2f2f2;
   border: solid 1px #d9d9d9;
@@ -5304,7 +5529,7 @@ Styleguide 30.14
   border: solid 1px #999999;
   background: #f2f2f2; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Alerts
 
@@ -5312,12 +5537,12 @@ Alerts
 
 Styleguide 30.15
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 .alert {
   background-color: #f2f2f2;
   border: 1px solid #d9d9d9; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Responsive Nav
 
@@ -5326,7 +5551,7 @@ Responsive Nav
 
 Styleguide 30.16
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 .nav--responsive.active {
   background-color: #f2f2f2; }
   .nav--responsive.active a {
@@ -5344,7 +5569,7 @@ Styleguide 30.16
   font-family: "FontAwesome";
   content: "\f0c9"; }
 
-/* --------------------------------------------------------------------------------------------------------------------
+/*
 
 Shared
 
@@ -5355,7 +5580,7 @@ Classes For other classes of generic elements
 
 Styleguide 30.17
 
--------------------------------------------------------------------------------------------------------------------- */
+*/
 .form__select:after, .dropdown__caret:after {
   display: inline-block;
   font-family: "FontAwesome";
