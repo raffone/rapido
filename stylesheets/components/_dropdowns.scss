@@ -7,7 +7,7 @@ Toggleable, contextual menu for displaying lists of links. Made interactive with
 Looking at just the dropdown menu, here's the required HTML. You need to wrap the dropdown's trigger and the dropdown menu within `.dropdown`. Then just create the menu.
 
 Markup:
-<div class="dropdown {$modifiers}">
+<div class="dropdown">
   <a href="#" class="btn btn--default dropdown__toggle " data-toggle="dropdown">
     Dropdown
     <span class="dropdown__caret"></span>
@@ -20,6 +20,21 @@ Markup:
     <li><a tabindex="-1" href="#">Separated link</a></li>
   </ul>
 </div>
+<div class="dropdown">
+  <a href="#" class="btn btn--default dropdown__toggle " data-toggle="dropdown">
+    Dropdown
+    <span class="dropdown__caret"></span>
+  </a>
+  <ul class="dropdown__menu pull-right ">
+    <li><a tabindex="-1" href="#">Action</a></li>
+    <li><a tabindex="-1" href="#">Another action</a></li>
+    <li><a tabindex="-1" href="#">Something else here</a></li>
+    <li class="divider"></li>
+    <li><a tabindex="-1" href="#">Separated link</a></li>
+  </ul>
+</div>
+
+
 
 Styleguide 7
 
@@ -30,6 +45,7 @@ Styleguide 7
     .dropdown,
     .dropdown__toggle {
         position: relative;
+        display: inline-block;
     }
 
     .dropdown__toggle:focus { outline: 0; }
@@ -56,14 +72,14 @@ Dropdown menu
 
 List of the links to show in the dropdown.
 
-Markup:
-  <ul class="dropdown__menu ">
-    <li><a tabindex="-1" href="#">Action</a></li>
-    <li><a tabindex="-1" href="#">Another action</a></li>
-    <li><a tabindex="-1" href="#">Something else here</a></li>
-    <li class="divider"></li>
-    <li><a tabindex="-1" href="#">Separated link</a></li>
-  </ul>
+
+    <ul class="dropdown__menu ">
+      <li><a tabindex="-1" href="#">Action</a></li>
+      <li><a tabindex="-1" href="#">Another action</a></li>
+      <li><a tabindex="-1" href="#">Something else here</a></li>
+      <li class="divider"></li>
+      <li><a tabindex="-1" href="#">Separated link</a></li>
+    </ul>
 
 Styleguide 7.2
 
@@ -72,16 +88,19 @@ Styleguide 7.2
     .dropdown__menu {
         @extend %dropdown !optional;
         @include border-bottom-radius($base-border-radius);
+        @include opacity(0);
+        @include position(absolute, 100% 0 0 0px);
         @include transition();
         border-style: solid;
         border-width: $input-border;
+        display/*\**/: none\9; // Ugly IE8 Hack
         float: left;
         list-style: none;
         margin: -$input-border 0 0 0;
+        max-height: 0;
         min-width: 10em;
         overflow: hidden;
         z-index: $zindex-dropdown;
-        display/*\**/: none\9; // Ugly IE8 Hack
 
         &[data-content] { min-width: em(600px); }
 
@@ -135,16 +154,8 @@ Styleguide 7.2
         cursor: default;
     }
 
-
-    // Hide .dropdown__menu when .dropdown is closed
-    .dropdown .dropdown__menu {
-        @include opacity(0);
-        @include position(absolute, 100% 0 0 0px);
-        max-height: 0;
-    }
-
 // Dropdown open
-//
+
     .dropdown.open {
         z-index: $zindex-dropdown ;
 
