@@ -10,7 +10,7 @@ module.exports = function(grunt) {
       dist: {
         options: {
           sassDir: 'stylesheets',
-          cssDir: 'compiled',
+          cssDir: 'dist',
           specify: 'stylesheets/rapido.scss',
           noLineComments: true,
           outputStyle: 'nested'
@@ -42,5 +42,6 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('docs', ['compass', 'kss', 'copy']);
+  grunt.registerTask('test', ['compass', 'kss']);
 
 };
