@@ -93,12 +93,12 @@ Styleguide 3.2
     }
 
     .btn--small {
-        @include adjust-font-size-to($milli-size);
+        @include adjust-font-size-to($small-size);
         padding: $btn-small-padding;
     }
 
     .btn--mini {
-        @include adjust-font-size-to($micro-size);
+        @include adjust-font-size-to($smaller-size);
         padding: $btn-mini-padding;
     }
 

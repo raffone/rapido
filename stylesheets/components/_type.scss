@@ -71,7 +71,7 @@ p           { margin: 0 0 rhythm(1);}
 
 // Emphasis & misc
 
-small         { @include adjust-font-size-to($milli-size); }
+small         { @include adjust-font-size-to($small-size); }
 
 strong        { font-weight: bold; }
 em            { font-style: italic; }

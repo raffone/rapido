@@ -4,7 +4,7 @@ Forms
 
 Individual form controls receive default styling with `form` Results in stacked, left-aligned labels on top of form controls.
 
-    .form
+    form
       +–– .form__group
       |    |–– .form__label
       |    +–– .form__controls
@@ -210,6 +210,7 @@ Markup:
   <label class="form__radio {$modifiers}">
     <input type="radio" value="option2"> Option two can be something else
   </label>
+  </div>
 </div>
 
 .inline - Inline alignment with `.inline`

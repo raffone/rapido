@@ -31,16 +31,16 @@ Font sizes you can used with the compass mixin `adjust-font-size-to()`. Naming c
     $h5-size:                       $base-font-size * 1.25  # 17.5px
     $h6-size:                       $base-font-size * 1     # 14px
 
-    $milli-size:                    $base-font-size * .85   # 12px
-    $micro-size:                    $base-font-size * .7    # 10px
+    $small-size:                    $base-font-size * .85   # 12px
+    $smaller-size:                    $base-font-size * .7    # 10px
 
 Styleguide 28.1
 
 */
 
-$giga-size:                         $base-font-size * 7                                                     !default;
-$mega-size:                         $base-font-size * 5                                                     !default;
-$kilo-size:                         $base-font-size * 3.5                                                   !default;
+$biggest-size:                      $base-font-size * 7                                                     !default;
+$bigger-size:                       $base-font-size * 5                                                     !default;
+$big-size:                          $base-font-size * 3.5                                                   !default;
 
 $h1-size:                           $base-font-size * 2.5                                                   !default;
 $h2-size:                           $base-font-size * 2                                                     !default;
@@ -49,12 +49,17 @@ $h4-size:                           $base-font-size * 1.5                       
 $h5-size:                           $base-font-size * 1.25                                                  !default;
 $h6-size:                           $base-font-size * 1                                                     !default;
 
-$milli-size:                        $base-font-size * .85                                                   !default;
-$micro-size:                        $base-font-size * .7                                                    !default;
+$small-size:                        $base-font-size * .85                                                   !default;
+$smaller-size:                      $base-font-size * .7                                                    !default;
+$smallest-size:                     $base-font-size * .5                                                    !default;
 
-$small-size:                        $milli-size                                                             !default;
-$smaller-size:                      $micro-size                                                             !default;
+// Backward compatibility
 
+$giga-size:                         $biggest-size                                                           ;
+$mega-size:                         $bigger-size                                                            ;
+$kilo-size:                         $big-size                                                               ;
+$milli-size:                        $small-size                                                             ;
+$micro-size:                        $smaller-size                                                           ;
 
 /*
 
