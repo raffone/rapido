@@ -141,7 +141,20 @@ Styleguide 3.3
         @include border-radius(200px);
     }
 
-// Link buttons
+/*
+
+Link
+
+Deemphasize a button by making it look like a link while maintaining button behavior.
+
+Markup:
+<a href="#" class="btn btn--link ">Link Button</a>
+<button class="btn btn--link">Button Element</button>
+
+Styleguide 3.4
+
+*/
+
 
     .btn--link {
         @include border-radius(0);
