@@ -32,7 +32,8 @@ Font sizes you can used with the compass mixin `adjust-font-size-to()`. Naming c
     $h6-size:                       $base-font-size * 1     # 14px
 
     $small-size:                    $base-font-size * .85   # 12px
-    $smaller-size:                    $base-font-size * .7    # 10px
+    $smaller-size:                  $base-font-size * .7    # 10px
+    $smallest-size:                 $base-font-size * .5    # 7px
 
 Styleguide 28.1
 
@@ -68,7 +69,7 @@ Line-Height
 By default all titles have a line-height based on the font-size, to ensure that it will allways respect the vertical rhythm.
 Sometimes this result is not what we expect/want so it's possible to override the default proportion width these.
 
-These values mean: X times the base line-height.
+These values mean: n times the base line-height.
 
     $h1-line-height:                2
     $h2-line-height:                2
