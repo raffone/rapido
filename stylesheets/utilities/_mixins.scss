@@ -112,6 +112,8 @@ Styleguide 23.3
 
 Center-block
 
+Horizzontally center an element.
+
     @include center-block();
 
 Become:
@@ -134,7 +136,7 @@ Styleguide 23.4
 
 Center
 
-Vertical and horizontal centering with absolute positioning, using the posiztion absolute and negative translate.
+Vertical and horizontal centering with absolute positioning, using the position absolute and negative translate.
 
     @include center();
 
@@ -386,14 +388,9 @@ Styleguide 23.12
 
 */
 
-@mixin alpha-color($color: #fff, $alpha: .5, $attribute: background) {
-    @if $attribute == color {
-        color: $color;
-        color: rgba($color, $alpha);
-    } @else {
-        #{$attribute}: $color;
-        #{$attribute}: rgba($color, $alpha);
-    }
+@mixin alpha-color($color: #fff, $alpha: .5, $attribute: color) {
+    #{$attribute}: $color;
+    #{$attribute}: rgba($color, $alpha);
 }
 
 /*
@@ -402,7 +399,9 @@ Keyframes support
 
 Used for creating custom animations.
 
-    @include keyframes($name);
+    @include keyframes($name) {
+      ...keyframes...
+    }
 
 * `$name`: Name of the keyframe
 
@@ -668,20 +667,20 @@ Rapido use the compass' [Sprites Mixin](http://compass-style.org/help/tutorials/
 for more info see the full documentation from the link.
 
 First you need to add to your scss file an import to import all of the seperate icons that will be compiled in a single image.
-For example if you have a folder named `icons` inside the main `images` folder add this line:
+For example if you have a folder named `s` inside the main `images` folder add this line:
 
-    @import 'icons/ *.png';
+    @import 's/ *.png';
 
 Then add you have two options:
 
 Add the sprite in the html with (where `icon_name` is the filename of the icon). .s` is the standard class the must be used with all sprites images.
 
-    <a href="#"><i class="s icons-icon_name"></i> Link</a>
+    <a href="#"><i class="s s-icon_name"></i> Link</a>
 
 Or via `@include` from the scss:
 
     a:before {
-        @include sprite(icon_name)
+        @include s(icon_name)
     }
 
 The result is the same.
