@@ -70,7 +70,7 @@ Styleguide 12
 // Nav Title
 
     .nav__title {
-        @include adjust-font-size-to($milli-size);
+        @include adjust-font-size-to($small-size);
         color: $gray;
         display: block;
         font-weight: bold;
