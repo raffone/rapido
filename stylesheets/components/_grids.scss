@@ -42,12 +42,7 @@ $media-queries: palm, lap, portable, lap-and-up, desk;
                     @include span-columns($i);
                 }
 
-                [class*="#{$device}-#{$i}"]:nth-child(#{$nth}n) {
-                    @include omega()
-                }
-
                 $i: $i - 1;
-
             }
         }
     }
@@ -81,6 +76,7 @@ Styleguide 9.1
         @include media($device) {
             .#{$device}-hide { display: none !important; }
             .#{$device}-show { display: block !important; }
+            .#{$device}-omega { @include omega(); }
         }
     }
 }
