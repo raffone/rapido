@@ -2,7 +2,9 @@
 
 Buttons
 
-Button styles can be applied to anything with the `.btn` class applied. However, typically you'll want to apply these to only `<a>` and `<button>` elements for the best rendering.
+Button styles can be applied to anything with the `.btn` class applied.
+However, typically you'll want to apply these to only `<a>` and `<button>`
+elements for the best rendering.
 
 Markup:
 <a href="#" class="btn btn--default {$modifiers}">Link Button</a>
@@ -45,6 +47,28 @@ Styleguide 3
 
 /*
 
+Buttons with Icons
+
+To add an icon to a button (or eny other type of element) just enable the font
+(see 27.2), add a class with the name of the font and use the unicode of
+the character.
+
+It's not a pretty way of doing it, if you prefer more fine control i suggest
+to ditch the icon font integration and use the tools and resources made
+available on the fonts sites.
+
+Markup:
+<a href="#" class="btn btn--default fontawesome">&#xf02b;</a>
+<a href="#" class="btn btn--default fontawesome">&#xf040;</a>
+<a href="#" class="btn btn--default fontawesome">&#xf06c;</a>
+
+Styleguide 3.1
+
+*/
+
+
+/*
+
 Colors
 
 Markup:
@@ -52,7 +76,7 @@ Markup:
 <a href="#" class="btn btn--primary">Link Button</a>
 <a href="#" class="btn btn--secondary">Link Button</a>
 
-Styleguide 3.1
+Styleguide 3.2
 
 */
 
@@ -70,7 +94,7 @@ Markup:
 <a href="#" class="btn btn--default btn--small">Link Button</a>
 <a href="#" class="btn btn--default btn--mini">Link Button</a>
 
-Styleguide 3.2
+Styleguide 3.3
 
 */
 
@@ -117,7 +141,7 @@ Markup:
 .btn--pill - Button width rounded full corners.
 .btn--link - Deemphasize a button by making it look like a link while maintaining button behavior.
 
-Styleguide 3.3
+Styleguide 3.4
 
 */
 
@@ -145,20 +169,21 @@ Styleguide 3.3
 
 Link
 
-Deemphasize a button by making it look like a link while maintaining button behavior.
+Deemphasize a button by making it look like a link while maintaining
+button behavior.
 
 Markup:
 <a href="#" class="btn btn--link ">Link Button</a>
 <button class="btn btn--link">Button Element</button>
 
-Styleguide 3.4
+Styleguide 3.5
 
 */
 
 
     .btn--link {
         @include border-radius(0);
-        border: 0 transparent;
+        border-color: transparent;
         background: none;
         color: $link-color;
         cursor: pointer;
