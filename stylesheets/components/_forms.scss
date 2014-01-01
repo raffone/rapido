@@ -2,7 +2,8 @@
 
 Forms
 
-Individual form controls receive default styling with `form` Results in stacked, left-aligned labels on top of form controls.
+Individual form controls receive default styling with `form` Results in
+stacked, left-aligned labels on top of form controls.
 
     form
       +–– .form__group
@@ -141,20 +142,22 @@ select[size] {
     height: auto;
 }
 
-
 input,
 textarea {
     @include placeholder($placeholder-color);
 }
 
-// input[disabled],
-// select[disabled],
-// textarea[disabled],
-// input[readonly],
-// select[readonly],
-// textarea[readonly] {
-//  cursor: not-allowed;
-// }
+input[readonly],
+select[readonly],
+textarea[readonly] {
+  cursor: default;
+}
+
+input[disabled],
+select[disabled],
+textarea[disabled],{
+    cursor: not-allowed;
+}
 
 input[type="radio"][disabled],
 input[type="checkbox"][disabled],
@@ -177,7 +180,12 @@ select:focus:invalid {
 
 .form__group + .form__group { margin-top: em($control-margin-bottom); }
 
-.form__controls { @extend .clearfix; }
+.form__controls {
+  @extend .clearfix;
+  position: relative;
+  display: inline-block;
+}
+
 
 /*
 
@@ -249,7 +257,8 @@ Styleguide 8.2
 
 Custom Select
 
-Add custom styling to a select element wrapping the `<select>` with a `<span>` with class `.form__select`.
+Add custom styling to a select element wrapping the `<select>` with a `<span>`
+with class `.form__select`.
 
 Markup:
 <span class="form__select">
@@ -301,6 +310,42 @@ Styleguide 8.3
 
 }
 
+/*
+
+Custom icons in inputs
+
+Markup:
+<div class="form__controls">
+  <span class="form__icon fontawesome">&#xf02b;</span>
+  <input type="text">
+</div>
+<div class="form__controls">
+  <span class="form__icon fontawesome pull-right">&#xf040;</span>
+  <input type="text">
+</div>
+
+Styleguide 8.4
+
+*/
+
+.form__icon {
+    @include position(absolute, em($input-padding-top) 0 0 em($input-padding-side));
+
+    + input {
+      padding-left: em(30px);
+    }
+
+    &.pull-right {
+      left: auto;
+      right: em($input-padding-side);
+
+      + input {
+        padding-left: em($input-padding-side);
+        padding-right: em(30px);
+      }
+    }
+
+}
 
 
 /*
@@ -309,21 +354,16 @@ Help
 
 Add an help text block
 
-**Block Help**
+Markup:
+<div class="form__controls">
+  <input type="text">
+  <span class="{$modifiers}">This is an example help text</span>
+</div>
 
-    <div class="form__controls">
-      <input type="text">
-      <span class="form__help--block">Help text</span>
-    </div>
+.form__help--block - Block Help
+.form__help--inline - Help Inline
 
-**Help Inline**
-
-    <div class="form__controls">
-      <input type="text">
-      <span class="form__help--inline">Help text</span>
-    </div>
-
-Styleguide 8.4
+Styleguide 8.5
 
 */
 
@@ -349,12 +389,13 @@ Append & Prepend
 
 Markup:
 <div class="form__controls form__controls--multi">
+  <span class="form__addon fontawesome">&#xf06c;</span>
   <span class="form__addon">$</span>
   <input type="text">
   <span class="form__addon">.00</span>
 </div>
 
-Styleguide 8.5
+Styleguide 8.6
 
 */
 
@@ -411,7 +452,7 @@ Markup:
   <button type="button" class="btn btn--default btn--secondary">Cancel</button>
 </div>
 
-Styleguide 8.6
+Styleguide 8.7
 
 */
 
@@ -458,7 +499,7 @@ Markup:
 .form--aligned - Right align labels and float them to the left to make them appear on the same line as controls.
 .form--inline - For left-aligned labels and inline-block controls for a compact layout. This layout doesn't support `.form__group`, `.form__addon`, `.form__actions`
 
-Styleguide 8.7
+Styleguide 8.8
 
 */
 
@@ -540,7 +581,7 @@ Markup:
   <button type="submit" class="btn btn--default ">Save changes</button>
 </form>
 
-Styleguide 8.7.1
+Styleguide 8.8.1
 
 */
 
