@@ -13,7 +13,8 @@ module.exports = function(grunt) {
           cssDir: 'dist',
           specify: 'stylesheets/rapido.scss',
           noLineComments: true,
-          outputStyle: 'nested'
+          environment: 'development',
+          outputStyle: 'expanded'
         }
       },
       min: {
@@ -22,6 +23,7 @@ module.exports = function(grunt) {
           cssDir: 'dist',
           specify: 'stylesheets/rapido.min.scss',
           noLineComments: true,
+          environment: 'production',
           outputStyle: 'compressed'
         }
       },
