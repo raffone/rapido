@@ -130,23 +130,27 @@
               
               
               
-              <li class="kss-menu-item"><a href="#section-8.4"><span class="kss-ref">8.4</span><span class="kss-name">Help</span></a></li>
+              <li class="kss-menu-item"><a href="#section-8.4"><span class="kss-ref">8.4</span><span class="kss-name">Custom icons in inputs</span></a></li>
               
               
               
-              <li class="kss-menu-item"><a href="#section-8.5"><span class="kss-ref">8.5</span><span class="kss-name">Append &amp; Prepend</span></a></li>
+              <li class="kss-menu-item"><a href="#section-8.5"><span class="kss-ref">8.5</span><span class="kss-name">Help</span></a></li>
               
               
               
-              <li class="kss-menu-item"><a href="#section-8.6"><span class="kss-ref">8.6</span><span class="kss-name">Form Actions</span></a></li>
+              <li class="kss-menu-item"><a href="#section-8.6"><span class="kss-ref">8.6</span><span class="kss-name">Append &amp; Prepend</span></a></li>
               
               
               
-              <li class="kss-menu-item"><a href="#section-8.7"><span class="kss-ref">8.7</span><span class="kss-name">Form Layouts</span></a></li>
+              <li class="kss-menu-item"><a href="#section-8.7"><span class="kss-ref">8.7</span><span class="kss-name">Form Actions</span></a></li>
               
               
               
-              <li class="kss-menu-item"><a href="#section-8.7.1"><span class="kss-ref">8.7.1</span><span class="kss-name">Inline Form (semplified)</span></a></li>
+              <li class="kss-menu-item"><a href="#section-8.8"><span class="kss-ref">8.8</span><span class="kss-name">Form Layouts</span></a></li>
+              
+              
+              
+              <li class="kss-menu-item"><a href="#section-8.8.1"><span class="kss-ref">8.8.1</span><span class="kss-name">Inline Form (semplified)</span></a></li>
               
               
             </ul>
@@ -163,7 +167,8 @@
             
             
             <div class="kss-description">
-              <p>Individual form controls receive default styling with <code>form</code> Results in stacked, left-aligned labels on top of form controls.
+              <p>Individual form controls receive default styling with <code>form</code> Results in
+stacked, left-aligned labels on top of form controls.
 
 </p>
 <pre><code>form
@@ -278,7 +283,8 @@
             
             
             <div class="kss-description">
-              <p>Add custom styling to a select element wrapping the <code>&lt;select&gt;</code> with a <code>&lt;span&gt;</code> with class <code>.form__select</code>.</p>
+              <p>Add custom styling to a select element wrapping the <code>&lt;select&gt;</code> with a <code>&lt;span&gt;</code>
+with class <code>.form__select</code>.</p>
 
             </div>
             
@@ -313,41 +319,107 @@
           </section>
           
           <section id="section-8.4" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">8.4</span> Help</h1>
+            <h1 class="kss-title"><span class="kss-ref">8.4</span> Custom icons in inputs</h1>
             
             
-            <div class="kss-description">
-              <p>Add an help text block
-
-</p>
-<p><strong>Block Help</strong>
-
-</p>
-<pre><code>&lt;div class=&quot;form__controls&quot;&gt;
+            <div class="kss-modifier-block">
+              <div class="kss-modifier kss-modifier-original">
+                <div class="kss-modifier-example">
+                  <div class="form__controls">
+  <span class="form__icon fontawesome">&#xf02b;</span>
+  <input type="text">
+</div>
+<div class="form__controls">
+  <span class="form__icon fontawesome pull-right">&#xf040;</span>
+  <input type="text">
+</div>
+                </div>
+              </div>
+              
+              <div class="kss-markup">
+                <pre><code data-language="html">&lt;div class=&quot;form__controls&quot;&gt;
+  &lt;span class=&quot;form__icon fontawesome&quot;&gt;&amp;#xf02b;&lt;/span&gt;
   &lt;input type=&quot;text&quot;&gt;
-  &lt;span class=&quot;form__help--block&quot;&gt;Help text&lt;/span&gt;
-&lt;/div&gt;</code></pre>
-<p><strong>Help Inline</strong>
-
-</p>
-<pre><code>&lt;div class=&quot;form__controls&quot;&gt;
+&lt;/div&gt;
+&lt;div class=&quot;form__controls&quot;&gt;
+  &lt;span class=&quot;form__icon fontawesome pull-right&quot;&gt;&amp;#xf040;&lt;/span&gt;
   &lt;input type=&quot;text&quot;&gt;
-  &lt;span class=&quot;form__help--inline&quot;&gt;Help text&lt;/span&gt;
 &lt;/div&gt;</code></pre>
-
+              </div>
             </div>
-            
             
           </section>
           
           <section id="section-8.5" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">8.5</span> Append &amp; Prepend</h1>
+            <h1 class="kss-title"><span class="kss-ref">8.5</span> Help</h1>
+            
+            
+            <div class="kss-description">
+              <p>Add an help text block</p>
+
+            </div>
+            
+            <div class="kss-modifier-block">
+              <div class="kss-modifier kss-modifier-original">
+                <div class="kss-modifier-example">
+                  <div class="form__controls">
+  <input type="text">
+  <span class="{$modifiers}">This is an example help text</span>
+</div>
+                </div>
+              </div>
+              
+              <div class="kss-modifier">
+                <div class="kss-modifier-head">
+                  <div class="kss-modifier-name">.form__help--block</div>
+                  <div class="kss-modifier-description">
+                    <p>Block Help</p>
+
+                  </div>
+                </div>
+                <div class="kss-modifier-example">
+                  <div class="form__controls">
+  <input type="text">
+  <span class="form__help--block">This is an example help text</span>
+</div>
+                </div>
+              </div>
+              
+              <div class="kss-modifier">
+                <div class="kss-modifier-head">
+                  <div class="kss-modifier-name">.form__help--inline</div>
+                  <div class="kss-modifier-description">
+                    <p>Help Inline</p>
+
+                  </div>
+                </div>
+                <div class="kss-modifier-example">
+                  <div class="form__controls">
+  <input type="text">
+  <span class="form__help--inline">This is an example help text</span>
+</div>
+                </div>
+              </div>
+              
+              <div class="kss-markup">
+                <pre><code data-language="html">&lt;div class=&quot;form__controls&quot;&gt;
+  &lt;input type=&quot;text&quot;&gt;
+  &lt;span class=&quot;{$modifiers}&quot;&gt;This is an example help text&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+            </div>
+            
+          </section>
+          
+          <section id="section-8.6" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">8.6</span> Append &amp; Prepend</h1>
             
             
             <div class="kss-modifier-block">
               <div class="kss-modifier kss-modifier-original">
                 <div class="kss-modifier-example">
                   <div class="form__controls form__controls--multi">
+  <span class="form__addon fontawesome">&#xf06c;</span>
   <span class="form__addon">$</span>
   <input type="text">
   <span class="form__addon">.00</span>
@@ -357,6 +429,7 @@
               
               <div class="kss-markup">
                 <pre><code data-language="html">&lt;div class=&quot;form__controls form__controls--multi&quot;&gt;
+  &lt;span class=&quot;form__addon fontawesome&quot;&gt;&amp;#xf06c;&lt;/span&gt;
   &lt;span class=&quot;form__addon&quot;&gt;$&lt;/span&gt;
   &lt;input type=&quot;text&quot;&gt;
   &lt;span class=&quot;form__addon&quot;&gt;.00&lt;/span&gt;
@@ -366,8 +439,8 @@
             
           </section>
           
-          <section id="section-8.6" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">8.6</span> Form Actions</h1>
+          <section id="section-8.7" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">8.7</span> Form Actions</h1>
             
             
             <div class="kss-description">
@@ -397,8 +470,8 @@
             
           </section>
           
-          <section id="section-8.7" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">8.7</span> Form Layouts</h1>
+          <section id="section-8.8" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">8.8</span> Form Layouts</h1>
             
             
             <div class="kss-modifier-block">
@@ -564,8 +637,8 @@
             
           </section>
           
-          <section id="section-8.7.1" class="kss-section kss-depth-3">
-            <h1 class="kss-title"><span class="kss-ref">8.7.1</span> Inline Form (semplified)</h1>
+          <section id="section-8.8.1" class="kss-section kss-depth-3">
+            <h1 class="kss-title"><span class="kss-ref">8.8.1</span> Inline Form (semplified)</h1>
             
             
             <div class="kss-description">

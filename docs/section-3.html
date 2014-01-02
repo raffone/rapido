@@ -118,19 +118,23 @@
               
               
               
-              <li class="kss-menu-item"><a href="#section-3.1"><span class="kss-ref">3.1</span><span class="kss-name">Colors</span></a></li>
+              <li class="kss-menu-item"><a href="#section-3.1"><span class="kss-ref">3.1</span><span class="kss-name">Buttons with Icons</span></a></li>
               
               
               
-              <li class="kss-menu-item"><a href="#section-3.2"><span class="kss-ref">3.2</span><span class="kss-name">Sizes</span></a></li>
+              <li class="kss-menu-item"><a href="#section-3.2"><span class="kss-ref">3.2</span><span class="kss-name">Colors</span></a></li>
               
               
               
-              <li class="kss-menu-item"><a href="#section-3.3"><span class="kss-ref">3.3</span><span class="kss-name">Modifiers</span></a></li>
+              <li class="kss-menu-item"><a href="#section-3.3"><span class="kss-ref">3.3</span><span class="kss-name">Sizes</span></a></li>
               
               
               
-              <li class="kss-menu-item"><a href="#section-3.4"><span class="kss-ref">3.4</span><span class="kss-name">Link</span></a></li>
+              <li class="kss-menu-item"><a href="#section-3.4"><span class="kss-ref">3.4</span><span class="kss-name">Modifiers</span></a></li>
+              
+              
+              
+              <li class="kss-menu-item"><a href="#section-3.5"><span class="kss-ref">3.5</span><span class="kss-name">Link</span></a></li>
               
               
             </ul>
@@ -147,7 +151,9 @@
             
             
             <div class="kss-description">
-              <p>Button styles can be applied to anything with the <code>.btn</code> class applied. However, typically you&apos;ll want to apply these to only <code>&lt;a&gt;</code> and <code>&lt;button&gt;</code> elements for the best rendering.</p>
+              <p>Button styles can be applied to anything with the <code>.btn</code> class applied.
+However, typically you&apos;ll want to apply these to only <code>&lt;a&gt;</code> and <code>&lt;button&gt;</code>
+elements for the best rendering.</p>
 
             </div>
             
@@ -210,7 +216,41 @@
           </section>
           
           <section id="section-3.1" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">3.1</span> Colors</h1>
+            <h1 class="kss-title"><span class="kss-ref">3.1</span> Buttons with Icons</h1>
+            
+            
+            <div class="kss-description">
+              <p>To add an icon to a button (or eny other type of element) just enable the font
+(see 27.2), add a class with the name of the font and use the unicode of
+the character.
+
+</p>
+<p>It&apos;s not a pretty way of doing it, if you prefer more fine control i suggest
+to ditch the icon font integration and use the tools and resources made
+available on the fonts sites.</p>
+
+            </div>
+            
+            <div class="kss-modifier-block">
+              <div class="kss-modifier kss-modifier-original">
+                <div class="kss-modifier-example">
+                  <a href="#" class="btn btn--default fontawesome">&#xf02b;</a>
+<a href="#" class="btn btn--default fontawesome">&#xf040;</a>
+<a href="#" class="btn btn--default fontawesome">&#xf06c;</a>
+                </div>
+              </div>
+              
+              <div class="kss-markup">
+                <pre><code data-language="html">&lt;a href=&quot;#&quot; class=&quot;btn btn--default fontawesome&quot;&gt;&amp;#xf02b;&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn--default fontawesome&quot;&gt;&amp;#xf040;&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn--default fontawesome&quot;&gt;&amp;#xf06c;&lt;/a&gt;</code></pre>
+              </div>
+            </div>
+            
+          </section>
+          
+          <section id="section-3.2" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">3.2</span> Colors</h1>
             
             
             <div class="kss-modifier-block">
@@ -231,8 +271,8 @@
             
           </section>
           
-          <section id="section-3.2" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">3.2</span> Sizes</h1>
+          <section id="section-3.3" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">3.3</span> Sizes</h1>
             
             
             <div class="kss-modifier-block">
@@ -255,8 +295,8 @@
             
           </section>
           
-          <section id="section-3.3" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">3.3</span> Modifiers</h1>
+          <section id="section-3.4" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">3.4</span> Modifiers</h1>
             
             
             <div class="kss-description">
@@ -322,12 +362,13 @@
             
           </section>
           
-          <section id="section-3.4" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">3.4</span> Link</h1>
+          <section id="section-3.5" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">3.5</span> Link</h1>
             
             
             <div class="kss-description">
-              <p>Deemphasize a button by making it look like a link while maintaining button behavior.</p>
+              <p>Deemphasize a button by making it look like a link while maintaining
+button behavior.</p>
 
             </div>
             
