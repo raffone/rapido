@@ -9,6 +9,7 @@ module.exports = function(grunt) {
     compass: {
       dist: {
         options: {
+          require: 'susy',
           sassDir: 'stylesheets',
           cssDir: 'dist',
           specify: 'stylesheets/rapido.scss',
@@ -19,6 +20,7 @@ module.exports = function(grunt) {
       },
       min: {
         options: {
+          require: 'susy',
           sassDir: 'stylesheets',
           cssDir: 'dist',
           specify: 'stylesheets/rapido.min.scss',

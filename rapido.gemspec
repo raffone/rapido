@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   # Release Specific Information
-  s.version = "0.1.2"
-  s.date = "2013-12-28"
+  s.version = "0.1.3"
+  s.date = "2014-01-02"
 
   # Gem Details
   s.name = "rapido-css"
@@ -20,5 +20,6 @@ Gem::Specification.new do |s|
 
   # Gem Bookkeeping
   s.rubygems_version = %q{1.3.6}
-  s.add_dependency("compass", [">= 0.11"])
+  s.add_dependency "susy", ">= 1.0.8"
+
 end
