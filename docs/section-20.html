@@ -118,10 +118,6 @@
               
               
               
-              <li class="kss-menu-item"><a href="#section-20.1"><span class="kss-ref">20.1</span><span class="kss-name">Settings</span></a></li>
-              
-              
-              
               <li class="kss-menu-item"><a href="#section-20.2"><span class="kss-ref">20.2</span><span class="kss-name">Easing</span></a></li>
               
               
@@ -163,40 +159,6 @@
 <li><strong>Rotating entrances:</strong> rotateIn, rotateInDownLeft, rotateInDownRight, rotateInUpLeft, rotateInUpRight</li>
 <li><strong>Rotating exits:</strong> rotateOut, rotateOutDownLeft, rotateOutDownRight, rotateOutUpLeft, rotateOutUpRight</li>
 </ul>
-
-            </div>
-            
-            
-          </section>
-          
-          <section id="section-20.1" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">20.1</span> Settings</h1>
-            
-            
-            <div class="kss-description">
-              <p>These are the default settings for all animations and transitions within the framework.
-
-</p>
-<p>By default all animations but fadeIn and fadeOut are disabled, use the  <code>$animations</code> list to enable/disable them.
-
-</p>
-<pre><code>$animations:                      fadeIn, fadeOut</code></pre>
-<p>If true it generate a placeholder class for every animation with the default settings to use as an <code>`@extend</code>.
-
-</p>
-<pre><code>$animations-classes:              true</code></pre>
-<p>Base settings for animations
-
-</p>
-<pre><code>$animations-duration:             .15s      # Duration
-$animations-delay:                0s        # Start delay
-$animations-function:             ease-out  # Easing
-$animations-mode:                 both      # animation-fill-mode</code></pre>
-<p>For transitions you can use other settings for duration and easing, by default the use the same settings as the animations.
-
-</p>
-<pre><code>$default-transition-duration:     $animations-duration
-$default-transition-function:     $animations-function</code></pre>
 
             </div>
             

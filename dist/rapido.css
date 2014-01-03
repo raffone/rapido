@@ -613,6 +613,11 @@ For transitions you can use other settings for duration and easing, by default t
     $default-transition-duration:     $animations-duration
     $default-transition-function:     $animations-function
 
+Durations specifics for some  modules.
+
+    $caption-animations-duration:       .30s
+
+
 Styleguide 20.1
 
 */
@@ -1898,6 +1903,7 @@ body {
 
 img {
   max-width: 100%;
+  display: block;
 }
 
 a, button, textarea, input {
@@ -1965,7 +1971,6 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 0 1.5em;
   text-rendering: optimizelegibility;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #333333;
 }
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
   font-weight: normal;
@@ -2952,76 +2957,559 @@ table {
 
 Captions
 
-Add captions to images. The position is defined by `data-position` and the content by `data-content`.
-It's possible to add an animation using `data-animation` with either `fade` or `float`.
+Captions effects adapted from [Effeckt.css](https://github.com/h5bp/Effeckt.css).
 
-For positioning are available: `top`, `right`, `bottom`, `left`, `top-left`, `top-right`, `bottom-right`, `bottom-left`.
+Effects availables (first example is without effect): `cover-push-right`, `cover-slide-top`, `guillotine-reverse`, `half-slide`, `offset`, `quarter-appear`, `quarter-fall-in`, `quarter-slide-side`, `quarter-slide-up`, `quarter-two-step`, `quarter-zoom`, `revolving-door-bottom`, `revolving-door-left`, `revolving-door-right`, `revolving-door-top`.
 
 Markup:
-<figure class="caption" data-position="bottom" data-animation="{$modifiers}" data-content="Caption text.">
-  <img src="http://dummyimage.com/300x200/afe600/fff" />
+<figure class="caption" data-effect-type="{$modifiers}">
+  <img src=http://dummyimage.com/300x200/afe600/ffffff" alt="">
+  <figcaption>
+    <div class="effect-figcaption-wrap">
+      <h3>Guillotine Reverse</h3>
+      <p>Lorem ipsum dolar.</p>
+    </div>
+  </figcaption>
 </figure>
 
-fade - Add fade-in animation for the caption
-float - Add fade-in and slide-in animation for the caption
+cover-fade - Cover Fade
+
+cover-push-right - Cover Push Right
+cover-slide-top - Cover Slide Top
+guillotine-reverse - Guillotine Reverse / Reveal Up
+half-slide - Half Slide
+offset - Caption Offset
+quarter-appear - Appear
+quarter-fall-in - Quarter Fall in
+quarter-slide-side - Quarter Slide Side
+quarter-slide-up - Quarter Slide Up
+quarter-two-step - Quarter Two Step
+quarter-zoom - Quarter Caption Zoom
+revolving-door-bottom - Revolving Door
+revolving-door-left - Revolving Door
+revolving-door-right - Revolving Door
+revolving-door-top - Revolving Door
 
 Styleguide 5
 
 */
 .caption {
   position: relative;
-  display: inline-block;
-  width: auto;
+  float: left;
   overflow: hidden;
-  line-height: 0;
 }
-.caption:after {
-  display: inline-block;
-  content: attr(data-content);
+.caption:nth-child(2n) {
+  margin-right: 0;
+}
+.caption img {
+  transition: 0.5s;
+}
+.caption figcaption {
   position: absolute;
-  line-height: 1.5em;
+  transition: 0.5s;
+  width: 100%;
 }
-.caption[data-position*="top"]:after {
-  top: 0;
+.caption figcaption * {
+  margin-bottom: 0;
 }
-.caption[data-position*="bottom"]:after {
+.caption[data-effect-type="quarter-appear"] figcaption {
   bottom: 0;
-}
-.caption[data-position*="left"]:after {
   left: 0;
-}
-.caption[data-position*="right"]:after {
-  right: 0;
-}
-.caption[data-position$="top"]:after, .caption[data-position$="bottom"]:after {
-  left: 0;
-  right: 0;
-}
-.caption[data-animation*="fade"]:after, .caption[data-animation*="float"]:after {
-  -webkit-transition: all 0.15s ease-out;
-  -moz-transition: all 0.15s ease-out;
-  -o-transition: all 0.15s ease-out;
-  transition: all 0.15s ease-out;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
-  visibility: hidden;
 }
-.caption[data-animation*="fade"]:hover:after, .caption[data-animation*="float"]:hover:after {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+.caption[data-effect-type="quarter-appear"]:hover figcaption, .caption[data-effect-type="quarter-appear"]:active figcaption {
   opacity: 1;
-  visibility: visible;
 }
-.caption[data-animation*="float"][data-position*="top"]:after {
-  top: -10px;
-}
-.caption[data-animation*="float"][data-position*="top"]:hover:after {
-  top: 0;
-}
-.caption[data-animation*="float"][data-position*="bottom"]:after {
-  bottom: -10px;
-}
-.caption[data-animation*="float"][data-position*="bottom"]:hover:after {
+.caption[data-effect-type="quarter-slide-up"] figcaption {
   bottom: 0;
+  left: 0;
+  opacity: 0;
+  -webkit-transform: translateY(100%);
+  -moz-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  -o-transform: translateY(100%);
+  transform: translateY(100%);
+}
+.caption[data-effect-type="quarter-slide-up"]:hover figcaption, .caption[data-effect-type="quarter-slide-up"]:active figcaption {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0);
+}
+.caption[data-effect-type="quarter-slide-side"] figcaption {
+  left: 0;
+  bottom: 0;
+  opacity: 0;
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  -o-transform: translateX(100%);
+  transform: translateX(100%);
+}
+.caption[data-effect-type="quarter-slide-side"]:hover figcaption, .caption[data-effect-type="quarter-slide-side"]:active figcaption {
+  opacity: 1;
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0);
+}
+.caption[data-effect-type="cover-fade"] figcaption {
+  top: 0;
+  left: 0;
+  height: 100%;
+  opacity: 0;
+}
+.caption[data-effect-type="cover-fade"]:hover figcaption, .caption[data-effect-type="cover-fade"]:active figcaption {
+  opacity: 1;
+}
+.caption[data-effect-type="quarter-fall-in"] figcaption {
+  top: 0;
+  left: 0;
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  -o-transform: translateX(100%);
+  transform: translateX(100%);
+  -webkit-transform: rotate(20deg);
+  -moz-transform: rotate(20deg);
+  -ms-transform: rotate(20deg);
+  -o-transform: rotate(20deg);
+  transform: rotate(20deg);
+  opacity: 0;
+}
+.caption[data-effect-type="quarter-fall-in"]:hover figcaption, .caption[data-effect-type="quarter-fall-in"]:active figcaption {
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0);
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  opacity: 1;
+}
+.caption[data-effect-type="quarter-two-step"] figcaption {
+  top: 0;
+  left: 0;
+  -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  -o-transform: translateX(-100%);
+  transform: translateX(-100%);
+  opacity: 0;
+  z-index: 2;
+}
+.caption[data-effect-type="quarter-two-step"] .effect-figcaption-wrap {
+  transition: 0.5s 0.25s;
+  -webkit-transform: translateX(200%);
+  -moz-transform: translateX(200%);
+  -ms-transform: translateX(200%);
+  -o-transform: translateX(200%);
+  transform: translateX(200%);
+}
+.caption[data-effect-type="quarter-two-step"]:hover figcaption, .caption[data-effect-type="quarter-two-step"]:active figcaption {
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0);
+  opacity: 1;
+}
+.caption[data-effect-type="quarter-two-step"]:hover .effect-figcaption-wrap, .caption[data-effect-type="quarter-two-step"]:active .effect-figcaption-wrap {
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0);
+}
+.caption[data-effect-type="cover-push-right"] figcaption {
+  top: 0;
+  left: 0;
+  height: 100%;
+  -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  -o-transform: translateX(-100%);
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.caption[data-effect-type="cover-push-right"] img {
+  transition: 0.5s;
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0);
+}
+.caption[data-effect-type="cover-push-right"]:hover figcaption, .caption[data-effect-type="cover-push-right"]:active figcaption {
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0);
+  opacity: 1;
+}
+.caption[data-effect-type="cover-push-right"]:hover img, .caption[data-effect-type="cover-push-right"]:active img {
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  -o-transform: translateX(100%);
+  transform: translateX(100%);
+}
+.caption[data-effect-type="cover-slide-top"] figcaption {
+  top: 0;
+  left: 0;
+  height: 100%;
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%);
+  opacity: 0;
+}
+.caption[data-effect-type="cover-slide-top"] img {
+  transition: 0.5s;
+}
+.caption[data-effect-type="cover-slide-top"]:hover figcaption, .caption[data-effect-type="cover-slide-top"]:active figcaption {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0);
+  opacity: 1;
+}
+.caption[data-effect-type="quarter-zoom"] figcaption {
+  top: 0;
+  left: 0;
+  -webkit-transform: scale(2, 2);
+  -moz-transform: scale(2, 2);
+  -ms-transform: scale(2, 2);
+  -o-transform: scale(2, 2);
+  transform: scale(2, 2);
+  text-align: center;
+  opacity: 0;
+}
+.caption[data-effect-type="quarter-zoom"] img {
+  transition: 0.5s;
+}
+.caption[data-effect-type="quarter-zoom"]:hover figcaption, .caption[data-effect-type="quarter-zoom"]:active figcaption {
+  -webkit-transform: scale(1, 1);
+  -moz-transform: scale(1, 1);
+  -ms-transform: scale(1, 1);
+  -o-transform: scale(1, 1);
+  transform: scale(1, 1);
+  opacity: 1;
+}
+.caption[data-effect-type="quarter-zoom"]:hover img, .caption[data-effect-type="quarter-zoom"]:active img {
+  -webkit-transform: scale(1.1, 1.1);
+  -moz-transform: scale(1.1, 1.1);
+  -ms-transform: scale(1.1, 1.1);
+  -o-transform: scale(1.1, 1.1);
+  transform: scale(1.1, 1.1);
+}
+.caption[data-effect-type="revolving-door-left"] {
+  overflow: visible;
+}
+.caption[data-effect-type="revolving-door-left"] figcaption {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-perspective: 1300;
+  -moz-perspective: 1300;
+  -ms-perspective: 1300;
+  -o-perspective: 1300;
+  perspective: 1300;
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.caption[data-effect-type="revolving-door-left"] img {
+  -webkit-perspective: 1300;
+  -moz-perspective: 1300;
+  -ms-perspective: 1300;
+  -o-perspective: 1300;
+  perspective: 1300;
+  transition: 0.5s;
+}
+.caption[data-effect-type="revolving-door-left"]:hover figcaption, .caption[data-effect-type="revolving-door-left"]:active figcaption {
+  -webkit-perspective: 1300;
+  -moz-perspective: 1300;
+  -ms-perspective: 1300;
+  -o-perspective: 1300;
+  perspective: 1300;
+  -webkit-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -o-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
+.caption[data-effect-type="revolving-door-left"]:hover img, .caption[data-effect-type="revolving-door-left"]:active img {
+  -webkit-perspective: 1300;
+  -moz-perspective: 1300;
+  -ms-perspective: 1300;
+  -o-perspective: 1300;
+  perspective: 1300;
+  -webkit-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg);
+  -ms-transform: rotateY(-180deg);
+  -o-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+}
+.caption[data-effect-type="revolving-door-right"] {
+  overflow: visible;
+}
+.caption[data-effect-type="revolving-door-right"] figcaption {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-perspective: 1300;
+  -moz-perspective: 1300;
+  -ms-perspective: 1300;
+  -o-perspective: 1300;
+  perspective: 1300;
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.caption[data-effect-type="revolving-door-right"] img {
+  -webkit-perspective: 1300;
+  -moz-perspective: 1300;
+  -ms-perspective: 1300;
+  -o-perspective: 1300;
+  perspective: 1300;
+  transition: 0.5s;
+}
+.caption[data-effect-type="revolving-door-right"]:hover figcaption, .caption[data-effect-type="revolving-door-right"]:active figcaption {
+  -webkit-perspective: 1300;
+  -moz-perspective: 1300;
+  -ms-perspective: 1300;
+  -o-perspective: 1300;
+  perspective: 1300;
+  -webkit-transform: rotateY(360deg);
+  -moz-transform: rotateY(360deg);
+  -ms-transform: rotateY(360deg);
+  -o-transform: rotateY(360deg);
+  transform: rotateY(360deg);
+}
+.caption[data-effect-type="revolving-door-right"]:hover img, .caption[data-effect-type="revolving-door-right"]:active img {
+  -webkit-perspective: 1300;
+  -moz-perspective: 1300;
+  -ms-perspective: 1300;
+  -o-perspective: 1300;
+  perspective: 1300;
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+.caption[data-effect-type="revolving-door-top"] {
+  overflow: visible;
+}
+.caption[data-effect-type="revolving-door-top"] figcaption {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-perspective: 1300;
+  -moz-perspective: 1300;
+  -ms-perspective: 1300;
+  -o-perspective: 1300;
+  perspective: 1300;
+  -webkit-transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg);
+  -ms-transform: rotateX(180deg);
+  -o-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.caption[data-effect-type="revolving-door-top"] img {
+  -webkit-perspective: 1300;
+  -moz-perspective: 1300;
+  -ms-perspective: 1300;
+  -o-perspective: 1300;
+  perspective: 1300;
+  transition: 0.5s;
+}
+.caption[data-effect-type="revolving-door-top"]:hover figcaption, .caption[data-effect-type="revolving-door-top"]:active figcaption {
+  -webkit-perspective: 1300;
+  -moz-perspective: 1300;
+  -ms-perspective: 1300;
+  -o-perspective: 1300;
+  perspective: 1300;
+  -webkit-transform: rotateX(360deg);
+  -moz-transform: rotateX(360deg);
+  -ms-transform: rotateX(360deg);
+  -o-transform: rotateX(360deg);
+  transform: rotateX(360deg);
+}
+.caption[data-effect-type="revolving-door-top"]:hover img, .caption[data-effect-type="revolving-door-top"]:active img {
+  -webkit-perspective: 1300;
+  -moz-perspective: 1300;
+  -ms-perspective: 1300;
+  -o-perspective: 1300;
+  perspective: 1300;
+  -webkit-transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg);
+  -ms-transform: rotateX(180deg);
+  -o-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+}
+.caption[data-effect-type="revolving-door-bottom"] {
+  overflow: visible;
+}
+.caption[data-effect-type="revolving-door-bottom"] figcaption {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-perspective: 1300;
+  -moz-perspective: 1300;
+  -ms-perspective: 1300;
+  -o-perspective: 1300;
+  perspective: 1300;
+  -webkit-transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg);
+  -ms-transform: rotateX(180deg);
+  -o-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.caption[data-effect-type="revolving-door-bottom"] img {
+  -webkit-perspective: 1300;
+  -moz-perspective: 1300;
+  -ms-perspective: 1300;
+  -o-perspective: 1300;
+  perspective: 1300;
+  transition: 0.5s;
+}
+.caption[data-effect-type="revolving-door-bottom"]:hover figcaption, .caption[data-effect-type="revolving-door-bottom"]:active figcaption {
+  -webkit-perspective: 1300;
+  -moz-perspective: 1300;
+  -ms-perspective: 1300;
+  -o-perspective: 1300;
+  perspective: 1300;
+  -webkit-transform: rotateX(0deg);
+  -moz-transform: rotateX(0deg);
+  -ms-transform: rotateX(0deg);
+  -o-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+}
+.caption[data-effect-type="revolving-door-bottom"]:hover img, .caption[data-effect-type="revolving-door-bottom"]:active img {
+  -webkit-perspective: 1300;
+  -moz-perspective: 1300;
+  -ms-perspective: 1300;
+  -o-perspective: 1300;
+  perspective: 1300;
+  -webkit-transform: rotateX(-180deg);
+  -moz-transform: rotateX(-180deg);
+  -ms-transform: rotateX(-180deg);
+  -o-transform: rotateX(-180deg);
+  transform: rotateX(-180deg);
+}
+.caption[data-effect-type="offset"] {
+  overflow: visible;
+}
+.caption[data-effect-type="offset"] figcaption {
+  top: 0;
+  left: 0;
+  text-align: center;
+  opacity: 0;
+  height: 100%;
+}
+.caption[data-effect-type="offset"] img {
+  transition: 0.5s;
+}
+.caption[data-effect-type="offset"]:hover figcaption, .caption[data-effect-type="offset"]:active figcaption {
+  -webkit-transform: translate(15px, 15px);
+  -moz-transform: translate(15px, 15px);
+  -ms-transform: translate(15px, 15px);
+  -o-transform: translate(15px, 15px);
+  transform: translate(15px, 15px);
+  opacity: 1;
+  z-index: 100;
+  overflow: hidden;
+}
+.caption[data-effect-type="guillotine-reverse"] {
+  overflow: visible;
+}
+.caption[data-effect-type="guillotine-reverse"] figcaption {
+  top: 0;
+  left: 0;
+  text-align: center;
+  height: 100%;
+}
+.caption[data-effect-type="guillotine-reverse"] img {
+  display: block;
+  position: relative;
+  z-index: 10;
+  transition: 0.5s;
+}
+.caption[data-effect-type="guillotine-reverse"]:hover img, .caption[data-effect-type="guillotine-reverse"]:active img {
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+.caption[data-effect-type="half-slide"] figcaption {
+  top: 0;
+  left: 0;
+  text-align: center;
+  height: 100%;
+  -webkit-transform: translateY(100%);
+  -moz-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  -o-transform: translateY(100%);
+  transform: translateY(100%);
+}
+.caption[data-effect-type="half-slide"] img {
+  display: block;
+  position: relative;
+  transition: 0.5s;
+}
+.caption[data-effect-type="half-slide"]:hover img, .caption[data-effect-type="half-slide"]:active img {
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.caption[data-effect-type="half-slide"]:hover figcaption, .caption[data-effect-type="half-slide"]:active figcaption {
+  -webkit-transform: translateY(50%);
+  -moz-transform: translateY(50%);
+  -ms-transform: translateY(50%);
+  -o-transform: translateY(50%);
+  transform: translateY(50%);
 }
 
 /*
@@ -5516,7 +6004,7 @@ Captions
 Styleguide 30.4
 
 */
-.caption:after, .fancybox-title-over-wrap, .bx-caption span {
+.caption figcaption, .fancybox-title-over-wrap, .bx-caption span {
   background: black;
   background: rgba(0, 0, 0, 0.8);
   color: #fff;
