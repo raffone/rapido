@@ -24,6 +24,11 @@ For transitions you can use other settings for duration and easing, by default t
     $default-transition-duration:     $animations-duration
     $default-transition-function:     $animations-function
 
+Durations specifics for some  modules.
+
+    $caption-animations-duration:       .50s
+
+
 Styleguide 20.1
 
 */
@@ -38,3 +43,5 @@ $animations-mode:                   both                                        
 
 $default-transition-duration:       $animations-duration                                                    !default;
 $default-transition-function:       toBezier($animations-function)                                          !default;
+
+$caption-animations-duration:       .50s                                                                    !default;

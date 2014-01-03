@@ -2,18 +2,38 @@
 
 Captions
 
-Add captions to images. The position is defined by `data-position` and the content by `data-content`.
-It's possible to add an animation using `data-animation` with either `fade` or `float`.
+Captions effects adapted from [Effeckt.css](https://github.com/h5bp/Effeckt.css).
 
-For positioning are available: `top`, `right`, `bottom`, `left`, `top-left`, `top-right`, `bottom-right`, `bottom-left`.
+Effects availables (first example is without effect): `cover-push-right`, `cover-slide-top`, `guillotine-reverse`, `half-slide`, `offset`, `quarter-appear`, `quarter-fall-in`, `quarter-slide-side`, `quarter-slide-up`, `quarter-two-step`, `quarter-zoom`, `revolving-door-bottom`, `revolving-door-left`, `revolving-door-right`, `revolving-door-top`.
 
 Markup:
-<figure class="caption" data-position="bottom" data-animation="{$modifiers}" data-content="Caption text.">
-  <img src="http://dummyimage.com/300x200/afe600/fff" />
+<figure class="caption" data-effect-type="{$modifiers}">
+  <img src=http://dummyimage.com/300x200/afe600/ffffff" alt="">
+  <figcaption>
+    <div class="effect-figcaption-wrap">
+      <h3>Guillotine Reverse</h3>
+      <p>Lorem ipsum dolar.</p>
+    </div>
+  </figcaption>
 </figure>
 
-fade - Add fade-in animation for the caption
-float - Add fade-in and slide-in animation for the caption
+cover-fade - Cover Fade
+
+cover-push-right - Cover Push Right
+cover-slide-top - Cover Slide Top
+guillotine-reverse - Guillotine Reverse / Reveal Up
+half-slide - Half Slide
+offset - Caption Offset
+quarter-appear - Appear
+quarter-fall-in - Quarter Fall in
+quarter-slide-side - Quarter Slide Side
+quarter-slide-up - Quarter Slide Up
+quarter-two-step - Quarter Two Step
+quarter-zoom - Quarter Caption Zoom
+revolving-door-bottom - Revolving Door
+revolving-door-left - Revolving Door
+revolving-door-right - Revolving Door
+revolving-door-top - Revolving Door
 
 Styleguide 5
 
@@ -21,57 +41,384 @@ Styleguide 5
 
 @if $captions {
 
-    .caption {
-        position: relative;
-        display: inline-block;
-        width: auto;
-        overflow: hidden;
-        line-height: 0;
+  .caption {
+    position: relative;
+    float: left;
+    overflow: hidden;
 
-        &:after {
-            @extend %caption !optional;
-            display: inline-block;
-            content: attr(data-content);
-            position: absolute;
-            line-height: rhythm();
-        }
+    &:nth-child(2n) {
+      margin-right: 0;
+    }
+    img {
+      transition: $caption-animations-duration;
+    }
+    figcaption {
+      @extend %caption;
+      position: absolute;
+      transition: $caption-animations-duration;
+      width: 100%;
 
-        &[data-position*="top"]:after     { top:0; }
-        &[data-position*="bottom"]:after   { bottom:0; }
-        &[data-position*="left"]:after     { left:0; }
-        &[data-position*="right"]:after   { right:0; }
-
-        &[data-position$="top"]:after,
-        &[data-position$="bottom"]:after   { left: 0; right: 0; }
-
-        // Animations
-        &[data-animation*="fade"],
-        &[data-animation*="float"] {
-
-            &:after {
-                @include transition();
-                @include opacity(0);
-                visibility: hidden;
-            }
-
-            &:hover:after {
-                @include opacity(1);
-                visibility: visible;
-            }
-        }
-
-
-        // Float animation
-        &[data-animation*="float"][data-position*="top"] {
-            &:after { top: -10px; }
-            &:hover:after { top: 0; }
-        }
-
-        &[data-animation*="float"][data-position*="bottom"] {
-            &:after { bottom: -10px; }
-            &:hover:after { bottom: 0; }
-        }
+      * {
+        margin-bottom: 0;
+      }
 
     }
+
+    // Effect 1: Appear
+    &[data-effect-type="quarter-appear"] {
+      figcaption {
+        bottom: 0;
+        left: 0;
+        opacity: 0;
+      }
+      &:hover, &:active {
+        figcaption {
+          opacity: 1;
+        }
+      }
+    }
+
+
+    // Effect 2: Quarter Slide Up
+    &[data-effect-type="quarter-slide-up"] {
+      figcaption {
+        bottom: 0;
+        left: 0;
+        opacity: 0;
+        @include translateY(100%);
+      }
+      &:hover, &:active {
+        figcaption {
+          opacity: 1;
+          @include translateY(0);
+        }
+      }
+    }
+
+
+    // Effect 4: Quarter Slide Side
+    &[data-effect-type="quarter-slide-side"] {
+      figcaption {
+        left: 0;
+        bottom: 0;
+        opacity: 0;
+        @include translateX(100%);
+      }
+      &:hover, &:active {
+        figcaption {
+          opacity: 1;
+          @include translateX(0);
+        }
+      }
+    }
+
+
+    // Effect 5: Cover Fade
+    &[data-effect-type="cover-fade"] {
+      figcaption {
+        top: 0;
+        left: 0;
+        height: 100%;
+        opacity: 0;
+      }
+      &:hover, &:active {
+        figcaption {
+          opacity: 1;
+        }
+      }
+    }
+
+
+    // Effect 6 - Quarter Fall in
+    &[data-effect-type="quarter-fall-in"] {
+      figcaption {
+        top: 0;
+        left: 0;
+        @include translateX(100%) ;
+        @include rotate(20deg);
+        opacity: 0;
+      }
+      &:hover, &:active {
+        figcaption {
+          @include translateX(0) ;
+          @include rotate(0deg);
+          opacity: 1;
+        }
+      }
+    }
+
+
+    // Effect 7 - 3Quarter Two Step
+    &[data-effect-type="quarter-two-step"] {
+      figcaption {
+        top: 0;
+        left: 0;
+        @include translateX(-100%);
+        opacity: 0;
+        z-index: 2;
+      }
+      .effect-figcaption-wrap {
+        transition: $caption-animations-duration $caption-animations-duration/2;
+        @include translateX(200%);
+      }
+      &:hover, &:active {
+        figcaption {
+          @include translateX(0);
+          opacity: 1;
+        }
+        .effect-figcaption-wrap {
+          @include translateX(0);
+        }
+      }
+    }
+
+
+    // Effect 8 - Cover Push Right
+    &[data-effect-type="cover-push-right"] {
+      figcaption {
+        top: 0;
+        left: 0;
+        height: 100%;
+        @include translateX(-100%);
+        opacity: 0;
+      }
+      img {
+        transition: $caption-animations-duration;
+        @include translateX(0);
+      }
+      &:hover, &:active {
+        figcaption {
+          @include translateX(0);
+          opacity: 1;
+        }
+        img {
+          @include translateX(100%);
+        }
+      }
+    }
+
+    // Effect 15 - Cover Slide Top
+    &[data-effect-type="cover-slide-top"] {
+      figcaption {
+        top: 0;
+        left: 0;
+        height: 100%;
+        @include translateY(-100%);
+        opacity: 0;
+      }
+      img {
+        transition: $caption-animations-duration;
+      }
+      &:hover, &:active {
+        figcaption {
+          @include translateY(0);
+          opacity: 1;
+        }
+      }
+    }
+
+
+    // Effect 9 - Quarter Caption Zoom
+    &[data-effect-type="quarter-zoom"] {
+      figcaption {
+        top: 0;
+        left: 0;
+        @include scale(2);
+        text-align: center;
+        opacity: 0;
+      }
+      img {
+        transition: $caption-animations-duration;
+      }
+      &:hover, &:active {
+        figcaption {
+          @include scale(1);
+          opacity: 1;
+        }
+        img {
+          @include scale(1.1);
+        }
+      }
+    }
+
+
+    // Effect 10 - Revolving Door
+    // BUG: Super flickery in Safari 5.1.7 on Windows 7
+    &[data-effect-type="revolving-door-left"] {
+      overflow: visible;
+      figcaption {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        @include perspective(1300) ;
+        @include rotateY(180deg);
+        @include backface-visibility(hidden);
+      }
+      img {
+        @include perspective(1300);
+        transition: $caption-animations-duration;
+      }
+      &:hover, &:active {
+        figcaption {
+          @include perspective(1300) ;
+          @include rotateY(0deg);
+        }
+        img {
+          @include perspective(1300) ;
+          @include rotateY(-180deg);
+        }
+      }
+    }
+
+    &[data-effect-type="revolving-door-right"] {
+      overflow: visible;
+      figcaption {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        @include perspective(1300) ;
+        @include rotateY(180deg);
+        @include backface-visibility(hidden);
+      }
+      img {
+        @include perspective(1300);
+        transition: $caption-animations-duration;
+      }
+      &:hover, &:active {
+        figcaption {
+          @include perspective(1300) ;
+          @include rotateY(360deg);
+        }
+        img {
+          @include perspective(1300) ;
+          @include rotateY(180deg);
+        }
+      }
+    }
+
+    &[data-effect-type="revolving-door-top"] {
+      overflow: visible;
+      figcaption {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        @include perspective(1300);
+        @include rotateX(180deg);
+        @include backface-visibility(hidden);
+      }
+      img {
+        @include perspective(1300);
+        transition: $caption-animations-duration;
+      }
+      &:hover, &:active {
+        figcaption {
+          @include perspective(1300);
+          @include rotateX(360deg);
+        }
+        img {
+          @include perspective(1300) ;
+          @include rotateX(180deg);
+        }
+      }
+    }
+
+    &[data-effect-type="revolving-door-bottom"] {
+      overflow: visible;
+      figcaption {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        @include perspective(1300);
+        @include rotateX(180deg);
+        @include backface-visibility(hidden);
+      }
+      img {
+        @include perspective(1300);
+        transition: $caption-animations-duration;
+      }
+      &:hover, &:active {
+        figcaption {
+          @include perspective(1300);
+          @include rotateX(0deg);
+        }
+        img {
+          @include perspective(1300);
+          @include rotateX(-180deg);;
+        }
+      }
+    }
+
+    // Effect 11 - Caption Offset
+    &[data-effect-type="offset"] {
+      overflow: visible;
+      figcaption {
+        top: 0;
+        left: 0;
+        text-align: center;
+        opacity: 0;
+        height: 100%;
+      }
+      img {
+        transition: $caption-animations-duration;
+      }
+      &:hover, &:active {
+        figcaption {
+          @include translate(15px, 15px);
+          opacity: 1;
+          z-index: 100; //prevent ovarslap
+          overflow: hidden;
+        }
+      }
+    }
+    // Effect 12 - Guillotine Reverse / Reveal Up
+    &[data-effect-type="guillotine-reverse"] {
+      overflow: visible;
+      figcaption {
+        top: 0;
+        left: 0;
+        text-align: center;
+        height: 100%;
+      }
+      img {
+        display: block;
+        position:relative;
+        z-index:10;
+        transition: $caption-animations-duration;
+      }
+      &:hover, &:active {
+        img {
+          @include translateY(-100%);
+        }
+      }
+    }
+    // Effect 13 - Half Slide
+    &[data-effect-type="half-slide"] {
+      figcaption {
+        top: 0;
+        left: 0;
+        text-align: center;
+        height: 100%;
+        @include translateY(100%);
+      }
+      img {
+        display: block;
+        position:relative;
+        transition: $caption-animations-duration;
+      }
+      &:hover, &:active {
+        img {
+          @include translateY(-50%);
+        }
+        figcaption {
+          @include translateY(50%);
+        }
+      }
+    }
+
+  }
 
 }
