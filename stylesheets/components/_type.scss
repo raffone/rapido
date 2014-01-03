@@ -34,7 +34,10 @@ body {
     color: $text-color;
 }
 
-img {max-width: 100%;}
+img {
+    max-width: 100%;
+    display:block
+}
 
 a, button, textarea, input { outline: none; }
 
