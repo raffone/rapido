@@ -260,7 +260,8 @@ Styleguide 25
 
 Debug Mode
 
-    $debug-mode:                        false   # Enable debug mode
+    $debug-html:                        false   # Enable debug html mode
+    $debug-outlines:                    false   # Enable debug outlines mode
     $default-styles:                    true    # Use default styles in _default-styles.scss
 
 Styleguide 25.1
@@ -294,6 +295,23 @@ Font families
     $titles-font-family:                $font-sans  # Default font family for titles
 
 Styleguide 25.3
+
+*/
+/*
+
+Prefixes
+
+Enable or disable specific broweser prefixes used by Compass mixins.
+
+    $experimental-support-for-mozilla:      true
+    $experimental-support-for-webkit:       true
+    $support-for-original-webkit-gradients: false
+    $experimental-support-for-opera:        false
+    $experimental-support-for-microsoft:    true
+    $experimental-support-for-khtml:        false
+
+
+Styleguide 25.4
 
 */
 /*
@@ -603,14 +621,14 @@ If true it generate a placeholder class for every animation with the default set
 
 Base settings for animations
 
-    $animations-duration:             .15s      # Duration
+    $animations-duration:             .50s      # Duration
     $animations-delay:                0s        # Start delay
     $animations-function:             ease-out  # Easing
     $animations-mode:                 both      # animation-fill-mode
 
 For transitions you can use other settings for duration and easing, by default the use the same settings as the animations.
 
-    $default-transition-duration:     $animations-duration
+    $default-transition-duration:     .15s
     $default-transition-function:     $animations-function
 
 Durations specifics for some  modules.
@@ -1019,7 +1037,6 @@ Styleguide 22.1
 .transition {
   -webkit-transition: all 0.15s ease-out;
   -moz-transition: all 0.15s ease-out;
-  -o-transition: all 0.15s ease-out;
   transition: all 0.15s ease-out;
 }
 
@@ -1552,7 +1569,6 @@ Styleguide 22.5
 .s {
   -webkit-transition: none;
   -moz-transition: none;
-  -o-transition: none;
   transition: none;
   content: "";
   display: inline-block;
@@ -1629,12 +1645,26 @@ Styleguide 22.6
 
 Debug mode
 
-Add different background colors and border for elements with different proprieties (has class, has id, has title, ect.),
-usefull for debugging code and finding errors. Taken form [Inuit](https://github.com/csswizardry/inuit.css).
+Add different background colors and border for elements with different
+proprieties (has class, has id, has title, ect.), usefull for debugging code
+and finding errors. Taken form [Inuit](https://github.com/csswizardry/inuit.css).
 
-Enable it with `$debug-mode: true;`.
+Enable it with `$debug-html: true;`.
 
 Styleguide 21
+
+*/
+/*
+
+Outlines
+
+More simple than `$debug-outlines`, it outline all elements in different colors
+to help differentiate them and visualize their placement on the page.
+Taken form [Pesticide](https://github.com/mrmrs/pesticide).
+
+Enable it with `$debug-outlines: true;`.
+
+Styleguide 21.1
 
 */
 /*
@@ -1668,19 +1698,17 @@ Styleguide 20.3
 
 */
 .fadeIn {
-  -webkit-animation: fadeIn 0.15s ease-out both;
-  -moz-animation: fadeIn 0.15s ease-out both;
-  -ms-animation: fadeIn 0.15s ease-out both;
-  -o-animation: fadeIn 0.15s ease-out both;
-  animation: fadeIn 0.15s ease-out both;
+  -webkit-animation: fadeIn 0.5s ease-out both;
+  -moz-animation: fadeIn 0.5s ease-out both;
+  -ms-animation: fadeIn 0.5s ease-out both;
+  animation: fadeIn 0.5s ease-out both;
 }
 
 .fadeOut {
-  -webkit-animation: fadeOut 0.15s ease-out both;
-  -moz-animation: fadeOut 0.15s ease-out both;
-  -ms-animation: fadeOut 0.15s ease-out both;
-  -o-animation: fadeOut 0.15s ease-out both;
-  animation: fadeOut 0.15s ease-out both;
+  -webkit-animation: fadeOut 0.5s ease-out both;
+  -moz-animation: fadeOut 0.5s ease-out both;
+  -ms-animation: fadeOut 0.5s ease-out both;
+  animation: fadeOut 0.5s ease-out both;
 }
 
 /*
@@ -1701,7 +1729,6 @@ Styleguide 20.4
   -webkit-animation-delay: 0.25s;
   -moz-animation-delay: 0.25s;
   -ms-animation-delay: 0.25s;
-  -o-animation-delay: 0.25s;
   animation-delay: 0.25s;
 }
 
@@ -1709,7 +1736,6 @@ Styleguide 20.4
   -webkit-animation-delay: 0.5s;
   -moz-animation-delay: 0.5s;
   -ms-animation-delay: 0.5s;
-  -o-animation-delay: 0.5s;
   animation-delay: 0.5s;
 }
 
@@ -1717,7 +1743,6 @@ Styleguide 20.4
   -webkit-animation-delay: 0.75s;
   -moz-animation-delay: 0.75s;
   -ms-animation-delay: 0.75s;
-  -o-animation-delay: 0.75s;
   animation-delay: 0.75s;
 }
 
@@ -1725,7 +1750,6 @@ Styleguide 20.4
   -webkit-animation-delay: 1s;
   -moz-animation-delay: 1s;
   -ms-animation-delay: 1s;
-  -o-animation-delay: 1s;
   animation-delay: 1s;
 }
 
@@ -1733,7 +1757,6 @@ Styleguide 20.4
   -webkit-animation-delay: 1.25s;
   -moz-animation-delay: 1.25s;
   -ms-animation-delay: 1.25s;
-  -o-animation-delay: 1.25s;
   animation-delay: 1.25s;
 }
 
@@ -1741,7 +1764,6 @@ Styleguide 20.4
   -webkit-animation-delay: 1.5s;
   -moz-animation-delay: 1.5s;
   -ms-animation-delay: 1.5s;
-  -o-animation-delay: 1.5s;
   animation-delay: 1.5s;
 }
 
@@ -1749,7 +1771,6 @@ Styleguide 20.4
   -webkit-animation-delay: 1.75s;
   -moz-animation-delay: 1.75s;
   -ms-animation-delay: 1.75s;
-  -o-animation-delay: 1.75s;
   animation-delay: 1.75s;
 }
 
@@ -1757,7 +1778,6 @@ Styleguide 20.4
   -webkit-animation-delay: 2s;
   -moz-animation-delay: 2s;
   -ms-animation-delay: 2s;
-  -o-animation-delay: 2s;
   animation-delay: 2s;
 }
 
@@ -2298,7 +2318,6 @@ textarea {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
-  -o-border-radius: 4px;
   border-radius: 4px;
 }
 
@@ -2558,7 +2577,6 @@ Styleguide 8.3
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
-  -o-border-radius: 3px;
   border-radius: 3px;
   border-style: solid;
   border-width: 1px;
@@ -2701,7 +2719,6 @@ Styleguide 8.6
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
-  -o-border-radius: 0;
   border-radius: 0;
   float: left;
   margin-left: -1px;
@@ -2711,7 +2728,6 @@ Styleguide 8.6
   -webkit-border-radius: 4px 0 0 4px;
   -moz-border-radius: 4px 0 0 4px;
   -ms-border-radius: 4px 0 0 4px;
-  -o-border-radius: 4px 0 0 4px;
   border-radius: 4px 0 0 4px;
 }
 .form__controls--multi > [type]:last-child,
@@ -2719,7 +2735,6 @@ Styleguide 8.6
   -webkit-border-radius: 0 4px 4px 0;
   -moz-border-radius: 0 4px 4px 0;
   -ms-border-radius: 0 4px 4px 0;
-  -o-border-radius: 0 4px 4px 0;
   border-radius: 0 4px 4px 0;
 }
 .form__controls--multi > ul.btn-group + * {
@@ -3026,7 +3041,6 @@ Styleguide 5
   -webkit-transform: translateY(100%);
   -moz-transform: translateY(100%);
   -ms-transform: translateY(100%);
-  -o-transform: translateY(100%);
   transform: translateY(100%);
 }
 .caption[data-effect-type="quarter-slide-up"]:hover figcaption, .caption[data-effect-type="quarter-slide-up"]:active figcaption {
@@ -3034,7 +3048,6 @@ Styleguide 5
   -webkit-transform: translateY(0);
   -moz-transform: translateY(0);
   -ms-transform: translateY(0);
-  -o-transform: translateY(0);
   transform: translateY(0);
 }
 .caption[data-effect-type="quarter-slide-side"] figcaption {
@@ -3044,7 +3057,6 @@ Styleguide 5
   -webkit-transform: translateX(100%);
   -moz-transform: translateX(100%);
   -ms-transform: translateX(100%);
-  -o-transform: translateX(100%);
   transform: translateX(100%);
 }
 .caption[data-effect-type="quarter-slide-side"]:hover figcaption, .caption[data-effect-type="quarter-slide-side"]:active figcaption {
@@ -3052,7 +3064,6 @@ Styleguide 5
   -webkit-transform: translateX(0);
   -moz-transform: translateX(0);
   -ms-transform: translateX(0);
-  -o-transform: translateX(0);
   transform: translateX(0);
 }
 .caption[data-effect-type="cover-fade"] figcaption {
@@ -3070,12 +3081,10 @@ Styleguide 5
   -webkit-transform: translateX(100%);
   -moz-transform: translateX(100%);
   -ms-transform: translateX(100%);
-  -o-transform: translateX(100%);
   transform: translateX(100%);
   -webkit-transform: rotate(20deg);
   -moz-transform: rotate(20deg);
   -ms-transform: rotate(20deg);
-  -o-transform: rotate(20deg);
   transform: rotate(20deg);
   opacity: 0;
 }
@@ -3083,12 +3092,10 @@ Styleguide 5
   -webkit-transform: translateX(0);
   -moz-transform: translateX(0);
   -ms-transform: translateX(0);
-  -o-transform: translateX(0);
   transform: translateX(0);
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
   transform: rotate(0deg);
   opacity: 1;
 }
@@ -3098,7 +3105,6 @@ Styleguide 5
   -webkit-transform: translateX(-100%);
   -moz-transform: translateX(-100%);
   -ms-transform: translateX(-100%);
-  -o-transform: translateX(-100%);
   transform: translateX(-100%);
   opacity: 0;
   z-index: 2;
@@ -3108,14 +3114,12 @@ Styleguide 5
   -webkit-transform: translateX(200%);
   -moz-transform: translateX(200%);
   -ms-transform: translateX(200%);
-  -o-transform: translateX(200%);
   transform: translateX(200%);
 }
 .caption[data-effect-type="quarter-two-step"]:hover figcaption, .caption[data-effect-type="quarter-two-step"]:active figcaption {
   -webkit-transform: translateX(0);
   -moz-transform: translateX(0);
   -ms-transform: translateX(0);
-  -o-transform: translateX(0);
   transform: translateX(0);
   opacity: 1;
 }
@@ -3123,7 +3127,6 @@ Styleguide 5
   -webkit-transform: translateX(0);
   -moz-transform: translateX(0);
   -ms-transform: translateX(0);
-  -o-transform: translateX(0);
   transform: translateX(0);
 }
 .caption[data-effect-type="cover-push-right"] figcaption {
@@ -3133,7 +3136,6 @@ Styleguide 5
   -webkit-transform: translateX(-100%);
   -moz-transform: translateX(-100%);
   -ms-transform: translateX(-100%);
-  -o-transform: translateX(-100%);
   transform: translateX(-100%);
   opacity: 0;
 }
@@ -3142,14 +3144,12 @@ Styleguide 5
   -webkit-transform: translateX(0);
   -moz-transform: translateX(0);
   -ms-transform: translateX(0);
-  -o-transform: translateX(0);
   transform: translateX(0);
 }
 .caption[data-effect-type="cover-push-right"]:hover figcaption, .caption[data-effect-type="cover-push-right"]:active figcaption {
   -webkit-transform: translateX(0);
   -moz-transform: translateX(0);
   -ms-transform: translateX(0);
-  -o-transform: translateX(0);
   transform: translateX(0);
   opacity: 1;
 }
@@ -3157,7 +3157,6 @@ Styleguide 5
   -webkit-transform: translateX(100%);
   -moz-transform: translateX(100%);
   -ms-transform: translateX(100%);
-  -o-transform: translateX(100%);
   transform: translateX(100%);
 }
 .caption[data-effect-type="cover-slide-top"] figcaption {
@@ -3167,7 +3166,6 @@ Styleguide 5
   -webkit-transform: translateY(-100%);
   -moz-transform: translateY(-100%);
   -ms-transform: translateY(-100%);
-  -o-transform: translateY(-100%);
   transform: translateY(-100%);
   opacity: 0;
 }
@@ -3178,7 +3176,6 @@ Styleguide 5
   -webkit-transform: translateY(0);
   -moz-transform: translateY(0);
   -ms-transform: translateY(0);
-  -o-transform: translateY(0);
   transform: translateY(0);
   opacity: 1;
 }
@@ -3188,7 +3185,6 @@ Styleguide 5
   -webkit-transform: scale(2, 2);
   -moz-transform: scale(2, 2);
   -ms-transform: scale(2, 2);
-  -o-transform: scale(2, 2);
   transform: scale(2, 2);
   text-align: center;
   opacity: 0;
@@ -3200,7 +3196,6 @@ Styleguide 5
   -webkit-transform: scale(1, 1);
   -moz-transform: scale(1, 1);
   -ms-transform: scale(1, 1);
-  -o-transform: scale(1, 1);
   transform: scale(1, 1);
   opacity: 1;
 }
@@ -3208,7 +3203,6 @@ Styleguide 5
   -webkit-transform: scale(1.1, 1.1);
   -moz-transform: scale(1.1, 1.1);
   -ms-transform: scale(1.1, 1.1);
-  -o-transform: scale(1.1, 1.1);
   transform: scale(1.1, 1.1);
 }
 .caption[data-effect-type="revolving-door-left"] {
@@ -3222,24 +3216,20 @@ Styleguide 5
   -webkit-perspective: 1300;
   -moz-perspective: 1300;
   -ms-perspective: 1300;
-  -o-perspective: 1300;
   perspective: 1300;
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
   -ms-transform: rotateY(180deg);
-  -o-transform: rotateY(180deg);
   transform: rotateY(180deg);
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
-  -o-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 .caption[data-effect-type="revolving-door-left"] img {
   -webkit-perspective: 1300;
   -moz-perspective: 1300;
   -ms-perspective: 1300;
-  -o-perspective: 1300;
   perspective: 1300;
   transition: 0.5s;
 }
@@ -3247,24 +3237,20 @@ Styleguide 5
   -webkit-perspective: 1300;
   -moz-perspective: 1300;
   -ms-perspective: 1300;
-  -o-perspective: 1300;
   perspective: 1300;
   -webkit-transform: rotateY(0deg);
   -moz-transform: rotateY(0deg);
   -ms-transform: rotateY(0deg);
-  -o-transform: rotateY(0deg);
   transform: rotateY(0deg);
 }
 .caption[data-effect-type="revolving-door-left"]:hover img, .caption[data-effect-type="revolving-door-left"]:active img {
   -webkit-perspective: 1300;
   -moz-perspective: 1300;
   -ms-perspective: 1300;
-  -o-perspective: 1300;
   perspective: 1300;
   -webkit-transform: rotateY(-180deg);
   -moz-transform: rotateY(-180deg);
   -ms-transform: rotateY(-180deg);
-  -o-transform: rotateY(-180deg);
   transform: rotateY(-180deg);
 }
 .caption[data-effect-type="revolving-door-right"] {
@@ -3278,24 +3264,20 @@ Styleguide 5
   -webkit-perspective: 1300;
   -moz-perspective: 1300;
   -ms-perspective: 1300;
-  -o-perspective: 1300;
   perspective: 1300;
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
   -ms-transform: rotateY(180deg);
-  -o-transform: rotateY(180deg);
   transform: rotateY(180deg);
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
-  -o-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 .caption[data-effect-type="revolving-door-right"] img {
   -webkit-perspective: 1300;
   -moz-perspective: 1300;
   -ms-perspective: 1300;
-  -o-perspective: 1300;
   perspective: 1300;
   transition: 0.5s;
 }
@@ -3303,24 +3285,20 @@ Styleguide 5
   -webkit-perspective: 1300;
   -moz-perspective: 1300;
   -ms-perspective: 1300;
-  -o-perspective: 1300;
   perspective: 1300;
   -webkit-transform: rotateY(360deg);
   -moz-transform: rotateY(360deg);
   -ms-transform: rotateY(360deg);
-  -o-transform: rotateY(360deg);
   transform: rotateY(360deg);
 }
 .caption[data-effect-type="revolving-door-right"]:hover img, .caption[data-effect-type="revolving-door-right"]:active img {
   -webkit-perspective: 1300;
   -moz-perspective: 1300;
   -ms-perspective: 1300;
-  -o-perspective: 1300;
   perspective: 1300;
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
   -ms-transform: rotateY(180deg);
-  -o-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
 .caption[data-effect-type="revolving-door-top"] {
@@ -3334,24 +3312,20 @@ Styleguide 5
   -webkit-perspective: 1300;
   -moz-perspective: 1300;
   -ms-perspective: 1300;
-  -o-perspective: 1300;
   perspective: 1300;
   -webkit-transform: rotateX(180deg);
   -moz-transform: rotateX(180deg);
   -ms-transform: rotateX(180deg);
-  -o-transform: rotateX(180deg);
   transform: rotateX(180deg);
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
-  -o-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 .caption[data-effect-type="revolving-door-top"] img {
   -webkit-perspective: 1300;
   -moz-perspective: 1300;
   -ms-perspective: 1300;
-  -o-perspective: 1300;
   perspective: 1300;
   transition: 0.5s;
 }
@@ -3359,24 +3333,20 @@ Styleguide 5
   -webkit-perspective: 1300;
   -moz-perspective: 1300;
   -ms-perspective: 1300;
-  -o-perspective: 1300;
   perspective: 1300;
   -webkit-transform: rotateX(360deg);
   -moz-transform: rotateX(360deg);
   -ms-transform: rotateX(360deg);
-  -o-transform: rotateX(360deg);
   transform: rotateX(360deg);
 }
 .caption[data-effect-type="revolving-door-top"]:hover img, .caption[data-effect-type="revolving-door-top"]:active img {
   -webkit-perspective: 1300;
   -moz-perspective: 1300;
   -ms-perspective: 1300;
-  -o-perspective: 1300;
   perspective: 1300;
   -webkit-transform: rotateX(180deg);
   -moz-transform: rotateX(180deg);
   -ms-transform: rotateX(180deg);
-  -o-transform: rotateX(180deg);
   transform: rotateX(180deg);
 }
 .caption[data-effect-type="revolving-door-bottom"] {
@@ -3390,24 +3360,20 @@ Styleguide 5
   -webkit-perspective: 1300;
   -moz-perspective: 1300;
   -ms-perspective: 1300;
-  -o-perspective: 1300;
   perspective: 1300;
   -webkit-transform: rotateX(180deg);
   -moz-transform: rotateX(180deg);
   -ms-transform: rotateX(180deg);
-  -o-transform: rotateX(180deg);
   transform: rotateX(180deg);
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
-  -o-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 .caption[data-effect-type="revolving-door-bottom"] img {
   -webkit-perspective: 1300;
   -moz-perspective: 1300;
   -ms-perspective: 1300;
-  -o-perspective: 1300;
   perspective: 1300;
   transition: 0.5s;
 }
@@ -3415,24 +3381,20 @@ Styleguide 5
   -webkit-perspective: 1300;
   -moz-perspective: 1300;
   -ms-perspective: 1300;
-  -o-perspective: 1300;
   perspective: 1300;
   -webkit-transform: rotateX(0deg);
   -moz-transform: rotateX(0deg);
   -ms-transform: rotateX(0deg);
-  -o-transform: rotateX(0deg);
   transform: rotateX(0deg);
 }
 .caption[data-effect-type="revolving-door-bottom"]:hover img, .caption[data-effect-type="revolving-door-bottom"]:active img {
   -webkit-perspective: 1300;
   -moz-perspective: 1300;
   -ms-perspective: 1300;
-  -o-perspective: 1300;
   perspective: 1300;
   -webkit-transform: rotateX(-180deg);
   -moz-transform: rotateX(-180deg);
   -ms-transform: rotateX(-180deg);
-  -o-transform: rotateX(-180deg);
   transform: rotateX(-180deg);
 }
 .caption[data-effect-type="offset"] {
@@ -3452,7 +3414,6 @@ Styleguide 5
   -webkit-transform: translate(15px, 15px);
   -moz-transform: translate(15px, 15px);
   -ms-transform: translate(15px, 15px);
-  -o-transform: translate(15px, 15px);
   transform: translate(15px, 15px);
   opacity: 1;
   z-index: 100;
@@ -3477,7 +3438,6 @@ Styleguide 5
   -webkit-transform: translateY(-100%);
   -moz-transform: translateY(-100%);
   -ms-transform: translateY(-100%);
-  -o-transform: translateY(-100%);
   transform: translateY(-100%);
 }
 .caption[data-effect-type="half-slide"] figcaption {
@@ -3488,7 +3448,6 @@ Styleguide 5
   -webkit-transform: translateY(100%);
   -moz-transform: translateY(100%);
   -ms-transform: translateY(100%);
-  -o-transform: translateY(100%);
   transform: translateY(100%);
 }
 .caption[data-effect-type="half-slide"] img {
@@ -3500,14 +3459,12 @@ Styleguide 5
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
   transform: translateY(-50%);
 }
 .caption[data-effect-type="half-slide"]:hover figcaption, .caption[data-effect-type="half-slide"]:active figcaption {
   -webkit-transform: translateY(50%);
   -moz-transform: translateY(50%);
   -ms-transform: translateY(50%);
-  -o-transform: translateY(50%);
   transform: translateY(50%);
 }
 
@@ -3534,7 +3491,6 @@ Styleguide 3
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
-  -o-border-radius: 4px;
   border-radius: 4px;
   border-style: solid;
   border-width: 1px;
@@ -3664,7 +3620,6 @@ Styleguide 3.4
   -webkit-border-radius: 200px;
   -moz-border-radius: 200px;
   -ms-border-radius: 200px;
-  -o-border-radius: 200px;
   border-radius: 200px;
 }
 
@@ -3686,7 +3641,6 @@ Styleguide 3.5
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
-  -o-border-radius: 0;
   border-radius: 0;
   border-color: transparent;
   background: none;
@@ -3755,7 +3709,6 @@ Styleguide 4
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
-  -o-border-radius: 0;
   border-radius: 0;
 }
 .btn-group > li + li {
@@ -3793,7 +3746,6 @@ div.btn-group .btn, div.btn-group #nav-toggle {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
-  -o-border-radius: 4px;
   border-radius: 4px;
 }
 
@@ -3924,7 +3876,6 @@ Styleguide 7.2
   left: 0px;
   -webkit-transition: all 0.15s ease-out;
   -moz-transition: all 0.15s ease-out;
-  -o-transition: all 0.15s ease-out;
   transition: all 0.15s ease-out;
   border-style: solid;
   border-width: 1px;
@@ -4032,7 +3983,6 @@ Styleguide 10
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
-  -o-border-radius: 4px;
   border-radius: 4px;
 }
 
@@ -4040,7 +3990,6 @@ Styleguide 10
   -webkit-border-radius: 500em;
   -moz-border-radius: 500em;
   -ms-border-radius: 500em;
-  -o-border-radius: 500em;
   border-radius: 500em;
 }
 
@@ -4193,7 +4142,6 @@ Styleguide 12
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
-  -o-border-radius: 4px;
   border-radius: 4px;
   margin-right: .25em;
 }
@@ -4237,7 +4185,6 @@ Styleguide 15
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     -ms-border-radius: 0;
-    -o-border-radius: 0;
     border-radius: 0;
     background: transparent;
     border: 0;
@@ -4442,7 +4389,6 @@ Styleguide 14
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
-  -o-border-radius: 4px;
   border-radius: 4px;
   display: -moz-inline-stack;
   display: inline-block;
@@ -4569,7 +4515,6 @@ Styleguide 13
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
-  -o-border-radius: 4px;
   border-radius: 4px;
   border-style: solid;
   border-width: 1px;
@@ -5423,7 +5368,6 @@ Styleguide 11
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
-  -o-border-radius: 4px;
   border-radius: 4px;
   display: inline-block;
   margin-right: -100%;
@@ -5730,7 +5674,6 @@ Styleguide 18
   -webkit-border-radius: 4px 4px 0 0;
   -moz-border-radius: 4px 4px 0 0;
   -ms-border-radius: 4px 4px 0 0;
-  -o-border-radius: 4px 4px 0 0;
   border-radius: 4px 4px 0 0;
 }
 .tabs .etabs li.active a {
@@ -5750,7 +5693,6 @@ Styleguide 18
   -webkit-border-radius: 0 4px 4px;
   -moz-border-radius: 0 4px 4px;
   -ms-border-radius: 0 4px 4px;
-  -o-border-radius: 0 4px 4px;
   border-radius: 0 4px 4px;
 }
 .tabs .panel-container > div {
@@ -5816,10 +5758,8 @@ input[type="color"], .form__select {
   -webkit-box-shadow: inset 0 1px 0 white;
   -moz-box-shadow: inset 0 1px 0 white;
   box-shadow: inset 0 1px 0 white;
-  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #ffffff), color-stop(100%, #f2f2f2));
   background-image: -webkit-linear-gradient(bottom, #ffffff 0%, #f2f2f2 100%);
   background-image: -moz-linear-gradient(bottom, #ffffff 0%, #f2f2f2 100%);
-  background-image: -o-linear-gradient(bottom, #ffffff 0%, #f2f2f2 100%);
   background-image: linear-gradient(bottom, #ffffff 0%, #f2f2f2 100%);
 }
 .input-text:focus,
@@ -5838,10 +5778,8 @@ input[type="url"]:focus,
 input[type="search"]:focus,
 input[type="tel"]:focus,
 input[type="color"]:focus, .form__select:focus {
-  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(50%, #ffffff), color-stop(100%, #f2f2f2));
   background-image: -webkit-linear-gradient(bottom, #ffffff 50%, #f2f2f2 100%);
   background-image: -moz-linear-gradient(bottom, #ffffff 50%, #f2f2f2 100%);
-  background-image: -o-linear-gradient(bottom, #ffffff 50%, #f2f2f2 100%);
   background-image: linear-gradient(bottom, #ffffff 50%, #f2f2f2 100%);
 }
 
@@ -5875,10 +5813,8 @@ Styleguide 30.3
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
   -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
-  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #d9d9d9), color-stop(100%, #f2f2f2));
   background-image: -webkit-linear-gradient(bottom, #d9d9d9 0%, #f2f2f2 100%);
   background-image: -moz-linear-gradient(bottom, #d9d9d9 0%, #f2f2f2 100%);
-  background-image: -o-linear-gradient(bottom, #d9d9d9 0%, #f2f2f2 100%);
   background-image: linear-gradient(bottom, #d9d9d9 0%, #f2f2f2 100%);
 }
 .btn--default:hover, .pagination > * li a:hover,
@@ -5889,10 +5825,8 @@ Styleguide 30.3
 .pagination > * li span:focus, .pager li a:focus,
 .pager li span:focus {
   color: inherit;
-  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #d9d9d9), color-stop(100%, #ffffff));
   background-image: -webkit-linear-gradient(bottom, #d9d9d9 0%, #ffffff 100%);
   background-image: -moz-linear-gradient(bottom, #d9d9d9 0%, #ffffff 100%);
-  background-image: -o-linear-gradient(bottom, #d9d9d9 0%, #ffffff 100%);
   background-image: linear-gradient(bottom, #d9d9d9 0%, #ffffff 100%);
 }
 .active.btn--default, .pagination > * li a.active,
@@ -5900,10 +5834,8 @@ Styleguide 30.3
 .pager li span.active, .btn--default:active, .pagination > * li a:active,
 .pagination > * li span:active, .pager li a:active,
 .pager li span:active {
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #d9d9d9), color-stop(100%, #f2f2f2));
   background-image: -webkit-linear-gradient(top, #d9d9d9 0%, #f2f2f2 100%);
   background-image: -moz-linear-gradient(top, #d9d9d9 0%, #f2f2f2 100%);
-  background-image: -o-linear-gradient(top, #d9d9d9 0%, #f2f2f2 100%);
   background-image: linear-gradient(top, #d9d9d9 0%, #f2f2f2 100%);
 }
 
@@ -5934,25 +5866,19 @@ Styleguide 30.3
   color: #fff;
   border-color: #004d00;
   background-color: green;
-  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #004d00), color-stop(100%, #008000));
   background-image: -webkit-linear-gradient(bottom, #004d00 0%, #008000 100%);
   background-image: -moz-linear-gradient(bottom, #004d00 0%, #008000 100%);
-  background-image: -o-linear-gradient(bottom, #004d00 0%, #008000 100%);
   background-image: linear-gradient(bottom, #004d00 0%, #008000 100%);
 }
 .btn--primary:hover, .hover.btn--primary, .btn--primary:focus {
   color: #fff;
-  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #004d00), color-stop(100%, #009f00));
   background-image: -webkit-linear-gradient(bottom, #004d00 0%, #009f00 100%);
   background-image: -moz-linear-gradient(bottom, #004d00 0%, #009f00 100%);
-  background-image: -o-linear-gradient(bottom, #004d00 0%, #009f00 100%);
   background-image: linear-gradient(bottom, #004d00 0%, #009f00 100%);
 }
 .active.btn--primary, .btn--primary:active {
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #004d00), color-stop(100%, #008000));
   background-image: -webkit-linear-gradient(top, #004d00 0%, #008000 100%);
   background-image: -moz-linear-gradient(top, #004d00 0%, #008000 100%);
-  background-image: -o-linear-gradient(top, #004d00 0%, #008000 100%);
   background-image: linear-gradient(top, #004d00 0%, #008000 100%);
 }
 
@@ -5960,25 +5886,19 @@ Styleguide 30.3
   color: #fff;
   border-color: #cc0000;
   background-color: red;
-  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #cc0000), color-stop(100%, #ff0000));
   background-image: -webkit-linear-gradient(bottom, #cc0000 0%, #ff0000 100%);
   background-image: -moz-linear-gradient(bottom, #cc0000 0%, #ff0000 100%);
-  background-image: -o-linear-gradient(bottom, #cc0000 0%, #ff0000 100%);
   background-image: linear-gradient(bottom, #cc0000 0%, #ff0000 100%);
 }
 .btn--secondary:hover, .hover.btn--secondary, .btn--secondary:focus {
   color: #fff;
-  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #cc0000), color-stop(100%, #ff6666));
   background-image: -webkit-linear-gradient(bottom, #cc0000 0%, #ff6666 100%);
   background-image: -moz-linear-gradient(bottom, #cc0000 0%, #ff6666 100%);
-  background-image: -o-linear-gradient(bottom, #cc0000 0%, #ff6666 100%);
   background-image: linear-gradient(bottom, #cc0000 0%, #ff6666 100%);
 }
 .active.btn--secondary, .hover.btn--secondary, .btn--secondary:active {
-  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #cc0000), color-stop(100%, #ff0000));
   background-image: -webkit-linear-gradient(bottom, #cc0000 0%, #ff0000 100%);
   background-image: -moz-linear-gradient(bottom, #cc0000 0%, #ff0000 100%);
-  background-image: -o-linear-gradient(bottom, #cc0000 0%, #ff0000 100%);
   background-image: linear-gradient(bottom, #cc0000 0%, #ff0000 100%);
 }
 
@@ -6282,7 +6202,6 @@ Styleguide 30.12
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
-  -o-border-radius: 4px;
   border-radius: 4px;
   background: #fff;
 }
@@ -6340,7 +6259,6 @@ Styleguide 30.13
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
-  -o-border-radius: 5px;
   border-radius: 5px;
   width: 10px;
   height: 10px;
