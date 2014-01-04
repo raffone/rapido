@@ -763,6 +763,6 @@ Styleguide 23.22
   $function: $animations-function,
   $mode: $animations-mode
 ) {
-    @include experimental(animation, $name $duration $delay $function $mode);
+    @include experimental(animation, $name $duration $delay toBezier($function) $mode);
 }
 
