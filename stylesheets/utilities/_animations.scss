@@ -148,18 +148,11 @@ Styleguide 20.4
 
 @if $animations-classes {
     $delays: 0.25s, 0.50s, 0.75s, 1.00s, 1.25s, 1.50s, 1.75s, 2.00s;
-    @each $delay in $delays {
-        $delay-stripped: "";
-        @if($delay == 0.25s) { $delay-stripped: 025; }
-        @if($delay == 0.50s) { $delay-stripped: 050; }
-        @if($delay == 0.75s) { $delay-stripped: 075; }
-        @if($delay == 1.00s) { $delay-stripped: 100; }
-        @if($delay == 1.25s) { $delay-stripped: 125; }
-        @if($delay == 1.50s) { $delay-stripped: 150; }
-        @if($delay == 1.75s) { $delay-stripped: 175; }
-        @if($delay == 2.00s) { $delay-stripped: 200; }
-        .delay-#{$delay-stripped} {
-            @include experimental(animation-delay, $delay);
+    $delays-classes: 25, 50, 75, 100, 125, 150, 175, 200;
+
+    @for $i from 0 to length($delays) {
+        .delay-#{nth($delays-classes, ($i + 1))} {
+            @include experimental(animation-delay, nth($delays, ($i + 1)));
         }
     }
 }
