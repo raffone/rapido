@@ -12,7 +12,9 @@ Markup:
 </div>
 <script type="text/javascript">
   $(document).ready(function() {
-    $(".open__modal").fancybox();
+    $(".open__modal").fancybox({
+      margin: [20, 60, 20, 60],
+    });
   });
 </script>
 
@@ -78,7 +80,7 @@ Styleguide 11
             &.fancybox-type-ajax {
 
                 .fancybox-close {
-                    @extend %modal__close--alt !optional;
+                    @extend %modal__close !optional;
                 }
             }
 
@@ -256,6 +258,7 @@ Markup:
       prevEffect : 'none',
       nextEffect : 'none',
       closeBtn   : false,
+      margin: [20, 60, 20, 60],
       helpers    : {
         title    : { type : 'inside' },
         buttons  : {}
@@ -315,6 +318,7 @@ Markup:
     $(".fancybox-thumb").fancybox({
       prevEffect : 'none',
       nextEffect : 'none',
+      margin: [20, 60, 20, 60],
       helpers    : {
         title    : {
           type: 'outside'
