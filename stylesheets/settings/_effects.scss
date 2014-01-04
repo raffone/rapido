@@ -14,14 +14,14 @@ If true it generate a placeholder class for every animation with the default set
 
 Base settings for animations
 
-    $animations-duration:             .15s      # Duration
+    $animations-duration:             .50s      # Duration
     $animations-delay:                0s        # Start delay
     $animations-function:             ease-out  # Easing
     $animations-mode:                 both      # animation-fill-mode
 
 For transitions you can use other settings for duration and easing, by default the use the same settings as the animations.
 
-    $default-transition-duration:     $animations-duration
+    $default-transition-duration:     .15s
     $default-transition-function:     $animations-function
 
 Durations specifics for some  modules.
@@ -36,12 +36,12 @@ Styleguide 20.1
 $animations:                        fadeIn, fadeOut                                                         !default;
 $animations-classes:                true                                                                    !default;
 
-$animations-duration:               .15s                                                                    !default;
+$animations-duration:               .50s                                                                    !default;
 $animations-delay:                  null                                                                    !default;
 $animations-function:               ease-out                                                                !default;
 $animations-mode:                   both                                                                    !default;
 
-$default-transition-duration:       $animations-duration                                                    !default;
+$default-transition-duration:       .15s                                                                    !default;
 $default-transition-function:       toBezier($animations-function)                                          !default;
 
 $caption-animations-duration:       .50s                                                                    !default;
