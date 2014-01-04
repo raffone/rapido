@@ -398,9 +398,25 @@ Styleguide 30.12
 
 */
 
-
-
     // Buttons
+
+    .btnPlay:after              { @include icon-font(\f04b); }
+    .btnPlayOn:after            { @include icon-font(\f04c); }
+    .btnToggle:after            { @include icon-font(\f065); }
+    .btnToggleOn:after          { @include icon-font(\f066); }
+    .btnPrev:after              { @include icon-font(\f04a); }
+    .btnNext:after              { @include icon-font(\f051); }
+    .btnClose:after             { @include icon-font(\f00d); }
+    .fancybox-close:after       { @include icon-font(\f00d); }
+
+    .fancybox-prev {
+      span:after   { @include icon-font(\f053); }
+    }
+
+    .fancybox-next {
+      span:after   { @include icon-font(\f054); }
+    }
+
     %modal__btn {
         @extend %btn--scripts;
         @include square($modal-btn-size);
@@ -410,6 +426,10 @@ Styleguide 30.12
     %modal__close {
         $offset: -$modal-btn-size;
         @include position(absolute, $offset .5em 0 0);
+        color: #CCCCCC;
+        &:hover {
+          color: #FFFFFF;
+        }
     }
 
     %modal__close--alt {
@@ -421,7 +441,9 @@ Styleguide 30.12
         }
     }
 
-    %modal__btnbar-size {@include size($modal-btn-size, $modal-btn-size * 5);}
+    %modal__btnbar-size {
+      @include size($modal-btn-size, $modal-btn-size * 5);
+    }
 
     // Other styles
     %modal__overlay {
@@ -433,17 +455,6 @@ Styleguide 30.12
         @include border-radius($base-border-radius);
         background: #fff;
 
-        // Icons
-        .fancybox-close:after       { @include icon-font(\f00d); }
-        .fancybox-prev span:after   { @include icon-font(\f053); }
-        .fancybox-next span:after   { @include icon-font(\f054); }
-        .btnPrev:after              { @include icon-font(\f04a); }
-        .btnNext:after              { @include icon-font(\f051); }
-        .btnPlay:after              { @include icon-font(\f04b); }
-        .btnPlayOn:after            { @include icon-font(\f04c); }
-        .btnToggle:after            { @include icon-font(\f065); }
-        .btnToggleOn:after          { @include icon-font(\f066); }
-        .btnClose:after             { @include icon-font(\f00d); }
     }
 
     %modal__nav { margin-top: (0 - ($modal-btn-size / 2)); }

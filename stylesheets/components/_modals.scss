@@ -141,6 +141,8 @@ Styleguide 11
     .fancybox-image {
         max-width: 100%;
         max-height: 100%;
+        z-index:($zindex-modal + 5);
+        position: relative;
         // @include border-radius($base-border-radius);
     }
 
@@ -149,14 +151,14 @@ Styleguide 11
         @include position(fixed, 50% 0 0 50%);
         @extend %modal__loading !optional;
         cursor: pointer;
-        z-index: $zindex-modal +4;
+        z-index: ($zindex-modal + 4);
     }
 
 
 // Buttons and Navigation
 
     .fancybox-close {
-        @extend %modal__btn !optional;
+        /*@extend %modal__btn !optional;*/
         @extend %modal__close !optional;
         // @include border-radius($base-border-radius);
         z-index: ($zindex-modal + 3);
@@ -172,19 +174,19 @@ Styleguide 11
             @extend %modal__btn !optional;
             @extend %modal__nav !optional;
             @include position(absolute, 50% 0 0 0);
-            @include opacity(0);
+            /*@include opacity(0);*/
             z-index: ($zindex-modal + 2);
         }
 
-        &:hover span { @include opacity(1); }
+        /*&:hover span { @include opacity(1); }*/
 
         &.fancybox-prev {
-            left: 0;
+            left: -60px;
             span { left: 0; }
         }
 
         &.fancybox-next {
-            right: 0;
+            right: -60px;
             span { right: 0; }
         }
     }
