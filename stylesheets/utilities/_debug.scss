@@ -2,16 +2,17 @@
 
 Debug mode
 
-Add different background colors and border for elements with different proprieties (has class, has id, has title, ect.),
-usefull for debugging code and finding errors. Taken form [Inuit](https://github.com/csswizardry/inuit.css).
+Add different background colors and border for elements with different
+proprieties (has class, has id, has title, ect.), usefull for debugging code
+and finding errors. Taken form [Inuit](https://github.com/csswizardry/inuit.css).
 
-Enable it with `$debug-mode: true;`.
+Enable it with `$debug-html: true;`.
 
 Styleguide 21
 
 */
 
-@if $debug-mode {
+@if $debug-html {
 
     :empty { outline:5px solid yellow;}
 
@@ -68,4 +69,33 @@ Styleguide 21
         div.btn-group:last-child > .btn                 { background: teal !important; }
     }
 
+}
+
+/*
+
+Outlines
+
+More simple than `$debug-outlines`, it outline all elements in different colors
+to help differentiate them and visualize their placement on the page.
+Taken form [Pesticide](https://github.com/mrmrs/pesticide).
+
+Enable it with `$debug-outlines: true;`.
+
+Styleguide 21.1
+
+*/
+
+
+@if $debug-outlines == true {
+    $selector: a,  abbr, address, article, blockquote, caption, code, div, dl, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hr, img, input, label, legend, li, nav, ol, option, p, pre, progress, s, samp, sbd, section, select, code, small, span, sub, submit, sup, table, tbody, td, textarea, tfoot, th, thead, time, tr, ul, var;
+    $color: crimson,  aqua, aquamarine, blueviolet, cadetblue, cornflowerblue, coral, orchid, darkcyan, darkmagenta, darkorange, deeppink, gold, goldenrod, greenyellow, lavender, lightblue, lightcoral, lightcyan, lightgreen, lightsalmon, lightseagreen, lightskyblue, mediumaquamarine, mediumorchid, orangered, palevioletred, plum, purple, royalblue, tomato, turquoise, violet, yellow, sandybrown, brown, powderblue, palegreen, navy, mediumpurple, mediumslateblue, mintcream, mistyrose, moccasin, black, gray, dodgerblue, dimgray, deepskyblue, green, lightsteelblue, lightslategray, lime, limegreen, firebrick;
+    #{$selector} {
+        outline-width: 1px;
+        outline-style: solid;
+    }
+    @for $i from 0 to length($selector) {
+        #{nth($selector, ($i + 1))} {
+            outline-color: nth($color, ($i + 1));
+        }
+    }
 }
