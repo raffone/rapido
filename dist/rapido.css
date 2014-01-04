@@ -615,7 +615,7 @@ For transitions you can use other settings for duration and easing, by default t
 
 Durations specifics for some  modules.
 
-    $caption-animations-duration:       .30s
+    $caption-animations-duration:       .50s
 
 
 Styleguide 20.1
@@ -1903,7 +1903,7 @@ body {
 
 img {
   max-width: 100%;
-  display: block;
+  display: inline-block;
 }
 
 a, button, textarea, input {
@@ -2973,7 +2973,6 @@ Markup:
 </figure>
 
 cover-fade - Cover Fade
-
 cover-push-right - Cover Push Right
 cover-slide-top - Cover Slide Top
 guillotine-reverse - Guillotine Reverse / Reveal Up
@@ -5250,7 +5249,9 @@ Markup:
 </div>
 <script type="text/javascript">
   $(document).ready(function() {
-    $(".open__modal").fancybox();
+    $(".open__modal").fancybox({
+      margin: [20, 60, 20, 60],
+    });
   });
 </script>
 
@@ -5352,6 +5353,8 @@ Styleguide 11
 .fancybox-image {
   max-width: 100%;
   max-height: 100%;
+  z-index: 1055;
+  position: relative;
 }
 
 #fancybox-loading {
@@ -5363,6 +5366,7 @@ Styleguide 11
 }
 
 .fancybox-close {
+  /*@extend %modal__btn !optional;*/
   z-index: 1053;
 }
 
@@ -5373,26 +5377,22 @@ Styleguide 11
   width: 40%;
   height: 100%;
   z-index: 1052;
+  /*&:hover span { @include opacity(1); }*/
 }
 .fancybox-nav span {
   position: absolute;
   top: 50%;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
+  /*@include opacity(0);*/
   z-index: 1052;
 }
-.fancybox-nav:hover span {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-  opacity: 1;
-}
 .fancybox-nav.fancybox-prev {
-  left: 0;
+  left: -60px;
 }
 .fancybox-nav.fancybox-prev span {
   left: 0;
 }
 .fancybox-nav.fancybox-next {
-  right: 0;
+  right: -60px;
 }
 .fancybox-nav.fancybox-next span {
   right: 0;
@@ -5465,6 +5465,7 @@ Markup:
       prevEffect : 'none',
       nextEffect : 'none',
       closeBtn   : false,
+      margin: [20, 60, 20, 60],
       helpers    : {
         title    : { type : 'inside' },
         buttons  : {}
@@ -5530,6 +5531,7 @@ Markup:
     $(".fancybox-thumb").fancybox({
       prevEffect : 'none',
       nextEffect : 'none',
+      margin: [20, 60, 20, 60],
       helpers    : {
         title    : {
           type: 'outside'
@@ -5980,7 +5982,7 @@ Styleguide 30.3
   background-image: linear-gradient(bottom, #cc0000 0%, #ff0000 100%);
 }
 
-.fancybox-close, .fancybox-nav span, #fancybox-buttons ul li a, .bx-controls-direction a {
+.fancybox-nav span, #fancybox-buttons ul li a, .bx-controls-direction a {
   background: black;
   background: rgba(0, 0, 0, 0.6);
   color: #fff;
@@ -5989,7 +5991,7 @@ Styleguide 30.3
   text-align: center;
   text-decoration: none;
 }
-.fancybox-close:hover, .fancybox-nav span:hover, #fancybox-buttons ul li a:hover, .bx-controls-direction a:hover {
+.fancybox-nav span:hover, #fancybox-buttons ul li a:hover, .bx-controls-direction a:hover {
   color: #fff;
   background: black;
   background: rgba(0, 0, 0, 0.8);
@@ -6178,7 +6180,6 @@ Modals
 
     %modal__btn                     # For all button links in modals
     %modal__close                   # For the default close button
-    %modal__close--alt              # Alternative style for close button in iframes
     %modal__btnbar-size             # Width and height of #fancybox-buttons
     %modal__overlay                 # Color of background overlay
     %modal__skin                    # For the modal window
@@ -6189,27 +6190,80 @@ Modals
 Styleguide 30.12
 
 */
-.fancybox-close, .fancybox-nav span, #fancybox-buttons ul li a {
+.btnPlay:after {
+  display: inline-block;
+  font-family: "FontAwesome";
+  content: "\f04b";
+}
+
+.btnPlayOn:after {
+  display: inline-block;
+  font-family: "FontAwesome";
+  content: "\f04c";
+}
+
+.btnToggle:after {
+  display: inline-block;
+  font-family: "FontAwesome";
+  content: "\f065";
+}
+
+.btnToggleOn:after {
+  display: inline-block;
+  font-family: "FontAwesome";
+  content: "\f066";
+}
+
+.btnPrev:after {
+  display: inline-block;
+  font-family: "FontAwesome";
+  content: "\f04a";
+}
+
+.btnNext:after {
+  display: inline-block;
+  font-family: "FontAwesome";
+  content: "\f051";
+}
+
+.btnClose:after {
+  display: inline-block;
+  font-family: "FontAwesome";
+  content: "\f00d";
+}
+
+.fancybox-close:after {
+  display: inline-block;
+  font-family: "FontAwesome";
+  content: "\f00d";
+}
+
+.fancybox-prev span:after {
+  display: inline-block;
+  font-family: "FontAwesome";
+  content: "\f053";
+}
+
+.fancybox-next span:after {
+  display: inline-block;
+  font-family: "FontAwesome";
+  content: "\f054";
+}
+
+.fancybox-nav span, #fancybox-buttons ul li a {
   width: 2.14286em;
   height: 2.14286em;
   line-height: 2.14286em;
 }
 
-.fancybox-close {
+.fancybox-overlay .fancybox-wrap.fancybox-type-inline .fancybox-close, .fancybox-overlay .fancybox-wrap.fancybox-type-iframe .fancybox-close, .fancybox-overlay .fancybox-wrap.fancybox-type-ajax .fancybox-close, .fancybox-close {
   position: absolute;
   top: -2.14286em;
   right: 0.5em;
+  color: #CCCCCC;
 }
-
-.fancybox-overlay .fancybox-wrap.fancybox-type-inline .fancybox-close, .fancybox-overlay .fancybox-wrap.fancybox-type-iframe .fancybox-close, .fancybox-overlay .fancybox-wrap.fancybox-type-ajax .fancybox-close {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  background-color: transparent;
-  color: #0066cc;
-}
-.fancybox-overlay .fancybox-wrap.fancybox-type-inline .fancybox-close:hover, .fancybox-overlay .fancybox-wrap.fancybox-type-iframe .fancybox-close:hover, .fancybox-overlay .fancybox-wrap.fancybox-type-ajax .fancybox-close:hover {
-  color: #004c99;
+.fancybox-overlay .fancybox-wrap.fancybox-type-inline .fancybox-close:hover, .fancybox-overlay .fancybox-wrap.fancybox-type-iframe .fancybox-close:hover, .fancybox-overlay .fancybox-wrap.fancybox-type-ajax .fancybox-close:hover, .fancybox-close:hover {
+  color: #FFFFFF;
 }
 
 #fancybox-buttons ul {
@@ -6231,56 +6285,6 @@ Styleguide 30.12
   -o-border-radius: 4px;
   border-radius: 4px;
   background: #fff;
-}
-.fancybox-overlay .fancybox-wrap .fancybox-skin .fancybox-close:after {
-  display: inline-block;
-  font-family: "FontAwesome";
-  content: "\f00d";
-}
-.fancybox-overlay .fancybox-wrap .fancybox-skin .fancybox-prev span:after {
-  display: inline-block;
-  font-family: "FontAwesome";
-  content: "\f053";
-}
-.fancybox-overlay .fancybox-wrap .fancybox-skin .fancybox-next span:after {
-  display: inline-block;
-  font-family: "FontAwesome";
-  content: "\f054";
-}
-.fancybox-overlay .fancybox-wrap .fancybox-skin .btnPrev:after {
-  display: inline-block;
-  font-family: "FontAwesome";
-  content: "\f04a";
-}
-.fancybox-overlay .fancybox-wrap .fancybox-skin .btnNext:after {
-  display: inline-block;
-  font-family: "FontAwesome";
-  content: "\f051";
-}
-.fancybox-overlay .fancybox-wrap .fancybox-skin .btnPlay:after {
-  display: inline-block;
-  font-family: "FontAwesome";
-  content: "\f04b";
-}
-.fancybox-overlay .fancybox-wrap .fancybox-skin .btnPlayOn:after {
-  display: inline-block;
-  font-family: "FontAwesome";
-  content: "\f04c";
-}
-.fancybox-overlay .fancybox-wrap .fancybox-skin .btnToggle:after {
-  display: inline-block;
-  font-family: "FontAwesome";
-  content: "\f065";
-}
-.fancybox-overlay .fancybox-wrap .fancybox-skin .btnToggleOn:after {
-  display: inline-block;
-  font-family: "FontAwesome";
-  content: "\f066";
-}
-.fancybox-overlay .fancybox-wrap .fancybox-skin .btnClose:after {
-  display: inline-block;
-  font-family: "FontAwesome";
-  content: "\f00d";
 }
 
 .fancybox-nav span {
