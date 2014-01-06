@@ -28,6 +28,7 @@ $white:                                 lighten($black, 100);
 
 Default colors
 
+    $body-color:                        #FFFFFF
     $text-color:                        #333
 
     $link-color:                        #0066cc
@@ -37,6 +38,7 @@ Styleguide 26.1
 
 */
 
+$body-color:                            #FFFFFF                                                             !default;
 $text-color:                            #333                                                                !default;
 
 $link-color:                            #0066cc                                                             !default;
