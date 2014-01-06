@@ -1,0 +1,264 @@
+/*
+
+Off-Canvas
+
+There's available a nice off-canvas sidebar functionality adapted from [Codrops](http://tympanus.net/codrops/2013/08/28/transitions-for-off-canvas-navigations).
+
+    <div id="st-container" class="st-container">
+      <nav class="st-menu">
+        [...nav content...]
+      </nav>
+      <div class="st-pusher">
+        <div class="st-content">
+          [...main content...]
+        </div>
+      </div>
+    </div>
+
+Download and link at the top of the page the following scripts:
+
+* https://github.com/raffone/SidebarTransitions/blob/master/js/modernizr.custom.js
+
+Download and link at the bottom of the page the following scripts:
+
+* https://github.com/raffone/SidebarTransitions/blob/master/js/classie.js
+* https://github.com/raffone/SidebarTransitions/blob/master/js/sidebarEffects.js
+
+For opening and closing the sidebar add the class `st-menu-toggle` to a link or button.
+
+Styleguide 15
+
+*/
+
+
+@if $offcanvas {
+
+  $if-left: null;
+  $if-right: null;
+  $if-3d: null;
+  $if-width: null;
+
+  @if $offcanvas-direction == 'left' {
+    $if-left: 0px;
+    $if-right: 0;
+    $if-3d: -100%;
+    $if-width: $offcanvas-width;
+  } @else {
+    $if-left: 0;
+    $if-right: 0px;
+    $if-3d: 100%;
+    $if-width: neg($offcanvas-width);
+  }
+
+  html,
+  body,
+  .st-container,
+  .st-pusher,
+  .st-content {
+    height: 100%;
+
+  }
+
+  .st-container {
+    overflow: hidden;
+    position: relative;
+  }
+
+  // ----------------------------------------------------------------------------
+
+  .st-pusher {
+    @include position(relative, 0 $if-right 0 $if-left);
+    @include transition(transform $offcanvas-animations-duration);
+    z-index: $zindex-offcanvas;
+
+
+    &::after {
+      @include opacity(0);
+      @include position(absolute, 0px $if-left 0 $if-right);
+      @include square(0);
+      @include transition(opacity $offcanvas-animations-duration, width $offcanvas-animations-duration/4 $offcanvas-animations-duration);
+      content: '';
+
+      @if $offcanvas-dim {
+        @extend %nav--offcanvas__dim;
+      }
+    }
+  }
+
+  .st-content {
+    overflow-y: auto;
+    position: relative;
+    background: $body-color;
+  }
+
+  // .st-content-inner {
+  //   position: relative;
+  // }
+
+  // ----------------------------------------------------------------------------
+
+  .st-menu-toggle {
+      @extend %nav--offcanvas__toggle !optional;
+  }
+
+  .st-menu-open {
+
+    .st-pusher::after {
+      @include opacity(1);
+      @include square(100%);
+      @include transition(opacity $offcanvas-animations-duration);
+    }
+
+    .st-menu::after {
+      @include opacity(0);
+      @include square(0);
+      @include transition(opacity $offcanvas-animations-duration, width $offcanvas-animations-duration/4 $offcanvas-animations-duration);
+    }
+  }
+
+  .st-menu {
+    @extend %nav--offcanvas;
+    @include position(absolute, 0px $if-right 0 $if-left);
+    @include size(100%, $offcanvas-width);
+    @include transition(all $offcanvas-animations-duration);
+    overflow-y: auto;
+    visibility: hidden;
+    z-index: $zindex-offcanvas+1;
+
+    &::after {
+      @include opacity(1);
+      @include position(absolute, 0px $if-left 0 $if-right);
+      @include square(100%);
+      @include transition(opacity $offcanvas-animations-duration);
+      content: '';
+
+      @if $offcanvas-dim {
+        @extend %nav--offcanvas__dim;
+      }
+    }
+
+  }
+
+  // ----------------------------------------------------------------------------
+
+  @if $offcanvas-effect == 'cover' {
+
+    .st-container {
+
+      .st-menu {
+        @include translate3d($if-3d, 0, 0);
+        visibility: visible;
+
+        &::after {
+          display: none;
+        }
+      }
+
+      &.st-menu-open {
+
+        .st-menu {
+          @include translate3d(0, 0, 0);
+          visibility: visible;
+        }
+      }
+    }
+  }
+
+  // ----------------------------------------------------------------------------
+
+  @if $offcanvas-effect == 'reveal' {
+
+    .st-container {
+
+      &.st-menu-open {
+
+        .st-pusher {
+          @include translate3d($if-width, 0, 0);
+        }
+
+        .st-menu {
+          @include transition(transform $offcanvas-animations-duration);
+          visibility: visible;
+        }
+      }
+
+      .st-menu {
+        z-index: 1;
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  // ----------------------------------------------------------------------------
+
+  @if $offcanvas-effect == 'push' {
+
+    .st-container {
+
+      &.st-menu-open {
+
+        .st-pusher {
+          @include translate3d($if-width, 0, 0);
+        }
+
+        .st-menu {
+          @include transition(transform $offcanvas-animations-duration);
+          visibility: visible;
+          @include translate3d(0, 0, 0);
+        }
+      }
+
+      .st-menu {
+        @include translate3d($if-3d, 0, 0);
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  // ----------------------------------------------------------------------------
+
+  @if $offcanvas-effect == 'slide' {
+
+    .st-container {
+
+      &.st-menu-open {
+
+        .st-pusher {
+          @include translate3d($if-width, 0, 0);
+        }
+
+        .st-menu {
+          @include transition(transform $offcanvas-animations-duration);
+          @include translate3d(0, 0, 0);
+          visibility: visible;
+        }
+      }
+
+      .st-menu {
+        z-index: 1;
+        @include translate3d($if-3d/2, 0, 0);
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  // ----------------------------------------------------------------------------
+
+  .no-csstransforms3d .st-pusher {
+    padding-left: $offcanvas-width;
+  }
+
+  .no-js .st-pusher {
+    padding-left: $offcanvas-width;
+  }
+
+}

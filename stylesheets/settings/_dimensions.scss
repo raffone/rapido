@@ -255,27 +255,22 @@ $container-style:                   fluid                                       
 
 /*
 
-Nav Responsive Options
+Off-Canvas Options
 
-    $navs-responsive-breakpoint:        palm    # On what step to switch to the responsive nav
-    $navs-responsive-type:              slide   # Responsive nav style: slide or off-canvas
-    $navs-responsive-dropdown-pos:      right   # Position of the button to open the nav
-    $navs-responsive-offset:            70%     # How mutch to slide when using off-canvas
+    $offcanvas-width:              300px    # Width of the sidebar
+    $offcanvas-direction:          left     # On what side appear
+    $offcanvas-dim:                true     # Dim over the content on open
+    $offcanvas-effect:             slide    # cover, reveal, push, slide
 
-    $navs-responsive-outside-wrapper:   '.external-wrapper'
-    $navs-responsive-inside-wrapper:    '.internal-wrapper'
-
-Styleguide 28.8
+Styleguide 15.1
 
 */
 
-$navs-responsive-breakpoint:        palm                                                                    !default;
-$navs-responsive-type:              slide                                                                   !default;
-$navs-responsive-dropdown-pos:      right                                                                   !default;
-$navs-responsive-offset:            70%                                                                     !default;
 
-$navs-responsive-outside-wrapper:   '.external-wrapper'                                                     !default;
-$navs-responsive-inside-wrapper:    '.internal-wrapper'                                                     !default;
+$offcanvas-width:                   300px                                                                   !default;
+$offcanvas-direction:               left                                                                    !default;
+$offcanvas-dim:                     true                                                                    !default;
+$offcanvas-effect:                  slide                                                                   !default;
 
 /*
 
@@ -283,6 +278,7 @@ Z-index
 
 Default settings for overlay components, taken from Bootstrap.
 
+    $zindex-offcanvas:              990     # OffCanvas
     $zindex-dropdown:               1000    # Dropdowns
     $zindex-popover:                1010    # Popovers
     $zindex-tooltip:                1030    # Tooltips
@@ -294,6 +290,7 @@ Styleguide 28.9
 */
 
 
+$zindex-offcanvas:                  990                                                                     !default;
 $zindex-dropdown:                   1000                                                                    !default;
 $zindex-popover:                    1010                                                                    !default;
 $zindex-tooltip:                    1030                                                                    !default;

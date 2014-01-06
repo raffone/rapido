@@ -569,9 +569,10 @@ Styleguide 30.15
 
 /*
 
-Responsive Nav
+OffCanvas Nav
 
-    %nav--responsive                # For the open nav state in responsive mode
+    %nav--offcanvas                 #
+    %nav--offcanvas__dim            #
     %nav__toggle                    # For the toggle open/close button in responsive mode
 
 Styleguide 30.16
@@ -579,23 +580,25 @@ Styleguide 30.16
 */
 
 
-    %nav--responsive {
-        background-color: $grayLighter;
+    %nav--offcanvas {
+        background-color: $grayDark;
+        padding: $wrapper-padding;
+        color: $white;
 
-        a { padding: nth($btn-padding, 1) $wrapper-padding; }
-
-        > ul > li > a {
-            font-weight: bold;
-            background-color: $grayLight;
+        a {
+            color: $white;
         }
-
     }
 
-    %nav__toggle {
+    %nav--offcanvas__dim {
+        background: rgba(0,0,0,0.2);
+    }
+
+    %nav--offcanvas__toggle {
         @extend .btn;
 
         span {
-            @include hide-text();
+            @extend .visuallyhidden;
         }
 
         &:before {
