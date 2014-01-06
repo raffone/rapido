@@ -80,7 +80,7 @@
               
               <li class="kss-menu-item"><a href="section-14.html"><span class="kss-ref">14</span><span class="kss-name">Pagination</span></a></li>
               
-              <li class="kss-menu-item"><a href="section-15.html"><span class="kss-ref">15</span><span class="kss-name">Responsive Navs</span></a></li>
+              <li class="kss-menu-item"><a href="section-15.html"><span class="kss-ref">15</span><span class="kss-name">Off-Canvas</span></a></li>
               
               <li class="kss-menu-item"><a href="section-16.html"><span class="kss-ref">16</span><span class="kss-name">Sliders</span></a></li>
               
@@ -118,11 +118,7 @@
               
               
               
-              <li class="kss-menu-item"><a href="#section-15.1"><span class="kss-ref">15.1</span><span class="kss-name">SlideIn Layout</span></a></li>
-              
-              
-              
-              <li class="kss-menu-item"><a href="#section-15.2"><span class="kss-ref">15.2</span><span class="kss-name">Offset Layout</span></a></li>
+              <li class="kss-menu-item"><a href="#section-15.1"><span class="kss-ref">15.1</span><span class="kss-name">Off-Canvas Options</span></a></li>
               
               
             </ul>
@@ -135,11 +131,37 @@
           
           
           <section id="section-15" class="kss-section kss-depth-1">
-            <h1 class="kss-title"><span class="kss-ref">15</span> Responsive Navs</h1>
+            <h1 class="kss-title"><span class="kss-ref">15</span> Off-Canvas</h1>
             
             
             <div class="kss-description">
-              <p>The main nav can be made fully responsive (with two layouts available) with js and some extra elements for better styling.</p>
+              <p>There&apos;s available a nice off-canvas sidebar functionality adapted from <a href="http://tympanus.net/codrops/2013/08/28/transitions-for-off-canvas-navigations">Codrops</a>.
+
+</p>
+<pre><code>&lt;div id=&quot;st-container&quot; class=&quot;st-container&quot;&gt;
+  &lt;nav class=&quot;st-menu&quot;&gt;
+    [...nav content...]
+  &lt;/nav&gt;
+  &lt;div class=&quot;st-pusher&quot;&gt;
+    &lt;div class=&quot;st-content&quot;&gt;
+      [...main content...]
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<p>Download and link at the top of the page the following scripts:
+
+</p>
+<ul>
+<li><a href="https://github.com/raffone/SidebarTransitions/blob/master/js/modernizr.custom.js">https://github.com/raffone/SidebarTransitions/blob/master/js/modernizr.custom.js</a></li>
+</ul>
+<p>Download and link at the bottom of the page the following scripts:
+
+</p>
+<ul>
+<li><a href="https://github.com/raffone/SidebarTransitions/blob/master/js/classie.js">https://github.com/raffone/SidebarTransitions/blob/master/js/classie.js</a></li>
+<li><a href="https://github.com/raffone/SidebarTransitions/blob/master/js/sidebarEffects.js">https://github.com/raffone/SidebarTransitions/blob/master/js/sidebarEffects.js</a></li>
+</ul>
+<p>For opening and closing the sidebar add the class <code>st-menu-toggle</code> to a link or button.</p>
 
             </div>
             
@@ -147,122 +169,14 @@
           </section>
           
           <section id="section-15.1" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">15.1</span> SlideIn Layout</h1>
+            <h1 class="kss-title"><span class="kss-ref">15.1</span> Off-Canvas Options</h1>
             
             
             <div class="kss-description">
-              <p>Start by adding <code>.nav--responsive</code> to the nav and a container with <code>#nav-origin</code>.
-
-</p>
-<p>Example: a simple inline nav with 3 dropdowns:
-
-</p>
-<pre><code>&lt;div id=&quot;nav-origin&quot;&gt;
-  &lt;nav class=&quot;nav nav--inline nav--btn nav--responsive&quot; id=&quot;nav&quot;&gt;
-    &lt;ul&gt;
-      &lt;li class=&quot;dropdown&quot;&gt;
-        &lt;a href=&quot;#&quot; class=&quot;dropdown__toggle &quot; data-toggle=&quot;dropdown&quot;&gt;
-          Dropdown 1
-        &lt;/a&gt;
-        &lt;ul class=&quot;dropdown__menu &quot;&gt;
-          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Dropdown 1 - Sub 1&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Dropdown 1 - Sub 2&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Dropdown 1 - Sub 2&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li class=&quot;dropdown&quot;&gt;
-        &lt;a href=&quot;#&quot; class=&quot;dropdown__toggle&quot; data-toggle=&quot;dropdown&quot;&gt;
-          Dropdown 2
-        &lt;/a&gt;
-        &lt;ul class=&quot;dropdown__menu&quot;&gt;
-          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Dropdown 2 - Sub 1&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Dropdown 2 - Sub 2&lt;/a&gt;&lt;/li&gt;
-          &lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Dropdown 2 - Sub 4&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li class=&quot;dropdown&quot;&gt;
-        &lt;a href=&quot;#&quot; class=&quot;dropdown__toggle &quot; data-toggle=&quot;dropdown&quot;&gt;
-          Dropdown 3
-        &lt;/a&gt;
-        &lt;ul class=&quot;dropdown__menu &quot;&gt;
-          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Dropdown 3 - Sub 1&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Dropdown 3 - Sub 2&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Dropdown 3 - Sub 3&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Dropdown 3 - Sub 4&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/nav&gt;
-&lt;/div&gt;</code></pre>
-<p>Then add and empty div with <code>#nav-destination</code> for where the nav html will be moved when the media query kick in.
-
-</p>
-<pre><code>&lt;div id=&quot;nav-destination&quot;&gt;&lt;/div&gt;</code></pre>
-<p>At the bottom of the page add <code>responsive-nav.js</code>. This is a modified version of
-<a href="http://responsive-nav.com/">Responsive Nav</a> with extra options.
-
-</p>
-<pre><code>&lt;script src=&quot;//rawgithub.com/raffone/responsive-nav.js/master/responsive-nav.js&quot;&gt;&lt;/script&gt;</code></pre>
-<p>And finally in your js file add:
-
-</p>
-<pre><code>// Enable responsive nav
-var navigation = responsiveNav(&quot;#nav&quot;);
-
-// Move html on breakpoint
-function moveNavbar() {
-  if ( $(&quot;.nav--responsive&quot;).css(&quot;overflow&quot;) == &apos;hidden&apos; ) {
-    $(&quot;#nav-destination&quot;).append($(&quot;#nav-origin .nav&quot;));
-  } else {
-    $(&quot;#nav-origin&quot;).append($(&quot;#nav-destination .nav&quot;));
-  }
-}
-
-moveNavbar();
-$(window).resize(function() { moveNavbar(); });</code></pre>
-<p>That&apos;s it, when the with of the page reace the breakpoint for the nav defined with
-<code>$navs-responsive-breakpoint</code> the html will be moved to the destination.</p>
-
-            </div>
-            
-            
-          </section>
-          
-          <section id="section-15.2" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">15.2</span> Offset Layout</h1>
-            
-            
-            <div class="kss-description">
-              <p>First enable the layout:
-
-</p>
-<pre><code>$navs-responsive-type: &apos;off-canvas&apos;;</code></pre>
-<p>The offset layout require two more wrappers <code>.external-wrapper</code> and <code>.internal-wrapper</code>, example below:
-
-</p>
-<pre><code>&lt;div class=&quot;external-wrapper&quot;&gt;
-  &lt;div id=&quot;nav-destination&quot;&gt;&lt;/div&gt;
-  &lt;div class=&quot;internal-wrapper&quot;&gt;
-    &lt;div id=&quot;nav-origin&quot;&gt;
-      …
-    &lt;/div&gt;
-    [rest of the page…]
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-<p>Add this js instead of <code>var navigation = responsiveNav(&quot;#nav&quot;);</code>:
-
-</p>
-<pre><code>var navigation = responsiveNav(&quot;#nav&quot;, {
-  animate: false,
-  offcanvas: true,
-  open: function(){
-    $(&quot;body&quot;).addClass(&quot;nav-open&quot;);
-  },
-  close: function(){
-      $(&quot;body&quot;).removeClass(&quot;nav-open&quot;);
-  }
-});</code></pre>
+              <pre><code>$offcanvas-width:              300px    # Width of the sidebar
+$offcanvas-direction:          left     # On what side appear
+$offcanvas-dim:                true     # Dim over the content on open
+$offcanvas-effect:             slide    # cover, reveal, push, slide</code></pre>
 
             </div>
             

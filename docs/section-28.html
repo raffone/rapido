@@ -80,7 +80,7 @@
               
               <li class="kss-menu-item"><a href="section-14.html"><span class="kss-ref">14</span><span class="kss-name">Pagination</span></a></li>
               
-              <li class="kss-menu-item"><a href="section-15.html"><span class="kss-ref">15</span><span class="kss-name">Responsive Navs</span></a></li>
+              <li class="kss-menu-item"><a href="section-15.html"><span class="kss-ref">15</span><span class="kss-name">Off-Canvas</span></a></li>
               
               <li class="kss-menu-item"><a href="section-16.html"><span class="kss-ref">16</span><span class="kss-name">Sliders</span></a></li>
               
@@ -147,10 +147,6 @@
               
               
               <li class="kss-menu-item"><a href="#section-28.7"><span class="kss-ref">28.7</span><span class="kss-name">Grid (Susy)</span></a></li>
-              
-              
-              
-              <li class="kss-menu-item"><a href="#section-28.8"><span class="kss-ref">28.8</span><span class="kss-name">Nav Responsive Options</span></a></li>
               
               
               
@@ -354,24 +350,6 @@ $container-style:               fluid   # Grid style</code></pre>
             
           </section>
           
-          <section id="section-28.8" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">28.8</span> Nav Responsive Options</h1>
-            
-            
-            <div class="kss-description">
-              <pre><code>$navs-responsive-breakpoint:        palm    # On what step to switch to the responsive nav
-$navs-responsive-type:              slide   # Responsive nav style: slide or off-canvas
-$navs-responsive-dropdown-pos:      right   # Position of the button to open the nav
-$navs-responsive-offset:            70%     # How mutch to slide when using off-canvas
-
-$navs-responsive-outside-wrapper:   &apos;.external-wrapper&apos;
-$navs-responsive-inside-wrapper:    &apos;.internal-wrapper&apos;</code></pre>
-
-            </div>
-            
-            
-          </section>
-          
           <section id="section-28.9" class="kss-section kss-depth-2">
             <h1 class="kss-title"><span class="kss-ref">28.9</span> Z-index</h1>
             
@@ -380,7 +358,8 @@ $navs-responsive-inside-wrapper:    &apos;.internal-wrapper&apos;</code></pre>
               <p>Default settings for overlay components, taken from Bootstrap.
 
 </p>
-<pre><code>$zindex-dropdown:               1000    # Dropdowns
+<pre><code>$zindex-offcanvas:              990     # OffCanvas
+$zindex-dropdown:               1000    # Dropdowns
 $zindex-popover:                1010    # Popovers
 $zindex-tooltip:                1030    # Tooltips
 $zindex-slider:                 1040    # Sliders
