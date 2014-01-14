@@ -117,7 +117,7 @@ There are available  classes for all enabled animations to use with `@extend`.
 
 Example:
 
-    @extend %fadeIn;
+    @extend .fadeIn;
 
 Styleguide 20.3
 
@@ -148,15 +148,41 @@ Styleguide 20.4
 
 @if $animations-classes {
     $delays: 0.25s, 0.50s, 0.75s, 1.00s, 1.25s, 1.50s, 1.75s, 2.00s;
-    $delays-classes: 25, 50, 75, 100, 125, 150, 175, 200;
-
-    @for $i from 0 to length($delays) {
-        .delay-#{nth($delays-classes, ($i + 1))} {
-            @include experimental(animation-delay, nth($delays, ($i + 1)));
+    @each $delay in $delays {
+        $delays-class: strip_units($delay)*100;
+        .delay-#{$delays-class} {
+            @include experimental(animation-delay, $delay);
         }
     }
 }
 
+/*
+
+Show animation only on scroll
+
+It possibile to hide everything and show the entrance animation only when an element is visible.
+
+First include this script:
+
+    <script src="http://raffone.github.io/cdn/js/animationOnScroll.js"></script>
+
+
+Example:
+
+    <div data-animation-scroll="fadeInDown">
+      ...
+    </div>
+
+
+Styleguide 20.5
+
+*/
+
+
+
+[data-animation-scroll*="In"] {
+  @include opacity(0);
+}
 
 /*
 
@@ -164,7 +190,7 @@ Animation mixin
 
 Also available is an "animate" mixin, for more information see the Mixins section.
 
-Styleguide 20.5
+Styleguide 20.6
 
 */
 
@@ -173,25 +199,25 @@ Styleguide 20.5
 
 @if $fadeIn == true {
     @include keyframes(fadeIn) {
-        0% {        opacity: 0; }
-        100% {  opacity: 1; }
+        0% {        @include opacity(0); }
+        100% {  @include opacity(1); }
     }
 }
 @if $fadeOut == true {
     @include keyframes(fadeOut) {
-        0% {        opacity: 1; }
-        100% {  opacity: 0; }
+        0% {        @include opacity(1); }
+        100% {  @include opacity(0); }
     }
 }
 @if $fadeInUp == true {
     @include keyframes(fadeInUp) {
         0% {
             @include transform(translateY(20px));
-            opacity: 0;
+            @include opacity(0);
         }
         100% {
             @include transform(translateY(0));
-            opacity: 1;
+            @include opacity(1);
         }
     }
 }
@@ -199,11 +225,11 @@ Styleguide 20.5
     @include keyframes(fadeOutUp) {
         0% {
             @include transform(translateY(0));
-            opacity: 1;
+            @include opacity(1);
         }
         100% {
             @include transform(translateY(-20px));
-            opacity: 0;
+            @include opacity(0);
         }
     }
 }
@@ -211,11 +237,11 @@ Styleguide 20.5
     @include keyframes(fadeInDown) {
         0% {
             @include transform(translateY(-20px));
-            opacity: 0;
+            @include opacity(0);
         }
         100% {
             @include transform(translateY(0));
-            opacity: 1;
+            @include opacity(1);
         }
     }
 }
@@ -223,11 +249,11 @@ Styleguide 20.5
     @include keyframes(fadeOutDown) {
         0% {
             @include transform(translateY(0));
-            opacity: 1;
+            @include opacity(1);
         }
         100% {
             @include transform(translateY(20px));
-            opacity: 0;
+            @include opacity(0);
         }
     }
 }
@@ -235,11 +261,11 @@ Styleguide 20.5
     @include keyframes(fadeInRight) {
         0% {
             @include transform(translateX(20px));
-            opacity: 0;
+            @include opacity(0);
         }
         100% {
             @include transform(translateX(0));
-            opacity: 1;
+            @include opacity(1);
         }
     }
 }
@@ -247,11 +273,11 @@ Styleguide 20.5
     @include keyframes(fadeOutLeft) {
         0% {
             @include transform(translateX(0));
-            opacity: 1;
+            @include opacity(1);
         }
         100% {
             @include transform(translateX(-20px));
-            opacity: 0;
+            @include opacity(0);
         }
     }
 }
@@ -259,11 +285,11 @@ Styleguide 20.5
     @include keyframes(fadeInLeft) {
         0% {
             @include transform(translateX(-20px));
-            opacity: 0;
+            @include opacity(0);
         }
         100% {
             @include transform(translateX(0));
-            opacity: 1;
+            @include opacity(1);
         }
     }
 }
@@ -271,11 +297,11 @@ Styleguide 20.5
     @include keyframes(fadeOutRight) {
         0% {
             @include transform(translateX(0));
-            opacity: 1;
+            @include opacity(1);
         }
         100% {
             @include transform(translateX(20px));
-            opacity: 0;
+            @include opacity(0);
         }
     }
 }
@@ -283,11 +309,11 @@ Styleguide 20.5
     @include keyframes(fadeInUpBig) {
         0% {
             @include transform(translateY(2000px));
-            opacity: 0;
+            @include opacity(0);
         }
         100% {
             @include transform(translateY(0));
-            opacity: 1;
+            @include opacity(1);
         }
     }
 }
@@ -295,11 +321,11 @@ Styleguide 20.5
     @include keyframes(fadeOutUpBig) {
         0% {
             @include transform(translateY(0));
-            opacity: 1;
+            @include opacity(1);
         }
         100% {
             @include transform(translateY(-2000px));
-            opacity: 0;
+            @include opacity(0);
         }
     }
 }
@@ -307,11 +333,11 @@ Styleguide 20.5
     @include keyframes(fadeInDownBig) {
         0% {
             @include transform(translateY(-2000px));
-            opacity: 0;
+            @include opacity(0);
         }
         100% {
             @include transform(translateY(0));
-            opacity: 1;
+            @include opacity(1);
         }
     }
 }
@@ -319,11 +345,11 @@ Styleguide 20.5
     @include keyframes(fadeOutDownBig) {
         0% {
             @include transform(translateY(0));
-            opacity: 1;
+            @include opacity(1);
         }
         100% {
             @include transform(translateY(2000px));
-            opacity: 0;
+            @include opacity(0);
         }
     }
 }
@@ -331,11 +357,11 @@ Styleguide 20.5
     @include keyframes(fadeInRightBig) {
         0% {
             @include transform(translateX(2000px));
-            opacity: 0;
+            @include opacity(0);
         }
         100% {
             @include transform(translateX(0));
-            opacity: 1;
+            @include opacity(1);
         }
     }
 }
@@ -343,11 +369,11 @@ Styleguide 20.5
     @include keyframes(fadeOutLeftBig) {
         0% {
             @include transform(translateX(0));
-            opacity: 1;
+            @include opacity(1);
         }
         100% {
             @include transform(translateX(-2000px));
-            opacity: 0;
+            @include opacity(0);
         }
     }
 }
@@ -355,11 +381,11 @@ Styleguide 20.5
     @include keyframes(fadeInLeftBig) {
         0% {
             @include transform(translateX(-2000px));
-            opacity: 0;
+            @include opacity(0);
         }
         100% {
             @include transform(translateX(0));
-            opacity: 1;
+            @include opacity(1);
         }
     }
 }
@@ -367,11 +393,11 @@ Styleguide 20.5
     @include keyframes(fadeOutRightBig) {
         0% {
             @include transform(translateX(0));
-            opacity: 1;
+            @include opacity(1);
         }
         100% {
             @include transform(translateX(2000px));
-            opacity: 0;
+            @include opacity(0);
         }
     }
 }
@@ -379,11 +405,11 @@ Styleguide 20.5
     @include keyframes(bounceIn) {
         0% {
             @include transform(scale(0.3));
-            opacity: 0;
+            @include opacity(0);
         }
         50% {
             @include transform(scale(1.05));
-            opacity: 1;
+            @include opacity(1);
         }
         70% {
             @include transform(scale(0.9));
@@ -397,11 +423,11 @@ Styleguide 20.5
     @include keyframes(bounceInDown) {
         0% {
             @include transform(translateY(-2000px));
-            opacity: 0;
+            @include opacity(0);
         }
         60% {
             @include transform(translateY(30px));
-            opacity: 1;
+            @include opacity(1);
         }
         80% {
             @include transform(translateY(-10px));
@@ -415,11 +441,11 @@ Styleguide 20.5
     @include keyframes(bounceInUp) {
         0% {
             @include transform(translateY(2000px));
-            opacity: 0;
+            @include opacity(0);
         }
         60% {
             @include transform(translateY(-30px));
-            opacity: 1;
+            @include opacity(1);
         }
         80% {
             @include transform(translateY(10px));
@@ -433,11 +459,11 @@ Styleguide 20.5
     @include keyframes(bounceInRight) {
         0% {
             @include transform(translateX(2000px));
-            opacity: 0;
+            @include opacity(0);
         }
         60% {
             @include transform(translateX(-30px));
-            opacity: 1;
+            @include opacity(1);
         }
         80% {
             @include transform(translateX(10px));
@@ -451,11 +477,11 @@ Styleguide 20.5
     @include keyframes(bounceInLeft) {
         0% {
             @include transform(translateX(-2000px));
-            opacity: 0;
+            @include opacity(0);
         }
         60% {
             @include transform(translateX(30px));
-            opacity: 1;
+            @include opacity(1);
         }
         80% {
             @include transform(translateX(-10px));
@@ -475,11 +501,11 @@ Styleguide 20.5
         }
         50% {
             @include transform(scale(1.1));
-            opacity: 1;
+            @include opacity(1);
         }
         100% {
             @include transform(scale(0.3));
-            opacity: 0;
+            @include opacity(0);
         }
     }
 }
@@ -490,11 +516,11 @@ Styleguide 20.5
         }
         20% {
             @include transform(translateY(20px));
-            opacity: 1;
+            @include opacity(1);
         }
         100% {
             @include transform(translateY(-2000px));
-            opacity: 0;
+            @include opacity(0);
         }
     }
 }
@@ -505,11 +531,11 @@ Styleguide 20.5
         }
         20% {
             @include transform(translateY(-20px));
-            opacity: 1;
+            @include opacity(1);
         }
         100% {
             @include transform(translateY(2000px));
-            opacity: 0;
+            @include opacity(0);
         }
     }
 }
@@ -520,11 +546,11 @@ Styleguide 20.5
         }
         20% {
             @include transform(translateX(20px));
-            opacity: 1;
+            @include opacity(1);
         }
         100% {
             @include transform(translateX(-2000px));
-            opacity: 0;
+            @include opacity(0);
         }
     }
 }
@@ -535,21 +561,21 @@ Styleguide 20.5
         }
         20% {
             @include transform(translateX(-20px));
-            opacity: 1;
+            @include opacity(1);
         }
         100% {
             @include transform(translateX(2000px));
-            opacity: 0;
+            @include opacity(0);
         }
     }
 }
 @if $flash == true {
     @include keyframes(flash) {
-        0% {        opacity: 1; }
-        25% {    opacity: 0; }
-        50% {    opacity: 1; }
-        75% {    opacity: 0; }
-        100% {  opacity: 1; }
+        0% {        @include opacity(1); }
+        25% {    @include opacity(0); }
+        50% {    @include opacity(1); }
+        75% {    @include opacity(0); }
+        100% {  @include opacity(1); }
     }
 }
 @if $bounce == true {
@@ -583,12 +609,12 @@ Styleguide 20.5
         0% {
             @include transform-origin(left, bottom);
             @include transform(rotate(-90deg));
-            opacity: 0;
+            @include opacity(0);
         }
         100% {
             @include transform-origin(left, bottom);
             @include transform(rotate(0));
-            opacity: 1;
+            @include opacity(1);
         }
     }
 }
@@ -597,12 +623,12 @@ Styleguide 20.5
         0% {
             @include transform-origin(left, bottom);
             @include transform(rotate(90deg));
-            opacity: 0;
+            @include opacity(0);
         }
         100% {
             @include transform-origin(left, bottom);
             @include transform(rotate(0));
-            opacity: 1;
+            @include opacity(1);
         }
     }
 }
@@ -611,12 +637,12 @@ Styleguide 20.5
         0% {
             @include transform-origin(right, bottom);
             @include transform(rotate(-90deg));
-            opacity: 0;
+            @include opacity(0);
         }
         100% {
             @include transform-origin(right, bottom);
             @include transform(rotate(0));
-            opacity: 1;
+            @include opacity(1);
         }
     }
 }
@@ -625,12 +651,12 @@ Styleguide 20.5
         0% {
             @include transform-origin(right, bottom);
             @include transform(rotate(90deg));
-            opacity: 0;
+            @include opacity(0);
         }
         100% {
             @include transform-origin(right, bottom);
             @include transform(rotate(0));
-            opacity: 1;
+            @include opacity(1);
         }
     }
 }
@@ -639,12 +665,12 @@ Styleguide 20.5
         0% {
             @include transform-origin(left, bottom);
             @include transform(rotate(0));
-            opacity: 1;
+            @include opacity(1);
         }
         100% {
             @include transform-origin(left, bottom);
             @include transform(rotate(90deg));
-            opacity: 0;
+            @include opacity(0);
         }
     }
 }
@@ -653,12 +679,12 @@ Styleguide 20.5
         0% {
             @include transform-origin(left, bottom);
             @include transform(rotate(0));
-            opacity: 1;
+            @include opacity(1);
         }
         100% {
             @include transform-origin(left, bottom);
             @include transform(rotate(-90deg));
-            opacity: 0;
+            @include opacity(0);
         }
     }
 }
@@ -667,12 +693,12 @@ Styleguide 20.5
         0% {
             @include transform-origin(right, bottom);
             @include transform(rotate(0));
-            opacity: 1;
+            @include opacity(1);
         }
         100% {
             @include transform-origin(right, bottom);
             @include transform(rotate(-90deg));
-            opacity: 0;
+            @include opacity(0);
         }
     }
 }
@@ -681,12 +707,12 @@ Styleguide 20.5
         0% {
             @include transform-origin(right, bottom);
             @include transform(rotate(0));
-            opacity: 1;
+            @include opacity(1);
         }
         100% {
             @include transform-origin(right, bottom);
             @include transform(rotate(90deg));
-            opacity: 0;
+            @include opacity(0);
         }
     }
 }
@@ -695,12 +721,12 @@ Styleguide 20.5
         0% {
             @include transform-origin(center, center);
             @include transform(rotate(-200deg));
-            opacity: 0;
+            @include opacity(0);
         }
         100% {
             @include transform-origin(center, center);
             @include transform(rotate(0));
-            opacity: 1;
+            @include opacity(1);
         }
     }
 }
@@ -709,12 +735,12 @@ Styleguide 20.5
         0% {
             @include transform-origin(center, center);
             @include transform(rotate(0));
-            opacity: 1;
+            @include opacity(1);
         }
         100% {
             @include transform-origin(center, center);
             @include transform(rotate(200deg));
-            opacity: 0;
+            @include opacity(0);
         }
     }
 }
