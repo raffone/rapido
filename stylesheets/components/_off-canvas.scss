@@ -19,10 +19,9 @@ Download and link at the top of the page the following scripts:
 
 * https://github.com/raffone/SidebarTransitions/blob/master/js/modernizr.custom.js
 
-Download and link at the bottom of the page the following scripts:
+Script required:
 
-* https://github.com/raffone/SidebarTransitions/blob/master/js/classie.js
-* https://github.com/raffone/SidebarTransitions/blob/master/js/sidebarEffects.js
+    <script src="http://raffone.github.io/cdn/js/sidebarOffCanvas.js"></script>
 
 For opening and closing the sidebar add the class `st-menu-toggle` to a link or button.
 
@@ -80,7 +79,7 @@ Styleguide 15
       content: '';
 
       @if $offcanvas-dim {
-        @extend %nav--offcanvas__dim;
+        @extend %nav--offcanvas__dim !optional;
       }
     }
   }
@@ -117,7 +116,7 @@ Styleguide 15
   }
 
   .st-menu {
-    @extend %nav--offcanvas;
+    @extend %nav--offcanvas !optional;
     @include position(absolute, 0px $if-right 0 $if-left);
     @include size(100%, $offcanvas-width);
     @include transition(all $offcanvas-animations-duration);
@@ -133,7 +132,7 @@ Styleguide 15
       content: '';
 
       @if $offcanvas-dim {
-        @extend %nav--offcanvas__dim;
+        @extend %nav--offcanvas__dim !optional;
       }
     }
 

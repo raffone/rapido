@@ -4,6 +4,10 @@ Modals
 
 For modals is used the excellent [**fancyBox**](http://fancyapps.com/fancybox/) jQuery plugin, see full documentation for more in depth examples.
 
+Script required:
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.pack.js"></script>
+
 Markup:
 <a class="open__modal  btn btn--default" href="#modal">Open modal</a>
 <div id="modal" class="modal">
@@ -242,6 +246,10 @@ Styleguide 11
 
 Modal Buttons
 
+Script required:
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-buttons.min.js"></script>
+
 Markup:
 <a class="fancybox-button" rel="fancybox-button" href="http://placehold.it/600x400/c7e843/fff.jpg">
   <img src="http://placehold.it/60x60/c7e843/fff.jpg"/>
@@ -302,6 +310,10 @@ Styleguide 11.1
 /*
 
 Modal Thumbs
+
+Script required:
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.js"></script>
 
 Markup:
 <a class="fancybox-thumb" rel="fancybox-thumb" href="http://placehold.it/600x400/c7e843/fff.jpg">

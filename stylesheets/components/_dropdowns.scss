@@ -6,6 +6,10 @@ Toggleable, contextual menu for displaying lists of links. Made interactive with
 
 Looking at just the dropdown menu, here's the required HTML. You need to wrap the dropdown's trigger and the dropdown menu within `.dropdown`. Then just create the menu.
 
+Script required:
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap-dropdown.min.js"></script>
+
 Markup:
 <div class="dropdown">
   <a href="#" class="btn btn--default dropdown__toggle " data-toggle="dropdown">
