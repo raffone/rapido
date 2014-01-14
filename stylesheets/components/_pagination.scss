@@ -29,6 +29,7 @@ Styleguide 14
 
     .pagination {
         margin: rhythm() 0;
+        clear: both;
 
         > * {
             @extend .clearfix;
@@ -56,7 +57,7 @@ Styleguide 14
 
             li:first-child > a,
             li:first-child > span {
-                border-left-width: 1px;
+                border-left-width: $input-border;
             }
 
             li > a:hover {
