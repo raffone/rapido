@@ -190,17 +190,40 @@ Styleguide 23.7
 
 @mixin placeholder($color: $gray) {
 
-    &:-moz-placeholder {
-        color: $color;
+    ::-webkit-input-placeholder {
+      color: $color;
+      line-height: .5em;
+      padding-top: em($input-padding-top);
     }
-    &::-moz-placeholder {
-        color: $color;
+
+    :-moz-placeholder {
+      color: $color;
+      line-height: .5em;
+      padding-top: em($input-padding-top);
     }
-    &:-ms-input-placeholder {
-        color: $color;
+
+    ::-moz-placeholder {
+      color: $color;
+      line-height: .5em;
+      padding-top: em($input-padding-top);
     }
-    &::-webkit-input-placeholder {
-        color: $color;
+
+    :-ms-input-placeholder {
+      color: $color;
+      line-height: .5em;
+      padding-top: em($input-padding-top);
+    }
+
+    ::-ms-placeholder {
+      color: $color;
+      line-height: .5em;
+      padding-top: em($input-padding-top);
+    }
+
+    ::placeholder {
+      color: $color;
+      line-height: .5em;
+      padding-top: em($input-padding-top);
     }
 
 }

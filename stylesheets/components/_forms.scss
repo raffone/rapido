@@ -142,10 +142,7 @@ select[size] {
     height: auto;
 }
 
-input,
-textarea {
-    @include placeholder($placeholder-color);
-}
+@include placeholder($placeholder-color);
 
 input[readonly],
 select[readonly],
