@@ -56,6 +56,17 @@ a {
 }
 
 
+// Selection color
+
+::selection {
+  background: $selection-color;
+}
+
+::-moz-selection {
+  background: $selection-color;
+}
+
+
 /*
 
 Body text
