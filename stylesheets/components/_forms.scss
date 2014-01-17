@@ -60,14 +60,17 @@ legend {
     }
 }
 
-label,
 input,
 button,
 select,
 textarea {
-    line-height: 1em;
     font-family: $base-font-family;
     @include border-radius($base-border-radius);
+}
+
+label {
+    line-height: $input-height/2;
+    display: block;
 }
 
 .input-text,
@@ -102,8 +105,6 @@ select {
     color: $text-color;
     display: inline-block;
 }
-
-label { display: block; }
 
 input,
 textarea {
@@ -260,11 +261,12 @@ with class `.form__select`.
 Markup:
 <span class="form__select">
   <select>
-    <option>1</option>
-    <option>2</option>
-    <option>3</option>
-    <option>4</option>
-    <option>5</option>
+    <option selected="selected">Select Country</option>
+    <option>United States</option>
+    <option>United Kingdom</option>
+    <option>Italy</option>
+    <option>France</option>
+    <option>Germany</option>
   </select>
 </span>
 
@@ -275,6 +277,7 @@ Styleguide 8.3
 .form__select {
     @extend %caret !optional;
     @include border-radius(3px);
+    @include translateY($input-border);
     border-style: solid;
     border-width: $input-border;
     cursor: pointer;
@@ -296,6 +299,9 @@ Styleguide 8.3
         width:100%;
         z-index: 3;
         line-height: 1em;
+        text-indent: 1px;
+        text-overflow: '';
+
     }
 
     &:after {
@@ -391,6 +397,11 @@ Markup:
   <input type="text">
   <span class="form__addon">.00</span>
 </div>
+<div class="form__controls form__controls--multi">
+  <span class="form__addon"><input type="checkbox" value=""></span>
+  <input type="text">
+  <button type="submit" class="btn btn--default form__addon">Search</button>
+</div>
 
 Styleguide 8.6
 
@@ -478,13 +489,27 @@ Markup:
   <div class="form__group">
     <label class="form__label">Label</label>
     <div class="form__controls">
-      <input type="text" placeholder="Type something…">
+      <label class="form__radio inline">
+        <input type="radio" value="option1" checked> Option one
+      </label>
+      <label class="form__radio inline">
+        <input type="radio" value="option1" checked> Option two
+      </label>
     </div>
   </div>
   <div class="form__group">
     <label class="form__label">Label</label>
     <div class="form__controls">
-      <input type="text" placeholder="Type something…">
+      <span class="form__select">
+        <select>
+          <option selected="selected">Select Country</option>
+          <option>United States</option>
+          <option>United Kingdom</option>
+          <option>Italy</option>
+          <option>France</option>
+          <option>Germany</option>
+        </select>
+      </span>
     </div>
   </div>
   <div class="form__actions">
@@ -570,12 +595,28 @@ The inline layout can also be used width a samplified markup.
 Markup:
 <form class="form--inline">
   <label class="form__label">Label</label>
-  <input type="text" placeholder="Type something…">
+    <input type="text" placeholder="Type something…">
   <label class="form__label">Label</label>
-  <input type="text" placeholder="Type something…">
+    <label class="form__radio inline">
+      <input type="radio" value="option1" checked> Option one
+    </label>
+    <label class="form__radio inline">
+      <input type="radio" value="option1" checked> Option two
+    </label>
   <label class="form__label">Label</label>
-  <input type="text" placeholder="Type something…">
+    <span class="form__select">
+      <select>
+        <option selected="selected">Select Country</option>
+        <option>United States</option>
+        <option>United Kingdom</option>
+        <option>Italy</option>
+        <option>France</option>
+        <option>Germany</option>
+      </select>
+    </span>
   <button type="submit" class="btn btn--default ">Save changes</button>
+</form>
+
 </form>
 
 Styleguide 8.8.1
@@ -588,23 +629,49 @@ Styleguide 8.8.1
 
     .form--inline {
 
-        * {
-            float: none;
-            display: inline-block;
-            vertical-align: middle;
-            margin: 0;
-            padding: 0;
-            width: auto;
+        > * {
+          margin: 0 0 0 em(10px);
         }
 
-        > * + *,
-        > * > * + *,
+        .form__label {
+          display: inline-block;
+          padding-right: 1em
+        }
+
+        .input-text,
+        .form__select,
+        textarea,
+        input[type="text"],
+        input[type="password"],
+        input[type="datetime"],
+        input[type="datetime-local"],
+        input[type="date"],
+        input[type="month"],
+        input[type="time"],
+        input[type="week"],
+        input[type="number"],
+        input[type="email"],
+        input[type="url"],
+        input[type="search"],
+        input[type="tel"],
+        input[type="color"] {
+          width: auto;
+        }
+
+        .form__select {
+          padding-right: 1.5em;
+        }
+
         .form__group {
-            margin: 0 0 0 em(10px);
+            padding: 0;
+            display: inline-block;
         }
 
         .form__actions {
             border: 0;
+            padding: 0;
+            margin: 0;
+            display: inline-block;
         }
 
     }
