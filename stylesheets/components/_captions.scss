@@ -44,11 +44,13 @@ Styleguide 5
     position: relative;
     float: left;
     overflow: hidden;
+    @include perspective(1000);
 
     &:nth-child(2n) {
       margin-right: 0;
     }
     img {
+      display: block;
       transition: $caption-animations-duration;
     }
     figcaption {
@@ -56,6 +58,7 @@ Styleguide 5
       position: absolute;
       transition: $caption-animations-duration;
       width: 100%;
+      @include backface-visibility(hidden);
 
       * {
         margin-bottom: 0;
@@ -250,21 +253,17 @@ Styleguide 5
         left: 0;
         width: 100%;
         height: 100%;
-        @include perspective(1300) ;
         @include rotateY(180deg);
-        @include backface-visibility(hidden);
       }
       img {
-        @include perspective(1300);
+
         transition: $caption-animations-duration;
       }
       &:hover, &:active {
         figcaption {
-          @include perspective(1300) ;
           @include rotateY(0deg);
         }
         img {
-          @include perspective(1300) ;
           @include rotateY(-180deg);
         }
       }
@@ -277,21 +276,17 @@ Styleguide 5
         left: 0;
         width: 100%;
         height: 100%;
-        @include perspective(1300) ;
         @include rotateY(180deg);
-        @include backface-visibility(hidden);
       }
       img {
-        @include perspective(1300);
         transition: $caption-animations-duration;
       }
       &:hover, &:active {
         figcaption {
-          @include perspective(1300) ;
+
           @include rotateY(360deg);
         }
         img {
-          @include perspective(1300) ;
           @include rotateY(180deg);
         }
       }
@@ -304,21 +299,17 @@ Styleguide 5
         left: 0;
         width: 100%;
         height: 100%;
-        @include perspective(1300);
         @include rotateX(180deg);
-        @include backface-visibility(hidden);
       }
       img {
-        @include perspective(1300);
+
         transition: $caption-animations-duration;
       }
       &:hover, &:active {
         figcaption {
-          @include perspective(1300);
           @include rotateX(360deg);
         }
         img {
-          @include perspective(1300) ;
           @include rotateX(180deg);
         }
       }
@@ -331,21 +322,17 @@ Styleguide 5
         left: 0;
         width: 100%;
         height: 100%;
-        @include perspective(1300);
         @include rotateX(180deg);
-        @include backface-visibility(hidden);
       }
       img {
-        @include perspective(1300);
+
         transition: $caption-animations-duration;
       }
       &:hover, &:active {
         figcaption {
-          @include perspective(1300);
           @include rotateX(0deg);
         }
         img {
-          @include perspective(1300);
           @include rotateX(-180deg);;
         }
       }
