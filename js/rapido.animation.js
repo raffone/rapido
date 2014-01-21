@@ -1,18 +1,18 @@
-(function($){
+(function($, window, document, undefined) {
 
-  if(!$.Rapido){
-    $.Rapido = new Object();
+  if (!$.Rapido) {
+    $.Rapido = {};
   }
 
-  $.Rapido.Animation = function(el, options){
+  $.Rapido.Animation = function(el, options) {
     var base = this;
 
     base.$el = $(el);
     base.el = el;
 
-    base.$el.data("Rapido.Animation", base);
+    base.$el.data('Rapido.Animation', base);
 
-    base.init = function(){
+    base.init = function() {
       base.options = $.extend({},$.Rapido.Animation.defaultOptions, options);
 
 
@@ -28,13 +28,11 @@
       offset = offset.top - base.options.offset;
       offset = parseInt(offset);
 
-      $(window).scroll(function(e){
+      $(window).scroll(function(e) {
+        scrollbar = document.documentElement.scrollTop;
 
-        scrollbar = $('body').scrollTop();
-        scrollbar = scrollbar - 100;
-
-        if(offset <= scrollbar && !added) {
-          base.$el.attr('class', animation )
+        if (offset <= scrollbar && !added) {
+          base.$el.attr('class', animation);
           added = true;
         }
 
@@ -45,13 +43,13 @@
   };
 
   $.Rapido.Animation.defaultOptions = {
-    offset: 500,
+    offset: 500
   };
 
-  $.fn.rapido_Animation = function(options){
-    return this.each(function(){
+  $.fn.rapido_Animation = function(options) {
+    return this.each(function() {
       (new $.Rapido.Animation(this, options));
     });
   };
 
-})(jQuery);
+})(jQuery, window, document);

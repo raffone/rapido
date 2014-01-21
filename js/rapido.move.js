@@ -1,18 +1,18 @@
-(function($){
+(function($, window, document, undefined) {
 
-  if(!$.Rapido){
-    $.Rapido = new Object();
+  if (!$.Rapido) {
+    $.Rapido = {};
   }
 
-  $.Rapido.Move = function(el, options){
+  $.Rapido.Move = function(el, options) {
     var base = this;
 
     base.$el = $(el);
     base.el = el;
 
-    base.$el.data("Rapido.Move", base);
+    base.$el.data('Rapido.Move', base);
 
-    base.init = function(){
+    base.init = function() {
       base.options = $.extend({},$.Rapido.Move.defaultOptions, options);
       base.options.origin = '.' + base.el.parentNode.className;
 
@@ -23,14 +23,14 @@
 
       move(w, max, min);
 
-      $(window).resize(function(){
+      $(window).resize(function() {
         var w = $(window).width();
         move(w, max, min);
       });
 
     };
 
-    var move = function (w, max, min) {
+    var move = function(w, max, min) {
 
       if (max && min && w <= max && w >= min) {
         $(base.options.destination).append(base.el);
@@ -57,10 +57,10 @@
     minWidth: null
   };
 
-  $.fn.rapido_Move = function(options){
-    return this.each(function(){
+  $.fn.rapido_Move = function(options) {
+    return this.each(function() {
       (new $.Rapido.Move(this, options));
     });
   };
 
-})(jQuery);
+})(jQuery, window, document);

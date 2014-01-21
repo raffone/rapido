@@ -1,18 +1,18 @@
-(function($){
+(function($, window, document, undefined) {
 
-  if(!$.Rapido){
-    $.Rapido = new Object();
+  if (!$.Rapido) {
+    $.Rapido = {};
   }
 
-  $.Rapido.Dropdown = function(el, options){
+  $.Rapido.Dropdown = function(el, options) {
     var base = this;
 
     base.$el = $(el);
     base.el = el;
 
-    base.$el.data("Rapido.Dropdown", base);
+    base.$el.data('Rapido.Dropdown', base);
 
-    base.init = function(){
+    base.init = function() {
       base.options = $.extend({},$.Rapido.Dropdown.defaultOptions, options);
 
       var wrapperClass, togglerClass, str;
@@ -22,7 +22,7 @@
 
       // Grab and convert class of the toggler button
       str = base.$el.children()[0];
-      str = '.' + str['className'].replace(/ /g, '.');
+      str = '.' + str.className.replace(/ /g, '.');
       str = str.substring(0, str.length - 1);
 
       togglerClass = str;
@@ -37,11 +37,11 @@
     };
 
     // Event: Click
-    var toggleClick = function (wrapperClass, togglerClass) {
+    var toggleClick = function(wrapperClass, togglerClass) {
 
-      base.$el.on(base.options.event, function(e){
+      base.$el.on(base.options.event, function(e) {
 
-        if($(this).hasClass('open')) {
+        if ($(this).hasClass('open')) {
           $(this).removeClass('open');
         } else {
           $(wrapperClass).removeClass('open');
@@ -49,33 +49,33 @@
         }
       });
 
-      base.$el.on(base.options.event, togglerClass, function(e){
+      base.$el.on(base.options.event, togglerClass, function(e) {
         e.preventDefault();
       });
 
     };
 
     // Event: Hover
-    var toggleHover = function () {
+    var toggleHover = function() {
 
       base.options.event = 'mouseenter mouseleave';
 
-      base.$el.on(base.options.event, function(){
+      base.$el.on(base.options.event, function() {
         $(this).toggleClass('open');
       });
 
     };
 
     // Close dropdown when mouse click outside of element
-    var close = function () {
+    var close = function() {
 
-      $('html').click(function(){
+      $('html').click(function() {
         base.$el.removeClass('open');
-      })
+      });
 
-      base.$el.click(function(e){
+      base.$el.click(function(e) {
         e.stopPropagation();
-      })
+      });
 
     };
 
@@ -83,16 +83,13 @@
   };
 
   $.Rapido.Dropdown.defaultOptions = {
-    event: "click"
+    event: 'click'
   };
 
-  $.fn.rapido_Dropdown = function(options){
-    return this.each(function(){
+  $.fn.rapido_Dropdown = function(options) {
+    return this.each(function() {
       (new $.Rapido.Dropdown(this, options));
     });
   };
 
-})(jQuery);
-
-$('[data-dropdown=""]').rapido_Dropdown();
-$('[data-dropdown="hover"]').rapido_Dropdown({event:'hover'});
+})(jQuery, window, document);

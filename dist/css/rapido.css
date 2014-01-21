@@ -559,7 +559,7 @@ Enable or disable components, so you can have in the css only what you need.
     $modal:                         true   # components/_modal.scss
     $modal-buttons:                 true   # components/_modal.scss
     $modal-thumbs:                  true   # components/_modal.scss
-    $navs-responsive:               true   # components/_navs-responsiv.scss
+    $offcanvas:                     true   # components/_off-canvas.scss
     $navs:                          true   # components/_navs.scss
     $pager:                         true   # components/_pager.scss
     $pagination:                    true   # components/_pagination.scss
@@ -642,7 +642,8 @@ Styleguide 20.1
 
 Mixins
 
-Some of them are from Bootstrap, others are custom.
+Some of them are from Bootstrap, others are custom. The required arguments are
+marked in bold.
 
 Styleguide 23
 
@@ -1001,6 +1002,45 @@ Animations
 * `$mode`: animation-fill-mode (http://mzl.la/1g6ixCc), default to *both*
 
 Styleguide 23.22
+
+*/
+/*
+
+Animation sequences
+
+    @include animate-sequence($selector, $name, $iterations, $delay, $duration, $delay-offset, $function, $mode)
+
+* `$selector`: Selector to use for the sequence
+* `$name`: Name of the animations to use, it must be enabled first. For more information see the Animations section.
+* `$iterations`: How many elements to iterate
+* `$delay`: Time between each animation
+* `$duration`: Duration of the animation
+* `$delay-offset`: From what value start iterating using the `$delay` value
+* `$function`: Easing, see 20.2 for a list of all easing options available
+* `$mode`: animation-fill-mode (http://mzl.la/1g6ixCc), default to *both*
+
+Example:
+
+    .animation-iterations {
+      @include animate-sequence('img', fadeIn, 4, .5s)
+    }
+
+Will be compiled to:
+
+    .animation-iterations img:nth-child(1) {
+      animation: fadeIn 0.5s 0.5s ease-out both;
+    }
+    .animation-iterations img:nth-child(2) {
+      animation: fadeIn 0.5s 1s ease-out both;
+    }
+    .animation-iterations img:nth-child(3) {
+      animation: fadeIn 0.5s 1.5s ease-out both;
+    }
+    .animation-iterations img:nth-child(4) {
+      animation: fadeIn 0.5s 2s ease-out both;
+    }
+
+Styleguide 23.23
 
 */
 /*
@@ -1691,7 +1731,7 @@ There are available  classes for all enabled animations to use with `@extend`.
 
 Example:
 
-    @extend %fadeIn;
+    @extend .fadeIn;
 
 Styleguide 20.3
 
@@ -1782,89 +1822,131 @@ Styleguide 20.4
 
 /*
 
-Animation mixin
+Show animation only on scroll
 
-Also available is an "animate" mixin, for more information see the Mixins section.
+It possibile to hide everything and show the entrance animation only when an element is visible.
+
+First include this script:
+
+    <script src="http://raffone.github.io/cdn/js/animationOnScroll.js"></script>
+
+
+Example:
+
+    <div data-animation-scroll="fadeInDown">
+      ...
+    </div>
+
 
 Styleguide 20.5
 
 */
+[data-animation-scroll*="In"] {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+}
+
+/*
+
+Animation mixin
+
+Also available is an "animate" mixin, for more information see the Mixins section.
+
+Styleguide 20.6
+
+*/
 @-webkit-keyframes fadeIn {
   0% {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
     opacity: 0;
   }
 
   100% {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
     opacity: 1;
   }
 }
 
 @-moz-keyframes fadeIn {
   0% {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
     opacity: 0;
   }
 
   100% {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
     opacity: 1;
   }
 }
 
 @-o-keyframes fadeIn {
   0% {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
     opacity: 0;
   }
 
   100% {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
     opacity: 1;
   }
 }
 
 @keyframes fadeIn {
   0% {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
     opacity: 0;
   }
 
   100% {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
     opacity: 1;
   }
 }
 
 @-webkit-keyframes fadeOut {
   0% {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
     opacity: 1;
   }
 
   100% {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
     opacity: 0;
   }
 }
 
 @-moz-keyframes fadeOut {
   0% {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
     opacity: 1;
   }
 
   100% {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
     opacity: 0;
   }
 }
 
 @-o-keyframes fadeOut {
   0% {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
     opacity: 1;
   }
 
   100% {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
     opacity: 0;
   }
 }
 
 @keyframes fadeOut {
   0% {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
     opacity: 1;
   }
 
   100% {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
     opacity: 0;
   }
 }
@@ -1936,6 +2018,14 @@ a {
 a:hover, a:focus {
   color: #004c99;
   text-decoration: none;
+}
+
+::selection {
+  background: #999999;
+}
+
+::-moz-selection {
+  background: #999999;
 }
 
 /*
@@ -2307,17 +2397,20 @@ legend small {
   color: #d9d9d9;
 }
 
-label,
 input,
 button,
 select,
 textarea {
-  line-height: 1em;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
   border-radius: 4px;
+}
+
+label {
+  line-height: 1.28571em;
+  display: block;
 }
 
 .input-text,
@@ -2387,10 +2480,6 @@ select {
   display: inline-block;
 }
 
-label {
-  display: block;
-}
-
 input,
 textarea {
   width: 240px;
@@ -2427,20 +2516,23 @@ select[size] {
   height: auto;
 }
 
-input:-moz-placeholder,
-textarea:-moz-placeholder {
+::-webkit-input-placeholder {
   color: #999999;
 }
-input::-moz-placeholder,
-textarea::-moz-placeholder {
+
+:-moz-placeholder {
   color: #999999;
 }
-input:-ms-input-placeholder,
-textarea:-ms-input-placeholder {
+
+::-moz-placeholder {
   color: #999999;
 }
-input::-webkit-input-placeholder,
-textarea::-webkit-input-placeholder {
+
+:-ms-input-placeholder {
+  color: #999999;
+}
+
+::placeholder {
   color: #999999;
 }
 
@@ -2561,11 +2653,12 @@ with class `.form__select`.
 Markup:
 <span class="form__select">
   <select>
-    <option>1</option>
-    <option>2</option>
-    <option>3</option>
-    <option>4</option>
-    <option>5</option>
+    <option selected="selected">Select Country</option>
+    <option>United States</option>
+    <option>United Kingdom</option>
+    <option>Italy</option>
+    <option>France</option>
+    <option>Germany</option>
   </select>
 </span>
 
@@ -2577,6 +2670,10 @@ Styleguide 8.3
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
   border-radius: 3px;
+  -webkit-transform: translateY(1px);
+  -moz-transform: translateY(1px);
+  -ms-transform: translateY(1px);
+  transform: translateY(1px);
   border-style: solid;
   border-width: 1px;
   cursor: pointer;
@@ -2600,6 +2697,8 @@ Styleguide 8.3
   width: 100%;
   z-index: 3;
   line-height: 1em;
+  text-indent: 1px;
+  text-overflow: '';
 }
 .form__select:after {
   position: absolute;
@@ -2692,6 +2791,11 @@ Markup:
   <input type="text">
   <span class="form__addon">.00</span>
 </div>
+<div class="form__controls form__controls--multi">
+  <span class="form__addon"><input type="checkbox" value=""></span>
+  <input type="text">
+  <button type="submit" class="btn btn--default form__addon">Search</button>
+</div>
 
 Styleguide 8.6
 
@@ -2783,13 +2887,27 @@ Markup:
   <div class="form__group">
     <label class="form__label">Label</label>
     <div class="form__controls">
-      <input type="text" placeholder="Type something…">
+      <label class="form__radio inline">
+        <input type="radio" value="option1" checked> Option one
+      </label>
+      <label class="form__radio inline">
+        <input type="radio" value="option1" checked> Option two
+      </label>
     </div>
   </div>
   <div class="form__group">
     <label class="form__label">Label</label>
     <div class="form__controls">
-      <input type="text" placeholder="Type something…">
+      <span class="form__select">
+        <select>
+          <option selected="selected">Select Country</option>
+          <option>United States</option>
+          <option>United Kingdom</option>
+          <option>Italy</option>
+          <option>France</option>
+          <option>Germany</option>
+        </select>
+      </span>
     </div>
   </div>
   <div class="form__actions">
@@ -2859,32 +2977,71 @@ The inline layout can also be used width a samplified markup.
 Markup:
 <form class="form--inline">
   <label class="form__label">Label</label>
-  <input type="text" placeholder="Type something…">
+    <input type="text" placeholder="Type something…">
   <label class="form__label">Label</label>
-  <input type="text" placeholder="Type something…">
+    <label class="form__radio inline">
+      <input type="radio" value="option1" checked> Option one
+    </label>
+    <label class="form__radio inline">
+      <input type="radio" value="option1" checked> Option two
+    </label>
   <label class="form__label">Label</label>
-  <input type="text" placeholder="Type something…">
+    <span class="form__select">
+      <select>
+        <option selected="selected">Select Country</option>
+        <option>United States</option>
+        <option>United Kingdom</option>
+        <option>Italy</option>
+        <option>France</option>
+        <option>Germany</option>
+      </select>
+    </span>
   <button type="submit" class="btn btn--default ">Save changes</button>
+</form>
+
 </form>
 
 Styleguide 8.8.1
 
 */
-.form--inline * {
-  float: none;
+.form--inline > * {
+  margin: 0 0 0 0.71429em;
+}
+.form--inline .form__label {
   display: inline-block;
-  vertical-align: middle;
-  margin: 0;
-  padding: 0;
+  padding-right: 1em;
+}
+.form--inline .input-text,
+.form--inline .form__select,
+.form--inline textarea,
+.form--inline input[type="text"],
+.form--inline input[type="password"],
+.form--inline input[type="datetime"],
+.form--inline input[type="datetime-local"],
+.form--inline input[type="date"],
+.form--inline input[type="month"],
+.form--inline input[type="time"],
+.form--inline input[type="week"],
+.form--inline input[type="number"],
+.form--inline input[type="email"],
+.form--inline input[type="url"],
+.form--inline input[type="search"],
+.form--inline input[type="tel"],
+.form--inline input[type="color"] {
   width: auto;
 }
-.form--inline > * + *,
-.form--inline > * > * + *,
+.form--inline .form__select {
+  padding-right: 1.5em;
+}
 .form--inline .form__group {
-  margin: 0 0 0 0.71429em;
+  padding: 0;
+  display: inline-block;
 }
 .form--inline .form__actions {
   border: 0;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
 }
 
 /*
@@ -3007,6 +3164,10 @@ Styleguide 5
 
 */
 .caption {
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  perspective: 1000;
   position: relative;
   float: left;
   overflow: hidden;
@@ -3015,6 +3176,7 @@ Styleguide 5
   margin-right: 0;
 }
 .caption img {
+  display: block;
   transition: 0.5s;
 }
 .caption figcaption {
@@ -3212,10 +3374,6 @@ Styleguide 5
   left: 0;
   width: 100%;
   height: 100%;
-  -webkit-perspective: 1300;
-  -moz-perspective: 1300;
-  -ms-perspective: 1300;
-  perspective: 1300;
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
   -ms-transform: rotateY(180deg);
@@ -3226,27 +3384,15 @@ Styleguide 5
   backface-visibility: hidden;
 }
 .caption[data-effect-type="revolving-door-left"] img {
-  -webkit-perspective: 1300;
-  -moz-perspective: 1300;
-  -ms-perspective: 1300;
-  perspective: 1300;
   transition: 0.5s;
 }
 .caption[data-effect-type="revolving-door-left"]:hover figcaption, .caption[data-effect-type="revolving-door-left"]:active figcaption {
-  -webkit-perspective: 1300;
-  -moz-perspective: 1300;
-  -ms-perspective: 1300;
-  perspective: 1300;
   -webkit-transform: rotateY(0deg);
   -moz-transform: rotateY(0deg);
   -ms-transform: rotateY(0deg);
   transform: rotateY(0deg);
 }
 .caption[data-effect-type="revolving-door-left"]:hover img, .caption[data-effect-type="revolving-door-left"]:active img {
-  -webkit-perspective: 1300;
-  -moz-perspective: 1300;
-  -ms-perspective: 1300;
-  perspective: 1300;
   -webkit-transform: rotateY(-180deg);
   -moz-transform: rotateY(-180deg);
   -ms-transform: rotateY(-180deg);
@@ -3260,10 +3406,6 @@ Styleguide 5
   left: 0;
   width: 100%;
   height: 100%;
-  -webkit-perspective: 1300;
-  -moz-perspective: 1300;
-  -ms-perspective: 1300;
-  perspective: 1300;
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
   -ms-transform: rotateY(180deg);
@@ -3274,27 +3416,15 @@ Styleguide 5
   backface-visibility: hidden;
 }
 .caption[data-effect-type="revolving-door-right"] img {
-  -webkit-perspective: 1300;
-  -moz-perspective: 1300;
-  -ms-perspective: 1300;
-  perspective: 1300;
   transition: 0.5s;
 }
 .caption[data-effect-type="revolving-door-right"]:hover figcaption, .caption[data-effect-type="revolving-door-right"]:active figcaption {
-  -webkit-perspective: 1300;
-  -moz-perspective: 1300;
-  -ms-perspective: 1300;
-  perspective: 1300;
   -webkit-transform: rotateY(360deg);
   -moz-transform: rotateY(360deg);
   -ms-transform: rotateY(360deg);
   transform: rotateY(360deg);
 }
 .caption[data-effect-type="revolving-door-right"]:hover img, .caption[data-effect-type="revolving-door-right"]:active img {
-  -webkit-perspective: 1300;
-  -moz-perspective: 1300;
-  -ms-perspective: 1300;
-  perspective: 1300;
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
   -ms-transform: rotateY(180deg);
@@ -3308,10 +3438,6 @@ Styleguide 5
   left: 0;
   width: 100%;
   height: 100%;
-  -webkit-perspective: 1300;
-  -moz-perspective: 1300;
-  -ms-perspective: 1300;
-  perspective: 1300;
   -webkit-transform: rotateX(180deg);
   -moz-transform: rotateX(180deg);
   -ms-transform: rotateX(180deg);
@@ -3322,27 +3448,15 @@ Styleguide 5
   backface-visibility: hidden;
 }
 .caption[data-effect-type="revolving-door-top"] img {
-  -webkit-perspective: 1300;
-  -moz-perspective: 1300;
-  -ms-perspective: 1300;
-  perspective: 1300;
   transition: 0.5s;
 }
 .caption[data-effect-type="revolving-door-top"]:hover figcaption, .caption[data-effect-type="revolving-door-top"]:active figcaption {
-  -webkit-perspective: 1300;
-  -moz-perspective: 1300;
-  -ms-perspective: 1300;
-  perspective: 1300;
   -webkit-transform: rotateX(360deg);
   -moz-transform: rotateX(360deg);
   -ms-transform: rotateX(360deg);
   transform: rotateX(360deg);
 }
 .caption[data-effect-type="revolving-door-top"]:hover img, .caption[data-effect-type="revolving-door-top"]:active img {
-  -webkit-perspective: 1300;
-  -moz-perspective: 1300;
-  -ms-perspective: 1300;
-  perspective: 1300;
   -webkit-transform: rotateX(180deg);
   -moz-transform: rotateX(180deg);
   -ms-transform: rotateX(180deg);
@@ -3356,10 +3470,6 @@ Styleguide 5
   left: 0;
   width: 100%;
   height: 100%;
-  -webkit-perspective: 1300;
-  -moz-perspective: 1300;
-  -ms-perspective: 1300;
-  perspective: 1300;
   -webkit-transform: rotateX(180deg);
   -moz-transform: rotateX(180deg);
   -ms-transform: rotateX(180deg);
@@ -3370,27 +3480,15 @@ Styleguide 5
   backface-visibility: hidden;
 }
 .caption[data-effect-type="revolving-door-bottom"] img {
-  -webkit-perspective: 1300;
-  -moz-perspective: 1300;
-  -ms-perspective: 1300;
-  perspective: 1300;
   transition: 0.5s;
 }
 .caption[data-effect-type="revolving-door-bottom"]:hover figcaption, .caption[data-effect-type="revolving-door-bottom"]:active figcaption {
-  -webkit-perspective: 1300;
-  -moz-perspective: 1300;
-  -ms-perspective: 1300;
-  perspective: 1300;
   -webkit-transform: rotateX(0deg);
   -moz-transform: rotateX(0deg);
   -ms-transform: rotateX(0deg);
   transform: rotateX(0deg);
 }
 .caption[data-effect-type="revolving-door-bottom"]:hover img, .caption[data-effect-type="revolving-door-bottom"]:active img {
-  -webkit-perspective: 1300;
-  -moz-perspective: 1300;
-  -ms-perspective: 1300;
-  perspective: 1300;
   -webkit-transform: rotateX(-180deg);
   -moz-transform: rotateX(-180deg);
   -ms-transform: rotateX(-180deg);
@@ -3788,6 +3886,10 @@ Dropdowns
 Toggleable, contextual menu for displaying lists of links. Made interactive with the [dropdown JavaScript plugin](http://twitter.github.io/bootstrap/javascript.html#dropdowns).
 
 Looking at just the dropdown menu, here's the required HTML. You need to wrap the dropdown's trigger and the dropdown menu within `.dropdown`. Then just create the menu.
+
+Script required:
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap-dropdown.min.js"></script>
 
 Markup:
 <div class="dropdown">
@@ -4195,10 +4297,9 @@ Download and link at the top of the page the following scripts:
 
 * https://github.com/raffone/SidebarTransitions/blob/master/js/modernizr.custom.js
 
-Download and link at the bottom of the page the following scripts:
+Script required:
 
-* https://github.com/raffone/SidebarTransitions/blob/master/js/classie.js
-* https://github.com/raffone/SidebarTransitions/blob/master/js/sidebarEffects.js
+    <script src="http://raffone.github.io/cdn/js/sidebarOffCanvas.js"></script>
 
 For opening and closing the sidebar add the class `st-menu-toggle` to a link or button.
 
@@ -4388,6 +4489,7 @@ Styleguide 14
 */
 .pagination {
   margin: 1.5em 0;
+  clear: both;
 }
 .pagination > * {
   -webkit-border-radius: 4px;
@@ -5190,6 +5292,10 @@ Modals
 
 For modals is used the excellent [**fancyBox**](http://fancyapps.com/fancybox/) jQuery plugin, see full documentation for more in depth examples.
 
+Script required:
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.pack.js"></script>
+
 Markup:
 <a class="open__modal  btn btn--default" href="#modal">Open modal</a>
 <div id="modal" class="modal">
@@ -5397,6 +5503,10 @@ Styleguide 11
 
 Modal Buttons
 
+Script required:
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-buttons.min.js"></script>
+
 Markup:
 <a class="fancybox-button" rel="fancybox-button" href="http://placehold.it/600x400/c7e843/fff.jpg">
   <img src="http://placehold.it/60x60/c7e843/fff.jpg"/>
@@ -5463,6 +5573,10 @@ Styleguide 11.1
 /*
 
 Modal Thumbs
+
+Script required:
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.js"></script>
 
 Markup:
 <a class="fancybox-thumb" rel="fancybox-thumb" href="http://placehold.it/600x400/c7e843/fff.jpg">
@@ -5538,6 +5652,10 @@ Sliders
 
 For modals is used the excellent [**BxSlider**](http://bxslider.com/) jQuery plugin,
 see full documentation for more in depth examples.
+
+Script required:
+
+    <script src="//cdn.jsdelivr.net/bxslider/4.1.1/jquery.bxslider.js"></script>
 
 Markup:
 <ul class="slider">
@@ -5626,6 +5744,10 @@ Tabs
 
 For tabs is used the excellent [**EasyTabs**](http://os.alfajango.com/easytabs/) jQuery plugin,
 see full documentation for more in depth examples.
+
+Script required:
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.easytabs/3.2.0/jquery.easytabs.min.js"></script>
 
 Markup:
 <div id="tabs" class="tabs">
