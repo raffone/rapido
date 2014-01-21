@@ -4,12 +4,12 @@ Off-Canvas
 
 There's available a nice off-canvas sidebar functionality adapted from [Codrops](http://tympanus.net/codrops/2013/08/28/transitions-for-off-canvas-navigations).
 
-    <div id="st-container" class="st-container">
-      <nav class="st-menu">
+    <div id="offcanvas__container" class="offcanvas__container">
+      <nav class="offcanvas__menu">
         [...nav content...]
       </nav>
-      <div class="st-pusher">
-        <div class="st-content">
+      <div class="offcanvas__pusher">
+        <div class="offcanvas__content">
           [...main content...]
         </div>
       </div>
@@ -23,7 +23,7 @@ Script required:
 
     <script src="http://raffone.github.io/cdn/js/sidebarOffCanvas.js"></script>
 
-For opening and closing the sidebar add the class `st-menu-toggle` to a link or button.
+For opening and closing the sidebar add the class `offcanvas__menu-toggle` to a link or button.
 
 Styleguide 15
 
@@ -51,21 +51,21 @@ Styleguide 15
 
   html,
   body,
-  .st-container,
-  .st-pusher,
-  .st-content {
+  .offcanvas__container,
+  .offcanvas__pusher,
+  .offcanvas__content {
     height: 100%;
 
   }
 
-  .st-container {
+  .offcanvas__container {
     overflow: hidden;
     position: relative;
   }
 
   // ----------------------------------------------------------------------------
 
-  .st-pusher {
+  .offcanvas__pusher {
     @include position(relative, 0 $if-right 0 $if-left);
     @include transition(transform $offcanvas-animations-duration);
     z-index: $zindex-offcanvas;
@@ -84,38 +84,38 @@ Styleguide 15
     }
   }
 
-  .st-content {
+  .offcanvas__content {
     overflow-y: auto;
     position: relative;
     background: $body-color;
   }
 
-  // .st-content-inner {
+  // .offcanvas__content-inner {
   //   position: relative;
   // }
 
   // ----------------------------------------------------------------------------
 
-  .st-menu-toggle {
+  .offcanvas__menu-toggle {
       @extend %nav--offcanvas__toggle !optional;
   }
 
-  .st-menu-open {
+  .offcanvas__menu-open {
 
-    .st-pusher::after {
+    .offcanvas__pusher::after {
       @include opacity(1);
       @include square(100%);
       @include transition(opacity $offcanvas-animations-duration);
     }
 
-    .st-menu::after {
+    .offcanvas__menu::after {
       @include opacity(0);
       @include square(0);
       @include transition(opacity $offcanvas-animations-duration, width $offcanvas-animations-duration/4 $offcanvas-animations-duration);
     }
   }
 
-  .st-menu {
+  .offcanvas__menu {
     @extend %nav--offcanvas !optional;
     @include position(absolute, 0px $if-right 0 $if-left);
     @include size(100%, $offcanvas-width);
@@ -142,9 +142,9 @@ Styleguide 15
 
   @if $offcanvas-effect == 'cover' {
 
-    .st-container {
+    .offcanvas__container {
 
-      .st-menu {
+      .offcanvas__menu {
         @include translate3d($if-3d, 0, 0);
         visibility: visible;
 
@@ -153,9 +153,9 @@ Styleguide 15
         }
       }
 
-      &.st-menu-open {
+      &.offcanvas__menu-open {
 
-        .st-menu {
+        .offcanvas__menu {
           @include translate3d(0, 0, 0);
           visibility: visible;
         }
@@ -167,21 +167,21 @@ Styleguide 15
 
   @if $offcanvas-effect == 'reveal' {
 
-    .st-container {
+    .offcanvas__container {
 
-      &.st-menu-open {
+      &.offcanvas__menu-open {
 
-        .st-pusher {
+        .offcanvas__pusher {
           @include translate3d($if-width, 0, 0);
         }
 
-        .st-menu {
+        .offcanvas__menu {
           @include transition(transform $offcanvas-animations-duration);
           visibility: visible;
         }
       }
 
-      .st-menu {
+      .offcanvas__menu {
         z-index: 1;
 
         &::after {
@@ -195,22 +195,22 @@ Styleguide 15
 
   @if $offcanvas-effect == 'push' {
 
-    .st-container {
+    .offcanvas__container {
 
-      &.st-menu-open {
+      &.offcanvas__menu-open {
 
-        .st-pusher {
+        .offcanvas__pusher {
           @include translate3d($if-width, 0, 0);
         }
 
-        .st-menu {
+        .offcanvas__menu {
           @include transition(transform $offcanvas-animations-duration);
           visibility: visible;
           @include translate3d(0, 0, 0);
         }
       }
 
-      .st-menu {
+      .offcanvas__menu {
         @include translate3d($if-3d, 0, 0);
 
         &::after {
@@ -224,22 +224,22 @@ Styleguide 15
 
   @if $offcanvas-effect == 'slide' {
 
-    .st-container {
+    .offcanvas__container {
 
-      &.st-menu-open {
+      &.offcanvas__menu-open {
 
-        .st-pusher {
+        .offcanvas__pusher {
           @include translate3d($if-width, 0, 0);
         }
 
-        .st-menu {
+        .offcanvas__menu {
           @include transition(transform $offcanvas-animations-duration);
           @include translate3d(0, 0, 0);
           visibility: visible;
         }
       }
 
-      .st-menu {
+      .offcanvas__menu {
         z-index: 1;
         @include translate3d($if-3d/2, 0, 0);
 
@@ -252,11 +252,11 @@ Styleguide 15
 
   // ----------------------------------------------------------------------------
 
-  .no-csstransforms3d .st-pusher {
+  .no-csstransforms3d .offcanvas__pusher {
     padding-left: $offcanvas-width;
   }
 
-  .no-js .st-pusher {
+  .no-js .offcanvas__pusher {
     padding-left: $offcanvas-width;
   }
 
