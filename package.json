@@ -14,7 +14,8 @@
     "grunt-contrib-uglify": "~0.2.7",
     "grunt-contrib-jshint": "~0.8.0",
     "grunt-closure-linter": "~0.1.4",
-    "grunt-contrib-concat": "~0.3.0"
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-watch": "~0.5.3"
   },
   "main": "Gruntfile.js",
   "author": "Raffaele Rasini"

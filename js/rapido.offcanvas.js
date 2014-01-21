@@ -47,9 +47,9 @@
   };
 
   $.Rapido.Offcanvas.defaultOptions = {
-    toggleClass: 'st-menu-open',
-    containerClass: '.st-container',
-    menuClass: '.st-menu'
+    toggleClass: 'offcanvas__menu--open',
+    containerClass: '.offcanvas__container',
+    menuClass: '.offcanvas__menu'
   };
 
   $.fn.rapido_Offcanvas = function(options) {
@@ -60,4 +60,4 @@
 
 })(jQuery, window, document);
 
-$('.st-menu-toggle').rapido_Offcanvas();
+$('.offcanvas__menu--toggle').rapido_Offcanvas();

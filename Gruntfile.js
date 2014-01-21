@@ -7,6 +7,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-closure-linter');
   grunt.loadNpmTasks("grunt-contrib-concat");
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.initConfig({
 
@@ -105,7 +106,7 @@ module.exports = function(grunt) {
       options: {
         includeType: 'css',
         template: '../../forks/kss-node-template/template/',
-        includePath: 'dist/rapido.css',
+        includePath: 'dist/css/rapido.css',
       },
       dist: {
         files: {
@@ -126,13 +127,29 @@ module.exports = function(grunt) {
         },
         ]
       }
-    }
+    },
+
+    // Testing
+    watch: {
+      options: {
+        interrupt: false,
+        livereload: true
+      },
+      css: {
+        files: ['stylesheets/**/*.scss'],
+        tasks: ['compass']
+      },
+      js: {
+        files: ['js/*.js'],
+      },
+    },
 
   });
 
   grunt.registerTask('css',  ['compass']);
   grunt.registerTask('js',   ['concat', 'closureFixStyle', 'jshint', 'uglify']);
-  grunt.registerTask('site', ['compass', 'kss', 'copy']);
   grunt.registerTask('docs', ['compass', 'kss']);
+  grunt.registerTask('site', ['compass', 'kss', 'copy']);
+  grunt.registerTask('default', ['compass:dist']);
 
 };
