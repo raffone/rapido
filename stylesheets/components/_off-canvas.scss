@@ -15,15 +15,9 @@ There's available a nice off-canvas sidebar functionality adapted from [Codrops]
       </div>
     </div>
 
-Download and link at the top of the page the following scripts:
+Script required: **rapido.js**.
 
-* https://github.com/raffone/SidebarTransitions/blob/master/js/modernizr.custom.js
-
-Script required:
-
-    <script src="http://raffone.github.io/cdn/js/sidebarOffCanvas.js"></script>
-
-For opening and closing the sidebar add the class `offcanvas__menu-toggle` to a link or button.
+For opening and closing the sidebar add the class `offcanvas__menu--toggle` to a link or button.
 
 Styleguide 15
 
@@ -96,11 +90,11 @@ Styleguide 15
 
   // ----------------------------------------------------------------------------
 
-  .offcanvas__menu-toggle {
+  .offcanvas__menu--toggle {
       @extend %nav--offcanvas__toggle !optional;
   }
 
-  .offcanvas__menu-open {
+  .offcanvas__menu--open {
 
     .offcanvas__pusher::after {
       @include opacity(1);
@@ -153,7 +147,7 @@ Styleguide 15
         }
       }
 
-      &.offcanvas__menu-open {
+      &.offcanvas__menu--open {
 
         .offcanvas__menu {
           @include translate3d(0, 0, 0);
@@ -169,7 +163,7 @@ Styleguide 15
 
     .offcanvas__container {
 
-      &.offcanvas__menu-open {
+      &.offcanvas__menu--open {
 
         .offcanvas__pusher {
           @include translate3d($if-width, 0, 0);
@@ -197,7 +191,7 @@ Styleguide 15
 
     .offcanvas__container {
 
-      &.offcanvas__menu-open {
+      &.offcanvas__menu--open {
 
         .offcanvas__pusher {
           @include translate3d($if-width, 0, 0);
@@ -226,7 +220,7 @@ Styleguide 15
 
     .offcanvas__container {
 
-      &.offcanvas__menu-open {
+      &.offcanvas__menu--open {
 
         .offcanvas__pusher {
           @include translate3d($if-width, 0, 0);
