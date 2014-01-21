@@ -1,5 +1,6 @@
 {
   "name": "rapido",
+  "title": "Rapido",
   "version": "0.1.5",
   "description": "An easy and quick Sass + Compass + Susy + OOCSS + BEM prototyping framework.",
   "homepage": "https://github.com/raffone/rapido",
@@ -17,7 +18,6 @@
     "template",
     "node_modules",
     "bower_components",
-    "test",
     "tests"
   ],
   "dependencies": {

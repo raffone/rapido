@@ -10,7 +10,7 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
 
-    pkg: grunt.file.readJSON("rapido.json"),
+    pkg: grunt.file.readJSON("bower.json"),
 
     meta: {
       banner: "/*\n" +
@@ -18,8 +18,8 @@ module.exports = function(grunt) {
         " *  <%= pkg.description %>\n" +
         " *  <%= pkg.homepage %>\n" +
         " *\n" +
-        " *  Made by <%= pkg.author.name %>\n" +
-        " *  Under <%= pkg.licenses[0].type %> License\n" +
+        " *  Made by <%= pkg.authors %>\n" +
+        " *  Under <%= pkg.license %> License\n" +
         " */\n"
     },
 
