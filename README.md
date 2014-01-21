@@ -1,10 +1,9 @@
 # Rapido Framework
 
-An easy and quick [**Sass**](http://sass-lang.com/) + [**Compass**](http://compass-style.org/) + [**Susy**](http://susy.oddbird.net/) + [**OOCSS**](http://oocss.org/) + [**BEM**](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) prototyping framework based on Bootstrap without all the default styles.
+An easy and quick [**Sass**](http://sass-lang.com/) + [**Compass**](http://compass-style.org/) + [**Susy**](http://susy.oddbird.net/) + [**OOCSS**](http://oocss.org/) + [**BEM**](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) prototyping framework.
 
 ## Features
 
-* Most of the modules from Boostrap (some heavily modified and streamlined)
 * **CSS architecture and styling completely separated**, creating and switching complex themes is much easier
 * **Every unused component can be disabled** to slim the final css
 * All sizes are in **em** and respect the **vertical rhythm** of the page
@@ -20,15 +19,12 @@ A complete documentation of what is currently available can be found here: [Rapi
 
 ## Credits
 
-* [Bootstrap](https://github.com/twitter/bootstrap)
-* [Twitter Bootstrap - For Compass](https://github.com/vwall/compass-twitter-bootstrap)
-* [Susy [a Compass plugin]](https://github.com/ericam/susy)
+* [Compass](https://github.com/chriseppstein/compass)
+* [Susy](https://github.com/ericam/susy)
 * [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate)
 * [Inuit.css](https://github.com/csswizardry/inuit.css)
 
 
 ## License
 
-The MIT License (MIT)
-
-Copyright (c) [2014] [Raffaele Rasini](http://twitter.com/raffaele)
+MIT License (MIT)

@@ -1,0 +1,24 @@
+{
+	"name": "rapido",
+	"version": "0.1.5",
+	"title": "Rapido",
+	"description": "An easy and quick Sass + Compass + Susy + OOCSS + BEM prototyping framework.",
+	"author": {
+		"name": "Raffaele Rasini",
+		"email": "raffaele.rasini@gmail.com",
+		"url": "https://github.com/raffone"
+	},
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "http://zenorocha.mit-license.org/"
+		}
+	],
+	"bugs": "https://github.craffone/rapido/issues",
+	"homepage": "http://raffone.github.io/rapido",
+	"docs": "https://github.com/raffone/rapido#readme",
+	"download": "https://github.com/raffone/rapido/archive/master.zip",
+	"dependencies": {
+		"jquery": ">=1.9"
+	}
+}

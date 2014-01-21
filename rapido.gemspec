@@ -1,16 +1,16 @@
 Gem::Specification.new do |s|
   # Release Specific Information
-  s.version = "0.1.4"
+  s.version = "0.1.5"
   s.date = "2014-01-07"
 
   # Gem Details
   s.name = "rapido-css"
   s.authors = ["Raffaele Rasini"]
-  s.summary = %q{a quick bootstrap prototyping framework}
-  s.description = %q{An easy and quick sass+compass+susy prototyping framework based on Bootstrap without all the default styles.}
+  s.summary = %q{A quick css prototyping framework}
+  s.description = %q{An easy and quick Sass + Compass + Susy + OOCSS + BEM prototyping framework.}
   s.email = "raffaele.rasini@gmail.com"
   s.homepage = "https://github.com/raffone/rapido"
-  s.license = 'Apache License Version 2.0'
+  s.license = 'MIT'
 
   # Gem Files
   s.files = %w(README.md)
