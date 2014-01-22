@@ -10,7 +10,6 @@
     "./dist/js/rapido.js"
   ],
   "license": "MIT",
-  "private": true,
   "ignore": [
     "**/.*",
     "docs",
