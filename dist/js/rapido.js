@@ -1,9 +1,9 @@
 /*
  *  Rapido - v0.1.5
  *  An easy and quick Sass + Compass + Susy + OOCSS + BEM prototyping framework.
- *  http://raffone.github.io/rapido
+ *  https://github.com/raffone/rapido
  *
- *  Made by Raffaele Rasini
+ *  Made by Raffaele Rasini <raffaele.rasini@gmail.com>
  *  Under MIT License
  */
 (function($, window, document, undefined) {
@@ -61,7 +61,6 @@
   };
 
 })(jQuery, window, document);
-
 (function($, window, document, undefined) {
 
   if (!$.Rapido) {
@@ -157,7 +156,6 @@
   };
 
 })(jQuery, window, document);
-
 (function($, window, document, undefined) {
 
   if (!$.Rapido) {
@@ -274,9 +272,9 @@
   };
 
   $.Rapido.Offcanvas.defaultOptions = {
-    toggleClass: 'st-menu-open',
-    containerClass: '.st-container',
-    menuClass: '.st-menu'
+    toggleClass: 'offcanvas__menu-open',
+    containerClass: '.offcanvas__container',
+    menuClass: '.offcanvas__menu'
   };
 
   $.fn.rapido_Offcanvas = function(options) {
@@ -286,8 +284,6 @@
   };
 
 })(jQuery, window, document);
-
-$('.st-menu-toggle').rapido_Offcanvas();
 
 (function($, window, document, undefined) {
 

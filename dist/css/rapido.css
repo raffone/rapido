@@ -177,7 +177,7 @@ Functions
 
 For 99% of the framework I used Compass' and Susy's functions but I've made some for covering edge cases.
 
-Styleguide 24
+Styleguide 25
 
 */
 /*
@@ -191,7 +191,7 @@ There are lots of easing options available, from the basic ``linear`` or ``ease-
 * **easeOut**: easeOutQuad, easeOutCubic, easeOutQuart, easeOutQuint, easeOutSine, easeOutExpo, easeOutCirc, easeOutBack
 * **easeInOut**: easeInOutQuad, easeInOutCubic, easeInOutQuart, easeInOutQuint, easeInOutSine, easeInOutExpo, easeInOutCirc, easeInOutBack
 
-Styleguide 20.2
+Styleguide 21.2
 
 */
 /*
@@ -208,7 +208,7 @@ Become:
 
     left: -10em
 
-Styleguide 24.2
+Styleguide 25.2
 
 */
 /*
@@ -226,7 +226,7 @@ Become:
 
     margin-left: -1.42857em;
 
-Styleguide 24.3
+Styleguide 25.3
 
 */
 /*
@@ -236,7 +236,7 @@ space_neg()
 Similar to `rhythm_neg()` but for Susy's `space()` function, more info:
 [Susy Reference](http://susy.oddbird.net/guides/reference/#ref-space).
 
-Styleguide 24.4
+Styleguide 25.4
 
 */
 /*
@@ -246,14 +246,14 @@ strip_units()
 Remove eny type of unit from a number, more info:
 [StackOverflow](http://stackoverflow.com/questions/12328259/how-do-you-strip-the-unit-from-any-number-in-sass).
 
-Styleguide 24.5
+Styleguide 25.5
 
 */
 /*
 
 Base Settings
 
-Styleguide 25
+Styleguide 26
 
 */
 /*
@@ -264,7 +264,7 @@ Debug Mode
     $debug-outlines:                    false   # Enable debug outlines mode
     $default-styles:                    true    # Use default styles in _default-styles.scss
 
-Styleguide 25.1
+Styleguide 26.1
 
 */
 /*
@@ -280,7 +280,7 @@ on `palm` (smartphone) change the base size to 16px, it will be automatically co
 
     $responsive-font-size:              lap-and-up $base-font-size, palm 16px
 
-Styleguide 25.2
+Styleguide 26.2
 
 */
 /*
@@ -294,7 +294,7 @@ Font families
     $base-font-family:                  $font-sans  # Default font family for body text
     $titles-font-family:                $font-sans  # Default font family for titles
 
-Styleguide 25.3
+Styleguide 26.3
 
 */
 /*
@@ -311,7 +311,7 @@ Enable or disable specific broweser prefixes used by Compass mixins.
     $experimental-support-for-khtml:        false
 
 
-Styleguide 25.4
+Styleguide 26.4
 
 */
 /*
@@ -322,7 +322,7 @@ To convert `PX` to `EM` using the `$base-font-size` as font size.
 
     width: em(20px);
 
-Styleguide 24.1
+Styleguide 25.1
 
 */
 /*
@@ -339,7 +339,7 @@ Used for scaffolding
     $grayLighter:                       lighten($black, 95)
     $white:                             #fff
 
-Styleguide 26
+Styleguide 27
 
 */
 /*
@@ -352,7 +352,7 @@ Default colors
     $link-color:                        #0066cc
     $link-color-hover:                  darken($link-color, 10%)
 
-Styleguide 26.1
+Styleguide 27.1
 
 */
 /*
@@ -362,7 +362,7 @@ Base Dimensions
     $base-border-radius:            4px     # Border radius used as a standard on all elements.
     $horizontal-offset:             180px   # Labels width in horizontal forms.
 
-Styleguide 28
+Styleguide 29
 
 */
 /*
@@ -386,7 +386,7 @@ Font sizes you can used with the compass mixin `adjust-font-size-to()`. Naming c
     $smaller-size:                  $base-font-size * .7    # 10px
     $smallest-size:                 $base-font-size * .5    # 7px
 
-Styleguide 28.1
+Styleguide 29.1
 
 */
 /*
@@ -405,7 +405,7 @@ These values mean: n times the base line-height.
     $h5-line-height:                1.5
     $h6-line-height:                1.5
 
-Styleguide 28.1.1
+Styleguide 29.1.1
 
 */
 /*
@@ -421,7 +421,7 @@ Base padding and margins used in the forms.
     $input-padding-side:            10px    # Base side padding
     $checkbox-padding-left:         20px    # Side padding used for checkboxes and radios
 
-Styleguide 28.2
+Styleguide 29.2
 
 */
 /*
@@ -455,7 +455,7 @@ Components
     $tabs-content-padding:          $input-padding  # Tabs padding
     $tabs-tab-padding:              $input-padding  # Tabs padding
 
-Styleguide 28.3
+Styleguide 29.3
 
 */
 /*
@@ -466,7 +466,7 @@ Sizes
     $modal-btn-size:                em(30px)    # Size of buttons used with the modals
     $slider-btn-size:               em(30px)    # Size of buttons used with the sliders
 
-Styleguide 28.4
+Styleguide 29.4
 
 */
 /*
@@ -477,7 +477,7 @@ Some elements need to have a max-height specified for smoother animations, like 
 
     $dropdowns-height:              em(600px);
 
-Styleguide 28.5
+Styleguide 29.5
 
 */
 /*
@@ -490,7 +490,7 @@ Set the width of the three steps of the layout.
     $desk-start:                    768px   # Max width for tablet
     $desk-end:                      1080px  # Max width for desktop
 
-Styleguide 28.6
+Styleguide 29.6
 
 */
 /*
@@ -504,7 +504,7 @@ Default settings for susy grid. More info: [Susy](http://susy.oddbird.net/).
     $gutter-width:                  30px    # Gutter width
     $container-style:               fluid   # Grid style
 
-Styleguide 28.7
+Styleguide 29.7
 
 */
 /*
@@ -532,7 +532,7 @@ Default settings for overlay components, taken from Bootstrap.
     $zindex-slider:                 1040    # Sliders
     $zindex-modal:                  1050    # Modals
 
-Styleguide 28.9
+Styleguide 29.9
 
 */
 /*
@@ -570,7 +570,7 @@ Enable or disable components, so you can have in the css only what you need.
 
     $width-helper-classes:          true   # "Elements width" helper class
 
-Styleguide 27
+Styleguide 28
 
 */
 /*
@@ -580,7 +580,7 @@ Sprites
     $s-sprite-dimensions:           true;
     $s-layout:                      smart;
 
-Styleguide 27.1
+Styleguide 28.1
 
 */
 /*
@@ -601,7 +601,7 @@ Font files are not required, is used the [We Love Icon Fonts](http://weloveiconf
     $use-typicons:                  false  # http://typicons.com/
     $use-zocial:                    false  # http://zocial.smcllns.com/
 
-Styleguide 27.2
+Styleguide 28.2
 
 */
 /*
@@ -635,7 +635,7 @@ Durations specifics for some  modules.
     $caption-animations-duration:       .50s
 
 
-Styleguide 20.1
+Styleguide 21.1
 
 */
 /*
@@ -645,7 +645,7 @@ Mixins
 Some of them are from Bootstrap, others are custom. The required arguments are
 marked in bold.
 
-Styleguide 23
+Styleguide 24
 
 */
 /*
@@ -657,7 +657,7 @@ Create a rectangle
 * `$height`: Height of the rectangle
 * `$width`: Width of the rectangle
 
-Styleguide 23.1
+Styleguide 24.1
 
 */
 /*
@@ -668,7 +668,7 @@ Create a square
 
 * `$size`: Dimension used both for width and height
 
-Styleguide 23.2
+Styleguide 24.2
 
 */
 /*
@@ -690,7 +690,7 @@ Become:
     right: 0px;
     bottom: 0px;
 
-Styleguide 23.3
+Styleguide 24.3
 
 */
 /*
@@ -707,7 +707,7 @@ Become:
     margin-left: auto;
     margin-right: auto;
 
-Styleguide 23.4
+Styleguide 24.4
 
 */
 /*
@@ -718,7 +718,7 @@ Vertical and horizontal centering with absolute positioning, using the position 
 
     @include center();
 
-Styleguide 23.5
+Styleguide 24.5
 
 */
 /*
@@ -732,7 +732,7 @@ Abbrieviantion for extendingt normal class (.) or a placeholder class (%) when u
 * `$name`: Name of the class
 * `$silent`: Set to true if it's a placeholder class
 
-Styleguide 23.6
+Styleguide 24.6
 
 */
 /*
@@ -743,7 +743,7 @@ Placeholder
 
 * `$color`: Set color of the placeholder of an input.
 
-Styleguide 23.7
+Styleguide 24.7
 
 */
 /*
@@ -760,7 +760,7 @@ Become
     text-overflow: ellipsis;
     white-space: nowrap;
 
-Styleguide 23.8
+Styleguide 24.8
 
 */
 /*
@@ -775,7 +775,7 @@ Create a css-only triangle.
 * `$color`: Color of the triangle
 * `$direction`: There are available up, up-right, right, down-right, down, down-left, left, up-left
 
-Styleguide 23.9
+Styleguide 24.9
 
 
 */
@@ -793,7 +793,7 @@ Add a css-only triangle width side borders, usefull for tooltips. For now only s
 * `$border-width`: Border width of the triangle
 * `$direction`: left or right
 
-Styleguide 23.10
+Styleguide 24.10
 
 */
 /*
@@ -806,7 +806,7 @@ Text inset shadow
 * `$textcolor`: Color of the text
 * `$contrast`: How much stronger the inset will be
 
-Styleguide 23.11
+Styleguide 24.11
 
 */
 /*
@@ -830,7 +830,7 @@ Become
     color: #000;
     color: rgba(0,0,0,.5);
 
-Styleguide 23.12
+Styleguide 24.12
 
 */
 /*
@@ -845,7 +845,7 @@ Used for creating custom animations.
 
 * `$name`: Name of the keyframe
 
-Styleguide 23.13
+Styleguide 24.13
 
 */
 /*
@@ -857,7 +857,7 @@ Nav divider
 * `$top`: Color of the top border
 * `$bottom`: Color of the bottom border
 
-Styleguide 23.14
+Styleguide 24.14
 
 */
 /*
@@ -871,7 +871,7 @@ Comicbook Shadow
 * `$size`: Size of the shadow
 * `$distance`: Distance of the shadow from the image
 
-Styleguide 23.15
+Styleguide 24.15
 
 */
 /*
@@ -886,7 +886,7 @@ Usefull for adding inset shadows to sidebars or large block where the shadow is 
 * `$size`: Size of the shadow
 * `$color`: Color of the shadow
 
-Styleguide 23.16
+Styleguide 24.16
 
 */
 /*
@@ -900,7 +900,7 @@ Add Side Shadows to multi-line padded text for consistend side padding (Fabien D
 * `$size`: Size of the shadow
 * `$color`: Color of the shadow
 
-Styleguide 23.17
+Styleguide 24.17
 
 */
 /*
@@ -919,7 +919,7 @@ Use the unicode character from an icon font to insert it wherever you want.
 ‡ Fonts available: Fontawesome, Brandico, Entypo, Fontelico, Maki, Openweb-icons, Typicons, Zocial
 
 
-Styleguide 23.18
+Styleguide 24.18
 
 */
 /*
@@ -939,7 +939,7 @@ You can set the start/and with of each step from usins the variables `$lap-start
     * `portable`: Lap + Palm
     * `desk`: Only Desktop
 
-Styleguide 23.19
+Styleguide 24.19
 
 */
 /*
@@ -968,7 +968,7 @@ Or via `@include` from the scss:
 
 The result is the same.
 
-Styleguide 23.20
+Styleguide 24.20
 
 */
 /*
@@ -986,7 +986,7 @@ Responsive grid
 * `$media`: Media query to to use, for responsive grids
 * `$highlight-omega`: Bolean, used for debugging nth
 
-Styleguide 23.21
+Styleguide 24.21
 
 */
 /*
@@ -1001,7 +1001,7 @@ Animations
 * `$function`: Easing, see 20.2 for a list of all easing options available
 * `$mode`: animation-fill-mode (http://mzl.la/1g6ixCc), default to *both*
 
-Styleguide 23.22
+Styleguide 24.22
 
 */
 /*
@@ -1040,7 +1040,7 @@ Will be compiled to:
       animation: fadeIn 0.5s 2s ease-out both;
     }
 
-Styleguide 23.23
+Styleguide 24.23
 
 */
 /*
@@ -1049,7 +1049,7 @@ Helper Classes
 
 There are provided some helper classes usually used with `@extend` for applying effects or common styles.
 
-Styleguide 22
+Styleguide 23
 
 */
 /*
@@ -1064,10 +1064,10 @@ Simple divider class used in some components (like dropdowns).
 
     .divider
 
-Styleguide 22.1
+Styleguide 23.1
 
 */
-.clearfix:after, .wrapper:after, .w:after, .fixed-wrapper:after, .fw:after, .dl-horizontal:after, form:after, .form__controls:after, .form__actions:after, .btn-group:after, .nav:after, .nav ul:after, .pagination > :after {
+.clearfix:after, .wrapper:after, .w:after, .fixed-wrapper:after, .fw:after, .btn-group:after, form:after, .form__controls:after, .form__actions:after, .nav:after, .nav ul:after, .dl-horizontal:after, .pagination > :after {
   content: "";
   display: table;
   clear: both;
@@ -1100,7 +1100,7 @@ Same a `.wrapper` but with fixed width.
     .fixed-wrapper
     .fw
 
-Styleguide 22.2
+Styleguide 23.2
 
 */
 .wrapper, .w {
@@ -1141,12 +1141,12 @@ Corrispond to:
 
     width: 50% !important;
 
-Styleguide 22.3
+Styleguide 23.3
 
 */
-[data-width="100"], .btn-group[data-width] .btn, .btn-group[data-width] .st-menu-toggle,
+[data-width="100"], .btn-group[data-width] .btn, .btn-group[data-width] .offcanvas__menu--toggle,
 .btn-group > *[data-width] .btn,
-.btn-group > *[data-width] .st-menu-toggle {
+.btn-group > *[data-width] .offcanvas__menu--toggle {
   width: 100% !important;
 }
 
@@ -1562,7 +1562,7 @@ Some common classes for fixing the typography, to be used sparingly.
     .text-right     # text-align: right
     .text-center    # text-align: center
 
-Styleguide 22.4
+Styleguide 23.4
 
 */
 .lead {
@@ -1602,7 +1602,7 @@ Simple class used for spriting.
 
     .s
 
-Styleguide 22.5
+Styleguide 23.5
 
 */
 .s {
@@ -1632,7 +1632,7 @@ All the text replacement classes from from [html5boilerplate](http://html5boiler
     .visuallyhidden
     .invisible
 
-Styleguide 22.6
+Styleguide 23.6
 
 */
 .ir {
@@ -1656,7 +1656,7 @@ Styleguide 22.6
   visibility: hidden;
 }
 
-.visuallyhidden, .bx-controls-direction a span, .st-menu-toggle span {
+.visuallyhidden, .bx-controls-direction a span, .offcanvas__menu--toggle span {
   border: 0;
   clip: rect(0);
   height: 1px;
@@ -1667,7 +1667,7 @@ Styleguide 22.6
   padding: 0;
 }
 
-.visuallyhidden.focusable:active, .bx-controls-direction a span.focusable:active, .st-menu-toggle span.focusable:active, .visuallyhidden.focusable:focus, .bx-controls-direction a span.focusable:focus, .st-menu-toggle span.focusable:focus {
+.visuallyhidden.focusable:active, .bx-controls-direction a span.focusable:active, .offcanvas__menu--toggle span.focusable:active, .visuallyhidden.focusable:focus, .bx-controls-direction a span.focusable:focus, .offcanvas__menu--toggle span.focusable:focus {
   clip: auto;
   height: auto;
   overflow: visible;
@@ -1720,7 +1720,7 @@ All the animations in [theCSSguru](https://twitter.com/theCSSguru)'s [Animate mi
 * **Rotating entrances:** rotateIn, rotateInDownLeft, rotateInDownRight, rotateInUpLeft, rotateInUpRight
 * **Rotating exits:** rotateOut, rotateOutDownLeft, rotateOutDownRight, rotateOutUpLeft, rotateOutUpRight
 
-Styleguide 20
+Styleguide 21
 
 */
 /*
@@ -1733,7 +1733,7 @@ Example:
 
     @extend .fadeIn;
 
-Styleguide 20.3
+Styleguide 21.3
 
 */
 .fadeIn {
@@ -1761,7 +1761,7 @@ Example:
 
     @extend .delay-50;
 
-Styleguide 20.4
+Styleguide 21.4
 
 */
 .delay-25 {
@@ -1838,7 +1838,7 @@ Example:
     </div>
 
 
-Styleguide 20.5
+Styleguide 21.5
 
 */
 [data-animation-scroll*="In"] {
@@ -1852,7 +1852,7 @@ Animation mixin
 
 Also available is an "animate" mixin, for more information see the Mixins section.
 
-Styleguide 20.6
+Styleguide 21.6
 
 */
 @-webkit-keyframes fadeIn {
@@ -1971,371 +1971,586 @@ Icon Fonts
 
 /*
 
-Type
+Alerts
 
-Styleguide 19
+Wrap any text and an optional dismiss button in `.alert` for a basic warning alert message.
+
+Markup:
+<div class="alert">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>Alert!</strong> Best check yourself, you're not looking too good.
+</div>
+
+Styleguide 1
 
 */
-*, *:before, *:after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  outline: none;
+.alert {
+  padding: 0.71429em 0.71429em;
+  margin-bottom: 1.5em;
 }
-
-@media only screen and (min-width: 481px) {
-  html {
-    font-size: 87.5%;
-  }
-}
-@media only screen and (max-width: 480px) {
-  html {
-    font-size: 100%;
-  }
-}
-
-body {
-  font-size: 1em;
-  line-height: 1.5em;
+.alert p {
   margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #333333;
 }
-
-img {
-  max-width: 100%;
-  display: inline-block;
-}
-
-a, button, textarea, input {
-  outline: none;
-}
-
-a {
-  color: #0066cc;
-  text-decoration: none;
-}
-a:hover, a:focus {
-  color: #004c99;
-  text-decoration: none;
-}
-
-::selection {
-  background: #999999;
-}
-
-::-moz-selection {
-  background: #999999;
+.alert .close {
+  position: relative;
+  top: 0;
+  right: 0;
 }
 
 /*
 
-Body text
+Alert Block
+
+For longer messages, increase the padding on the top and bottom of the alert wrapper by adding `.alert-block`.
 
 Markup:
-<p class="lead">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec id elit non mi porta gravida at eget metus.</p>
-<small><p>Tight pants next level keffiyeh. Photo booth beard raw denim letterpress vegan messenger bag stumptown.</small>
+<div class="alert alert--block">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>Error</strong>
+  <p>The field Number is required and must contain a value.</p>
+  <p>The field Product Title is required and must contain a value.</p>
+  <p>The field Total Expenses is required and must contain a value.</p>
+</div>
 
-Styleguide 19.1
-
-*/
-p {
-  margin: 0 0 1.5em;
-}
-
-small {
-  font-size: 0.85em;
-  line-height: 1.76471em;
-}
-
-strong {
-  font-weight: bold;
-}
-
-em {
-  font-style: italic;
-}
-
-cite {
-  font-style: normal;
-}
-
-/*
-
-Headings
-
-Markup:
-<h1>h1. This is a very large header.</h1>
-<h2>h2. This is a large header.</h2>
-<h3>h3. This is a medium header.</h3>
-<h4>h4. This is a moderate header.</h4>
-<h5>h5. This is a small header. h1.</h5>
-<h6>h6. This is a tiny header. h1.</h6>
-
-Styleguide 19.2
+Styleguide 1.1
 
 */
-h1, h2, h3, h4, h5, h6 {
-  margin: 0 0 1.5em;
-  text-rendering: optimizelegibility;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
-  font-weight: normal;
-  line-height: 1.5em;
-  color: #d9d9d9;
-}
-
-h1, .h1 {
-  font-size: 2.5em;
-  line-height: 1.2em;
-}
-
-h2, .h2 {
-  font-size: 2em;
-  line-height: 1.5em;
-}
-
-h3, .h3 {
-  font-size: 1.85em;
-  line-height: 1.62162em;
-}
-
-h4, .h4 {
-  font-size: 1.5em;
-  line-height: 1.5em;
-}
-
-h5, .h5 {
-  font-size: 1.25em;
-  line-height: 1.8em;
-}
-
-h6, .h6 {
-  font-size: 1em;
-  line-height: 2.25em;
-}
-
-h1 small {
-  font-size: 1.85em;
-  line-height: 1.21622em;
-}
-
-h2 small {
-  font-size: 1.5em;
-  line-height: 1.5em;
-}
-
-h3 small {
-  font-size: 1.25em;
-  line-height: 1.8em;
-}
-
-h4 small {
-  font-size: 1em;
-  line-height: 1.5em;
-}
-
-/*
-
-Lists
-
-Markup:
-<ul>
-  <li>Unordered list item</li>
-  <li>Unordered list item</li>
-  <li>Unordered list item</li>
-</ul>
-<ol>
-  <li>Ordered list item</li>
-  <li>Ordered list item</li>
-  <li>Ordered list item</li>
-</ol>
-
-Styleguide 19.3
-
-*/
-.list_style_none, .bx-wrapper ul, .list-style-none, .nav, .nav ul {
-  padding-left: 0;
-  margin-left: 0;
-  list-style: none;
-}
-
-ul, ol {
-  padding: 0;
-  margin: 0 0 1.5em 25px;
-}
-
-ul ul,
-ul ol,
-ol ol,
-ol ul {
+.alert--block * {
   margin-bottom: 0;
 }
-
-ul.unstyled,
-ol.unstyled {
-  margin-left: 0;
-  list-style: none;
+.alert--block * + * {
+  margin-top: 5px;
 }
 
-ul.inline,
-ol.inline {
-  margin-left: 0;
-  list-style: none;
-}
-ul.inline > li,
-ol.inline > li {
+/*
+
+Button Groups
+
+Wrap a series of buttons with `.btn` in `.btn-group`.
+
+Markup:
+<ul class="btn-group">
+  <li><button class="btn btn--default">Left</button></li>
+  <li><button class="btn btn--default">Middle</button></li>
+  <li><button class="btn btn--default">Right</button></li>
+</ul>
+
+Styleguide 4
+
+*/
+.btn-group {
   display: -moz-inline-stack;
   display: inline-block;
   vertical-align: middle;
   *vertical-align: auto;
   zoom: 1;
   *display: inline;
-}
-
-/*
-
-Definition lists
-
-Markup:
-<dl>
-  <dt>Rock Hammer</dt>
-  <dd>A geologist’s hammer, rock hammer, rock pick or geological pick is a hammer used for splitting and breaking rocks.</dd>
-  <dt>Rock Hammer</dt>
-  <dd>A geologist’s hammer, rock hammer, rock pick or geological pick is a hammer used for splitting and breaking rocks.</dd>
-</dl>
-
-Styleguide 19.4
-
-*/
-dl {
-  margin-bottom: 1.5em;
-}
-
-dt {
-  font-weight: bold;
-}
-
-dd {
-  margin-left: 0;
-}
-
-/*
-
-Horizontal definition list
-
-Markup:
-<dl class="dl-horizontal">
-  <dt>Rock Hammer</dt>
-  <dd>A geologist’s hammer, rock hammer, rock pick or geological pick is a hammer used for splitting and breaking rocks.</dd>
-  <dt>Rock Hammer</dt>
-  <dd>A geologist’s hammer, rock hammer, rock pick or geological pick is a hammer used for splitting and breaking rocks.</dd>
-</dl>
-
-Styleguide 19.4.1
-
-*/
-.dl-horizontal dt {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  clear: left;
-  float: left;
-  text-align: right;
-  width: -7.14286em;
-}
-.dl-horizontal dd {
-  padding-left: 12.85714em;
-}
-
-/*
-
-Horizontal line
-
-Markup: <hr />
-
-Styleguide 19.5
-
-*/
-hr {
-  margin: 1.5em 0;
-  border: 0;
-  border-bottom: 1px solid #999999;
-}
-
-abbr[title],
-abbr[data-original-title] {
-  cursor: help;
-  border-bottom: 1px dotted #d9d9d9;
-}
-
-abbr.initialism {
-  font-size: 90%;
-  text-transform: uppercase;
-}
-
-/*
-
-Blockquotes
-
-Markup:
-<blockquote>
-  <p>A geologist’s hammer, rock hammer, rock pick or geological pick is a hammer used for splitting and breaking rocks.</p>
-  <small><cite>Rock Hammer</cite></small>
-</blockquote>
-
-Styleguide 19.6
-
-*/
-blockquote {
-  padding: 0 0 0 1.5em;
   margin: 0;
-  margin: 0 0 1.5em;
-  border-left: 5px solid #f2f2f2;
 }
-blockquote p {
+.btn-group > * {
+  float: left;
+  list-style-type: none;
+}
+.btn-group[data-width] .btn, .btn-group[data-width] .offcanvas__menu--toggle,
+.btn-group > *[data-width] .btn,
+.btn-group > *[data-width] .offcanvas__menu--toggle {
+  padding-left: 0;
+  padding-right: 0;
+}
+.btn-group + .btn-group {
+  margin-left: 0.35714em;
+}
+.btn-group > .btn, .btn-group > .offcanvas__menu--toggle,
+.btn-group > li .btn,
+.btn-group > li .offcanvas__menu--toggle {
+  float: left;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0;
+}
+.btn-group > li + li {
+  margin-left: -1px;
+}
+.btn-group > .btn:hover, .btn-group > .offcanvas__menu--toggle:hover,
+.btn-group > .btn:focus,
+.btn-group > .offcanvas__menu--toggle:focus,
+.btn-group > .btn:active,
+.btn-group > .offcanvas__menu--toggle:active,
+.btn-group > .btn.active,
+.btn-group > .active.offcanvas__menu--toggle {
+  z-index: 2;
+}
+
+.btn-group > li:first-child .btn, .btn-group > li:first-child .offcanvas__menu--toggle {
+  -moz-border-radius-topleft: 4px;
+  -webkit-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-bottomleft: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.btn-group > li:last-child .btn, .btn-group > li:last-child .offcanvas__menu--toggle {
+  -moz-border-radius-topright: 4px;
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+div.btn-group .btn, div.btn-group .offcanvas__menu--toggle {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.form__controls--multi .btn-group:first-child > li:last-child .btn, .form__controls--multi .btn-group:first-child > li:last-child .offcanvas__menu--toggle {
+  -moz-border-radius-topright: 0;
+  -webkit-border-top-right-radius: 0;
+  border-top-right-radius: 0;
+  -moz-border-radius-bottomright: 0;
+  -webkit-border-bottom-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.form__controls--multi div.btn-group:first-child .btn, .form__controls--multi div.btn-group:first-child .offcanvas__menu--toggle {
+  -moz-border-radius-topright: 0;
+  -webkit-border-top-right-radius: 0;
+  border-top-right-radius: 0;
+  -moz-border-radius-bottomright: 0;
+  -webkit-border-bottom-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.form__controls--multi .btn-group:last-child > li:first-child .btn, .form__controls--multi .btn-group:last-child > li:first-child .offcanvas__menu--toggle {
+  -moz-border-radius-topleft: 0;
+  -webkit-border-top-left-radius: 0;
+  border-top-left-radius: 0;
+  -moz-border-radius-bottomleft: 0;
+  -webkit-border-bottom-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form__controls--multi div.btn-group:last-child > .btn, .form__controls--multi div.btn-group:last-child > .offcanvas__menu--toggle {
+  -moz-border-radius-topleft: 0;
+  -webkit-border-top-left-radius: 0;
+  border-top-left-radius: 0;
+  -moz-border-radius-bottomleft: 0;
+  -webkit-border-bottom-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/*
+
+Buttons
+
+Button styles can be applied to anything with the `.btn` class applied.
+However, typically you'll want to apply these to only `<a>` and `<button>`
+elements for the best rendering.
+
+Markup:
+<a href="#" class="btn btn--default {$modifiers}">Link Button</a>
+<button class="btn btn--default {$modifiers}">Button Element</button>
+
+:hover - Mouse hover state style, also available with `.hover`
+:active - Selected element style, also available with `.active`
+.disabled - Disabled state style.
+
+Styleguide 3
+
+*/
+.btn, .offcanvas__menu--toggle {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1em;
   margin-bottom: 0;
-  font-weight: 300;
+  text-align: center;
+  vertical-align: middle;
 }
-blockquote cite {
+.btn:hover, .offcanvas__menu--toggle:hover, .btn.hover, .hover.offcanvas__menu--toggle, .btn:focus, .offcanvas__menu--toggle:focus {
+  text-decoration: none;
+}
+.btn.active, .active.offcanvas__menu--toggle, .btn:active, .offcanvas__menu--toggle:active {
+  outline: 0;
+}
+.btn.disabled, .disabled.offcanvas__menu--toggle, .btn.disabled:hover, .disabled.offcanvas__menu--toggle:hover, .btn[disabled], [disabled].offcanvas__menu--toggle, .btn[disabled]:hover, [disabled].offcanvas__menu--toggle:hover {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=6500);
+  opacity: 65;
+  background-image: none;
+  cursor: default;
+}
+
+/*
+
+Buttons with Icons
+
+To add an icon to a button (or eny other type of element) just enable the font
+(see 27.2), add a class with the name of the font and use the unicode of
+the character.
+
+It's not a pretty way of doing it, if you prefer more fine control i suggest
+to ditch the icon font integration and use the tools and resources made
+available on the fonts sites.
+
+Markup:
+<a href="#" class="btn btn--default fontawesome">&#xf02b;</a>
+<a href="#" class="btn btn--default fontawesome">&#xf040;</a>
+<a href="#" class="btn btn--default fontawesome">&#xf06c;</a>
+
+Styleguide 3.1
+
+*/
+/*
+
+Colors
+
+Markup:
+<a href="#" class="btn btn--default">Link Button</a>
+<a href="#" class="btn btn--primary">Link Button</a>
+<a href="#" class="btn btn--secondary">Link Button</a>
+
+Styleguide 3.2
+
+*/
+/*
+
+Sizes
+
+Markup:
+<a href="#" class="btn btn--default btn--large">Link Button</a>
+<a href="#" class="btn btn--default">Link Button</a>
+<a href="#" class="btn btn--default btn--small">Link Button</a>
+<a href="#" class="btn btn--default btn--mini">Link Button</a>
+
+Styleguide 3.3
+
+*/
+.btn, .offcanvas__menu--toggle {
+  padding: 0.71429em 0.71429em;
+  height: 2.57143em;
+}
+
+.btn--large, .btn--small, .btn--mini {
+  height: auto;
+}
+
+.btn--large {
+  font-size: 1.25em;
+  line-height: 1.8em;
+  padding: 0.71429em 1.07143em;
+}
+
+.btn--small {
+  font-size: 0.85em;
+  line-height: 1.76471em;
+  padding: 0.35714em 0.57143em;
+}
+
+.btn--mini {
+  font-size: 0.7em;
+  line-height: 2.14286em;
+  padding: 0.07143em 0.42857em;
+}
+
+/*
+
+Modifiers
+
+Create block level buttons—those that span the full width of a parent.
+
+Markup:
+<a href="#" class="btn btn--default {$modifiers}">Link Button</a>
+<button class="btn btn--default {$modifiers}">Button Element</button>
+
+.btn--block - Create block level buttons—those that span the full width of a parent.
+.btn--pill - Button width rounded full corners.
+.btn--link - Deemphasize a button by making it look like a link while maintaining button behavior.
+
+Styleguide 3.4
+
+*/
+.btn--block {
   display: block;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+.btn--block + .btn--block {
+  margin-top: 0.75em;
+}
+
+.btn--pill {
+  -webkit-border-radius: 200px;
+  -moz-border-radius: 200px;
+  -ms-border-radius: 200px;
+  border-radius: 200px;
+}
+
+/*
+
+Link
+
+Deemphasize a button by making it look like a link while maintaining
+button behavior.
+
+Markup:
+<a href="#" class="btn btn--link ">Link Button</a>
+<button class="btn btn--link">Button Element</button>
+
+Styleguide 3.5
+
+*/
+.btn--link {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0;
+  border-color: transparent;
+  background: none;
+  color: #0066cc;
+  cursor: pointer;
+}
+.btn--link:hover, .btn--link:focus {
+  color: #004c99;
+  text-decoration: underline;
+  background-color: transparent;
+}
+.btn--link:active, .btn--link[disabled] {
+  background-color: transparent;
+  background-image: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.btn--link[disabled]:hover, .btn--link[disabled]:focus {
+  color: #4d4d4d;
+  text-decoration: none;
+}
+
+/*
+
+Close buttons
+
+Markup:
+<a href="#" class="close">&times;</a>
+<button type="button" class="close">&times;</button>
+
+Styleguide 6
+
+*/
+.close {
+  float: right;
+  font-size: 1em;
+  font-weight: bold;
+  color: black;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=2000);
+  opacity: 20;
+}
+.close:hover, .close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=4000);
+  opacity: 40;
+}
+
+button.close {
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
+}
+
+/*
+
+Dropdowns
+
+Toggleable, contextual menu for displaying lists of links. Made interactive with the [dropdown JavaScript plugin](http://twitter.github.io/bootstrap/javascript.html#dropdowns).
+
+Looking at just the dropdown menu, here's the required HTML. You need to wrap the dropdown's trigger and the dropdown menu within `.dropdown`. Then just create the menu.
+
+Script required: *rapido.js*.
+
+Markup:
+<div class="dropdown">
+  <a href="#" class="btn btn--default dropdown__toggle " data-toggle="dropdown">
+    Dropdown
+    <span class="dropdown__caret"></span>
+  </a>
+  <ul class="dropdown__menu ">
+    <li><a tabindex="-1" href="#">Action</a></li>
+    <li><a tabindex="-1" href="#">Another action</a></li>
+    <li><a tabindex="-1" href="#">Something else here</a></li>
+    <li class="divider"></li>
+    <li><a tabindex="-1" href="#">Separated link</a></li>
+  </ul>
+</div>
+<div class="dropdown">
+  <a href="#" class="btn btn--default dropdown__toggle " data-toggle="dropdown">
+    Dropdown
+    <span class="dropdown__caret"></span>
+  </a>
+  <ul class="dropdown__menu pull-right ">
+    <li><a tabindex="-1" href="#">Action</a></li>
+    <li><a tabindex="-1" href="#">Another action</a></li>
+    <li><a tabindex="-1" href="#">Something else here</a></li>
+    <li class="divider"></li>
+    <li><a tabindex="-1" href="#">Separated link</a></li>
+  </ul>
+</div>
+<script>$('.dropdown').rapido_Dropdown();</script>
+
+Include this js after including rapido.js.
+
+    $('.dropdown').rapido_Dropdown();
+
+**Options** (with defaul values):
+
+    event: click (click, hover)
+
+Styleguide 7
+
+*/
+.dropdown,
+.dropdown__toggle {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown__toggle:focus {
+  outline: 0;
+}
+
+/*
+
+Dropdown arrow/caret
+
+A simple helper class is available to add an arrow for the dropdown button.
+
+Markup: <span class="dropdown__caret"></span>
+
+Styleguide 7.1
+
+*/
+/*
+
+Dropdown menu
+
+List of the links to show in the dropdown.
+
+
+    <ul class="dropdown__menu ">
+      <li><a tabindex="-1" href="#">Action</a></li>
+      <li><a tabindex="-1" href="#">Another action</a></li>
+      <li><a tabindex="-1" href="#">Something else here</a></li>
+      <li class="divider"></li>
+      <li><a tabindex="-1" href="#">Separated link</a></li>
+    </ul>
+
+Styleguide 7.2
+
+*/
+.dropdown__menu {
+  -moz-border-radius-bottomleft: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  position: absolute;
+  top: 100%;
+  left: 0px;
+  border-style: solid;
+  border-width: 1px;
+  display/*\**/: none\9;
+  float: left;
+  list-style: none;
+  margin: -1px 0 0 0;
+  max-height: 0;
+  min-width: 10em;
+  overflow: hidden;
+  z-index: 1000;
+}
+.dropdown__menu[data-content] {
+  min-width: 42.85714em;
+}
+.dropdown__menu.pull-right {
+  right: 0;
+  left: auto;
+}
+.dropdown__menu > li > a,
+.dropdown__menu > li > label {
+  clear: both;
+  display: block;
+  font-weight: normal;
+  white-space: nowrap;
+}
+.dropdown__menu > li > a {
+  padding: 0.71429em 0.71429em;
+}
+.dropdown__menu > li > label {
+  padding: 0.71429em 0.71429em 0.71429em 2.14286em;
+}
+.dropdown__menu > li:last-child > a,
+.dropdown__menu > li:last-child > label {
+  border-bottom: 0;
+}
+
+.dropdown__menu > li > a:hover,
+.dropdown__menu > li > a:focus {
+  text-decoration: none;
+}
+
+.dropdown__menu > .active > a,
+.dropdown__menu > .active > a:hover,
+.dropdown__menu > .active > a:focus {
+  text-decoration: none;
+  outline: 0;
+}
+
+.dropdown__menu > .disabled > a,
+.dropdown__menu > .disabled > a:hover,
+.dropdown__menu > .disabled > a:focus {
   color: #d9d9d9;
 }
-blockquote cite:before {
-  content: '\2014 \00A0';
-}
-blockquote.pull-right {
-  float: right;
-  padding-right: 15px;
-  padding-left: 0;
-  border-right: 5px solid #f2f2f2;
-  border-left: 0;
-}
-blockquote.pull-right p,
-blockquote.pull-right small {
-  text-align: right;
-}
-blockquote.pull-right small:before {
-  content: '';
-}
-blockquote.pull-right small:after {
-  content: '\00A0 \2014';
+
+.dropdown__menu > .disabled > a:hover,
+.dropdown__menu > .disabled > a:focus {
+  text-decoration: none;
+  background-color: transparent;
+  background-image: none;
+  cursor: default;
 }
 
-q:before,
-q:after,
-blockquote:before,
-blockquote:after {
-  content: "";
+.dropdown.open {
+  z-index: 1000;
 }
-
-address {
-  display: block;
-  margin-bottom: 1.5em;
-  font-style: normal;
-  line-height: 1.5em;
+.dropdown.open .dropdown__toggle {
+  -moz-border-radius-bottomleft: 0 !important;
+  -webkit-border-bottom-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  -moz-border-radius-bottomright: 0 !important;
+  -webkit-border-bottom-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  z-index: 1001;
+}
+.dropdown.open .dropdown__menu {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+  display/*\**/: block\9;
+  max-height: 42.85714em;
 }
 
 /*
@@ -3046,6 +3261,746 @@ Styleguide 8.8.1
 
 /*
 
+Modals
+
+For modals is used the excellent [**fancyBox**](http://fancyapps.com/fancybox/) jQuery plugin, see full documentation for more in depth examples.
+
+Script required:
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.pack.js"></script>
+
+Markup:
+<a class="open__modal  btn btn--default" href="#modal">Open modal</a>
+<div id="modal" class="modal">
+  <h2>Lorem ipsum dolor sit amet</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".open__modal").fancybox({
+      margin: [20, 60, 20, 60],
+    });
+  });
+</script>
+
+Styleguide 11
+
+*/
+.modal {
+  display: none;
+}
+
+.fancybox-wrap,
+.fancybox-wrap iframe,
+.fancybox-wrap object,
+.fancybox-skin,
+.fancybox-outer,
+.fancybox-inner,
+.fancybox-image,
+.fancybox-nav span,
+.fancybox-tmp, #fancybox-thumbs ul {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  vertical-align: top;
+  list-style-type: none;
+}
+
+.fancybox-overlay {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: none;
+  overflow: hidden;
+  z-index: 1049;
+}
+.fancybox-overlay.fancybox-overlay-fixed {
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+}
+.fancybox-overlay .fancybox-wrap {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1050;
+}
+.fancybox-overlay .fancybox-wrap.fancybox-opened {
+  z-index: 1051;
+}
+.fancybox-overlay .fancybox-wrap.fancybox-type-iframe .fancybox-inner {
+  -webkit-overflow-scrolling: touch;
+}
+.fancybox-overlay .fancybox-wrap .fancybox-skin {
+  position: relative;
+  padding: 0 !important;
+}
+.fancybox-overlay .fancybox-wrap .fancybox-skin .fancybox-outer {
+  position: relative;
+}
+.fancybox-overlay .fancybox-wrap .fancybox-skin .fancybox-outer .fancybox-inner {
+  position: relative;
+  overflow: hidden;
+}
+.fancybox-overlay .fancybox-wrap .fancybox-skin .fancybox-outer .fancybox-inner > div {
+  padding: 1.5em;
+}
+
+.fancybox-tmp {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  visibility: hidden;
+  max-width: 99999px;
+  max-height: 99999px;
+  overflow: visible !important;
+}
+
+.fancybox-lock {
+  overflow: hidden;
+}
+
+.fancybox-lock .fancybox-overlay {
+  overflow: auto;
+  overflow-y: scroll;
+}
+
+.fancybox-error {
+  margin: 0;
+  padding: 0.71429em 0.71429em;
+  white-space: nowrap;
+}
+
+.fancybox-image,
+.fancybox-iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.fancybox-image {
+  max-width: 100%;
+  max-height: 100%;
+  z-index: 1055;
+  position: relative;
+}
+
+#fancybox-loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  cursor: pointer;
+  z-index: 1054;
+}
+
+.fancybox-close {
+  /*@extend %modal__btn !optional;*/
+  z-index: 1053;
+}
+
+.fancybox-nav {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  position: absolute;
+  top: 0px;
+  width: 40%;
+  height: 100%;
+  z-index: 1052;
+  /*&:hover span { @include opacity(1); }*/
+}
+.fancybox-nav span {
+  position: absolute;
+  top: 50%;
+  /*@include opacity(0);*/
+  z-index: 1052;
+}
+.fancybox-nav.fancybox-prev {
+  left: -60px;
+}
+.fancybox-nav.fancybox-prev span {
+  left: 0;
+}
+.fancybox-nav.fancybox-next {
+  right: -60px;
+}
+.fancybox-nav.fancybox-next span {
+  right: 0;
+}
+
+.fancybox-title {
+  visibility: hidden;
+  position: relative;
+  text-shadow: none;
+  z-index: 1053;
+}
+
+.fancybox-opened .fancybox-title {
+  visibility: visible;
+}
+
+.fancybox-title-float-wrap {
+  position: absolute;
+  right: 50%;
+  bottom: 0px;
+  margin-bottom: -2.5em;
+  text-align: center;
+  z-index: 1053;
+}
+.fancybox-title-float-wrap .child {
+  background: black;
+  background: rgba(0, 0, 0, 0.8);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-right: -100%;
+  padding: 0.14286em 0.71429em;
+  color: #FFF;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.fancybox-title-outside-wrap {
+  position: relative;
+  margin-top: 0.71429em;
+  color: #fff;
+}
+
+.fancybox-title-over-wrap {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+
+/*
+
+Modal Buttons
+
+Script required:
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-buttons.min.js"></script>
+
+Markup:
+<a class="fancybox-button" rel="fancybox-button" href="http://placehold.it/600x400/c7e843/fff.jpg">
+  <img src="http://placehold.it/60x60/c7e843/fff.jpg"/>
+</a>
+<a class="fancybox-button" rel="fancybox-button" href="http://placehold.it/600x400/f6ab48/fff.jpg">
+  <img src="http://placehold.it/60x60/f6ab48/fff.jpg"/>
+</a>
+<a class="fancybox-button" rel="fancybox-button" href="http://placehold.it/600x400/3dced4/fff.jpg">
+  <img src="http://placehold.it/60x60/3dced4/fff.jpg"/>
+</a>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".fancybox-button").fancybox({
+      prevEffect : 'none',
+      nextEffect : 'none',
+      closeBtn   : false,
+      margin: [20, 60, 20, 60],
+      helpers    : {
+        title    : { type : 'inside' },
+        buttons  : {}
+      }
+    });
+  });
+</script>
+
+Styleguide 11.1
+
+*/
+#fancybox-buttons {
+  position: fixed;
+  left: 0px;
+  width: 100%;
+  z-index: 1053;
+}
+#fancybox-buttons.top {
+  top: 0.71429em;
+}
+#fancybox-buttons.bottom {
+  bottom: 0.71429em;
+}
+#fancybox-buttons ul {
+  display: block;
+  list-style: none;
+  margin: 0 auto;
+}
+#fancybox-buttons ul li {
+  float: left;
+  margin: 0;
+}
+#fancybox-buttons ul li a {
+  position: relative;
+}
+#fancybox-buttons ul li a:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+#fancybox-buttons ul li a:after {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+}
+
+/*
+
+Modal Thumbs
+
+Script required:
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.js"></script>
+
+Markup:
+<a class="fancybox-thumb" rel="fancybox-thumb" href="http://placehold.it/600x400/c7e843/fff.jpg">
+  <img src="http://placehold.it/60x60/c7e843/fff.jpg"/>
+</a>
+<a class="fancybox-thumb" rel="fancybox-thumb" href="http://placehold.it/600x400/f6ab48/fff.jpg">
+  <img src="http://placehold.it/60x60/f6ab48/fff.jpg"/>
+</a>
+<a class="fancybox-thumb" rel="fancybox-thumb" href="http://placehold.it/600x400/3dced4/fff.jpg">
+  <img src="http://placehold.it/60x60/3dced4/fff.jpg"/>
+</a>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".fancybox-thumb").fancybox({
+      prevEffect : 'none',
+      nextEffect : 'none',
+      margin: [20, 60, 20, 60],
+      helpers    : {
+        title    : {
+          type: 'outside'
+        },
+        thumbs   : {
+          width  : 60,
+          height : 60
+        }
+      }
+    });
+  });
+</script>
+
+Styleguide 11.2
+
+*/
+#fancybox-thumbs {
+  position: fixed;
+  left: 0px;
+  overflow: hidden;
+  width: 100%;
+  z-index: 1053;
+}
+#fancybox-thumbs.bottom {
+  bottom: 0.71429em;
+}
+#fancybox-thumbs.top {
+  top: 0.71429em;
+}
+#fancybox-thumbs ul {
+  position: relative;
+}
+#fancybox-thumbs ul li {
+  float: left;
+  margin-right: 0.28571em;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  opacity: 0.5;
+}
+#fancybox-thumbs ul li:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=75);
+  opacity: 0.75;
+}
+#fancybox-thumbs ul li.active {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+#fancybox-thumbs ul li a {
+  display: block;
+  overflow: hidden;
+  text-align: center;
+}
+
+/*
+
+Navs
+
+All nav components here share the same base markup and styles through the `.nav` class.
+
+* `.nav__title`: Nav titles
+* `.current`: Button for current page
+* `.disabled`: Disabled state style
+* `.divider`: Add horizontal line as a divider
+
+Markup:
+<ul class="nav {$modifiers}">
+  <li class="nav__title">Nav header</li>
+  <li class="current"><a href="#">Home</a></li>
+  <li><a href="#">Messages</a>
+  <ul>
+    <li><a href="#">Submenu title</a></li>
+    <li><a href="#">Submenu title</a></li>
+    <li><a href="#">Submenu title</a></li>
+    <li><a href="#">Submenu title</a></li>
+  </ul>
+  </li>
+  <li><a href="#">Friends</a></li>
+  <li class="disabled"><a href="#">Profile</a></li>
+</ul>
+
+.nav--inline.nav--btn - Horizontal and blocky links.
+.nav--inline.nav--btn.nav--pills -  Horizontal and blocky links with rounded corners.
+.nav--vertical.nav--btn - Vertical nav layout and blocky links
+
+Styleguide 12
+
+*/
+.nav {
+  display: inline-block;
+  margin-bottom: 1.5em;
+  position: relative;
+}
+.nav li {
+  position: relative;
+}
+.nav li > a {
+  display: inline-block;
+  line-height: 1em;
+}
+.nav li > a:hover, .nav li > a:focus {
+  text-decoration: none;
+}
+.nav li > a img {
+  max-width: none;
+}
+.nav li.disabled > a:hover, .nav li.disabled > a:focus {
+  text-decoration: none;
+  background-color: transparent;
+  cursor: default;
+}
+.nav li ul {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  display/*\**/: none\9;
+  max-height: 0;
+  overflow: hidden;
+  z-index: 2;
+}
+.nav li:hover ul,
+.nav li ul:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+  display/*\**/: block\9;
+  max-height: 42.85714em;
+}
+
+.nav__title {
+  font-size: 0.85em;
+  line-height: 1.76471em;
+  color: #999999;
+  display: block;
+  font-weight: bold;
+  padding: 0.71429em 0.71429em;
+  padding-left: 0;
+  text-transform: uppercase;
+}
+
+.nav--inline > li,
+.nav--inline > ul > li {
+  float: left;
+}
+.nav--inline li ul {
+  position: absolute;
+  top: 100%;
+  left: 0px;
+  min-width: 10em;
+}
+
+.nav--vertical {
+  width: 100%;
+}
+.nav--vertical li > a {
+  display: block;
+}
+
+.nav--btn li > a {
+  padding: 0.71429em 0.71429em;
+}
+.nav--btn li ul a {
+  display: block;
+}
+
+.nav--pills > li > a {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  margin-right: .25em;
+}
+.nav--pills[class*="vertical"] > li > a {
+  margin-bottom: .25em;
+}
+.nav--pills[class*="vertical"] > li:last-child > a {
+  margin-bottom: 0;
+}
+
+/*
+
+Off-Canvas
+
+There's available a nice off-canvas sidebar functionality adapted from [Codrops](http://tympanus.net/codrops/2013/08/28/transitions-for-off-canvas-navigations).
+
+Script required: **rapido.js**.
+
+    <div id="offcanvas__container" class="offcanvas__container">
+      <nav class="offcanvas__menu">
+        [...nav content...]
+      </nav>
+      <div class="offcanvas__pusher">
+        <div class="offcanvas__content">
+          [...main content...]
+        </div>
+      </div>
+    </div>
+
+Styleguide 15
+
+*/
+/*
+
+Off-Canvas JS
+
+Include this js after including rapido.js.
+
+    $('.offcanvas__menu--toggle').rapido_Offcanvas();
+
+**Options** (with defaul values):
+
+    toggleClass:     offcanvas__menu--open
+    containerClass:  .offcanvas__container
+    menuClass:       .offcanvas__menu
+
+For opening and closing the sidebar add the class `offcanvas__menu--toggle` to a link or button.
+
+Styleguide 15.2
+
+*/
+html,
+body,
+.offcanvas__container,
+.offcanvas__pusher,
+.offcanvas__content {
+  height: 100%;
+}
+
+.offcanvas__container {
+  overflow: hidden;
+  position: relative;
+}
+
+.offcanvas__pusher {
+  position: relative;
+  left: 0px;
+  -webkit-transition: -webkit-transform 0.4s;
+  -moz-transition: -moz-transform 0.4s;
+  transition: transform 0.4s;
+  z-index: 990;
+}
+.offcanvas__pusher::after {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 0;
+  height: 0;
+  -webkit-transition: opacity 0.4s, width 0.1s;
+  -webkit-transition-delay: 0s, 0.4s;
+  -moz-transition: opacity 0.4s, width 0.1s 0.4s;
+  transition: opacity 0.4s, width 0.1s 0.4s;
+  content: '';
+}
+
+.offcanvas__content {
+  overflow-y: auto;
+  position: relative;
+  background: white;
+}
+
+.offcanvas__menu--open .offcanvas__pusher::after {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}
+.offcanvas__menu--open .offcanvas__menu::after {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  width: 0;
+  height: 0;
+  -webkit-transition: opacity 0.4s, width 0.1s;
+  -webkit-transition-delay: 0s, 0.4s;
+  -moz-transition: opacity 0.4s, width 0.1s 0.4s;
+  transition: opacity 0.4s, width 0.1s 0.4s;
+}
+
+.offcanvas__menu {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 300px;
+  height: 100%;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+  overflow-y: auto;
+  visibility: hidden;
+  z-index: 991;
+}
+.offcanvas__menu::after {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+  content: '';
+}
+
+.offcanvas__container.offcanvas__menu--open .offcanvas__pusher {
+  -webkit-transform: translate3d(300px, 0, 0);
+  -moz-transform: translate3d(300px, 0, 0);
+  -ms-transform: translate3d(300px, 0, 0);
+  transform: translate3d(300px, 0, 0);
+}
+.offcanvas__container.offcanvas__menu--open .offcanvas__menu {
+  -webkit-transition: -webkit-transform 0.4s;
+  -moz-transition: -moz-transform 0.4s;
+  transition: transform 0.4s;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  visibility: visible;
+}
+.offcanvas__container .offcanvas__menu {
+  z-index: 1;
+  -webkit-transform: translate3d(-50%, 0, 0);
+  -moz-transform: translate3d(-50%, 0, 0);
+  -ms-transform: translate3d(-50%, 0, 0);
+  transform: translate3d(-50%, 0, 0);
+}
+.offcanvas__container .offcanvas__menu::after {
+  display: none;
+}
+
+.no-csstransforms3d .offcanvas__pusher {
+  padding-left: 300px;
+}
+
+.no-js .offcanvas__pusher {
+  padding-left: 300px;
+}
+
+/*
+
+Sliders
+
+For modals is used the excellent [**BxSlider**](http://bxslider.com/) jQuery plugin,
+see full documentation for more in depth examples.
+
+Script required:
+
+    <script src="//cdn.jsdelivr.net/bxslider/4.1.1/jquery.bxslider.js"></script>
+
+Markup:
+<ul class="slider">
+  <li><img src="http://placehold.it/800x300/c7e843/fff.jpg" /></li>
+  <li><img src="http://placehold.it/800x300/f6ab48/fff.jpg" /></li>
+  <li><img src="http://placehold.it/800x300/3dced4/fff.jpg" /></li>
+</ul>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.slider').bxSlider({
+      nextText: '<i></i><span>Next</span>', // replace text with icon-font
+      prevText: '<i></i><span>Prev</span>', // replace text with icon-font
+    });
+  });
+</script>
+
+Styleguide 16
+
+*/
+.bx-wrapper {
+  position: relative;
+  padding: 0;
+  *zoom: 1;
+  z-index: 1040;
+  margin-bottom: 1.5em;
+}
+.bx-wrapper img {
+  max-width: 100%;
+  display: block;
+}
+
+.bx-controls-direction a {
+  position: absolute;
+  top: 50%;
+  z-index: 200;
+}
+.bx-controls-direction a i {
+  font-style: normal;
+}
+.bx-controls-direction .disabled {
+  display: none;
+}
+
+.bx-prev {
+  left: 0;
+}
+
+.bx-next {
+  right: 0;
+}
+
+.bx-pager {
+  width: 100%;
+  text-align: center;
+}
+
+.bx-pager-item {
+  display: inline-block;
+}
+.bx-pager-item a {
+  display: inline-block;
+}
+
+.bx-loading {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 2000;
+}
+
+.bx-caption {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+}
+.bx-caption span {
+  display: inline-block;
+}
+
+/*
+
 Tables
 
 For basic styling—light padding and only horizontal dividers—add the base class `.table` to any `<table>`.
@@ -3075,7 +4030,7 @@ Markup:
 .table--hover - Enable a hover state on table rows within a `<tbody>`.
 .table--condensed - Makes tables more compact by cutting cell padding in half.
 
-Styleguide 17
+Styleguide 18
 
 */
 table {
@@ -3126,6 +4081,534 @@ table {
 
 /*
 
+Tabs
+
+For tabs is used the excellent [**EasyTabs**](http://os.alfajango.com/easytabs/) jQuery plugin,
+see full documentation for more in depth examples.
+
+Script required:
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.easytabs/3.2.0/jquery.easytabs.min.js"></script>
+
+Markup:
+<div id="tabs" class="tabs">
+  <ul class='etabs'>
+    <li class='tab'><a href="#tabs1-html">HTML Markup</a></li>
+    <li class='tab'><a href="#tabs1-js">Required JS</a></li>
+    <li class='tab'><a href="#tabs1-css">Example CSS</a></li>
+  </ul>
+   <div class='panel-container'>
+  <div id="tabs1-html">
+    <h5>HTML Markup for these tabs</h5>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  </div>
+  <div id="tabs1-js">
+    <h5>JS for these tabs</h5>
+    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  </div>
+  <div id="tabs1-css">
+    <h5>CSS Styles for these tabs</h5>
+    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+  </div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#tabs').easytabs({
+      animate: false
+    });
+  });
+</script>
+
+Styleguide 19
+
+*/
+.tabs {
+  margin-bottom: 1.5em;
+}
+.tabs .etabs {
+  margin: 0;
+  padding: 0;
+}
+.tabs .etabs li {
+  display: inline-block;
+  zoom: 1;
+}
+.tabs .etabs li a {
+  line-height: 1em;
+  display: block;
+  padding: 0.71429em 0.71429em;
+  outline: none;
+  -webkit-border-radius: 4px 4px 0 0;
+  -moz-border-radius: 4px 4px 0 0;
+  -ms-border-radius: 4px 4px 0 0;
+  border-radius: 4px 4px 0 0;
+}
+.tabs .etabs li.active a {
+  position: relative;
+  font-weight: bold;
+}
+.tabs .etabs li.active a:after {
+  position: absolute;
+  right: 0px;
+  bottom: -1px;
+  left: 0px;
+  height: 2px;
+  display: block;
+  content: "";
+}
+.tabs .panel-container {
+  -webkit-border-radius: 0 4px 4px;
+  -moz-border-radius: 0 4px 4px;
+  -ms-border-radius: 0 4px 4px;
+  border-radius: 0 4px 4px;
+}
+.tabs .panel-container > div {
+  padding: 0.71429em 0.71429em;
+}
+
+/*
+
+Toggle
+
+Toggle visibility using `.open` class between elements of a container.
+
+Script required: **rapido.js**.
+
+    <section class="news">
+      <article>
+        <h3 data-toggle-name="news_1">News title</h3>
+        <p data-toggle-content="news_1">News content</p>
+      </article>
+      <article>
+        <h3 data-toggle-name="news_2">News title</h4>
+        <p data-toggle-content="news_2">News content</p>
+      </article>
+    </section>
+
+Include this js after including rapido.js.
+
+    $('.toggle').rapido_Toggle();
+
+You can also pass a delay between the removing and adding the class, usefull
+when you have two animation that you don't wont to start at the same time.
+
+**Options** (with defaul values):
+
+    titleClass:    [data-toggle-name]
+    contentClass:  [data-toggle-content]
+    delay:         0
+
+Remeber to add closed and open state in the css, this module doesn't have
+default styling, es:
+
+    [data-toggle-content]       { display: none; }
+    [data-toggle-content].open  { display: block; }
+
+Styleguide 17
+
+*/
+/*
+
+Type
+
+Styleguide 20
+
+*/
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  outline: none;
+}
+
+@media only screen and (min-width: 481px) {
+  html {
+    font-size: 87.5%;
+  }
+}
+@media only screen and (max-width: 480px) {
+  html {
+    font-size: 100%;
+  }
+}
+
+body {
+  font-size: 1em;
+  line-height: 1.5em;
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333333;
+}
+
+img {
+  max-width: 100%;
+  display: inline-block;
+}
+
+a, button, textarea, input {
+  outline: none;
+}
+
+a {
+  color: #0066cc;
+  text-decoration: none;
+}
+a:hover, a:focus {
+  color: #004c99;
+  text-decoration: none;
+}
+
+::selection {
+  background: #999999;
+}
+
+::-moz-selection {
+  background: #999999;
+}
+
+/*
+
+Body text
+
+Markup:
+<p class="lead">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec id elit non mi porta gravida at eget metus.</p>
+<small><p>Tight pants next level keffiyeh. Photo booth beard raw denim letterpress vegan messenger bag stumptown.</small>
+
+Styleguide 20.1
+
+*/
+p {
+  margin: 0 0 1.5em;
+}
+
+small {
+  font-size: 0.85em;
+  line-height: 1.76471em;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+cite {
+  font-style: normal;
+}
+
+/*
+
+Headings
+
+Markup:
+<h1>h1. This is a very large header.</h1>
+<h2>h2. This is a large header.</h2>
+<h3>h3. This is a medium header.</h3>
+<h4>h4. This is a moderate header.</h4>
+<h5>h5. This is a small header. h1.</h5>
+<h6>h6. This is a tiny header. h1.</h6>
+
+Styleguide 20.2
+
+*/
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 1.5em;
+  text-rendering: optimizelegibility;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+  font-weight: normal;
+  line-height: 1.5em;
+  color: #d9d9d9;
+}
+
+h1, .h1 {
+  font-size: 2.5em;
+  line-height: 1.2em;
+}
+
+h2, .h2 {
+  font-size: 2em;
+  line-height: 1.5em;
+}
+
+h3, .h3 {
+  font-size: 1.85em;
+  line-height: 1.62162em;
+}
+
+h4, .h4 {
+  font-size: 1.5em;
+  line-height: 1.5em;
+}
+
+h5, .h5 {
+  font-size: 1.25em;
+  line-height: 1.8em;
+}
+
+h6, .h6 {
+  font-size: 1em;
+  line-height: 2.25em;
+}
+
+h1 small {
+  font-size: 1.85em;
+  line-height: 1.21622em;
+}
+
+h2 small {
+  font-size: 1.5em;
+  line-height: 1.5em;
+}
+
+h3 small {
+  font-size: 1.25em;
+  line-height: 1.8em;
+}
+
+h4 small {
+  font-size: 1em;
+  line-height: 1.5em;
+}
+
+/*
+
+Lists
+
+Markup:
+<ul>
+  <li>Unordered list item</li>
+  <li>Unordered list item</li>
+  <li>Unordered list item</li>
+</ul>
+<ol>
+  <li>Ordered list item</li>
+  <li>Ordered list item</li>
+  <li>Ordered list item</li>
+</ol>
+
+Styleguide 20.3
+
+*/
+.list_style_none, .bx-wrapper ul, .list-style-none, .nav, .nav ul {
+  padding-left: 0;
+  margin-left: 0;
+  list-style: none;
+}
+
+ul, ol {
+  padding: 0;
+  margin: 0 0 1.5em 25px;
+}
+
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+  margin-bottom: 0;
+}
+
+ul.unstyled,
+ol.unstyled {
+  margin-left: 0;
+  list-style: none;
+}
+
+ul.inline,
+ol.inline {
+  margin-left: 0;
+  list-style: none;
+}
+ul.inline > li,
+ol.inline > li {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+}
+
+/*
+
+Definition lists
+
+Markup:
+<dl>
+  <dt>Rock Hammer</dt>
+  <dd>A geologist’s hammer, rock hammer, rock pick or geological pick is a hammer used for splitting and breaking rocks.</dd>
+  <dt>Rock Hammer</dt>
+  <dd>A geologist’s hammer, rock hammer, rock pick or geological pick is a hammer used for splitting and breaking rocks.</dd>
+</dl>
+
+Styleguide 20.4
+
+*/
+dl {
+  margin-bottom: 1.5em;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-left: 0;
+}
+
+/*
+
+Horizontal definition list
+
+Markup:
+<dl class="dl-horizontal">
+  <dt>Rock Hammer</dt>
+  <dd>A geologist’s hammer, rock hammer, rock pick or geological pick is a hammer used for splitting and breaking rocks.</dd>
+  <dt>Rock Hammer</dt>
+  <dd>A geologist’s hammer, rock hammer, rock pick or geological pick is a hammer used for splitting and breaking rocks.</dd>
+</dl>
+
+Styleguide 20.4.1
+
+*/
+.dl-horizontal dt {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  clear: left;
+  float: left;
+  text-align: right;
+  width: -7.14286em;
+}
+.dl-horizontal dd {
+  padding-left: 12.85714em;
+}
+
+/*
+
+Horizontal line
+
+Markup: <hr />
+
+Styleguide 20.5
+
+*/
+hr {
+  margin: 1.5em 0;
+  border: 0;
+  border-bottom: 1px solid #999999;
+}
+
+abbr[title],
+abbr[data-original-title] {
+  cursor: help;
+  border-bottom: 1px dotted #d9d9d9;
+}
+
+abbr.initialism {
+  font-size: 90%;
+  text-transform: uppercase;
+}
+
+/*
+
+Blockquotes
+
+Markup:
+<blockquote>
+  <p>A geologist’s hammer, rock hammer, rock pick or geological pick is a hammer used for splitting and breaking rocks.</p>
+  <small><cite>Rock Hammer</cite></small>
+</blockquote>
+
+Styleguide 20.6
+
+*/
+blockquote {
+  padding: 0 0 0 1.5em;
+  margin: 0;
+  margin: 0 0 1.5em;
+  border-left: 5px solid #f2f2f2;
+}
+blockquote p {
+  margin-bottom: 0;
+  font-weight: 300;
+}
+blockquote cite {
+  display: block;
+  color: #d9d9d9;
+}
+blockquote cite:before {
+  content: '\2014 \00A0';
+}
+blockquote.pull-right {
+  float: right;
+  padding-right: 15px;
+  padding-left: 0;
+  border-right: 5px solid #f2f2f2;
+  border-left: 0;
+}
+blockquote.pull-right p,
+blockquote.pull-right small {
+  text-align: right;
+}
+blockquote.pull-right small:before {
+  content: '';
+}
+blockquote.pull-right small:after {
+  content: '\00A0 \2014';
+}
+
+q:before,
+q:after,
+blockquote:before,
+blockquote:after {
+  content: "";
+}
+
+address {
+  display: block;
+  margin-bottom: 1.5em;
+  font-style: normal;
+  line-height: 1.5em;
+}
+
+/*
+
+Breadcrumbs
+
+Add a breadcrumb with a list with class `.breadcrumb`.
+
+Markup:
+    <ul class="breadcrumbs">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Library</a></li>
+      <li class="current">Data</li>
+    </ul>
+
+**`.active`**: Selected element style
+
+Styleguide 2
+
+*/
+.breadcrumbs {
+  margin: 0 0 1.5em;
+  list-style: none;
+}
+.breadcrumbs > li {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+}
+
+/*
+
 Captions
 
 Captions effects adapted from [Effeckt.css](https://github.com/h5bp/Effeckt.css).
@@ -3164,13 +4647,13 @@ Styleguide 5
 
 */
 .caption {
+  position: relative;
+  float: left;
+  overflow: hidden;
   -webkit-perspective: 1000;
   -moz-perspective: 1000;
   -ms-perspective: 1000;
   perspective: 1000;
-  position: relative;
-  float: left;
-  overflow: hidden;
 }
 .caption:nth-child(2n) {
   margin-right: 0;
@@ -3183,6 +4666,10 @@ Styleguide 5
   position: absolute;
   transition: 0.5s;
   width: 100%;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 .caption figcaption * {
   margin-bottom: 0;
@@ -3378,10 +4865,6 @@ Styleguide 5
   -moz-transform: rotateY(180deg);
   -ms-transform: rotateY(180deg);
   transform: rotateY(180deg);
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  -ms-backface-visibility: hidden;
-  backface-visibility: hidden;
 }
 .caption[data-effect-type="revolving-door-left"] img {
   transition: 0.5s;
@@ -3410,10 +4893,6 @@ Styleguide 5
   -moz-transform: rotateY(180deg);
   -ms-transform: rotateY(180deg);
   transform: rotateY(180deg);
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  -ms-backface-visibility: hidden;
-  backface-visibility: hidden;
 }
 .caption[data-effect-type="revolving-door-right"] img {
   transition: 0.5s;
@@ -3442,10 +4921,6 @@ Styleguide 5
   -moz-transform: rotateX(180deg);
   -ms-transform: rotateX(180deg);
   transform: rotateX(180deg);
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  -ms-backface-visibility: hidden;
-  backface-visibility: hidden;
 }
 .caption[data-effect-type="revolving-door-top"] img {
   transition: 0.5s;
@@ -3474,10 +4949,6 @@ Styleguide 5
   -moz-transform: rotateX(180deg);
   -ms-transform: rotateX(180deg);
   transform: rotateX(180deg);
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  -ms-backface-visibility: hidden;
-  backface-visibility: hidden;
 }
 .caption[data-effect-type="revolving-door-bottom"] img {
   transition: 0.5s;
@@ -3563,1139 +5034,6 @@ Styleguide 5
   -moz-transform: translateY(50%);
   -ms-transform: translateY(50%);
   transform: translateY(50%);
-}
-
-/*
-
-Buttons
-
-Button styles can be applied to anything with the `.btn` class applied.
-However, typically you'll want to apply these to only `<a>` and `<button>`
-elements for the best rendering.
-
-Markup:
-<a href="#" class="btn btn--default {$modifiers}">Link Button</a>
-<button class="btn btn--default {$modifiers}">Button Element</button>
-
-:hover - Mouse hover state style, also available with `.hover`
-:active - Selected element style, also available with `.active`
-.disabled - Disabled state style.
-
-Styleguide 3
-
-*/
-.btn, .st-menu-toggle {
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  border-radius: 4px;
-  border-style: solid;
-  border-width: 1px;
-  cursor: pointer;
-  display: inline-block;
-  line-height: 1em;
-  margin-bottom: 0;
-  text-align: center;
-  vertical-align: middle;
-}
-.btn:hover, .st-menu-toggle:hover, .btn.hover, .hover.st-menu-toggle, .btn:focus, .st-menu-toggle:focus {
-  text-decoration: none;
-}
-.btn.active, .active.st-menu-toggle, .btn:active, .st-menu-toggle:active {
-  outline: 0;
-}
-.btn.disabled, .disabled.st-menu-toggle, .btn.disabled:hover, .disabled.st-menu-toggle:hover, .btn[disabled], [disabled].st-menu-toggle, .btn[disabled]:hover, [disabled].st-menu-toggle:hover {
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=6500);
-  opacity: 65;
-  background-image: none;
-  cursor: default;
-}
-
-/*
-
-Buttons with Icons
-
-To add an icon to a button (or eny other type of element) just enable the font
-(see 27.2), add a class with the name of the font and use the unicode of
-the character.
-
-It's not a pretty way of doing it, if you prefer more fine control i suggest
-to ditch the icon font integration and use the tools and resources made
-available on the fonts sites.
-
-Markup:
-<a href="#" class="btn btn--default fontawesome">&#xf02b;</a>
-<a href="#" class="btn btn--default fontawesome">&#xf040;</a>
-<a href="#" class="btn btn--default fontawesome">&#xf06c;</a>
-
-Styleguide 3.1
-
-*/
-/*
-
-Colors
-
-Markup:
-<a href="#" class="btn btn--default">Link Button</a>
-<a href="#" class="btn btn--primary">Link Button</a>
-<a href="#" class="btn btn--secondary">Link Button</a>
-
-Styleguide 3.2
-
-*/
-/*
-
-Sizes
-
-Markup:
-<a href="#" class="btn btn--default btn--large">Link Button</a>
-<a href="#" class="btn btn--default">Link Button</a>
-<a href="#" class="btn btn--default btn--small">Link Button</a>
-<a href="#" class="btn btn--default btn--mini">Link Button</a>
-
-Styleguide 3.3
-
-*/
-.btn, .st-menu-toggle {
-  padding: 0.71429em 0.71429em;
-  height: 2.57143em;
-}
-
-.btn--large, .btn--small, .btn--mini {
-  height: auto;
-}
-
-.btn--large {
-  font-size: 1.25em;
-  line-height: 1.8em;
-  padding: 0.71429em 1.07143em;
-}
-
-.btn--small {
-  font-size: 0.85em;
-  line-height: 1.76471em;
-  padding: 0.35714em 0.57143em;
-}
-
-.btn--mini {
-  font-size: 0.7em;
-  line-height: 2.14286em;
-  padding: 0.07143em 0.42857em;
-}
-
-/*
-
-Modifiers
-
-Create block level buttons—those that span the full width of a parent.
-
-Markup:
-<a href="#" class="btn btn--default {$modifiers}">Link Button</a>
-<button class="btn btn--default {$modifiers}">Button Element</button>
-
-.btn--block - Create block level buttons—those that span the full width of a parent.
-.btn--pill - Button width rounded full corners.
-.btn--link - Deemphasize a button by making it look like a link while maintaining button behavior.
-
-Styleguide 3.4
-
-*/
-.btn--block {
-  display: block;
-  width: 100%;
-  padding-left: 0;
-  padding-right: 0;
-}
-.btn--block + .btn--block {
-  margin-top: 0.75em;
-}
-
-.btn--pill {
-  -webkit-border-radius: 200px;
-  -moz-border-radius: 200px;
-  -ms-border-radius: 200px;
-  border-radius: 200px;
-}
-
-/*
-
-Link
-
-Deemphasize a button by making it look like a link while maintaining
-button behavior.
-
-Markup:
-<a href="#" class="btn btn--link ">Link Button</a>
-<button class="btn btn--link">Button Element</button>
-
-Styleguide 3.5
-
-*/
-.btn--link {
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  -ms-border-radius: 0;
-  border-radius: 0;
-  border-color: transparent;
-  background: none;
-  color: #0066cc;
-  cursor: pointer;
-}
-.btn--link:hover, .btn--link:focus {
-  color: #004c99;
-  text-decoration: underline;
-  background-color: transparent;
-}
-.btn--link:active, .btn--link[disabled] {
-  background-color: transparent;
-  background-image: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-}
-.btn--link[disabled]:hover, .btn--link[disabled]:focus {
-  color: #4d4d4d;
-  text-decoration: none;
-}
-
-/*
-
-Button Groups
-
-Wrap a series of buttons with `.btn` in `.btn-group`.
-
-Markup:
-<ul class="btn-group">
-  <li><button class="btn btn--default">Left</button></li>
-  <li><button class="btn btn--default">Middle</button></li>
-  <li><button class="btn btn--default">Right</button></li>
-</ul>
-
-Styleguide 4
-
-*/
-.btn-group {
-  display: -moz-inline-stack;
-  display: inline-block;
-  vertical-align: middle;
-  *vertical-align: auto;
-  zoom: 1;
-  *display: inline;
-  margin: 0;
-}
-.btn-group > * {
-  float: left;
-  list-style-type: none;
-}
-.btn-group[data-width] .btn, .btn-group[data-width] .st-menu-toggle,
-.btn-group > *[data-width] .btn,
-.btn-group > *[data-width] .st-menu-toggle {
-  padding-left: 0;
-  padding-right: 0;
-}
-.btn-group + .btn-group {
-  margin-left: 0.35714em;
-}
-.btn-group > .btn, .btn-group > .st-menu-toggle,
-.btn-group > li .btn,
-.btn-group > li .st-menu-toggle {
-  float: left;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  -ms-border-radius: 0;
-  border-radius: 0;
-}
-.btn-group > li + li {
-  margin-left: -1px;
-}
-.btn-group > .btn:hover, .btn-group > .st-menu-toggle:hover,
-.btn-group > .btn:focus,
-.btn-group > .st-menu-toggle:focus,
-.btn-group > .btn:active,
-.btn-group > .st-menu-toggle:active,
-.btn-group > .btn.active,
-.btn-group > .active.st-menu-toggle {
-  z-index: 2;
-}
-
-.btn-group > li:first-child .btn, .btn-group > li:first-child .st-menu-toggle {
-  -moz-border-radius-topleft: 4px;
-  -webkit-border-top-left-radius: 4px;
-  border-top-left-radius: 4px;
-  -moz-border-radius-bottomleft: 4px;
-  -webkit-border-bottom-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-}
-
-.btn-group > li:last-child .btn, .btn-group > li:last-child .st-menu-toggle {
-  -moz-border-radius-topright: 4px;
-  -webkit-border-top-right-radius: 4px;
-  border-top-right-radius: 4px;
-  -moz-border-radius-bottomright: 4px;
-  -webkit-border-bottom-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-
-div.btn-group .btn, div.btn-group .st-menu-toggle {
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  border-radius: 4px;
-}
-
-.form__controls--multi .btn-group:first-child > li:last-child .btn, .form__controls--multi .btn-group:first-child > li:last-child .st-menu-toggle {
-  -moz-border-radius-topright: 0;
-  -webkit-border-top-right-radius: 0;
-  border-top-right-radius: 0;
-  -moz-border-radius-bottomright: 0;
-  -webkit-border-bottom-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-.form__controls--multi div.btn-group:first-child .btn, .form__controls--multi div.btn-group:first-child .st-menu-toggle {
-  -moz-border-radius-topright: 0;
-  -webkit-border-top-right-radius: 0;
-  border-top-right-radius: 0;
-  -moz-border-radius-bottomright: 0;
-  -webkit-border-bottom-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-.form__controls--multi .btn-group:last-child > li:first-child .btn, .form__controls--multi .btn-group:last-child > li:first-child .st-menu-toggle {
-  -moz-border-radius-topleft: 0;
-  -webkit-border-top-left-radius: 0;
-  border-top-left-radius: 0;
-  -moz-border-radius-bottomleft: 0;
-  -webkit-border-bottom-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-.form__controls--multi div.btn-group:last-child > .btn, .form__controls--multi div.btn-group:last-child > .st-menu-toggle {
-  -moz-border-radius-topleft: 0;
-  -webkit-border-top-left-radius: 0;
-  border-top-left-radius: 0;
-  -moz-border-radius-bottomleft: 0;
-  -webkit-border-bottom-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-/*
-
-Dropdowns
-
-Toggleable, contextual menu for displaying lists of links. Made interactive with the [dropdown JavaScript plugin](http://twitter.github.io/bootstrap/javascript.html#dropdowns).
-
-Looking at just the dropdown menu, here's the required HTML. You need to wrap the dropdown's trigger and the dropdown menu within `.dropdown`. Then just create the menu.
-
-Script required:
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap-dropdown.min.js"></script>
-
-Markup:
-<div class="dropdown">
-  <a href="#" class="btn btn--default dropdown__toggle " data-toggle="dropdown">
-    Dropdown
-    <span class="dropdown__caret"></span>
-  </a>
-  <ul class="dropdown__menu ">
-    <li><a tabindex="-1" href="#">Action</a></li>
-    <li><a tabindex="-1" href="#">Another action</a></li>
-    <li><a tabindex="-1" href="#">Something else here</a></li>
-    <li class="divider"></li>
-    <li><a tabindex="-1" href="#">Separated link</a></li>
-  </ul>
-</div>
-<div class="dropdown">
-  <a href="#" class="btn btn--default dropdown__toggle " data-toggle="dropdown">
-    Dropdown
-    <span class="dropdown__caret"></span>
-  </a>
-  <ul class="dropdown__menu pull-right ">
-    <li><a tabindex="-1" href="#">Action</a></li>
-    <li><a tabindex="-1" href="#">Another action</a></li>
-    <li><a tabindex="-1" href="#">Something else here</a></li>
-    <li class="divider"></li>
-    <li><a tabindex="-1" href="#">Separated link</a></li>
-  </ul>
-</div>
-
-
-
-Styleguide 7
-
-*/
-.dropdown,
-.dropdown__toggle {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown__toggle:focus {
-  outline: 0;
-}
-
-/*
-
-Dropdown arrow/caret
-
-A simple helper class is available to add an arrow for the dropdown button.
-
-Markup: <span class="dropdown__caret"></span>
-
-Styleguide 7.1
-
-*/
-/*
-
-Dropdown menu
-
-List of the links to show in the dropdown.
-
-
-    <ul class="dropdown__menu ">
-      <li><a tabindex="-1" href="#">Action</a></li>
-      <li><a tabindex="-1" href="#">Another action</a></li>
-      <li><a tabindex="-1" href="#">Something else here</a></li>
-      <li class="divider"></li>
-      <li><a tabindex="-1" href="#">Separated link</a></li>
-    </ul>
-
-Styleguide 7.2
-
-*/
-.dropdown__menu {
-  -moz-border-radius-bottomleft: 4px;
-  -webkit-border-bottom-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-  -moz-border-radius-bottomright: 4px;
-  -webkit-border-bottom-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-  position: absolute;
-  top: 100%;
-  left: 0px;
-  border-style: solid;
-  border-width: 1px;
-  display/*\**/: none\9;
-  float: left;
-  list-style: none;
-  margin: -1px 0 0 0;
-  max-height: 0;
-  min-width: 10em;
-  overflow: hidden;
-  z-index: 1000;
-}
-.dropdown__menu[data-content] {
-  min-width: 42.85714em;
-}
-.dropdown__menu.pull-right {
-  right: 0;
-  left: auto;
-}
-.dropdown__menu > li > a,
-.dropdown__menu > li > label {
-  clear: both;
-  display: block;
-  font-weight: normal;
-  white-space: nowrap;
-}
-.dropdown__menu > li > a {
-  padding: 0.71429em 0.71429em;
-}
-.dropdown__menu > li > label {
-  padding: 0.71429em 0.71429em 0.71429em 2.14286em;
-}
-.dropdown__menu > li:last-child > a,
-.dropdown__menu > li:last-child > label {
-  border-bottom: 0;
-}
-
-.dropdown__menu > li > a:hover,
-.dropdown__menu > li > a:focus {
-  text-decoration: none;
-}
-
-.dropdown__menu > .active > a,
-.dropdown__menu > .active > a:hover,
-.dropdown__menu > .active > a:focus {
-  text-decoration: none;
-  outline: 0;
-}
-
-.dropdown__menu > .disabled > a,
-.dropdown__menu > .disabled > a:hover,
-.dropdown__menu > .disabled > a:focus {
-  color: #d9d9d9;
-}
-
-.dropdown__menu > .disabled > a:hover,
-.dropdown__menu > .disabled > a:focus {
-  text-decoration: none;
-  background-color: transparent;
-  background-image: none;
-  cursor: default;
-}
-
-.dropdown.open {
-  z-index: 1000;
-}
-.dropdown.open .dropdown__toggle {
-  -moz-border-radius-bottomleft: 0 !important;
-  -webkit-border-bottom-left-radius: 0 !important;
-  border-bottom-left-radius: 0 !important;
-  -moz-border-radius-bottomright: 0 !important;
-  -webkit-border-bottom-right-radius: 0 !important;
-  border-bottom-right-radius: 0 !important;
-  z-index: 1001;
-}
-.dropdown.open .dropdown__menu {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-  opacity: 1;
-  display/*\**/: block\9;
-  max-height: 42.85714em;
-}
-
-/*
-
-Badge & Pills
-
-Lables are used to highlight a text; `badge` have small rounded corners and `pill` have full rounded corners.
-
-Markup:
-<span class="badge">Badge Label</span>
-<span class="pill">Pill label</span>
-
-Styleguide 10
-
-*/
-.badge,
-.pill {
-  display: inline-block;
-  padding: 0.15em 0.35em;
-  vertical-align: baseline;
-  white-space: nowrap;
-}
-
-.badge {
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  border-radius: 4px;
-}
-
-.pill {
-  -webkit-border-radius: 500em;
-  -moz-border-radius: 500em;
-  -ms-border-radius: 500em;
-  border-radius: 500em;
-}
-
-.badge:empty, .pill:empty {
-  display: none;
-}
-
-a.label:hover, a.label:focus, a.badge:hover, a.badge:focus {
-  color: white;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-/*
-
-Labels used in buttons.
-
-Markup:
-<button class="btn btn--default">Action <span class="badge">2</span></button>
-<button class="btn btn--default btn--pill">Action <span class="pill">2</span></button>
-
-Styleguide 10.1
-
-*/
-.btn .badge, .st-menu-toggle .badge,
-.btn .pill,
-.st-menu-toggle .pill {
-  margin: -0.5em 0 0;
-}
-
-/*
-
-Close buttons
-
-Markup:
-<a href="#" class="close">&times;</a>
-<button type="button" class="close">&times;</button>
-
-Styleguide 6
-
-*/
-.close {
-  float: right;
-  font-size: 1em;
-  font-weight: bold;
-  color: black;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=2000);
-  opacity: 20;
-}
-.close:hover, .close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=4000);
-  opacity: 40;
-}
-
-button.close {
-  padding: 0;
-  cursor: pointer;
-  background: transparent;
-  border: 0;
-  -webkit-appearance: none;
-}
-
-/*
-
-Navs
-
-All nav components here share the same base markup and styles through the `.nav` class.
-
-* `.nav__title`: Nav titles
-* `.current`: Button for current page
-* `.disabled`: Disabled state style
-* `.divider`: Add horizontal line as a divider
-
-Markup:
-<ul class="nav {$modifiers}">
-  <li class="nav__title">Nav header</li>
-  <li class="current"><a href="#">Home</a></li>
-  <li><a href="#">Messages</a>
-  <ul>
-    <li><a href="#">Submenu title</a></li>
-    <li><a href="#">Submenu title</a></li>
-    <li><a href="#">Submenu title</a></li>
-    <li><a href="#">Submenu title</a></li>
-  </ul>
-  </li>
-  <li><a href="#">Friends</a></li>
-  <li class="disabled"><a href="#">Profile</a></li>
-</ul>
-
-.nav--inline.nav--btn - Horizontal and blocky links.
-.nav--inline.nav--btn.nav--pills -  Horizontal and blocky links with rounded corners.
-.nav--vertical.nav--btn - Vertical nav layout and blocky links
-
-Styleguide 12
-
-*/
-.nav {
-  display: inline-block;
-  margin-bottom: 1.5em;
-  position: relative;
-}
-.nav li {
-  position: relative;
-}
-.nav li > a {
-  display: inline-block;
-  line-height: 1em;
-}
-.nav li > a:hover, .nav li > a:focus {
-  text-decoration: none;
-}
-.nav li > a img {
-  max-width: none;
-}
-.nav li.disabled > a:hover, .nav li.disabled > a:focus {
-  text-decoration: none;
-  background-color: transparent;
-  cursor: default;
-}
-.nav li ul {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-  display/*\**/: none\9;
-  max-height: 0;
-  overflow: hidden;
-  z-index: 2;
-}
-.nav li:hover ul,
-.nav li ul:hover {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-  opacity: 1;
-  display/*\**/: block\9;
-  max-height: 42.85714em;
-}
-
-.nav__title {
-  font-size: 0.85em;
-  line-height: 1.76471em;
-  color: #999999;
-  display: block;
-  font-weight: bold;
-  padding: 0.71429em 0.71429em;
-  padding-left: 0;
-  text-transform: uppercase;
-}
-
-.nav--inline > li,
-.nav--inline > ul > li {
-  float: left;
-}
-.nav--inline li ul {
-  position: absolute;
-  top: 100%;
-  left: 0px;
-  min-width: 10em;
-}
-
-.nav--vertical {
-  width: 100%;
-}
-.nav--vertical li > a {
-  display: block;
-}
-
-.nav--btn li > a {
-  padding: 0.71429em 0.71429em;
-}
-.nav--btn li ul a {
-  display: block;
-}
-
-.nav--pills > li > a {
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  border-radius: 4px;
-  margin-right: .25em;
-}
-.nav--pills[class*="vertical"] > li > a {
-  margin-bottom: .25em;
-}
-.nav--pills[class*="vertical"] > li:last-child > a {
-  margin-bottom: 0;
-}
-
-/*
-
-Off-Canvas
-
-There's available a nice off-canvas sidebar functionality adapted from [Codrops](http://tympanus.net/codrops/2013/08/28/transitions-for-off-canvas-navigations).
-
-    <div id="st-container" class="st-container">
-      <nav class="st-menu">
-        [...nav content...]
-      </nav>
-      <div class="st-pusher">
-        <div class="st-content">
-          [...main content...]
-        </div>
-      </div>
-    </div>
-
-Download and link at the top of the page the following scripts:
-
-* https://github.com/raffone/SidebarTransitions/blob/master/js/modernizr.custom.js
-
-Script required:
-
-    <script src="http://raffone.github.io/cdn/js/sidebarOffCanvas.js"></script>
-
-For opening and closing the sidebar add the class `st-menu-toggle` to a link or button.
-
-Styleguide 15
-
-*/
-html,
-body,
-.st-container,
-.st-pusher,
-.st-content {
-  height: 100%;
-}
-
-.st-container {
-  overflow: hidden;
-  position: relative;
-}
-
-.st-pusher {
-  position: relative;
-  left: 0px;
-  -webkit-transition: -webkit-transform 0.4s;
-  -moz-transition: -moz-transform 0.4s;
-  transition: transform 0.4s;
-  z-index: 990;
-}
-.st-pusher::after {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  width: 0;
-  height: 0;
-  -webkit-transition: opacity 0.4s, width 0.1s;
-  -webkit-transition-delay: 0s, 0.4s;
-  -moz-transition: opacity 0.4s, width 0.1s 0.4s;
-  transition: opacity 0.4s, width 0.1s 0.4s;
-  content: '';
-}
-
-.st-content {
-  overflow-y: auto;
-  position: relative;
-  background: white;
-}
-
-.st-menu-open .st-pusher::after {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-  opacity: 1;
-  width: 100%;
-  height: 100%;
-  -webkit-transition: opacity 0.4s;
-  -moz-transition: opacity 0.4s;
-  transition: opacity 0.4s;
-}
-.st-menu-open .st-menu::after {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-  width: 0;
-  height: 0;
-  -webkit-transition: opacity 0.4s, width 0.1s;
-  -webkit-transition-delay: 0s, 0.4s;
-  -moz-transition: opacity 0.4s, width 0.1s 0.4s;
-  transition: opacity 0.4s, width 0.1s 0.4s;
-}
-
-.st-menu {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 300px;
-  height: 100%;
-  -webkit-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  transition: all 0.4s;
-  overflow-y: auto;
-  visibility: hidden;
-  z-index: 991;
-}
-.st-menu::after {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-  opacity: 1;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  width: 100%;
-  height: 100%;
-  -webkit-transition: opacity 0.4s;
-  -moz-transition: opacity 0.4s;
-  transition: opacity 0.4s;
-  content: '';
-}
-
-.st-container.st-menu-open .st-pusher {
-  -webkit-transform: translate3d(300px, 0, 0);
-  -moz-transform: translate3d(300px, 0, 0);
-  -ms-transform: translate3d(300px, 0, 0);
-  transform: translate3d(300px, 0, 0);
-}
-.st-container.st-menu-open .st-menu {
-  -webkit-transition: -webkit-transform 0.4s;
-  -moz-transition: -moz-transform 0.4s;
-  transition: transform 0.4s;
-  -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-  visibility: visible;
-}
-.st-container .st-menu {
-  z-index: 1;
-  -webkit-transform: translate3d(-50%, 0, 0);
-  -moz-transform: translate3d(-50%, 0, 0);
-  -ms-transform: translate3d(-50%, 0, 0);
-  transform: translate3d(-50%, 0, 0);
-}
-.st-container .st-menu::after {
-  display: none;
-}
-
-.no-csstransforms3d .st-pusher {
-  padding-left: 300px;
-}
-
-.no-js .st-pusher {
-  padding-left: 300px;
-}
-
-/*
-
-Breadcrumbs
-
-Add a breadcrumb with a list with class `.breadcrumb`.
-
-Markup:
-    <ul class="breadcrumbs">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Library</a></li>
-      <li class="current">Data</li>
-    </ul>
-
-**`.active`**: Selected element style
-
-Styleguide 2
-
-*/
-.breadcrumbs {
-  margin: 0 0 1.5em;
-  list-style: none;
-}
-.breadcrumbs > li {
-  display: -moz-inline-stack;
-  display: inline-block;
-  vertical-align: middle;
-  *vertical-align: auto;
-  zoom: 1;
-  *display: inline;
-}
-
-/*
-
-Pagination
-
-Simple pagination inspired by Rdio, great for apps and search results. The large block is hard to miss, easily scalable, and provides large click areas.
-
-Default pagination with `.pagination`, it also support [WP-Paginate](http://wordpress.org/plugins/wp-paginate/).
-
-Markup:
-<div class="pagination {$modifiers}">
-  <ul>
-    <li><a href="#">Prev</a></li>
-    <li><a href="#">1</a></li>
-    <li class="current"><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">Next</a></li>
-  </ul>
-</div>
-
-.pagination--center - Center aligned pagination.
-.pagination--right - Right aligned pagination.
-.pagination--rounded - Rounded sides.
-
-Styleguide 14
-
-*/
-.pagination {
-  margin: 1.5em 0;
-  clear: both;
-}
-.pagination > * {
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  border-radius: 4px;
-  display: -moz-inline-stack;
-  display: inline-block;
-  vertical-align: middle;
-  *vertical-align: auto;
-  zoom: 1;
-  *display: inline;
-  margin-bottom: 0;
-  margin-left: 1px;
-}
-.pagination > * li {
-  float: left;
-  list-style-type: none;
-}
-.pagination > * li a,
-.pagination > * li span {
-  display: inline-block;
-  padding: 0.71429em 0.71429em;
-  line-height: 1em;
-  text-decoration: none;
-  border-width: 1px;
-  border-style: solid;
-  margin-left: -1px;
-}
-.pagination > * li:first-child > a,
-.pagination > * li:first-child > span {
-  border-left-width: 1px;
-}
-.pagination > * .active > a,
-.pagination > * .active > span,
-.pagination > * .disabled > span,
-.pagination > * .disabled > a,
-.pagination > * .disabled > a:hover,
-.pagination > * .disabled > a:focus {
-  cursor: default;
-}
-
-.pagination--center {
-  text-align: center;
-}
-
-.pagination--right {
-  text-align: right;
-}
-
-.pagination--rounded li:first-child > a,
-.pagination--rounded li:first-child > span {
-  -moz-border-radius-topleft: 4px;
-  -webkit-border-top-left-radius: 4px;
-  border-top-left-radius: 4px;
-  -moz-border-radius-bottomleft: 4px;
-  -webkit-border-bottom-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-}
-.pagination--rounded li:last-child > a,
-.pagination--rounded li:last-child > span {
-  -moz-border-radius-topright: 4px;
-  -webkit-border-top-right-radius: 4px;
-  border-top-right-radius: 4px;
-  -moz-border-radius-bottomright: 4px;
-  -webkit-border-bottom-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-
-/*
-
-Pager
-
-Quick previous and next links for simple pagination implementations with light markup and styles. It's great for simple sites like blogs or magazines.
-
-By default, the pager centers links.
-
-Markup:
-<ul class="pager">
-  <li><a href="#">Previous</a></li>
-  <li><a href="#">Next</a></li>
-</ul>
-
-Styleguide 13
-
-*/
-.pager {
-  overflow: hidden;
-  *zoom: 1;
-  list-style: none;
-  margin: 1.5em 0;
-  text-align: center;
-  /*
-  
-  Alignment
-  
-  Alternatively, you can align each link to the sides:
-  
-  Markup:
-  <ul class="pager">
-    <li class="previous"><a href="#">Previous</a></li>
-    <li class="next"><a href="#">Next</a></li>
-  </ul>
-  
-  Styleguide 13.1
-  
-  */
-  /*
-  
-  Disabled state
-  
-  Pager links also use the general `.disabled` utility class from the pagination.
-  
-  Markup:
-  <ul class="pager">
-    <li class="previous disabled"><a href="#">← Older</a></li>
-    <li class="next"><a href="#">Newer →</a></li>
-  </ul>
-  
-  Styleguide 13.2
-  
-  */
-}
-.pager li {
-  display: inline;
-}
-.pager li a,
-.pager li span {
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  border-radius: 4px;
-  border-style: solid;
-  border-width: 1px;
-  display: inline-block;
-  line-height: 1em;
-  padding: 0.71429em 0.71429em;
-}
-.pager [rel="next"],
-.pager .next > a,
-.pager .next > span {
-  float: right;
-}
-.pager [rel="prev"],
-.pager .previous > a,
-.pager .previous > span {
-  float: left;
-}
-.pager .disabled > a,
-.pager .disabled > a:hover,
-.pager .disabled > a:focus,
-.pager .disabled > span {
-  cursor: default;
-}
-
-/*
-
-Alerts
-
-Wrap any text and an optional dismiss button in `.alert` for a basic warning alert message.
-
-Markup:
-<div class="alert">
-  <button type="button" class="close" data-dismiss="alert">&times;</button>
-  <strong>Alert!</strong> Best check yourself, you're not looking too good.
-</div>
-
-Styleguide 1
-
-*/
-.alert {
-  padding: 0.71429em 0.71429em;
-  margin-bottom: 1.5em;
-}
-.alert p {
-  margin: 0;
-}
-.alert .close {
-  position: relative;
-  top: 0;
-  right: 0;
-}
-
-/*
-
-Alert Block
-
-For longer messages, increase the padding on the top and bottom of the alert wrapper by adding `.alert-block`.
-
-Markup:
-<div class="alert alert--block">
-  <button type="button" class="close" data-dismiss="alert">&times;</button>
-  <strong>Error</strong>
-  <p>The field Number is required and must contain a value.</p>
-  <p>The field Product Title is required and must contain a value.</p>
-  <p>The field Total Expenses is required and must contain a value.</p>
-</div>
-
-Styleguide 1.1
-
-*/
-.alert--block * {
-  margin-bottom: 0;
-}
-.alert--block * + * {
-  margin-top: 5px;
 }
 
 /*
@@ -5288,541 +5626,248 @@ Styleguide 9.1
 }
 /*
 
-Modals
+Badge & Pills
 
-For modals is used the excellent [**fancyBox**](http://fancyapps.com/fancybox/) jQuery plugin, see full documentation for more in depth examples.
-
-Script required:
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.pack.js"></script>
+Lables are used to highlight a text; `badge` have small rounded corners and `pill` have full rounded corners.
 
 Markup:
-<a class="open__modal  btn btn--default" href="#modal">Open modal</a>
-<div id="modal" class="modal">
-  <h2>Lorem ipsum dolor sit amet</h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-</div>
-<script type="text/javascript">
-  $(document).ready(function() {
-    $(".open__modal").fancybox({
-      margin: [20, 60, 20, 60],
-    });
-  });
-</script>
+<span class="badge">Badge Label</span>
+<span class="pill">Pill label</span>
 
-Styleguide 11
+Styleguide 10
 
 */
-.modal {
-  display: none;
-}
-
-.fancybox-wrap,
-.fancybox-wrap iframe,
-.fancybox-wrap object,
-.fancybox-skin,
-.fancybox-outer,
-.fancybox-inner,
-.fancybox-image,
-.fancybox-nav span,
-.fancybox-tmp, #fancybox-thumbs ul {
-  padding: 0;
-  margin: 0;
-  border: 0;
-  vertical-align: top;
-  list-style-type: none;
-}
-
-.fancybox-overlay {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  display: none;
-  overflow: hidden;
-  z-index: 1049;
-}
-.fancybox-overlay.fancybox-overlay-fixed {
-  position: fixed;
-  right: 0px;
-  bottom: 0px;
-}
-.fancybox-overlay .fancybox-wrap {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  z-index: 1050;
-}
-.fancybox-overlay .fancybox-wrap.fancybox-opened {
-  z-index: 1051;
-}
-.fancybox-overlay .fancybox-wrap.fancybox-type-iframe .fancybox-inner {
-  -webkit-overflow-scrolling: touch;
-}
-.fancybox-overlay .fancybox-wrap .fancybox-skin {
-  position: relative;
-  padding: 0 !important;
-}
-.fancybox-overlay .fancybox-wrap .fancybox-skin .fancybox-outer {
-  position: relative;
-}
-.fancybox-overlay .fancybox-wrap .fancybox-skin .fancybox-outer .fancybox-inner {
-  position: relative;
-  overflow: hidden;
-}
-.fancybox-overlay .fancybox-wrap .fancybox-skin .fancybox-outer .fancybox-inner > div {
-  padding: 1.5em;
-}
-
-.fancybox-tmp {
-  position: absolute;
-  top: -9999px;
-  left: -9999px;
-  visibility: hidden;
-  max-width: 99999px;
-  max-height: 99999px;
-  overflow: visible !important;
-}
-
-.fancybox-lock {
-  overflow: hidden;
-}
-
-.fancybox-lock .fancybox-overlay {
-  overflow: auto;
-  overflow-y: scroll;
-}
-
-.fancybox-error {
-  margin: 0;
-  padding: 0.71429em 0.71429em;
+.badge,
+.pill {
+  display: inline-block;
+  padding: 0.15em 0.35em;
+  vertical-align: baseline;
   white-space: nowrap;
 }
 
-.fancybox-image,
-.fancybox-iframe {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-.fancybox-image {
-  max-width: 100%;
-  max-height: 100%;
-  z-index: 1055;
-  position: relative;
-}
-
-#fancybox-loading {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  cursor: pointer;
-  z-index: 1054;
-}
-
-.fancybox-close {
-  /*@extend %modal__btn !optional;*/
-  z-index: 1053;
-}
-
-.fancybox-nav {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  position: absolute;
-  top: 0px;
-  width: 40%;
-  height: 100%;
-  z-index: 1052;
-  /*&:hover span { @include opacity(1); }*/
-}
-.fancybox-nav span {
-  position: absolute;
-  top: 50%;
-  /*@include opacity(0);*/
-  z-index: 1052;
-}
-.fancybox-nav.fancybox-prev {
-  left: -60px;
-}
-.fancybox-nav.fancybox-prev span {
-  left: 0;
-}
-.fancybox-nav.fancybox-next {
-  right: -60px;
-}
-.fancybox-nav.fancybox-next span {
-  right: 0;
-}
-
-.fancybox-title {
-  visibility: hidden;
-  position: relative;
-  text-shadow: none;
-  z-index: 1053;
-}
-
-.fancybox-opened .fancybox-title {
-  visibility: visible;
-}
-
-.fancybox-title-float-wrap {
-  position: absolute;
-  right: 50%;
-  bottom: 0px;
-  margin-bottom: -2.5em;
-  text-align: center;
-  z-index: 1053;
-}
-.fancybox-title-float-wrap .child {
-  background: black;
-  background: rgba(0, 0, 0, 0.8);
+.badge {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
   border-radius: 4px;
-  display: inline-block;
-  margin-right: -100%;
-  padding: 0.14286em 0.71429em;
-  color: #FFF;
-  font-weight: bold;
-  white-space: nowrap;
 }
 
-.fancybox-title-outside-wrap {
-  position: relative;
-  margin-top: 0.71429em;
-  color: #fff;
+.pill {
+  -webkit-border-radius: 500em;
+  -moz-border-radius: 500em;
+  -ms-border-radius: 500em;
+  border-radius: 500em;
 }
 
-.fancybox-title-over-wrap {
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-}
-
-/*
-
-Modal Buttons
-
-Script required:
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-buttons.min.js"></script>
-
-Markup:
-<a class="fancybox-button" rel="fancybox-button" href="http://placehold.it/600x400/c7e843/fff.jpg">
-  <img src="http://placehold.it/60x60/c7e843/fff.jpg"/>
-</a>
-<a class="fancybox-button" rel="fancybox-button" href="http://placehold.it/600x400/f6ab48/fff.jpg">
-  <img src="http://placehold.it/60x60/f6ab48/fff.jpg"/>
-</a>
-<a class="fancybox-button" rel="fancybox-button" href="http://placehold.it/600x400/3dced4/fff.jpg">
-  <img src="http://placehold.it/60x60/3dced4/fff.jpg"/>
-</a>
-<script type="text/javascript">
-  $(document).ready(function() {
-    $(".fancybox-button").fancybox({
-      prevEffect : 'none',
-      nextEffect : 'none',
-      closeBtn   : false,
-      margin: [20, 60, 20, 60],
-      helpers    : {
-        title    : { type : 'inside' },
-        buttons  : {}
-      }
-    });
-  });
-</script>
-
-Styleguide 11.1
-
-*/
-#fancybox-buttons {
-  position: fixed;
-  left: 0px;
-  width: 100%;
-  z-index: 1053;
-}
-#fancybox-buttons.top {
-  top: 0.71429em;
-}
-#fancybox-buttons.bottom {
-  bottom: 0.71429em;
-}
-#fancybox-buttons ul {
-  display: block;
-  list-style: none;
-  margin: 0 auto;
-}
-#fancybox-buttons ul li {
-  float: left;
-  margin: 0;
-}
-#fancybox-buttons ul li a {
-  position: relative;
-}
-#fancybox-buttons ul li a:hover {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-  opacity: 1;
-}
-#fancybox-buttons ul li a:after {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  left: 0px;
-}
-
-/*
-
-Modal Thumbs
-
-Script required:
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.js"></script>
-
-Markup:
-<a class="fancybox-thumb" rel="fancybox-thumb" href="http://placehold.it/600x400/c7e843/fff.jpg">
-  <img src="http://placehold.it/60x60/c7e843/fff.jpg"/>
-</a>
-<a class="fancybox-thumb" rel="fancybox-thumb" href="http://placehold.it/600x400/f6ab48/fff.jpg">
-  <img src="http://placehold.it/60x60/f6ab48/fff.jpg"/>
-</a>
-<a class="fancybox-thumb" rel="fancybox-thumb" href="http://placehold.it/600x400/3dced4/fff.jpg">
-  <img src="http://placehold.it/60x60/3dced4/fff.jpg"/>
-</a>
-<script type="text/javascript">
-  $(document).ready(function() {
-    $(".fancybox-thumb").fancybox({
-      prevEffect : 'none',
-      nextEffect : 'none',
-      margin: [20, 60, 20, 60],
-      helpers    : {
-        title    : {
-          type: 'outside'
-        },
-        thumbs   : {
-          width  : 60,
-          height : 60
-        }
-      }
-    });
-  });
-</script>
-
-Styleguide 11.2
-
-*/
-#fancybox-thumbs {
-  position: fixed;
-  left: 0px;
-  overflow: hidden;
-  width: 100%;
-  z-index: 1053;
-}
-#fancybox-thumbs.bottom {
-  bottom: 0.71429em;
-}
-#fancybox-thumbs.top {
-  top: 0.71429em;
-}
-#fancybox-thumbs ul {
-  position: relative;
-}
-#fancybox-thumbs ul li {
-  float: left;
-  margin-right: 0.28571em;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
-  opacity: 0.5;
-}
-#fancybox-thumbs ul li:hover {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=75);
-  opacity: 0.75;
-}
-#fancybox-thumbs ul li.active {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-  opacity: 1;
-}
-#fancybox-thumbs ul li a {
-  display: block;
-  overflow: hidden;
-  text-align: center;
-}
-
-/*
-
-Sliders
-
-For modals is used the excellent [**BxSlider**](http://bxslider.com/) jQuery plugin,
-see full documentation for more in depth examples.
-
-Script required:
-
-    <script src="//cdn.jsdelivr.net/bxslider/4.1.1/jquery.bxslider.js"></script>
-
-Markup:
-<ul class="slider">
-  <li><img src="http://placehold.it/800x300/c7e843/fff.jpg" /></li>
-  <li><img src="http://placehold.it/800x300/f6ab48/fff.jpg" /></li>
-  <li><img src="http://placehold.it/800x300/3dced4/fff.jpg" /></li>
-</ul>
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('.slider').bxSlider({
-      nextText: '<i></i><span>Next</span>', // replace text with icon-font
-      prevText: '<i></i><span>Prev</span>', // replace text with icon-font
-    });
-  });
-</script>
-
-Styleguide 16
-
-*/
-.bx-wrapper {
-  position: relative;
-  padding: 0;
-  *zoom: 1;
-  z-index: 1040;
-  margin-bottom: 1.5em;
-}
-.bx-wrapper img {
-  max-width: 100%;
-  display: block;
-}
-
-.bx-controls-direction a {
-  position: absolute;
-  top: 50%;
-  z-index: 200;
-}
-.bx-controls-direction a i {
-  font-style: normal;
-}
-.bx-controls-direction .disabled {
+.badge:empty, .pill:empty {
   display: none;
 }
 
-.bx-prev {
-  left: 0;
-}
-
-.bx-next {
-  right: 0;
-}
-
-.bx-pager {
-  width: 100%;
-  text-align: center;
-}
-
-.bx-pager-item {
-  display: inline-block;
-}
-.bx-pager-item a {
-  display: inline-block;
-}
-
-.bx-loading {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  z-index: 2000;
-}
-
-.bx-caption {
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  width: 100%;
-}
-.bx-caption span {
-  display: inline-block;
+a.label:hover, a.label:focus, a.badge:hover, a.badge:focus {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /*
 
-Tabs
-
-For tabs is used the excellent [**EasyTabs**](http://os.alfajango.com/easytabs/) jQuery plugin,
-see full documentation for more in depth examples.
-
-Script required:
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.easytabs/3.2.0/jquery.easytabs.min.js"></script>
+Labels used in buttons.
 
 Markup:
-<div id="tabs" class="tabs">
-  <ul class='etabs'>
-    <li class='tab'><a href="#tabs1-html">HTML Markup</a></li>
-    <li class='tab'><a href="#tabs1-js">Required JS</a></li>
-    <li class='tab'><a href="#tabs1-css">Example CSS</a></li>
-  </ul>
-   <div class='panel-container'>
-  <div id="tabs1-html">
-    <h5>HTML Markup for these tabs</h5>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-  </div>
-  <div id="tabs1-js">
-    <h5>JS for these tabs</h5>
-    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-  </div>
-  <div id="tabs1-css">
-    <h5>CSS Styles for these tabs</h5>
-    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-  </div>
-</div>
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('#tabs').easytabs({
-      animate: false
-    });
-  });
-</script>
+<button class="btn btn--default">Action <span class="badge">2</span></button>
+<button class="btn btn--default btn--pill">Action <span class="pill">2</span></button>
 
-Styleguide 18
+Styleguide 10.1
 
 */
-.tabs {
-  margin-bottom: 1.5em;
+.btn .badge, .offcanvas__menu--toggle .badge,
+.btn .pill,
+.offcanvas__menu--toggle .pill {
+  margin: -0.5em 0 0;
 }
-.tabs .etabs {
-  margin: 0;
-  padding: 0;
+
+/*
+
+Pager
+
+Quick previous and next links for simple pagination implementations with light markup and styles. It's great for simple sites like blogs or magazines.
+
+By default, the pager centers links.
+
+Markup:
+<ul class="pager">
+  <li><a href="#">Previous</a></li>
+  <li><a href="#">Next</a></li>
+</ul>
+
+Styleguide 13
+
+*/
+.pager {
+  overflow: hidden;
+  *zoom: 1;
+  list-style: none;
+  margin: 1.5em 0;
+  text-align: center;
+  /*
+  
+  Alignment
+  
+  Alternatively, you can align each link to the sides:
+  
+  Markup:
+  <ul class="pager">
+    <li class="previous"><a href="#">Previous</a></li>
+    <li class="next"><a href="#">Next</a></li>
+  </ul>
+  
+  Styleguide 13.1
+  
+  */
+  /*
+  
+  Disabled state
+  
+  Pager links also use the general `.disabled` utility class from the pagination.
+  
+  Markup:
+  <ul class="pager">
+    <li class="previous disabled"><a href="#">← Older</a></li>
+    <li class="next"><a href="#">Newer →</a></li>
+  </ul>
+  
+  Styleguide 13.2
+  
+  */
 }
-.tabs .etabs li {
+.pager li {
+  display: inline;
+}
+.pager li a,
+.pager li span {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
   display: inline-block;
-  zoom: 1;
-}
-.tabs .etabs li a {
   line-height: 1em;
-  display: block;
   padding: 0.71429em 0.71429em;
-  outline: none;
-  -webkit-border-radius: 4px 4px 0 0;
-  -moz-border-radius: 4px 4px 0 0;
-  -ms-border-radius: 4px 4px 0 0;
-  border-radius: 4px 4px 0 0;
 }
-.tabs .etabs li.active a {
-  position: relative;
-  font-weight: bold;
+.pager [rel="next"],
+.pager .next > a,
+.pager .next > span {
+  float: right;
 }
-.tabs .etabs li.active a:after {
-  position: absolute;
-  right: 0px;
-  bottom: -1px;
-  left: 0px;
-  height: 2px;
-  display: block;
-  content: "";
+.pager [rel="prev"],
+.pager .previous > a,
+.pager .previous > span {
+  float: left;
 }
-.tabs .panel-container {
-  -webkit-border-radius: 0 4px 4px;
-  -moz-border-radius: 0 4px 4px;
-  -ms-border-radius: 0 4px 4px;
-  border-radius: 0 4px 4px;
+.pager .disabled > a,
+.pager .disabled > a:hover,
+.pager .disabled > a:focus,
+.pager .disabled > span {
+  cursor: default;
 }
-.tabs .panel-container > div {
+
+/*
+
+Pagination
+
+Simple pagination inspired by Rdio, great for apps and search results. The large block is hard to miss, easily scalable, and provides large click areas.
+
+Default pagination with `.pagination`, it also support [WP-Paginate](http://wordpress.org/plugins/wp-paginate/).
+
+Markup:
+<div class="pagination {$modifiers}">
+  <ul>
+    <li><a href="#">Prev</a></li>
+    <li><a href="#">1</a></li>
+    <li class="current"><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">Next</a></li>
+  </ul>
+</div>
+
+.pagination--center - Center aligned pagination.
+.pagination--right - Right aligned pagination.
+.pagination--rounded - Rounded sides.
+
+Styleguide 14
+
+*/
+.pagination {
+  margin: 1.5em 0;
+  clear: both;
+}
+.pagination > * {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  margin-bottom: 0;
+  margin-left: 1px;
+}
+.pagination > * li {
+  float: left;
+  list-style-type: none;
+}
+.pagination > * li a,
+.pagination > * li span {
+  display: inline-block;
   padding: 0.71429em 0.71429em;
+  line-height: 1em;
+  text-decoration: none;
+  border-width: 1px;
+  border-style: solid;
+  margin-left: -1px;
+}
+.pagination > * li:first-child > a,
+.pagination > * li:first-child > span {
+  border-left-width: 1px;
+}
+.pagination > * .active > a,
+.pagination > * .active > span,
+.pagination > * .disabled > span,
+.pagination > * .disabled > a,
+.pagination > * .disabled > a:hover,
+.pagination > * .disabled > a:focus {
+  cursor: default;
+}
+
+.pagination--center {
+  text-align: center;
+}
+
+.pagination--right {
+  text-align: right;
+}
+
+.pagination--rounded li:first-child > a,
+.pagination--rounded li:first-child > span {
+  -moz-border-radius-topleft: 4px;
+  -webkit-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-bottomleft: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.pagination--rounded li:last-child > a,
+.pagination--rounded li:last-child > span {
+  -moz-border-radius-topright: 4px;
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 
 /*
@@ -6461,20 +6506,20 @@ OffCanvas Nav
 Styleguide 30.16
 
 */
-.st-menu {
+.offcanvas__menu {
   background-color: #4d4d4d;
   padding: 1.42857em;
   color: white;
 }
-.st-menu a {
+.offcanvas__menu a {
   color: white;
 }
 
-.st-pusher::after, .st-menu::after {
+.offcanvas__pusher::after, .offcanvas__menu::after {
   background: rgba(0, 0, 0, 0.2);
 }
 
-.st-menu-toggle:before {
+.offcanvas__menu--toggle:before {
   display: inline-block;
   font-family: "FontAwesome";
   content: "\f0c9";
@@ -6492,7 +6537,7 @@ Classes For other classes of generic elements
 Styleguide 30.17
 
 */
-.form__select:after, .dropdown__caret:after {
+.dropdown__caret:after, .form__select:after {
   display: inline-block;
   font-family: "FontAwesome";
   content: "\f078";
