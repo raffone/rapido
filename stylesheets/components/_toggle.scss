@@ -1,0 +1,43 @@
+/*
+
+Toggle
+
+Toggle visibility using `.open` class between elements of a container.
+
+Script required: **rapido.js**.
+
+    <section class="news">
+      <article>
+        <h3 data-toggle-name="news_1">News title</h3>
+        <p data-toggle-content="news_1">News content</p>
+      </article>
+      <article>
+        <h3 data-toggle-name="news_2">News title</h4>
+        <p data-toggle-content="news_2">News content</p>
+      </article>
+    </section>
+
+Include this js after including rapido.js.
+
+    $('.toggle').rapido_Toggle();
+
+You can also pass a delay between the removing and adding the class, usefull
+when you have two animation that you don't wont to start at the same time.
+
+**Options** (with defaul values):
+
+    titleClass:    [data-toggle-name]
+    contentClass:  [data-toggle-content]
+    delay:         0
+
+Remeber to add closed and open state in the css, this module doesn't have
+default styling, es:
+
+    [data-toggle-content]       { display: none; }
+    [data-toggle-content].open  { display: block; }
+
+Styleguide 17
+
+*/
+
+
