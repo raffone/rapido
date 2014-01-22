@@ -5,7 +5,7 @@ Mixins
 Some of them are from Bootstrap, others are custom. The required arguments are
 marked in bold.
 
-Styleguide 23
+Styleguide 24
 
 */
 
@@ -18,7 +18,7 @@ Create a rectangle
 * `$height`: Height of the rectangle
 * `$width`: Width of the rectangle
 
-Styleguide 23.1
+Styleguide 24.1
 
 */
 
@@ -35,7 +35,7 @@ Create a square
 
 * `$size`: Dimension used both for width and height
 
-Styleguide 23.2
+Styleguide 24.2
 
 */
 
@@ -62,7 +62,7 @@ Become:
     right: 0px;
     bottom: 0px;
 
-Styleguide 23.3
+Styleguide 24.3
 
 */
 
@@ -123,7 +123,7 @@ Become:
     margin-left: auto;
     margin-right: auto;
 
-Styleguide 23.4
+Styleguide 24.4
 
 */
 
@@ -141,7 +141,7 @@ Vertical and horizontal centering with absolute positioning, using the position 
 
     @include center();
 
-Styleguide 23.5
+Styleguide 24.5
 
 */
 
@@ -162,7 +162,7 @@ Abbrieviantion for extendingt normal class (.) or a placeholder class (%) when u
 * `$name`: Name of the class
 * `$silent`: Set to true if it's a placeholder class
 
-Styleguide 23.6
+Styleguide 24.6
 
 */
 
@@ -184,7 +184,7 @@ Placeholder
 
 * `$color`: Set color of the placeholder of an input.
 
-Styleguide 23.7
+Styleguide 24.7
 
 */
 
@@ -227,7 +227,7 @@ Become
     text-overflow: ellipsis;
     white-space: nowrap;
 
-Styleguide 23.8
+Styleguide 24.8
 
 */
 
@@ -251,7 +251,7 @@ Create a css-only triangle.
 * `$color`: Color of the triangle
 * `$direction`: There are available up, up-right, right, down-right, down, down-left, left, up-left
 
-Styleguide 23.9
+Styleguide 24.9
 
 
 */
@@ -311,7 +311,7 @@ Add a css-only triangle width side borders, usefull for tooltips. For now only s
 * `$border-width`: Border width of the triangle
 * `$direction`: left or right
 
-Styleguide 23.10
+Styleguide 24.10
 
 */
 
@@ -360,7 +360,7 @@ Text inset shadow
 * `$textcolor`: Color of the text
 * `$contrast`: How much stronger the inset will be
 
-Styleguide 23.11
+Styleguide 24.11
 
 */
 
@@ -392,7 +392,7 @@ Become
     color: #000;
     color: rgba(0,0,0,.5);
 
-Styleguide 23.12
+Styleguide 24.12
 
 */
 
@@ -413,7 +413,7 @@ Used for creating custom animations.
 
 * `$name`: Name of the keyframe
 
-Styleguide 23.13
+Styleguide 24.13
 
 */
 
@@ -443,7 +443,7 @@ Nav divider
 * `$top`: Color of the top border
 * `$bottom`: Color of the bottom border
 
-Styleguide 23.14
+Styleguide 24.14
 
 */
 
@@ -472,7 +472,7 @@ Comicbook Shadow
 * `$size`: Size of the shadow
 * `$distance`: Distance of the shadow from the image
 
-Styleguide 23.15
+Styleguide 24.15
 
 */
 
@@ -523,7 +523,7 @@ Usefull for adding inset shadows to sidebars or large block where the shadow is 
 * `$size`: Size of the shadow
 * `$color`: Color of the shadow
 
-Styleguide 23.16
+Styleguide 24.16
 
 */
 
@@ -561,7 +561,7 @@ Add Side Shadows to multi-line padded text for consistend side padding (Fabien D
 * `$size`: Size of the shadow
 * `$color`: Color of the shadow
 
-Styleguide 23.17
+Styleguide 24.17
 
 */
 
@@ -587,7 +587,7 @@ Use the unicode character from an icon font to insert it wherever you want.
 ‡ Fonts available: Fontawesome, Brandico, Entypo, Fontelico, Maki, Openweb-icons, Typicons, Zocial
 
 
-Styleguide 23.18
+Styleguide 24.18
 
 */
 
@@ -614,7 +614,7 @@ You can set the start/and with of each step from usins the variables `$lap-start
     * `portable`: Lap + Palm
     * `desk`: Only Desktop
 
-Styleguide 23.19
+Styleguide 24.19
 
 */
 
@@ -693,7 +693,7 @@ Or via `@include` from the scss:
 
 The result is the same.
 
-Styleguide 23.20
+Styleguide 24.20
 
 */
 
@@ -717,7 +717,7 @@ Responsive grid
 * `$media`: Media query to to use, for responsive grids
 * `$highlight-omega`: Bolean, used for debugging nth
 
-Styleguide 23.21
+Styleguide 24.21
 
 */
 
@@ -760,7 +760,7 @@ Animations
 * `$function`: Easing, see 20.2 for a list of all easing options available
 * `$mode`: animation-fill-mode (http://mzl.la/1g6ixCc), default to *both*
 
-Styleguide 23.22
+Styleguide 24.22
 
 */
 
@@ -810,7 +810,7 @@ Will be compiled to:
       animation: fadeIn 0.5s 2s ease-out both;
     }
 
-Styleguide 23.23
+Styleguide 24.23
 
 */
 

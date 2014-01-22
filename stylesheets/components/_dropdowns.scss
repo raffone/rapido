@@ -35,6 +35,15 @@ Markup:
     <li><a tabindex="-1" href="#">Separated link</a></li>
   </ul>
 </div>
+<script>$('.dropdown').rapido_Dropdown();</script>
+
+Include this js after including rapido.js.
+
+    $('.dropdown').rapido_Dropdown();
+
+**Options** (with defaul values):
+
+    event: click (click, hover)
 
 Styleguide 7
 

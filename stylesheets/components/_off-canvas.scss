@@ -4,6 +4,8 @@ Off-Canvas
 
 There's available a nice off-canvas sidebar functionality adapted from [Codrops](http://tympanus.net/codrops/2013/08/28/transitions-for-off-canvas-navigations).
 
+Script required: **rapido.js**.
+
     <div id="offcanvas__container" class="offcanvas__container">
       <nav class="offcanvas__menu">
         [...nav content...]
@@ -15,11 +17,27 @@ There's available a nice off-canvas sidebar functionality adapted from [Codrops]
       </div>
     </div>
 
-Script required: **rapido.js**.
+Styleguide 15
+
+*/
+
+/*
+
+Off-Canvas JS
+
+Include this js after including rapido.js.
+
+    $('.offcanvas__menu--toggle').rapido_Offcanvas();
+
+**Options** (with defaul values):
+
+    toggleClass:     offcanvas__menu--open
+    containerClass:  .offcanvas__container
+    menuClass:       .offcanvas__menu
 
 For opening and closing the sidebar add the class `offcanvas__menu--toggle` to a link or button.
 
-Styleguide 15
+Styleguide 15.2
 
 */
 

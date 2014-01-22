@@ -50,7 +50,7 @@
             <h1 class="kss-doc-title"><a href="./">Rapido CSS</a></h1>
           </header>
           <nav class="kss-nav">
-            <ul class="kss-menu" data-kss-ref="21">
+            <ul class="kss-menu" data-kss-ref="29">
               <li class="kss-menu-item"><a href="./"><span class="kss-ref">0</span><span class="kss-name">Overview</span></a></li>
               
               <li class="kss-menu-item"><a href="section-1.html"><span class="kss-ref">1</span><span class="kss-name">Alerts</span></a></li>
@@ -121,26 +121,39 @@
               
               
               
+              <li class="kss-menu-item"><a href="#section-29.1"><span class="kss-ref">29.1</span><span class="kss-name">Text Size</span></a></li>
               
               
               
-              <li class="kss-menu-item"><a href="#section-21.1"><span class="kss-ref">21.1</span><span class="kss-name">Outlines</span></a></li>
+              <li class="kss-menu-item"><a href="#section-29.1.1"><span class="kss-ref">29.1.1</span><span class="kss-name">Line-Height</span></a></li>
               
               
               
-              <li class="kss-menu-item"><a href="#section-21.2"><span class="kss-ref">21.2</span><span class="kss-name">Easing</span></a></li>
+              <li class="kss-menu-item"><a href="#section-29.2"><span class="kss-ref">29.2</span><span class="kss-name">Forms</span></a></li>
               
               
               
-              <li class="kss-menu-item"><a href="#section-21.3"><span class="kss-ref">21.3</span><span class="kss-name">Classes for animations</span></a></li>
+              <li class="kss-menu-item"><a href="#section-29.3"><span class="kss-ref">29.3</span><span class="kss-name">Paddings</span></a></li>
               
               
               
-              <li class="kss-menu-item"><a href="#section-21.4"><span class="kss-ref">21.4</span><span class="kss-name">Classes for delays</span></a></li>
+              <li class="kss-menu-item"><a href="#section-29.4"><span class="kss-ref">29.4</span><span class="kss-name">Sizes</span></a></li>
               
               
               
-              <li class="kss-menu-item"><a href="#section-21.6"><span class="kss-ref">21.6</span><span class="kss-name">Animation mixin</span></a></li>
+              <li class="kss-menu-item"><a href="#section-29.5"><span class="kss-ref">29.5</span><span class="kss-name">Heights</span></a></li>
+              
+              
+              
+              <li class="kss-menu-item"><a href="#section-29.6"><span class="kss-ref">29.6</span><span class="kss-name">Media Queries</span></a></li>
+              
+              
+              
+              <li class="kss-menu-item"><a href="#section-29.7"><span class="kss-ref">29.7</span><span class="kss-name">Grid (Susy)</span></a></li>
+              
+              
+              
+              <li class="kss-menu-item"><a href="#section-29.9"><span class="kss-ref">29.9</span><span class="kss-name">Z-index</span></a></li>
               
               
             </ul>
@@ -152,126 +165,208 @@
         <article class="kss-article">
           
           
-          <section id="section-21" class="kss-section kss-depth-1">
-            <h1 class="kss-title"><span class="kss-ref">21</span> Animations</h1>
+          <section id="section-29" class="kss-section kss-depth-1">
+            <h1 class="kss-title"><span class="kss-ref">29</span> Base Dimensions</h1>
             
             
             <div class="kss-description">
-              <p>All the animations in <a href="https://twitter.com/theCSSguru">theCSSguru</a>&apos;s <a href="http://thecssguru.freeiz.com/animate/">Animate mixin</a> are available with the same mixin:
-
-</p>
-<ul>
-<li><strong>Attention seekers:</strong> flash, bounce, shake, tada</li>
-<li><strong>Fading entrances:</strong> , fadeIn, fadeInUp, fadeInDown, fadeInLeft, fadeInRight, fadeInUpBig, fadeInDownBig, fadeInLeftBig, fadeInRightBig</li>
-<li><strong>Fading exits</strong>: fadeOut, fadeOutUp, fadeOutDown, fadeOutLeft, fadeOutRight, fadeOutUpBig, fadeOutDownBig, fadeOutLeftBig, fadeOutRightBig</li>
-<li><strong>Bouncing entrances:</strong> bounceIn, bounceInDown, bounceInUp, bounceInLeft, bounceInRight</li>
-<li><strong>Bouncing exits:</strong> bounceOut, bounceOutDown, bounceOutUp, bounceOutLeft, bounceOutRight</li>
-<li><strong>Rotating entrances:</strong> rotateIn, rotateInDownLeft, rotateInDownRight, rotateInUpLeft, rotateInUpRight</li>
-<li><strong>Rotating exits:</strong> rotateOut, rotateOutDownLeft, rotateOutDownRight, rotateOutUpLeft, rotateOutUpRight</li>
-</ul>
+              <pre><code>$base-border-radius:            4px     # Border radius used as a standard on all elements.
+$horizontal-offset:             180px   # Labels width in horizontal forms.</code></pre>
 
             </div>
             
             
           </section>
           
-          <section id="section-21" class="kss-section kss-depth-1">
-            <h1 class="kss-title"><span class="kss-ref">21</span> Debug mode</h1>
+          <section id="section-29.1" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">29.1</span> Text Size</h1>
             
             
             <div class="kss-description">
-              <p>Add different background colors and border for elements with different
-proprieties (has class, has id, has title, ect.), usefull for debugging code
-and finding errors. Taken form <a href="https://github.com/csswizardry/inuit.css">Inuit</a>.
+              <p>Font sizes you can used with the compass mixin <code>adjust-font-size-to()</code>. Naming convention from <a href="http://inuitcss.com/">Inuit</a>.
 
 </p>
-<p>Enable it with <code>$debug-html: true;</code>.</p>
+<pre><code>$giga-size:                     $base-font-size * 7     # 98px
+$mega-size:                     $base-font-size * 5     # 70px
+$kilo-size:                     $base-font-size * 3.5   # 49px
+
+$h1-size:                       $base-font-size * 2.5   # 35px
+$h2-size:                       $base-font-size * 2     # 28px
+$h3-size:                       $base-font-size * 1.85  # 26px
+$h4-size:                       $base-font-size * 1.5   # 21px
+$h5-size:                       $base-font-size * 1.25  # 17.5px
+$h6-size:                       $base-font-size * 1     # 14px
+
+$small-size:                    $base-font-size * .85   # 12px
+$smaller-size:                  $base-font-size * .7    # 10px
+$smallest-size:                 $base-font-size * .5    # 7px</code></pre>
 
             </div>
             
             
           </section>
           
-          <section id="section-21.1" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">21.1</span> Outlines</h1>
+          <section id="section-29.1.1" class="kss-section kss-depth-3">
+            <h1 class="kss-title"><span class="kss-ref">29.1.1</span> Line-Height</h1>
             
             
             <div class="kss-description">
-              <p>More simple than <code>$debug-outlines</code>, it outline all elements in different colors
-to help differentiate them and visualize their placement on the page.
-Taken form <a href="https://github.com/mrmrs/pesticide">Pesticide</a>.
+              <p>By default all titles have a line-height based on the font-size, to ensure that it will allways respect the vertical rhythm.
+Sometimes this result is not what we expect/want so it&apos;s possible to override the default proportion width these.
 
 </p>
-<p>Enable it with <code>$debug-outlines: true;</code>.</p>
+<p>These values mean: n times the base line-height.
+
+</p>
+<pre><code>$h1-line-height:                2
+$h2-line-height:                2
+$h3-line-height:                2
+$h4-line-height:                1.5
+$h5-line-height:                1.5
+$h6-line-height:                1.5</code></pre>
 
             </div>
             
             
           </section>
           
-          <section id="section-21.2" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">21.2</span> Easing</h1>
+          <section id="section-29.2" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">29.2</span> Forms</h1>
             
             
             <div class="kss-description">
-              <p>There are lots of easing options available, from the basic <code>linear</code> or <code>ease-in</code> to more complex like <code>easeInOutCirc</code>. For an example of all of these in use see <a href="http://easings.net">Easings.net</a>.
+              <p>Base padding and margins used in the forms.
 
 </p>
-<ul>
-<li><strong>Base</strong>: linear, ease, ease-in, ease-out, ease-in-out</li>
-<li><strong>easeIn</strong>: easeInQuad, easeInCubic, easeInQuart, easeInQuint, easeInSine, easeInExpo, easeInCirc, easeInBack</li>
-<li><strong>easeOut</strong>: easeOutQuad, easeOutCubic, easeOutQuart, easeOutQuint, easeOutSine, easeOutExpo, easeOutCirc, easeOutBack</li>
-<li><strong>easeInOut</strong>: easeInOutQuad, easeInOutCubic, easeInOutQuart, easeInOutQuint, easeInOutSine, easeInOutExpo, easeInOutCirc, easeInOutBack</li>
-</ul>
+<pre><code>$control-margin-bottom:         $base-line-height
+$label-margin-bottom:           10px    # Margin below labels
+$input-border:                  1px     # Border width used for inputs and buttons
+$input-padding-top:             10px    # Base top padding
+$input-padding-side:            10px    # Base side padding
+$checkbox-padding-left:         20px    # Side padding used for checkboxes and radios</code></pre>
 
             </div>
             
             
           </section>
           
-          <section id="section-21.3" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">21.3</span> Classes for animations</h1>
+          <section id="section-29.3" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">29.3</span> Paddings</h1>
             
             
             <div class="kss-description">
-              <p>There are available  classes for all enabled animations to use with <code>@extend</code>.
+              <p>Padding specific to every component you can use to overwrite the base padding.
 
 </p>
-<p>Example:
+<p>Helper classes
 
 </p>
-<pre><code>@extend .fadeIn;</code></pre>
+<pre><code>$wrapper-padding:               em(20px)    # Side padding used with .w and .wrapper</code></pre>
+<p>Buttons
+
+</p>
+<pre><code>$btn-padding:                   $input-padding  # Buttons padding
+$btn-large-padding:             em($input-padding-top * 1) em($input-padding-side * 1.5)
+$btn-small-padding:             em($input-padding-top * .5) em($input-padding-side * .8)
+$btn-mini-padding:              em($input-padding-top * .1) em($input-padding-side * .6)</code></pre>
+<p>Components
+
+</p>
+<pre><code>$alerts-padding:                $input-padding  # Alerts padding
+$captions-padding:              $input-padding  # Captions padding
+$dropdowns-padding:             $input-padding  # Dropdowns padding
+$modals-error-padding:          $input-padding  # Modals padding
+$navs-padding:                  $input-padding  # Navs padding
+$pager-padding:                 $input-padding  # Pager padding
+$pagination-padding:            $input-padding  # Pagination padding
+$pills-padding:                 .15em .35em     # Pills padding
+$tables-padding:                $input-padding  # Tables padding
+$tabs-content-padding:          $input-padding  # Tabs padding
+$tabs-tab-padding:              $input-padding  # Tabs padding</code></pre>
 
             </div>
             
             
           </section>
           
-          <section id="section-21.4" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">21.4</span> Classes for delays</h1>
+          <section id="section-29.4" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">29.4</span> Sizes</h1>
             
             
             <div class="kss-description">
-              <p>Like classes for the animations are also available 8 classes for delays.
-Available delays: .delay-25, .delay-50, .delay-75, .delay-100, .delay-125, .delay-150, .delay-175, .delay-200.
-
-</p>
-<p>Example:
-
-</p>
-<pre><code>@extend .delay-50;</code></pre>
+              <pre><code>$loader-ico-size:               44px        # Icon size of the loader used with some componets
+$modal-btn-size:                em(30px)    # Size of buttons used with the modals
+$slider-btn-size:               em(30px)    # Size of buttons used with the sliders</code></pre>
 
             </div>
             
             
           </section>
           
-          <section id="section-21.6" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">21.6</span> Animation mixin</h1>
+          <section id="section-29.5" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">29.5</span> Heights</h1>
             
             
             <div class="kss-description">
-              <p>Also available is an &quot;animate&quot; mixin, for more information see the Mixins section.</p>
+              <p>Some elements need to have a max-height specified for smoother animations, like dropdowns:
+
+</p>
+<pre><code>$dropdowns-height:              em(600px);</code></pre>
+
+            </div>
+            
+            
+          </section>
+          
+          <section id="section-29.6" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">29.6</span> Media Queries</h1>
+            
+            
+            <div class="kss-description">
+              <p>Set the width of the three steps of the layout.
+
+</p>
+<pre><code>$lap-start:                     481px   # Max width of smartphone
+$desk-start:                    768px   # Max width for tablet
+$desk-end:                      1080px  # Max width for desktop</code></pre>
+
+            </div>
+            
+            
+          </section>
+          
+          <section id="section-29.7" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">29.7</span> Grid (Susy)</h1>
+            
+            
+            <div class="kss-description">
+              <p>Default settings for susy grid. More info: <a href="http://susy.oddbird.net/">Susy</a>.
+
+</p>
+<pre><code>$total-columns:                 12      # Number of columns
+$column-width:                  50px    # Columns width
+$gutter-width:                  30px    # Gutter width
+$container-style:               fluid   # Grid style</code></pre>
+
+            </div>
+            
+            
+          </section>
+          
+          <section id="section-29.9" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">29.9</span> Z-index</h1>
+            
+            
+            <div class="kss-description">
+              <p>Default settings for overlay components, taken from Bootstrap.
+
+</p>
+<pre><code>$zindex-offcanvas:              990     # OffCanvas
+$zindex-dropdown:               1000    # Dropdowns
+$zindex-popover:                1010    # Popovers
+$zindex-tooltip:                1030    # Tooltips
+$zindex-slider:                 1040    # Sliders
+$zindex-modal:                  1050    # Modals</code></pre>
 
             </div>
             

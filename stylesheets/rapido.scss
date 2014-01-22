@@ -31,29 +31,26 @@
 
 // Components
 
-@import	"components/type";
-@import	"components/forms";
-@import	"components/tables";
-@import "components/captions";
-
-@import	"components/buttons";
+@import	"components/alerts";
 @import	"components/button-groups";
-@import	"components/dropdowns";
-@import "components/labels";
+@import	"components/buttons";
 @import	"components/close";
-
+@import	"components/dropdowns";
+@import	"components/forms";
+@import	"components/modals";
 @import	"components/navs";
 @import	"components/off-canvas";
-@import "components/breadcrumbs";
-@import "components/pagination";
-@import "components/pager";
-
-@import	"components/alerts";
-
-@import "components/grids";
-@import	"components/modals";
 @import	"components/sliders";
+@import	"components/tables";
 @import	"components/tabs";
+@import	"components/toggle";
+@import	"components/type";
+@import "components/breadcrumbs";
+@import "components/captions";
+@import "components/grids";
+@import "components/labels";
+@import "components/pager";
+@import "components/pagination";
 
 // Default styles
 
