@@ -126,6 +126,16 @@ module.exports = function(grunt) {
           dest: '../../server/sites/raffone/rapido'
         },
         ]
+      },
+      js: {
+        files: [
+          {
+          expand: true,
+          cwd: 'dist/js',
+          src: ['rapido.js'],
+          dest: '../../forks/kss-node-template/template/public'
+        },
+        ]
       }
     },
 
@@ -148,8 +158,8 @@ module.exports = function(grunt) {
 
   grunt.registerTask('css',  ['compass']);
   grunt.registerTask('js',   ['concat', 'closureFixStyle', 'jshint', 'uglify']);
-  grunt.registerTask('docs', ['compass', 'kss']);
-  grunt.registerTask('site', ['compass', 'kss', 'copy']);
+  grunt.registerTask('docs', ['compass:dist', 'copy:js', 'kss']);
+  grunt.registerTask('site', ['compass:dist', 'kss', 'copy']);
   grunt.registerTask('default', ['compass:dist']);
 
 };
