@@ -1755,7 +1755,8 @@ Styleguide 21.3
 Classes for delays
 
 Like classes for the animations are also available 8 classes for delays.
-Available delays: .delay-25, .delay-50, .delay-75, .delay-100, .delay-125, .delay-150, .delay-175, .delay-200.
+Available delays: .delay-25, .delay-50, .delay-75, .delay-100, .delay-125,
+.delay-150, .delay-175, .delay-200.
 
 Example:
 
@@ -1824,24 +1825,29 @@ Styleguide 21.4
 
 Show animation only on scroll
 
-It possibile to hide everything and show the entrance animation only when an element is visible.
+It possibile to hide everything and show the entrance animation only when an
+element is visible.
 
-First include this script:
+Include this js after including rapido.js.
 
-    <script src="http://raffone.github.io/cdn/js/animationOnScroll.js"></script>
+    $('.articles').rapido_Animation();
 
+**Options** (with default values):
+
+    offset:     500
+    offsetMenu: false (when using rapido's offset nav)
 
 Example:
 
-    <div data-animation-scroll="fadeInDown">
+    <section class="articles" data-animation="fadeIn">
       ...
-    </div>
+    </section>
 
 
 Styleguide 21.5
 
 */
-[data-animation-scroll*="In"] {
+[data-animation*="fadeIn"] {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
 }
@@ -1850,7 +1856,8 @@ Styleguide 21.5
 
 Animation mixin
 
-Also available is an "animate" mixin, for more information see the Mixins section.
+Also available is an "animate" mixin, for more information see the Mixins
+section.
 
 Styleguide 21.6
 
@@ -2414,7 +2421,7 @@ Include this js after including rapido.js.
 
     $('.dropdown').rapido_Dropdown();
 
-**Options** (with defaul values):
+**Options** (with default values):
 
     event: click (click, hover)
 
@@ -3772,7 +3779,7 @@ Include this js after including rapido.js.
 
     $('.offcanvas__menu--toggle').rapido_Offcanvas();
 
-**Options** (with defaul values):
+**Options** (with default values):
 
     toggleClass:     offcanvas__menu--open
     containerClass:  .offcanvas__container
@@ -4192,7 +4199,7 @@ Include this js after including rapido.js.
 You can also pass a delay between the removing and adding the class, usefull
 when you have two animation that you don't wont to start at the same time.
 
-**Options** (with defaul values):
+**Options** (with default values):
 
     titleClass:    [data-toggle-name]
     contentClass:  [data-toggle-content]

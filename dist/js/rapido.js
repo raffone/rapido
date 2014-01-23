@@ -28,19 +28,36 @@
     };
 
     function addClass() {
-      var animation, offset, scrollbar, added = false;
+      var animation, offset, scrollbar, container, added = false;
 
-      animation = base.$el.data('animation-scroll');
+      animation = base.$el.data('animation');
 
-      offset = base.$el.offset();
+
+      if(base.options.offsetMenu) {
+        container = '.offcanvas__content';
+        offset = base.$el.position();
+      } else {
+        container = window;
+        offset = base.$el.offset();
+      }
+
       offset = offset.top - base.options.offset;
       offset = parseInt(offset);
 
-      $(window).scroll(function(e) {
-        scrollbar = document.documentElement.scrollTop;
+      console.log(offset);
+
+      $(container).scroll(function(e) {
+
+        if(base.options.offsetMenu) {
+          scrollbar = $('.offcanvas__content').scrollTop();
+        } else {
+          scrollbar = document.documentElement.scrollTop;
+        }
+
+        console.log(scrollbar);
 
         if (offset <= scrollbar && !added) {
-          base.$el.attr('class', animation);
+          base.$el.addClass(animation);
           added = true;
         }
 
@@ -51,7 +68,8 @@
   };
 
   $.Rapido.Animation.defaultOptions = {
-    offset: 500
+    offset: 500,
+    offsetMenu: false
   };
 
   $.fn.rapido_Animation = function(options) {
@@ -61,6 +79,7 @@
   };
 
 })(jQuery, window, document);
+
 (function($, window, document, undefined) {
 
   if (!$.Rapido) {
@@ -156,6 +175,7 @@
   };
 
 })(jQuery, window, document);
+
 (function($, window, document, undefined) {
 
   if (!$.Rapido) {
@@ -272,7 +292,7 @@
   };
 
   $.Rapido.Offcanvas.defaultOptions = {
-    toggleClass: 'offcanvas__menu-open',
+    toggleClass: 'offcanvas__menu--open',
     containerClass: '.offcanvas__container',
     menuClass: '.offcanvas__menu'
   };
@@ -284,6 +304,8 @@
   };
 
 })(jQuery, window, document);
+
+$('.offcanvas__menu--toggle').rapido_Offcanvas();
 
 (function($, window, document, undefined) {
 
