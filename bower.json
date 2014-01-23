@@ -1,7 +1,7 @@
 {
   "name": "rapido",
   "title": "Rapido",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "An easy and quick Sass + Compass + Susy + OOCSS + BEM prototyping framework.",
   "homepage": "https://github.com/raffone/rapido",
   "authors": "Raffaele Rasini <raffaele.rasini@gmail.com>",
@@ -20,6 +20,6 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": ">= 1.9.0"
+    "jquery": "~1.10.2"
   }
 }
