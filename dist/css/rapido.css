@@ -2874,21 +2874,20 @@ Styleguide 8.3
 
 */
 .form__select {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  border-radius: 3px;
-  -webkit-transform: translateY(1px);
-  -moz-transform: translateY(1px);
-  -ms-transform: translateY(1px);
-  transform: translateY(1px);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
   border-style: solid;
   border-width: 1px;
   cursor: pointer;
   display: inline-block;
   height: 2.57143em;
   line-height: 1em;
+  margin-bottom: 0;
+  padding: 0.71429em 0.71429em;
   position: relative;
+  vertical-align: middle;
   width: 240px;
 }
 .form__select select {
@@ -2900,19 +2899,21 @@ Styleguide 8.3
   border: none;
   box-shadow: none;
   cursor: pointer;
-  padding: 0.71429em 0.71429em;
   position: relative;
   width: 100%;
   z-index: 3;
-  line-height: 1em;
   text-indent: 1px;
   text-overflow: '';
 }
 .form__select:after {
+  /*@include position(absolute, em($input-padding-top) em($input-padding-side) 0 0);*/
   position: absolute;
-  top: 0.71429em;
-  right: 0.71429em;
+  top: 0em;
+  right: 0em;
+  bottom: 0em;
   display: block;
+  line-height: 2.57143em;
+  padding-right: 10px;
 }
 
 /*
@@ -3186,14 +3187,12 @@ Markup:
 <form class="form--inline">
   <label class="form__label">Label</label>
     <input type="text" placeholder="Type something…">
-  <label class="form__label">Label</label>
     <label class="form__radio inline">
       <input type="radio" value="option1" checked> Option one
     </label>
     <label class="form__radio inline">
       <input type="radio" value="option1" checked> Option two
     </label>
-  <label class="form__label">Label</label>
     <span class="form__select">
       <select>
         <option selected="selected">Select Country</option>
@@ -3213,7 +3212,7 @@ Styleguide 8.8.1
 
 */
 .form--inline > * {
-  margin: 0 0 0 0.71429em;
+  margin: 0 0 0 1.5em;
 }
 .form--inline .form__label {
   display: inline-block;
@@ -3239,7 +3238,7 @@ Styleguide 8.8.1
   width: auto;
 }
 .form--inline .form__select {
-  padding-right: 1.5em;
+  padding-right: 2.5em;
 }
 .form--inline .form__group {
   padding: 0;

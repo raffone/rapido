@@ -1,5 +1,5 @@
 /*
- *  Rapido - v0.1.5
+ *  Rapido - v0.1.6
  *  An easy and quick Sass + Compass + Susy + OOCSS + BEM prototyping framework.
  *  https://github.com/raffone/rapido
  *
@@ -33,7 +33,7 @@
       animation = base.$el.data('animation');
 
 
-      if(base.options.offsetMenu) {
+      if (base.options.offsetMenu) {
         container = '.offcanvas__content';
         offset = base.$el.position();
       } else {
@@ -44,17 +44,17 @@
       offset = offset.top - base.options.offset;
       offset = parseInt(offset);
 
-      console.log(offset);
+      //console.log(offset);
 
       $(container).scroll(function(e) {
 
-        if(base.options.offsetMenu) {
+        if (base.options.offsetMenu) {
           scrollbar = $('.offcanvas__content').scrollTop();
         } else {
           scrollbar = document.documentElement.scrollTop;
         }
 
-        console.log(scrollbar);
+        //console.log(scrollbar);
 
         if (offset <= scrollbar && !added) {
           base.$el.addClass(animation);

@@ -276,15 +276,18 @@ Styleguide 8.3
 
 .form__select {
     @extend %caret !optional;
-    @include border-radius(3px);
-    @include translateY($input-border);
+    @extend %select !optional;
+    @include border-radius($base-border-radius);
     border-style: solid;
     border-width: $input-border;
     cursor: pointer;
     display: inline-block;
     height: $input-height;
     line-height: 1em;
+    margin-bottom: 0;
+    padding: $input-padding;
     position: relative;
+    vertical-align: middle;
     width: 240px;
 
     select {
@@ -294,22 +297,21 @@ Styleguide 8.3
         border:none;
         box-shadow:none;
         cursor: pointer;
-        padding: $input-padding;
         position: relative;
         width:100%;
         z-index: 3;
-        line-height: 1em;
         text-indent: 1px;
         text-overflow: '';
-
     }
 
     &:after {
-        @include position(absolute, em($input-padding-top) em($input-padding-side) 0 0);
+        /*@include position(absolute, em($input-padding-top) em($input-padding-side) 0 0);*/
+        @include position(absolute, 0em 0em 0em 0);
         display: block;
+        line-height: $input-height;
+        padding-right: $input-padding-side;
     }
 
-     @extend %select !optional;
 
 }
 
@@ -596,14 +598,12 @@ Markup:
 <form class="form--inline">
   <label class="form__label">Label</label>
     <input type="text" placeholder="Type something…">
-  <label class="form__label">Label</label>
     <label class="form__radio inline">
       <input type="radio" value="option1" checked> Option one
     </label>
     <label class="form__radio inline">
       <input type="radio" value="option1" checked> Option two
     </label>
-  <label class="form__label">Label</label>
     <span class="form__select">
       <select>
         <option selected="selected">Select Country</option>
@@ -630,7 +630,7 @@ Styleguide 8.8.1
     .form--inline {
 
         > * {
-          margin: 0 0 0 em(10px);
+          margin: 0 0 0 rhythm();
         }
 
         .form__label {
@@ -659,7 +659,7 @@ Styleguide 8.8.1
         }
 
         .form__select {
-          padding-right: 1.5em;
+          padding-right: 2.5em;
         }
 
         .form__group {
