@@ -91,10 +91,12 @@ Styleguide 12
           max-height: $dropdowns-height;
         }
 
-        li ul,
-        li:hover > a {
-          @extend %nav--btn__hover !optional;
-        }
+
+        //li ul,
+        //li:hover > a {
+        //  @extend %nav--btn__hover !optional;
+        //}
+
 
     }
 
