@@ -136,14 +136,12 @@ Styleguide 5
       figcaption {
         top: 0;
         left: 0;
-        @include translateX(100%) ;
-        @include rotate(20deg);
+        @include simple-transform($rotate: 20deg, $trans-x:100%);
         opacity: 0;
       }
       &:hover, &:active {
         figcaption {
-          @include translateX(0) ;
-          @include rotate(0deg);
+          @include simple-transform($rotate: 0deg, $trans-x:0);
           opacity: 1;
         }
       }
