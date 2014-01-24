@@ -160,6 +160,6 @@ module.exports = function(grunt) {
   grunt.registerTask('js',   ['concat', 'closureFixStyle', 'jshint', 'uglify']);
   grunt.registerTask('docs', ['compass:dist', 'copy:js', 'kss']);
   grunt.registerTask('site', ['compass:dist', 'kss', 'copy']);
-  grunt.registerTask('default', ['compass:dist']);
+  grunt.registerTask('default', ['compass', 'js']);
 
 };

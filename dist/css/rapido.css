@@ -4719,8 +4719,6 @@ Styleguide 5
 .caption[data-effect-type="quarter-fall-in"] figcaption {
   top: 0;
   left: 0;
-  /*@include translateX(100%) ;*/
-  /*@include rotate(20deg);*/
   -webkit-transform:  rotateZ(20deg) translateX(100%);
   -moz-transform:  rotateZ(20deg) translateX(100%);
   -ms-transform:  rotateZ(20deg) translateX(100%);
@@ -4732,8 +4730,6 @@ Styleguide 5
   -moz-transform:  rotateZ(0deg) translateX(0);
   -ms-transform:  rotateZ(0deg) translateX(0);
   transform:  rotateZ(0deg) translateX(0);
-  /*@include translateX(0) ;*/
-  /*@include rotate(0deg);*/
   opacity: 1;
 }
 .caption[data-effect-type="quarter-two-step"] figcaption {
@@ -6197,7 +6193,7 @@ Navs
 Styleguide 30.8
 
 */
-.nav--btn li > a:hover, .nav--btn li > a:focus {
+.nav--btn li > a:hover, .nav--btn li > a:focus, .nav--btn li ul, .nav--btn li:hover > a {
   background-color: #f2f2f2;
 }
 
