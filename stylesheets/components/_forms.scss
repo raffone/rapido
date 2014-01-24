@@ -102,7 +102,6 @@ input[type="color"] {
 }
 
 select {
-    color: $text-color;
     display: inline-block;
 }
 
@@ -475,6 +474,14 @@ Styleguide 8.7
     @extend .clearfix;
 }
 
+.form__group.form__actions {
+    border: 0;
+    clear: none;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-top: (rhythm() + em($label-margin-bottom));
+ }
+
 
 /*
 
@@ -534,6 +541,14 @@ Styleguide 8.8
         .form__group {
             min-height: $control-min-height;
             margin: 0 0 em($control-margin-bottom) 0;
+        }
+
+        .form__controls {
+            width: 100%;
+
+            & > * {
+                width: 100%;
+            }
         }
 
         .form__multi { width: 100%; }
