@@ -93,8 +93,7 @@ Icon Fonts ready to use with the mixin `icon-font`.
 Font files are not required, is used the [We Love Icon Fonts](http://weloveiconfonts.com/) CDN.
 
 
-    $use-fontawesome:               true   # http://fortawesome.github.io/Font-Awesome/
-
+    $use-fontawesome:               false  # http://fortawesome.github.io/Font-Awesome/
     $use-brandico:                  false  # http://fontello.github.io/brandico.font/demo.html
     $use-entypo:                    false  # http://www.entypo.com/
     $use-fontelico:                 false  # https://github.com/fontello/fontelico.font
@@ -107,8 +106,7 @@ Styleguide 28.2
 
 */
 
-$use-fontawesome:                   true   !default;
-
+$use-fontawesome:                   false  !default;
 $use-brandico:                      false  !default;
 $use-entypo:                        false  !default;
 $use-fontelico:                     false  !default;

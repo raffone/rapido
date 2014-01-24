@@ -591,8 +591,7 @@ Icon Fonts ready to use with the mixin `icon-font`.
 Font files are not required, is used the [We Love Icon Fonts](http://weloveiconfonts.com/) CDN.
 
 
-    $use-fontawesome:               true   # http://fortawesome.github.io/Font-Awesome/
-
+    $use-fontawesome:               false  # http://fortawesome.github.io/Font-Awesome/
     $use-brandico:                  false  # http://fontello.github.io/brandico.font/demo.html
     $use-entypo:                    false  # http://www.entypo.com/
     $use-fontelico:                 false  # https://github.com/fontello/fontelico.font
@@ -1963,19 +1962,6 @@ Styleguide 21.6
 Icon Fonts
 
 */
-@font-face {
-  font-family: 'FontAwesome';
-  font-style: 'normal';
-  font-weight: 'normal';
-  src: url("http://weloveiconfonts.com/api/fonts/fontawesome/fontawesome-webfont.eot");
-  src: url("http://weloveiconfonts.com/api/fonts/fontawesome/fontawesome-webfont.eot?#iefix") format("eot"), url("http://weloveiconfonts.com/api/fonts/fontawesome/fontawesome-webfont.woff") format("woff"), url("http://weloveiconfonts.com/api/fonts/fontawesome/fontawesome-webfont.ttf") format("truetype"), url("http://weloveiconfonts.com/api/fonts/fontawesome/fontawesome-webfont.svg#FontAwesomeRegular") format("svg");
-}
-
-.fontawesome {
-  display: inline-block;
-  font-family: 'FontAwesome';
-}
-
 /*
 
 Alerts
@@ -4733,25 +4719,21 @@ Styleguide 5
 .caption[data-effect-type="quarter-fall-in"] figcaption {
   top: 0;
   left: 0;
-  -webkit-transform: translateX(100%);
-  -moz-transform: translateX(100%);
-  -ms-transform: translateX(100%);
-  transform: translateX(100%);
-  -webkit-transform: rotate(20deg);
-  -moz-transform: rotate(20deg);
-  -ms-transform: rotate(20deg);
-  transform: rotate(20deg);
+  /*@include translateX(100%) ;*/
+  /*@include rotate(20deg);*/
+  -webkit-transform:  rotateZ(20deg) translateX(100%);
+  -moz-transform:  rotateZ(20deg) translateX(100%);
+  -ms-transform:  rotateZ(20deg) translateX(100%);
+  transform:  rotateZ(20deg) translateX(100%);
   opacity: 0;
 }
 .caption[data-effect-type="quarter-fall-in"]:hover figcaption, .caption[data-effect-type="quarter-fall-in"]:active figcaption {
-  -webkit-transform: translateX(0);
-  -moz-transform: translateX(0);
-  -ms-transform: translateX(0);
-  transform: translateX(0);
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  transform: rotate(0deg);
+  -webkit-transform:  rotateZ(0deg) translateX(0);
+  -moz-transform:  rotateZ(0deg) translateX(0);
+  -ms-transform:  rotateZ(0deg) translateX(0);
+  transform:  rotateZ(0deg) translateX(0);
+  /*@include translateX(0) ;*/
+  /*@include rotate(0deg);*/
   opacity: 1;
 }
 .caption[data-effect-type="quarter-two-step"] figcaption {
@@ -6215,8 +6197,7 @@ Navs
 Styleguide 30.8
 
 */
-.nav li ul,
-.nav li:hover > a, .nav--btn li > a:hover, .nav--btn li > a:focus {
+.nav--btn li > a:hover, .nav--btn li > a:focus {
   background-color: #f2f2f2;
 }
 
@@ -6290,63 +6271,43 @@ Styleguide 30.12
 
 */
 .btnPlay:after {
-  display: inline-block;
-  font-family: "FontAwesome";
-  content: "\f04b";
+  content: "▶";
 }
 
 .btnPlayOn:after {
-  display: inline-block;
-  font-family: "FontAwesome";
-  content: "\f04c";
+  content: "‖";
 }
 
 .btnToggle:after {
-  display: inline-block;
-  font-family: "FontAwesome";
-  content: "\f065";
+  content: "◉";
 }
 
 .btnToggleOn:after {
-  display: inline-block;
-  font-family: "FontAwesome";
-  content: "\f066";
+  content: "⦿";
 }
 
 .btnPrev:after {
-  display: inline-block;
-  font-family: "FontAwesome";
-  content: "\f04a";
+  content: "≪";
 }
 
 .btnNext:after {
-  display: inline-block;
-  font-family: "FontAwesome";
-  content: "\f051";
+  content: "≫";
 }
 
 .btnClose:after {
-  display: inline-block;
-  font-family: "FontAwesome";
-  content: "\f00d";
+  content: "×";
 }
 
 .fancybox-close:after {
-  display: inline-block;
-  font-family: "FontAwesome";
-  content: "\f00d";
+  content: "×";
 }
 
 .fancybox-prev span:after {
-  display: inline-block;
-  font-family: "FontAwesome";
-  content: "\f053";
+  content: "<";
 }
 
 .fancybox-next span:after {
-  display: inline-block;
-  font-family: "FontAwesome";
-  content: "\f054";
+  content: ">";
 }
 
 .fancybox-nav span, #fancybox-buttons ul li a {
@@ -6419,14 +6380,10 @@ Styleguide 30.13
   margin-top: -1.07143em;
 }
 .bx-controls-direction a.bx-prev i:after {
-  display: inline-block;
-  font-family: "FontAwesome";
-  content: "\f053";
+  content: "<";
 }
 .bx-controls-direction a.bx-next i:after {
-  display: inline-block;
-  font-family: "FontAwesome";
-  content: "\f054";
+  content: ">";
 }
 
 .bx-pager {
@@ -6527,9 +6484,7 @@ Styleguide 30.16
 }
 
 .offcanvas__menu--toggle:before {
-  display: inline-block;
-  font-family: "FontAwesome";
-  content: "\f0c9";
+  content: "≡";
 }
 
 /*
@@ -6545,9 +6500,7 @@ Styleguide 30.17
 
 */
 .dropdown__caret:after, .form__select:after {
-  display: inline-block;
-  font-family: "FontAwesome";
-  content: "\f078";
+  content: "▼";
 }
 
 #fancybox-loading div {

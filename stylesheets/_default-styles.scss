@@ -399,21 +399,21 @@ Styleguide 30.12
 
     // Buttons
 
-    .btnPlay:after              { @include icon-font(\f04b); }
-    .btnPlayOn:after            { @include icon-font(\f04c); }
-    .btnToggle:after            { @include icon-font(\f065); }
-    .btnToggleOn:after          { @include icon-font(\f066); }
-    .btnPrev:after              { @include icon-font(\f04a); }
-    .btnNext:after              { @include icon-font(\f051); }
-    .btnClose:after             { @include icon-font(\f00d); }
-    .fancybox-close:after       { @include icon-font(\f00d); }
+    .btnPlay:after              { content: "▶" }
+    .btnPlayOn:after            { content: "‖" }
+    .btnToggle:after            { content: "◉" }
+    .btnToggleOn:after          { content: "⦿" }
+    .btnPrev:after              { content: "≪" }
+    .btnNext:after              { content: "≫" }
+    .btnClose:after             { content: "×" }
+    .fancybox-close:after       { content: "×" }
 
     .fancybox-prev {
-      span:after   { @include icon-font(\f053); }
+      span:after   { content: "<" }
     }
 
     .fancybox-next {
-      span:after   { @include icon-font(\f054); }
+      span:after   { content: ">" }
     }
 
     %modal__btn {
@@ -484,8 +484,8 @@ Styleguide 30.13
         line-height: $slider-btn-size;
         margin-top: -($slider-btn-size / 2);
 
-        &.bx-prev i:after { @include icon-font(\f053); }
-        &.bx-next i:after { @include icon-font(\f054); }
+        &.bx-prev i:after { content: "<" }
+        &.bx-next i:after { content: ">" }
     }
 
     // Pager
@@ -602,7 +602,7 @@ Styleguide 30.16
         }
 
         &:before {
-            @include icon-font(\f0c9);
+            content: "≡"
         }
     }
 
@@ -622,14 +622,12 @@ Styleguide 30.17
 
     %caret {
         &:after {
-            @include icon-font(\f078);
+          content: "▼"
         }
     }
 
     %loader-ico {
-        background:
-            url('//cdn.jsdelivr.net/wp-advanced-ajax-page-loader/2.5.12/loaders/SMALL%20-%20Spinning%20Arrows.gif')
-            center center no-repeat;
+        background: url('//cdn.jsdelivr.net/wp-advanced-ajax-page-loader/2.5.12/loaders/SMALL%20-%20Spinning%20Arrows.gif') center center no-repeat;
     }
 
 }
