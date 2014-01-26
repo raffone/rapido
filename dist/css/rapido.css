@@ -177,7 +177,7 @@ Functions
 
 For 99% of the framework I used Compass' and Susy's functions but I've made some for covering edge cases.
 
-Styleguide 25
+Styleguide 26
 
 */
 /*
@@ -191,7 +191,7 @@ There are lots of easing options available, from the basic ``linear`` or ``ease-
 * **easeOut**: easeOutQuad, easeOutCubic, easeOutQuart, easeOutQuint, easeOutSine, easeOutExpo, easeOutCirc, easeOutBack
 * **easeInOut**: easeInOutQuad, easeInOutCubic, easeInOutQuart, easeInOutQuint, easeInOutSine, easeInOutExpo, easeInOutCirc, easeInOutBack
 
-Styleguide 21.2
+Styleguide 22.2
 
 */
 /*
@@ -208,7 +208,7 @@ Become:
 
     left: -10em
 
-Styleguide 25.2
+Styleguide 26.2
 
 */
 /*
@@ -226,7 +226,7 @@ Become:
 
     margin-left: -1.42857em;
 
-Styleguide 25.3
+Styleguide 26.3
 
 */
 /*
@@ -236,7 +236,7 @@ space_neg()
 Similar to `rhythm_neg()` but for Susy's `space()` function, more info:
 [Susy Reference](http://susy.oddbird.net/guides/reference/#ref-space).
 
-Styleguide 25.4
+Styleguide 26.4
 
 */
 /*
@@ -246,14 +246,14 @@ strip_units()
 Remove eny type of unit from a number, more info:
 [StackOverflow](http://stackoverflow.com/questions/12328259/how-do-you-strip-the-unit-from-any-number-in-sass).
 
-Styleguide 25.5
+Styleguide 26.5
 
 */
 /*
 
 Base Settings
 
-Styleguide 26
+Styleguide 27
 
 */
 /*
@@ -264,7 +264,7 @@ Debug Mode
     $debug-outlines:                    false   # Enable debug outlines mode
     $default-styles:                    true    # Use default styles in _default-styles.scss
 
-Styleguide 26.1
+Styleguide 27.1
 
 */
 /*
@@ -280,7 +280,7 @@ on `palm` (smartphone) change the base size to 16px, it will be automatically co
 
     $responsive-font-size:              lap-and-up $base-font-size, palm 16px
 
-Styleguide 26.2
+Styleguide 27.2
 
 */
 /*
@@ -294,7 +294,7 @@ Font families
     $base-font-family:                  $font-sans  # Default font family for body text
     $titles-font-family:                $font-sans  # Default font family for titles
 
-Styleguide 26.3
+Styleguide 27.3
 
 */
 /*
@@ -311,7 +311,7 @@ Enable or disable specific broweser prefixes used by Compass mixins.
     $experimental-support-for-khtml:        false
 
 
-Styleguide 26.4
+Styleguide 27.4
 
 */
 /*
@@ -322,7 +322,7 @@ To convert `PX` to `EM` using the `$base-font-size` as font size.
 
     width: em(20px);
 
-Styleguide 25.1
+Styleguide 26.1
 
 */
 /*
@@ -339,7 +339,7 @@ Used for scaffolding
     $grayLighter:                       lighten($black, 95)
     $white:                             #fff
 
-Styleguide 27
+Styleguide 28
 
 */
 /*
@@ -352,7 +352,7 @@ Default colors
     $link-color:                        #0066cc
     $link-color-hover:                  darken($link-color, 10%)
 
-Styleguide 27.1
+Styleguide 28.1
 
 */
 /*
@@ -362,7 +362,7 @@ Base Dimensions
     $base-border-radius:            4px     # Border radius used as a standard on all elements.
     $horizontal-offset:             180px   # Labels width in horizontal forms.
 
-Styleguide 29
+Styleguide 30
 
 */
 /*
@@ -386,7 +386,7 @@ Font sizes you can used with the compass mixin `adjust-font-size-to()`. Naming c
     $smaller-size:                  $base-font-size * .7    # 10px
     $smallest-size:                 $base-font-size * .5    # 7px
 
-Styleguide 29.1
+Styleguide 30.1
 
 */
 /*
@@ -405,7 +405,7 @@ These values mean: n times the base line-height.
     $h5-line-height:                1.5
     $h6-line-height:                1.5
 
-Styleguide 29.1.1
+Styleguide 30.1.1
 
 */
 /*
@@ -421,7 +421,7 @@ Base padding and margins used in the forms.
     $input-padding-side:            10px    # Base side padding
     $checkbox-padding-left:         20px    # Side padding used for checkboxes and radios
 
-Styleguide 29.2
+Styleguide 30.2
 
 */
 /*
@@ -455,7 +455,7 @@ Components
     $tabs-content-padding:          $input-padding  # Tabs padding
     $tabs-tab-padding:              $input-padding  # Tabs padding
 
-Styleguide 29.3
+Styleguide 30.3
 
 */
 /*
@@ -466,7 +466,7 @@ Sizes
     $modal-btn-size:                em(30px)    # Size of buttons used with the modals
     $slider-btn-size:               em(30px)    # Size of buttons used with the sliders
 
-Styleguide 29.4
+Styleguide 30.4
 
 */
 /*
@@ -477,7 +477,7 @@ Some elements need to have a max-height specified for smoother animations, like 
 
     $dropdowns-height:              em(600px);
 
-Styleguide 29.5
+Styleguide 30.5
 
 */
 /*
@@ -490,7 +490,7 @@ Set the width of the three steps of the layout.
     $desk-start:                    768px   # Max width for tablet
     $desk-end:                      1080px  # Max width for desktop
 
-Styleguide 29.6
+Styleguide 30.6
 
 */
 /*
@@ -504,7 +504,7 @@ Default settings for susy grid. More info: [Susy](http://susy.oddbird.net/).
     $gutter-width:                  30px    # Gutter width
     $container-style:               fluid   # Grid style
 
-Styleguide 29.7
+Styleguide 30.7
 
 */
 /*
@@ -532,7 +532,7 @@ Default settings for overlay components, taken from Bootstrap.
     $zindex-slider:                 1040    # Sliders
     $zindex-modal:                  1050    # Modals
 
-Styleguide 29.9
+Styleguide 30.9
 
 */
 /*
@@ -570,7 +570,7 @@ Enable or disable components, so you can have in the css only what you need.
 
     $width-helper-classes:          true   # "Elements width" helper class
 
-Styleguide 28
+Styleguide 29
 
 */
 /*
@@ -580,7 +580,7 @@ Sprites
     $s-sprite-dimensions:           true;
     $s-layout:                      smart;
 
-Styleguide 28.1
+Styleguide 29.1
 
 */
 /*
@@ -600,7 +600,7 @@ Font files are not required, is used the [We Love Icon Fonts](http://weloveiconf
     $use-typicons:                  false  # http://typicons.com/
     $use-zocial:                    false  # http://zocial.smcllns.com/
 
-Styleguide 28.2
+Styleguide 29.2
 
 */
 /*
@@ -611,30 +611,30 @@ These are the default settings for all animations and transitions within the fra
 
 By default all animations but fadeIn and fadeOut are disabled, use the  ```$animations``` list to enable/disable them.
 
-    $animations:                      fadeIn, fadeOut
+    $animations:                        fadeIn, fadeOut, fadeInDown, fadeOutUp
 
 If true it generate a placeholder class for every animation with the default settings to use as an ````@extend```.
 
-    $animations-classes:              true
+    $animations-classes:                true
 
 Base settings for animations
 
-    $animations-duration:             .50s      # Duration
-    $animations-delay:                0s        # Start delay
-    $animations-function:             ease-out  # Easing
-    $animations-mode:                 both      # animation-fill-mode
+    $animations-duration:               .50s      # Duration
+    $animations-delay:                  0s        # Start delay
+    $animations-function:               ease-out  # Easing
+    $animations-mode:                   both      # animation-fill-mode
 
 For transitions you can use other settings for duration and easing, by default the use the same settings as the animations.
 
-    $default-transition-duration:     .15s
-    $default-transition-function:     $animations-function
+    $default-transition-duration:       .15s
+    $default-transition-function:       $animations-function
 
 Durations specifics for some  modules.
 
     $caption-animations-duration:       .50s
+    $offcanvas-animations-duration:     .40s
 
-
-Styleguide 21.1
+Styleguide 23.1
 
 */
 /*
@@ -644,7 +644,7 @@ Mixins
 Some of them are from Bootstrap, others are custom. The required arguments are
 marked in bold.
 
-Styleguide 24
+Styleguide 25
 
 */
 /*
@@ -656,7 +656,7 @@ Create a rectangle
 * `$height`: Height of the rectangle
 * `$width`: Width of the rectangle
 
-Styleguide 24.1
+Styleguide 25.1
 
 */
 /*
@@ -667,7 +667,7 @@ Create a square
 
 * `$size`: Dimension used both for width and height
 
-Styleguide 24.2
+Styleguide 25.2
 
 */
 /*
@@ -689,7 +689,7 @@ Become:
     right: 0px;
     bottom: 0px;
 
-Styleguide 24.3
+Styleguide 25.3
 
 */
 /*
@@ -706,7 +706,7 @@ Become:
     margin-left: auto;
     margin-right: auto;
 
-Styleguide 24.4
+Styleguide 25.4
 
 */
 /*
@@ -717,7 +717,7 @@ Vertical and horizontal centering with absolute positioning, using the position 
 
     @include center();
 
-Styleguide 24.5
+Styleguide 25.5
 
 */
 /*
@@ -731,7 +731,7 @@ Abbrieviantion for extendingt normal class (.) or a placeholder class (%) when u
 * `$name`: Name of the class
 * `$silent`: Set to true if it's a placeholder class
 
-Styleguide 24.6
+Styleguide 25.6
 
 */
 /*
@@ -742,7 +742,7 @@ Placeholder
 
 * `$color`: Set color of the placeholder of an input.
 
-Styleguide 24.7
+Styleguide 25.7
 
 */
 /*
@@ -759,7 +759,7 @@ Become
     text-overflow: ellipsis;
     white-space: nowrap;
 
-Styleguide 24.8
+Styleguide 25.8
 
 */
 /*
@@ -774,7 +774,7 @@ Create a css-only triangle.
 * `$color`: Color of the triangle
 * `$direction`: There are available up, up-right, right, down-right, down, down-left, left, up-left
 
-Styleguide 24.9
+Styleguide 25.9
 
 
 */
@@ -792,7 +792,7 @@ Add a css-only triangle width side borders, usefull for tooltips. For now only s
 * `$border-width`: Border width of the triangle
 * `$direction`: left or right
 
-Styleguide 24.10
+Styleguide 25.10
 
 */
 /*
@@ -805,7 +805,7 @@ Text inset shadow
 * `$textcolor`: Color of the text
 * `$contrast`: How much stronger the inset will be
 
-Styleguide 24.11
+Styleguide 25.11
 
 */
 /*
@@ -829,7 +829,7 @@ Become
     color: #000;
     color: rgba(0,0,0,.5);
 
-Styleguide 24.12
+Styleguide 25.12
 
 */
 /*
@@ -844,7 +844,7 @@ Used for creating custom animations.
 
 * `$name`: Name of the keyframe
 
-Styleguide 24.13
+Styleguide 25.13
 
 */
 /*
@@ -856,7 +856,7 @@ Nav divider
 * `$top`: Color of the top border
 * `$bottom`: Color of the bottom border
 
-Styleguide 24.14
+Styleguide 25.14
 
 */
 /*
@@ -870,7 +870,7 @@ Comicbook Shadow
 * `$size`: Size of the shadow
 * `$distance`: Distance of the shadow from the image
 
-Styleguide 24.15
+Styleguide 25.15
 
 */
 /*
@@ -885,7 +885,7 @@ Usefull for adding inset shadows to sidebars or large block where the shadow is 
 * `$size`: Size of the shadow
 * `$color`: Color of the shadow
 
-Styleguide 24.16
+Styleguide 25.16
 
 */
 /*
@@ -899,7 +899,7 @@ Add Side Shadows to multi-line padded text for consistend side padding (Fabien D
 * `$size`: Size of the shadow
 * `$color`: Color of the shadow
 
-Styleguide 24.17
+Styleguide 25.17
 
 */
 /*
@@ -918,7 +918,7 @@ Use the unicode character from an icon font to insert it wherever you want.
 ‡ Fonts available: Fontawesome, Brandico, Entypo, Fontelico, Maki, Openweb-icons, Typicons, Zocial
 
 
-Styleguide 24.18
+Styleguide 25.18
 
 */
 /*
@@ -938,7 +938,7 @@ You can set the start/and with of each step from usins the variables `$lap-start
     * `portable`: Lap + Palm
     * `desk`: Only Desktop
 
-Styleguide 24.19
+Styleguide 25.19
 
 */
 /*
@@ -967,7 +967,7 @@ Or via `@include` from the scss:
 
 The result is the same.
 
-Styleguide 24.20
+Styleguide 25.20
 
 */
 /*
@@ -985,7 +985,7 @@ Responsive grid
 * `$media`: Media query to to use, for responsive grids
 * `$highlight-omega`: Bolean, used for debugging nth
 
-Styleguide 24.21
+Styleguide 25.21
 
 */
 /*
@@ -1000,7 +1000,7 @@ Animations
 * `$function`: Easing, see 20.2 for a list of all easing options available
 * `$mode`: animation-fill-mode (http://mzl.la/1g6ixCc), default to *both*
 
-Styleguide 24.22
+Styleguide 25.22
 
 */
 /*
@@ -1039,7 +1039,7 @@ Will be compiled to:
       animation: fadeIn 0.5s 2s ease-out both;
     }
 
-Styleguide 24.23
+Styleguide 25.23
 
 */
 /*
@@ -1048,7 +1048,7 @@ Helper Classes
 
 There are provided some helper classes usually used with `@extend` for applying effects or common styles.
 
-Styleguide 23
+Styleguide 24
 
 */
 /*
@@ -1063,7 +1063,7 @@ Simple divider class used in some components (like dropdowns).
 
     .divider
 
-Styleguide 23.1
+Styleguide 24.1
 
 */
 .clearfix:after, .wrapper:after, .w:after, .fixed-wrapper:after, .fw:after, .btn-group:after, form:after, .form__controls:after, .form__actions:after, .nav:after, .nav ul:after, .dl-horizontal:after, .pagination > :after {
@@ -1099,7 +1099,7 @@ Same a `.wrapper` but with fixed width.
     .fixed-wrapper
     .fw
 
-Styleguide 23.2
+Styleguide 24.2
 
 */
 .wrapper, .w {
@@ -1140,7 +1140,7 @@ Corrispond to:
 
     width: 50% !important;
 
-Styleguide 23.3
+Styleguide 24.3
 
 */
 [data-width="100"], .btn-group[data-width] .btn, .btn-group[data-width] .offcanvas__menu--toggle,
@@ -1561,7 +1561,7 @@ Some common classes for fixing the typography, to be used sparingly.
     .text-right     # text-align: right
     .text-center    # text-align: center
 
-Styleguide 23.4
+Styleguide 24.4
 
 */
 .lead {
@@ -1601,7 +1601,7 @@ Simple class used for spriting.
 
     .s
 
-Styleguide 23.5
+Styleguide 24.5
 
 */
 .s {
@@ -1609,13 +1609,16 @@ Styleguide 23.5
   -moz-transition: none;
   transition: none;
   content: "";
+  display: -moz-inline-stack;
   display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
   font-style: normal;
   overflow: hidden;
   text-align: center;
   text-indent: -9999px;
-  vertical-align: middle;
-  zoom: 1;
 }
 
 /*
@@ -1631,7 +1634,7 @@ All the text replacement classes from from [html5boilerplate](http://html5boiler
     .visuallyhidden
     .invisible
 
-Styleguide 23.6
+Styleguide 24.6
 
 */
 .ir {
@@ -1689,7 +1692,7 @@ and finding errors. Taken form [Inuit](https://github.com/csswizardry/inuit.css)
 
 Enable it with `$debug-html: true;`.
 
-Styleguide 21
+Styleguide 22
 
 */
 /*
@@ -1702,7 +1705,7 @@ Taken form [Pesticide](https://github.com/mrmrs/pesticide).
 
 Enable it with `$debug-outlines: true;`.
 
-Styleguide 21.1
+Styleguide 22.1
 
 */
 /*
@@ -1719,7 +1722,7 @@ All the animations in [theCSSguru](https://twitter.com/theCSSguru)'s [Animate mi
 * **Rotating entrances:** rotateIn, rotateInDownLeft, rotateInDownRight, rotateInUpLeft, rotateInUpRight
 * **Rotating exits:** rotateOut, rotateOutDownLeft, rotateOutDownRight, rotateOutUpLeft, rotateOutUpRight
 
-Styleguide 21
+Styleguide 23
 
 */
 /*
@@ -1732,21 +1735,35 @@ Example:
 
     @extend .fadeIn;
 
-Styleguide 21.3
+Styleguide 23.3
 
 */
-.fadeIn {
+.fadeIn, .overlay-background.open {
   -webkit-animation: fadeIn 0.5s ease-out both;
   -moz-animation: fadeIn 0.5s ease-out both;
   -ms-animation: fadeIn 0.5s ease-out both;
   animation: fadeIn 0.5s ease-out both;
 }
 
-.fadeOut {
+.fadeOut, .overlay-background.close {
   -webkit-animation: fadeOut 0.5s ease-out both;
   -moz-animation: fadeOut 0.5s ease-out both;
   -ms-animation: fadeOut 0.5s ease-out both;
   animation: fadeOut 0.5s ease-out both;
+}
+
+.fadeInDown, [data-overlay-content].open {
+  -webkit-animation: fadeInDown 0.5s ease-out both;
+  -moz-animation: fadeInDown 0.5s ease-out both;
+  -ms-animation: fadeInDown 0.5s ease-out both;
+  animation: fadeInDown 0.5s ease-out both;
+}
+
+.fadeOutUp, [data-overlay-content].close {
+  -webkit-animation: fadeOutUp 0.5s ease-out both;
+  -moz-animation: fadeOutUp 0.5s ease-out both;
+  -ms-animation: fadeOutUp 0.5s ease-out both;
+  animation: fadeOutUp 0.5s ease-out both;
 }
 
 /*
@@ -1761,7 +1778,7 @@ Example:
 
     @extend .delay-50;
 
-Styleguide 21.4
+Styleguide 23.4
 
 */
 .delay-25 {
@@ -1843,7 +1860,7 @@ Example:
     </section>
 
 
-Styleguide 21.5
+Styleguide 23.5
 
 */
 [data-animation*="fadeIn"] {
@@ -1858,7 +1875,7 @@ Animation mixin
 Also available is an "animate" mixin, for more information see the Mixins
 section.
 
-Styleguide 21.6
+Styleguide 23.6
 
 */
 @-webkit-keyframes fadeIn {
@@ -1954,6 +1971,166 @@ Styleguide 21.6
   100% {
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
     opacity: 0;
+  }
+}
+
+@-webkit-keyframes fadeOutUp {
+  0% {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: translateY(-20px);
+    -moz-transform: translateY(-20px);
+    -ms-transform: translateY(-20px);
+    transform: translateY(-20px);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes fadeOutUp {
+  0% {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: translateY(-20px);
+    -moz-transform: translateY(-20px);
+    -ms-transform: translateY(-20px);
+    transform: translateY(-20px);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+  }
+}
+
+@-o-keyframes fadeOutUp {
+  0% {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: translateY(-20px);
+    -moz-transform: translateY(-20px);
+    -ms-transform: translateY(-20px);
+    transform: translateY(-20px);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOutUp {
+  0% {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: translateY(-20px);
+    -moz-transform: translateY(-20px);
+    -ms-transform: translateY(-20px);
+    transform: translateY(-20px);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes fadeInDown {
+  0% {
+    -webkit-transform: translateY(-20px);
+    -moz-transform: translateY(-20px);
+    -ms-transform: translateY(-20px);
+    transform: translateY(-20px);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeInDown {
+  0% {
+    -webkit-transform: translateY(-20px);
+    -moz-transform: translateY(-20px);
+    -ms-transform: translateY(-20px);
+    transform: translateY(-20px);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeInDown {
+  0% {
+    -webkit-transform: translateY(-20px);
+    -moz-transform: translateY(-20px);
+    -ms-transform: translateY(-20px);
+    transform: translateY(-20px);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    -webkit-transform: translateY(-20px);
+    -moz-transform: translateY(-20px);
+    -ms-transform: translateY(-20px);
+    transform: translateY(-20px);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
   }
 }
 
@@ -2160,11 +2337,15 @@ Styleguide 3
   border-style: solid;
   border-width: 1px;
   cursor: pointer;
+  display: -moz-inline-stack;
   display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
   line-height: 1em;
   margin-bottom: 0;
   text-align: center;
-  vertical-align: middle;
 }
 .btn:hover, .offcanvas__menu--toggle:hover, .btn.hover, .hover.offcanvas__menu--toggle, .btn:focus, .offcanvas__menu--toggle:focus {
   text-decoration: none;
@@ -2417,7 +2598,12 @@ Styleguide 7
 .dropdown,
 .dropdown__toggle {
   position: relative;
+  display: -moz-inline-stack;
   display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
 }
 
 .dropdown__toggle:focus {
@@ -2637,9 +2823,13 @@ input[type="url"],
 input[type="search"],
 input[type="tel"],
 input[type="color"] {
+  display: -moz-inline-stack;
   display: inline-block;
-  padding: 0 10px;
   vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  padding: 0 10px;
   height: 2.57143em;
   border-width: 1px;
   border-style: solid;
@@ -2684,8 +2874,12 @@ input[type="color"]:focus {
 }
 
 select {
-  color: #333333;
+  display: -moz-inline-stack;
   display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
 }
 
 input,
@@ -2775,13 +2969,22 @@ select:focus:invalid:focus {
   border-color: #e9322d;
 }
 
+.form__group {
+  position: relative;
+}
+
 .form__group + .form__group {
   margin-top: 1.5em;
 }
 
 .form__controls {
   position: relative;
+  display: -moz-inline-stack;
   display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
 }
 
 /*
@@ -2842,8 +3045,12 @@ Styleguide 8.2
 
 .form__radio.inline,
 .form__checkbox.inline {
+  display: -moz-inline-stack;
   display: inline-block;
   vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
 }
 
 .form__radio.inline + .form__radio.inline,
@@ -2881,13 +3088,17 @@ Styleguide 8.3
   border-style: solid;
   border-width: 1px;
   cursor: pointer;
+  display: -moz-inline-stack;
   display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
   height: 2.57143em;
   line-height: 1em;
   margin-bottom: 0;
   padding: 0.71429em 0.71429em;
   position: relative;
-  vertical-align: middle;
   width: 240px;
 }
 .form__select select {
@@ -3010,7 +3221,12 @@ Styleguide 8.6
 
 */
 .form__addon {
+  display: -moz-inline-stack;
   display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
   width: auto;
   min-width: 1.14286em;
   padding: 0.71429em 0.71429em;
@@ -3081,6 +3297,14 @@ Styleguide 8.7
   clear: both;
 }
 
+.form__group.form__actions {
+  border: 0;
+  clear: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-top: 2.21429em;
+}
+
 /*
 
 Form Layouts
@@ -3134,6 +3358,12 @@ Styleguide 8.8
 .form--grid .form__group {
   min-height: 4.42857em;
   margin: 0 0 1.5em 0;
+}
+.form--grid .form__controls {
+  width: 100%;
+}
+.form--grid .form__controls > * {
+  width: 100%;
 }
 .form--grid .form__multi {
   width: 100%;
@@ -3215,7 +3445,12 @@ Styleguide 8.8.1
   margin: 0 0 0 1.5em;
 }
 .form--inline .form__label {
+  display: -moz-inline-stack;
   display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
   padding-right: 1em;
 }
 .form--inline .input-text,
@@ -3242,13 +3477,23 @@ Styleguide 8.8.1
 }
 .form--inline .form__group {
   padding: 0;
+  display: -moz-inline-stack;
   display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
 }
 .form--inline .form__actions {
   border: 0;
   padding: 0;
   margin: 0;
+  display: -moz-inline-stack;
   display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
 }
 
 /*
@@ -3444,7 +3689,12 @@ Styleguide 11
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
   border-radius: 4px;
+  display: -moz-inline-stack;
   display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
   margin-right: -100%;
   padding: 0.14286em 0.71429em;
   color: #FFF;
@@ -3646,7 +3896,12 @@ Styleguide 12
 
 */
 .nav {
+  display: -moz-inline-stack;
   display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
   margin-bottom: 1.5em;
   position: relative;
 }
@@ -3654,7 +3909,12 @@ Styleguide 12
   position: relative;
 }
 .nav li > a {
+  display: -moz-inline-stack;
   display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
   line-height: 1em;
 }
 .nav li > a:hover, .nav li > a:focus {
@@ -3966,10 +4226,20 @@ Styleguide 16
 }
 
 .bx-pager-item {
+  display: -moz-inline-stack;
   display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
 }
 .bx-pager-item a {
+  display: -moz-inline-stack;
   display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
 }
 
 .bx-loading {
@@ -3988,7 +4258,12 @@ Styleguide 16
   width: 100%;
 }
 .bx-caption span {
+  display: -moz-inline-stack;
   display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
 }
 
 /*
@@ -4022,7 +4297,7 @@ Markup:
 .table--hover - Enable a hover state on table rows within a `<tbody>`.
 .table--condensed - Makes tables more compact by cutting cell padding in half.
 
-Styleguide 18
+Styleguide 19
 
 */
 table {
@@ -4111,7 +4386,7 @@ Markup:
   });
 </script>
 
-Styleguide 19
+Styleguide 20
 
 */
 .tabs {
@@ -4122,8 +4397,12 @@ Styleguide 19
   padding: 0;
 }
 .tabs .etabs li {
+  display: -moz-inline-stack;
   display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
   zoom: 1;
+  *display: inline;
 }
 .tabs .etabs li a {
   line-height: 1em;
@@ -4203,7 +4482,7 @@ Styleguide 17
 
 Type
 
-Styleguide 20
+Styleguide 21
 
 */
 *, *:before, *:after {
@@ -4234,7 +4513,12 @@ body {
 
 img {
   max-width: 100%;
+  display: -moz-inline-stack;
   display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
 }
 
 a, button, textarea, input {
@@ -4267,7 +4551,7 @@ Markup:
 <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec id elit non mi porta gravida at eget metus.</p>
 <small><p>Tight pants next level keffiyeh. Photo booth beard raw denim letterpress vegan messenger bag stumptown.</small>
 
-Styleguide 20.1
+Styleguide 21.1
 
 */
 p {
@@ -4303,7 +4587,7 @@ Markup:
 <h5>h5. This is a small header. h1.</h5>
 <h6>h6. This is a tiny header. h1.</h6>
 
-Styleguide 20.2
+Styleguide 21.2
 
 */
 h1, h2, h3, h4, h5, h6 {
@@ -4383,7 +4667,7 @@ Markup:
   <li>Ordered list item</li>
 </ol>
 
-Styleguide 20.3
+Styleguide 21.3
 
 */
 .list_style_none, .bx-wrapper ul, .list-style-none, .nav, .nav ul {
@@ -4437,7 +4721,7 @@ Markup:
   <dd>A geologist’s hammer, rock hammer, rock pick or geological pick is a hammer used for splitting and breaking rocks.</dd>
 </dl>
 
-Styleguide 20.4
+Styleguide 21.4
 
 */
 dl {
@@ -4464,7 +4748,7 @@ Markup:
   <dd>A geologist’s hammer, rock hammer, rock pick or geological pick is a hammer used for splitting and breaking rocks.</dd>
 </dl>
 
-Styleguide 20.4.1
+Styleguide 21.4.1
 
 */
 .dl-horizontal dt {
@@ -4486,7 +4770,7 @@ Horizontal line
 
 Markup: <hr />
 
-Styleguide 20.5
+Styleguide 21.5
 
 */
 hr {
@@ -4516,7 +4800,7 @@ Markup:
   <small><cite>Rock Hammer</cite></small>
 </blockquote>
 
-Styleguide 20.6
+Styleguide 21.6
 
 */
 blockquote {
@@ -5623,7 +5907,12 @@ Styleguide 10
 */
 .badge,
 .pill {
+  display: -moz-inline-stack;
   display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
   padding: 0.15em 0.35em;
   vertical-align: baseline;
   white-space: nowrap;
@@ -5668,6 +5957,79 @@ Styleguide 10.1
 .btn .pill,
 .offcanvas__menu--toggle .pill {
   margin: -0.5em 0 0;
+}
+
+/*
+
+Overlay
+
+Open and close an overlay layer  visibility using `.open` class between
+elements of a container. By defalut it have vaery little styling, because
+is not a full modal window it's completely open to the to you how to style it.
+
+Script required: **rapido.js**.
+
+Markup:
+<a href="#" class="open__overlay btn btn--default" data-overlay-ref="test">
+  Open Overlay
+</a>
+<section data-overlay-content="test">
+  <div class="w">
+    <h2>Lorem ipsum dolor sit amet</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  </div>
+</section>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".open__overlay").rapido_Overlay();
+  });
+</script>
+
+Include this js after including rapido.js.
+
+    $('.open__overlay').rapido_Overlay();
+
+**Options** (with default values):
+
+    delay:            500
+    closeClass:       .overlay-close
+    backgroundClass:  .overlay-background
+
+Styleguide 18
+
+*/
+[data-overlay-content] {
+  position: fixed;
+  top: -100%;
+  right: 0em;
+  bottom: 0em;
+  left: 0em;
+  height: 0;
+  overflow: hidden;
+}
+[data-overlay-content].open {
+  overflow: auto;
+  z-index: 1050;
+}
+
+.overlay-background {
+  position: fixed;
+  top: -100%;
+  right: 0em;
+  bottom: 0em;
+  left: 0em;
+  height: 0;
+  overflow: hidden;
+  width: 100%;
+}
+.overlay-background.open {
+  overflow: auto;
+  z-index: 1049;
+}
+
+.overlay-close {
+  cursor: pointer;
+  display: block;
 }
 
 /*
@@ -5735,7 +6097,12 @@ Styleguide 13
   border-radius: 4px;
   border-style: solid;
   border-width: 1px;
+  display: -moz-inline-stack;
   display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
   line-height: 1em;
   padding: 0.71429em 0.71429em;
 }
@@ -5806,7 +6173,12 @@ Styleguide 14
 }
 .pagination > * li a,
 .pagination > * li span {
+  display: -moz-inline-stack;
   display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
   padding: 0.71429em 0.71429em;
   line-height: 1em;
   text-decoration: none;
@@ -5864,7 +6236,7 @@ Every component refer to a silent class from `_default-style.scss`.
 These are all the classes available by default, others can be added or removed based on what component you want
 to enable or disable.
 
-Styleguide 30
+Styleguide 31
 
 */
 /*
@@ -5878,7 +6250,7 @@ Titles
     %h5                             # For <h5>
     %h6                             # For <h6>
 
-Styleguide 30.1
+Styleguide 31.1
 
 */
 /*
@@ -5889,7 +6261,7 @@ Inputs and Selects
     %input-addon                    # For the addon texts in forms
     %select                         # Custom select style, by default it use %input
 
-Styleguide 30.2
+Styleguide 31.2
 
 */
 .input-text,
@@ -5956,7 +6328,7 @@ Buttons
     %btn__disabled                  # For disabled button
     %btn__current                   # For current button (es. used in Pagination)
 
-Styleguide 30.3
+Styleguide 31.3
 
 */
 .btn--default, .pagination > * li a,
@@ -6078,7 +6450,7 @@ Captions
 
     %caption                        # Used for the captions in .caption and modals
 
-Styleguide 30.4
+Styleguide 31.4
 
 */
 .caption figcaption, .fancybox-title-over-wrap, .bx-caption span {
@@ -6094,7 +6466,7 @@ Labels (Badges & Pills)
 
     %pill                           # For the .badge and .pill
 
-Styleguide 30.5
+Styleguide 31.5
 
 */
 .badge,
@@ -6111,7 +6483,7 @@ Dropdowns
     %dropdown                       # For the dropdown's list
     %dropdown--open                 # For the drodpown button in .open state
 
-Styleguide 30.6
+Styleguide 31.6
 
 */
 .dropdown__menu {
@@ -6149,7 +6521,7 @@ Tables
     %table--hover                   # For .table--hover
     %table--sortable                # For .table--sortable
 
-Styleguide 30.7
+Styleguide 31.7
 
 */
 .table--bordered thead th, .table--bordered thead td {
@@ -6189,7 +6561,7 @@ Navs
     %nav--btn__current              # For the current selected link
     %nav--btn__disabled             # For the disabled links
 
-Styleguide 30.8
+Styleguide 31.8
 
 */
 .nav--btn li > a:hover, .nav--btn li > a:focus, .nav--btn li ul, .nav--btn li:hover > a {
@@ -6207,7 +6579,7 @@ Breadcrumbs
     %breadcrumbs                     # Base style of breadcrumbs
     %breadcrumbs__current            # For the current selected link
 
-Styleguide 30.9
+Styleguide 31.9
 
 */
 .breadcrumbs > li:after {
@@ -6234,7 +6606,7 @@ Pagination
     %pagination--btn__current       # For the current selected link
     %pagination--btn__disabled      # For the disabled links
 
-Styleguide 30.10
+Styleguide 31.10
 
 */
 /*
@@ -6246,7 +6618,7 @@ Pager
     %pager--btn__active             # For the :active  state of %pager--btn
     %pager--btn__disabled           # For the disabled links
 
-Styleguide 30.11
+Styleguide 31.11
 
 */
 /*
@@ -6262,7 +6634,7 @@ Modals
     %modal__caption                 # For the caption
     %modal__loading                 # Position and style of the loading icon
 
-Styleguide 30.12
+Styleguide 31.12
 
 */
 .btnPlay:after {
@@ -6365,7 +6737,7 @@ Sliders
     %slider__caption                # For the caption
     %slider__loading                # Position and style of the loading icon
 
-Styleguide 30.13
+Styleguide 31.13
 
 */
 .bx-controls-direction a {
@@ -6413,7 +6785,7 @@ Tabs
     %tab__btn__current              # For the current selected tab link
     %tab__container                 # For the content continer
 
-Styleguide 30.14
+Styleguide 31.14
 
 */
 .tabs .etabs li a {
@@ -6446,7 +6818,7 @@ Alerts
 
     %alert                          # For all alert messages
 
-Styleguide 30.15
+Styleguide 31.15
 
 */
 .alert {
@@ -6458,11 +6830,11 @@ Styleguide 30.15
 
 OffCanvas Nav
 
-    %nav--offcanvas                 #
-    %nav--offcanvas__dim            #
-    %nav__toggle                    # For the toggle open/close button in responsive mode
+    %nav--offcanvas                 # For the sidebar
+    %nav--offcanvas__dim            # For the dimming the content on menu open
+    %nav__toggle                    # For the toggle open/close button
 
-Styleguide 30.16
+Styleguide 31.16
 
 */
 .offcanvas__menu {
@@ -6484,6 +6856,41 @@ Styleguide 30.16
 
 /*
 
+Overlays
+
+    %overlay__close                 # For the default close button
+
+    %overlay__content               # For styling the main content area
+    %overlay__content--open         # Animation for showing the content
+    %overlay__content--close        # Animation for hiding the content
+
+    %overlay__background            # Color of background overlay
+    %overlay__background--open      # Animation for showing the background
+    %overlay__background--close     # Animation for hiding the background
+
+Styleguide 31.17
+
+*/
+.overlay-close {
+  position: absolute;
+  top: 2em;
+  right: 2em;
+  color: #CCCCCC;
+}
+.overlay-close:hover {
+  color: #FFFFFF;
+}
+
+[data-overlay-content] {
+  color: white;
+}
+
+.overlay-background {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNiqAcAAIgAgoGu+rEAAAAASUVORK5CYII=");
+}
+
+/*
+
 Shared
 
 Classes For other classes of generic elements
@@ -6491,7 +6898,7 @@ Classes For other classes of generic elements
     %caret                          # Side triangle For Dropdowns and Selects
     %loader-ico                     # generic loader icon For all scripts
 
-Styleguide 30.17
+Styleguide 31.18
 
 */
 .dropdown__caret:after, .form__select:after {
