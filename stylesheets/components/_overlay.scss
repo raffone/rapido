@@ -1,0 +1,78 @@
+/*
+
+Overlay
+
+Open and close an overlay layer  visibility using `.open` class between
+elements of a container. By defalut it have vaery little styling, because
+is not a full modal window it's completely open to the to you how to style it.
+
+Script required: **rapido.js**.
+
+Markup:
+<a href="#" class="open__overlay btn btn--default" data-overlay-ref="test">
+  Open Overlay
+</a>
+<section data-overlay-content="test">
+  <div class="w">
+    <h2>Lorem ipsum dolor sit amet</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  </div>
+</section>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".open__overlay").rapido_Overlay();
+  });
+</script>
+
+Include this js after including rapido.js.
+
+    $('.open__overlay').rapido_Overlay();
+
+**Options** (with default values):
+
+    delay:            500
+    closeClass:       .overlay-close
+    backgroundClass:  .overlay-background
+
+Styleguide 18
+
+*/
+
+[data-overlay-content] {
+  @extend %overlay__content !optional;
+  @include position(fixed, -100% 0em 0em 0em);
+  height: 0;
+  overflow: hidden;
+  &.open {
+    @extend %overlay__content--open !optional;
+    overflow: auto;
+    z-index: $zindex-modal;
+  }
+  &.close {
+    @extend %overlay__content--close !optional;
+
+  }
+}
+
+.overlay-background {
+  @extend %overlay__background !optional;
+  @include position(fixed, -100% 0em 0em 0em);
+  height: 0;
+  overflow: hidden;
+  width: 100%;
+  &.open {
+    @extend %overlay__background--open !optional;
+    overflow: auto;
+    z-index: $zindex-modal - 1;
+  }
+  &.close {
+    @extend %overlay__background--close !optional;
+  }
+}
+
+.overlay-close {
+  @extend %overlay__close !optional;
+  cursor: pointer;
+  display: block;
+}
+
