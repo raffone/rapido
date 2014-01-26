@@ -43,7 +43,7 @@
         if (base.options.offsetMenu) {
           scrollbar = $('.offcanvas__content').scrollTop();
         } else {
-          scrollbar = document.documentElement.scrollTop;
+          scrollbar = $(document).scrollTop();
         }
 
         //console.log(scrollbar);
