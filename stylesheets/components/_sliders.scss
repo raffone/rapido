@@ -78,9 +78,9 @@ Styleguide 16
     }
 
     .bx-pager-item {
-        display: inline-block;
+        @include inline-block;
         a {
-            display: inline-block;
+            @include inline-block;
             // @include hide-text;
         }
     }
@@ -102,7 +102,7 @@ Styleguide 16
         width: 100%;
 
         span {
-            display: inline-block;
+            @include inline-block;
             @extend %slider__caption !optional;
         }
     }

@@ -5,7 +5,7 @@ Mixins
 Some of them are from Bootstrap, others are custom. The required arguments are
 marked in bold.
 
-Styleguide 24
+Styleguide 25
 
 */
 
@@ -18,7 +18,7 @@ Create a rectangle
 * `$height`: Height of the rectangle
 * `$width`: Width of the rectangle
 
-Styleguide 24.1
+Styleguide 25.1
 
 */
 
@@ -35,7 +35,7 @@ Create a square
 
 * `$size`: Dimension used both for width and height
 
-Styleguide 24.2
+Styleguide 25.2
 
 */
 
@@ -62,7 +62,7 @@ Become:
     right: 0px;
     bottom: 0px;
 
-Styleguide 24.3
+Styleguide 25.3
 
 */
 
@@ -123,7 +123,7 @@ Become:
     margin-left: auto;
     margin-right: auto;
 
-Styleguide 24.4
+Styleguide 25.4
 
 */
 
@@ -141,7 +141,7 @@ Vertical and horizontal centering with absolute positioning, using the position 
 
     @include center();
 
-Styleguide 24.5
+Styleguide 25.5
 
 */
 
@@ -162,7 +162,7 @@ Abbrieviantion for extendingt normal class (.) or a placeholder class (%) when u
 * `$name`: Name of the class
 * `$silent`: Set to true if it's a placeholder class
 
-Styleguide 24.6
+Styleguide 25.6
 
 */
 
@@ -184,7 +184,7 @@ Placeholder
 
 * `$color`: Set color of the placeholder of an input.
 
-Styleguide 24.7
+Styleguide 25.7
 
 */
 
@@ -227,7 +227,7 @@ Become
     text-overflow: ellipsis;
     white-space: nowrap;
 
-Styleguide 24.8
+Styleguide 25.8
 
 */
 
@@ -251,7 +251,7 @@ Create a css-only triangle.
 * `$color`: Color of the triangle
 * `$direction`: There are available up, up-right, right, down-right, down, down-left, left, up-left
 
-Styleguide 24.9
+Styleguide 25.9
 
 
 */
@@ -311,7 +311,7 @@ Add a css-only triangle width side borders, usefull for tooltips. For now only s
 * `$border-width`: Border width of the triangle
 * `$direction`: left or right
 
-Styleguide 24.10
+Styleguide 25.10
 
 */
 
@@ -360,7 +360,7 @@ Text inset shadow
 * `$textcolor`: Color of the text
 * `$contrast`: How much stronger the inset will be
 
-Styleguide 24.11
+Styleguide 25.11
 
 */
 
@@ -392,7 +392,7 @@ Become
     color: #000;
     color: rgba(0,0,0,.5);
 
-Styleguide 24.12
+Styleguide 25.12
 
 */
 
@@ -413,7 +413,7 @@ Used for creating custom animations.
 
 * `$name`: Name of the keyframe
 
-Styleguide 24.13
+Styleguide 25.13
 
 */
 
@@ -443,7 +443,7 @@ Nav divider
 * `$top`: Color of the top border
 * `$bottom`: Color of the bottom border
 
-Styleguide 24.14
+Styleguide 25.14
 
 */
 
@@ -472,7 +472,7 @@ Comicbook Shadow
 * `$size`: Size of the shadow
 * `$distance`: Distance of the shadow from the image
 
-Styleguide 24.15
+Styleguide 25.15
 
 */
 
@@ -483,7 +483,7 @@ Styleguide 24.15
 
     @include box-shadow(0 1px 3px $color);
     border:5px solid #fff;
-    display: inline-block;
+    @include inline-block;
     line-height: 0;
     position: relative;
 
@@ -523,7 +523,7 @@ Usefull for adding inset shadows to sidebars or large block where the shadow is 
 * `$size`: Size of the shadow
 * `$color`: Color of the shadow
 
-Styleguide 24.16
+Styleguide 25.16
 
 */
 
@@ -561,7 +561,7 @@ Add Side Shadows to multi-line padded text for consistend side padding (Fabien D
 * `$size`: Size of the shadow
 * `$color`: Color of the shadow
 
-Styleguide 24.17
+Styleguide 25.17
 
 */
 
@@ -587,7 +587,7 @@ Use the unicode character from an icon font to insert it wherever you want.
 ‡ Fonts available: Fontawesome, Brandico, Entypo, Fontelico, Maki, Openweb-icons, Typicons, Zocial
 
 
-Styleguide 24.18
+Styleguide 25.18
 
 */
 
@@ -614,7 +614,7 @@ You can set the start/and with of each step from usins the variables `$lap-start
     * `portable`: Lap + Palm
     * `desk`: Only Desktop
 
-Styleguide 24.19
+Styleguide 25.19
 
 */
 
@@ -693,7 +693,7 @@ Or via `@include` from the scss:
 
 The result is the same.
 
-Styleguide 24.20
+Styleguide 25.20
 
 */
 
@@ -717,7 +717,7 @@ Responsive grid
 * `$media`: Media query to to use, for responsive grids
 * `$highlight-omega`: Bolean, used for debugging nth
 
-Styleguide 24.21
+Styleguide 25.21
 
 */
 
@@ -760,7 +760,7 @@ Animations
 * `$function`: Easing, see 20.2 for a list of all easing options available
 * `$mode`: animation-fill-mode (http://mzl.la/1g6ixCc), default to *both*
 
-Styleguide 24.22
+Styleguide 25.22
 
 */
 
@@ -810,7 +810,7 @@ Will be compiled to:
       animation: fadeIn 0.5s 2s ease-out both;
     }
 
-Styleguide 24.23
+Styleguide 25.23
 
 */
 

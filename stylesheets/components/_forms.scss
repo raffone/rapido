@@ -89,9 +89,8 @@ input[type="url"],
 input[type="search"],
 input[type="tel"],
 input[type="color"] {
-    display: inline-block;
+    @include inline-block;
     padding: 0 $input-padding-side;
-    vertical-align: middle;
     height: $input-height;
     border-width: $input-border;
     border-style: solid;
@@ -102,7 +101,7 @@ input[type="color"] {
 }
 
 select {
-    display: inline-block;
+    @include inline-block;
 }
 
 input,
@@ -174,13 +173,13 @@ select:focus:invalid {
 // }
 
 
-
+.form__group { position: relative; }
 .form__group + .form__group { margin-top: em($control-margin-bottom); }
 
 .form__controls {
   @extend .clearfix;
   position: relative;
-  display: inline-block;
+  @include inline-block;
 }
 
 
@@ -242,8 +241,7 @@ Styleguide 8.2
 }
 .form__radio.inline,
 .form__checkbox.inline {
-    display: inline-block;
-    vertical-align: middle;
+    @include inline-block;
 }
 .form__radio.inline + .form__radio.inline,
 .form__checkbox.inline + .form__checkbox.inline {
@@ -280,13 +278,12 @@ Styleguide 8.3
     border-style: solid;
     border-width: $input-border;
     cursor: pointer;
-    display: inline-block;
+    @include inline-block;
     height: $input-height;
     line-height: 1em;
     margin-bottom: 0;
     padding: $input-padding;
     position: relative;
-    vertical-align: middle;
     width: 240px;
 
     select {
@@ -409,7 +406,7 @@ Styleguide 8.6
 */
 
 .form__addon {
-    display: inline-block;
+    @include inline-block;
     width: auto;
     min-width: em(16px);
     padding: $input-padding;
@@ -649,7 +646,7 @@ Styleguide 8.8.1
         }
 
         .form__label {
-          display: inline-block;
+          @include inline-block;
           padding-right: 1em
         }
 
@@ -679,14 +676,14 @@ Styleguide 8.8.1
 
         .form__group {
             padding: 0;
-            display: inline-block;
+            @include inline-block;
         }
 
         .form__actions {
             border: 0;
             padding: 0;
             margin: 0;
-            display: inline-block;
+            @include inline-block;
         }
 
     }

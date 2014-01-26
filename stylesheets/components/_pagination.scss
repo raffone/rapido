@@ -44,7 +44,7 @@ Styleguide 14
 
                 a,
                 span {
-                    display: inline-block;
+                    @include inline-block;
                     padding: $pagination-padding;
                     line-height: 1em;
                     text-decoration: none;

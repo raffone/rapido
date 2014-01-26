@@ -6,34 +6,34 @@ These are the default settings for all animations and transitions within the fra
 
 By default all animations but fadeIn and fadeOut are disabled, use the  ```$animations``` list to enable/disable them.
 
-    $animations:                      fadeIn, fadeOut
+    $animations:                        fadeIn, fadeOut, fadeInDown, fadeOutUp
 
 If true it generate a placeholder class for every animation with the default settings to use as an ````@extend```.
 
-    $animations-classes:              true
+    $animations-classes:                true
 
 Base settings for animations
 
-    $animations-duration:             .50s      # Duration
-    $animations-delay:                0s        # Start delay
-    $animations-function:             ease-out  # Easing
-    $animations-mode:                 both      # animation-fill-mode
+    $animations-duration:               .50s      # Duration
+    $animations-delay:                  0s        # Start delay
+    $animations-function:               ease-out  # Easing
+    $animations-mode:                   both      # animation-fill-mode
 
 For transitions you can use other settings for duration and easing, by default the use the same settings as the animations.
 
-    $default-transition-duration:     .15s
-    $default-transition-function:     $animations-function
+    $default-transition-duration:       .15s
+    $default-transition-function:       $animations-function
 
 Durations specifics for some  modules.
 
     $caption-animations-duration:       .50s
+    $offcanvas-animations-duration:     .40s
 
-
-Styleguide 21.1
+Styleguide 23.1
 
 */
 
-$animations:                        fadeIn, fadeOut                                                         !default;
+$animations:                        fadeIn, fadeOut, fadeInDown, fadeOutUp                                  !default;
 $animations-classes:                true                                                                    !default;
 
 $animations-duration:               .50s                                                                    !default;

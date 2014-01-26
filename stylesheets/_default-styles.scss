@@ -8,7 +8,7 @@ Every component refer to a silent class from `_default-style.scss`.
 These are all the classes available by default, others can be added or removed based on what component you want
 to enable or disable.
 
-Styleguide 30
+Styleguide 31
 
 */
 
@@ -25,7 +25,7 @@ Titles
     %h5                             # For <h5>
     %h6                             # For <h6>
 
-Styleguide 30.1
+Styleguide 31.1
 
 */
 
@@ -44,7 +44,7 @@ Inputs and Selects
     %input-addon                    # For the addon texts in forms
     %select                         # Custom select style, by default it use %input
 
-Styleguide 30.2
+Styleguide 31.2
 
 */
 
@@ -81,7 +81,7 @@ Buttons
     %btn__disabled                  # For disabled button
     %btn__current                   # For current button (es. used in Pagination)
 
-Styleguide 30.3
+Styleguide 31.3
 
 */
 
@@ -185,7 +185,7 @@ Captions
 
     %caption                        # Used for the captions in .caption and modals
 
-Styleguide 30.4
+Styleguide 31.4
 
 */
 
@@ -201,7 +201,7 @@ Labels (Badges & Pills)
 
     %pill                           # For the .badge and .pill
 
-Styleguide 30.5
+Styleguide 31.5
 
 */
 
@@ -217,7 +217,7 @@ Dropdowns
     %dropdown                       # For the dropdown's list
     %dropdown--open                 # For the drodpown button in .open state
 
-Styleguide 30.6
+Styleguide 31.6
 
 */
 
@@ -254,7 +254,7 @@ Tables
     %table--hover                   # For .table--hover
     %table--sortable                # For .table--sortable
 
-Styleguide 30.7
+Styleguide 31.7
 
 */
 
@@ -295,7 +295,7 @@ Navs
     %nav--btn__current              # For the current selected link
     %nav--btn__disabled             # For the disabled links
 
-Styleguide 30.8
+Styleguide 31.8
 
 */
 
@@ -318,7 +318,7 @@ Breadcrumbs
     %breadcrumbs                     # Base style of breadcrumbs
     %breadcrumbs__current            # For the current selected link
 
-Styleguide 30.9
+Styleguide 31.9
 
 */
 
@@ -350,7 +350,7 @@ Pagination
     %pagination--btn__current       # For the current selected link
     %pagination--btn__disabled      # For the disabled links
 
-Styleguide 30.10
+Styleguide 31.10
 
 */
 
@@ -371,7 +371,7 @@ Pager
     %pager--btn__active             # For the :active  state of %pager--btn
     %pager--btn__disabled           # For the disabled links
 
-Styleguide 30.11
+Styleguide 31.11
 
 */
 
@@ -393,7 +393,7 @@ Modals
     %modal__caption                 # For the caption
     %modal__loading                 # Position and style of the loading icon
 
-Styleguide 30.12
+Styleguide 31.12
 
 */
 
@@ -473,7 +473,7 @@ Sliders
     %slider__caption                # For the caption
     %slider__loading                # Position and style of the loading icon
 
-Styleguide 30.13
+Styleguide 31.13
 
 */
 
@@ -523,7 +523,7 @@ Tabs
     %tab__btn__current              # For the current selected tab link
     %tab__container                 # For the content continer
 
-Styleguide 30.14
+Styleguide 31.14
 
 */
 
@@ -558,7 +558,7 @@ Alerts
 
     %alert                          # For all alert messages
 
-Styleguide 30.15
+Styleguide 31.15
 
 */
 
@@ -571,11 +571,11 @@ Styleguide 30.15
 
 OffCanvas Nav
 
-    %nav--offcanvas                 #
-    %nav--offcanvas__dim            #
-    %nav__toggle                    # For the toggle open/close button in responsive mode
+    %nav--offcanvas                 # For the sidebar
+    %nav--offcanvas__dim            # For the dimming the content on menu open
+    %nav__toggle                    # For the toggle open/close button
 
-Styleguide 30.16
+Styleguide 31.16
 
 */
 
@@ -607,6 +607,48 @@ Styleguide 30.16
     }
 
 
+
+/*
+
+Overlays
+
+    %overlay__close                 # For the default close button
+
+    %overlay__content               # For styling the main content area
+    %overlay__content--open         # Animation for showing the content
+    %overlay__content--close        # Animation for hiding the content
+
+    %overlay__background            # Color of background overlay
+    %overlay__background--open      # Animation for showing the background
+    %overlay__background--close     # Animation for hiding the background
+
+Styleguide 31.17
+
+*/
+
+
+    %overlay__close {
+        @include position(absolute, 2em 2em 0 0);
+        color: #CCCCCC;
+        &:hover {
+          color: #FFFFFF;
+        }
+
+    }
+
+    %overlay__content {
+      color: $white;
+    }
+
+    %overlay__background {
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNiqAcAAIgAgoGu+rEAAAAASUVORK5CYII=');
+    }
+
+    %overlay__content--open       { @extend .fadeInDown; }
+    %overlay__content--close      { @extend .fadeOutUp; }
+    %overlay__background--open    { @extend .fadeIn; }
+    %overlay__background--close   { @extend .fadeOut; }
+
 /*
 
 Shared
@@ -616,7 +658,7 @@ Classes For other classes of generic elements
     %caret                          # Side triangle For Dropdowns and Selects
     %loader-ico                     # generic loader icon For all scripts
 
-Styleguide 30.17
+Styleguide 31.18
 
 */
 

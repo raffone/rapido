@@ -4,7 +4,7 @@ Functions
 
 For 99% of the framework I used Compass' and Susy's functions but I've made some for covering edge cases.
 
-Styleguide 25
+Styleguide 26
 
 */
 
@@ -19,7 +19,7 @@ There are lots of easing options available, from the basic ``linear`` or ``ease-
 * **easeOut**: easeOutQuad, easeOutCubic, easeOutQuart, easeOutQuint, easeOutSine, easeOutExpo, easeOutCirc, easeOutBack
 * **easeInOut**: easeInOutQuad, easeInOutCubic, easeInOutQuart, easeInOutQuint, easeInOutSine, easeInOutExpo, easeInOutCirc, easeInOutBack
 
-Styleguide 21.2
+Styleguide 22.2
 
 */
 
@@ -76,7 +76,7 @@ Become:
 
     left: -10em
 
-Styleguide 25.2
+Styleguide 26.2
 
 */
 
@@ -99,7 +99,7 @@ Become:
 
     margin-left: -1.42857em;
 
-Styleguide 25.3
+Styleguide 26.3
 
 */
 
@@ -115,7 +115,7 @@ space_neg()
 Similar to `rhythm_neg()` but for Susy's `space()` function, more info:
 [Susy Reference](http://susy.oddbird.net/guides/reference/#ref-space).
 
-Styleguide 25.4
+Styleguide 26.4
 
 */
 
@@ -130,7 +130,7 @@ strip_units()
 Remove eny type of unit from a number, more info:
 [StackOverflow](http://stackoverflow.com/questions/12328259/how-do-you-strip-the-unit-from-any-number-in-sass).
 
-Styleguide 25.5
+Styleguide 26.5
 
 */
 

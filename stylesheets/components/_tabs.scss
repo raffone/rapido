@@ -38,7 +38,7 @@ Markup:
   });
 </script>
 
-Styleguide 19
+Styleguide 20
 
 */
 
@@ -55,8 +55,7 @@ Styleguide 19
             @extend %tab__nav !optional;
 
             li {
-                display: inline-block;
-                zoom: 1;
+                @include inline-block;
 
                 a {
                     line-height: 1em;

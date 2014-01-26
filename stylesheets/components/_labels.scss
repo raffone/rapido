@@ -17,7 +17,7 @@ Styleguide 10
     .badge,
     .pill {
         @extend %pill !optional;
-        display: inline-block;
+        @include inline-block;
         padding: $pills-padding;
         vertical-align: baseline;
         white-space: nowrap;

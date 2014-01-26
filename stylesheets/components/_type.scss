@@ -2,7 +2,7 @@
 
 Type
 
-Styleguide 20
+Styleguide 21
 
 */
 
@@ -36,7 +36,7 @@ body {
 
 img {
     max-width: 100%;
-    display: inline-block;
+    @include inline-block;
 }
 
 a, button, textarea, input { outline: none; }
@@ -76,7 +76,7 @@ Markup:
 <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec id elit non mi porta gravida at eget metus.</p>
 <small><p>Tight pants next level keffiyeh. Photo booth beard raw denim letterpress vegan messenger bag stumptown.</small>
 
-Styleguide 20.1
+Styleguide 21.1
 
 */
 
@@ -103,7 +103,7 @@ Markup:
 <h5>h5. This is a small header. h1.</h5>
 <h6>h6. This is a tiny header. h1.</h6>
 
-Styleguide 20.2
+Styleguide 21.2
 
 */
 
@@ -170,7 +170,7 @@ Markup:
   <li>Ordered list item</li>
 </ol>
 
-Styleguide 20.3
+Styleguide 21.3
 
 */
 
@@ -221,7 +221,7 @@ Markup:
   <dd>A geologist’s hammer, rock hammer, rock pick or geological pick is a hammer used for splitting and breaking rocks.</dd>
 </dl>
 
-Styleguide 20.4
+Styleguide 21.4
 
 */
 
@@ -242,7 +242,7 @@ Markup:
   <dd>A geologist’s hammer, rock hammer, rock pick or geological pick is a hammer used for splitting and breaking rocks.</dd>
 </dl>
 
-Styleguide 20.4.1
+Styleguide 21.4.1
 
 */
 
@@ -265,7 +265,7 @@ Horizontal line
 
 Markup: <hr />
 
-Styleguide 20.5
+Styleguide 21.5
 
 */
 
@@ -297,7 +297,7 @@ Markup:
   <small><cite>Rock Hammer</cite></small>
 </blockquote>
 
-Styleguide 20.6
+Styleguide 21.6
 
 */
 
