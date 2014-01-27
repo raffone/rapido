@@ -18,7 +18,8 @@
       var wrapperClass, togglerClass, str;
 
       // Grab and convert class name of container
-      wrapperClass = '.' + base.$el.attr('class').split(' ')[0];
+      //wrapperClass = '.' + base.$el.attr('class').split(' ')[0];
+      wrapperClass = $.rapido_Utilities.elemClass(el);
 
       // Grab and convert class of the toggler button
       str = base.$el.children()[0];
