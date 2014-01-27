@@ -16,43 +16,50 @@
       base.options = $.extend({},$.Rapido.Suggest.defaultOptions, options);
 
       var className = $.rapido_Utilities.elemClass(el);
-      var container = className + ' ' + base.options.suggestClass;
-      var link = container + ' a';
+      var suggestElem = className + ' ' + base.options.suggestClass;
+      var linkElem = suggestElem + ' a';
 
-      setSize(container);
+      setSize(suggestElem);
 
       $(window).resize(function() {
-        setSize(container);
+        setSize(suggestElem);
       });
 
-      compileInput(link);
+      compileInput(linkElem);
 
     };
 
-    var setSize = function(container) {
-      $(container).each(function() {
+    var setSize = function(suggestElem) {
+      $(suggestElem).each(function() {
 
         var $suggest = $(this);
-        var $input = $(this)
-                        .parents(base.options.containerClass)
-                        .children('input[type = "text"]');
+        var $input = $(this).parents(base.options.containerClass).children('input[type = "text"]');
 
+        // Get position of the input and position the suggest accordingly
         $suggest.css({
           'top': ($input.position().top + $input.height()) + 'px',
           'left': $input.position().left + 'px',
           'width': $input.outerWidth() + 'px'
         });
 
+        // Toggle class on :focus and :blur
+        $input.focus(function() {
+          $(suggestElem).removeClass('open');
+          $suggest.addClass('open');
+        });
+
+        $input.blur(function() {
+          $suggest.removeClass('open');
+        });
+
       });
     };
 
-    var compileInput = function(link) {
-      $(link).on('click', function(e) {
+    var compileInput = function(linkElem) {
+      $(linkElem).on('click', function(e) {
 
         var value = $(this).text();
-        var $input = $(this)
-                        .parents(base.options.containerClass)
-                        .children('input[type = "text"]');
+        var $input = $(this).parents(base.options.containerClass).children('input[type = "text"]');
 
         $input.val(value);
 

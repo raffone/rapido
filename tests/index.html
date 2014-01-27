@@ -150,6 +150,55 @@
 
       </form>
 <br/><br/><br/><br/>
+
+
+<form class="form">
+  <div class="form__group">
+    <label class="form__label" for="">testo label</label>
+    <div class="form__controls">
+      <input type="text">
+      <div class="form__suggest">
+        <ul>
+          <li><a href="#">Fist line</a></li>
+          <li><a href="#">Second line</a></li>
+          <li><a href="#">Third line</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="form__group">
+    <label class="form__label" for="">testo label</label>
+    <div class="form__controls form__controls--multi">
+      <span class="form__addon fontawesome">&#xf06c;</span>
+      <span class="form__addon">$</span>
+      <input type="text">
+      <div class="form__suggest">
+        <ul>
+          <li><a href="#">Fist line</a></li>
+          <li><a href="#">Second line</a></li>
+          <li><a href="#">Third line</a></li>
+        </ul>
+      </div>
+      <span class="form__addon">.00</span>
+    </div>
+  </div>
+  <div class="form__group">
+    <label class="form__label" for="">testo label</label>
+    <div class="form__controls">
+      <input type="text">
+      <div class="form__suggest">
+        <ul>
+          <li><a href="#">Fist line</a></li>
+          <li><a href="#">Second line</a></li>
+          <li><a href="#">Third line</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+<br/><br/><br/><br/>
       <div class="toggleAdv">
         <div>
           <h3 data-toggle-name="offerte">Offerte</h3>
@@ -387,11 +436,13 @@
   </div>
   <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
   <script src="../bower_components/jquery/jquery.min.js"></script>
+  <script src="../js/rapido.utilities.js"></script>
   <script src="../js/rapido.offcanvas.js"></script>
   <script src="../js/rapido.dropdown.js"></script>
   <script src="../js/rapido.animation.js"></script>
   <script src="../js/rapido.toggle.js"></script>
   <script src="../js/rapido.move.js"></script>
+  <script src="../js/rapido.suggest.js"></script>
   <script type="text/javascript">
 $('.toggleAdv').rapido_Toggle();
 $('.toggleAdv2').rapido_Toggle({delay:0});
@@ -400,6 +451,9 @@ $('[data-dropdown=""]').rapido_Dropdown();
 $('[data-dropdown="hover"]').rapido_Dropdown({event:'hover'});
 $('.element').rapido_Move({destination: '.destination', minWidth:500});
 $('.delayed').rapido_Animation({offsetMenu: true});
+
+    $('.form').rapido_Suggest();
+
   </script>
   </body>
   </html>

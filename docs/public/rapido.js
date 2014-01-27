@@ -100,7 +100,8 @@
       var wrapperClass, togglerClass, str;
 
       // Grab and convert class name of container
-      wrapperClass = '.' + base.$el.attr('class').split(' ')[0];
+      //wrapperClass = '.' + base.$el.attr('class').split(' ')[0];
+      wrapperClass = $.rapido_Utilities.elemClass(el);
 
       // Grab and convert class of the toggler button
       str = base.$el.children()[0];
@@ -371,7 +372,7 @@ $('.offcanvas__menu--toggle').rapido_Offcanvas();
 
         height = $(window).height();
 
-        $(window).scroll(function() {
+        $(window).resize(function() {
           height = $(window).height();
         });
 
@@ -462,17 +463,54 @@ $('.offcanvas__menu--toggle').rapido_Offcanvas();
     base.init = function() {
       base.options = $.extend({},$.Rapido.Suggest.defaultOptions, options);
 
-      var className = '.' + base.$el.attr('class').split(' ').join('.');
-      compileInput(className);
+      var className = $.rapido_Utilities.elemClass(el);
+      var suggestElem = className + ' ' + base.options.suggestClass;
+      var linkElem = suggestElem + ' a';
+
+      setSize(suggestElem);
+
+      $(window).resize(function() {
+        setSize(suggestElem);
+      });
+
+      compileInput(linkElem);
 
     };
 
-    var compileInput = function(className) {
-      $(className + ' ' + base.options.suggestClass + ' a').on('click', function(e) {
+    var setSize = function(suggestElem) {
+      $(suggestElem).each(function() {
+
+        var $suggest = $(this);
+        var $input = $(this).parents(base.options.containerClass).children('input[type = "text"]');
+
+        // Get position of the input and position the suggest accordingly
+        $suggest.css({
+          'top': ($input.position().top + $input.height()) + 'px',
+          'left': $input.position().left + 'px',
+          'width': $input.outerWidth() + 'px'
+        });
+
+        // Toggle class on :focus and :blur
+        $input.focus(function() {
+          $(suggestElem).removeClass('open');
+          $suggest.addClass('open');
+        });
+
+        $input.blur(function() {
+          $suggest.removeClass('open');
+        });
+
+      });
+    };
+
+    var compileInput = function(linkElem) {
+      $(linkElem).on('click', function(e) {
+
         var value = $(this).text();
-        $(this)
-          .parents(base.options.containerClass)
-          .children('input[type="text"]').val(value);
+        var $input = $(this).parents(base.options.containerClass).children('input[type = "text"]');
+
+        $input.val(value);
+
         e.preventDefault();
       });
     };
@@ -578,3 +616,16 @@ $('.offcanvas__menu--toggle').rapido_Offcanvas();
   };
 
 })(jQuery, window, document);
+
+(function($, window, document, undefined) {
+
+  $.rapido_Utilities = {
+
+    elemClass: function(el) {
+      return '.' + $(el).attr('class').split(' ').join('.');
+    }
+
+  };
+
+})(jQuery, window, document);
+

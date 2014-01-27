@@ -386,6 +386,71 @@ Styleguide 8.5
 
 /*
 
+Suggest
+
+Add a simple dropdown open on :focus with a list of link, clicking on a link
+will populate de input value.
+
+Script required: **rapido.js**.
+
+Markup:
+<div class="form__controls">
+  <input type="text">
+  <div class="form__suggest">
+    <ul>
+        <li><a href="#">Fist line</a></li>
+        <li><a href="#">Second line</a></li>
+        <li><a href="#">Third line</a></li>
+    </ul>
+  </div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.form__controls').rapido_Suggest();
+  });
+</script>
+
+Include this js after including rapido.js.
+
+    $('.form').rapido_Overlay();
+
+**Options** (with default values):
+
+    containerClass:   .form__controls
+    suggestClass:     .form__suggest
+
+Styleguide 8.6
+
+*/
+
+.form__suggest {
+  @include box-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
+  @include e(transition);
+  @include opacity(0);
+  background-color: $gray;
+  color: darken($gray, 30);
+  max-height: 0;
+  overflow: hidden;
+  padding: $input-padding;
+  position: absolute;
+  z-index: 5;
+  a {
+    color: white;
+    display: block
+  }
+  ul {
+    @extend .list-style-none;
+    margin-bottom: 0;
+  }
+}
+
+.form__suggest.open {
+  @include opacity(1);
+  max-height: 20em;
+}
+
+/*
+
 Append & Prepend
 
 Markup:
@@ -393,6 +458,13 @@ Markup:
   <span class="form__addon fontawesome">&#xf06c;</span>
   <span class="form__addon">$</span>
   <input type="text">
+  <div class="form__suggest">
+    <ul>
+        <li><a href="#">Fist line</a></li>
+        <li><a href="#">Second line</a></li>
+        <li><a href="#">Third line</a></li>
+    </ul>
+  </div>
   <span class="form__addon">.00</span>
 </div>
 <div class="form__controls form__controls--multi">
@@ -401,7 +473,7 @@ Markup:
   <button type="submit" class="btn btn--default form__addon">Search</button>
 </div>
 
-Styleguide 8.6
+Styleguide 8.7
 
 */
 
@@ -458,7 +530,7 @@ Markup:
   <button type="button" class="btn btn--default btn--secondary">Cancel</button>
 </div>
 
-Styleguide 8.7
+Styleguide 8.8
 
 */
 
@@ -527,7 +599,7 @@ Markup:
 .form--aligned - Right align labels and float them to the left to make them appear on the same line as controls.
 .form--inline - For left-aligned labels and inline-block controls for a compact layout. This layout doesn't support `.form__group`, `.form__addon`, `.form__actions`
 
-Styleguide 8.8
+Styleguide 8.9
 
 */
 
@@ -631,7 +703,7 @@ Markup:
 
 </form>
 
-Styleguide 8.8.1
+Styleguide 8.9.1
 
 */
 

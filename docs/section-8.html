@@ -143,19 +143,23 @@
               
               
               
-              <li class="kss-menu-item"><a href="#section-8.6"><span class="kss-ref">8.6</span><span class="kss-name">Append &amp; Prepend</span></a></li>
+              <li class="kss-menu-item"><a href="#section-8.6"><span class="kss-ref">8.6</span><span class="kss-name">Suggest</span></a></li>
               
               
               
-              <li class="kss-menu-item"><a href="#section-8.7"><span class="kss-ref">8.7</span><span class="kss-name">Form Actions</span></a></li>
+              <li class="kss-menu-item"><a href="#section-8.7"><span class="kss-ref">8.7</span><span class="kss-name">Append &amp; Prepend</span></a></li>
               
               
               
-              <li class="kss-menu-item"><a href="#section-8.8"><span class="kss-ref">8.8</span><span class="kss-name">Form Layouts</span></a></li>
+              <li class="kss-menu-item"><a href="#section-8.8"><span class="kss-ref">8.8</span><span class="kss-name">Form Actions</span></a></li>
               
               
               
-              <li class="kss-menu-item"><a href="#section-8.8.1"><span class="kss-ref">8.8.1</span><span class="kss-name">Inline Form (semplified)</span></a></li>
+              <li class="kss-menu-item"><a href="#section-8.9"><span class="kss-ref">8.9</span><span class="kss-name">Form Layouts</span></a></li>
+              
+              
+              
+              <li class="kss-menu-item"><a href="#section-8.9.1"><span class="kss-ref">8.9.1</span><span class="kss-name">Inline Form (semplified)</span></a></li>
               
               
             </ul>
@@ -419,7 +423,73 @@ with class <code>.form__select</code>.</p>
           </section>
           
           <section id="section-8.6" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">8.6</span> Append &amp; Prepend</h1>
+            <h1 class="kss-title"><span class="kss-ref">8.6</span> Suggest</h1>
+            
+            
+            <div class="kss-description">
+              <p>Add a simple dropdown open on :focus with a list of link, clicking on a link
+will populate de input value.
+
+</p>
+<p>Script required: <strong>rapido.js</strong>.
+
+</p>
+<p>Include this js after including rapido.js.
+
+</p>
+<pre><code>$(&apos;.form&apos;).rapido_Overlay();</code></pre>
+<p><strong>Options</strong> (with default values):
+
+</p>
+<pre><code>containerClass:   .form__controls
+suggestClass:     .form__suggest</code></pre>
+
+            </div>
+            
+            <div class="kss-modifier-block">
+              <div class="kss-modifier kss-modifier-original">
+                <div class="kss-modifier-example">
+                  <div class="form__controls">
+  <input type="text">
+  <div class="form__suggest">
+    <ul>
+        <li><a href="#">Fist line</a></li>
+        <li><a href="#">Second line</a></li>
+        <li><a href="#">Third line</a></li>
+    </ul>
+  </div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.form__controls').rapido_Suggest();
+  });
+</script>
+                </div>
+              </div>
+              
+              <div class="kss-markup">
+                <pre><code data-language="html">&lt;div class=&quot;form__controls&quot;&gt;
+  &lt;input type=&quot;text&quot;&gt;
+  &lt;div class=&quot;form__suggest&quot;&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Fist line&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Second line&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Third line&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+  $(document).ready(function() {
+    $(&#x27;.form__controls&#x27;).rapido_Suggest();
+  });
+&lt;/script&gt;</code></pre>
+              </div>
+            </div>
+            
+          </section>
+          
+          <section id="section-8.7" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">8.7</span> Append &amp; Prepend</h1>
             
             
             <div class="kss-modifier-block">
@@ -429,6 +499,13 @@ with class <code>.form__select</code>.</p>
   <span class="form__addon fontawesome">&#xf06c;</span>
   <span class="form__addon">$</span>
   <input type="text">
+  <div class="form__suggest">
+    <ul>
+        <li><a href="#">Fist line</a></li>
+        <li><a href="#">Second line</a></li>
+        <li><a href="#">Third line</a></li>
+    </ul>
+  </div>
   <span class="form__addon">.00</span>
 </div>
 <div class="form__controls form__controls--multi">
@@ -444,6 +521,13 @@ with class <code>.form__select</code>.</p>
   &lt;span class=&quot;form__addon fontawesome&quot;&gt;&amp;#xf06c;&lt;/span&gt;
   &lt;span class=&quot;form__addon&quot;&gt;$&lt;/span&gt;
   &lt;input type=&quot;text&quot;&gt;
+  &lt;div class=&quot;form__suggest&quot;&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Fist line&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Second line&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Third line&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
   &lt;span class=&quot;form__addon&quot;&gt;.00&lt;/span&gt;
 &lt;/div&gt;
 &lt;div class=&quot;form__controls form__controls--multi&quot;&gt;
@@ -456,8 +540,8 @@ with class <code>.form__select</code>.</p>
             
           </section>
           
-          <section id="section-8.7" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">8.7</span> Form Actions</h1>
+          <section id="section-8.8" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">8.8</span> Form Actions</h1>
             
             
             <div class="kss-description">
@@ -487,8 +571,8 @@ with class <code>.form__select</code>.</p>
             
           </section>
           
-          <section id="section-8.8" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">8.8</span> Form Layouts</h1>
+          <section id="section-8.9" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">8.9</span> Form Layouts</h1>
             
             
             <div class="kss-modifier-block">
@@ -724,8 +808,8 @@ with class <code>.form__select</code>.</p>
             
           </section>
           
-          <section id="section-8.8.1" class="kss-section kss-depth-3">
-            <h1 class="kss-title"><span class="kss-ref">8.8.1</span> Inline Form (semplified)</h1>
+          <section id="section-8.9.1" class="kss-section kss-depth-3">
+            <h1 class="kss-title"><span class="kss-ref">8.9.1</span> Inline Form (semplified)</h1>
             
             
             <div class="kss-description">
