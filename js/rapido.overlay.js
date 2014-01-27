@@ -62,7 +62,7 @@
 
         height = $(window).height();
 
-        $(window).scroll(function() {
+        $(window).resize(function() {
           height = $(window).height();
         });
 
