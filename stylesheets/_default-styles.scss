@@ -8,7 +8,7 @@ Every component refer to a silent class from `_default-style.scss`.
 These are all the classes available by default, others can be added or removed based on what component you want
 to enable or disable.
 
-Styleguide 31
+Styleguide 32
 
 */
 
@@ -25,7 +25,7 @@ Titles
     %h5                             # For <h5>
     %h6                             # For <h6>
 
-Styleguide 31.1
+Styleguide 32.1
 
 */
 
@@ -40,15 +40,19 @@ Styleguide 31.1
 
 Inputs and Selects
 
-    %input                          # For the <input> and <textarea>
-    %input-addon                    # For the addon texts in forms
-    %select                         # Custom select style, by default it use %input
+    %form__label                    # For the <label>
+    %form__input                    # For the <input> and <textarea>
+    %form__addon                    # For the addon texts in forms
+    %form__select                   # Custom select style, by default it use %input
+    %form__suggest                  # Styling for suggest dropdowns
 
-Styleguide 31.2
+Styleguide 32.2
 
 */
 
-    %input {
+    %form__label {}
+
+    %form__input {
         border-color: $gray;
         background-color: $grayLighter;
         @include box-shadow(inset 0 1px 0 #fff);
@@ -59,15 +63,30 @@ Styleguide 31.2
         }
     }
 
-    %input-addon {
+    %form__addon {
         color: $text-color;
         border-color: $grayLight;
         background-color: $grayLighter;
     }
 
-    %select {
-        @extend %input;
+    %form__select {
+        @extend %form__input;
     }
+
+    %form__suggest {
+        @include opacity(0);
+        background-color: $gray;
+
+      &.open {
+          @include opacity(1);
+      }
+
+      a {
+          color: white;
+      }
+
+    }
+
 
 /*
 
@@ -81,7 +100,7 @@ Buttons
     %btn__disabled                  # For disabled button
     %btn__current                   # For current button (es. used in Pagination)
 
-Styleguide 31.3
+Styleguide 32.3
 
 */
 
@@ -185,7 +204,7 @@ Captions
 
     %caption                        # Used for the captions in .caption and modals
 
-Styleguide 31.4
+Styleguide 32.4
 
 */
 
@@ -201,7 +220,7 @@ Labels (Badges & Pills)
 
     %pill                           # For the .badge and .pill
 
-Styleguide 31.5
+Styleguide 32.5
 
 */
 
@@ -217,7 +236,7 @@ Dropdowns
     %dropdown                       # For the dropdown's list
     %dropdown--open                 # For the drodpown button in .open state
 
-Styleguide 31.6
+Styleguide 32.6
 
 */
 
@@ -254,7 +273,7 @@ Tables
     %table--hover                   # For .table--hover
     %table--sortable                # For .table--sortable
 
-Styleguide 31.7
+Styleguide 32.7
 
 */
 
@@ -295,7 +314,7 @@ Navs
     %nav--btn__current              # For the current selected link
     %nav--btn__disabled             # For the disabled links
 
-Styleguide 31.8
+Styleguide 32.8
 
 */
 
@@ -318,7 +337,7 @@ Breadcrumbs
     %breadcrumbs                     # Base style of breadcrumbs
     %breadcrumbs__current            # For the current selected link
 
-Styleguide 31.9
+Styleguide 32.9
 
 */
 
@@ -350,7 +369,7 @@ Pagination
     %pagination--btn__current       # For the current selected link
     %pagination--btn__disabled      # For the disabled links
 
-Styleguide 31.10
+Styleguide 32.10
 
 */
 
@@ -371,7 +390,7 @@ Pager
     %pager--btn__active             # For the :active  state of %pager--btn
     %pager--btn__disabled           # For the disabled links
 
-Styleguide 31.11
+Styleguide 32.11
 
 */
 
@@ -393,7 +412,7 @@ Modals
     %modal__caption                 # For the caption
     %modal__loading                 # Position and style of the loading icon
 
-Styleguide 31.12
+Styleguide 32.12
 
 */
 
@@ -473,7 +492,7 @@ Sliders
     %slider__caption                # For the caption
     %slider__loading                # Position and style of the loading icon
 
-Styleguide 31.13
+Styleguide 32.13
 
 */
 
@@ -523,7 +542,7 @@ Tabs
     %tab__btn__current              # For the current selected tab link
     %tab__container                 # For the content continer
 
-Styleguide 31.14
+Styleguide 32.14
 
 */
 
@@ -558,7 +577,7 @@ Alerts
 
     %alert                          # For all alert messages
 
-Styleguide 31.15
+Styleguide 32.15
 
 */
 
@@ -575,7 +594,7 @@ OffCanvas Nav
     %nav--offcanvas__dim            # For the dimming the content on menu open
     %nav__toggle                    # For the toggle open/close button
 
-Styleguide 31.16
+Styleguide 32.16
 
 */
 
@@ -622,7 +641,7 @@ Overlays
     %overlay__background--open      # Animation for showing the background
     %overlay__background--close     # Animation for hiding the background
 
-Styleguide 31.17
+Styleguide 32.17
 
 */
 
@@ -656,9 +675,11 @@ Shared
 Classes For other classes of generic elements
 
     %caret                          # Side triangle For Dropdowns and Selects
-    %loader-ico                     # generic loader icon For all scripts
+    %loader-ico                     # Generic loader icon For all scripts
+    %tooltip                        # Additional style for tooltips.
+                                      To change the colors see the 'colors' sections
 
-Styleguide 31.18
+Styleguide 32.18
 
 */
 
@@ -671,6 +692,8 @@ Styleguide 31.18
     %loader-ico {
         background: url('//cdn.jsdelivr.net/wp-advanced-ajax-page-loader/2.5.12/loaders/SMALL%20-%20Spinning%20Arrows.gif') center center no-repeat;
     }
+
+    %tooltip { }
 
 }
 

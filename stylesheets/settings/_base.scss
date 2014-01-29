@@ -2,7 +2,7 @@
 
 Base Settings
 
-Styleguide 27
+Styleguide 28
 
 */
 
@@ -14,7 +14,7 @@ Debug Mode
     $debug-outlines:                    false   # Enable debug outlines mode
     $default-styles:                    true    # Use default styles in _default-styles.scss
 
-Styleguide 27.1
+Styleguide 28.1
 
 */
 
@@ -36,7 +36,7 @@ on `palm` (smartphone) change the base size to 16px, it will be automatically co
 
     $responsive-font-size:              lap-and-up $base-font-size, palm 16px
 
-Styleguide 27.2
+Styleguide 28.2
 
 */
 
@@ -58,7 +58,7 @@ Font families
     $base-font-family:                  $font-sans  # Default font family for body text
     $titles-font-family:                $font-sans  # Default font family for titles
 
-Styleguide 27.3
+Styleguide 28.3
 
 */
 
@@ -83,7 +83,7 @@ Enable or disable specific broweser prefixes used by Compass mixins.
     $experimental-support-for-khtml:        false
 
 
-Styleguide 27.4
+Styleguide 28.4
 
 */
 
@@ -104,7 +104,7 @@ To convert `PX` to `EM` using the `$base-font-size` as font size.
 
     width: em(20px);
 
-Styleguide 26.1
+Styleguide 27.1
 
 */
 

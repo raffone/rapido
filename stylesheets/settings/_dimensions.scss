@@ -5,7 +5,7 @@ Base Dimensions
     $base-border-radius:            4px     # Border radius used as a standard on all elements.
     $horizontal-offset:             180px   # Labels width in horizontal forms.
 
-Styleguide 30
+Styleguide 31
 
 */
 
@@ -35,7 +35,7 @@ Font sizes you can used with the compass mixin `adjust-font-size-to()`. Naming c
     $smaller-size:                  $base-font-size * .7    # 10px
     $smallest-size:                 $base-font-size * .5    # 7px
 
-Styleguide 30.1
+Styleguide 31.1
 
 */
 
@@ -78,7 +78,7 @@ These values mean: n times the base line-height.
     $h5-line-height:                1.5
     $h6-line-height:                1.5
 
-Styleguide 30.1.1
+Styleguide 31.1.1
 
 */
 
@@ -102,7 +102,7 @@ Base padding and margins used in the forms.
     $input-padding-side:            10px    # Base side padding
     $checkbox-padding-left:         20px    # Side padding used for checkboxes and radios
 
-Styleguide 30.2
+Styleguide 31.2
 
 */
 
@@ -149,8 +149,10 @@ Components
     $tables-padding:                $input-padding  # Tables padding
     $tabs-content-padding:          $input-padding  # Tabs padding
     $tabs-tab-padding:              $input-padding  # Tabs padding
+    $tooltips-padding:              $input-padding  # Tooltips padding
 
-Styleguide 30.3
+
+Styleguide 31.3
 
 */
 
@@ -176,6 +178,7 @@ $pills-padding:                     .15em .35em                                 
 $tables-padding:                    $input-padding                                                          !default;
 $tabs-content-padding:              $input-padding                                                          !default;
 $tabs-tab-padding:                  $input-padding                                                          !default;
+$tooltips-padding:                  $input-padding                                                          !default;
 
 
 /*
@@ -185,14 +188,16 @@ Sizes
     $loader-ico-size:               44px        # Icon size of the loader used with some componets
     $modal-btn-size:                em(30px)    # Size of buttons used with the modals
     $slider-btn-size:               em(30px)    # Size of buttons used with the sliders
+    $tooltip-triangle-size:         em(15px)    # Size the tooltip's triangle
 
-Styleguide 30.4
+Styleguide 31.4
 
 */
 
 $loader-ico-size:                   44px                                                                    !default;
 $modal-btn-size:                    em(30px)                                                                !default;
 $slider-btn-size:                   em(30px)                                                                !default;
+$tooltip-triangle-size:             em(14px)                                                                !default;
 
 
 /*
@@ -203,7 +208,7 @@ Some elements need to have a max-height specified for smoother animations, like 
 
     $dropdowns-height:              em(600px);
 
-Styleguide 30.5
+Styleguide 31.5
 
 */
 
@@ -220,7 +225,7 @@ Set the width of the three steps of the layout.
     $desk-start:                    768px   # Max width for tablet
     $desk-end:                      1080px  # Max width for desktop
 
-Styleguide 30.6
+Styleguide 31.6
 
 */
 
@@ -243,7 +248,7 @@ Default settings for susy grid. More info: [Susy](http://susy.oddbird.net/).
     $gutter-width:                  30px    # Gutter width
     $container-style:               fluid   # Grid style
 
-Styleguide 30.7
+Styleguide 31.7
 
 */
 
@@ -285,7 +290,7 @@ Default settings for overlay components, taken from Bootstrap.
     $zindex-slider:                 1040    # Sliders
     $zindex-modal:                  1050    # Modals
 
-Styleguide 30.9
+Styleguide 31.9
 
 */
 

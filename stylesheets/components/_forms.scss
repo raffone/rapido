@@ -74,6 +74,7 @@ label {
 }
 
 .input-text,
+.form__input,
 textarea,
 input[type="text"],
 input[type="password"],
@@ -95,7 +96,8 @@ input[type="color"] {
     border-width: $input-border;
     border-style: solid;
     @media \0screen { line-height: $input-height; } // Ugly IE8 Hack
-    @extend %input !optional;
+    @extend %input !optional; // Backward compatibility
+    @extend %form__input !optional;
 
     &:focus {outline: 0;}
 }
@@ -199,6 +201,7 @@ Styleguide 8.1
     font-weight: bold;
     margin-bottom: em($label-margin-bottom);
     cursor: auto;
+    @extend %form__label !optional;
 }
 
 
@@ -273,12 +276,13 @@ Styleguide 8.3
 
 .form__select {
     @extend %caret !optional;
-    @extend %select !optional;
+    @extend %select !optional; // Backward compatibility
+    @extend %form__select !optional;
     @include border-radius($base-border-radius);
+    @include inline-block;
     border-style: solid;
     border-width: $input-border;
     cursor: pointer;
-    @include inline-block;
     height: $input-height;
     line-height: 1em;
     margin-bottom: 0;
@@ -424,29 +428,26 @@ Styleguide 8.6
 */
 
 .form__suggest {
-  @include box-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
+  @extend %form__suggest !optional;
   @include e(transition);
-  @include opacity(0);
-  background-color: $gray;
-  color: darken($gray, 30);
   max-height: 0;
   overflow: hidden;
-  padding: $input-padding;
   position: absolute;
   z-index: 5;
+
+  &.open {
+    max-height: $dropdowns-height;
+  }
+
   a {
-    color: white;
     display: block
   }
-  ul {
-    @extend .list-style-none;
-    margin-bottom: 0;
-  }
-}
 
-.form__suggest.open {
-  @include opacity(1);
-  max-height: 20em;
+  ul {
+    margin: 0;
+    list-style: none;
+    padding: $input-padding;
+  }
 }
 
 /*
@@ -489,7 +490,8 @@ Styleguide 8.7
     text-align: center;
     border-width: $input-border;
     border-style: solid;
-    @extend %input-addon !optional;
+    @extend %input-addon !optional; // Backward compatibility
+    @extend %form__addon !optional;
 }
 
 .form__controls--multi {

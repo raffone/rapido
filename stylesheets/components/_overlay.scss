@@ -38,41 +38,44 @@ Styleguide 18
 
 */
 
-[data-overlay-content] {
-  @extend %overlay__content !optional;
-  @include position(fixed, -100% 0em 0em 0em);
-  height: 0;
-  overflow: hidden;
-  &.open {
-    @extend %overlay__content--open !optional;
-    overflow: auto;
-    z-index: $zindex-modal;
-  }
-  &.close {
-    @extend %overlay__content--close !optional;
+@if $overlays {
 
+  [data-overlay-content] {
+    @extend %overlay__content !optional;
+    @include position(fixed, -100% 0em 0em 0em);
+    height: 0;
+    overflow: hidden;
+    &.open {
+      @extend %overlay__content--open !optional;
+      overflow: auto;
+      z-index: $zindex-modal;
+    }
+    &.close {
+      @extend %overlay__content--close !optional;
+
+    }
   }
+
+  .overlay-background {
+    @extend %overlay__background !optional;
+    @include position(fixed, -100% 0em 0em 0em);
+    height: 0;
+    overflow: hidden;
+    width: 100%;
+    &.open {
+      @extend %overlay__background--open !optional;
+      overflow: auto;
+      z-index: $zindex-modal - 1;
+    }
+    &.close {
+      @extend %overlay__background--close !optional;
+    }
+  }
+
+  .overlay-close {
+    @extend %overlay__close !optional;
+    cursor: pointer;
+    display: block;
+  }
+
 }
-
-.overlay-background {
-  @extend %overlay__background !optional;
-  @include position(fixed, -100% 0em 0em 0em);
-  height: 0;
-  overflow: hidden;
-  width: 100%;
-  &.open {
-    @extend %overlay__background--open !optional;
-    overflow: auto;
-    z-index: $zindex-modal - 1;
-  }
-  &.close {
-    @extend %overlay__background--close !optional;
-  }
-}
-
-.overlay-close {
-  @extend %overlay__close !optional;
-  cursor: pointer;
-  display: block;
-}
-

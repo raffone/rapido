@@ -28,8 +28,9 @@ Durations specifics for some  modules.
 
     $caption-animations-duration:       .50s
     $offcanvas-animations-duration:     .40s
+    $tooltip-transition-duration:       .25s
 
-Styleguide 23.1
+Styleguide 24.1
 
 */
 
@@ -46,3 +47,4 @@ $default-transition-function:       toBezier($animations-function)              
 
 $caption-animations-duration:       .50s                                                                    !default;
 $offcanvas-animations-duration:     .40s                                                                    !default;
+$tooltip-transition-duration:       .25s                                                                    !default;
