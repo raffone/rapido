@@ -149,6 +149,9 @@ module.exports = function(grunt) {
         files: ['stylesheets/**/*.scss'],
         tasks: ['compass:dist']
       },
+      html: {
+        files: ['tests/*.html'],
+      },
       js: {
         files: ['js/*.js'],
       },
