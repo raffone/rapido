@@ -2,7 +2,9 @@
 
 An easy and quick [**Sass**](http://sass-lang.com/) + [**Compass**](http://compass-style.org/) + [**Susy**](http://susy.oddbird.net/) + [**OOCSS**](http://oocss.org/) + [**BEM**](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) prototyping framework.
 
-[![Gem Version](https://badge.fury.io/rb/rapido-css.png)](http://badge.fury.io/rb/rapido-css)  [![Bower version](https://badge.fury.io/bo/rapido.png)](http://badge.fury.io/bo/rapido)
+[![Gem Version](https://badge.fury.io/rb/rapido-css.png)](http://badge.fury.io/rb/rapido-css)
+[![Bower version](https://badge.fury.io/bo/rapido.png)](http://badge.fury.io/bo/rapido)
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/raffone/rapido/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 ## Features
 
@@ -30,3 +32,4 @@ A complete documentation of what is currently available can be found here: [Rapi
 ## License
 
 MIT License (MIT)
+
