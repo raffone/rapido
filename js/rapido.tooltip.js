@@ -62,7 +62,7 @@
       if (is.top || is.bottom) {
         tooltip.left = target.left + (target.width / 2) - (tooltip.width / 2);
       }
-      if (is.left && is.right) {
+      if (is.left || is.right) {
         tooltip.top = target.top + (target.height / 2) - (tooltip.height / 2);
       }
 

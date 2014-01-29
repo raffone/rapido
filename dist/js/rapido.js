@@ -1,5 +1,5 @@
 /*
- *  Rapido - v0.1.6
+ *  Rapido - v0.1.7
  *  An easy and quick Sass + Compass + Susy + OOCSS + BEM prototyping framework.
  *  https://github.com/raffone/rapido
  *
@@ -681,7 +681,7 @@ $('.offcanvas__menu--toggle').rapido_Offcanvas();
       if (is.top || is.bottom) {
         tooltip.left = target.left + (target.width / 2) - (tooltip.width / 2);
       }
-      if (is.left && is.right) {
+      if (is.left || is.right) {
         tooltip.top = target.top + (target.height / 2) - (tooltip.height / 2);
       }
 
