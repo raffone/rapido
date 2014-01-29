@@ -177,7 +177,7 @@ Functions
 
 For 99% of the framework I used Compass' and Susy's functions but I've made some for covering edge cases.
 
-Styleguide 26
+Styleguide 27
 
 */
 /*
@@ -191,7 +191,7 @@ There are lots of easing options available, from the basic ``linear`` or ``ease-
 * **easeOut**: easeOutQuad, easeOutCubic, easeOutQuart, easeOutQuint, easeOutSine, easeOutExpo, easeOutCirc, easeOutBack
 * **easeInOut**: easeInOutQuad, easeInOutCubic, easeInOutQuart, easeInOutQuint, easeInOutSine, easeInOutExpo, easeInOutCirc, easeInOutBack
 
-Styleguide 22.2
+Styleguide 23.2
 
 */
 /*
@@ -208,7 +208,7 @@ Become:
 
     left: -10em
 
-Styleguide 26.2
+Styleguide 27.2
 
 */
 /*
@@ -226,7 +226,7 @@ Become:
 
     margin-left: -1.42857em;
 
-Styleguide 26.3
+Styleguide 27.3
 
 */
 /*
@@ -236,7 +236,7 @@ space_neg()
 Similar to `rhythm_neg()` but for Susy's `space()` function, more info:
 [Susy Reference](http://susy.oddbird.net/guides/reference/#ref-space).
 
-Styleguide 26.4
+Styleguide 27.4
 
 */
 /*
@@ -246,14 +246,14 @@ strip_units()
 Remove eny type of unit from a number, more info:
 [StackOverflow](http://stackoverflow.com/questions/12328259/how-do-you-strip-the-unit-from-any-number-in-sass).
 
-Styleguide 26.5
+Styleguide 27.5
 
 */
 /*
 
 Base Settings
 
-Styleguide 27
+Styleguide 28
 
 */
 /*
@@ -264,7 +264,7 @@ Debug Mode
     $debug-outlines:                    false   # Enable debug outlines mode
     $default-styles:                    true    # Use default styles in _default-styles.scss
 
-Styleguide 27.1
+Styleguide 28.1
 
 */
 /*
@@ -280,7 +280,7 @@ on `palm` (smartphone) change the base size to 16px, it will be automatically co
 
     $responsive-font-size:              lap-and-up $base-font-size, palm 16px
 
-Styleguide 27.2
+Styleguide 28.2
 
 */
 /*
@@ -294,7 +294,7 @@ Font families
     $base-font-family:                  $font-sans  # Default font family for body text
     $titles-font-family:                $font-sans  # Default font family for titles
 
-Styleguide 27.3
+Styleguide 28.3
 
 */
 /*
@@ -311,7 +311,7 @@ Enable or disable specific broweser prefixes used by Compass mixins.
     $experimental-support-for-khtml:        false
 
 
-Styleguide 27.4
+Styleguide 28.4
 
 */
 /*
@@ -322,7 +322,7 @@ To convert `PX` to `EM` using the `$base-font-size` as font size.
 
     width: em(20px);
 
-Styleguide 26.1
+Styleguide 27.1
 
 */
 /*
@@ -339,7 +339,22 @@ Used for scaffolding
     $grayLighter:                       lighten($black, 95)
     $white:                             #fff
 
-Styleguide 28
+    # Better defaults from https://github.com/mrmrs/colors
+    $aqua:                              #7FDBFF
+    $blue:                              #0074D9
+    $navy:                              #001F3F
+    $teal:                              #39CCCC
+    $green:                             #2ECC40
+    $olive:                             #3D9970
+    $lime:                              #01FF70
+    $yellow:                            #FFDC00
+    $orange:                            #FF851B
+    $red:                               #FF4136
+    $fuchsia:                           #F012BE
+    $purple:                            #B10DC9
+    $maroon:                            #85144B
+
+Styleguide 29
 
 */
 /*
@@ -352,7 +367,15 @@ Default colors
     $link-color:                        #0066cc
     $link-color-hover:                  darken($link-color, 10%)
 
-Styleguide 28.1
+    $placeholder-color:                 $gray
+
+    $selection-color:                   $white
+    $selection-bacground:               $gray
+
+    $tooltip-color:                     $white
+    $tooltip-background:                rgba(0,0,0,.75)
+
+Styleguide 29.1
 
 */
 /*
@@ -362,7 +385,7 @@ Base Dimensions
     $base-border-radius:            4px     # Border radius used as a standard on all elements.
     $horizontal-offset:             180px   # Labels width in horizontal forms.
 
-Styleguide 30
+Styleguide 31
 
 */
 /*
@@ -386,7 +409,7 @@ Font sizes you can used with the compass mixin `adjust-font-size-to()`. Naming c
     $smaller-size:                  $base-font-size * .7    # 10px
     $smallest-size:                 $base-font-size * .5    # 7px
 
-Styleguide 30.1
+Styleguide 31.1
 
 */
 /*
@@ -405,7 +428,7 @@ These values mean: n times the base line-height.
     $h5-line-height:                1.5
     $h6-line-height:                1.5
 
-Styleguide 30.1.1
+Styleguide 31.1.1
 
 */
 /*
@@ -421,7 +444,7 @@ Base padding and margins used in the forms.
     $input-padding-side:            10px    # Base side padding
     $checkbox-padding-left:         20px    # Side padding used for checkboxes and radios
 
-Styleguide 30.2
+Styleguide 31.2
 
 */
 /*
@@ -454,8 +477,10 @@ Components
     $tables-padding:                $input-padding  # Tables padding
     $tabs-content-padding:          $input-padding  # Tabs padding
     $tabs-tab-padding:              $input-padding  # Tabs padding
+    $tooltips-padding:              $input-padding  # Tooltips padding
 
-Styleguide 30.3
+
+Styleguide 31.3
 
 */
 /*
@@ -465,8 +490,9 @@ Sizes
     $loader-ico-size:               44px        # Icon size of the loader used with some componets
     $modal-btn-size:                em(30px)    # Size of buttons used with the modals
     $slider-btn-size:               em(30px)    # Size of buttons used with the sliders
+    $tooltip-triangle-size:         em(15px)    # Size the tooltip's triangle
 
-Styleguide 30.4
+Styleguide 31.4
 
 */
 /*
@@ -477,7 +503,7 @@ Some elements need to have a max-height specified for smoother animations, like 
 
     $dropdowns-height:              em(600px);
 
-Styleguide 30.5
+Styleguide 31.5
 
 */
 /*
@@ -490,7 +516,7 @@ Set the width of the three steps of the layout.
     $desk-start:                    768px   # Max width for tablet
     $desk-end:                      1080px  # Max width for desktop
 
-Styleguide 30.6
+Styleguide 31.6
 
 */
 /*
@@ -504,7 +530,7 @@ Default settings for susy grid. More info: [Susy](http://susy.oddbird.net/).
     $gutter-width:                  30px    # Gutter width
     $container-style:               fluid   # Grid style
 
-Styleguide 30.7
+Styleguide 31.7
 
 */
 /*
@@ -532,7 +558,7 @@ Default settings for overlay components, taken from Bootstrap.
     $zindex-slider:                 1040    # Sliders
     $zindex-modal:                  1050    # Modals
 
-Styleguide 30.9
+Styleguide 31.9
 
 */
 /*
@@ -548,29 +574,31 @@ Enable or disable components, so you can have in the css only what you need.
     $captions:                      true   # components/_captions.scss
     $close:                         true   # components/_close.scss
     $dropdowns:                     true   # components/_dropdowns.scss
-    $forms:                         true   # components/_forms.scss
     $forms-aligned:                 true   # components/_forms.scss
     $forms-append:                  true   # components/_forms.scss
     $forms-grid:                    true   # components/_forms.scss
     $forms-inline:                  true   # components/_forms.scss
-    $grids:                         true   # components/_grids.scss
+    $forms:                         true   # components/_forms.scss
     $grids-helpers:                 true   # components/_grids.scss
+    $grids:                         true   # components/_grids.scss
     $labels:                        true   # components/_labels.scss
-    $modal:                         true   # components/_modal.scss
     $modal-buttons:                 true   # components/_modal.scss
     $modal-thumbs:                  true   # components/_modal.scss
-    $offcanvas:                     true   # components/_off-canvas.scss
+    $modal:                         true   # components/_modal.scss
     $navs:                          true   # components/_navs.scss
+    $offcanvas:                     true   # components/_off-canvas.scss
+    $overlays:                      true   # components/_overlay.scss
     $pager:                         true   # components/_pager.scss
     $pagination:                    true   # components/_pagination.scss
     $slider:                        true   # components/_slider.scss
     $sprites:                       true   # components/_sprites.scss
     $tables:                        true   # components/_tables.scss
     $tabs:                          true   # components/_tabs.scss
+    $tooltips:                      true   # components/_tooltip.scss
 
     $width-helper-classes:          true   # "Elements width" helper class
 
-Styleguide 29
+Styleguide 30
 
 */
 /*
@@ -580,7 +608,7 @@ Sprites
     $s-sprite-dimensions:           true;
     $s-layout:                      smart;
 
-Styleguide 29.1
+Styleguide 30.1
 
 */
 /*
@@ -600,7 +628,7 @@ Font files are not required, is used the [We Love Icon Fonts](http://weloveiconf
     $use-typicons:                  false  # http://typicons.com/
     $use-zocial:                    false  # http://zocial.smcllns.com/
 
-Styleguide 29.2
+Styleguide 30.2
 
 */
 /*
@@ -633,8 +661,9 @@ Durations specifics for some  modules.
 
     $caption-animations-duration:       .50s
     $offcanvas-animations-duration:     .40s
+    $tooltip-transition-duration:       .25s
 
-Styleguide 23.1
+Styleguide 24.1
 
 */
 /*
@@ -644,7 +673,7 @@ Mixins
 Some of them are from Bootstrap, others are custom. The required arguments are
 marked in bold.
 
-Styleguide 25
+Styleguide 26
 
 */
 /*
@@ -656,7 +685,7 @@ Create a rectangle
 * `$height`: Height of the rectangle
 * `$width`: Width of the rectangle
 
-Styleguide 25.1
+Styleguide 26.1
 
 */
 /*
@@ -667,7 +696,7 @@ Create a square
 
 * `$size`: Dimension used both for width and height
 
-Styleguide 25.2
+Styleguide 26.2
 
 */
 /*
@@ -689,7 +718,7 @@ Become:
     right: 0px;
     bottom: 0px;
 
-Styleguide 25.3
+Styleguide 26.3
 
 */
 /*
@@ -706,7 +735,7 @@ Become:
     margin-left: auto;
     margin-right: auto;
 
-Styleguide 25.4
+Styleguide 26.4
 
 */
 /*
@@ -717,7 +746,7 @@ Vertical and horizontal centering with absolute positioning, using the position 
 
     @include center();
 
-Styleguide 25.5
+Styleguide 26.5
 
 */
 /*
@@ -731,7 +760,7 @@ Abbrieviantion for extendingt normal class (.) or a placeholder class (%) when u
 * `$name`: Name of the class
 * `$silent`: Set to true if it's a placeholder class
 
-Styleguide 25.6
+Styleguide 26.6
 
 */
 /*
@@ -742,7 +771,7 @@ Placeholder
 
 * `$color`: Set color of the placeholder of an input.
 
-Styleguide 25.7
+Styleguide 26.7
 
 */
 /*
@@ -759,7 +788,7 @@ Become
     text-overflow: ellipsis;
     white-space: nowrap;
 
-Styleguide 25.8
+Styleguide 26.8
 
 */
 /*
@@ -774,7 +803,7 @@ Create a css-only triangle.
 * `$color`: Color of the triangle
 * `$direction`: There are available up, up-right, right, down-right, down, down-left, left, up-left
 
-Styleguide 25.9
+Styleguide 26.9
 
 
 */
@@ -792,7 +821,7 @@ Add a css-only triangle width side borders, usefull for tooltips. For now only s
 * `$border-width`: Border width of the triangle
 * `$direction`: left or right
 
-Styleguide 25.10
+Styleguide 26.10
 
 */
 /*
@@ -805,7 +834,7 @@ Text inset shadow
 * `$textcolor`: Color of the text
 * `$contrast`: How much stronger the inset will be
 
-Styleguide 25.11
+Styleguide 26.11
 
 */
 /*
@@ -829,7 +858,7 @@ Become
     color: #000;
     color: rgba(0,0,0,.5);
 
-Styleguide 25.12
+Styleguide 26.12
 
 */
 /*
@@ -844,7 +873,7 @@ Used for creating custom animations.
 
 * `$name`: Name of the keyframe
 
-Styleguide 25.13
+Styleguide 26.13
 
 */
 /*
@@ -856,7 +885,7 @@ Nav divider
 * `$top`: Color of the top border
 * `$bottom`: Color of the bottom border
 
-Styleguide 25.14
+Styleguide 26.14
 
 */
 /*
@@ -870,7 +899,7 @@ Comicbook Shadow
 * `$size`: Size of the shadow
 * `$distance`: Distance of the shadow from the image
 
-Styleguide 25.15
+Styleguide 26.15
 
 */
 /*
@@ -885,7 +914,7 @@ Usefull for adding inset shadows to sidebars or large block where the shadow is 
 * `$size`: Size of the shadow
 * `$color`: Color of the shadow
 
-Styleguide 25.16
+Styleguide 26.16
 
 */
 /*
@@ -899,7 +928,7 @@ Add Side Shadows to multi-line padded text for consistend side padding (Fabien D
 * `$size`: Size of the shadow
 * `$color`: Color of the shadow
 
-Styleguide 25.17
+Styleguide 26.17
 
 */
 /*
@@ -918,7 +947,7 @@ Use the unicode character from an icon font to insert it wherever you want.
 ‡ Fonts available: Fontawesome, Brandico, Entypo, Fontelico, Maki, Openweb-icons, Typicons, Zocial
 
 
-Styleguide 25.18
+Styleguide 26.18
 
 */
 /*
@@ -938,7 +967,7 @@ You can set the start/and with of each step from usins the variables `$lap-start
     * `portable`: Lap + Palm
     * `desk`: Only Desktop
 
-Styleguide 25.19
+Styleguide 26.19
 
 */
 /*
@@ -967,7 +996,7 @@ Or via `@include` from the scss:
 
 The result is the same.
 
-Styleguide 25.20
+Styleguide 26.20
 
 */
 /*
@@ -985,7 +1014,7 @@ Responsive grid
 * `$media`: Media query to to use, for responsive grids
 * `$highlight-omega`: Bolean, used for debugging nth
 
-Styleguide 25.21
+Styleguide 26.21
 
 */
 /*
@@ -1000,7 +1029,7 @@ Animations
 * `$function`: Easing, see 20.2 for a list of all easing options available
 * `$mode`: animation-fill-mode (http://mzl.la/1g6ixCc), default to *both*
 
-Styleguide 25.22
+Styleguide 26.22
 
 */
 /*
@@ -1039,7 +1068,7 @@ Will be compiled to:
       animation: fadeIn 0.5s 2s ease-out both;
     }
 
-Styleguide 25.23
+Styleguide 26.23
 
 */
 /*
@@ -1048,7 +1077,7 @@ Helper Classes
 
 There are provided some helper classes usually used with `@extend` for applying effects or common styles.
 
-Styleguide 24
+Styleguide 25
 
 */
 /*
@@ -1063,7 +1092,7 @@ Simple divider class used in some components (like dropdowns).
 
     .divider
 
-Styleguide 24.1
+Styleguide 25.1
 
 */
 .clearfix:after, .wrapper:after, .w:after, .fixed-wrapper:after, .fw:after, .btn-group:after, form:after, .form__controls:after, .form__actions:after, .nav:after, .nav ul:after, .dl-horizontal:after, .pagination > :after {
@@ -1072,7 +1101,7 @@ Styleguide 24.1
   clear: both;
 }
 
-.transition, .dropdown__menu, .nav li > a, .nav li ul {
+.transition, .dropdown__menu, .form__suggest, .nav li > a, .nav li ul {
   -webkit-transition: all 0.15s ease-out;
   -moz-transition: all 0.15s ease-out;
   transition: all 0.15s ease-out;
@@ -1099,7 +1128,7 @@ Same a `.wrapper` but with fixed width.
     .fixed-wrapper
     .fw
 
-Styleguide 24.2
+Styleguide 25.2
 
 */
 .wrapper, .w {
@@ -1140,7 +1169,7 @@ Corrispond to:
 
     width: 50% !important;
 
-Styleguide 24.3
+Styleguide 25.3
 
 */
 [data-width="100"], .btn-group[data-width] .btn, .btn-group[data-width] .offcanvas__menu--toggle,
@@ -1561,7 +1590,7 @@ Some common classes for fixing the typography, to be used sparingly.
     .text-right     # text-align: right
     .text-center    # text-align: center
 
-Styleguide 24.4
+Styleguide 25.4
 
 */
 .lead {
@@ -1601,7 +1630,7 @@ Simple class used for spriting.
 
     .s
 
-Styleguide 24.5
+Styleguide 25.5
 
 */
 .s {
@@ -1634,7 +1663,7 @@ All the text replacement classes from from [html5boilerplate](http://html5boiler
     .visuallyhidden
     .invisible
 
-Styleguide 24.6
+Styleguide 25.6
 
 */
 .ir {
@@ -1692,7 +1721,7 @@ and finding errors. Taken form [Inuit](https://github.com/csswizardry/inuit.css)
 
 Enable it with `$debug-html: true;`.
 
-Styleguide 22
+Styleguide 23
 
 */
 /*
@@ -1705,7 +1734,7 @@ Taken form [Pesticide](https://github.com/mrmrs/pesticide).
 
 Enable it with `$debug-outlines: true;`.
 
-Styleguide 22.1
+Styleguide 23.1
 
 */
 /*
@@ -1722,7 +1751,7 @@ All the animations in [theCSSguru](https://twitter.com/theCSSguru)'s [Animate mi
 * **Rotating entrances:** rotateIn, rotateInDownLeft, rotateInDownRight, rotateInUpLeft, rotateInUpRight
 * **Rotating exits:** rotateOut, rotateOutDownLeft, rotateOutDownRight, rotateOutUpLeft, rotateOutUpRight
 
-Styleguide 23
+Styleguide 24
 
 */
 /*
@@ -1735,7 +1764,7 @@ Example:
 
     @extend .fadeIn;
 
-Styleguide 23.3
+Styleguide 24.3
 
 */
 .fadeIn, .overlay-background.open {
@@ -1778,7 +1807,7 @@ Example:
 
     @extend .delay-50;
 
-Styleguide 23.4
+Styleguide 24.4
 
 */
 .delay-25 {
@@ -1860,7 +1889,7 @@ Example:
     </section>
 
 
-Styleguide 23.5
+Styleguide 24.5
 
 */
 [data-animation*="fadeIn"] {
@@ -1875,7 +1904,7 @@ Animation mixin
 Also available is an "animate" mixin, for more information see the Mixins
 section.
 
-Styleguide 23.6
+Styleguide 24.6
 
 */
 @-webkit-keyframes fadeIn {
@@ -2490,11 +2519,11 @@ Styleguide 3.5
   border-radius: 0;
   border-color: transparent;
   background: none;
-  color: #0066cc;
+  color: #0074d9;
   cursor: pointer;
 }
 .btn--link:hover, .btn--link:focus {
-  color: #004c99;
+  color: #0059a6;
   text-decoration: underline;
   background-color: transparent;
 }
@@ -2808,6 +2837,7 @@ label {
 }
 
 .input-text,
+.form__input,
 textarea,
 input[type="text"],
 input[type="password"],
@@ -2836,6 +2866,7 @@ input[type="color"] {
 }
 @media \0screen {
   .input-text,
+  .form__input,
   textarea,
   input[type="text"],
   input[type="password"],
@@ -2855,6 +2886,7 @@ input[type="color"] {
   }
 }
 .input-text:focus,
+.form__input:focus,
 textarea:focus,
 input[type="text"]:focus,
 input[type="password"]:focus,
@@ -3085,15 +3117,15 @@ Styleguide 8.3
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
   border-radius: 4px;
-  border-style: solid;
-  border-width: 1px;
-  cursor: pointer;
   display: -moz-inline-stack;
   display: inline-block;
   vertical-align: middle;
   *vertical-align: auto;
   zoom: 1;
   *display: inline;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
   height: 2.57143em;
   line-height: 1em;
   margin-bottom: 0;
@@ -3181,7 +3213,7 @@ Styleguide 8.5
 */
 .form__help--block,
 .form__help--inline {
-  color: #595959;
+  color: #4d4d4d;
 }
 
 .form__help--block {
@@ -3202,6 +3234,62 @@ Styleguide 8.5
 
 /*
 
+Suggest
+
+Add a simple dropdown open on :focus with a list of link, clicking on a link
+will populate de input value.
+
+Script required: **rapido.js**.
+
+Markup:
+<div class="form__controls">
+  <input type="text">
+  <div class="form__suggest">
+    <ul>
+        <li><a href="#">Fist line</a></li>
+        <li><a href="#">Second line</a></li>
+        <li><a href="#">Third line</a></li>
+    </ul>
+  </div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.form__controls').rapido_Suggest();
+  });
+</script>
+
+Include this js after including rapido.js.
+
+    $('.form').rapido_Overlay();
+
+**Options** (with default values):
+
+    containerClass:   .form__controls
+    suggestClass:     .form__suggest
+
+Styleguide 8.6
+
+*/
+.form__suggest {
+  max-height: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: 5;
+}
+.form__suggest.open {
+  max-height: 42.85714em;
+}
+.form__suggest a {
+  display: block;
+}
+.form__suggest ul {
+  margin: 0;
+  list-style: none;
+  padding: 0.71429em 0.71429em;
+}
+
+/*
+
 Append & Prepend
 
 Markup:
@@ -3209,6 +3297,13 @@ Markup:
   <span class="form__addon fontawesome">&#xf06c;</span>
   <span class="form__addon">$</span>
   <input type="text">
+  <div class="form__suggest">
+    <ul>
+        <li><a href="#">Fist line</a></li>
+        <li><a href="#">Second line</a></li>
+        <li><a href="#">Third line</a></li>
+    </ul>
+  </div>
   <span class="form__addon">.00</span>
 </div>
 <div class="form__controls form__controls--multi">
@@ -3217,7 +3312,7 @@ Markup:
   <button type="submit" class="btn btn--default form__addon">Search</button>
 </div>
 
-Styleguide 8.6
+Styleguide 8.7
 
 */
 .form__addon {
@@ -3286,7 +3381,7 @@ Markup:
   <button type="button" class="btn btn--default btn--secondary">Cancel</button>
 </div>
 
-Styleguide 8.7
+Styleguide 8.8
 
 */
 .form__actions {
@@ -3352,7 +3447,7 @@ Markup:
 .form--aligned - Right align labels and float them to the left to make them appear on the same line as controls.
 .form--inline - For left-aligned labels and inline-block controls for a compact layout. This layout doesn't support `.form__group`, `.form__addon`, `.form__actions`
 
-Styleguide 8.8
+Styleguide 8.9
 
 */
 .form--grid .form__group {
@@ -3438,7 +3533,7 @@ Markup:
 
 </form>
 
-Styleguide 8.8.1
+Styleguide 8.9.1
 
 */
 .form--inline > * {
@@ -4297,7 +4392,7 @@ Markup:
 .table--hover - Enable a hover state on table rows within a `<tbody>`.
 .table--condensed - Makes tables more compact by cutting cell padding in half.
 
-Styleguide 19
+Styleguide 20
 
 */
 table {
@@ -4386,7 +4481,7 @@ Markup:
   });
 </script>
 
-Styleguide 20
+Styleguide 21
 
 */
 .tabs {
@@ -4482,7 +4577,7 @@ Styleguide 17
 
 Type
 
-Styleguide 21
+Styleguide 22
 
 */
 *, *:before, *:after {
@@ -4508,7 +4603,7 @@ body {
   line-height: 1.5em;
   margin: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #333333;
+  color: #262626;
 }
 
 img {
@@ -4526,20 +4621,22 @@ a, button, textarea, input {
 }
 
 a {
-  color: #0066cc;
+  color: #0074d9;
   text-decoration: none;
 }
 a:hover, a:focus {
-  color: #004c99;
+  color: #0059a6;
   text-decoration: none;
 }
 
 ::selection {
-  background: #999999;
+  color: white;
+  background: #39cccc;
 }
 
 ::-moz-selection {
-  background: #999999;
+  color: white;
+  background: #39cccc;
 }
 
 /*
@@ -4551,7 +4648,7 @@ Markup:
 <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec id elit non mi porta gravida at eget metus.</p>
 <small><p>Tight pants next level keffiyeh. Photo booth beard raw denim letterpress vegan messenger bag stumptown.</small>
 
-Styleguide 21.1
+Styleguide 22.1
 
 */
 p {
@@ -4587,7 +4684,7 @@ Markup:
 <h5>h5. This is a small header. h1.</h5>
 <h6>h6. This is a tiny header. h1.</h6>
 
-Styleguide 21.2
+Styleguide 22.2
 
 */
 h1, h2, h3, h4, h5, h6 {
@@ -4667,7 +4764,7 @@ Markup:
   <li>Ordered list item</li>
 </ol>
 
-Styleguide 21.3
+Styleguide 22.3
 
 */
 .list_style_none, .bx-wrapper ul, .list-style-none, .nav, .nav ul {
@@ -4721,7 +4818,7 @@ Markup:
   <dd>A geologist’s hammer, rock hammer, rock pick or geological pick is a hammer used for splitting and breaking rocks.</dd>
 </dl>
 
-Styleguide 21.4
+Styleguide 22.4
 
 */
 dl {
@@ -4748,7 +4845,7 @@ Markup:
   <dd>A geologist’s hammer, rock hammer, rock pick or geological pick is a hammer used for splitting and breaking rocks.</dd>
 </dl>
 
-Styleguide 21.4.1
+Styleguide 22.4.1
 
 */
 .dl-horizontal dt {
@@ -4770,7 +4867,7 @@ Horizontal line
 
 Markup: <hr />
 
-Styleguide 21.5
+Styleguide 22.5
 
 */
 hr {
@@ -4800,7 +4897,7 @@ Markup:
   <small><cite>Rock Hammer</cite></small>
 </blockquote>
 
-Styleguide 21.6
+Styleguide 22.6
 
 */
 blockquote {
@@ -6228,6 +6325,116 @@ Styleguide 14
 
 /*
 
+Tooltips
+
+Add simple tooltips to any element.
+
+Script required: **rapido.js**.
+
+Markup:
+<a class="btn btn--default tooltip__button" href="#"
+  data-tooltip-content="Text to be included in the tooltip"
+  data-tooltip-position="bottom">
+  Button
+</a>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.tooltip__button').rapido_Tooltip();
+  });
+</script>
+
+Include this js after including rapido.js.
+
+    $('.tooltip__button').rapido_Overlay();
+
+**Options** (with default values):
+
+    margin:            15
+
+Styleguide 19
+
+*/
+.tooltip-content {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -webkit-transition: 0.25s;
+  -moz-transition: 0.25s;
+  transition: 0.25s;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  position: absolute;
+  visibility: hidden;
+}
+.tooltip-content > span {
+  padding: 0.71429em 0.71429em;
+  display: block;
+}
+.tooltip-content.open {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+  max-height: 42.85714em;
+  visibility: visible;
+}
+.tooltip-content:after {
+  content: "";
+  display: block;
+  position: absolute;
+}
+
+[data-tooltip-position="top"] + .tooltip-content:after {
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 0.5em;
+  border-top-color: rgba(0, 0, 0, 0.75);
+  left: 50%;
+  margin-left: -0.5em;
+  bottom: -1em;
+}
+
+[data-tooltip-position="bottom"] + .tooltip-content:after {
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 0.5em;
+  border-bottom-color: rgba(0, 0, 0, 0.75);
+  left: 50%;
+  margin-left: -0.5em;
+  top: -1em;
+}
+
+[data-tooltip-position="left"] + .tooltip-content:after {
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 0.5em;
+  border-left-color: rgba(0, 0, 0, 0.75);
+  right: -1em;
+  top: 50%;
+  margin-top: -0.5em;
+}
+
+[data-tooltip-position="right"] + .tooltip-content:after {
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 0.5em;
+  border-right-color: rgba(0, 0, 0, 0.75);
+  left: -1em;
+  top: 50%;
+  margin-top: -0.5em;
+}
+
+/*
+
 Default Styles
 
 One of the main reason of the existence of Rapido is because I wanted to separate pure framework code form styling.
@@ -6236,7 +6443,7 @@ Every component refer to a silent class from `_default-style.scss`.
 These are all the classes available by default, others can be added or removed based on what component you want
 to enable or disable.
 
-Styleguide 31
+Styleguide 32
 
 */
 /*
@@ -6250,21 +6457,24 @@ Titles
     %h5                             # For <h5>
     %h6                             # For <h6>
 
-Styleguide 31.1
+Styleguide 32.1
 
 */
 /*
 
 Inputs and Selects
 
-    %input                          # For the <input> and <textarea>
-    %input-addon                    # For the addon texts in forms
-    %select                         # Custom select style, by default it use %input
+    %form__label                    # For the <label>
+    %form__input                    # For the <input> and <textarea>
+    %form__addon                    # For the addon texts in forms
+    %form__select                   # Custom select style, by default it use %input
+    %form__suggest                  # Styling for suggest dropdowns
 
-Styleguide 31.2
+Styleguide 32.2
 
 */
 .input-text,
+.form__input,
 textarea,
 input[type="text"],
 input[type="password"],
@@ -6290,6 +6500,7 @@ input[type="color"], .form__select {
   background-image: linear-gradient(bottom, #ffffff 0%, #f2f2f2 100%);
 }
 .input-text:focus,
+.form__input:focus,
 textarea:focus,
 input[type="text"]:focus,
 input[type="password"]:focus,
@@ -6311,9 +6522,22 @@ input[type="color"]:focus, .form__select:focus {
 }
 
 .form__addon {
-  color: #333333;
+  color: #262626;
   border-color: #d9d9d9;
   background-color: #f2f2f2;
+}
+
+.form__suggest {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  background-color: #999999;
+}
+.open.form__suggest {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+.form__suggest a {
+  color: white;
 }
 
 /*
@@ -6328,13 +6552,13 @@ Buttons
     %btn__disabled                  # For disabled button
     %btn__current                   # For current button (es. used in Pagination)
 
-Styleguide 31.3
+Styleguide 32.3
 
 */
 .btn--default, .pagination > * li a,
 .pagination > * li span, .pager li a,
 .pager li span {
-  color: #333333;
+  color: #262626;
   border-color: #999999;
   background-color: #d9d9d9;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
@@ -6450,7 +6674,7 @@ Captions
 
     %caption                        # Used for the captions in .caption and modals
 
-Styleguide 31.4
+Styleguide 32.4
 
 */
 .caption figcaption, .fancybox-title-over-wrap, .bx-caption span {
@@ -6466,7 +6690,7 @@ Labels (Badges & Pills)
 
     %pill                           # For the .badge and .pill
 
-Styleguide 31.5
+Styleguide 32.5
 
 */
 .badge,
@@ -6483,7 +6707,7 @@ Dropdowns
     %dropdown                       # For the dropdown's list
     %dropdown--open                 # For the drodpown button in .open state
 
-Styleguide 31.6
+Styleguide 32.6
 
 */
 .dropdown__menu {
@@ -6521,7 +6745,7 @@ Tables
     %table--hover                   # For .table--hover
     %table--sortable                # For .table--sortable
 
-Styleguide 31.7
+Styleguide 32.7
 
 */
 .table--bordered thead th, .table--bordered thead td {
@@ -6561,7 +6785,7 @@ Navs
     %nav--btn__current              # For the current selected link
     %nav--btn__disabled             # For the disabled links
 
-Styleguide 31.8
+Styleguide 32.8
 
 */
 .nav--btn li > a:hover, .nav--btn li > a:focus, .nav--btn li ul, .nav--btn li:hover > a {
@@ -6579,7 +6803,7 @@ Breadcrumbs
     %breadcrumbs                     # Base style of breadcrumbs
     %breadcrumbs__current            # For the current selected link
 
-Styleguide 31.9
+Styleguide 32.9
 
 */
 .breadcrumbs > li:after {
@@ -6606,7 +6830,7 @@ Pagination
     %pagination--btn__current       # For the current selected link
     %pagination--btn__disabled      # For the disabled links
 
-Styleguide 31.10
+Styleguide 32.10
 
 */
 /*
@@ -6618,7 +6842,7 @@ Pager
     %pager--btn__active             # For the :active  state of %pager--btn
     %pager--btn__disabled           # For the disabled links
 
-Styleguide 31.11
+Styleguide 32.11
 
 */
 /*
@@ -6634,7 +6858,7 @@ Modals
     %modal__caption                 # For the caption
     %modal__loading                 # Position and style of the loading icon
 
-Styleguide 31.12
+Styleguide 32.12
 
 */
 .btnPlay:after {
@@ -6737,7 +6961,7 @@ Sliders
     %slider__caption                # For the caption
     %slider__loading                # Position and style of the loading icon
 
-Styleguide 31.13
+Styleguide 32.13
 
 */
 .bx-controls-direction a {
@@ -6785,7 +7009,7 @@ Tabs
     %tab__btn__current              # For the current selected tab link
     %tab__container                 # For the content continer
 
-Styleguide 31.14
+Styleguide 32.14
 
 */
 .tabs .etabs li a {
@@ -6818,7 +7042,7 @@ Alerts
 
     %alert                          # For all alert messages
 
-Styleguide 31.15
+Styleguide 32.15
 
 */
 .alert {
@@ -6834,7 +7058,7 @@ OffCanvas Nav
     %nav--offcanvas__dim            # For the dimming the content on menu open
     %nav__toggle                    # For the toggle open/close button
 
-Styleguide 31.16
+Styleguide 32.16
 
 */
 .offcanvas__menu {
@@ -6868,7 +7092,7 @@ Overlays
     %overlay__background--open      # Animation for showing the background
     %overlay__background--close     # Animation for hiding the background
 
-Styleguide 31.17
+Styleguide 32.17
 
 */
 .overlay-close {
@@ -6896,9 +7120,11 @@ Shared
 Classes For other classes of generic elements
 
     %caret                          # Side triangle For Dropdowns and Selects
-    %loader-ico                     # generic loader icon For all scripts
+    %loader-ico                     # Generic loader icon For all scripts
+    %tooltip                        # Additional style for tooltips.
+                                      To change the colors see the 'colors' sections
 
-Styleguide 31.18
+Styleguide 32.18
 
 */
 .dropdown__caret:after, .form__select:after {
