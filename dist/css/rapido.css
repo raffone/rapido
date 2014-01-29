@@ -6354,7 +6354,7 @@ Include this js after including rapido.js.
 Styleguide 19
 
 */
-.tooltip-content {
+.tooltip {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -6369,23 +6369,23 @@ Styleguide 19
   position: absolute;
   visibility: hidden;
 }
-.tooltip-content > span {
+.tooltip > span {
   padding: 0.71429em 0.71429em;
   display: block;
 }
-.tooltip-content.open {
+.tooltip.open {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
   max-height: 42.85714em;
   visibility: visible;
 }
-.tooltip-content:after {
+.tooltip:after {
   content: "";
   display: block;
   position: absolute;
 }
 
-[data-tooltip-position="top"] + .tooltip-content:after {
+[data-tooltip-position="top"] + .tooltip:after {
   width: 0;
   height: 0;
   border-color: transparent;
@@ -6397,7 +6397,7 @@ Styleguide 19
   bottom: -1em;
 }
 
-[data-tooltip-position="bottom"] + .tooltip-content:after {
+[data-tooltip-position="bottom"] + .tooltip:after {
   width: 0;
   height: 0;
   border-color: transparent;
@@ -6409,7 +6409,7 @@ Styleguide 19
   top: -1em;
 }
 
-[data-tooltip-position="left"] + .tooltip-content:after {
+[data-tooltip-position="left"] + .tooltip:after {
   width: 0;
   height: 0;
   border-color: transparent;
@@ -6421,7 +6421,7 @@ Styleguide 19
   margin-top: -0.5em;
 }
 
-[data-tooltip-position="right"] + .tooltip-content:after {
+[data-tooltip-position="right"] + .tooltip:after {
   width: 0;
   height: 0;
   border-color: transparent;

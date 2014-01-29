@@ -32,7 +32,7 @@ Styleguide 19
 
 @if $tooltips {
 
-  .tooltip-content {
+  .tooltip {
     @extend %tooltip !optional;
     @include border-radius();
     @include opacity(0);
@@ -61,28 +61,28 @@ Styleguide 19
 
   }
 
-  [data-tooltip-position="top"] + .tooltip-content:after {
+  [data-tooltip-position="top"] + .tooltip:after {
     @include triangle($tooltip-triangle-size, $tooltip-background, down);
     left: 50%;
     margin-left: (neg($tooltip-triangle-size) / 2);
     bottom: neg($tooltip-triangle-size);
   }
 
-  [data-tooltip-position="bottom"] + .tooltip-content:after {
+  [data-tooltip-position="bottom"] + .tooltip:after {
     @include triangle($tooltip-triangle-size, $tooltip-background, up);
     left: 50%;
     margin-left: (neg($tooltip-triangle-size) / 2);
     top: neg($tooltip-triangle-size);
   }
 
-  [data-tooltip-position="left"] + .tooltip-content:after {
+  [data-tooltip-position="left"] + .tooltip:after {
     @include triangle($tooltip-triangle-size, $tooltip-background, right);
     right: neg($tooltip-triangle-size);
     top: 50%;
     margin-top: (neg($tooltip-triangle-size) / 2);
   }
 
-  [data-tooltip-position="right"] + .tooltip-content:after {
+  [data-tooltip-position="right"] + .tooltip:after {
     @include triangle($tooltip-triangle-size, $tooltip-background, left);
     left: neg($tooltip-triangle-size);
     top: 50%;

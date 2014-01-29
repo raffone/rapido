@@ -32,8 +32,8 @@
       var position = base.$el.data('tooltip-position');
 
       // Add tooltip to html
-      $('<span class="tooltip-content" />').html('<span>' + content + '</span>').insertAfter(base.el);
-      //$('<span class="tooltip-content" />').appendTo('body');
+      $('<span class="tooltip" />').html('<span>' + content + '</span>').insertAfter(base.el);
+      //$('<span class="tooltip" />').appendTo('body');
 
 
       // Get position of target
@@ -44,8 +44,8 @@
 
 
       // Get size of tooltip
-      tooltip.height = $('.tooltip-content').outerHeight();
-      tooltip.width = $('.tooltip-content').outerWidth();
+      tooltip.height = $('.tooltip').outerHeight();
+      tooltip.width = $('.tooltip').outerWidth();
 
       // Check what position is set in the options
       var is = {
@@ -87,14 +87,14 @@
       tooltip.width = null;
 
       // Add css positioning to tooltip
-      base.$el.next('.tooltip-content').css(tooltip);
+      base.$el.next('.tooltip').css(tooltip);
 
       base.$el.on('mouseenter mouseleave', function() {
-        base.$el.next('.tooltip-content').toggleClass('open');
+        base.$el.next('.tooltip').toggleClass('open');
       });
 
       //base.$el.on('mouseleave', function(){
-      //base.$el.next('.tooltip-content').removeClass('open')
+      //base.$el.next('.tooltip').removeClass('open')
       //});
 
     };
