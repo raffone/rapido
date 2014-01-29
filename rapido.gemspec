@@ -21,5 +21,6 @@ Gem::Specification.new do |s|
   # Gem Bookkeeping
   s.rubygems_version = %q{1.3.6}
   s.add_dependency "susy", ">= 1.0.8"
+  s.add_dependency "sass-media_query_combiner", ">= 0.0.6"
 
 end
