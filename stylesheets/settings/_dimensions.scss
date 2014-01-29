@@ -126,7 +126,7 @@ Padding specific to every component you can use to overwrite the base padding.
 
 Helper classes
 
-    $wrapper-padding:               em(20px)    # Side padding used with .w and .wrapper
+    $wrapper-padding:               20px    # Side padding used with .w and .wrapper
 
 Buttons
 
@@ -157,7 +157,7 @@ Styleguide 31.3
 
 
 // Helper classes
-$wrapper-padding:                   em(20px)                                                                !default;
+$wrapper-padding:                   20px                                                                    !default;
 
 // Buttons
 $btn-padding:                       $input-padding                                                          !default;
@@ -185,18 +185,18 @@ $tooltips-padding:                  $input-padding                              
 Sizes
 
     $loader-ico-size:               44px        # Icon size of the loader used with some componets
-    $modal-btn-size:                em(30px)    # Size of buttons used with the modals
-    $slider-btn-size:               em(30px)    # Size of buttons used with the sliders
-    $tooltip-triangle-size:         em(15px)    # Size the tooltip's triangle
+    $modal-btn-size:                30px        # Size of buttons used with the modals
+    $slider-btn-size:               30px        # Size of buttons used with the sliders
+    $tooltip-triangle-size:         15px        # Size the tooltip's triangle
 
 Styleguide 31.4
 
 */
 
 $loader-ico-size:                   44px                                                                    !default;
-$modal-btn-size:                    em(30px)                                                                !default;
-$slider-btn-size:                   em(30px)                                                                !default;
-$tooltip-triangle-size:             em(14px)                                                                !default;
+$modal-btn-size:                    30px                                                                    !default;
+$slider-btn-size:                   30px                                                                    !default;
+$tooltip-triangle-size:             14px                                                                    !default;
 
 /*
 
@@ -256,10 +256,10 @@ Grid (Susy)
 
 Default settings for susy grid. More info: [Susy](http://susy.oddbird.net/).
 
-    $total-columns:                 12      # Number of columns
-    $column-width:                  50px    # Columns width
-    $gutter-width:                  30px    # Gutter width
-    $container-style:               fluid   # Grid style
+    $total-columns:                 12          # Number of columns
+    $column-width:                  50px        # Columns width
+    $gutter-width:                  30px        # Gutter width
+    $container-style:               fluid       # Grid style
 
 Styleguide 31.8
 
@@ -275,10 +275,10 @@ $container-style:                   fluid                                       
 
 Off-Canvas Options
 
-    $offcanvas-width:              300px    # Width of the sidebar
-    $offcanvas-direction:          left     # On what side appear
-    $offcanvas-dim:                true     # Dim over the content on open
-    $offcanvas-effect:             slide    # cover, reveal, push, slide
+    $offcanvas-width:              300px        # Width of the sidebar
+    $offcanvas-direction:          left         # On what side appear
+    $offcanvas-dim:                true         # Dim over the content on open
+    $offcanvas-effect:             slide        # cover, reveal, push, slide
 
 Styleguide 15.1
 
@@ -296,12 +296,12 @@ Z-index
 
 Default settings for overlay components, taken from Bootstrap.
 
-    $zindex-offcanvas:              990     # OffCanvas
-    $zindex-dropdown:               1000    # Dropdowns
-    $zindex-popover:                1010    # Popovers
-    $zindex-tooltip:                1030    # Tooltips
-    $zindex-slider:                 1040    # Sliders
-    $zindex-modal:                  1050    # Modals
+    $zindex-offcanvas:              990         # OffCanvas
+    $zindex-dropdown:               1000        # Dropdowns
+    $zindex-popover:                1010        # Popovers
+    $zindex-tooltip:                1030        # Tooltips
+    $zindex-slider:                 1040        # Sliders
+    $zindex-modal:                  1050        # Modals
 
 Styleguide 31.9
 

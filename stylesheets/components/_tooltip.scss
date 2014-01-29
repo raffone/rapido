@@ -59,31 +59,31 @@ Styleguide 19
   }
 
   [data-tooltip-position="top"] + .tooltip:after {
-    @include triangle($tooltip-triangle-size, $tooltip-background, down);
+    @include triangle(em($tooltip-triangle-size), $tooltip-background, down);
     left: 50%;
-    margin-left: (neg($tooltip-triangle-size) / 2);
-    bottom: neg($tooltip-triangle-size);
+    margin-left: (neg(em($tooltip-triangle-size)) / 2);
+    bottom: neg(em($tooltip-triangle-size));
   }
 
   [data-tooltip-position="bottom"] + .tooltip:after {
-    @include triangle($tooltip-triangle-size, $tooltip-background, up);
+    @include triangle(em($tooltip-triangle-size), $tooltip-background, up);
     left: 50%;
-    margin-left: (neg($tooltip-triangle-size) / 2);
-    top: neg($tooltip-triangle-size);
+    margin-left: (neg(em($tooltip-triangle-size)) / 2);
+    top: neg(em($tooltip-triangle-size));
   }
 
   [data-tooltip-position="left"] + .tooltip:after {
-    @include triangle($tooltip-triangle-size, $tooltip-background, right);
-    right: neg($tooltip-triangle-size);
+    @include triangle(em($tooltip-triangle-size), $tooltip-background, right);
+    right: neg(em($tooltip-triangle-size));
     top: 50%;
-    margin-top: (neg($tooltip-triangle-size) / 2);
+    margin-top: (neg(em($tooltip-triangle-size)) / 2);
   }
 
   [data-tooltip-position="right"] + .tooltip:after {
-    @include triangle($tooltip-triangle-size, $tooltip-background, left);
-    left: neg($tooltip-triangle-size);
+    @include triangle(em($tooltip-triangle-size), $tooltip-background, left);
+    left: neg(em($tooltip-triangle-size));
     top: 50%;
-    margin-top: (neg($tooltip-triangle-size) / 2);
+    margin-top: (neg(em($tooltip-triangle-size)) / 2);
   }
 
 }

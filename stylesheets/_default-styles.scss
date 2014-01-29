@@ -437,12 +437,12 @@ Styleguide 32.12
 
     %modal__btn {
         @extend %btn--scripts;
-        @include square($modal-btn-size);
-        line-height: $modal-btn-size;
+        @include square(em($modal-btn-size));
+        line-height: em($modal-btn-size);
     }
 
     %modal__close {
-        $offset: -$modal-btn-size;
+        $offset: neg(em($modal-btn-size));
         @include position(absolute, $offset .5em 0 0);
         color: #CCCCCC;
         &:hover {
@@ -451,7 +451,7 @@ Styleguide 32.12
     }
 
     %modal__btnbar-size {
-      @include size($modal-btn-size, $modal-btn-size * 5);
+      @include size(em($modal-btn-size), em($modal-btn-size) * 5);
     }
 
     // Other styles
@@ -466,7 +466,7 @@ Styleguide 32.12
 
     }
 
-    %modal__nav { margin-top: (0 - ($modal-btn-size / 2)); }
+    %modal__nav { margin-top: (0 - (em($modal-btn-size) / 2)); }
 
     %modal__caption { @extend %caption; }
 
@@ -499,9 +499,9 @@ Styleguide 32.13
     // Buttons
     %slider__btn {
         @extend %btn--scripts;
-        @include square($slider-btn-size);
-        line-height: $slider-btn-size;
-        margin-top: -($slider-btn-size / 2);
+        @include square(em($slider-btn-size));
+        line-height: em($slider-btn-size);
+        margin-top: neg((em($slider-btn-size) / 2));
 
         &.bx-prev i:after { content: "<" }
         &.bx-next i:after { content: ">" }
@@ -601,7 +601,7 @@ Styleguide 32.16
 
     %nav--offcanvas {
         background-color: $grayDark;
-        padding: $wrapper-padding;
+        padding: em($wrapper-padding);
         color: $white;
 
         a {
