@@ -110,6 +110,8 @@ Styleguide 7.2
         min-width: 10em;
         overflow: hidden;
         z-index: $zindex-dropdown;
+        max-width: em($dropdowns-width);
+
 
         &[data-content] { min-width: em(600px); }
 
@@ -177,7 +179,7 @@ Styleguide 7.2
         .dropdown__menu {
             @include opacity(1);
             display/*\**/: block\9; // Ugly IE8 Hack
-            max-height: $dropdowns-height;
+            max-height: em($dropdowns-height);
         }
 
     }

@@ -497,13 +497,23 @@ Styleguide 31.4
 */
 /*
 
+Widths
+
+    $dropdowns-width:                160px       # max-width of dropdowns
+    $tooltips-width:                 200px       # max-width of tooltips
+
+Styleguide 31.5
+
+*/
+/*
+
 Heights
 
 Some elements need to have a max-height specified for smoother animations, like dropdowns:
 
-    $dropdowns-height:              em(600px);
+    $dropdowns-height:              600px
 
-Styleguide 31.5
+Styleguide 31.6
 
 */
 /*
@@ -512,11 +522,11 @@ Media Queries
 
 Set the width of the three steps of the layout.
 
-    $lap-start:                     481px   # Max width of smartphone
-    $desk-start:                    768px   # Max width for tablet
-    $desk-end:                      1080px  # Max width for desktop
+    $lap-start:                     481px       # Max width of smartphone
+    $desk-start:                    768px       # Max width for tablet
+    $desk-end:                      1080px      # Max width for desktop
 
-Styleguide 31.6
+Styleguide 31.7
 
 */
 /*
@@ -530,7 +540,7 @@ Default settings for susy grid. More info: [Susy](http://susy.oddbird.net/).
     $gutter-width:                  30px    # Gutter width
     $container-style:               fluid   # Grid style
 
-Styleguide 31.7
+Styleguide 31.8
 
 */
 /*
@@ -2690,6 +2700,7 @@ Styleguide 7.2
   min-width: 10em;
   overflow: hidden;
   z-index: 1000;
+  max-width: 11.42857em;
 }
 .dropdown__menu[data-content] {
   min-width: 42.85714em;
@@ -3277,7 +3288,7 @@ Styleguide 8.6
   z-index: 5;
 }
 .form__suggest.open {
-  max-height: 42.85714em;
+  max-height: 600px;
 }
 .form__suggest a {
   display: block;
@@ -4036,7 +4047,7 @@ Styleguide 12
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
   display/*\**/: block\9;
-  max-height: 42.85714em;
+  max-height: 600px;
 }
 
 .nav__title {
@@ -6366,17 +6377,15 @@ Styleguide 19
   transition: 0.25s;
   background: rgba(0, 0, 0, 0.75);
   color: white;
+  padding: 0.71429em 0.71429em;
   position: absolute;
   visibility: hidden;
-}
-.tooltip > span {
-  padding: 0.71429em 0.71429em;
-  display: block;
+  max-width: 300px;
 }
 .tooltip.open {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
-  max-height: 42.85714em;
+  max-height: 600px;
   visibility: visible;
 }
 .tooltip:after {

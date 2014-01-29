@@ -12,7 +12,6 @@ Styleguide 31
 
 $base-border-radius:                4px                                                                     !default;
 $horizontal-offset:                 180px                                                                   !default;
-$dropdowns-with:                    160px                                                                   !default;
 
 /*
 
@@ -199,6 +198,20 @@ $modal-btn-size:                    em(30px)                                    
 $slider-btn-size:                   em(30px)                                                                !default;
 $tooltip-triangle-size:             em(14px)                                                                !default;
 
+/*
+
+Widths
+
+    $dropdowns-width:                160px       # max-width of dropdowns
+    $tooltips-width:                 200px       # max-width of tooltips
+
+Styleguide 31.5
+
+*/
+
+$dropdowns-width:                   160px                                                                   !default;
+$tooltips-width:                    200px                                                                   !default;
+
 
 /*
 
@@ -206,14 +219,14 @@ Heights
 
 Some elements need to have a max-height specified for smoother animations, like dropdowns:
 
-    $dropdowns-height:              em(600px);
+    $dropdowns-height:              600px
 
-Styleguide 31.5
+Styleguide 31.6
 
 */
 
 
-$dropdowns-height:                  em(600px)                                                               !default;
+$dropdowns-height:                  600px                                                                   !default;
 
 /*
 
@@ -221,11 +234,11 @@ Media Queries
 
 Set the width of the three steps of the layout.
 
-    $lap-start:                     481px   # Max width of smartphone
-    $desk-start:                    768px   # Max width for tablet
-    $desk-end:                      1080px  # Max width for desktop
+    $lap-start:                     481px       # Max width of smartphone
+    $desk-start:                    768px       # Max width for tablet
+    $desk-end:                      1080px      # Max width for desktop
 
-Styleguide 31.6
+Styleguide 31.7
 
 */
 
@@ -248,7 +261,7 @@ Default settings for susy grid. More info: [Susy](http://susy.oddbird.net/).
     $gutter-width:                  30px    # Gutter width
     $container-style:               fluid   # Grid style
 
-Styleguide 31.7
+Styleguide 31.8
 
 */
 

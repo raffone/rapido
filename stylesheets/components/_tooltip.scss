@@ -39,13 +39,10 @@ Styleguide 19
     @include transition($tooltip-transition-duration);
     background: $tooltip-background;
     color: $tooltip-color;
+    padding: $tooltips-padding;
     position: absolute;
     visibility: hidden;
-
-    > span {
-      padding: $tooltips-padding;
-      display: block;
-    }
+    max-width: 300px;
 
     &.open {
       @include opacity(1);

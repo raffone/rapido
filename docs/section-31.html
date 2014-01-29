@@ -141,15 +141,19 @@
               
               
               
-              <li class="kss-menu-item"><a href="#section-31.5"><span class="kss-ref">31.5</span><span class="kss-name">Heights</span></a></li>
+              <li class="kss-menu-item"><a href="#section-31.5"><span class="kss-ref">31.5</span><span class="kss-name">Widths</span></a></li>
               
               
               
-              <li class="kss-menu-item"><a href="#section-31.6"><span class="kss-ref">31.6</span><span class="kss-name">Media Queries</span></a></li>
+              <li class="kss-menu-item"><a href="#section-31.6"><span class="kss-ref">31.6</span><span class="kss-name">Heights</span></a></li>
               
               
               
-              <li class="kss-menu-item"><a href="#section-31.7"><span class="kss-ref">31.7</span><span class="kss-name">Grid (Susy)</span></a></li>
+              <li class="kss-menu-item"><a href="#section-31.7"><span class="kss-ref">31.7</span><span class="kss-name">Media Queries</span></a></li>
+              
+              
+              
+              <li class="kss-menu-item"><a href="#section-31.8"><span class="kss-ref">31.8</span><span class="kss-name">Grid (Susy)</span></a></li>
               
               
               
@@ -266,14 +270,12 @@ $tooltip-triangle-size:         em(15px)    # Size the tooltip&apos;s triangle</
           </section>
           
           <section id="section-31.5" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">31.5</span> Heights</h1>
+            <h1 class="kss-title"><span class="kss-ref">31.5</span> Widths</h1>
             
             
             <div class="kss-description">
-              <p>Some elements need to have a max-height specified for smoother animations, like dropdowns:
-
-</p>
-<pre><code>$dropdowns-height:              em(600px);</code></pre>
+              <pre><code>$dropdowns-width:                160px       # max-width of dropdowns
+$tooltips-width:                 200px       # max-width of tooltips</code></pre>
 
             </div>
             
@@ -281,16 +283,14 @@ $tooltip-triangle-size:         em(15px)    # Size the tooltip&apos;s triangle</
           </section>
           
           <section id="section-31.6" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">31.6</span> Media Queries</h1>
+            <h1 class="kss-title"><span class="kss-ref">31.6</span> Heights</h1>
             
             
             <div class="kss-description">
-              <p>Set the width of the three steps of the layout.
+              <p>Some elements need to have a max-height specified for smoother animations, like dropdowns:
 
 </p>
-<pre><code>$lap-start:                     481px   # Max width of smartphone
-$desk-start:                    768px   # Max width for tablet
-$desk-end:                      1080px  # Max width for desktop</code></pre>
+<pre><code>$dropdowns-height:              600px</code></pre>
 
             </div>
             
@@ -298,7 +298,24 @@ $desk-end:                      1080px  # Max width for desktop</code></pre>
           </section>
           
           <section id="section-31.7" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">31.7</span> Grid (Susy)</h1>
+            <h1 class="kss-title"><span class="kss-ref">31.7</span> Media Queries</h1>
+            
+            
+            <div class="kss-description">
+              <p>Set the width of the three steps of the layout.
+
+</p>
+<pre><code>$lap-start:                     481px       # Max width of smartphone
+$desk-start:                    768px       # Max width for tablet
+$desk-end:                      1080px      # Max width for desktop</code></pre>
+
+            </div>
+            
+            
+          </section>
+          
+          <section id="section-31.8" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">31.8</span> Grid (Susy)</h1>
             
             
             <div class="kss-description">
