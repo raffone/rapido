@@ -1,0 +1,92 @@
+/*
+
+Tooltips
+
+Add simple tooltips to any element.
+
+Script required: **rapido.js**.
+
+Markup:
+<a class="btn btn--default tooltip__button" href="#"
+  data-tooltip-content="Text to be included in the tooltip"
+  data-tooltip-position="bottom">
+  Button
+</a>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.tooltip__button').rapido_Tooltip();
+  });
+</script>
+
+Include this js after including rapido.js.
+
+    $('.tooltip__button').rapido_Overlay();
+
+**Options** (with default values):
+
+    margin:            15
+
+Styleguide 19
+
+*/
+
+@if $tooltips {
+
+  .tooltip-content {
+    @extend %tooltip !optional;
+    @include border-radius();
+    @include opacity(0);
+    @include transition($tooltip-transition-duration);
+    background: $tooltip-background;
+    color: $tooltip-color;
+    position: absolute;
+    visibility: hidden;
+
+    > span {
+      padding: $tooltips-padding;
+      display: block;
+    }
+
+    &.open {
+      @include opacity(1);
+      max-height: $dropdowns-height;
+      visibility: visible;
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+    }
+
+  }
+
+  [data-tooltip-position="top"] + .tooltip-content:after {
+    @include triangle($tooltip-triangle-size, $tooltip-background, down);
+    left: 50%;
+    margin-left: (neg($tooltip-triangle-size) / 2);
+    bottom: neg($tooltip-triangle-size);
+  }
+
+  [data-tooltip-position="bottom"] + .tooltip-content:after {
+    @include triangle($tooltip-triangle-size, $tooltip-background, up);
+    left: 50%;
+    margin-left: (neg($tooltip-triangle-size) / 2);
+    top: neg($tooltip-triangle-size);
+  }
+
+  [data-tooltip-position="left"] + .tooltip-content:after {
+    @include triangle($tooltip-triangle-size, $tooltip-background, right);
+    right: neg($tooltip-triangle-size);
+    top: 50%;
+    margin-top: (neg($tooltip-triangle-size) / 2);
+  }
+
+  [data-tooltip-position="right"] + .tooltip-content:after {
+    @include triangle($tooltip-triangle-size, $tooltip-background, left);
+    left: neg($tooltip-triangle-size);
+    top: 50%;
+    margin-top: (neg($tooltip-triangle-size) / 2);
+  }
+
+}
