@@ -2,8 +2,12 @@
 
   $.rapido_Utilities = {
 
-    elemClass: function(el) {
+    getClass: function(el) {
       return '.' + $(el).attr('class').split(' ').join('.');
+    },
+
+    dotlessClass: function(string) {
+      return string.slice(1);
     }
 
   };

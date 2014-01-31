@@ -43,7 +43,7 @@
       if (present === 0) {
         // Add overlay element
         $('<div />')
-          .addClass(dotless(base.options.backgroundClass))
+          .addClass($.rapido_Utilities.dotlessClass(base.options.backgroundClass))
           .appendTo('body');
       }
     };
@@ -51,7 +51,7 @@
     var addClose = function(id) {
       // Add close button to overlay
       $('<span>Close</span>')
-        .addClass(dotless(base.options.closeClass))
+        .addClass($.rapido_Utilities.dotlessClass(base.options.closeClass))
         .prependTo('[data-overlay-content="' + id + '"]');
     };
 
