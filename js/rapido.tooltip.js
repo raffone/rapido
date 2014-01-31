@@ -41,8 +41,8 @@
 
     // Get size of tooltip
     var getTooltipData = function() {
-      tooltip.height = base.$el.next('.tooltip').outerHeight();
-      tooltip.width = base.$el.next('.tooltip').outerWidth();
+      tooltip.height = base.$el.next().outerHeight();
+      tooltip.width = base.$el.next().outerWidth();
     };
 
     // Calculate positioning
@@ -87,16 +87,22 @@
       });
 
       // Add css positioning to tooltip
-      base.$el.next('.tooltip').css(tooltip);
+      base.$el.next().css(tooltip);
 
       $(window).resize(function() {
-        base.$el.next('.tooltip').css(tooltip);
+        base.$el.next().css(tooltip);
       });
 
       // Toggle on :hover
       base.$el.on('mouseenter mouseleave', function() {
-        base.$el.next('.tooltip').toggleClass('open');
+        $(this).next().toggleClass('open');
       });
+
+      // Prevent from closing if tooltip is hovered
+      base.$el.next().on('mouseenter mouseleave', function() {
+        $(this).toggleClass('open');
+      });
+
     };
 
     base.init();
