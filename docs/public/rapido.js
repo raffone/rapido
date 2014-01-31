@@ -1,5 +1,5 @@
 /*
- *  Rapido - v0.1.6
+ *  Rapido - v0.1.7
  *  An easy and quick Sass + Compass + Susy + OOCSS + BEM prototyping framework.
  *  https://github.com/raffone/rapido
  *
@@ -452,33 +452,24 @@ $('.offcanvas__menu--toggle').rapido_Offcanvas();
     $.Rapido = {};
   }
 
-  $.Rapido.Suggest = function(el, options) {
+  $.Rapido.Suggest = function(options) {
     var base = this;
-
-    base.$el = $(el);
-    base.el = el;
-
-    base.$el.data('Rapido.Suggest', base);
 
     base.init = function() {
       base.options = $.extend({},$.Rapido.Suggest.defaultOptions, options);
 
-      var className = $.rapido_Utilities.elemClass(el);
-      var suggestElem = className + ' ' + base.options.suggestClass;
-      var linkElem = suggestElem + ' a';
-
-      setSize(suggestElem);
+      setSize();
 
       $(window).resize(function() {
-        setSize(suggestElem);
+        setSize();
       });
 
-      compileInput(linkElem);
+      compileInput();
 
     };
 
-    var setSize = function(suggestElem) {
-      $(suggestElem).each(function() {
+    var setSize = function() {
+      $(base.options.suggestClass).each(function() {
 
         var $suggest = $(this);
         var $input = $(this).parents(base.options.containerClass).children('input[type = "text"]');
@@ -492,7 +483,7 @@ $('.offcanvas__menu--toggle').rapido_Offcanvas();
 
         // Toggle class on :focus and :blur
         $input.focus(function() {
-          $(suggestElem).removeClass('open');
+          $(base.options.suggestClass).removeClass('open');
           $suggest.addClass('open');
         });
 
@@ -503,8 +494,8 @@ $('.offcanvas__menu--toggle').rapido_Offcanvas();
       });
     };
 
-    var compileInput = function(linkElem) {
-      $(linkElem).on('click', function(e) {
+    var compileInput = function() {
+      $(base.options.suggestClass + ' a').on('click', function(e) {
 
         var value = $(this).text();
         var $input = $(this).parents(base.options.containerClass).children('input[type = "text"]');
@@ -523,10 +514,8 @@ $('.offcanvas__menu--toggle').rapido_Offcanvas();
     suggestClass: '.form__suggest'
   };
 
-  $.fn.rapido_Suggest = function(options) {
-    return this.each(function() {
-      (new $.Rapido.Suggest(this, options));
-    });
+  $.rapido_Suggest = function(options) {
+    new $.Rapido.Suggest(options);
   };
 
 })(jQuery, window, document);
@@ -660,8 +649,8 @@ $('.offcanvas__menu--toggle').rapido_Offcanvas();
 
     // Get size of tooltip
     var getTooltipData = function() {
-      tooltip.height = base.$el.next('.tooltip').outerHeight();
-      tooltip.width = base.$el.next('.tooltip').outerWidth();
+      tooltip.height = base.$el.next().outerHeight();
+      tooltip.width = base.$el.next().outerWidth();
     };
 
     // Calculate positioning
@@ -681,7 +670,7 @@ $('.offcanvas__menu--toggle').rapido_Offcanvas();
       if (is.top || is.bottom) {
         tooltip.left = target.left + (target.width / 2) - (tooltip.width / 2);
       }
-      if (is.left && is.right) {
+      if (is.left || is.right) {
         tooltip.top = target.top + (target.height / 2) - (tooltip.height / 2);
       }
 
@@ -706,16 +695,22 @@ $('.offcanvas__menu--toggle').rapido_Offcanvas();
       });
 
       // Add css positioning to tooltip
-      base.$el.next('.tooltip').css(tooltip);
+      base.$el.next().css(tooltip);
 
       $(window).resize(function() {
-        base.$el.next('.tooltip').css(tooltip);
+        base.$el.next().css(tooltip);
       });
 
       // Toggle on :hover
       base.$el.on('mouseenter mouseleave', function() {
-        base.$el.next('.tooltip').toggleClass('open');
+        $(this).next().toggleClass('open');
       });
+
+      // Prevent from closing if tooltip is hovered
+      base.$el.next().on('mouseenter mouseleave', function() {
+        $(this).toggleClass('open');
+      });
+
     };
 
     base.init();

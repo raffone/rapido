@@ -4,33 +4,24 @@
     $.Rapido = {};
   }
 
-  $.Rapido.Suggest = function(el, options) {
+  $.Rapido.Suggest = function(options) {
     var base = this;
-
-    base.$el = $(el);
-    base.el = el;
-
-    base.$el.data('Rapido.Suggest', base);
 
     base.init = function() {
       base.options = $.extend({},$.Rapido.Suggest.defaultOptions, options);
 
-      var className = $.rapido_Utilities.elemClass(el);
-      var suggestElem = className + ' ' + base.options.suggestClass;
-      var linkElem = suggestElem + ' a';
-
-      setSize(suggestElem);
+      setSize();
 
       $(window).resize(function() {
-        setSize(suggestElem);
+        setSize();
       });
 
-      compileInput(linkElem);
+      compileInput();
 
     };
 
-    var setSize = function(suggestElem) {
-      $(suggestElem).each(function() {
+    var setSize = function() {
+      $(base.options.suggestClass).each(function() {
 
         var $suggest = $(this);
         var $input = $(this).parents(base.options.containerClass).children('input[type = "text"]');
@@ -44,7 +35,7 @@
 
         // Toggle class on :focus and :blur
         $input.focus(function() {
-          $(suggestElem).removeClass('open');
+          $(base.options.suggestClass).removeClass('open');
           $suggest.addClass('open');
         });
 
@@ -55,8 +46,8 @@
       });
     };
 
-    var compileInput = function(linkElem) {
-      $(linkElem).on('click', function(e) {
+    var compileInput = function() {
+      $(base.options.suggestClass + ' a').on('click', function(e) {
 
         var value = $(this).text();
         var $input = $(this).parents(base.options.containerClass).children('input[type = "text"]');
@@ -75,10 +66,8 @@
     suggestClass: '.form__suggest'
   };
 
-  $.fn.rapido_Suggest = function(options) {
-    return this.each(function() {
-      (new $.Rapido.Suggest(this, options));
-    });
+  $.rapido_Suggest = function(options) {
+    new $.Rapido.Suggest(options);
   };
 
 })(jQuery, window, document);

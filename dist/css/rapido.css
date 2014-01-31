@@ -671,7 +671,7 @@ Durations specifics for some  modules.
 
     $caption-animations-duration:       .50s
     $offcanvas-animations-duration:     .40s
-    $tooltip-transition-duration:       .25s
+    $tooltip-transition-duration:       .30s
 
 Styleguide 24.1
 
@@ -2874,29 +2874,7 @@ input[type="color"] {
   height: 2.57143em;
   border-width: 1px;
   border-style: solid;
-}
-@media \0screen {
-  .input-text,
-  .form__input,
-  textarea,
-  input[type="text"],
-  input[type="password"],
-  input[type="datetime"],
-  input[type="datetime-local"],
-  input[type="date"],
-  input[type="month"],
-  input[type="time"],
-  input[type="week"],
-  input[type="number"],
-  input[type="email"],
-  input[type="url"],
-  input[type="search"],
-  input[type="tel"],
-  input[type="color"] {
-    line-height: 2.57143em;
-  }
-}
-.input-text:focus,
+}.input-text:focus,
 .form__input:focus,
 textarea:focus,
 input[type="text"]:focus,
@@ -3265,13 +3243,13 @@ Markup:
 </div>
 <script type="text/javascript">
   $(document).ready(function() {
-    $('.form__controls').rapido_Suggest();
+    $.rapido_Suggest();
   });
 </script>
 
 Include this js after including rapido.js.
 
-    $('.form').rapido_Overlay();
+    $.rapido_Suggest();
 
 **Options** (with default values):
 
@@ -3286,6 +3264,7 @@ Styleguide 8.6
   overflow: hidden;
   position: absolute;
   z-index: 5;
+  padding: 0.71429em 0.71429em;
 }
 .form__suggest.open {
   max-height: 600px;
@@ -3296,7 +3275,6 @@ Styleguide 8.6
 .form__suggest ul {
   margin: 0;
   list-style: none;
-  padding: 0.71429em 0.71429em;
 }
 
 /*
@@ -3498,21 +3476,6 @@ Styleguide 8.9
 .form--aligned .form__actions {
   padding-left: 12.85714em;
 }
-@media only screen and (max-width: 480px) {
-  .form--aligned .form__label {
-    width: 100%;
-    float: none;
-    padding-top: 0;
-    text-align: left;
-  }
-  .form--aligned .form__controls {
-    margin-left: 0;
-  }
-  .form--aligned .form__actions {
-    padding-left: 0;
-  }
-}
-
 /*
 
 Inline Form (semplified)
@@ -4598,17 +4561,6 @@ Styleguide 22
   outline: none;
 }
 
-@media only screen and (min-width: 481px) {
-  html {
-    font-size: 87.5%;
-  }
-}
-@media only screen and (max-width: 480px) {
-  html {
-    font-size: 100%;
-  }
-}
-
 body {
   font-size: 1em;
   line-height: 1.5em;
@@ -5437,468 +5389,7 @@ Markup:
 
 Styleguide 9
 
-*/
-@media only screen and (max-width: 480px) {
-  .palm-13 {
-    width: 108.60215%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .palm-12 {
-    width: 100%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .palm-11 {
-    width: 91.39785%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .palm-10 {
-    width: 82.7957%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .palm-9 {
-    width: 74.19355%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .palm-8 {
-    width: 65.5914%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .palm-7 {
-    width: 56.98925%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .palm-6 {
-    width: 48.3871%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .palm-5 {
-    width: 39.78495%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .palm-4 {
-    width: 31.1828%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .palm-3 {
-    width: 22.58065%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .palm-2 {
-    width: 13.97849%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .palm-1 {
-    width: 5.37634%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-}
-@media only screen and (min-width: 481px) and (max-width: 767px) {
-  .lap-13 {
-    width: 108.60215%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .lap-12 {
-    width: 100%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .lap-11 {
-    width: 91.39785%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .lap-10 {
-    width: 82.7957%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .lap-9 {
-    width: 74.19355%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .lap-8 {
-    width: 65.5914%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .lap-7 {
-    width: 56.98925%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .lap-6 {
-    width: 48.3871%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .lap-5 {
-    width: 39.78495%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .lap-4 {
-    width: 31.1828%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .lap-3 {
-    width: 22.58065%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .lap-2 {
-    width: 13.97849%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .lap-1 {
-    width: 5.37634%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .portable-13 {
-    width: 108.60215%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .portable-12 {
-    width: 100%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .portable-11 {
-    width: 91.39785%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .portable-10 {
-    width: 82.7957%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .portable-9 {
-    width: 74.19355%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .portable-8 {
-    width: 65.5914%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .portable-7 {
-    width: 56.98925%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .portable-6 {
-    width: 48.3871%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .portable-5 {
-    width: 39.78495%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .portable-4 {
-    width: 31.1828%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .portable-3 {
-    width: 22.58065%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .portable-2 {
-    width: 13.97849%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .portable-1 {
-    width: 5.37634%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-}
-@media only screen and (min-width: 481px) {
-  .lap-and-up-13 {
-    width: 108.60215%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .lap-and-up-12 {
-    width: 100%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .lap-and-up-11 {
-    width: 91.39785%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .lap-and-up-10 {
-    width: 82.7957%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .lap-and-up-9 {
-    width: 74.19355%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .lap-and-up-8 {
-    width: 65.5914%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .lap-and-up-7 {
-    width: 56.98925%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .lap-and-up-6 {
-    width: 48.3871%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .lap-and-up-5 {
-    width: 39.78495%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .lap-and-up-4 {
-    width: 31.1828%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .lap-and-up-3 {
-    width: 22.58065%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .lap-and-up-2 {
-    width: 13.97849%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .lap-and-up-1 {
-    width: 5.37634%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-}
-@media only screen and (min-width: 768px) {
-  .desk-13 {
-    width: 108.60215%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .desk-12 {
-    width: 100%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .desk-11 {
-    width: 91.39785%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .desk-10 {
-    width: 82.7957%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .desk-9 {
-    width: 74.19355%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .desk-8 {
-    width: 65.5914%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .desk-7 {
-    width: 56.98925%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .desk-6 {
-    width: 48.3871%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .desk-5 {
-    width: 39.78495%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .desk-4 {
-    width: 31.1828%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .desk-3 {
-    width: 22.58065%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .desk-2 {
-    width: 13.97849%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-
-  .desk-1 {
-    width: 5.37634%;
-    float: left;
-    margin-right: 3.22581%;
-    display: inline;
-  }
-}
-/*
+*//*
 
 Show and Hide
 
@@ -5919,88 +5410,7 @@ There're also available some helper classes:
 
 Styleguide 9.1
 
-*/
-@media only screen and (max-width: 480px) {
-  .palm-hide {
-    display: none !important;
-  }
-
-  .palm-show {
-    display: block !important;
-  }
-
-  .palm-omega {
-    float: right;
-    margin-right: 0;
-    *margin-left: -30px;
-    display: inline;
-  }
-}
-@media only screen and (min-width: 481px) and (max-width: 767px) {
-  .lap-hide {
-    display: none !important;
-  }
-
-  .lap-show {
-    display: block !important;
-  }
-
-  .lap-omega {
-    float: right;
-    margin-right: 0;
-    *margin-left: -30px;
-    display: inline;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .portable-hide {
-    display: none !important;
-  }
-
-  .portable-show {
-    display: block !important;
-  }
-
-  .portable-omega {
-    float: right;
-    margin-right: 0;
-    *margin-left: -30px;
-    display: inline;
-  }
-}
-@media only screen and (min-width: 481px) {
-  .lap-and-up-hide {
-    display: none !important;
-  }
-
-  .lap-and-up-show {
-    display: block !important;
-  }
-
-  .lap-and-up-omega {
-    float: right;
-    margin-right: 0;
-    *margin-left: -30px;
-    display: inline;
-  }
-}
-@media only screen and (min-width: 768px) {
-  .desk-hide {
-    display: none !important;
-  }
-
-  .desk-show {
-    display: block !important;
-  }
-
-  .desk-omega {
-    float: right;
-    margin-right: 0;
-    *margin-left: -30px;
-    display: inline;
-  }
-}
-/*
+*//*
 
 Badge & Pills
 
@@ -6365,35 +5775,12 @@ Include this js after including rapido.js.
 Styleguide 19
 
 */
-.tooltip {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  border-radius: 5px;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-  -webkit-transition: 0.25s;
-  -moz-transition: 0.25s;
-  transition: 0.25s;
-  background: rgba(0, 0, 0, 0.75);
-  color: white;
-  padding: 0.71429em 0.71429em;
-  position: absolute;
-  visibility: hidden;
-  max-width: 300px;
+[data-tooltip-position="top"] + .tooltip {
+  -webkit-transform: translate(0, -0.5em);
+  -moz-transform: translate(0, -0.5em);
+  -ms-transform: translate(0, -0.5em);
+  transform: translate(0, -0.5em);
 }
-.tooltip.open {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-  opacity: 1;
-  max-height: 600px;
-  visibility: visible;
-}
-.tooltip:after {
-  content: "";
-  display: block;
-  position: absolute;
-}
-
 [data-tooltip-position="top"] + .tooltip:after {
   width: 0;
   height: 0;
@@ -6406,6 +5793,12 @@ Styleguide 19
   bottom: -1em;
 }
 
+[data-tooltip-position="bottom"] + .tooltip {
+  -webkit-transform: translate(0, 0.5em);
+  -moz-transform: translate(0, 0.5em);
+  -ms-transform: translate(0, 0.5em);
+  transform: translate(0, 0.5em);
+}
 [data-tooltip-position="bottom"] + .tooltip:after {
   width: 0;
   height: 0;
@@ -6418,6 +5811,12 @@ Styleguide 19
   top: -1em;
 }
 
+[data-tooltip-position="left"] + .tooltip {
+  -webkit-transform: translate(-0.5em, 0);
+  -moz-transform: translate(-0.5em, 0);
+  -ms-transform: translate(-0.5em, 0);
+  transform: translate(-0.5em, 0);
+}
 [data-tooltip-position="left"] + .tooltip:after {
   width: 0;
   height: 0;
@@ -6430,6 +5829,12 @@ Styleguide 19
   margin-top: -0.5em;
 }
 
+[data-tooltip-position="right"] + .tooltip {
+  -webkit-transform: translate(0.5em, 0);
+  -moz-transform: translate(0.5em, 0);
+  -ms-transform: translate(0.5em, 0);
+  transform: translate(0.5em, 0);
+}
 [data-tooltip-position="right"] + .tooltip:after {
   width: 0;
   height: 0;
@@ -6440,6 +5845,39 @@ Styleguide 19
   left: -1em;
   top: 50%;
   margin-top: -0.5em;
+}
+
+.tooltip {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  transition: 0.3s;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 0.71429em 0.71429em;
+  position: absolute;
+  visibility: hidden;
+  max-width: 300px;
+}
+.tooltip.open {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+  max-height: 600px;
+  visibility: visible;
+}
+.tooltip:after {
+  content: "";
+  display: block;
+  position: absolute;
 }
 
 /*
@@ -7142,4 +6580,587 @@ Styleguide 32.18
 
 #fancybox-loading div {
   background: url("//cdn.jsdelivr.net/wp-advanced-ajax-page-loader/2.5.12/loaders/SMALL%20-%20Spinning%20Arrows.gif") center center no-repeat;
+}
+
+@media \0screen {
+  .input-text,
+  .form__input,
+  textarea,
+  input[type="text"],
+  input[type="password"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="date"],
+  input[type="month"],
+  input[type="time"],
+  input[type="week"],
+  input[type="number"],
+  input[type="email"],
+  input[type="url"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="color"] {
+    line-height: 2.57143em;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .form--aligned .form__label {
+    width: 100%;
+    float: none;
+    padding-top: 0;
+    text-align: left;
+  }
+  .form--aligned .form__controls {
+    margin-left: 0;
+  }
+  .form--aligned .form__actions {
+    padding-left: 0;
+  }
+
+  html {
+    font-size: 100%;
+  }
+
+  .palm-13 {
+    width: 108.60215%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .palm-12 {
+    width: 100%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .palm-11 {
+    width: 91.39785%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .palm-10 {
+    width: 82.7957%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .palm-9 {
+    width: 74.19355%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .palm-8 {
+    width: 65.5914%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .palm-7 {
+    width: 56.98925%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .palm-6 {
+    width: 48.3871%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .palm-5 {
+    width: 39.78495%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .palm-4 {
+    width: 31.1828%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .palm-3 {
+    width: 22.58065%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .palm-2 {
+    width: 13.97849%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .palm-1 {
+    width: 5.37634%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .palm-hide {
+    display: none !important;
+  }
+
+  .palm-show {
+    display: block !important;
+  }
+
+  .palm-omega {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline;
+  }
+}
+
+@media only screen and (min-width: 481px) {
+  html {
+    font-size: 87.5%;
+  }
+
+  .lap-and-up-13 {
+    width: 108.60215%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .lap-and-up-12 {
+    width: 100%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .lap-and-up-11 {
+    width: 91.39785%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .lap-and-up-10 {
+    width: 82.7957%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .lap-and-up-9 {
+    width: 74.19355%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .lap-and-up-8 {
+    width: 65.5914%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .lap-and-up-7 {
+    width: 56.98925%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .lap-and-up-6 {
+    width: 48.3871%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .lap-and-up-5 {
+    width: 39.78495%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .lap-and-up-4 {
+    width: 31.1828%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .lap-and-up-3 {
+    width: 22.58065%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .lap-and-up-2 {
+    width: 13.97849%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .lap-and-up-1 {
+    width: 5.37634%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .lap-and-up-hide {
+    display: none !important;
+  }
+
+  .lap-and-up-show {
+    display: block !important;
+  }
+
+  .lap-and-up-omega {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline;
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+  .lap-13 {
+    width: 108.60215%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .lap-12 {
+    width: 100%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .lap-11 {
+    width: 91.39785%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .lap-10 {
+    width: 82.7957%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .lap-9 {
+    width: 74.19355%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .lap-8 {
+    width: 65.5914%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .lap-7 {
+    width: 56.98925%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .lap-6 {
+    width: 48.3871%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .lap-5 {
+    width: 39.78495%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .lap-4 {
+    width: 31.1828%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .lap-3 {
+    width: 22.58065%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .lap-2 {
+    width: 13.97849%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .lap-1 {
+    width: 5.37634%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .lap-hide {
+    display: none !important;
+  }
+
+  .lap-show {
+    display: block !important;
+  }
+
+  .lap-omega {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .portable-13 {
+    width: 108.60215%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .portable-12 {
+    width: 100%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .portable-11 {
+    width: 91.39785%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .portable-10 {
+    width: 82.7957%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .portable-9 {
+    width: 74.19355%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .portable-8 {
+    width: 65.5914%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .portable-7 {
+    width: 56.98925%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .portable-6 {
+    width: 48.3871%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .portable-5 {
+    width: 39.78495%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .portable-4 {
+    width: 31.1828%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .portable-3 {
+    width: 22.58065%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .portable-2 {
+    width: 13.97849%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .portable-1 {
+    width: 5.37634%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .portable-hide {
+    display: none !important;
+  }
+
+  .portable-show {
+    display: block !important;
+  }
+
+  .portable-omega {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .desk-13 {
+    width: 108.60215%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .desk-12 {
+    width: 100%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .desk-11 {
+    width: 91.39785%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .desk-10 {
+    width: 82.7957%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .desk-9 {
+    width: 74.19355%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .desk-8 {
+    width: 65.5914%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .desk-7 {
+    width: 56.98925%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .desk-6 {
+    width: 48.3871%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .desk-5 {
+    width: 39.78495%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .desk-4 {
+    width: 31.1828%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .desk-3 {
+    width: 22.58065%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .desk-2 {
+    width: 13.97849%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .desk-1 {
+    width: 5.37634%;
+    float: left;
+    margin-right: 3.22581%;
+    display: inline;
+  }
+
+  .desk-hide {
+    display: none !important;
+  }
+
+  .desk-show {
+    display: block !important;
+  }
+
+  .desk-omega {
+    float: right;
+    margin-right: 0;
+    *margin-left: -30px;
+    display: inline;
+  }
 }

@@ -152,20 +152,21 @@
 <br/><br/><br/><br/>
 
 
-<form class="form">
-  <div class="form__group">
-    <label class="form__label" for="">testo label</label>
-    <div class="form__controls">
-      <input type="text">
-      <div class="form__suggest">
-        <ul>
-          <li><a href="#">Fist line</a></li>
-          <li><a href="#">Second line</a></li>
-          <li><a href="#">Third line</a></li>
-        </ul>
-      </div>
-    </div>
+<div class="form__controls" data-width="80" >
+  <input type="text"   data-width="100"/>
+  <div class="form__suggest">
+    <ul>
+      <li><a href="#">Fist line</a></li>
+      <li><a href="#">Second line</a></li>
+      <li><a href="#">Third line</a></li>
+    </ul>
   </div>
+</div>
+
+
+<br/><br/><br/><br/>
+
+<form class="form">
   <div class="form__group">
     <label class="form__label" for="">testo label</label>
     <div class="form__controls form__controls--multi">
@@ -210,10 +211,14 @@
 asdfasdasdfasdf asdf asd fasd fasd fas dfasd f   a adsf
 <a class="btn btn--default tooltip__button" href="#"
   data-tooltip-content="Testo da includere nel tooltip"
-  data-tooltip-position="bottom">Semplice tooltip
+  data-tooltip-position="left">Semplice tooltip
 </a>
 <br>
-asdfasdasdfasdf asdf asd fasd fasd fas dfasd f   a adsf
+asdfasdasdfasdf asdf asd fasd fasd fas dfasd f   a adsf<br>
+asdfasdasdfasdf asdf asd fasd fasd fas dfasd f   a adsf<br>
+asdfasdasdfasdf asdf asd fasd fasd fas dfasd f   a adsf<br>
+asdfasdasdfasdf asdf asd fasd fasd fas dfasd f   a adsf<br>
+asdfasdasdfasdf asdf asd fasd fasd
 <a class="btn btn--default tooltip__button" href="#"
   data-tooltip-content="Testo da includere nel tooltip, Testo da includere nel tooltip, Testo da includere nel tooltip, Testo da includere nel tooltip, Testo da includere nel tooltip, Testo da includere nel tooltip Testo da includere nel tooltip"
   data-tooltip-position="bottom">Semplice tooltip
@@ -478,7 +483,7 @@ $('.element').rapido_Move({destination: '.destination', minWidth:500});
 $('.delayed').rapido_Animation({offsetMenu: true});
 $('.tooltip__button').rapido_Tooltip();
 
-    $('.form').rapido_Suggest();
+    $.rapido_Suggest();
 
   </script>
   </body>
