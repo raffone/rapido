@@ -27,6 +27,8 @@
 </style>
 </head>
 <body>
+
+
 <div id="offcanvas__container" class="offcanvas__container">
   <nav class="offcanvas__menu">
   <h2 class="icon icon-lab">Sidebar</h2>
@@ -64,6 +66,8 @@
   </nav>
   <div class="offcanvas__pusher">
     <div class="offcanvas__content">
+      <a class="scroll" href="#gino" id="top">Scroll to top</a>
+
       <button class="btn btn--medium btn--default offcanvas__menu--toggle"><span>Menu</span></button>
       <div class="dropdown" data-dropdown>
         <a href="http://www.google.it" class="btn btn--default dropdown__toggle ">
@@ -150,6 +154,18 @@
 
       </form>
 <br/><br/><br/><br/>
+
+
+
+          <select>
+            <option selected="selected">Select Country</option>
+            <option>United States</option>
+            <option>United Kingdom</option>
+            <option>Italy</option>
+            <option>France</option>
+            <option>Germany</option>
+          </select>
+
 
 
 <div class="form__controls" data-width="80" >
@@ -356,6 +372,7 @@ asdfasdasdfasdf asdf asd fasd fasd
       <br/>
       <br/>
       <br/>
+      <a class="scroll" href="#top" id="gino">Scroll to top</a>
       <br/>
       <br/>
       <br/>
@@ -473,18 +490,21 @@ asdfasdasdfasdf asdf asd fasd fasd
   <script src="../js/rapido.tooltip.js"></script>
   <script src="../js/rapido.move.js"></script>
   <script src="../js/rapido.suggest.js"></script>
+  <script src="../js/rapido.select.js"></script>
+  <script src="../js/rapido.scroll.js"></script>
   <script type="text/javascript">
-$('.toggleAdv').rapido_Toggle();
-$('.toggleAdv2').rapido_Toggle({delay:0});
-$('.offcanvas__menu-toggle').rapido_Offcanvas();
-$('[data-dropdown=""]').rapido_Dropdown();
-$('[data-dropdown="hover"]').rapido_Dropdown({event:'hover'});
-$('.element').rapido_Move({destination: '.destination', minWidth:500});
-$('.delayed').rapido_Animation({offsetMenu: true});
-$('.tooltip__button').rapido_Tooltip();
-
-    $.rapido_Suggest();
-
+  $('.toggleAdv').rapido_Toggle();
+  $('.toggleAdv2').rapido_Toggle({delay:0});
+  $('.offcanvas__menu-toggle').rapido_Offcanvas();
+  $('[data-dropdown=""]').rapido_Dropdown();
+  $('[data-dropdown="hover"]').rapido_Dropdown({event:'hover'});
+  $('.element').rapido_Move({destination: '.destination', minWidth:500});
+  $('.delayed').rapido_Animation();
+  $('.tooltip__button').rapido_Tooltip();
+  $.rapido_Suggest();
+  $.rapido_Select();
+  $('.scroll').rapido_Scroll();
+  $('.offcanvas__menu--toggle').rapido_Offcanvas();
   </script>
   </body>
   </html>
