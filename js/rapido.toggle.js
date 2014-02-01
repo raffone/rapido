@@ -34,19 +34,19 @@
         var id = $(this).attr(titleClass);
         var description = '[' + contentClass + '="' + id + '"]';
 
-        // Se il pannello e' gia aperto > chiudilo
+        // If target panel is already open then close it
         if ($(description).hasClass('open')) {
           $(description).removeClass('open');
           $(this).removeClass('open');
           return false;
 
-        // Se nessun pannello e' aperto > aprilo
+        // If no panel is open then open it
         } else if (!$(baseClass + '*').hasClass('open')) {
           $(description).addClass('open');
           $(this).addClass('open');
           return false;
 
-        // Se c'e un altro pannello perto > chiudilo, aspetta, e apri
+        // If there is already an open panel then close it and open the target panel
         } else {
           $(baseClass + base.options.titleClass).removeClass('open');
           $(baseClass + base.options.contentClass).removeClass('open');
