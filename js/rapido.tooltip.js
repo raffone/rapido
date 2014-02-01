@@ -32,7 +32,6 @@
 
     // Get position of target
     var getTargetData = function() {
-
       target.top = base.$el.position().top;
       target.left = base.$el.position().left;
       target.height = base.$el.outerHeight();
@@ -76,20 +75,14 @@
       $('<span class="tooltip" />').html(content).insertAfter(base.el);
 
       // Get and set correct positioning
-      getTargetData();
-      getTooltipData();
-      setTooltipPositioning();
-
-      $(window).resize(function() {
+      $(window).on('ready resize', function() {
         getTargetData();
         getTooltipData();
         setTooltipPositioning();
       });
 
       // Add css positioning to tooltip
-      base.$el.next().css(tooltip);
-
-      $(window).resize(function() {
+      $(window).on('ready resize', function() {
         base.$el.next().css(tooltip);
       });
 
