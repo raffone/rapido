@@ -60,9 +60,7 @@
       base.$el.on('click', function(e) {
         var offset, height;
 
-        height = $(window).height();
-
-        $(window).resize(function() {
+        $(window).on('ready resize', function() {
           height = $(window).height();
         });
 
