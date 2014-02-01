@@ -270,6 +270,17 @@ Markup:
   </select>
 </span>
 
+If is not possibile to directly add the span it's also available a script
+for adding them on load (only if necessary).
+
+Include this js after including rapido.js.
+
+    $.rapido_Select();
+
+**Options** (with default values):
+
+    selectClass:      .form__select
+
 Styleguide 8.3
 
 */
