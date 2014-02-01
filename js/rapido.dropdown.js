@@ -18,14 +18,8 @@
       var wrapperClass, togglerClass, str;
 
       // Grab and convert class name of container
-      wrapperClass = $.rapido_Utilities.getClass(el);
-
-      // Grab and convert class of the toggler button
-      str = base.$el.children()[0];
-      str = '.' + str.className.replace(/ /g, '.');
-      str = str.substring(0, str.length - 1);
-
-      togglerClass = str;
+      wrapperClass = $.rapido_Utilities.getClass(base.el);
+      togglerClass = $.rapido_Utilities.getClass(base.el.firstElementChild);
 
       if (base.options.event == 'hover') {
         toggleHover();
