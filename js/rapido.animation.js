@@ -15,39 +15,40 @@
     base.init = function() {
       base.options = $.extend({},$.Rapido.Animation.defaultOptions, options);
 
-
       addClass();
     };
 
     function addClass() {
-      var animation, offset, scrollbar, container, added = false;
+      var animation, offset, scrollbar, container, isOffsetLayout, added = false;
 
+      // Get the animation to apply
       animation = base.$el.data('animation');
 
+      // Check if is using the offset layout
+      isOffsetLayout = $.rapido_Utilities.elemExist(base.options.offsetClass);
 
-      if (base.options.offsetMenu) {
-        container = '.offcanvas__content';
-        offset = base.$el.position();
+      // Set corrent container of the content
+      if (isOffsetLayout) {
+        container = base.options.offsetClass;
       } else {
         container = window;
-        offset = base.$el.offset();
       }
 
+      // Get offset of element to animate
+      offset = base.$el.position();
       offset = offset.top - base.options.offset;
-      offset = parseInt(offset);
-
-      //console.log(offset);
 
       $(container).scroll(function(e) {
 
-        if (base.options.offsetMenu) {
-          scrollbar = $('.offcanvas__content').scrollTop();
+        // On scroll udate scroll value fro comparison
+        if (isOffsetLayout) {
+          scrollbar = $(base.options.offsetClass).scrollTop();
         } else {
           scrollbar = $(document).scrollTop();
         }
 
-        //console.log(scrollbar);
-
+        // Check if current container offset is less or equal the
+        // element's offset and it's not animated already
         if (offset <= scrollbar && !added) {
           base.$el.addClass(animation);
           added = true;
@@ -61,7 +62,7 @@
 
   $.Rapido.Animation.defaultOptions = {
     offset: 500,
-    offsetMenu: false
+    offsetClass: '.offcanvas__content'
   };
 
   $.fn.rapido_Animation = function(options) {
