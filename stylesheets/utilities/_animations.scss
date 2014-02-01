@@ -171,7 +171,7 @@ Include this js after including rapido.js.
 **Options** (with default values):
 
     offset:     500
-    offsetMenu: false (when using rapido's offset nav)
+    offsetClass: .offcanvas__content (if using an offset layout with a custom class)
 
 Example:
 
