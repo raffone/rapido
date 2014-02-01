@@ -21,6 +21,7 @@
 
     var toggleClick = function() {
 
+      // Click on toggle button add class to container
       base.$el.on('click', function() {
         $(base.options.containerClass).addClass(base.options.toggleClass);
       });
@@ -29,14 +30,17 @@
 
     var close = function() {
 
+      // Click on dim area close remove class from container
       $('html').on('click', function(e) {
         $(base.options.containerClass).removeClass(base.options.toggleClass);
       });
 
+      // Prevent from closing if clicking inside the sidebar
       base.$el.on('click', function(e) {
         e.stopPropagation();
       });
 
+      // Prevent from closing if clicking the toggle button
       $(base.options.menuClass).on('click', function(e) {
         e.stopPropagation();
       });
@@ -59,5 +63,3 @@
   };
 
 })(jQuery, window, document);
-
-$('.offcanvas__menu--toggle').rapido_Offcanvas();
