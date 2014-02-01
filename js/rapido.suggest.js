@@ -10,9 +10,7 @@
     base.init = function() {
       base.options = $.extend({},$.Rapido.Suggest.defaultOptions, options);
 
-      setSize();
-
-      $(window).resize(function() {
+      $(window).on('ready resize', function() {
         setSize();
       });
 
