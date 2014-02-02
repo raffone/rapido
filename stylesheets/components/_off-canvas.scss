@@ -265,12 +265,16 @@ Styleguide 15.2
 
   // ----------------------------------------------------------------------------
 
-  .no-csstransforms3d .offcanvas__pusher {
-    padding-left: $offcanvas-width;
-  }
+  .no-csstransforms3d, .no-js {
 
-  .no-js .offcanvas__pusher {
-    padding-left: $offcanvas-width;
+    .offcanvas__pusher {
+      padding-left: $offcanvas-width;
+    }
+
+    .offcanvas__menu {
+      visibility: visible;
+    }
+
   }
 
 }
