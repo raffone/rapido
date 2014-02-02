@@ -4,8 +4,11 @@
 
     // Get class of element object
     getClass: function(el) {
-      el = $(el).attr('class').replace(/^\s\s*/, '').replace(/\s\s*$/, '');
-      return '.' + el.split(' ').join('.');
+      var attr = $(el).attr('class');
+      if (typeof attr !== 'undefined' && attr !== false) {
+        el = $(el).attr('class').replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+        return '.' + el.split(' ').join('.');
+      }
     },
 
     // Remove dot from class
