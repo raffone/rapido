@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   # Release Specific Information
-  s.version = "0.1.8"
-  s.date = "2014-01-31"
+  s.version = "0.1.9"
+  s.date = "2014-02-02"
 
   # Gem Details
   s.name = "rapido-css"

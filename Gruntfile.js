@@ -44,9 +44,19 @@ module.exports = function(grunt) {
         globals: {
           jQuery: true,
           console: true,
-          module: true
+          module: true,
         }
       }
+    },
+
+    jslint: {
+      src: 'js/**/*.js',
+      directives: {
+        browser: true,
+        predef: [
+          'jQuery'
+        ]
+      },
     },
 
     // JS - Concatenate js
@@ -163,6 +173,6 @@ module.exports = function(grunt) {
   grunt.registerTask('js',   ['concat', 'closureFixStyle', 'jshint', 'uglify']);
   grunt.registerTask('docs', ['compass:dist', 'js', 'copy:js', 'kss']);
   grunt.registerTask('site', ['compass:dist', 'kss', 'copy']);
-  grunt.registerTask('default', ['compass', 'js']);
+  grunt.registerTask('default', 'watch');
 
 };

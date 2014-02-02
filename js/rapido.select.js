@@ -27,7 +27,7 @@
         }
 
         // Open select (only work with webkit)
-        $select.on('click', function(){
+        $select.on('click', function() {
           var e = document.createEvent('MouseEvents');
           e.initMouseEvent('mousedown');
           $this[0].dispatchEvent(e);

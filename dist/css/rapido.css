@@ -1890,7 +1890,7 @@ Include this js after including rapido.js.
 **Options** (with default values):
 
     offset:     500
-    offsetMenu: false (when using rapido's offset nav)
+    offsetClass: .offcanvas__content (if using an offset layout with a custom class)
 
 Example:
 
@@ -1902,7 +1902,7 @@ Example:
 Styleguide 24.5
 
 */
-[data-animation*="fadeIn"] {
+.cssanimations [data-animation*="fadeIn"] {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
 }
@@ -3098,6 +3098,17 @@ Markup:
   </select>
 </span>
 
+If is not possibile to directly add the span it's also available a script
+for adding them on load (only if necessary).
+
+Include this js after including rapido.js.
+
+    $.rapido_Select();
+
+**Options** (with default values):
+
+    selectClass:      .form__select
+
 Styleguide 8.3
 
 */
@@ -4138,6 +4149,7 @@ body,
   -moz-transition: opacity 0.4s, width 0.1s 0.4s;
   transition: opacity 0.4s, width 0.1s 0.4s;
   content: '';
+  z-index: 991;
 }
 
 .offcanvas__content {
@@ -4220,12 +4232,11 @@ body,
   display: none;
 }
 
-.no-csstransforms3d .offcanvas__pusher {
+.no-csstransforms3d .offcanvas__pusher, .no-js .offcanvas__pusher {
   padding-left: 300px;
 }
-
-.no-js .offcanvas__pusher {
-  padding-left: 300px;
+.no-csstransforms3d .offcanvas__menu, .no-js .offcanvas__menu {
+  visibility: visible;
 }
 
 /*
