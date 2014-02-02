@@ -89,6 +89,7 @@ Styleguide 15.2
       @include square(0);
       @include transition(opacity $offcanvas-animations-duration, width $offcanvas-animations-duration/4 $offcanvas-animations-duration);
       content: '';
+      z-index: ($zindex-offcanvas + 1);
 
       @if $offcanvas-dim {
         @extend %nav--offcanvas__dim !optional;
