@@ -184,8 +184,10 @@ Styleguide 24.5
 
 */
 
-[data-animation*="fadeIn"] {
-  @include opacity(0);
+.cssanimations {
+  [data-animation*="fadeIn"] {
+    @include opacity(0);
+  }
 }
 
 /*
