@@ -6,7 +6,7 @@
     getClass: function(el) {
       var attr = $(el).attr('class');
       if (typeof attr !== 'undefined' && attr !== false) {
-        el = $(el).attr('class').replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+        el = $.trim($(el).attr('class'));
         return '.' + el.split(' ').join('.');
       }
     },
