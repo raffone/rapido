@@ -31,11 +31,6 @@
 
     };
 
-    // Remove dot for option classes
-    var dotless = function(text) {
-      return text.slice(1);
-    };
-
     var addOverlay = function() {
       var present = $(base.options.backgroundClass).length;
 
