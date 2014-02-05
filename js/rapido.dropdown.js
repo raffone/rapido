@@ -15,35 +15,29 @@
     base.init = function() {
       base.options = $.extend({},$.Rapido.Dropdown.defaultOptions, options);
 
-      var wrapperClass, togglerClass, str;
-
-      // Grab and convert class name of container
-      wrapperClass = $.rapido_Utilities.getClass(base.el);
-      togglerClass = $.rapido_Utilities.getClass(base.el.firstElementChild);
-
       if (base.options.event == 'hover') {
         toggleHover();
       } else {
-        toggleClick(wrapperClass, togglerClass);
+        toggleClick();
       }
 
       close();
     };
 
     // Event: Click
-    var toggleClick = function(wrapperClass, togglerClass) {
+    var toggleClick = function() {
 
       base.$el.on(base.options.event, function(e) {
 
         if ($(this).hasClass('open')) {
           $(this).removeClass('open');
         } else {
-          $(wrapperClass).removeClass('open');
+          $(base.options.wrapperClass).removeClass('open');
           $(this).addClass('open');
         }
       });
 
-      base.$el.on(base.options.event, togglerClass, function(e) {
+      base.$el.on(base.options.event, base.options.togglerClass, function(e) {
         e.preventDefault();
       });
 
@@ -77,7 +71,9 @@
   };
 
   $.Rapido.Dropdown.defaultOptions = {
-    event: 'click'
+    event: 'click',
+    wrapperClass: '.dropdown',
+    togglerClass: '.dropdown__toggle'
   };
 
   $.fn.rapido_Dropdown = function(options) {

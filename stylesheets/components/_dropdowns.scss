@@ -2,7 +2,7 @@
 
 Dropdowns
 
-Toggleable, contextual menu for displaying lists of links. Made interactive with the [dropdown JavaScript plugin](http://twitter.github.io/bootstrap/javascript.html#dropdowns).
+Toggleable, contextual menu for displaying lists of links.
 
 Looking at just the dropdown menu, here's the required HTML. You need to wrap the dropdown's trigger and the dropdown menu within `.dropdown`. Then just create the menu.
 
@@ -43,7 +43,9 @@ Include this js after including rapido.js.
 
 **Options** (with default values):
 
-    event: click (click, hover)
+    event:         click (click, hover)
+    wrapperClass:  .dropdown
+    togglerClass:  .dropdown__toggle
 
 Styleguide 7
 
