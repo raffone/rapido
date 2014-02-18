@@ -98,35 +98,29 @@
     base.init = function() {
       base.options = $.extend({},$.Rapido.Dropdown.defaultOptions, options);
 
-      var wrapperClass, togglerClass, str;
-
-      // Grab and convert class name of container
-      wrapperClass = $.rapido_Utilities.getClass(base.el);
-      togglerClass = $.rapido_Utilities.getClass(base.el.firstElementChild);
-
       if (base.options.event == 'hover') {
         toggleHover();
       } else {
-        toggleClick(wrapperClass, togglerClass);
+        toggleClick();
       }
 
       close();
     };
 
     // Event: Click
-    var toggleClick = function(wrapperClass, togglerClass) {
+    var toggleClick = function() {
 
       base.$el.on(base.options.event, function(e) {
 
         if ($(this).hasClass('open')) {
           $(this).removeClass('open');
         } else {
-          $(wrapperClass).removeClass('open');
+          $(base.options.wrapperClass).removeClass('open');
           $(this).addClass('open');
         }
       });
 
-      base.$el.on(base.options.event, togglerClass, function(e) {
+      base.$el.on(base.options.event, base.options.togglerClass, function(e) {
         e.preventDefault();
       });
 
@@ -160,7 +154,9 @@
   };
 
   $.Rapido.Dropdown.defaultOptions = {
-    event: 'click'
+    event: 'click',
+    wrapperClass: '.dropdown',
+    togglerClass: '.dropdown__toggle'
   };
 
   $.fn.rapido_Dropdown = function(options) {
@@ -342,11 +338,6 @@
       openOverlay(id);
       closeOverlay(id);
 
-    };
-
-    // Remove dot for option classes
-    var dotless = function(text) {
-      return text.slice(1);
     };
 
     var addOverlay = function() {
@@ -584,7 +575,9 @@
     base.init = function() {
       base.options = $.extend({},$.Rapido.Suggest.defaultOptions, options);
 
-      $(window).on('ready resize', function() {
+      setSize();
+
+      $(window).resize(function() {
         setSize();
       });
 
@@ -618,10 +611,11 @@
       });
     };
 
+
     var compileInput = function() {
       $(base.options.suggestClass + ' a').on('click', function(e) {
 
-        var value = $(this).text();
+        var value = $(this).attr(base.options.suggestAttr);
         var $input = $(this).parents(base.options.containerClass).children('input[type = "text"]');
 
         $input.val(value);
@@ -635,7 +629,8 @@
 
   $.Rapido.Suggest.defaultOptions = {
     containerClass: '.form__controls',
-    suggestClass: '.form__suggest'
+    suggestClass: '.form__suggest',
+    suggestAttr: 'title'
   };
 
   $.rapido_Suggest = function(options) {
@@ -854,7 +849,7 @@
     getClass: function(el) {
       var attr = $(el).attr('class');
       if (typeof attr !== 'undefined' && attr !== false) {
-        el = $(el).attr('class').replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+        el = $.trim($(el).attr('class'));
         return '.' + el.split(' ').join('.');
       }
     },
