@@ -10,7 +10,9 @@
     base.init = function() {
       base.options = $.extend({},$.Rapido.Suggest.defaultOptions, options);
 
-      $(window).on('ready resize', function() {
+      setSize();
+
+      $(window).resize(function() {
         setSize();
       });
 
@@ -44,10 +46,11 @@
       });
     };
 
+
     var compileInput = function() {
       $(base.options.suggestClass + ' a').on('click', function(e) {
 
-        var value = $(this).text();
+        var value = $(this).attr(base.options.suggestAttr);
         var $input = $(this).parents(base.options.containerClass).children('input[type = "text"]');
 
         $input.val(value);
@@ -61,7 +64,8 @@
 
   $.Rapido.Suggest.defaultOptions = {
     containerClass: '.form__controls',
-    suggestClass: '.form__suggest'
+    suggestClass: '.form__suggest',
+    suggestAttr: 'title'
   };
 
   $.rapido_Suggest = function(options) {
