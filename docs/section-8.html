@@ -295,7 +295,21 @@ stacked, left-aligned labels on top of form controls.
             
             <div class="kss-description">
               <p>Add custom styling to a select element wrapping the <code>&lt;select&gt;</code> with a <code>&lt;span&gt;</code>
-with class <code>.form__select</code>.</p>
+with class <code>.form__select</code>.
+
+</p>
+<p>If is not possibile to directly add the span it&apos;s also available a script
+for adding them on load (only if necessary).
+
+</p>
+<p>Include this js after including rapido.js.
+
+</p>
+<pre><code>$.rapido_Select();</code></pre>
+<p><strong>Options</strong> (with default values):
+
+</p>
+<pre><code>selectClass:      .form__select</code></pre>
 
             </div>
             
@@ -444,7 +458,8 @@ will populate de input value.
 
 </p>
 <pre><code>containerClass:   .form__controls
-suggestClass:     .form__suggest</code></pre>
+suggestClass:     .form__suggest
+suggestAttr:      title</code></pre>
 
             </div>
             
@@ -455,9 +470,9 @@ suggestClass:     .form__suggest</code></pre>
   <input type="text">
   <div class="form__suggest">
     <ul>
-        <li><a href="#">Fist line</a></li>
-        <li><a href="#">Second line</a></li>
-        <li><a href="#">Third line</a></li>
+        <li><a href="#" title="First line">First line</a></li>
+        <li><a href="#" title="Second line">Second line</a></li>
+        <li><a href="#" title="Third line">Third line</a></li>
     </ul>
   </div>
 </div>
@@ -474,9 +489,9 @@ suggestClass:     .form__suggest</code></pre>
   &lt;input type=&quot;text&quot;&gt;
   &lt;div class=&quot;form__suggest&quot;&gt;
     &lt;ul&gt;
-        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Fist line&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Second line&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Third line&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot; title=&quot;First line&quot;&gt;First line&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot; title=&quot;Second line&quot;&gt;Second line&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot; title=&quot;Third line&quot;&gt;Third line&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/div&gt;
 &lt;/div&gt;

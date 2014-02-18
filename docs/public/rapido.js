@@ -1,5 +1,5 @@
 /*
- *  Rapido - v0.1.7
+ *  Rapido - v0.1.9
  *  An easy and quick Sass + Compass + Susy + OOCSS + BEM prototyping framework.
  *  https://github.com/raffone/rapido
  *
@@ -23,39 +23,40 @@
     base.init = function() {
       base.options = $.extend({},$.Rapido.Animation.defaultOptions, options);
 
-
       addClass();
     };
 
     function addClass() {
-      var animation, offset, scrollbar, container, added = false;
+      var animation, offset, scrollbar, container, isOffsetLayout, added = false;
 
+      // Get the animation to apply
       animation = base.$el.data('animation');
 
+      // Check if is using the offset layout
+      isOffsetLayout = $.rapido_Utilities.elemExist(base.options.offsetClass);
 
-      if (base.options.offsetMenu) {
-        container = '.offcanvas__content';
-        offset = base.$el.position();
+      // Set corrent container of the content
+      if (isOffsetLayout) {
+        container = base.options.offsetClass;
       } else {
         container = window;
-        offset = base.$el.offset();
       }
 
+      // Get offset of element to animate
+      offset = base.$el.position();
       offset = offset.top - base.options.offset;
-      offset = parseInt(offset);
-
-      //console.log(offset);
 
       $(container).scroll(function(e) {
 
-        if (base.options.offsetMenu) {
-          scrollbar = $('.offcanvas__content').scrollTop();
+        // On scroll udate scroll value fro comparison
+        if (isOffsetLayout) {
+          scrollbar = $(base.options.offsetClass).scrollTop();
         } else {
           scrollbar = $(document).scrollTop();
         }
 
-        //console.log(scrollbar);
-
+        // Check if current container offset is less or equal the
+        // element's offset and it's not animated already
         if (offset <= scrollbar && !added) {
           base.$el.addClass(animation);
           added = true;
@@ -69,7 +70,7 @@
 
   $.Rapido.Animation.defaultOptions = {
     offset: 500,
-    offsetMenu: false
+    offsetClass: '.offcanvas__content'
   };
 
   $.fn.rapido_Animation = function(options) {
@@ -97,42 +98,29 @@
     base.init = function() {
       base.options = $.extend({},$.Rapido.Dropdown.defaultOptions, options);
 
-      var wrapperClass, togglerClass, str;
-
-      // Grab and convert class name of container
-      //wrapperClass = '.' + base.$el.attr('class').split(' ')[0];
-      wrapperClass = $.rapido_Utilities.elemClass(el);
-
-      // Grab and convert class of the toggler button
-      str = base.$el.children()[0];
-      str = '.' + str.className.replace(/ /g, '.');
-      str = str.substring(0, str.length - 1);
-
-      togglerClass = str;
-
       if (base.options.event == 'hover') {
         toggleHover();
       } else {
-        toggleClick(wrapperClass, togglerClass);
+        toggleClick();
       }
 
       close();
     };
 
     // Event: Click
-    var toggleClick = function(wrapperClass, togglerClass) {
+    var toggleClick = function() {
 
       base.$el.on(base.options.event, function(e) {
 
         if ($(this).hasClass('open')) {
           $(this).removeClass('open');
         } else {
-          $(wrapperClass).removeClass('open');
+          $(base.options.wrapperClass).removeClass('open');
           $(this).addClass('open');
         }
       });
 
-      base.$el.on(base.options.event, togglerClass, function(e) {
+      base.$el.on(base.options.event, base.options.togglerClass, function(e) {
         e.preventDefault();
       });
 
@@ -166,7 +154,9 @@
   };
 
   $.Rapido.Dropdown.defaultOptions = {
-    event: 'click'
+    event: 'click',
+    wrapperClass: '.dropdown',
+    togglerClass: '.dropdown__toggle'
   };
 
   $.fn.rapido_Dropdown = function(options) {
@@ -195,31 +185,38 @@
       base.options = $.extend({},$.Rapido.Move.defaultOptions, options);
       base.options.origin = '.' + base.el.parentNode.className;
 
-      var w = $(window).width();
-
+      // Assign width options to aliases
       var max = base.options.maxWidth;
       var min = base.options.minWidth;
 
-      move(w, max, min);
+      // On ready and resize call function
+      $(window).on('ready resize', function() {
 
-      $(window).resize(function() {
+        // Get current window width
         var w = $(window).width();
+
+        // Call move function
         move(w, max, min);
+
       });
 
     };
 
     var move = function(w, max, min) {
 
+      // If max-width and min-height are set and match window
       if (max && min && w <= max && w >= min) {
         $(base.options.destination).append(base.el);
 
+      // If only max-width is set and match window
       } else if (max && !min && w <= max) {
         $(base.options.destination).append(base.el);
 
+      // If only min-width is set and match window
       } else if (min && !max && w >= min) {
         $(base.options.destination).append(base.el);
 
+      // If none match window
       } else {
         $(base.options.origin).append(base.el);
 
@@ -267,6 +264,7 @@
 
     var toggleClick = function() {
 
+      // Click on toggle button add class to container
       base.$el.on('click', function() {
         $(base.options.containerClass).addClass(base.options.toggleClass);
       });
@@ -275,14 +273,17 @@
 
     var close = function() {
 
+      // Click on dim area close remove class from container
       $('html').on('click', function(e) {
         $(base.options.containerClass).removeClass(base.options.toggleClass);
       });
 
+      // Prevent from closing if clicking inside the sidebar
       base.$el.on('click', function(e) {
         e.stopPropagation();
       });
 
+      // Prevent from closing if clicking the toggle button
       $(base.options.menuClass).on('click', function(e) {
         e.stopPropagation();
       });
@@ -305,8 +306,6 @@
   };
 
 })(jQuery, window, document);
-
-$('.offcanvas__menu--toggle').rapido_Offcanvas();
 
 (function($, window, document, undefined) {
 
@@ -341,11 +340,6 @@ $('.offcanvas__menu--toggle').rapido_Offcanvas();
 
     };
 
-    // Remove dot for option classes
-    var dotless = function(text) {
-      return text.slice(1);
-    };
-
     var addOverlay = function() {
       var present = $(base.options.backgroundClass).length;
 
@@ -353,7 +347,7 @@ $('.offcanvas__menu--toggle').rapido_Offcanvas();
       if (present === 0) {
         // Add overlay element
         $('<div />')
-          .addClass(dotless(base.options.backgroundClass))
+          .addClass($.rapido_Utilities.dotlessClass(base.options.backgroundClass))
           .appendTo('body');
       }
     };
@@ -361,7 +355,7 @@ $('.offcanvas__menu--toggle').rapido_Offcanvas();
     var addClose = function(id) {
       // Add close button to overlay
       $('<span>Close</span>')
-        .addClass(dotless(base.options.closeClass))
+        .addClass($.rapido_Utilities.dotlessClass(base.options.closeClass))
         .prependTo('[data-overlay-content="' + id + '"]');
     };
 
@@ -370,9 +364,7 @@ $('.offcanvas__menu--toggle').rapido_Offcanvas();
       base.$el.on('click', function(e) {
         var offset, height;
 
-        height = $(window).height();
-
-        $(window).resize(function() {
+        $(window).on('ready resize', function() {
           height = $(window).height();
         });
 
@@ -452,6 +444,131 @@ $('.offcanvas__menu--toggle').rapido_Offcanvas();
     $.Rapido = {};
   }
 
+  $.Rapido.Scroll = function(el, options) {
+    var base = this;
+
+    base.$el = $(el);
+    base.el = el;
+
+    base.$el.data('Rapido.Scroll', base);
+
+    base.init = function() {
+      base.options = $.extend({},$.Rapido.Scroll.defaultOptions, options);
+
+      scroll();
+    };
+
+    var scroll = function() {
+      var container, offset, target, isOffsetLayout;
+
+      // Get id of target
+      target = base.$el.attr('href');
+
+      // Check if is using the offset layout
+      isOffsetLayout = $.rapido_Utilities.elemExist(base.options.offsetClass);
+
+      // Set corrent container of the content
+      if (isOffsetLayout) {
+        container = '.offcanvas__content';
+      } else {
+        container = 'html, body';
+      }
+
+      // Add offset to taget position
+      offset = $(target).position().top - base.options.offset;
+
+      // On click go to taget
+      base.$el.on('click', function(e) {
+
+        $(container).animate({
+          scrollTop: offset
+        }, base.options.duration);
+
+        e.preventDefault();
+
+      });
+
+    };
+
+    base.init();
+  };
+
+  $.Rapido.Scroll.defaultOptions = {
+    duration: 1600,
+    offset: 20,
+    offsetClass: '.offcanvas__content'
+  };
+
+  $.fn.rapido_Scroll = function(options) {
+    return this.each(function() {
+      (new $.Rapido.Scroll(this, options));
+    });
+  };
+
+})(jQuery, window, document);
+
+(function($, window, document, undefined) {
+
+  if (!$.Rapido) {
+    $.Rapido = {};
+  }
+
+  $.Rapido.Select = function(options) {
+    var base = this;
+
+    base.init = function() {
+      base.options = $.extend({},$.Rapido.Select.defaultOptions, options);
+
+      var selectClass = $.rapido_Utilities.dotlessClass(base.options.selectClass);
+
+
+      // Find all select
+      $('select').each(function(i, el) {
+
+        var $this = $(el);
+        var $select = $this.parent();
+        var is_added = $select[0].className === selectClass ? true : false;
+
+        // Check if the select has already the wrapper class
+        if (!is_added) {
+          $(this).wrap('<span class="' + selectClass + '" />');
+          $select = $(this).parent();
+        }
+
+        // Open select (only work with webkit)
+        $select.on('click', function() {
+          var e = document.createEvent('MouseEvents');
+          e.initMouseEvent('mousedown');
+          $this[0].dispatchEvent(e);
+        });
+
+      });
+
+      // Refresh all event binded to window resize
+      $(window).trigger('resize');
+
+    };
+
+    base.init();
+  };
+
+  $.Rapido.Select.defaultOptions = {
+    selectClass: '.form__select'
+  };
+
+  $.rapido_Select = function(options) {
+    new $.Rapido.Select(options);
+  };
+
+})(jQuery, window, document);
+
+
+(function($, window, document, undefined) {
+
+  if (!$.Rapido) {
+    $.Rapido = {};
+  }
+
   $.Rapido.Suggest = function(options) {
     var base = this;
 
@@ -494,10 +611,11 @@ $('.offcanvas__menu--toggle').rapido_Offcanvas();
       });
     };
 
+
     var compileInput = function() {
       $(base.options.suggestClass + ' a').on('click', function(e) {
 
-        var value = $(this).text();
+        var value = $(this).attr(base.options.suggestAttr);
         var $input = $(this).parents(base.options.containerClass).children('input[type = "text"]');
 
         $input.val(value);
@@ -511,7 +629,8 @@ $('.offcanvas__menu--toggle').rapido_Offcanvas();
 
   $.Rapido.Suggest.defaultOptions = {
     containerClass: '.form__controls',
-    suggestClass: '.form__suggest'
+    suggestClass: '.form__suggest',
+    suggestAttr: 'title'
   };
 
   $.rapido_Suggest = function(options) {
@@ -557,19 +676,19 @@ $('.offcanvas__menu--toggle').rapido_Offcanvas();
         var id = $(this).attr(titleClass);
         var description = '[' + contentClass + '="' + id + '"]';
 
-        // Se il pannello e' gia aperto > chiudilo
+        // If target panel is already open then close it
         if ($(description).hasClass('open')) {
           $(description).removeClass('open');
           $(this).removeClass('open');
           return false;
 
-        // Se nessun pannello e' aperto > aprilo
+        // If no panel is open then open it
         } else if (!$(baseClass + '*').hasClass('open')) {
           $(description).addClass('open');
           $(this).addClass('open');
           return false;
 
-        // Se c'e un altro pannello perto > chiudilo, aspetta, e apri
+        // If there is already an open panel then close it and open the target panel
         } else {
           $(baseClass + base.options.titleClass).removeClass('open');
           $(baseClass + base.options.contentClass).removeClass('open');
@@ -640,7 +759,6 @@ $('.offcanvas__menu--toggle').rapido_Offcanvas();
 
     // Get position of target
     var getTargetData = function() {
-
       target.top = base.$el.position().top;
       target.left = base.$el.position().left;
       target.height = base.$el.outerHeight();
@@ -684,20 +802,14 @@ $('.offcanvas__menu--toggle').rapido_Offcanvas();
       $('<span class="tooltip" />').html(content).insertAfter(base.el);
 
       // Get and set correct positioning
-      getTargetData();
-      getTooltipData();
-      setTooltipPositioning();
-
-      $(window).resize(function() {
+      $(window).on('ready resize', function() {
         getTargetData();
         getTooltipData();
         setTooltipPositioning();
       });
 
       // Add css positioning to tooltip
-      base.$el.next().css(tooltip);
-
-      $(window).resize(function() {
+      $(window).on('ready resize', function() {
         base.$el.next().css(tooltip);
       });
 
@@ -733,8 +845,23 @@ $('.offcanvas__menu--toggle').rapido_Offcanvas();
 
   $.rapido_Utilities = {
 
-    elemClass: function(el) {
-      return '.' + $(el).attr('class').split(' ').join('.');
+    // Get class of element object
+    getClass: function(el) {
+      var attr = $(el).attr('class');
+      if (typeof attr !== 'undefined' && attr !== false) {
+        el = $.trim($(el).attr('class'));
+        return '.' + el.split(' ').join('.');
+      }
+    },
+
+    // Remove dot from class
+    dotlessClass: function(string) {
+      return string.slice(1);
+    },
+
+    // Check if an element exist
+    elemExist: function(string) {
+      return $(string).length !== 0;
     }
 
   };
