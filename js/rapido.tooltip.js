@@ -32,7 +32,7 @@
 
     // Get position of target
     var getTargetData = function() {
-      target.top = base.$el.position().top;
+      target.top = base.$el.position().top + base.$el.parent().scrollTop();
       target.left = base.$el.position().left;
       target.height = base.$el.outerHeight();
       target.width = base.$el.outerWidth();
