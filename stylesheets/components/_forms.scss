@@ -228,7 +228,6 @@ Styleguide 8.2
 .form__radio,
 .form__checkbox,
 .form__select {
-    min-height: em($base-line-height);
     padding-left: em($checkbox-padding-left);
     font-weight: normal;
     cursor: pointer;
@@ -486,7 +485,7 @@ Markup:
   <button type="submit" class="btn btn--default form__addon">Search</button>
 </div>
 
-Styleguide 8.7
+Styleguide 8.8
 
 */
 
@@ -544,7 +543,7 @@ Markup:
   <button type="button" class="btn btn--default btn--secondary">Cancel</button>
 </div>
 
-Styleguide 8.8
+Styleguide 8.9
 
 */
 
@@ -613,7 +612,7 @@ Markup:
 .form--aligned - Right align labels and float them to the left to make them appear on the same line as controls.
 .form--inline - For left-aligned labels and inline-block controls for a compact layout. This layout doesn't support `.form__group`, `.form__addon`, `.form__actions`
 
-Styleguide 8.9
+Styleguide 8.10
 
 */
 
@@ -626,16 +625,27 @@ Styleguide 8.9
             margin: 0 0 em($control-margin-bottom) 0;
         }
 
-        .form__controls {
-            width: 100%;
-
-            & > * {
-                width: 100%;
-            }
+        .form__multi,
+        .form__controls,
+        .input-text,
+        .form__select,
+        textarea,
+        input[type="text"],
+        input[type="password"],
+        input[type="datetime"],
+        input[type="datetime-local"],
+        input[type="date"],
+        input[type="month"],
+        input[type="time"],
+        input[type="week"],
+        input[type="number"],
+        input[type="email"],
+        input[type="url"],
+        input[type="search"],
+        input[type="tel"],
+        input[type="color"] {
+          width: 100%;
         }
-
-        .form__multi { width: 100%; }
-
 
     }
 }
@@ -717,7 +727,7 @@ Markup:
 
 </form>
 
-Styleguide 8.9.1
+Styleguide 8.10.1
 
 */
 
@@ -733,7 +743,8 @@ Styleguide 8.9.1
 
         .form__label {
           @include inline-block;
-          padding-right: 1em
+          padding-right: 1em;
+          margin-bottom: 0;
         }
 
         .input-text,
@@ -763,6 +774,10 @@ Styleguide 8.9.1
         .form__group {
             padding: 0;
             @include inline-block;
+        }
+
+        .form__group + .form__group {
+          margin-top: 0;
         }
 
         .form__actions {
