@@ -1,0 +1,192 @@
+/*
+
+Date picker
+
+Add support for the excellent [**pickadate.js**](http://amsul.ca/pickadate.js/)
+date picker.
+
+Markup:
+<input class="datepicker" type="text">
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.datepicker').pickadate()
+  });
+</script>
+
+Styleguide 8.7
+
+*/
+
+@if $picker {
+
+    .picker {
+      position: relative;
+      width: 100%;
+      z-index: $zindex-dropdown;
+    }
+
+    .picker__input { cursor: default; }
+
+    .picker__holder {
+      -webkit-overflow-scrolling: touch;
+      @extend %form__picker !optional;
+      @include border-radius(0 0 $base-border-radius $base-border-radius);
+      @include opacity(0);
+      @include transition(all 0.15s ease-out, max-height 0 0.15s, border-width 0 0.15s);
+      border-style: solid;
+      border-width: $input-border;
+      margin-top: neg($input-border);
+      max-height: 0;
+      max-width: 466px;
+      min-width: 176px;
+      overflow-y: auto;
+      position: absolute;
+      transform: translateY(-1em) perspective(600px) rotateX(10deg);
+      width: 100%;
+    }
+
+    .picker--opened .picker__holder {
+      @include opacity(1);
+      max-height: 25em;
+      transform: translateY(0) perspective(600px) rotateX(0);
+    }
+
+    // Box
+
+    .picker__box {  padding: $picker-padding }
+
+    .picker__header {
+      position: relative;
+      text-align: center;
+    }
+
+    .picker__year,
+    .picker__month,
+    .picker__select--year
+    .picker__select--month {
+      display: inline-block;
+      margin: 0 .25em;
+    }
+
+    .picker__month {
+      font-weight: bold;
+      @include adjust-font-size-to($h5-size);
+    }
+
+    .picker__year {
+      color: $gray;
+      font-style: italic;
+      @include adjust-font-size-to($small-size);
+    }
+
+    .picker__select--month,
+    .picker__select--year {
+      padding: .5em .25em;
+      height: 2.5em;
+    }
+
+    .picker__select--month {  width: 35% }
+    .picker__select--year {  width: 22.5% }
+
+    // Navigation
+
+    .picker__nav--prev,
+    .picker__nav--next {
+      @include position(absolute, 0em 0 0em 0);
+      @extend .btn--link;
+      @extend .btn;
+      color: $text-color;
+      width: (100% / 7);
+
+      &:hover { @extend %form__picker--hover }
+      &:before { @include center(); }
+    }
+
+    .picker__nav--prev { left: 0;  @extend %picker__nav--prev }
+    .picker__nav--next { right: 0; @extend %picker__nav--next }
+
+    .picker__nav--disabled,
+    .picker__nav--disabled:hover,
+    .picker__nav--disabled:before,
+    .picker__nav--disabled:before:hover {
+      cursor: default;
+      background: none;
+    }
+
+    // Table
+
+    .picker__table {
+      margin: nth($picker-padding, 1) 0;
+      width: 100%;
+      table-layout: fixed;
+      text-align: center;
+      border-collapse: collapse;
+      border-spacing: 0;
+      td {
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    .picker__weekday {
+      padding-bottom: .25em;
+      color: $gray;
+    }
+
+    .picker__day {
+      padding: .25em 0;
+    }
+
+    .picker__day--today {
+      position: relative;
+      &:before {
+        @include position(absolute, 2px 2px 0 0);
+        @include triangle(8px, rgba(0,0,0,.3), up-right);
+        display: block;
+        content: "";
+      }
+    }
+
+    .picker__day--outfocus {
+      color: $grayLight;
+    }
+
+    .picker__day--highlighted,
+    .picker__day--infocus:hover,
+    .picker__day--outfocus:hover {
+      @extend %form__picker--hover;
+      cursor: pointer;
+    }
+
+    .picker__day--highlighted:hover,
+    .picker--focused .picker__day--highlighted {
+      @extend %form__picker--highlighted;
+    }
+
+    .picker__day--disabled,
+    .picker__day--disabled:hover {
+      @extend %form__picker--disabled;
+      cursor: default;
+    }
+
+    .picker__day--highlighted.picker__day--disabled,
+    .picker__day--highlighted.picker__day--disabled:hover {
+      background: $gray;
+    }
+
+    // Footer
+
+    .picker__footer {  text-align: center }
+
+    .picker__button--today,
+    .picker__button--clear {
+      @extend .btn;
+      @extend .btn--link;
+      color: $text-color;
+      font-weight: bold;
+      width: 50%;
+
+      &:hover { @extend %form__picker--hover }
+    }
+
+}

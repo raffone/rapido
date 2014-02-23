@@ -149,6 +149,7 @@ Components
     $tabs-content-padding:          $input-padding  # Tabs padding
     $tabs-tab-padding:              $input-padding  # Tabs padding
     $tooltips-padding:              $input-padding  # Tooltips padding
+    $picker-padding:                1em 1em         # Date picker padding
 
 
 Styleguide 31.3
@@ -178,6 +179,7 @@ $tables-padding:                    $input-padding                              
 $tabs-content-padding:              $input-padding                                                          !default;
 $tabs-tab-padding:                  $input-padding                                                          !default;
 $tooltips-padding:                  $input-padding                                                          !default;
+$picker-padding:                    1em 1em                                                                 !default;
 
 
 /*

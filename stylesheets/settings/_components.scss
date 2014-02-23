@@ -27,6 +27,7 @@ Enable or disable components, so you can have in the css only what you need.
     $overlays:                      true   # components/_overlay.scss
     $pager:                         true   # components/_pager.scss
     $pagination:                    true   # components/_pagination.scss
+    $picker:                        true   # components/_picker.scss
     $slider:                        true   # components/_slider.scss
     $sprites:                       true   # components/_sprites.scss
     $tables:                        true   # components/_tables.scss
@@ -63,6 +64,7 @@ $offcanvas:                         true   !default;
 $overlays:                          true   !default;
 $pager:                             true   !default;
 $pagination:                        true   !default;
+$picker:                            true   !default;
 $slider:                            true   !default;
 $sprites:                           true   !default;
 $tables:                            true   !default;

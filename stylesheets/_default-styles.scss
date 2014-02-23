@@ -46,6 +46,13 @@ Inputs and Selects
     %form__select                   # Custom select style, by default it use %input
     %form__suggest                  # Styling for suggest dropdowns
 
+    %form__picker                   # Styling for date picker
+    %form__picker--hover            # For :hover state of links
+    %form__picker--highlighted      # For selected day
+    %form__picker--disabled         # For disabled days
+    %picker__nav--prev              # Character to use for the "prev" arrow
+    %picker__nav--next              # Character to use for the "next" arrow
+
 Styleguide 32.2
 
 */
@@ -87,6 +94,28 @@ Styleguide 32.2
 
     }
 
+    %form__picker {
+        border-color: $gray;
+        background-color: $white;
+        @include box-shadow(0 6px 18px 1px rgba(0, 0, 0, 0.12));
+    }
+
+    %form__picker--hover {
+      background: lighten($link-color, 50);
+    }
+
+    %form__picker--highlighted {
+      background: $link-color;
+      color: $white;
+    }
+
+    %form__picker--disabled {
+      background: $grayLighter;
+      color: $grayLight;
+    }
+
+    %picker__nav--prev:before { content: "◀"; }
+    %picker__nav--next:before { content: "▶"; }
 
 /*
 
