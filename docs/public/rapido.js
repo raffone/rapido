@@ -1,5 +1,5 @@
 /*
- *  Rapido - v0.1.9
+ *  Rapido - v0.2.1
  *  An easy and quick Sass + Compass + Susy + OOCSS + BEM prototyping framework.
  *  https://github.com/raffone/rapido
  *
@@ -759,7 +759,7 @@
 
     // Get position of target
     var getTargetData = function() {
-      target.top = base.$el.position().top;
+      target.top = base.$el.position().top + base.$el.parent().scrollTop();
       target.left = base.$el.position().left;
       target.height = base.$el.outerHeight();
       target.width = base.$el.outerWidth();

@@ -30,16 +30,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.easytabs/3.2.0/jquery.easytabs.min.js"></script>
 
     <script src="http://rawgithub.com/wandoledzep/bxslider-4/master/jquery.bxslider.min.js"></script>
-    <!--<script src="http://rawgithub.com/raffone/responsive-nav.js/master/responsive-nav.js"></script>-->
+    <script src="http://cdn.jsdelivr.net/jquery.pickadate.js/3.1.4/picker.js"></script>
+    <script src="http://cdn.jsdelivr.net/jquery.pickadate.js/3.1.4/picker.date.js"></script>
 
     <script src="public/rapido.js"></script>
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap-affix.min.js"></script>-->
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap-button.min.js"></script>-->
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap-dropdown.min.js"></script>-->
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap-alert.min.js"></script>-->
-
-
-
 
   </head>
   <body id="kss-node">
@@ -149,19 +143,23 @@
               
               
               
-              <li class="kss-menu-item"><a href="#section-8.7"><span class="kss-ref">8.7</span><span class="kss-name">Append &amp; Prepend</span></a></li>
+              <li class="kss-menu-item"><a href="#section-8.7"><span class="kss-ref">8.7</span><span class="kss-name">Date picker</span></a></li>
               
               
               
-              <li class="kss-menu-item"><a href="#section-8.8"><span class="kss-ref">8.8</span><span class="kss-name">Form Actions</span></a></li>
+              <li class="kss-menu-item"><a href="#section-8.8"><span class="kss-ref">8.8</span><span class="kss-name">Append &amp; Prepend</span></a></li>
               
               
               
-              <li class="kss-menu-item"><a href="#section-8.9"><span class="kss-ref">8.9</span><span class="kss-name">Form Layouts</span></a></li>
+              <li class="kss-menu-item"><a href="#section-8.9"><span class="kss-ref">8.9</span><span class="kss-name">Form Actions</span></a></li>
               
               
               
-              <li class="kss-menu-item"><a href="#section-8.9.1"><span class="kss-ref">8.9.1</span><span class="kss-name">Inline Form (semplified)</span></a></li>
+              <li class="kss-menu-item"><a href="#section-8.10"><span class="kss-ref">8.10</span><span class="kss-name">Form Layouts</span></a></li>
+              
+              
+              
+              <li class="kss-menu-item"><a href="#section-8.10.1"><span class="kss-ref">8.10.1</span><span class="kss-name">Inline Form (semplified)</span></a></li>
               
               
             </ul>
@@ -506,7 +504,41 @@ suggestAttr:      title</code></pre>
           </section>
           
           <section id="section-8.7" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">8.7</span> Append &amp; Prepend</h1>
+            <h1 class="kss-title"><span class="kss-ref">8.7</span> Date picker</h1>
+            
+            
+            <div class="kss-description">
+              <p>Add support for the excellent <a href="http://amsul.ca/pickadate.js/"><strong>pickadate.js</strong></a>
+date picker.</p>
+
+            </div>
+            
+            <div class="kss-modifier-block">
+              <div class="kss-modifier kss-modifier-original">
+                <div class="kss-modifier-example">
+                  <input class="datepicker" type="text">
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.datepicker').pickadate()
+  });
+</script>
+                </div>
+              </div>
+              
+              <div class="kss-markup">
+                <pre><code data-language="html">&lt;input class=&quot;datepicker&quot; type=&quot;text&quot;&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+  $(document).ready(function() {
+    $(&#x27;.datepicker&#x27;).pickadate()
+  });
+&lt;/script&gt;</code></pre>
+              </div>
+            </div>
+            
+          </section>
+          
+          <section id="section-8.8" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">8.8</span> Append &amp; Prepend</h1>
             
             
             <div class="kss-modifier-block">
@@ -557,8 +589,8 @@ suggestAttr:      title</code></pre>
             
           </section>
           
-          <section id="section-8.8" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">8.8</span> Form Actions</h1>
+          <section id="section-8.9" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">8.9</span> Form Actions</h1>
             
             
             <div class="kss-description">
@@ -588,8 +620,8 @@ suggestAttr:      title</code></pre>
             
           </section>
           
-          <section id="section-8.9" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">8.9</span> Form Layouts</h1>
+          <section id="section-8.10" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">8.10</span> Form Layouts</h1>
             
             
             <div class="kss-modifier-block">
@@ -825,8 +857,8 @@ suggestAttr:      title</code></pre>
             
           </section>
           
-          <section id="section-8.9.1" class="kss-section kss-depth-3">
-            <h1 class="kss-title"><span class="kss-ref">8.9.1</span> Inline Form (semplified)</h1>
+          <section id="section-8.10.1" class="kss-section kss-depth-3">
+            <h1 class="kss-title"><span class="kss-ref">8.10.1</span> Inline Form (semplified)</h1>
             
             
             <div class="kss-description">

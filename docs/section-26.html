@@ -30,16 +30,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.easytabs/3.2.0/jquery.easytabs.min.js"></script>
 
     <script src="http://rawgithub.com/wandoledzep/bxslider-4/master/jquery.bxslider.min.js"></script>
-    <!--<script src="http://rawgithub.com/raffone/responsive-nav.js/master/responsive-nav.js"></script>-->
+    <script src="http://cdn.jsdelivr.net/jquery.pickadate.js/3.1.4/picker.js"></script>
+    <script src="http://cdn.jsdelivr.net/jquery.pickadate.js/3.1.4/picker.date.js"></script>
 
     <script src="public/rapido.js"></script>
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap-affix.min.js"></script>-->
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap-button.min.js"></script>-->
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap-dropdown.min.js"></script>-->
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap-alert.min.js"></script>-->
-
-
-
 
   </head>
   <body id="kss-node">
@@ -154,6 +148,10 @@
               
               
               <li class="kss-menu-item"><a href="#section-26.8"><span class="kss-ref">26.8</span><span class="kss-name">Text overflow</span></a></li>
+              
+              
+              
+              <li class="kss-menu-item"><a href="#section-26.9"><span class="kss-ref">26.9</span><span class="kss-name">Triangle</span></a></li>
               
               
               
@@ -372,6 +370,26 @@ margin-right: auto;</code></pre>
 <pre><code>overflow: hidden;
 text-overflow: ellipsis;
 white-space: nowrap;</code></pre>
+
+            </div>
+            
+            
+          </section>
+          
+          <section id="section-26.9" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">26.9</span> Triangle</h1>
+            
+            
+            <div class="kss-description">
+              <p>Create a css-only triangle.
+
+</p>
+<pre><code>@include triangle($size, $color, $direction);</code></pre>
+<ul>
+<li><code>$size</code>: Width of the triangle</li>
+<li><code>$color</code>: Color of the triangle</li>
+<li><code>$direction</code>: There are available up, up-right, right, down-right, down, down-left, left, up-left</li>
+</ul>
 
             </div>
             
