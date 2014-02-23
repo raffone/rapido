@@ -478,6 +478,7 @@ Components
     $tabs-content-padding:          $input-padding  # Tabs padding
     $tabs-tab-padding:              $input-padding  # Tabs padding
     $tooltips-padding:              $input-padding  # Tooltips padding
+    $picker-padding:                1em 1em         # Date picker padding
 
 
 Styleguide 31.3
@@ -600,6 +601,7 @@ Enable or disable components, so you can have in the css only what you need.
     $overlays:                      true   # components/_overlay.scss
     $pager:                         true   # components/_pager.scss
     $pagination:                    true   # components/_pagination.scss
+    $picker:                        true   # components/_picker.scss
     $slider:                        true   # components/_slider.scss
     $sprites:                       true   # components/_sprites.scss
     $tables:                        true   # components/_tables.scss
@@ -814,7 +816,6 @@ Create a css-only triangle.
 * `$direction`: There are available up, up-right, right, down-right, down, down-left, left, up-left
 
 Styleguide 26.9
-
 
 */
 /*
@@ -1182,8 +1183,14 @@ Corrispond to:
 Styleguide 25.3
 
 */
-[data-width="100"], .btn-group[data-width] .btn, .btn-group[data-width] .offcanvas__menu--toggle,
+[data-width="100"], .btn-group[data-width] .btn, .btn-group[data-width] .picker__nav--prev,
+.btn-group[data-width] .picker__nav--next, .btn-group[data-width] .picker__button--today,
+.btn-group[data-width] .picker__button--clear, .btn-group[data-width] .offcanvas__menu--toggle,
 .btn-group > *[data-width] .btn,
+.btn-group > *[data-width] .picker__nav--prev,
+.btn-group > *[data-width] .picker__nav--next,
+.btn-group > *[data-width] .picker__button--today,
+.btn-group > *[data-width] .picker__button--clear,
 .btn-group > *[data-width] .offcanvas__menu--toggle {
   width: 100% !important;
 }
@@ -2260,8 +2267,14 @@ Styleguide 4
   float: left;
   list-style-type: none;
 }
-.btn-group[data-width] .btn, .btn-group[data-width] .offcanvas__menu--toggle,
+.btn-group[data-width] .btn, .btn-group[data-width] .picker__nav--prev,
+.btn-group[data-width] .picker__nav--next, .btn-group[data-width] .picker__button--today,
+.btn-group[data-width] .picker__button--clear, .btn-group[data-width] .offcanvas__menu--toggle,
 .btn-group > *[data-width] .btn,
+.btn-group > *[data-width] .picker__nav--prev,
+.btn-group > *[data-width] .picker__nav--next,
+.btn-group > *[data-width] .picker__button--today,
+.btn-group > *[data-width] .picker__button--clear,
 .btn-group > *[data-width] .offcanvas__menu--toggle {
   padding-left: 0;
   padding-right: 0;
@@ -2269,8 +2282,14 @@ Styleguide 4
 .btn-group + .btn-group {
   margin-left: 0.35714em;
 }
-.btn-group > .btn, .btn-group > .offcanvas__menu--toggle,
+.btn-group > .btn, .btn-group > .picker__nav--prev,
+.btn-group > .picker__nav--next, .btn-group > .picker__button--today,
+.btn-group > .picker__button--clear, .btn-group > .offcanvas__menu--toggle,
 .btn-group > li .btn,
+.btn-group > li .picker__nav--prev,
+.btn-group > li .picker__nav--next,
+.btn-group > li .picker__button--today,
+.btn-group > li .picker__button--clear,
 .btn-group > li .offcanvas__menu--toggle {
   float: left;
   -webkit-border-radius: 0;
@@ -2281,17 +2300,33 @@ Styleguide 4
 .btn-group > li + li {
   margin-left: -1px;
 }
-.btn-group > .btn:hover, .btn-group > .offcanvas__menu--toggle:hover,
+.btn-group > .btn:hover, .btn-group > .picker__nav--prev:hover,
+.btn-group > .picker__nav--next:hover, .btn-group > .picker__button--today:hover,
+.btn-group > .picker__button--clear:hover, .btn-group > .offcanvas__menu--toggle:hover,
 .btn-group > .btn:focus,
+.btn-group > .picker__nav--prev:focus,
+.btn-group > .picker__nav--next:focus,
+.btn-group > .picker__button--today:focus,
+.btn-group > .picker__button--clear:focus,
 .btn-group > .offcanvas__menu--toggle:focus,
 .btn-group > .btn:active,
+.btn-group > .picker__nav--prev:active,
+.btn-group > .picker__nav--next:active,
+.btn-group > .picker__button--today:active,
+.btn-group > .picker__button--clear:active,
 .btn-group > .offcanvas__menu--toggle:active,
 .btn-group > .btn.active,
+.btn-group > .active.picker__nav--prev,
+.btn-group > .active.picker__nav--next,
+.btn-group > .active.picker__button--today,
+.btn-group > .active.picker__button--clear,
 .btn-group > .active.offcanvas__menu--toggle {
   z-index: 2;
 }
 
-.btn-group > li:first-child .btn, .btn-group > li:first-child .offcanvas__menu--toggle {
+.btn-group > li:first-child .btn, .btn-group > li:first-child .picker__nav--prev,
+.btn-group > li:first-child .picker__nav--next, .btn-group > li:first-child .picker__button--today,
+.btn-group > li:first-child .picker__button--clear, .btn-group > li:first-child .offcanvas__menu--toggle {
   -moz-border-radius-topleft: 4px;
   -webkit-border-top-left-radius: 4px;
   border-top-left-radius: 4px;
@@ -2300,7 +2335,9 @@ Styleguide 4
   border-bottom-left-radius: 4px;
 }
 
-.btn-group > li:last-child .btn, .btn-group > li:last-child .offcanvas__menu--toggle {
+.btn-group > li:last-child .btn, .btn-group > li:last-child .picker__nav--prev,
+.btn-group > li:last-child .picker__nav--next, .btn-group > li:last-child .picker__button--today,
+.btn-group > li:last-child .picker__button--clear, .btn-group > li:last-child .offcanvas__menu--toggle {
   -moz-border-radius-topright: 4px;
   -webkit-border-top-right-radius: 4px;
   border-top-right-radius: 4px;
@@ -2309,14 +2346,18 @@ Styleguide 4
   border-bottom-right-radius: 4px;
 }
 
-div.btn-group .btn, div.btn-group .offcanvas__menu--toggle {
+div.btn-group .btn, div.btn-group .picker__nav--prev,
+div.btn-group .picker__nav--next, div.btn-group .picker__button--today,
+div.btn-group .picker__button--clear, div.btn-group .offcanvas__menu--toggle {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
   border-radius: 4px;
 }
 
-.form__controls--multi .btn-group:first-child > li:last-child .btn, .form__controls--multi .btn-group:first-child > li:last-child .offcanvas__menu--toggle {
+.form__controls--multi .btn-group:first-child > li:last-child .btn, .form__controls--multi .btn-group:first-child > li:last-child .picker__nav--prev,
+.form__controls--multi .btn-group:first-child > li:last-child .picker__nav--next, .form__controls--multi .btn-group:first-child > li:last-child .picker__button--today,
+.form__controls--multi .btn-group:first-child > li:last-child .picker__button--clear, .form__controls--multi .btn-group:first-child > li:last-child .offcanvas__menu--toggle {
   -moz-border-radius-topright: 0;
   -webkit-border-top-right-radius: 0;
   border-top-right-radius: 0;
@@ -2324,7 +2365,9 @@ div.btn-group .btn, div.btn-group .offcanvas__menu--toggle {
   -webkit-border-bottom-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-.form__controls--multi div.btn-group:first-child .btn, .form__controls--multi div.btn-group:first-child .offcanvas__menu--toggle {
+.form__controls--multi div.btn-group:first-child .btn, .form__controls--multi div.btn-group:first-child .picker__nav--prev,
+.form__controls--multi div.btn-group:first-child .picker__nav--next, .form__controls--multi div.btn-group:first-child .picker__button--today,
+.form__controls--multi div.btn-group:first-child .picker__button--clear, .form__controls--multi div.btn-group:first-child .offcanvas__menu--toggle {
   -moz-border-radius-topright: 0;
   -webkit-border-top-right-radius: 0;
   border-top-right-radius: 0;
@@ -2332,7 +2375,9 @@ div.btn-group .btn, div.btn-group .offcanvas__menu--toggle {
   -webkit-border-bottom-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-.form__controls--multi .btn-group:last-child > li:first-child .btn, .form__controls--multi .btn-group:last-child > li:first-child .offcanvas__menu--toggle {
+.form__controls--multi .btn-group:last-child > li:first-child .btn, .form__controls--multi .btn-group:last-child > li:first-child .picker__nav--prev,
+.form__controls--multi .btn-group:last-child > li:first-child .picker__nav--next, .form__controls--multi .btn-group:last-child > li:first-child .picker__button--today,
+.form__controls--multi .btn-group:last-child > li:first-child .picker__button--clear, .form__controls--multi .btn-group:last-child > li:first-child .offcanvas__menu--toggle {
   -moz-border-radius-topleft: 0;
   -webkit-border-top-left-radius: 0;
   border-top-left-radius: 0;
@@ -2340,7 +2385,9 @@ div.btn-group .btn, div.btn-group .offcanvas__menu--toggle {
   -webkit-border-bottom-left-radius: 0;
   border-bottom-left-radius: 0;
 }
-.form__controls--multi div.btn-group:last-child > .btn, .form__controls--multi div.btn-group:last-child > .offcanvas__menu--toggle {
+.form__controls--multi div.btn-group:last-child > .btn, .form__controls--multi div.btn-group:last-child > .picker__nav--prev,
+.form__controls--multi div.btn-group:last-child > .picker__nav--next, .form__controls--multi div.btn-group:last-child > .picker__button--today,
+.form__controls--multi div.btn-group:last-child > .picker__button--clear, .form__controls--multi div.btn-group:last-child > .offcanvas__menu--toggle {
   -moz-border-radius-topleft: 0;
   -webkit-border-top-left-radius: 0;
   border-top-left-radius: 0;
@@ -2368,7 +2415,9 @@ Markup:
 Styleguide 3
 
 */
-.btn, .offcanvas__menu--toggle {
+.btn, .picker__nav--prev,
+.picker__nav--next, .picker__button--today,
+.picker__button--clear, .offcanvas__menu--toggle {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -2386,13 +2435,31 @@ Styleguide 3
   margin-bottom: 0;
   text-align: center;
 }
-.btn:hover, .offcanvas__menu--toggle:hover, .btn.hover, .hover.offcanvas__menu--toggle, .btn:focus, .offcanvas__menu--toggle:focus {
+.btn:hover, .picker__nav--prev:hover,
+.picker__nav--next:hover, .picker__button--today:hover,
+.picker__button--clear:hover, .offcanvas__menu--toggle:hover, .btn.hover, .hover.picker__nav--prev,
+.hover.picker__nav--next, .hover.picker__button--today,
+.hover.picker__button--clear, .hover.offcanvas__menu--toggle, .btn:focus, .picker__nav--prev:focus,
+.picker__nav--next:focus, .picker__button--today:focus,
+.picker__button--clear:focus, .offcanvas__menu--toggle:focus {
   text-decoration: none;
 }
-.btn.active, .active.offcanvas__menu--toggle, .btn:active, .offcanvas__menu--toggle:active {
+.btn.active, .active.picker__nav--prev,
+.active.picker__nav--next, .active.picker__button--today,
+.active.picker__button--clear, .active.offcanvas__menu--toggle, .btn:active, .picker__nav--prev:active,
+.picker__nav--next:active, .picker__button--today:active,
+.picker__button--clear:active, .offcanvas__menu--toggle:active {
   outline: 0;
 }
-.btn.disabled, .disabled.offcanvas__menu--toggle, .btn.disabled:hover, .disabled.offcanvas__menu--toggle:hover, .btn[disabled], [disabled].offcanvas__menu--toggle, .btn[disabled]:hover, [disabled].offcanvas__menu--toggle:hover {
+.btn.disabled, .disabled.picker__nav--prev,
+.disabled.picker__nav--next, .disabled.picker__button--today,
+.disabled.picker__button--clear, .disabled.offcanvas__menu--toggle, .btn.disabled:hover, .disabled.picker__nav--prev:hover,
+.disabled.picker__nav--next:hover, .disabled.picker__button--today:hover,
+.disabled.picker__button--clear:hover, .disabled.offcanvas__menu--toggle:hover, .btn[disabled], [disabled].picker__nav--prev,
+[disabled].picker__nav--next, [disabled].picker__button--today,
+[disabled].picker__button--clear, [disabled].offcanvas__menu--toggle, .btn[disabled]:hover, [disabled].picker__nav--prev:hover,
+[disabled].picker__nav--next:hover, [disabled].picker__button--today:hover,
+[disabled].picker__button--clear:hover, [disabled].offcanvas__menu--toggle:hover {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -2447,7 +2514,9 @@ Markup:
 Styleguide 3.3
 
 */
-.btn, .offcanvas__menu--toggle {
+.btn, .picker__nav--prev,
+.picker__nav--next, .picker__button--today,
+.picker__button--clear, .offcanvas__menu--toggle {
   padding: 0.71429em 0.71429em;
   height: 2.57143em;
 }
@@ -2522,7 +2591,9 @@ Markup:
 Styleguide 3.5
 
 */
-.btn--link {
+.btn--link, .picker__nav--prev,
+.picker__nav--next, .picker__button--today,
+.picker__button--clear {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
@@ -2532,19 +2603,30 @@ Styleguide 3.5
   color: #0074d9;
   cursor: pointer;
 }
-.btn--link:hover, .btn--link:focus {
+.btn--link:hover, .picker__nav--prev:hover,
+.picker__nav--next:hover, .picker__button--today:hover,
+.picker__button--clear:hover, .btn--link:focus, .picker__nav--prev:focus,
+.picker__nav--next:focus, .picker__button--today:focus,
+.picker__button--clear:focus {
   color: #0059a6;
-  text-decoration: underline;
   background-color: transparent;
 }
-.btn--link:active, .btn--link[disabled] {
+.btn--link:active, .picker__nav--prev:active,
+.picker__nav--next:active, .picker__button--today:active,
+.picker__button--clear:active, .btn--link[disabled], [disabled].picker__nav--prev,
+[disabled].picker__nav--next, [disabled].picker__button--today,
+[disabled].picker__button--clear {
   background-color: transparent;
   background-image: none;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
 }
-.btn--link[disabled]:hover, .btn--link[disabled]:focus {
+.btn--link[disabled]:hover, [disabled].picker__nav--prev:hover,
+[disabled].picker__nav--next:hover, [disabled].picker__button--today:hover,
+[disabled].picker__button--clear:hover, .btn--link[disabled]:focus, [disabled].picker__nav--prev:focus,
+[disabled].picker__nav--next:focus, [disabled].picker__button--today:focus,
+[disabled].picker__button--clear:focus {
   color: #4d4d4d;
   text-decoration: none;
 }
@@ -3049,7 +3131,6 @@ Styleguide 8.2
 .form__radio,
 .form__checkbox,
 .form__select {
-  min-height: 1.5em;
   padding-left: 1.42857em;
   font-weight: normal;
   cursor: pointer;
@@ -3315,7 +3396,7 @@ Markup:
   <button type="submit" class="btn btn--default form__addon">Search</button>
 </div>
 
-Styleguide 8.7
+Styleguide 8.8
 
 */
 .form__addon {
@@ -3384,7 +3465,7 @@ Markup:
   <button type="button" class="btn btn--default btn--secondary">Cancel</button>
 </div>
 
-Styleguide 8.8
+Styleguide 8.9
 
 */
 .form__actions {
@@ -3450,20 +3531,32 @@ Markup:
 .form--aligned - Right align labels and float them to the left to make them appear on the same line as controls.
 .form--inline - For left-aligned labels and inline-block controls for a compact layout. This layout doesn't support `.form__group`, `.form__addon`, `.form__actions`
 
-Styleguide 8.9
+Styleguide 8.10
 
 */
 .form--grid .form__group {
   min-height: 4.42857em;
   margin: 0 0 1.5em 0;
 }
-.form--grid .form__controls {
-  width: 100%;
-}
-.form--grid .form__controls > * {
-  width: 100%;
-}
-.form--grid .form__multi {
+.form--grid .form__multi,
+.form--grid .form__controls,
+.form--grid .input-text,
+.form--grid .form__select,
+.form--grid textarea,
+.form--grid input[type="text"],
+.form--grid input[type="password"],
+.form--grid input[type="datetime"],
+.form--grid input[type="datetime-local"],
+.form--grid input[type="date"],
+.form--grid input[type="month"],
+.form--grid input[type="time"],
+.form--grid input[type="week"],
+.form--grid input[type="number"],
+.form--grid input[type="email"],
+.form--grid input[type="url"],
+.form--grid input[type="search"],
+.form--grid input[type="tel"],
+.form--grid input[type="color"] {
   width: 100%;
 }
 
@@ -3521,7 +3614,7 @@ Markup:
 
 </form>
 
-Styleguide 8.9.1
+Styleguide 8.10.1
 
 */
 .form--inline > * {
@@ -3535,6 +3628,7 @@ Styleguide 8.9.1
   zoom: 1;
   *display: inline;
   padding-right: 1em;
+  margin-bottom: 0;
 }
 .form--inline .input-text,
 .form--inline .form__select,
@@ -3566,6 +3660,9 @@ Styleguide 8.9.1
   *vertical-align: auto;
   zoom: 1;
   *display: inline;
+}
+.form--inline .form__group + .form__group {
+  margin-top: 0;
 }
 .form--inline .form__actions {
   border: 0;
@@ -5485,8 +5582,14 @@ Markup:
 Styleguide 10.1
 
 */
-.btn .badge, .offcanvas__menu--toggle .badge,
+.btn .badge, .picker__nav--prev .badge,
+.picker__nav--next .badge, .picker__button--today .badge,
+.picker__button--clear .badge, .offcanvas__menu--toggle .badge,
 .btn .pill,
+.picker__nav--prev .pill,
+.picker__nav--next .pill,
+.picker__button--today .pill,
+.picker__button--clear .pill,
 .offcanvas__menu--toggle .pill {
   margin: -0.5em 0 0;
 }
@@ -5896,6 +5999,212 @@ Styleguide 19
 
 /*
 
+Date picker
+
+Add support for the excellent [**pickadate.js**](http://amsul.ca/pickadate.js/)
+date picker.
+
+Markup:
+<input class="datepicker" type="text">
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.datepicker').pickadate()
+  });
+</script>
+
+Styleguide 8.7
+
+*/
+.picker {
+  position: relative;
+  width: 100%;
+  z-index: 1000;
+}
+
+.picker__input {
+  cursor: default;
+}
+
+.picker__holder {
+  -webkit-overflow-scrolling: touch;
+  -webkit-border-radius: 0 0 4px 4px;
+  -moz-border-radius: 0 0 4px 4px;
+  -ms-border-radius: 0 0 4px 4px;
+  border-radius: 0 0 4px 4px;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -webkit-transition: all 0.15s ease-out, max-height 0, border-width 0;
+  -webkit-transition-delay: 0s, 0.15s, 0.15s;
+  -moz-transition: all 0.15s ease-out, max-height 0 0.15s, border-width 0 0.15s;
+  transition: all 0.15s ease-out, max-height 0 0.15s, border-width 0 0.15s;
+  border-style: solid;
+  border-width: 1px;
+  margin-top: -1px;
+  max-height: 0;
+  max-width: 466px;
+  min-width: 176px;
+  overflow-y: auto;
+  position: absolute;
+  transform: translateY(-1em) perspective(600px) rotateX(10deg);
+  width: 100%;
+}
+
+.picker--opened .picker__holder {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+  max-height: 25em;
+  transform: translateY(0) perspective(600px) rotateX(0);
+}
+
+.picker__box {
+  padding: 1em 1em;
+}
+
+.picker__header {
+  position: relative;
+  text-align: center;
+}
+
+.picker__year,
+.picker__month,
+.picker__select--year
+.picker__select--month {
+  display: inline-block;
+  margin: 0 .25em;
+}
+
+.picker__month {
+  font-weight: bold;
+  font-size: 1.25em;
+  line-height: 1.8em;
+}
+
+.picker__year {
+  color: #999999;
+  font-style: italic;
+  font-size: 0.85em;
+  line-height: 1.76471em;
+}
+
+.picker__select--month,
+.picker__select--year {
+  padding: .5em .25em;
+  height: 2.5em;
+}
+
+.picker__select--month {
+  width: 35%;
+}
+
+.picker__select--year {
+  width: 22.5%;
+}
+
+.picker__nav--prev,
+.picker__nav--next {
+  position: absolute;
+  top: 0em;
+  bottom: 0em;
+  color: #262626;
+  width: 14.28571%;
+}
+.picker__nav--prev:before,
+.picker__nav--next:before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.picker__nav--prev {
+  left: 0;
+}
+
+.picker__nav--next {
+  right: 0;
+}
+
+.picker__nav--disabled,
+.picker__nav--disabled:hover,
+.picker__nav--disabled:before,
+.picker__nav--disabled:before:hover {
+  cursor: default;
+  background: none;
+}
+
+.picker__table {
+  margin: 1em 0;
+  width: 100%;
+  table-layout: fixed;
+  text-align: center;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.picker__table td {
+  margin: 0;
+  padding: 0;
+}
+
+.picker__weekday {
+  padding-bottom: .25em;
+  color: #999999;
+}
+
+.picker__day {
+  padding: .25em 0;
+}
+
+.picker__day--today {
+  position: relative;
+}
+.picker__day--today:before {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 0;
+  height: 0;
+  border-top: 8px solid rgba(0, 0, 0, 0.3);
+  border-left: 8px solid transparent;
+  display: block;
+  content: "";
+}
+
+.picker__day--outfocus {
+  color: #d9d9d9;
+}
+
+.picker__day--highlighted,
+.picker__day--infocus:hover,
+.picker__day--outfocus:hover {
+  cursor: pointer;
+}
+
+.picker__day--disabled,
+.picker__day--disabled:hover {
+  cursor: default;
+}
+
+.picker__day--highlighted.picker__day--disabled,
+.picker__day--highlighted.picker__day--disabled:hover {
+  background: #999999;
+}
+
+.picker__footer {
+  text-align: center;
+}
+
+.picker__button--today,
+.picker__button--clear {
+  color: #262626;
+  font-weight: bold;
+  width: 50%;
+}
+
+/*
+
 Default Styles
 
 One of the main reason of the existence of Rapido is because I wanted to separate pure framework code form styling.
@@ -5930,6 +6239,13 @@ Inputs and Selects
     %form__addon                    # For the addon texts in forms
     %form__select                   # Custom select style, by default it use %input
     %form__suggest                  # Styling for suggest dropdowns
+
+    %form__picker                   # Styling for date picker
+    %form__picker--hover            # For :hover state of links
+    %form__picker--highlighted      # For selected day
+    %form__picker--disabled         # For disabled days
+    %picker__nav--prev              # Character to use for the "prev" arrow
+    %picker__nav--next              # Character to use for the "next" arrow
 
 Styleguide 32.2
 
@@ -5999,6 +6315,42 @@ input[type="color"]:focus, .form__select:focus {
 }
 .form__suggest a {
   color: white;
+}
+
+.picker__holder {
+  border-color: #999999;
+  background-color: white;
+  -webkit-box-shadow: 0 6px 18px 1px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 6px 18px 1px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 6px 18px 1px rgba(0, 0, 0, 0.12);
+}
+
+.picker__nav--prev:hover,
+.picker__nav--next:hover, .picker__day--highlighted,
+.picker__day--infocus:hover,
+.picker__day--outfocus:hover, .picker__button--today:hover,
+.picker__button--clear:hover {
+  background: #d9edff;
+}
+
+.picker__day--highlighted:hover,
+.picker--focused .picker__day--highlighted {
+  background: #0074d9;
+  color: white;
+}
+
+.picker__day--disabled,
+.picker__day--disabled:hover {
+  background: #f2f2f2;
+  color: #d9d9d9;
+}
+
+.picker__nav--prev:before {
+  content: "◀";
+}
+
+.picker__nav--next:before {
+  content: "▶";
 }
 
 /*
