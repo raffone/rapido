@@ -5,7 +5,13 @@
   }
 
   $.Rapido.Toggle = function(el, options) {
-    var base = this;
+    var base = this,
+        titleClass,
+        contentClass,
+        id,
+        description,
+        baseClass,
+        loop;
 
     base.$el = $(el);
     base.el = el;
@@ -15,8 +21,8 @@
     base.init = function() {
       base.options = $.extend({},$.Rapido.Toggle.defaultOptions, options);
 
-      var baseClass = '.' + base.el.className + ' ';
-      var loop = baseClass + base.options.titleClass;
+      baseClass = $.rapido_Utilities.getClass(base.el) + ' ';
+      loop = baseClass + base.options.titleClass;
 
       $(loop).each(function(i, el) {
         toggle(el, baseClass);
@@ -28,23 +34,23 @@
 
       $(el).click(function() {
 
-        var titleClass = base.options.titleClass.replace(/(\[|\])/gi, '');
-        var contentClass = base.options.contentClass.replace(/(\[|\])/gi, '');
+        titleClass = base.options.titleClass.replace(/(\[|\])/gi, '');
+        contentClass = base.options.contentClass.replace(/(\[|\])/gi, '');
 
-        var id = $(this).attr(titleClass);
-        var description = '[' + contentClass + '="' + id + '"]';
+        id = $(this).attr(titleClass);
+        description = '[' + contentClass + '="' + id + '"]';
 
-        // If target panel is already open then close it
+        // If target panel is already open and is closable then close it
         if ($(description).hasClass('open')) {
-          $(description).removeClass('open');
-          $(this).removeClass('open');
-          return false;
+          if (base.options.closable) {
+            $(description).removeClass('open');
+            $(this).removeClass('open');
+          }
 
         // If no panel is open then open it
         } else if (!$(baseClass + '*').hasClass('open')) {
           $(description).addClass('open');
           $(this).addClass('open');
-          return false;
 
         // If there is already an open panel then close it and open the target panel
         } else {
@@ -59,8 +65,9 @@
               });
 
           $(this).addClass('open');
-          return false;
         }
+
+        return false;
       });
 
 
@@ -72,7 +79,8 @@
   $.Rapido.Toggle.defaultOptions = {
     titleClass: '[data-toggle-name]',
     contentClass: '[data-toggle-content]',
-    delay: 500
+    delay: 500,
+    closable: true
   };
 
   $.fn.rapido_Toggle = function(options) {
