@@ -11,7 +11,9 @@
         id,
         description,
         baseClass,
-        loop;
+        titles_loop,
+        contents_loop,
+        height = [];
 
     base.$el = $(el);
     base.el = el;
@@ -22,11 +24,21 @@
       base.options = $.extend({},$.Rapido.Toggle.defaultOptions, options);
 
       baseClass = $.rapido_Utilities.getClass(base.el) + ' ';
-      loop = baseClass + base.options.titleClass;
+      titles_loop = baseClass + base.options.titleClass;
+      contents_loop = baseClass + base.options.contentClass;
 
-      $(loop).each(function(i, el) {
+      // For each titleClass attach click event
+      $(titles_loop).each(function(i, el) {
         toggle(el, baseClass);
       });
+
+      if (base.options.addMaxHeight) {
+        $(contents_loop).each(function(i, el) {
+          height.push($(el).height());
+          base.$el.css(base.options.addMaxHeight_position, Math.max.apply(null, height) + 'px');
+        });
+      }
+
 
     };
 
@@ -80,7 +92,9 @@
     titleClass: '[data-toggle-name]',
     contentClass: '[data-toggle-content]',
     delay: 500,
-    closable: true
+    closable: true,
+    addMaxHeight: false,
+    addMaxHeight_position: 'padding-top',
   };
 
   $.fn.rapido_Toggle = function(options) {
