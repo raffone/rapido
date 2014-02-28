@@ -42,9 +42,10 @@ Styleguide 5
 
   .caption {
     position: relative;
-    float: left;
     overflow: hidden;
     @include perspective(1000);
+    @include inline-block;
+
 
     &:nth-child(2n) {
       margin-right: 0;
