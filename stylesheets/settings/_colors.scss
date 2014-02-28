@@ -12,21 +12,6 @@ Used for scaffolding
     $grayLighter:                       lighten($black, 95)
     $white:                             #fff
 
-    # Better defaults from https://github.com/mrmrs/colors
-    $aqua:                              #7FDBFF
-    $blue:                              #0074D9
-    $navy:                              #001F3F
-    $teal:                              #39CCCC
-    $green:                             #2ECC40
-    $olive:                             #3D9970
-    $lime:                              #01FF70
-    $yellow:                            #FFDC00
-    $orange:                            #FF851B
-    $red:                               #FF4136
-    $fuchsia:                           #F012BE
-    $purple:                            #B10DC9
-    $maroon:                            #85144B
-
 Styleguide 29
 
 */
@@ -39,20 +24,6 @@ $grayLight:                             lighten($black, 85);
 $grayLighter:                           lighten($black, 95);
 $white:                                 lighten($black, 100);
 
-$aqua:                                  #7FDBFF;
-$blue:                                  #0074D9;
-$navy:                                  #001F3F;
-$teal:                                  #39CCCC;
-$green:                                 #2ECC40;
-$olive:                                 #3D9970;
-$lime:                                  #01FF70;
-$yellow:                                #FFDC00;
-$orange:                                #FF851B;
-$red:                                   #FF4136;
-$fuchsia:                               #F012BE;
-$purple:                                #B10DC9;
-$maroon:                                #85144B;
-
 /*
 
 Default colors
@@ -60,13 +31,13 @@ Default colors
     $body-color:                        #FFFFFF
     $text-color:                        #333
 
-    $link-color:                        #0066cc
+    $link-color:                        #0074D9
     $link-color-hover:                  darken($link-color, 10%)
 
     $placeholder-color:                 $gray
 
     $selection-color:                   $white
-    $selection-bacground:               $gray
+    $selection-bacground:               #39CCCC
 
     $tooltip-color:                     $white
     $tooltip-background:                rgba(0,0,0,.75)
@@ -78,13 +49,13 @@ Styleguide 29.1
 $body-color:                            $white                                                              !default;
 $text-color:                            $grayDarker                                                         !default;
 
-$link-color:                            $blue                                                               !default;
+$link-color:                            #0074D9                                                             !default;
 $link-color-hover:                      darken($link-color, 10)                                             !default;
 
 $placeholder-color:                     $gray                                                               !default;
 
 $selection-color:                       $white                                                              !default;
-$selection-background:                  $teal                                                               !default;
+$selection-background:                  #39CCCC                                                             !default;
 
 $tooltip-color:                         $white                                                              !default;
 $tooltip-background:                    rgba(0,0,0,.75)                                                     !default;
