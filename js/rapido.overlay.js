@@ -55,9 +55,7 @@
       base.$el.on('click', function(e) {
         var offset, height;
 
-        $(window).on('ready resize', function() {
-          height = $(window).height();
-        });
+        height = $(window).height();
 
         // Set ovewrflow:hidden to backgroudn page
         $('html').css({
@@ -77,7 +75,8 @@
           .css({'top': '0', 'height': height});
 
         // If window is resized update offset
-        $(window).resize(function() {
+        $(window).on('resize', function() {
+          height = $(window).height();
           $('[data-overlay-content="' + id + '"].open, ' + base.options.backgroundClass + '.open')
             .css({'top': '0', 'height': height});
         });
