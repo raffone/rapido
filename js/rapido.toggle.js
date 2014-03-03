@@ -7,13 +7,13 @@
   $.Rapido.Toggle = function(el, options) {
     var base = this,
         titleClass,
+        titlesLoop,
         contentClass,
+        contentsLoop,
         id,
         description,
         baseClass,
-        titles_loop,
-        contents_loop,
-        height = [];
+        height;
 
     base.$el = $(el);
     base.el = el;
@@ -23,31 +23,42 @@
     base.init = function() {
       base.options = $.extend({},$.Rapido.Toggle.defaultOptions, options);
 
+      titleClass = base.options.titleClass.replace(/(\[|\])/gi, '');
+      contentClass = base.options.contentClass.replace(/(\[|\])/gi, '');
+
+      // Create selector for the loops
       baseClass = $.rapido_Utilities.getClass(base.el) + ' ';
-      titles_loop = baseClass + base.options.titleClass;
-      contents_loop = baseClass + base.options.contentClass;
+      titlesLoop = baseClass + base.options.titleClass;
+      contentsLoop = baseClass + base.options.contentClass;
 
       // For each titleClass attach click event
-      $(titles_loop).each(function(i, el) {
+      $(titlesLoop).each(function(i, el) {
         toggle(el, baseClass);
       });
 
+      // add max-height to container if addMaxHeight is set to true
       if (base.options.addMaxHeight) {
-        $(contents_loop).each(function(i, el) {
-          height.push($(el).height());
-          base.$el.css(base.options.addMaxHeight_position, Math.max.apply(null, height) + 'px');
+        $(window).on('ready resize', function() {
+          height = [];
+
+          $(contentsLoop).each(function(i, el) {
+            height.push($(el).height());
+          });
+
+          base.$el.css(base.options.positionMaxHeight, Math.max.apply(null, height) + 'px');
         });
       }
 
-
+      // Set default open panel
+      if (base.options.defaultOpen !== false) {
+        $(titlesLoop).eq(base.options.defaultOpen).addClass('open');
+        $(contentsLoop).eq(base.options.defaultOpen).addClass('open');
+      }
     };
 
     var toggle = function(el, baseClass) {
 
       $(el).click(function() {
-
-        titleClass = base.options.titleClass.replace(/(\[|\])/gi, '');
-        contentClass = base.options.contentClass.replace(/(\[|\])/gi, '');
 
         id = $(this).attr(titleClass);
         description = '[' + contentClass + '="' + id + '"]';
@@ -94,7 +105,8 @@
     delay: 500,
     closable: true,
     addMaxHeight: false,
-    addMaxHeight_position: 'padding-top',
+    positionMaxHeight: 'padding-top',
+    defaultOpen: 0
   };
 
   $.fn.rapido_Toggle = function(options) {
