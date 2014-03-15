@@ -112,6 +112,7 @@ Styleguide 22.2
 h1, h2, h3, h4, h5, h6 {
     text-rendering: optimizelegibility;
     font-family: $titles-font-family;
+    margin-top: 0;
 
     small {
         font-weight: normal;
