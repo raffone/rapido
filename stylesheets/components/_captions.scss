@@ -72,11 +72,11 @@ Styleguide 5
       figcaption {
         bottom: 0;
         left: 0;
-        opacity: 0;
+        @include opacity(0);
       }
-      &:hover, &:active {
+      &:hover, &.hover, &:active {
         figcaption {
-          opacity: 1;
+          @include opacity(1);
         }
       }
     }
@@ -87,12 +87,12 @@ Styleguide 5
       figcaption {
         bottom: 0;
         left: 0;
-        opacity: 0;
+        @include opacity(0);
         @include translateY(100%);
       }
-      &:hover, &:active {
+      &:hover, &.hover, &:active {
         figcaption {
-          opacity: 1;
+          @include opacity(1);
           @include translateY(0);
         }
       }
@@ -104,12 +104,12 @@ Styleguide 5
       figcaption {
         left: 0;
         bottom: 0;
-        opacity: 0;
+        @include opacity(0);
         @include translateX(100%);
       }
-      &:hover, &:active {
+      &:hover, &.hover, &:active {
         figcaption {
-          opacity: 1;
+          @include opacity(1);
           @include translateX(0);
         }
       }
@@ -122,11 +122,11 @@ Styleguide 5
         top: 0;
         left: 0;
         height: 100%;
-        opacity: 0;
+        @include opacity(0);
       }
-      &:hover, &:active {
+      &:hover, &.hover, &:active {
         figcaption {
-          opacity: 1;
+          @include opacity(1);
         }
       }
     }
@@ -138,12 +138,12 @@ Styleguide 5
         top: 0;
         left: 0;
         @include simple-transform($rotate: 20deg, $trans-x:100%);
-        opacity: 0;
+        @include opacity(0);
       }
-      &:hover, &:active {
+      &:hover, &.hover, &:active {
         figcaption {
           @include simple-transform($rotate: 0deg, $trans-x:0);
-          opacity: 1;
+          @include opacity(1);
         }
       }
     }
@@ -155,17 +155,17 @@ Styleguide 5
         top: 0;
         left: 0;
         @include translateX(-100%);
-        opacity: 0;
+        @include opacity(0);
         z-index: 2;
       }
       .effect-figcaption-wrap {
         transition: $caption-animations-duration $caption-animations-duration/2;
         @include translateX(200%);
       }
-      &:hover, &:active {
+      &:hover, &.hover, &:active {
         figcaption {
           @include translateX(0);
-          opacity: 1;
+          @include opacity(1);
         }
         .effect-figcaption-wrap {
           @include translateX(0);
@@ -181,16 +181,16 @@ Styleguide 5
         left: 0;
         height: 100%;
         @include translateX(-100%);
-        opacity: 0;
+        @include opacity(0);
       }
       img {
         transition: $caption-animations-duration;
         @include translateX(0);
       }
-      &:hover, &:active {
+      &:hover, &.hover, &:active {
         figcaption {
           @include translateX(0);
-          opacity: 1;
+          @include opacity(1);
         }
         img {
           @include translateX(100%);
@@ -205,15 +205,15 @@ Styleguide 5
         left: 0;
         height: 100%;
         @include translateY(-100%);
-        opacity: 0;
+        @include opacity(0);
       }
       img {
         transition: $caption-animations-duration;
       }
-      &:hover, &:active {
+      &:hover, &.hover, &:active {
         figcaption {
           @include translateY(0);
-          opacity: 1;
+          @include opacity(1);
         }
       }
     }
@@ -226,15 +226,15 @@ Styleguide 5
         left: 0;
         @include scale(2);
         text-align: center;
-        opacity: 0;
+        @include opacity(0);
       }
       img {
         transition: $caption-animations-duration;
       }
-      &:hover, &:active {
+      &:hover, &.hover, &:active {
         figcaption {
           @include scale(1);
-          opacity: 1;
+          @include opacity(1);
         }
         img {
           @include scale(1.1);
@@ -258,7 +258,7 @@ Styleguide 5
 
         transition: $caption-animations-duration;
       }
-      &:hover, &:active {
+      &:hover, &.hover, &:active {
         figcaption {
           @include rotateY(0deg);
         }
@@ -280,7 +280,7 @@ Styleguide 5
       img {
         transition: $caption-animations-duration;
       }
-      &:hover, &:active {
+      &:hover, &.hover, &:active {
         figcaption {
 
           @include rotateY(360deg);
@@ -304,7 +304,7 @@ Styleguide 5
 
         transition: $caption-animations-duration;
       }
-      &:hover, &:active {
+      &:hover, &.hover, &:active {
         figcaption {
           @include rotateX(360deg);
         }
@@ -327,7 +327,7 @@ Styleguide 5
 
         transition: $caption-animations-duration;
       }
-      &:hover, &:active {
+      &:hover, &.hover, &:active {
         figcaption {
           @include rotateX(0deg);
         }
@@ -344,16 +344,16 @@ Styleguide 5
         top: 0;
         left: 0;
         text-align: center;
-        opacity: 0;
+        @include opacity(0);
         height: 100%;
       }
       img {
         transition: $caption-animations-duration;
       }
-      &:hover, &:active {
+      &:hover, &.hover, &:active {
         figcaption {
           @include translate(15px, 15px);
-          opacity: 1;
+          @include opacity(1);
           z-index: 100; //prevent ovarslap
           overflow: hidden;
         }
@@ -374,7 +374,7 @@ Styleguide 5
         z-index:10;
         transition: $caption-animations-duration;
       }
-      &:hover, &:active {
+      &:hover, &.hover, &:active {
         img {
           @include translateY(-100%);
         }
@@ -394,7 +394,7 @@ Styleguide 5
         position:relative;
         transition: $caption-animations-duration;
       }
-      &:hover, &:active {
+      &:hover, &.hover, &:active {
         img {
           @include translateY(-50%);
         }
