@@ -444,15 +444,23 @@ Styleguide 8.6
   max-height: 0;
   overflow: hidden;
   position: absolute;
-  z-index: 5;
-  padding: $input-padding;
+  z-index: 999;
 
   &.open {
     max-height: $dropdowns-height;
   }
 
   a {
-    display: block
+    display: block;
+  }
+
+  > * {
+    padding: $input-padding;
+    display: block;
+  }
+
+  > * + * {
+    padding-top: 0;
   }
 
   ul {
@@ -622,7 +630,8 @@ Styleguide 8.10
     .form--grid {
         .form__group {
             min-height: $control-min-height;
-            margin: 0 0 em($control-margin-bottom) 0;
+            margin-top: 0;
+            margin-bottom: em($control-margin-bottom);
         }
 
         .form__multi,
