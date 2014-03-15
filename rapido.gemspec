@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   # Release Specific Information
   s.version = "0.2.1"
-  s.date = "2014-02-24"
+  s.date = "2014-03-15"
 
   # Gem Details
   s.name = "rapido-css"
@@ -20,8 +20,8 @@ Gem::Specification.new do |s|
 
   # Gem Bookkeeping
   s.rubygems_version = %q{1.3.6}
-  s.add_runtime_dependency 'susy', '~> 1.0', '>= 1.0.8'
-  s.add_runtime_dependency 'sass-media_query_combiner', '~> 0.0', '>= 0.0.6'
-  s.add_runtime_dependency 'sass-globbing', '~> 1.1', '>= 1.1.0'
+  s.add_runtime_dependency 'susy', '~> 2.0'
+  s.add_runtime_dependency 'sass-media_query_combiner', '~> 0.0'
+  s.add_runtime_dependency 'sass-globbing', '~> 1.1'
 
 end
