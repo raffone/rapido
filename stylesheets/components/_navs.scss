@@ -36,14 +36,14 @@ Styleguide 12
 @if $navs {
 
     .nav {
-        @extend .clearfix;
-        @include inline-block;
+        @extend %clearfix;
+        @extend %display-inline-block;
         margin-bottom: rhythm();
         position: relative;
 
         &, ul {
-            @extend .clearfix;
-            @extend .list-style-none;
+            @extend %clearfix;
+            @extend %list-style-none;
             margin-bottom: 0;
         }
 
@@ -52,11 +52,11 @@ Styleguide 12
 
             > a {
                 @extend .transition;
-                @include inline-block;
+                @extend %display-inline-block;
                 line-height: 1em;
 
                 &:hover, &:focus {
-                    text-decoration: none;
+                    @extend %text-decoration-none;
                 }
 
                 img { max-width: none; }
@@ -64,9 +64,9 @@ Styleguide 12
 
             &.disabled > a:hover,
             &.disabled > a:focus {
-                text-decoration: none;
+                @extend %text-decoration-none;
                 background-color: transparent;
-                cursor: default;
+                @extend %cursor-default;
             }
 
             // Disabled
@@ -99,18 +99,18 @@ Styleguide 12
     .nav__title {
         @include adjust-font-size-to($small-size);
         color: $gray;
-        display: block;
-        font-weight: bold;
+        @extend %display-block;
+        @extend %font-weight-bold;
         padding: $navs-padding;
         padding-left: 0;
-        text-transform: uppercase;
+        @extend %text-transform-uppercase;
     }
 
 // Horizontal nav
 
     .nav--inline {
         & > li,
-        > ul > li { float: left;}
+        > ul > li { @extend %float-left;}
 
         li ul {
           @include position(absolute, 100% 0 0 0px);
@@ -124,7 +124,7 @@ Styleguide 12
         width: 100%;
 
         li > a {
-            display: block;
+            @extend %display-block;
         }
     }
 
@@ -142,7 +142,7 @@ Styleguide 12
                 }
             }
 
-            ul a { display: block; }
+            ul a { @extend %display-block; }
 
             &.current > a,
             &.current > a:hover,

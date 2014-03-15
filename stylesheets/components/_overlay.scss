@@ -76,8 +76,8 @@ Styleguide 18
 
   .overlay-close {
     @extend %overlay__close !optional;
-    cursor: pointer;
-    display: block;
+    @extend %cursor-pointer;
+    @extend %display-block;
   }
 
 }

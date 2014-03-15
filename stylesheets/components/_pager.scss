@@ -20,20 +20,20 @@ Styleguide 13
 
 
     .pager {
-        @include clearfix();
+        @extend %clearfix;
         list-style: none;
         margin: rhythm() 0;
-        text-align: center;
+        @extend %text-align-center;
 
         li {
-            display: inline;
+            @extend %display-inline;
 
             a,
             span {
                 @include border-radius($base-border-radius);
                 border-style: solid;
                 border-width: 1px;
-                @include inline-block;
+                @extend %display-inline-block;
                 line-height: 1em;
                 padding: $pager-padding;
                 @extend %pager--btn !optional;
@@ -67,13 +67,13 @@ Styleguide 13.1
         [rel="next"],
         .next > a,
         .next > span {
-            float: right;
+            @extend %float-right;
         }
 
         [rel="prev"],
         .previous > a,
         .previous > span {
-            float: left;
+            @extend %float-left;
         }
 
 /*
@@ -96,7 +96,7 @@ Styleguide 13.2
         .disabled > a:hover,
         .disabled > a:focus,
         .disabled > span {
-            cursor: default;
+            @extend %cursor-default;
             @extend %pager--btn__disabled !optional;
         }
 

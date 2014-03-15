@@ -34,23 +34,23 @@ Styleguide 8
 @if $forms {
 
 form {
-    @extend .clearfix;
+    @extend %clearfix;
     margin: 0 0 rhythm();
 }
 
 fieldset {
-    padding: 0;
-    margin: 0;
-    border: 0;
+    @extend %no-padding;
+    @extend %no-margin;
+    @extend %no-border;
 }
 
 legend {
     @include adjust-font-size-to($h5-size);
-    display: block;
-    padding: 0;
+    @extend %display-block;
+    @extend %no-padding;
     width: 100%;
-    font-weight: bold;
-    border: 0;
+    @extend %font-weight-bold;
+    @extend %no-border;
     padding-bottom: rhythm(.5);
     margin-bottom: rhythm(.5);
     border-bottom: 1px solid #e5e5e5;
@@ -70,7 +70,7 @@ textarea {
 
 label {
     line-height: $input-height/2;
-    display: block;
+    @extend %display-block;
 }
 
 .input-text,
@@ -90,12 +90,12 @@ input[type="url"],
 input[type="search"],
 input[type="tel"],
 input[type="color"] {
-    @include inline-block;
+    @extend %display-inline-block;
     padding: 0 $input-padding-side;
     height: $input-height;
     border-width: $input-border;
     border-style: solid;
-    @media \0screen { line-height: $input-height; } // Ugly IE8 Hack
+    line-height/*\**/: #{$input-height}\9; // Ugly IE8 Hack
     @extend %input !optional; // Backward compatibility
     @extend %form__input !optional;
 
@@ -103,7 +103,7 @@ input[type="color"] {
 }
 
 select {
-    @include inline-block;
+    @extend %display-inline-block;
 }
 
 input,
@@ -148,7 +148,7 @@ select[size] {
 input[readonly],
 select[readonly],
 textarea[readonly] {
-  cursor: default;
+  @extend %cursor-default;
 }
 
 input[disabled],
@@ -179,9 +179,9 @@ select:focus:invalid {
 .form__group + .form__group { margin-top: em($control-margin-bottom); }
 
 .form__controls {
-  @extend .clearfix;
+  @extend %clearfix;
   position: relative;
-  @include inline-block;
+  @extend %display-inline-block;
 }
 
 
@@ -198,7 +198,7 @@ Styleguide 8.1
 */
 
 .form__label {
-    font-weight: bold;
+    @extend %font-weight-bold;
     margin-bottom: em($label-margin-bottom);
     cursor: auto;
     @extend %form__label !optional;
@@ -229,21 +229,21 @@ Styleguide 8.2
 .form__checkbox,
 .form__select {
     padding-left: em($checkbox-padding-left);
-    font-weight: normal;
-    cursor: pointer;
-    display: block;
+    @extend %font-weight-normal;
+    @extend %cursor-pointer;
+    @extend %display-block;
 }
 
 .form__select {padding-left: 0;}
 
 .form__radio input[type="radio"],
 .form__checkbox input[type="checkbox"] {
-    float: left;
+    @extend %float-left;
     margin-left: -20px;
 }
 .form__radio.inline,
 .form__checkbox.inline {
-    @include inline-block;
+    @extend %display-inline-block;
 }
 .form__radio.inline + .form__radio.inline,
 .form__checkbox.inline + .form__checkbox.inline {
@@ -289,10 +289,10 @@ Styleguide 8.3
     @extend %select !optional; // Backward compatibility
     @extend %form__select !optional;
     @include border-radius($base-border-radius);
-    @include inline-block;
+    @extend %display-inline-block;
     border-style: solid;
     border-width: $input-border;
-    cursor: pointer;
+    @extend %cursor-pointer;
     height: $input-height;
     line-height: 1em;
     margin-bottom: 0;
@@ -301,12 +301,12 @@ Styleguide 8.3
     width: 240px;
 
     select {
-        @include appearance(none);
+        @extend %appearance-none;
         background-color:transparent;
         background-image:none;
         border:none;
         box-shadow:none;
-        cursor: pointer;
+        @extend %cursor-pointer;
         position: relative;
         width:100%;
         z-index: 3;
@@ -317,7 +317,7 @@ Styleguide 8.3
     &:after {
         /*@include position(absolute, em($input-padding-top) em($input-padding-side) 0 0);*/
         @include position(absolute, 0em 0em 0em 0);
-        display: block;
+        @extend %display-block;
         line-height: $input-height;
         padding-right: $input-padding-side;
     }
@@ -387,11 +387,11 @@ Styleguide 8.5
     color: lighten($text-color, 15%);
 }
 .form__help--block {
-    display: block;
+    @extend %display-block;
     padding: rhythm(.5) 0 0;
 }
 .form__help--inline {
-    @include inline-block();
+    @extend %display-inline-block;
     vertical-align: middle;
     padding-left: 5px;
 }
@@ -451,12 +451,12 @@ Styleguide 8.6
   }
 
   a {
-    display: block;
+    @extend %display-block;
   }
 
   > * {
     padding: $input-padding;
-    display: block;
+    @extend %display-block;
   }
 
   > * + * {
@@ -464,7 +464,7 @@ Styleguide 8.6
   }
 
   ul {
-    margin: 0;
+    @extend %no-margin;
     list-style: none;
   }
 }
@@ -498,15 +498,15 @@ Styleguide 8.8
 */
 
 .form__addon {
-    @include inline-block;
+    @extend %display-inline-block;
     width: auto;
     min-width: em(16px);
     padding: $input-padding;
     line-height: 1em;
-    font-weight: normal;
-    float: left;
+    @extend %font-weight-normal;
+    @extend %float-left;
     height: $input-height;
-    text-align: center;
+    @extend %text-align-center;
     border-width: $input-border;
     border-style: solid;
     @extend %input-addon !optional; // Backward compatibility
@@ -519,7 +519,7 @@ Styleguide 8.8
     > [type],
     > [class] {
         @include border-radius(0);
-        float: left;
+        @extend %float-left;
         margin-left: -$input-border;
 
         &:first-child   { @include border-radius($base-border-radius 0 0 $base-border-radius); }
@@ -561,11 +561,11 @@ Styleguide 8.9
     margin-bottom: rhythm(1);
     border-top: 1px solid #e5e5e5;
     clear: both;
-    @extend .clearfix;
+    @extend %clearfix;
 }
 
 .form__group.form__actions {
-    border: 0;
+    @extend %no-border;
     clear: none;
     margin-bottom: 0;
     margin-top: 0;
@@ -666,10 +666,10 @@ Styleguide 8.10
     .form--aligned {
 
         .form__label {
-            float: left;
+            @extend %float-left;
             width: em($horizontal-offset) - em(20px);
             padding-top: em($input-padding-top);
-            text-align: right;
+            @extend %text-align-right;
         }
 
         .form__controls { margin-left: em(20px); }
@@ -751,7 +751,7 @@ Styleguide 8.10.1
         }
 
         .form__label {
-          @include inline-block;
+          @extend %display-inline-block;
           padding-right: 1em;
           margin-bottom: 0;
         }
@@ -781,8 +781,8 @@ Styleguide 8.10.1
         }
 
         .form__group {
-            padding: 0;
-            @include inline-block;
+            @extend %no-padding;
+            @extend %display-inline-block;
         }
 
         .form__group + .form__group {
@@ -790,10 +790,10 @@ Styleguide 8.10.1
         }
 
         .form__actions {
-            border: 0;
-            padding: 0;
-            margin: 0;
-            @include inline-block;
+            @extend %no-border;
+            @extend %no-padding;
+            @extend %no-margin;
+            @extend %display-inline-block;
         }
 
     }

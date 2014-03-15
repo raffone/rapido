@@ -34,8 +34,8 @@ when you have two animation that you don't wont to start at the same time.
 Remeber to add closed and open state in the css, this module doesn't have
 default styling, es:
 
-    [data-toggle-content]       { display: none; }
-    [data-toggle-content].open  { display: block; }
+    [data-toggle-content]       { @extend %display-none; }
+    [data-toggle-content].open  { @extend %display-block; }
 
 Styleguide 17
 

@@ -29,14 +29,14 @@ html {
 
 body {
     @include adjust-font-size-to($base-font-size);
-    margin: 0;
+    @extend %no-margin;
     font-family: $base-font-family;
     color: $text-color;
 }
 
 img {
     max-width: 100%;
-    @include inline-block;
+    @extend %display-inline-block;
 }
 
 a, button, textarea, input { outline: none; }
@@ -45,12 +45,12 @@ a, button, textarea, input { outline: none; }
 
 a {
     color: $link-color;
-    text-decoration: none;
+    @extend %text-decoration-none;
 
     &:hover,
     &:focus {
         color: $link-color-hover;
-        text-decoration: none;
+        @extend %text-decoration-none;
     }
 
 }
@@ -89,8 +89,8 @@ p           { margin: 0 0 rhythm(1);}
 
 small         { @include adjust-font-size-to($small-size); }
 
-strong        { font-weight: bold; }
-em            { font-style: italic; }
+strong        { @extend %font-weight-bold; }
+em            { @extend %font-style-italic; }
 cite          { font-style: normal; }
 
 /*
@@ -115,7 +115,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
 
     small {
-        font-weight: normal;
+        @extend %font-weight-normal;
         line-height: rhythm();
         color: $grayLight;
     }
@@ -183,15 +183,13 @@ Styleguide 22.3
 */
 
 .list_style_none, .list-style-none {
-    padding-left: 0;
-    margin-left: 0;
-    list-style: none;
+    @extend %list-style-none;
 }
 
 // Unordered and Ordered lists
 
 ul, ol {
-    padding: 0;
+    @extend %no-padding;
     margin: 0 0 rhythm(1) 25px;
 }
 
@@ -213,7 +211,7 @@ ol.inline {
     margin-left: 0;
     list-style: none;
     > li {
-        @include inline-block();
+        @extend %display-inline-block;
     }
 }
 
@@ -235,7 +233,7 @@ Styleguide 22.4
 
 dl      { margin-bottom: rhythm(1); }
 dt, dd  { }
-dt      { font-weight: bold; }
+dt      { @extend %font-weight-bold; }
 dd      { margin-left: 0; }
 
 /*
@@ -255,12 +253,12 @@ Styleguide 22.4.1
 */
 
 .dl-horizontal {
-    @extend .clearfix;
+    @extend %clearfix;
     dt {
         @include text-overflow();
         clear: left;
-        float: left;
-        text-align: right;
+        @extend %float-left;
+        @extend %text-align-right;
         width: em($horizontal-offset) - 20;
     }
 
@@ -279,7 +277,7 @@ Styleguide 22.5
 
 hr {
     margin: rhythm(1) 0;
-    border: 0;
+    @extend %no-border; 
     border-bottom: 1px solid $gray;
 }
 
@@ -292,7 +290,7 @@ abbr[data-original-title] {
 }
 abbr.initialism {
     font-size: 90%;
-    text-transform: uppercase;
+    @extend %text-transform-uppercase;
 }
 
 /*
@@ -311,7 +309,7 @@ Styleguide 22.6
 
 blockquote {
     padding: 0 0 0 rhythm(1);
-    margin: 0;
+    @extend %no-margin;
     margin: 0 0 rhythm(1);
     border-left: 5px solid $grayLighter;
 
@@ -321,7 +319,7 @@ blockquote {
     }
 
     cite {
-        display: block;
+        @extend %display-block;
         color: $grayLight;
         &:before {
             content: '\2014 \00A0';
@@ -329,7 +327,7 @@ blockquote {
     }
 
     &.pull-right {
-        float: right;
+        @extend %float-right;
         padding-right: 15px;
         padding-left: 0;
         border-right: 5px solid $grayLighter;
@@ -337,7 +335,7 @@ blockquote {
 
         p,
         small {
-            text-align: right;
+            @extend %text-align-right;
         }
 
         small {
@@ -359,7 +357,7 @@ blockquote:after {
 // Addresses
 
 address {
-    display: block;
+    @extend %display-block;
     margin-bottom: rhythm(1);
     font-style: normal;
     line-height: rhythm(1);

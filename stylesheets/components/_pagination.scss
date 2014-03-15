@@ -32,22 +32,22 @@ Styleguide 14
         clear: both;
 
         > * {
-            @extend .clearfix;
+            @extend %clearfix;
             @include border-radius($base-border-radius);
-            @include inline-block;
+            @extend %display-inline-block;
             margin-bottom: 0;
             margin-left: $input-border;
 
             li {
-                float: left;
+                @extend %float-left;
                 list-style-type: none;
 
                 a,
                 span {
-                    @include inline-block;
+                    @extend %display-inline-block;
                     padding: $pagination-padding;
                     line-height: 1em;
-                    text-decoration: none;
+                    @extend %text-decoration-none;
                     border-width: $input-border;
                     border-style: solid;
                     margin-left: -$input-border;
@@ -90,15 +90,15 @@ Styleguide 14
             .disabled > a,
             .disabled > a:hover,
             .disabled > a:focus {
-                cursor: default;
+                @extend %cursor-default;
             }
         }
     }
 
 // Alternative alignments
 
-    .pagination--center {text-align: center; }
-    .pagination--right   {text-align: right; }
+    .pagination--center {@extend %text-align-center; }
+    .pagination--right   {@extend %text-align-right; }
 
 // Rounded sides
 

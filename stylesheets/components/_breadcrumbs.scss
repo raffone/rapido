@@ -25,7 +25,7 @@ Styleguide 2
         list-style: none;
         @extend %breadcrumbs !optional;
 
-        > li { @include inline-block(); }
+        > li { @extend %display-inline-block; }
 
         .current {@extend %breadcrumbs__current !optional;}
     }

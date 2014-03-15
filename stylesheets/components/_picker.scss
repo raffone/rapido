@@ -25,7 +25,7 @@ Styleguide 8.7
       z-index: $zindex-dropdown;
     }
 
-    .picker__input { cursor: default; }
+    .picker__input { @extend %cursor-default; }
 
     .picker__holder {
       -webkit-overflow-scrolling: touch;
@@ -57,25 +57,25 @@ Styleguide 8.7
 
     .picker__header {
       position: relative;
-      text-align: center;
+      @extend %text-align-center;
     }
 
     .picker__year,
     .picker__month,
     .picker__select--year
     .picker__select--month {
-      display: inline-block;
+      @extend %display-inline-block;
       margin: 0 .25em;
     }
 
     .picker__month {
-      font-weight: bold;
+      @extend %font-weight-bold;
       @include adjust-font-size-to($h5-size);
     }
 
     .picker__year {
       color: $gray;
-      font-style: italic;
+      @extend %font-style-italic;
       @include adjust-font-size-to($small-size);
     }
 
@@ -109,7 +109,7 @@ Styleguide 8.7
     .picker__nav--disabled:hover,
     .picker__nav--disabled:before,
     .picker__nav--disabled:before:hover {
-      cursor: default;
+      @extend %cursor-default;
       background: none;
     }
 
@@ -119,12 +119,12 @@ Styleguide 8.7
       margin: nth($picker-padding, 1) 0;
       width: 100%;
       table-layout: fixed;
-      text-align: center;
+      @extend %text-align-center;
       border-collapse: collapse;
       border-spacing: 0;
       td {
-        margin: 0;
-        padding: 0;
+        @extend %no-margin;
+        @extend %no-padding;
       }
     }
 
@@ -142,7 +142,7 @@ Styleguide 8.7
       &:before {
         @include position(absolute, 2px 2px 0 0);
         @include triangle(8px, rgba(0,0,0,.3), up-right);
-        display: block;
+        @extend %display-block;
         content: "";
       }
     }
@@ -155,7 +155,7 @@ Styleguide 8.7
     .picker__day--infocus:hover,
     .picker__day--outfocus:hover {
       @extend %form__picker--hover;
-      cursor: pointer;
+      @extend %cursor-pointer;
     }
 
     .picker__day--highlighted:hover,
@@ -166,7 +166,7 @@ Styleguide 8.7
     .picker__day--disabled,
     .picker__day--disabled:hover {
       @extend %form__picker--disabled;
-      cursor: default;
+      @extend %cursor-default;
     }
 
     .picker__day--highlighted.picker__day--disabled,
@@ -183,7 +183,7 @@ Styleguide 8.7
       @extend .btn;
       @extend .btn--link;
       color: $text-color;
-      font-weight: bold;
+      @extend %font-weight-bold;
       width: 50%;
 
       &:hover { @extend %form__picker--hover }

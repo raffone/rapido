@@ -26,16 +26,16 @@ Styleguide 11
 
 */
 
-.modal { display: none; }
+.modal { @extend %display-none; }
 
 @if $modal {
 
 // Resets
 
     %modal-reset {
-        padding: 0;
-        margin: 0;
-        border: 0;
+        @extend %no-padding;
+        @extend %no-margin;
+        @extend %no-border; 
         vertical-align: top;
         list-style-type: none;
     }
@@ -58,7 +58,7 @@ Styleguide 11
     .fancybox-overlay {
         @extend %modal__overlay !optional;
         @include position(absolute, 0px 0 0 0px);
-        display: none;
+        @extend %display-none;
         overflow: hidden;
         z-index: ($zindex-modal - 1);
 
@@ -133,14 +133,14 @@ Styleguide 11
 // Content
 
     .fancybox-error {
-        margin: 0;
+        @extend %no-margin;
         padding: $modals-error-padding;
         white-space: nowrap;
     }
 
     .fancybox-image,
     .fancybox-iframe {
-        display: block;
+        @extend %display-block;
         @include square(100%);
     }
 
@@ -156,7 +156,7 @@ Styleguide 11
     #fancybox-loading {
         @include position(fixed, 50% 0 0 50%);
         @extend %modal__loading !optional;
-        cursor: pointer;
+        @extend %cursor-pointer;
         z-index: ($zindex-modal + 4);
     }
 
@@ -214,17 +214,17 @@ Styleguide 11
     .fancybox-title-float-wrap {
         @include position(absolute, 0 50% 0px 0);
         margin-bottom: em(-35px);
-        text-align: center;
+        @extend %text-align-center;
         z-index: ($zindex-modal + 3);
 
         .child {
             @include alpha-color(#000, .8, background);
             @include border-radius($base-border-radius);
-            @include inline-block;
+            @extend %display-inline-block;
             margin-right: -100%;
             padding: em(2px) em($input-padding-side);
             color: #FFF;
-            font-weight: bold;
+            @extend %font-weight-bold;
             white-space: nowrap;
         }
     }
@@ -290,12 +290,12 @@ Styleguide 11.1
 
         ul {
             @extend %modal__btnbar-size !optional;
-            display: block;
+            @extend %display-block;
             list-style: none;
             margin: 0 auto;
             li {
-                float: left;
-                margin: 0;
+                @extend %float-left;
+                @extend %no-margin;
                 a {
                     @extend %modal__btn !optional;
                     position: relative;
@@ -364,7 +364,7 @@ Styleguide 11.2
             position: relative;
 
             li {
-                float: left;
+                @extend %float-left;
                 margin-right: em(4px);
                 @include opacity(.5);
 
@@ -372,9 +372,9 @@ Styleguide 11.2
                 &.active { @include opacity(1); }
 
                 a {
-                    display: block;
+                    @extend %display-block;
                     overflow: hidden;
-                    text-align: center;
+                    @extend %text-align-center;
                 }
 
             }

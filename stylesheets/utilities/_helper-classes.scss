@@ -27,7 +27,7 @@ Styleguide 25.1
 .clearfix {
     &:after {
         content: "";
-        display: table;
+        @extend %display-table;
         clear: both;
     }
 }
@@ -59,7 +59,7 @@ Styleguide 25.2
 */
 
 .wrapper, .w {
-    @extend .clearfix;
+    @extend %clearfix;
     margin: 0 auto;
     max-width: $desk-end;
     padding-left: em($wrapper-padding);
@@ -67,14 +67,14 @@ Styleguide 25.2
 }
 
 .fixed-wrapper, .fw {
-    @extend .clearfix;
+    @extend %clearfix;
     margin: 0 auto;
     width: $desk-end;
 }
 
 
-.left {float: left;}
-.right {float: right;}
+.left {@extend %float-left;}
+.right {@extend %float-right;}
 
 
 /*
@@ -130,12 +130,12 @@ Styleguide 25.4
 .lead           { @include adjust-font-size-to($h4-size); }
 .muted          { color: $gray; }
 
-.pull-left      { float: left; }
-.pull-right     { float: right; }
+.pull-left      { @extend %float-left; }
+.pull-right     { @extend %float-right; }
 
-.text-left      { text-align: left; }
-.text-right     { text-align: right; }
-.text-center    { text-align: center; }
+.text-left      { @extend %text-align-left; }
+.text-right     { @extend %text-align-right; }
+.text-center    { @extend %text-align-center; }
 
 /*
 
@@ -152,7 +152,7 @@ Styleguide 25.5
 .s {
     @include transition(none);
     content: "";
-    @include inline-block;
+    @extend %display-inline-block;
     font-style:normal;
     overflow:hidden;
     text-align:center;

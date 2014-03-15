@@ -13,26 +13,26 @@ Styleguide 6
 @if $close {
 
     .close {
-        float: right;
+        @extend %float-right;
         font-size: 1em;
-        font-weight: bold;
+        @extend %font-weight-bold;
         color: $black;
         @include opacity(20);
         &:hover,
         &:focus {
             color: $black;
-            text-decoration: none;
-            cursor: pointer;
+            @extend %text-decoration-none;
+            @extend %cursor-pointer;
             @include opacity(40);
         }
     }
 
     button.close {
-        padding: 0;
-        cursor: pointer;
-        background: transparent;
-        border: 0;
-        -webkit-appearance: none;
+        @extend %no-padding;
+        @extend %cursor-pointer;
+        @extend %no-background;
+        @extend %no-border; 
+        @extend %appearance-none;
     }
 
 }

@@ -18,12 +18,12 @@ Styleguide 4
 @if $button-groups {
 
     .btn-group {
-        @extend .clearfix;
-        @include inline-block;
-        margin: 0;
+        @extend %clearfix;
+        @extend %display-inline-block;
+        @extend %no-margin;
 
         > * {
-            float: left;
+            @extend %float-left;
             list-style-type: none;
         }
 
@@ -40,7 +40,7 @@ Styleguide 4
         // Float button and reapply border radius
         > .btn,
         > li .btn {
-            float: left;
+            @extend %float-left;
             @include border-radius(0);
         }
 
