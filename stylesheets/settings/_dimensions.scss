@@ -113,9 +113,9 @@ $input-padding-side:                10px                                        
 $checkbox-padding-left:             20px                                                                    !default;
 
 // Do · not · edit
-$input-padding:                     em($input-padding-top) em($input-padding-side)                                  ;
-$input-height:                      em($base-font-size + ($input-padding-top * 2) + ($input-border * 2))            ;
-$control-min-height:                em($base-line-height + $label-margin-bottom) + $input-height - em(5px)          ;
+$input-padding:                     em($input-padding-top) em($input-padding-side)                          !default;
+$input-height:                      em($base-font-size + ($input-padding-top * 2) + ($input-border * 2))    !default;
+$control-min-height:                em($base-line-height + $label-margin-bottom) + $input-height - em(5px)  !default;
 
 
 /*
