@@ -45,9 +45,11 @@ Styleguide 18
     @include position(fixed, -100% 0em 0em 0em);
     height: 0;
     overflow: hidden;
+    visibility: hidden;
     &.open {
       @extend %overlay__content--open !optional;
       overflow: auto;
+      visibility: visible;
       z-index: $zindex-modal;
     }
     &.close {
