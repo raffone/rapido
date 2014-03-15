@@ -39,7 +39,7 @@ $media-queries: palm, lap, portable, lap-and-up, desk;
                 $nth: $total-columns / $i;
 
                 .#{$device}-#{$i} {
-                    @include span-columns($i);
+                    @include span($i);
                     @include nth-omega(#{$i}n);
                 }
 

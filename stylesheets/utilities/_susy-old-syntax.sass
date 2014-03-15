@@ -1,0 +1,15 @@
+@mixin nth-omega ($n) {
+    &:nth-child(#{$n}) {
+        @include omega;
+    }
+}
+
+@function space($columns, $context: 12) {
+  @return span($columns of $context wide)
+}
+
+@function columns($columns, $context: 12) {
+  @return span($columns of $context)
+}
+
+

@@ -711,10 +711,8 @@ Responsive grid
 * `$cols-container`: Columns of the container (default: $total-columns)
 * `$omega`: Bolean, us if is the last column
 * `$nth-omega`: If is a multi-row grid list use nth to apply omega to each element at the end of each row (example: `3n` to use omega every 3th element )
-* `$remove-omega`: Remove omega on previously applied omega (ignore it)
-* `$from`: Direction, left or right
+* `$from`: Direction, ltr or rtl
 * `$media`: Media query to to use, for responsive grids
-* `$highlight-omega`: Bolean, used for debugging nth
 
 Styleguide 26.21
 
@@ -725,25 +723,14 @@ Styleguide 26.21
     $cols-container: $total-columns,
     $omega: false,
     $nth-omega: false,
-    $remove-omega: false,
-    $from: left,
-    $media: null,
-    $highlight-omega: false
+    $from: ltr,
+    $media: null
     ) {
 
     @include media($media) {
-        $direction: left;
-
-        @if $from != left { $direction: right; }
-
-        @include span-columns($cols, $cols-container, $from: $direction);
-        @if $omega { @include omega($from: $direction); }
-        @if $nth-omega { @include nth-omega($nth-omega, $from: $direction); }
-        @if $remove-omega { @include remove-omega; }
-        @if $highlight-omega  {
-            @if $omega { background: blue; }
-            @if $nth-omega { &:nth-child(#{$nth-omega}) {background: blue;} }
-        }
+        @include span($cols of $cols-container $from);
+        @if $omega { @include omega; }
+        @if $nth-omega { @include nth-omega($nth-omega); }
     }
 }
 
