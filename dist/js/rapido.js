@@ -1,5 +1,5 @@
 /*
- *  Rapido - v0.2.1
+ *  Rapido - v0.2.2
  *  An easy and quick Sass + Compass + Susy + OOCSS + BEM prototyping framework.
  *  https://github.com/raffone/rapido
  *
@@ -364,9 +364,7 @@
       base.$el.on('click', function(e) {
         var offset, height;
 
-        $(window).on('ready resize', function() {
-          height = $(window).height();
-        });
+        height = $(window).height();
 
         // Set ovewrflow:hidden to backgroudn page
         $('html').css({
@@ -386,7 +384,8 @@
           .css({'top': '0', 'height': height});
 
         // If window is resized update offset
-        $(window).resize(function() {
+        $(window).on('resize', function() {
+          height = $(window).height();
           $('[data-overlay-content="' + id + '"].open, ' + base.options.backgroundClass + '.open')
             .css({'top': '0', 'height': height});
         });
@@ -475,7 +474,7 @@
       }
 
       // Add offset to taget position
-      offset = $(target).position().top - base.options.offset;
+      offset = $(target).offset().top - base.options.offset;
 
       // On click go to taget
       base.$el.on('click', function(e) {
@@ -575,9 +574,7 @@
     base.init = function() {
       base.options = $.extend({},$.Rapido.Suggest.defaultOptions, options);
 
-      setSize();
-
-      $(window).resize(function() {
+      $(window).on('ready resize', function() {
         setSize();
       });
 
@@ -598,31 +595,37 @@
           'width': $input.outerWidth() + 'px'
         });
 
-        // Toggle class on :focus and :blur
+        // Toggle class on :focus
         $input.focus(function() {
           $(base.options.suggestClass).removeClass('open');
           $suggest.addClass('open');
         });
-
-        $input.blur(function() {
-          $suggest.removeClass('open');
-        });
-
       });
     };
 
-
     var compileInput = function() {
-      $(base.options.suggestClass + ' a').on('click', function(e) {
+      $(base.options.suggestClass).on('click', 'a', function(e) {
 
         var value = $(this).attr(base.options.suggestAttr);
         var $input = $(this).parents(base.options.containerClass).children('input[type = "text"]');
+        var $parent = $(this).parents(base.options.suggestClass);
 
         $input.val(value);
+        $parent.removeClass('open');
 
         e.preventDefault();
       });
+
+      $('html, body').on('click', function() {
+        $(base.options.suggestClass).removeClass('open');
+      });
+
+      $('input').on('click', function(e) {
+        e.stopPropagation();
+      });
     };
+
+
 
     base.init();
   };
@@ -647,7 +650,16 @@
   }
 
   $.Rapido.Toggle = function(el, options) {
-    var base = this;
+    var base = this,
+        titleClass,
+        titlesLoop,
+        contentClass,
+        contentsLoop,
+        id,
+        description,
+        baseClass,
+        contentsHeight = {},
+        height;
 
     base.$el = $(el);
     base.el = el;
@@ -657,10 +669,50 @@
     base.init = function() {
       base.options = $.extend({},$.Rapido.Toggle.defaultOptions, options);
 
-      var baseClass = '.' + base.el.className + ' ';
-      var loop = baseClass + base.options.titleClass;
+      titleClass = base.options.titleClass.replace(/(\[|\])/gi, '');
+      contentClass = base.options.contentClass.replace(/(\[|\])/gi, '');
 
-      $(loop).each(function(i, el) {
+      // Create selector for the loops
+      baseClass = $.rapido_Utilities.getClass(base.el) + ' ';
+      titlesLoop = baseClass + base.options.titleClass;
+      contentsLoop = baseClass + base.options.contentClass;
+
+      // add max-height to container if addMaxHeight is set to true
+      if (base.options.addMaxHeight) {
+        $(window).on('ready resize', function() {
+          height = [];
+
+          $(contentsLoop).each(function(i, el) {
+            height.push($(el).height());
+          });
+
+          base.$el.css(base.options.positionMaxHeight, Math.max.apply(null, height) + 'px');
+        });
+      }
+
+      // Calculate max-height on load and resize
+      if (base.options.addHeight) {
+        $(window).on('ready resize', function() {
+          $(contentsLoop).each(function(i, el) {
+            height = 0;
+
+            $(el).children().each(function(i, el) {
+              height += Math.ceil($(el).outerHeight());
+            });
+
+            contentsHeight[$(el).data('toggle-content')] = height + 'px';
+          });
+        });
+      }
+
+      // Set default open panel
+      if (base.options.defaultOpen !== false) {
+        $(titlesLoop).eq(base.options.defaultOpen).addClass('open');
+        $(contentsLoop).eq(base.options.defaultOpen).addClass('open');
+      }
+
+      // For each titleClass attach click event
+      $(titlesLoop).each(function(i, el) {
         toggle(el, baseClass);
       });
 
@@ -670,28 +722,39 @@
 
       $(el).click(function() {
 
-        var titleClass = base.options.titleClass.replace(/(\[|\])/gi, '');
-        var contentClass = base.options.contentClass.replace(/(\[|\])/gi, '');
+        id = $(this).attr(titleClass);
+        description = '[' + contentClass + '="' + id + '"]';
 
-        var id = $(this).attr(titleClass);
-        var description = '[' + contentClass + '="' + id + '"]';
-
-        // If target panel is already open then close it
+        // If target panel is already open and is closable then close it
         if ($(description).hasClass('open')) {
-          $(description).removeClass('open');
-          $(this).removeClass('open');
-          return false;
+          if (base.options.closable) {
+            $(description).removeClass('open');
+
+            if (base.options.addHeight) {
+              $(description).removeAttr('style');
+            }
+
+            $(this).removeClass('open');
+          }
 
         // If no panel is open then open it
         } else if (!$(baseClass + '*').hasClass('open')) {
           $(description).addClass('open');
+
+          if (base.options.addHeight) {
+            $(description).css({'min-height': contentsHeight[id]});
+          }
+
           $(this).addClass('open');
-          return false;
 
         // If there is already an open panel then close it and open the target panel
         } else {
           $(baseClass + base.options.titleClass).removeClass('open');
           $(baseClass + base.options.contentClass).removeClass('open');
+
+          if (base.options.addHeight) {
+            $(baseClass + base.options.contentClass).removeAttr('style');
+          }
 
           $(description)
             .delay(base.options.delay)
@@ -699,10 +762,14 @@
                 $(this).addClass('open');
                 next();
               });
+          if (base.options.addHeight) {
+            $(description).removeAttr('style');
+          }
 
           $(this).addClass('open');
-          return false;
         }
+
+        return false;
       });
 
 
@@ -714,7 +781,12 @@
   $.Rapido.Toggle.defaultOptions = {
     titleClass: '[data-toggle-name]',
     contentClass: '[data-toggle-content]',
-    delay: 500
+    delay: 500,
+    closable: true,
+    addMaxHeight: false,
+    positionMaxHeight: 'padding-top',
+    defaultOpen: 0,
+    addHeight: false
   };
 
   $.fn.rapido_Toggle = function(options) {
