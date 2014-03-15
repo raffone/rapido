@@ -46,7 +46,7 @@
       }
 
       // Calculate max-height on load and resize
-      if(base.options.addHeight) {
+      if (base.options.addHeight) {
         $(window).on('ready resize', function() {
           $(contentsLoop).each(function(i, el) {
             height = 0;
@@ -85,7 +85,7 @@
           if (base.options.closable) {
             $(description).removeClass('open');
 
-            if(base.options.addHeight) {
+            if (base.options.addHeight) {
               $(description).removeAttr('style');
             }
 
@@ -96,7 +96,7 @@
         } else if (!$(baseClass + '*').hasClass('open')) {
           $(description).addClass('open');
 
-          if(base.options.addHeight) {
+          if (base.options.addHeight) {
             $(description).css({'min-height': contentsHeight[id]});
           }
 
@@ -107,7 +107,7 @@
           $(baseClass + base.options.titleClass).removeClass('open');
           $(baseClass + base.options.contentClass).removeClass('open');
 
-          if(base.options.addHeight) {
+          if (base.options.addHeight) {
             $(baseClass + base.options.contentClass).removeAttr('style');
           }
 
@@ -117,7 +117,7 @@
                 $(this).addClass('open');
                 next();
               });
-          if(base.options.addHeight) {
+          if (base.options.addHeight) {
             $(description).removeAttr('style');
           }
 
