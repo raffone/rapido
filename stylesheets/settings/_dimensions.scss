@@ -252,6 +252,13 @@ $desk-end:                          1080px                                      
 $palm-end:                          $lap-start - 1px;
 $lap-end:                           $desk-start - 1px;
 
+// Failback for =< 2.2.1
+$palm:                              $palm-end max-width                                                     !default;
+$lap:                               $lap-start $lap-end                                                     !default;
+$lap-and-up:                        $lap-start                                                              !default;
+$portable:                          $lap-end max-width                                                      !default;
+$desk:                              $desk-start                                                             !default;
+
 /*
 
 Grid (Susy)
@@ -261,17 +268,19 @@ Default settings for susy grid. More info: [Susy](http://susy.oddbird.net/).
     $total-columns:                 12          # Number of columns
     $column-width:                  50px        # Columns width
     $gutter-width:                  30px        # Gutter width
-    $container-style:               fluid       # Grid style
 
 Styleguide 31.8
 
 */
 
 
+// Failback for =< 2.2.1
 $total-columns:                     12                                                                      !default;
 $column-width:                      50px                                                                    !default;
 $gutter-width:                      30px                                                                    !default;
-$container-style:                   fluid                                                                   !default;
+
+$susy: ( columns: $total-columns, gutters: $gutter-width / $column-width )                                  !default;;
+
 
 /*
 

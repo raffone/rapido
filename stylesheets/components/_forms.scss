@@ -690,7 +690,7 @@ Styleguide 8.10
             padding-left: em($horizontal-offset);
         }
 
-        @include media(palm) {
+        @include breakpoint($palm) {
             .form__label {
                 width: 100%;
                 float: none;

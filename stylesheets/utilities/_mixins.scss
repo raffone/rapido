@@ -607,56 +607,28 @@ Add media queries to css width simple naming convention.
 You can set the start/and with of each step from usins the variables `$lap-start`, `$desk-start`, `$desk-end`.
 
 * `$media`:
-    * `palm`: Only Palm
-    * `lap`:  Only Lap
-    * `lap-and-up`: Lap + Desktop
-    * `portable`: Lap + Palm
-    * `desk`: Only Desktop
+    * `$palm`: Only Palm
+    * `$lap`:  Only Lap
+    * `$lap-and-up`: Lap + Desktop
+    * `$portable`: Lap + Palm
+    * `$desk`: Only Desktop
 
 Styleguide 26.19
 
 */
 
 @mixin media($media-query:null){
+
+    // Failback for =< 2.2.1
+    @if $media-query == 'palm'      { $media-query: $palm }
+    @if $media-query == 'lap'       { $media-query: $lap }
+    @if $media-query == 'lap-and-up'{ $media-query: $lap-and-up }
+    @if $media-query == 'portable'  { $media-query: $portable }
+    @if $media-query == 'desk'      { $media-query: $desk }
+
     @if $media-query {
-
-        @if $media-query == palm or $media-query == lap or $media-query == lap-and-up or $media-query == portable or $media-query == desk {
-
-            @if $media-query == palm {
-                @media only screen and (max-width:$palm-end) {
-                    @content;
-                }
-            }
-
-            @elseif $media-query == lap {
-                @media only screen and (min-width:$lap-start) and (max-width:$lap-end) {
-                    @content;
-                }
-            }
-
-            @elseif $media-query == lap-and-up {
-                @media only screen and (min-width:$lap-start) {
-                    @content;
-                }
-            }
-
-            @elseif $media-query == portable {
-                @media only screen and (max-width:$lap-end) {
-                    @content;
-                }
-            }
-
-            @elseif $media-query == desk {
-                @media only screen and (min-width:$desk-start) {
-                    @content;
-                }
-            }
-        }
-
-        @else {
-            @media only screen and ($media-query) {
-                @content;
-            }
+        @include breakpoint($media-query) {
+            @content;
         }
     }
 
@@ -727,10 +699,18 @@ Styleguide 26.21
     $media: null
     ) {
 
-    @include media($media) {
+    @if (type-of($media) == 'string') { // Failback for =< 2.2.1
+      @include media($media) {
         @include span($cols of $cols-container $from);
         @if $omega { @include omega; }
         @if $nth-omega { @include nth-omega($nth-omega); }
+      }
+    } @else {
+      @include breakpoint($media) {
+        @include span($cols of $cols-container $from);
+        @if $omega { @include omega; }
+        @if $nth-omega { @include nth-omega($nth-omega); }
+      }
     }
 }
 

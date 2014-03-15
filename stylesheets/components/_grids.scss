@@ -25,25 +25,21 @@ Styleguide 9
 
 */
 
-$media-queries: palm, lap, portable, lap-and-up, desk;
+$media-queries: (
+  palm: $palm,
+  lap: $lap,
+  portable: $portable,
+  lap-and-up: $lap-and-up,
+  desk: $desk
+);
 
 @if $grids {
-    @each $device in $media-queries {
-
-        $i: $total-columns + 1;
-
-        @include media($device) {
-
-            @while $i > 0 {
-
-                $nth: $total-columns / $i;
-
-                .#{$device}-#{$i} {
+    @each $media-query, $device in $media-queries {
+        @include breakpoint($device) {
+            @for $i from 1 through $total-columns {
+                .#{$media-query}-#{$i} {
                     @include span($i);
-                    @include nth-omega(#{$i}n);
                 }
-
-                $i: $i - 1;
             }
         }
     }
@@ -73,11 +69,11 @@ Styleguide 9.1
 */
 
 @if $grids-helpers {
-    @each $device in $media-queries {
-        @include media($device) {
-            .#{$device}-hide { display: none !important; }
-            .#{$device}-show { display: block !important; }
-            .#{$device}-omega { @include omega(); }
+    @each $media-query, $device in $media-queries {
+        @include breakpoint($device) {
+            .#{$media-query}-hide { display: none !important; }
+            .#{$media-query}-show { display: block !important; }
+            .#{$media-query}-omega { @include omega(); }
         }
     }
 }
