@@ -148,7 +148,7 @@ Styleguide 24.4
 */
 
 @if $animations-classes {
-    $delays: 0.25s, 0.50s, 0.75s, 1.00s, 1.25s, 1.50s, 1.75s, 2.00s;
+    $delays: 0s, 0.25s, 0.50s, 0.75s, 1.00s, 1.25s, 1.50s, 1.75s, 2.00s, 2.25s, 2.50s, 2.75s, 3.00s;
     @each $delay in $delays {
         $delays-class: strip_units($delay)*100;
         .delay-#{$delays-class} {
