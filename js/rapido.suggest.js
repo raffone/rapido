@@ -10,9 +10,7 @@
     base.init = function() {
       base.options = $.extend({},$.Rapido.Suggest.defaultOptions, options);
 
-      setSize();
-
-      $(window).resize(function() {
+      $(window).on('ready resize', function() {
         setSize();
       });
 
@@ -33,31 +31,37 @@
           'width': $input.outerWidth() + 'px'
         });
 
-        // Toggle class on :focus and :blur
+        // Toggle class on :focus
         $input.focus(function() {
           $(base.options.suggestClass).removeClass('open');
           $suggest.addClass('open');
         });
-
-        $input.blur(function() {
-          $suggest.removeClass('open');
-        });
-
       });
     };
 
-
     var compileInput = function() {
-      $(base.options.suggestClass + ' a').on('click', function(e) {
+      $(base.options.suggestClass).on('click', 'a', function(e) {
 
         var value = $(this).attr(base.options.suggestAttr);
         var $input = $(this).parents(base.options.containerClass).children('input[type = "text"]');
+        var $parent = $(this).parents(base.options.suggestClass);
 
         $input.val(value);
+        $parent.removeClass('open');
 
         e.preventDefault();
       });
+
+      $('html, body').on('click', function() {
+        $(base.options.suggestClass).removeClass('open');
+      });
+
+      $('input').on('click', function(e) {
+        e.stopPropagation();
+      });
     };
+
+
 
     base.init();
   };

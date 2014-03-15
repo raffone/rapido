@@ -35,7 +35,7 @@
       }
 
       // Add offset to taget position
-      offset = $(target).position().top - base.options.offset;
+      offset = $(target).offset().top - base.options.offset;
 
       // On click go to taget
       base.$el.on('click', function(e) {
