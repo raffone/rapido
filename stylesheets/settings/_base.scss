@@ -71,33 +71,6 @@ $titles-font-family:                    $font-sans                              
 
 /*
 
-Prefixes
-
-Enable or disable specific broweser prefixes used by Compass mixins.
-
-    $experimental-support-for-mozilla:      true
-    $experimental-support-for-webkit:       true
-    $support-for-original-webkit-gradients: false
-    $experimental-support-for-opera:        false
-    $experimental-support-for-microsoft:    true
-    $experimental-support-for-khtml:        false
-
-
-Styleguide 28.4
-
-*/
-
-$experimental-support-for-mozilla:      true                                                                !default;
-$experimental-support-for-webkit:       true                                                                !default;
-$support-for-original-webkit-gradients: false                                                               !default;
-$experimental-support-for-opera:        false                                                               !default;
-$experimental-support-for-microsoft:    true                                                                !default;
-$experimental-support-for-khtml:        false                                                               !default;
-
-
-
-/*
-
 em()
 
 To convert `PX` to `EM` using the `$base-font-size` as font size.
