@@ -99,13 +99,12 @@ Styleguide 25.3
 
 */
 
-$i: 100;
-@while $i > 0 {
+
+@for $i from 1 through 100 {
     %width-#{$i} { width: $i * 1% !important; }
     @if $width-helper-classes {
         [data-width="#{$i}"] { @extend %width-#{$i}; }
     }
-    $i: $i - 1;
 }
 
 /*
