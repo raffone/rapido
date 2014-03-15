@@ -151,7 +151,7 @@
 <p>Include this js after including rapido.js.
 
 </p>
-<pre><code>$(&apos;.toggle&apos;).rapido_Toggle();</code></pre>
+<pre><code>$(&apos;.news&apos;).rapido_Toggle();</code></pre>
 <p>You can also pass a delay between the removing and adding the class, usefull
 when you have two animation that you don&apos;t wont to start at the same time.
 
@@ -161,7 +161,8 @@ when you have two animation that you don&apos;t wont to start at the same time.
 </p>
 <pre><code>titleClass:    [data-toggle-name]
 contentClass:  [data-toggle-content]
-delay:         0</code></pre>
+delay:         500
+closable:      true        # Enable/disable the ability to close all panels</code></pre>
 <p>Remeber to add closed and open state in the css, this module doesn&apos;t have
 default styling, es:
 
