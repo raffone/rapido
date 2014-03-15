@@ -13,6 +13,7 @@
         id,
         description,
         baseClass,
+        contentsHeight = {},
         height;
 
     base.$el = $(el);
@@ -31,11 +32,6 @@
       titlesLoop = baseClass + base.options.titleClass;
       contentsLoop = baseClass + base.options.contentClass;
 
-      // For each titleClass attach click event
-      $(titlesLoop).each(function(i, el) {
-        toggle(el, baseClass);
-      });
-
       // add max-height to container if addMaxHeight is set to true
       if (base.options.addMaxHeight) {
         $(window).on('ready resize', function() {
@@ -49,11 +45,32 @@
         });
       }
 
+      // Calculate max-height on load and resize
+      if(base.options.addHeight) {
+        $(window).on('ready resize', function() {
+          $(contentsLoop).each(function(i, el) {
+            height = 0;
+
+            $(el).children().each(function(i, el) {
+              height += Math.ceil($(el).outerHeight());
+            });
+
+            contentsHeight[$(el).data('toggle-content')] = height + 'px';
+          });
+        });
+      }
+
       // Set default open panel
       if (base.options.defaultOpen !== false) {
         $(titlesLoop).eq(base.options.defaultOpen).addClass('open');
         $(contentsLoop).eq(base.options.defaultOpen).addClass('open');
       }
+
+      // For each titleClass attach click event
+      $(titlesLoop).each(function(i, el) {
+        toggle(el, baseClass);
+      });
+
     };
 
     var toggle = function(el, baseClass) {
@@ -67,12 +84,22 @@
         if ($(description).hasClass('open')) {
           if (base.options.closable) {
             $(description).removeClass('open');
+
+            if(base.options.addHeight) {
+              $(description).removeAttr('style');
+            }
+
             $(this).removeClass('open');
           }
 
         // If no panel is open then open it
         } else if (!$(baseClass + '*').hasClass('open')) {
           $(description).addClass('open');
+
+          if(base.options.addHeight) {
+            $(description).css({'min-height': contentsHeight[id]});
+          }
+
           $(this).addClass('open');
 
         // If there is already an open panel then close it and open the target panel
@@ -80,12 +107,19 @@
           $(baseClass + base.options.titleClass).removeClass('open');
           $(baseClass + base.options.contentClass).removeClass('open');
 
+          if(base.options.addHeight) {
+            $(baseClass + base.options.contentClass).removeAttr('style');
+          }
+
           $(description)
             .delay(base.options.delay)
             .queue(function(next) {
                 $(this).addClass('open');
                 next();
               });
+          if(base.options.addHeight) {
+            $(description).removeAttr('style');
+          }
 
           $(this).addClass('open');
         }
@@ -106,7 +140,8 @@
     closable: true,
     addMaxHeight: false,
     positionMaxHeight: 'padding-top',
-    defaultOpen: 0
+    defaultOpen: 0,
+    addHeight: false
   };
 
   $.fn.rapido_Toggle = function(options) {
