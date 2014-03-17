@@ -1,5 +1,5 @@
 /*
- *  Rapido - v0.2.2
+ *  Rapido - v0.2.3
  *  An easy and quick Sass + Compass + Susy + OOCSS + BEM prototyping framework.
  *  https://github.com/raffone/rapido
  *
