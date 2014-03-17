@@ -131,6 +131,10 @@
               
               
               
+              <li class="kss-menu-item"><a href="#section-31.3"><span class="kss-ref">31.3</span><span class="kss-name">Paddings</span></a></li>
+              
+              
+              
               <li class="kss-menu-item"><a href="#section-31.4"><span class="kss-ref">31.4</span><span class="kss-name">Sizes</span></a></li>
               
               
@@ -248,6 +252,47 @@ $checkbox-padding-left:         20px    # Side padding used for checkboxes and r
             
           </section>
           
+          <section id="section-31.3" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">31.3</span> Paddings</h1>
+            
+            
+            <div class="kss-description">
+              <p>Padding specific to every component you can use to overwrite the base padding.
+
+</p>
+<p>Helper classes
+
+</p>
+<pre><code>$wrapper-padding:               20px    # Side padding used with .w and .wrapper</code></pre>
+<p>Buttons
+
+</p>
+<pre><code>$btn-padding:                   $input-padding  # Buttons padding
+$btn-large-padding:             em($input-padding-top * 1) em($input-padding-side * 1.5)
+$btn-small-padding:             em($input-padding-top * .5) em($input-padding-side * .8)
+$btn-mini-padding:              em($input-padding-top * .1) em($input-padding-side * .6)</code></pre>
+<p>Components
+
+</p>
+<pre><code>$alerts-padding:                $input-padding  # Alerts padding
+$captions-padding:              $input-padding  # Captions padding
+$dropdowns-padding:             $input-padding  # Dropdowns padding
+$modals-error-padding:          $input-padding  # Modals padding
+$navs-padding:                  $input-padding  # Navs padding
+$pager-padding:                 $input-padding  # Pager padding
+$pagination-padding:            $input-padding  # Pagination padding
+$pills-padding:                 .15em .35em     # Pills padding
+$tables-padding:                $input-padding  # Tables padding
+$tabs-content-padding:          $input-padding  # Tabs padding
+$tabs-tab-padding:              $input-padding  # Tabs padding
+$tooltips-padding:              $input-padding  # Tooltips padding
+$picker-padding:                1em 1em         # Date picker padding</code></pre>
+
+            </div>
+            
+            
+          </section>
+          
           <section id="section-31.4" class="kss-section kss-depth-2">
             <h1 class="kss-title"><span class="kss-ref">31.4</span> Sizes</h1>
             
@@ -318,8 +363,7 @@ $desk-end:                      1080px      # Max width for desktop</code></pre>
 </p>
 <pre><code>$total-columns:                 12          # Number of columns
 $column-width:                  50px        # Columns width
-$gutter-width:                  30px        # Gutter width
-$container-style:               fluid       # Grid style</code></pre>
+$gutter-width:                  30px        # Gutter width</code></pre>
 
             </div>
             
