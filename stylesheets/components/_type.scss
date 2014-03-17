@@ -182,8 +182,11 @@ Styleguide 22.3
 
 */
 
-.list_style_none, .list-style-none {
+.list_style_none,
+.list-style-none {
     @extend %list-style-none;
+    @extend %no-margin;
+    @extend %no-padding;
 }
 
 // Unordered and Ordered lists
@@ -277,7 +280,7 @@ Styleguide 22.5
 
 hr {
     margin: rhythm(1) 0;
-    @extend %no-border; 
+    @extend %no-border;
     border-bottom: 1px solid $gray;
 }
 
