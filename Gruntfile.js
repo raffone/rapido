@@ -88,7 +88,7 @@ module.exports = function(grunt) {
     compass: {
       dist: {
         options: {
-          require: ['susy', 'sass-media_query_combiner'],
+          require: ['susy', 'sass-media_query_combiner', 'breakpoint', 'compass-placeholders'],
           sassDir: 'stylesheets',
           cssDir: 'dist/css',
           specify: 'stylesheets/rapido.scss',
@@ -99,7 +99,7 @@ module.exports = function(grunt) {
       },
       min: {
         options: {
-          require: ['susy', 'sass-media_query_combiner'],
+          require: ['susy', 'sass-media_query_combiner', 'breakpoint', 'compass-placeholders'],
           sassDir: 'stylesheets',
           cssDir: 'dist/css',
           specify: 'stylesheets/rapido.min.scss',

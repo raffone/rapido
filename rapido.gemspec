@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   # Release Specific Information
-  s.version = "0.2.2"
-  s.date = "2014-03-15"
+  s.version = "0.2.3"
+  s.date = "2014-03-17"
 
   # Gem Details
   s.name = "rapido-css"
@@ -23,5 +23,6 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'susy', '~> 2.0'
   s.add_runtime_dependency 'sass-media_query_combiner', '~> 0.0'
   s.add_runtime_dependency 'sass-globbing', '~> 1.1'
+  s.add_runtime_dependency 'compass-placeholders', '~> 1.1'
 
 end
