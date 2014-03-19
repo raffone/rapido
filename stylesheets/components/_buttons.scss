@@ -26,7 +26,7 @@ Styleguide 3
         border-style: solid;
         border-width: $input-border;
         @extend %cursor-pointer;
-		@extend %display-inline-block;
+		@include inline-block;
         line-height: 1em;
         margin-bottom: 0;
         @extend %text-align-center;

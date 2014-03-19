@@ -18,8 +18,8 @@ Styleguide 4
 @if $button-groups {
 
     .btn-group {
-        @extend %clearfix;
-        @extend %display-inline-block;
+        @extend %pie-clearfix;
+        @include inline-block;
         @extend %no-margin;
 
         > * {

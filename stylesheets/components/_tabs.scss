@@ -55,7 +55,7 @@ Styleguide 21
             @extend %tab__nav !optional;
 
             li {
-                @extend %display-inline-block;
+                @include inline-block;
 
                 a {
                     line-height: 1em;

@@ -32,9 +32,9 @@ Styleguide 14
         clear: both;
 
         > * {
-            @extend %clearfix;
+            @extend %pie-clearfix;
             @include border-radius($base-border-radius);
-            @extend %display-inline-block;
+            @include inline-block;
             margin-bottom: 0;
             margin-left: $input-border;
 
@@ -44,7 +44,7 @@ Styleguide 14
 
                 a,
                 span {
-                    @extend %display-inline-block;
+                    @include inline-block;
                     padding: $pagination-padding;
                     line-height: 1em;
                     @extend %text-decoration-none;

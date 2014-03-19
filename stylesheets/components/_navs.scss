@@ -36,14 +36,14 @@ Styleguide 12
 @if $navs {
 
     .nav {
-        @extend %clearfix;
-        @extend %display-inline-block;
+        @extend %pie-clearfix;
+        @include inline-block;
         margin-bottom: rhythm();
         position: relative;
 
         &, ul {
-            @extend %clearfix;
-            @extend %list-style-none;
+            @extend %pie-clearfix;
+            @extend .list-style-none;
             margin-bottom: 0;
         }
 
@@ -52,7 +52,7 @@ Styleguide 12
 
             > a {
                 @extend .transition;
-                @extend %display-inline-block;
+                @include inline-block;
                 line-height: 1em;
 
                 &:hover, &:focus {
