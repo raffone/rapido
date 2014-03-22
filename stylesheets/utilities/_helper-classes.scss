@@ -20,21 +20,24 @@ Simple divider class used in some components (like dropdowns).
 
     .divider
 
+Others:
+    .clearfix
+    .left
+    .right
+    .inline-block
+
 Styleguide 25.1
 
 */
 
-.clearfix {
-    @extend %pie-clearfix
-}
+%inline-block {@include inline-block;}
 
-.transition {
-    @include transition();
-}
-
-.divider {
-    @include nav-divider();
-}
+.clearfix     { @extend %pie-clearfix }
+.transition   { @include transition(); }
+.divider      { @include nav-divider(); }
+.left         { @extend %float-left; }
+.right        { @extend %float-right; }
+.inline-block { @extend %inline-block; }
 
 /*
 
@@ -67,11 +70,6 @@ Styleguide 25.2
     margin: 0 auto;
     width: $desk-end;
 }
-
-
-.left {@extend %float-left;}
-.right {@extend %float-right;}
-
 
 /*
 
@@ -148,7 +146,7 @@ Styleguide 25.5
 .s {
     @include transition(none);
     content: "";
-    @include inline-block;
+    @extend %inline-block;
     font-style:normal;
     overflow:hidden;
     text-align:center;
