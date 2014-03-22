@@ -19,7 +19,7 @@ Styleguide 4
 
     .btn-group {
         @extend %pie-clearfix;
-        @include inline-block;
+        @extend %inline-block;
         @extend %no-margin;
 
         > * {

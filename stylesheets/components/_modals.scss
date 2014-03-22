@@ -220,7 +220,7 @@ Styleguide 11
         .child {
             @include alpha-color(#000, .8, background);
             @include border-radius($base-border-radius);
-            @include inline-block;
+            @extend %inline-block;
             margin-right: -100%;
             padding: em(2px) em($input-padding-side);
             color: #FFF;

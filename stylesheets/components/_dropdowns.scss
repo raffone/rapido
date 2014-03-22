@@ -56,7 +56,7 @@ Styleguide 7
     .dropdown,
     .dropdown__toggle {
         position: relative;
-        @include inline-block;
+        @extend %inline-block;
     }
 
     .dropdown__toggle:focus { outline: 0; }

@@ -37,7 +37,7 @@ Styleguide 12
 
     .nav {
         @extend %pie-clearfix;
-        @include inline-block;
+        @extend %inline-block;
         margin-bottom: rhythm();
         position: relative;
 
@@ -52,7 +52,7 @@ Styleguide 12
 
             > a {
                 @extend .transition;
-                @include inline-block;
+                @extend %inline-block;
                 line-height: 1em;
 
                 &:hover, &:focus {

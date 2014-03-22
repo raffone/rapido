@@ -44,7 +44,7 @@ Styleguide 5
     position: relative;
     overflow: hidden;
     @include perspective(1000);
-    @include inline-block;
+    @extend %inline-block;
 
 
     &:nth-child(2n) {

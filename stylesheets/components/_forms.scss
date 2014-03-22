@@ -90,7 +90,7 @@ input[type="url"],
 input[type="search"],
 input[type="tel"],
 input[type="color"] {
-    @include inline-block;
+    @extend %inline-block;
     padding: 0 $input-padding-side;
     height: $input-height;
     border-width: $input-border;
@@ -103,7 +103,7 @@ input[type="color"] {
 }
 
 select {
-    @include inline-block;
+    @extend %inline-block;
 }
 
 input,
@@ -181,7 +181,7 @@ select:focus:invalid {
 .form__controls {
   @extend %pie-clearfix;
   position: relative;
-  @include inline-block;
+  @extend %inline-block;
 }
 
 
@@ -243,7 +243,7 @@ Styleguide 8.2
 }
 .form__radio.inline,
 .form__checkbox.inline {
-    @include inline-block;
+    @extend %inline-block;
 }
 .form__radio.inline + .form__radio.inline,
 .form__checkbox.inline + .form__checkbox.inline {
@@ -289,7 +289,7 @@ Styleguide 8.3
     @extend %select !optional; // Backward compatibility
     @extend %form__select !optional;
     @include border-radius($base-border-radius);
-    @include inline-block;
+    @extend %inline-block;
     border-style: solid;
     border-width: $input-border;
     @extend %cursor-pointer;
@@ -391,7 +391,7 @@ Styleguide 8.5
     padding: rhythm(.5) 0 0;
 }
 .form__help--inline {
-    @include inline-block;
+    @extend %inline-block;
     vertical-align: middle;
     padding-left: 5px;
 }
@@ -498,7 +498,7 @@ Styleguide 8.8
 */
 
 .form__addon {
-    @include inline-block;
+    @extend %inline-block;
     width: auto;
     min-width: em(16px);
     padding: $input-padding;
@@ -751,7 +751,7 @@ Styleguide 8.10.1
         }
 
         .form__label {
-          @include inline-block;
+          @extend %inline-block;
           padding-right: 1em;
           margin-bottom: 0;
         }
@@ -782,7 +782,7 @@ Styleguide 8.10.1
 
         .form__group {
             @extend %no-padding;
-            @include inline-block;
+            @extend %inline-block;
         }
 
         .form__group + .form__group {
@@ -793,7 +793,7 @@ Styleguide 8.10.1
             @extend %no-border;
             @extend %no-padding;
             @extend %no-margin;
-            @include inline-block;
+            @extend %inline-block;
         }
 
     }

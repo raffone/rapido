@@ -64,7 +64,7 @@ Styleguide 8.7
     .picker__month,
     .picker__select--year
     .picker__select--month {
-      @include inline-block;
+      @extend %inline-block;
       margin: 0 .25em;
     }
 
