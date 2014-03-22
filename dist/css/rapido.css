@@ -649,8 +649,10 @@ button.close, .form__select select {
   -webkit-appearance: none;
 }
 
-.nav, .nav ul, .list_style_none, .bx-wrapper ul,
-.list-style-none {
+.list_style_none, .bx-wrapper ul,
+.list-style-none,
+.nav,
+.nav ul {
   list-style: none;
 }
 
@@ -709,9 +711,13 @@ blockquote.pull-right small, .pagination--right {
   text-transform: uppercase;
 }
 
-.wrapper, .w, .fixed-wrapper, .fw, .btn-group, form, .form__controls, .form__actions, .nav, .nav ul, .dl-horizontal, .pager, .pagination > * {
-  overflow: hidden;
+.clearfix, .wrapper, .w, .fixed-wrapper, .fw, .btn-group, form, .form__controls, .form__actions, .nav, .nav ul, .dl-horizontal, .pager, .pagination > * {
   *zoom: 1;
+}
+.clearfix:after, .wrapper:after, .w:after, .fixed-wrapper:after, .fw:after, .btn-group:after, form:after, .form__controls:after, .form__actions:after, .nav:after, .nav ul:after, .dl-horizontal:after, .pager:after, .pagination > :after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 button.close {
@@ -739,7 +745,9 @@ button.close, fieldset, legend, .form__group.form__actions, .form--inline .form_
 .fancybox-image,
 .fancybox-nav span,
 .fancybox-tmp, #fancybox-thumbs ul, .fancybox-error, #fancybox-buttons ul li, .tabs .etabs, body, .list_style_none, .bx-wrapper ul,
-.list-style-none, blockquote, .picker__table td {
+.list-style-none,
+.nav,
+.nav ul, blockquote, .picker__table td {
   margin: 0;
 }
 
@@ -752,7 +760,9 @@ button.close, fieldset, legend, .form--inline .form__group, .form--inline .form_
 .fancybox-image,
 .fancybox-nav span,
 .fancybox-tmp, #fancybox-thumbs ul, .bx-wrapper, .tabs .etabs, .list_style_none, .bx-wrapper ul,
-.list-style-none, ul, ol, .picker__table td {
+.list-style-none,
+.nav,
+.nav ul, ul, ol, .picker__table td {
   padding: 0;
 }
 
@@ -770,41 +780,6 @@ button.close, fieldset, legend, .form--inline .form__group, .form--inline .form_
 
 .pager li {
   display: inline;
-}
-
-.s, .btn-group, .btn, .picker__nav--prev,
-.picker__nav--next, .picker__button--today,
-.picker__button--clear, .offcanvas__menu--toggle, .dropdown,
-.dropdown__toggle, .input-text,
-.form__input,
-textarea,
-input[type="text"],
-input[type="password"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="date"],
-input[type="month"],
-input[type="time"],
-input[type="week"],
-input[type="number"],
-input[type="email"],
-input[type="url"],
-input[type="search"],
-input[type="tel"],
-input[type="color"], select, .form__controls, .form__radio.inline,
-.form__checkbox.inline, .form__select, .form__help--inline, .form__addon, .form--inline .form__label, .form--inline .form__group, .form--inline .form__actions, .fancybox-title-float-wrap .child, .nav, .nav li > a, .bx-pager-item, .bx-pager-item a, .bx-caption span, .tabs .etabs li, img, ul.inline > li,
-ol.inline > li, .breadcrumbs > li, .caption, .badge,
-.pill, .pager li a,
-.pager li span, .pagination > *, .pagination > * li a,
-.pagination > * li span, .picker__year,
-.picker__month,
-.picker__select--year
-.picker__select--month {
-  display: inline-block;
-}
-
-.clearfix:after {
-  display: table;
 }
 
 .btn.disabled, .disabled.picker__nav--prev,
@@ -1290,12 +1265,48 @@ Simple divider class used in some components (like dropdowns).
 
     .divider
 
+Others:
+    .clearfix
+    .left
+    .right
+    .inline-block
+
 Styleguide 25.1
 
 */
-.clearfix:after {
-  content: "";
-  clear: both;
+.inline-block, .s, .btn-group, .btn, .picker__nav--prev,
+.picker__nav--next, .picker__button--today,
+.picker__button--clear, .offcanvas__menu--toggle, .dropdown,
+.dropdown__toggle, .input-text,
+.form__input,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"], select, .form__controls, .form__radio.inline,
+.form__checkbox.inline, .form__select, .form__help--inline, .form__addon, .form--inline .form__label, .form--inline .form__group, .form--inline .form__actions, .fancybox-title-float-wrap .child, .nav, .nav li > a, .bx-pager-item, .bx-pager-item a, .bx-caption span, .tabs .etabs li, img, ul.inline > li,
+ol.inline > li, .breadcrumbs > li, .caption, .badge,
+.pill, .pager li a,
+.pager li span, .pagination > *, .pagination > * li a,
+.pagination > * li span, .picker__year,
+.picker__month,
+.picker__select--year
+.picker__select--month {
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  *zoom: 1;
+  *display: inline;
 }
 
 .transition, .dropdown__menu, .form__suggest, .nav li > a, .nav li ul {
@@ -3839,7 +3850,7 @@ Include this js after including rapido.js.
 
 **Options** (with default values):
 
-    toggleClass:     offcanvas__menu--open
+    toggleClass:     .offcanvas__menu--open
     containerClass:  .offcanvas__container
     menuClass:       .offcanvas__menu
 
@@ -5310,7 +5321,7 @@ Styleguide 14
 
 Tooltips
 
-Add simple tooltips to any element.
+Add simple tooltips to any element. Positions available: top, right, bottom, left.
 
 Script required: **rapido.js**.
 
