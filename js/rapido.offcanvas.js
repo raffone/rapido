@@ -1,65 +1,51 @@
-(function($, window, document, undefined) {
-
-  if (!$.Rapido) {
-    $.Rapido = {};
-  }
-
-  $.Rapido.Offcanvas = function(el, options) {
-    var base = this;
-
-    base.$el = $(el);
-    base.el = el;
-
-    base.$el.data('Rapido.Offcanvas', base);
-
-    base.init = function() {
-      base.options = $.extend({},$.Rapido.Offcanvas.defaultOptions, options);
-
-      toggleClick();
-      close();
-    };
-
-    var toggleClick = function() {
-
-      // Click on toggle button add class to container
-      base.$el.on('click', function() {
-        $(base.options.containerClass).addClass(base.options.toggleClass);
-      });
-
-    };
-
-    var close = function() {
-
-      // Click on dim area close remove class from container
-      $('html').on('click', function(e) {
-        $(base.options.containerClass).removeClass(base.options.toggleClass);
-      });
-
-      // Prevent from closing if clicking inside the sidebar
-      base.$el.on('click', function(e) {
-        e.stopPropagation();
-      });
-
-      // Prevent from closing if clicking the toggle button
-      $(base.options.menuClass).on('click', function(e) {
-        e.stopPropagation();
-      });
-
-    };
-
-    base.init();
-  };
-
-  $.Rapido.Offcanvas.defaultOptions = {
-    toggleClass: 'offcanvas__menu--open',
+(function($, window, document){
+  'use strict';
+  var pluginName, defaults, Offcanvas;
+  pluginName = "Offcanvas";
+  defaults = {
+    toggleClass: '.offcanvas__menu--open',
     containerClass: '.offcanvas__container',
     menuClass: '.offcanvas__menu'
   };
-
-  $.fn.rapido_Offcanvas = function(options) {
-    return this.each(function() {
-      (new $.Rapido.Offcanvas(this, options));
+  Offcanvas = (function(){
+    Offcanvas.displayName = 'Offcanvas';
+    var prototype = Offcanvas.prototype, constructor = Offcanvas;
+    function Offcanvas(el, options){
+      this.el = el;
+      this._defaults = defaults;
+      this._name = pluginName;
+      this.options = $.extend({}, defaults, options);
+      this.init();
+    }
+    prototype.init = function(){
+      this.openEvent();
+      this.closeEvent();
+    };
+    prototype.openEvent = function(){
+      var this$ = this;
+      $(this.el).click(function(){
+        return $(this$.options.containerClass).addClass(this$.options.toggleClass.slice(1));
+      });
+    };
+    prototype.closeEvent = function(){
+      var this$ = this;
+      $('html').click(function(){
+        return $(this$.options.containerClass).removeClass(this$.options.toggleClass.slice(1));
+      });
+      $(this.el).click(function(it){
+        return it.stopPropagation();
+      });
+      $(this.options.menuClass).click(function(it){
+        return it.stopPropagation();
+      });
+    };
+    return Offcanvas;
+  }());
+  $.fn.rapido_Offcanvas = function(options){
+    return this.each(function(){
+      if (!$.data(this, "plugin_" + pluginName)) {
+        return $.data(this, "plugin_" + pluginName, new Offcanvas(this, options));
+      }
     });
   };
-
-})(jQuery, window, document);
+}.call(this, jQuery, window, document));

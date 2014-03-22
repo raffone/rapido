@@ -1,27 +1,47 @@
-(function($, window, document, undefined) {
-
-  $.rapido_Utilities = {
-
-    // Get class of element object
-    getClass: function(el) {
-      var attr = $(el).attr('class');
-      if (typeof attr !== 'undefined' && attr !== false) {
-        el = $.trim($(el).attr('class'));
-        return '.' + el.split(' ').join('.');
-      }
+var toString$ = {}.toString;
+(function($, window, document){
+  'use strict';
+  var self;
+  self = $.rapido = {
+    getClass: function(el){
+      el = $.trim(
+      $(el).attr('class'));
+      return '.' + el.split(' ').join('.');
     },
-
-    // Remove dot from class
-    dotlessClass: function(string) {
+    dotlessClass: function(string){
       return string.slice(1);
     },
-
-    // Check if an element exist
-    elemExist: function(string) {
-      return $(string).length !== 0;
+    elemExist: function(string){
+      return $(string) != null;
+    },
+    debounce: function(func, wait, immediate){
+      var timeout;
+      return function(){
+        var args, this$ = this;
+        args = arguments;
+        clearTimeout(timeout);
+        timeout = setTimeout(function(){
+          timeout = null;
+          if (!immediate) {
+            return func.apply(this$, args);
+          }
+        }, wait);
+        if (immediate && !timeout) {
+          return func.apply(this, args);
+        }
+      };
+    },
+    onResize: function(bind, func, delay){
+      delay == null && (delay = 300);
+      if (toString$.call(func).slice(8, -1) === 'Array') {
+        return func.forEach(function(it){
+          self.debounce(it, delay).bind(bind)();
+          return $(window).resize(self.debounce(it, delay).bind(bind));
+        });
+      } else {
+        self.debounce(func, delay).bind(bind)();
+        return $(window).resize(self.debounce(func, delay).bind(bind));
+      }
     }
-
   };
-
-})(jQuery, window, document);
-
+}.call(this, jQuery, window, document));

@@ -1,85 +1,67 @@
-(function($, window, document, undefined) {
-
-  if (!$.Rapido) {
-    $.Rapido = {};
-  }
-
-  $.Rapido.Dropdown = function(el, options) {
-    var base = this;
-
-    base.$el = $(el);
-    base.el = el;
-
-    base.$el.data('Rapido.Dropdown', base);
-
-    base.init = function() {
-      base.options = $.extend({},$.Rapido.Dropdown.defaultOptions, options);
-
-      if (base.options.event == 'hover') {
-        toggleHover();
-      } else {
-        toggleClick();
-      }
-
-      close();
-    };
-
-    // Event: Click
-    var toggleClick = function() {
-
-      base.$el.on(base.options.event, function(e) {
-
-        if ($(this).hasClass('open')) {
-          $(this).removeClass('open');
-        } else {
-          $(base.options.wrapperClass).removeClass('open');
-          $(this).addClass('open');
-        }
-      });
-
-      base.$el.on(base.options.event, base.options.togglerClass, function(e) {
-        e.preventDefault();
-      });
-
-    };
-
-    // Event: Hover
-    var toggleHover = function() {
-
-      base.options.event = 'mouseenter mouseleave';
-
-      base.$el.on(base.options.event, function() {
-        $(this).toggleClass('open');
-      });
-
-    };
-
-    // Close dropdown when mouse click outside of element
-    var close = function() {
-
-      $('html').click(function() {
-        base.$el.removeClass('open');
-      });
-
-      base.$el.click(function(e) {
-        e.stopPropagation();
-      });
-
-    };
-
-    base.init();
-  };
-
-  $.Rapido.Dropdown.defaultOptions = {
+(function($, window, document){
+  'use strict';
+  var pluginName, defaults, Dropdown;
+  pluginName = "Dropdown";
+  defaults = {
     event: 'click',
     wrapperClass: '.dropdown',
     togglerClass: '.dropdown__toggle'
   };
-
-  $.fn.rapido_Dropdown = function(options) {
-    return this.each(function() {
-      (new $.Rapido.Dropdown(this, options));
+  Dropdown = (function(){
+    Dropdown.displayName = 'Dropdown';
+    var prototype = Dropdown.prototype, constructor = Dropdown;
+    function Dropdown(el, options){
+      this.el = el;
+      this._defaults = defaults;
+      this._name = pluginName;
+      this.options = $.extend({}, defaults, options);
+      this.init();
+    }
+    prototype.init = function(){
+      if (this.options.event === 'hover') {
+        this.toggleHover();
+      } else {
+        this.toggleClick();
+      }
+      this.closeEvent();
+    };
+    prototype.toggleClick = function(){
+      var options;
+      options = this.options;
+      $(this.el).on(this.options.event, function(e){
+        if ($(this).hasClass('open')) {
+          $(this).removeClass('open');
+        } else {
+          $(options.wrapperClass).removeClass('open');
+          $(this).addClass('open');
+        }
+      });
+      $(this.el).on(this.options.event, this.options.togglerClass, function(it){
+        return it.preventDefault();
+      });
+    };
+    prototype.toggleHover = function(){
+      this.options.event = 'mouseenter mouseleave';
+      $(this.el).on(this.options.event, function(){
+        $(this).toggleClass('open');
+      });
+    };
+    prototype.closeEvent = function(){
+      var this$ = this;
+      $('html').click(function(){
+        $(this$.el).removeClass('open');
+      });
+      $(this.el).click(function(it){
+        return it.stopPropagation();
+      });
+    };
+    return Dropdown;
+  }());
+  $.fn.rapido_Dropdown = function(options){
+    return this.each(function(){
+      if (!$.data(this, "plugin_" + pluginName)) {
+        return $.data(this, "plugin_" + pluginName, new Dropdown(this, options));
+      }
     });
   };
-
-})(jQuery, window, document);
+}.call(this, jQuery, window, document));

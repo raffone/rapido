@@ -1,68 +1,52 @@
-(function($, window, document, undefined) {
-
-  if (!$.Rapido) {
-    $.Rapido = {};
-  }
-
-  $.Rapido.Scroll = function(el, options) {
-    var base = this;
-
-    base.$el = $(el);
-    base.el = el;
-
-    base.$el.data('Rapido.Scroll', base);
-
-    base.init = function() {
-      base.options = $.extend({},$.Rapido.Scroll.defaultOptions, options);
-
-      scroll();
-    };
-
-    var scroll = function() {
-      var container, offset, target, isOffsetLayout;
-
-      // Get id of target
-      target = base.$el.attr('href');
-
-      // Check if is using the offset layout
-      isOffsetLayout = $.rapido_Utilities.elemExist(base.options.offsetClass);
-
-      // Set corrent container of the content
-      if (isOffsetLayout) {
-        container = '.offcanvas__content';
-      } else {
-        container = 'html, body';
-      }
-
-      // Add offset to taget position
-      offset = $(target).offset().top - base.options.offset;
-
-      // On click go to taget
-      base.$el.on('click', function(e) {
-
-        $(container).animate({
-          scrollTop: offset
-        }, base.options.duration);
-
-        e.preventDefault();
-
-      });
-
-    };
-
-    base.init();
-  };
-
-  $.Rapido.Scroll.defaultOptions = {
+(function($, window, document){
+  'use strict';
+  var pluginName, defaults, Scroll;
+  pluginName = "Scroll";
+  defaults = {
     duration: 1600,
     offset: 20,
     offsetClass: '.offcanvas__content'
   };
-
-  $.fn.rapido_Scroll = function(options) {
-    return this.each(function() {
-      (new $.Rapido.Scroll(this, options));
+  Scroll = (function(){
+    Scroll.displayName = 'Scroll';
+    var prototype = Scroll.prototype, constructor = Scroll;
+    function Scroll(el, options){
+      var x$;
+      this.el = el;
+      this._defaults = defaults;
+      this._name = pluginName;
+      x$ = this.options = $.extend({}, defaults, options);
+      x$.target = $(this.el).attr('href');
+      x$.isOffset = !!$(this.options.offsetClass).length;
+      this.init();
+    }
+    prototype.init = function(){
+      if (this.options.isOffset) {
+        this.options.container = this.options.offsetClass;
+      } else {
+        this.options.container = 'html, body';
+      }
+      this.clickEvent();
+    };
+    prototype.getOffset = function(){
+      return $(this.options.target).offset().top - this.options.offset;
+    };
+    prototype.clickEvent = function(){
+      var this$ = this;
+      $(this.el).click(function(it){
+        $(this$.options.container).animate({
+          scrollTop: this$.getOffset()
+        }, this$.options.duration);
+        return it.preventDefault();
+      });
+    };
+    return Scroll;
+  }());
+  $.fn.rapido_Scroll = function(options){
+    return this.each(function(){
+      if (!$.data(this, "plugin_" + pluginName)) {
+        return $.data(this, "plugin_" + pluginName, new Scroll(this, options));
+      }
     });
   };
-
-})(jQuery, window, document);
+}.call(this, jQuery, window, document));

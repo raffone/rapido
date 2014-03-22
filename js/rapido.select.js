@@ -1,55 +1,35 @@
-(function($, window, document, undefined) {
-
-  if (!$.Rapido) {
-    $.Rapido = {};
-  }
-
-  $.Rapido.Select = function(options) {
-    var base = this;
-
-    base.init = function() {
-      base.options = $.extend({},$.Rapido.Select.defaultOptions, options);
-
-      var selectClass = $.rapido_Utilities.dotlessClass(base.options.selectClass);
-
-
-      // Find all select
-      $('select').each(function(i, el) {
-
-        var $this = $(el);
-        var $select = $this.parent();
-        var is_added = $select[0].className === selectClass ? true : false;
-
-        // Check if the select has already the wrapper class
-        if (!is_added) {
-          $(this).wrap('<span class="' + selectClass + '" />');
-          $select = $(this).parent();
-        }
-
-        // Open select (only work with webkit)
-        $select.on('click', function() {
-          var e = document.createEvent('MouseEvents');
-          e.initMouseEvent('mousedown');
-          $this[0].dispatchEvent(e);
-        });
-
-      });
-
-      // Refresh all event binded to window resize
-      $(window).trigger('resize');
-
-    };
-
-    base.init();
-  };
-
-  $.Rapido.Select.defaultOptions = {
+(function($, window, document){
+  'use strict';
+  var pluginName, defaults, Select;
+  pluginName = "Select";
+  defaults = {
     selectClass: '.form__select'
   };
-
-  $.rapido_Select = function(options) {
-    new $.Rapido.Select(options);
+  Select = (function(){
+    Select.displayName = 'Select';
+    var prototype = Select.prototype, constructor = Select;
+    function Select(el, options){
+      this.el = el;
+      this._defaults = defaults;
+      this._name = pluginName;
+      this.options = $.extend({}, defaults, options);
+      this.init();
+    }
+    prototype.init = function(){
+      this.wrapSelect();
+    };
+    prototype.wrapSelect = function(){
+      if (!$(this.el).parent().hasClass(this.options.selectClass.slice(1))) {
+        $(this.el).wrap('<span class="' + this.options.selectClass.slice(1) + '" />');
+      }
+    };
+    return Select;
+  }());
+  $.rapido_Select = function(options){
+    return $('select').each(function(){
+      if (!$.data(this, "plugin_" + pluginName)) {
+        return $.data(this, "plugin_" + pluginName, new Select(this, options));
+      }
+    });
   };
-
-})(jQuery, window, document);
-
+}.call(this, jQuery, window, document));

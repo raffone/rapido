@@ -1,73 +1,48 @@
-(function($, window, document, undefined) {
-
-  if (!$.Rapido) {
-    $.Rapido = {};
-  }
-
-  $.Rapido.Move = function(el, options) {
-    var base = this;
-
-    base.$el = $(el);
-    base.el = el;
-
-    base.$el.data('Rapido.Move', base);
-
-    base.init = function() {
-      base.options = $.extend({},$.Rapido.Move.defaultOptions, options);
-      base.options.origin = '.' + base.el.parentNode.className;
-
-      // Assign width options to aliases
-      var max = base.options.maxWidth;
-      var min = base.options.minWidth;
-
-      // On ready and resize call function
-      $(window).on('ready resize', function() {
-
-        // Get current window width
-        var w = $(window).width();
-
-        // Call move function
-        move(w, max, min);
-
-      });
-
-    };
-
-    var move = function(w, max, min) {
-
-      // If max-width and min-height are set and match window
-      if (max && min && w <= max && w >= min) {
-        $(base.options.destination).append(base.el);
-
-      // If only max-width is set and match window
-      } else if (max && !min && w <= max) {
-        $(base.options.destination).append(base.el);
-
-      // If only min-width is set and match window
-      } else if (min && !max && w >= min) {
-        $(base.options.destination).append(base.el);
-
-      // If none match window
-      } else {
-        $(base.options.origin).append(base.el);
-
-      }
-
-    };
-
-    base.init();
-  };
-
-  $.Rapido.Move.defaultOptions = {
+(function($, window, document){
+  'use strict';
+  var pluginName, defaults, Move;
+  pluginName = "Move";
+  defaults = {
     destination: null,
     maxWidth: null,
     minWidth: null
   };
-
-  $.fn.rapido_Move = function(options) {
-    return this.each(function() {
-      (new $.Rapido.Move(this, options));
+  Move = (function(){
+    Move.displayName = 'Move';
+    var prototype = Move.prototype, constructor = Move;
+    function Move(el, options){
+      var x$;
+      this.el = el;
+      this._defaults = defaults;
+      this._name = pluginName;
+      x$ = this.options = $.extend({}, defaults, options);
+      x$.origin = '.' + this.el.parentNode.className;
+      this.min = this.options.minWidth;
+      this.max = this.options.maxWidth;
+      this.init();
+    }
+    prototype.init = function(){
+      $.rapido.onResize(this, this.moveElement);
+    };
+    prototype.getWidth = function(){
+      return $(window).width();
+    };
+    prototype.moveElement = function(){
+      var w;
+      w = this.getWidth();
+      if (this.max && this.min && w <= this.max && w >= this.min || this.max && !this.min && w <= this.max || this.min && !this.max && w >= this.min) {
+        $(this.options.destination).append(this.el);
+      } else {
+        $(this.options.origin).append(this.el);
+      }
+    };
+    return Move;
+  }());
+  $.fn.rapido_Move = function(options){
+    return this.each(function(){
+      if (!$.data(this, "plugin_" + pluginName)) {
+        return $.data(this, "plugin_" + pluginName, new Move(this, options));
+      }
     });
   };
-
-})(jQuery, window, document);
+}.call(this, jQuery, window, document));

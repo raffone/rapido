@@ -1,80 +1,64 @@
-(function($, window, document, undefined) {
-
-  if (!$.Rapido) {
-    $.Rapido = {};
-  }
-
-  $.Rapido.Suggest = function(options) {
-    var base = this;
-
-    base.init = function() {
-      base.options = $.extend({},$.Rapido.Suggest.defaultOptions, options);
-
-      $(window).on('ready resize', function() {
-        setSize();
-      });
-
-      compileInput();
-
-    };
-
-    var setSize = function() {
-      $(base.options.suggestClass).each(function() {
-
-        var $suggest = $(this);
-        var $input = $(this).parents(base.options.containerClass).children('input[type = "text"]');
-
-        // Get position of the input and position the suggest accordingly
-        $suggest.css({
-          'top': ($input.position().top + $input.height()) + 'px',
-          'left': $input.position().left + 'px',
-          'width': $input.outerWidth() + 'px'
-        });
-
-        // Toggle class on :focus
-        $input.focus(function() {
-          $(base.options.suggestClass).removeClass('open');
-          $suggest.addClass('open');
-        });
-      });
-    };
-
-    var compileInput = function() {
-      $(base.options.suggestClass).on('click', 'a', function(e) {
-
-        var value = $(this).attr(base.options.suggestAttr);
-        var $input = $(this).parents(base.options.containerClass).children('input[type = "text"]');
-        var $parent = $(this).parents(base.options.suggestClass);
-
-        $input.val(value);
-        $parent.removeClass('open');
-
-        e.preventDefault();
-      });
-
-      $('html, body').on('click', function() {
-        $(base.options.suggestClass).removeClass('open');
-      });
-
-      $('input').on('click', function(e) {
-        e.stopPropagation();
-      });
-    };
-
-
-
-    base.init();
-  };
-
-  $.Rapido.Suggest.defaultOptions = {
+(function($, window, document){
+  'use strict';
+  var pluginName, defaults, Suggest;
+  pluginName = "Suggest";
+  defaults = {
     containerClass: '.form__controls',
     suggestClass: '.form__suggest',
     suggestAttr: 'title'
   };
-
-  $.rapido_Suggest = function(options) {
-    new $.Rapido.Suggest(options);
+  Suggest = (function(){
+    Suggest.displayName = 'Suggest';
+    var prototype = Suggest.prototype, constructor = Suggest;
+    function Suggest(el, options){
+      var x$;
+      this.el = el;
+      this._defaults = defaults;
+      this._name = pluginName;
+      x$ = this.options = $.extend({}, defaults, options);
+      x$.input = $(this.el).parents(this.options.containerClass).children('input[type="text"]');
+      this.init();
+    }
+    prototype.init = function(){
+      $.rapido.onResize(this, this.setSize);
+      this.focusEvent();
+      this.clickEvent();
+    };
+    prototype.setSize = function(){
+      $(this.el).css({
+        top: this.options.input.position().top + this.options.input.height() + 'px',
+        left: this.options.input.position().left + 'px',
+        width: this.options.input.outerWidth() + 'px'
+      });
+    };
+    prototype.focusEvent = function(){
+      var this$ = this;
+      this.options.input.focus(function(){
+        $(this$.options.suggestClass).removeClass('open');
+        $(this$.el).addClass('open');
+      });
+    };
+    prototype.clickEvent = function(){
+      var this$ = this;
+      $(this.el).on('click', 'a', function(it){
+        this$.options.input.val($(it.toElement).attr(this$.options.suggestAttr));
+        $(this$.el).removeClass('open');
+        return it.preventDefault();
+      });
+      $('html, body').click(function(){
+        return $(this$.options.suggestClass).removeClass('open');
+      });
+      $('input').click(function(e){
+        return e.stopPropagation();
+      });
+    };
+    return Suggest;
+  }());
+  $.rapido_Suggest = function(options){
+    return $(defaults.suggestClass).each(function(){
+      if (!$.data(this, "plugin_" + pluginName)) {
+        return $.data(this, "plugin_" + pluginName, new Suggest(this, options));
+      }
+    });
   };
-
-})(jQuery, window, document);
-
+}.call(this, jQuery, window, document));
