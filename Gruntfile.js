@@ -8,6 +8,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-closure-linter');
   grunt.loadNpmTasks("grunt-contrib-concat");
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-livescript');
+  grunt.loadNpmTasks('grunt-notify');
 
   grunt.initConfig({
 
@@ -24,49 +26,43 @@ module.exports = function(grunt) {
         " */\n"
     },
 
-    // JS - Fix Style
-    closureFixStyle: {
-      app:{
-        closureLinterPath : '/usr/local/bin',
-        command: 'fixjsstyle',
-        src: 'js/*.js',
+    notify: {
+      task_name: {
         options: {
-          stdout: true,
-          strict: true
+          // Task-specific options go here.
         }
-      }
-    },
-
-    // JS - Check errors
-    jshint: {
-      files: ['gruntfile.js', 'js/**/*.js'],
-      options: {
-        globals: {
-          jQuery: true,
-          console: true,
-          module: true,
+      },
+      livescript: {
+        options: {
+          title: 'LiveScript',
+          message: 'Compilato con successo',
         }
-      }
-    },
-
-    jslint: {
-      src: 'js/**/*.js',
-      directives: {
-        browser: true,
-        predef: [
-          'jQuery'
-        ]
       },
     },
 
-    // JS - Concatenate js
-    concat: {
+    // Compile LiveScript
+    livescript: {
       options: {
-        banner: "<%= meta.banner %>"
+        bare: true,
+        prelude: true
       },
-      dist: {
-        src: "js/*.js",
-        dest: "dist/js/rapido.js"
+
+      src: {
+        files: {
+          'js/rapido.animation.js': 'ls/rapido.animation.ls',
+          'js/rapido.dropdown.js': 'ls/rapido.dropdown.ls',
+          'js/rapido.move.js': 'ls/rapido.move.ls',
+          'js/rapido.offcanvas.js': 'ls/rapido.offcanvas.ls',
+          'js/rapido.overlay.js': 'ls/rapido.overlay.ls',
+          'js/rapido.scroll.js': 'ls/rapido.scroll.ls',
+          'js/rapido.select.js': 'ls/rapido.select.ls',
+          'js/rapido.suggest.js': 'ls/rapido.suggest.ls',
+          'js/rapido.toggle.js': 'ls/rapido.toggle.ls',
+          'js/rapido.tooltip.js': 'ls/rapido.tooltip.ls',
+          'js/rapido.utilities.js': 'ls/rapido.utilities.ls',
+
+          'dist/js/rapido.js': 'ls/*.ls',
+        }
       }
     },
 
@@ -146,6 +142,16 @@ module.exports = function(grunt) {
           dest: '../../forks/kss-node-template/template/public'
         },
         ]
+      },
+      toRapidoIE: {
+        files: [
+          {
+          expand: true,
+          cwd: 'dist/js',
+          src: ['rapido.js'],
+          dest: '../../server/sites/rapido-ie/assets/js'
+        },
+        ]
       }
     },
 
@@ -162,15 +168,16 @@ module.exports = function(grunt) {
       html: {
         files: ['tests/*.html'],
       },
-      js: {
-        files: ['js/*.js'],
+      livescript: {
+        files: ['ls/*.ls'],
+        tasks: ['js', 'copy:toRapidoIE']
       },
     },
 
   });
 
   grunt.registerTask('css',  ['compass']);
-  grunt.registerTask('js',   ['concat', 'closureFixStyle', 'jshint', 'uglify']);
+  grunt.registerTask('js',   ['livescript:src', 'uglify', 'notify:livescript']);
   grunt.registerTask('docs', ['compass:dist', 'js', 'copy:js', 'kss']);
   grunt.registerTask('site', ['compass:dist', 'kss', 'copy']);
   grunt.registerTask('default', 'watch');
