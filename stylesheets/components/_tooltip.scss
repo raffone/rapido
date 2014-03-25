@@ -93,7 +93,7 @@ Styleguide 19
 
     &:after {
       content: "";
-      @extend %display-block;
+      display: block;
       position: absolute;
     }
 

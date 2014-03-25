@@ -13,7 +13,7 @@ Styleguide 6
 @if $close {
 
     .close {
-        @extend %float-right;
+        float: right;
         font-size: 1em;
         @extend %font-weight-bold;
         color: $black;
@@ -21,18 +21,18 @@ Styleguide 6
         &:hover,
         &:focus {
             color: $black;
-            @extend %text-decoration-none;
-            @extend %cursor-pointer;
+            text-decoration: none;
+            cursor: pointer;
             @include opacity(40);
         }
     }
 
     button.close {
-        @extend %no-padding;
-        @extend %cursor-pointer;
-        @extend %no-background;
-        @extend %no-border; 
-        @extend %appearance-none;
+        padding: 0;
+        cursor: pointer;
+        background: none;
+        border: 0; 
+        appearance: none;
     }
 
 }

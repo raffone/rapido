@@ -37,7 +37,7 @@ Styleguide 12
 
     .nav {
         @extend %pie-clearfix;
-        @extend %inline-block;
+        @include inline-block;
         margin-bottom: rhythm();
         position: relative;
 
@@ -52,11 +52,11 @@ Styleguide 12
 
             > a {
                 @extend .transition;
-                @extend %inline-block;
+                @include inline-block;
                 line-height: 1em;
 
                 &:hover, &:focus {
-                    @extend %text-decoration-none;
+                    text-decoration: none;
                 }
 
                 img { max-width: none; }
@@ -64,9 +64,9 @@ Styleguide 12
 
             &.disabled > a:hover,
             &.disabled > a:focus {
-                @extend %text-decoration-none;
+                text-decoration: none;
                 background-color: transparent;
-                @extend %cursor-default;
+                cursor: default;
             }
 
             // Disabled
@@ -99,7 +99,7 @@ Styleguide 12
     .nav__title {
         @include adjust-font-size-to($small-size);
         color: $gray;
-        @extend %display-block;
+        display: block;
         @extend %font-weight-bold;
         padding: $navs-padding;
         padding-left: 0;
@@ -110,7 +110,7 @@ Styleguide 12
 
     .nav--inline {
         & > li,
-        > ul > li { @extend %float-left;}
+        > ul > li { float: left;}
 
         li ul {
           @include position(absolute, 100% 0 0 0px);
@@ -124,7 +124,7 @@ Styleguide 12
         width: 100%;
 
         li > a {
-            @extend %display-block;
+            display: block;
         }
     }
 
@@ -142,7 +142,7 @@ Styleguide 12
                 }
             }
 
-            ul a { @extend %display-block; }
+            ul a { display: block; }
 
             &.current > a,
             &.current > a:hover,

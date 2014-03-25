@@ -35,9 +35,9 @@ Styleguide 25.1
 .clearfix     { @extend %pie-clearfix }
 .transition   { @include transition(); }
 .divider      { @include nav-divider(); }
-.left         { @extend %float-left; }
-.right        { @extend %float-right; }
-.inline-block { @extend %inline-block; }
+.left         { float: left; }
+.right        { float: right; }
+.inline-block { @include inline-block; }
 
 /*
 
@@ -124,12 +124,12 @@ Styleguide 25.4
 .lead           { @include adjust-font-size-to($h4-size); }
 .muted          { color: $gray; }
 
-.pull-left      { @extend %float-left; }
-.pull-right     { @extend %float-right; }
+.pull-left      { float: left; }
+.pull-right     { float: right; }
 
-.text-left      { @extend %text-align-left; }
-.text-right     { @extend %text-align-right; }
-.text-center    { @extend %text-align-center; }
+.text-left      { text-align: left; }
+.text-right     { text-align: right; }
+.text-center    { text-align: center; }
 
 /*
 
@@ -146,7 +146,7 @@ Styleguide 25.5
 .s {
     @include transition(none);
     content: "";
-    @extend %inline-block;
+    @include inline-block;
     font-style:normal;
     overflow:hidden;
     text-align:center;

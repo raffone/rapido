@@ -25,13 +25,13 @@ Styleguide 3
         @include border-radius($base-border-radius);
         border-style: solid;
         border-width: $input-border;
-        @extend %cursor-pointer;
-		@extend %inline-block;
+        cursor: pointer;
+		@include inline-block;
         line-height: 1em;
         margin-bottom: 0;
-        @extend %text-align-center;
+        text-align: center;
 
-        &:hover, &.hover, &:focus { @extend %text-decoration-none; }
+        &:hover, &.hover, &:focus { text-decoration: none; }
 
         &.active, &:active {outline: 0; }
 
@@ -40,7 +40,7 @@ Styleguide 3
             @include box-shadow(none);
             @include opacity(65);
             background-image: none;
-            @extend %cursor-default;
+            cursor: default;
         }
     }
 
@@ -147,7 +147,7 @@ Styleguide 3.4
 // Block button
 
     .btn--block {
-        @extend %display-block;
+        display: block;
         width: 100%;
         padding-left: 0;
         padding-right: 0;
@@ -185,7 +185,7 @@ Styleguide 3.5
         border-color: transparent;
         background: none;
         color: $link-color;
-        @extend %cursor-pointer;
+        cursor: pointer;
 
         &:hover, &:focus {
             color: $link-color-hover;
@@ -200,7 +200,7 @@ Styleguide 3.5
 
         &[disabled]:hover, &[disabled]:focus {
             color: $grayDark;
-            @extend %text-decoration-none;
+            text-decoration: none;
         }
     }
 

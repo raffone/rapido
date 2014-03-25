@@ -33,14 +33,14 @@ Styleguide 16
 
     .bx-wrapper {
         position: relative;
-        @extend %no-padding;
+        padding: 0;
         *zoom: 1;
         z-index: $zindex-slider;
         margin-bottom: rhythm();
 
         img {
             max-width: 100%;
-            @extend %display-block;
+            display: block;
         }
 
         ul {@extend .list_style_none;}
@@ -61,7 +61,7 @@ Styleguide 16
             span {@extend .visuallyhidden;}
         }
 
-        .disabled { @extend %display-none; }
+        .disabled { display: none; }
 
     }
 
@@ -72,15 +72,15 @@ Styleguide 16
 
     .bx-pager {
         width: 100%;
-        @extend %text-align-center;
+        text-align: center;
         @extend %slider__pager !optional;
 
     }
 
     .bx-pager-item {
-        @extend %inline-block;
+        @include inline-block;
         a {
-            @extend %inline-block;
+            @include inline-block;
             // @include hide-text;
         }
     }
@@ -102,7 +102,7 @@ Styleguide 16
         width: 100%;
 
         span {
-            @extend %inline-block;
+            @include inline-block;
             @extend %slider__caption !optional;
         }
     }

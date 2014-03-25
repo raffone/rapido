@@ -44,14 +44,14 @@ Styleguide 5
     position: relative;
     overflow: hidden;
     @include perspective(1000);
-    @extend %inline-block;
+    @include inline-block;
 
 
     &:nth-child(2n) {
       margin-right: 0;
     }
     img {
-      @extend %display-block;
+      display: block;
       transition: $caption-animations-duration;
     }
     figcaption {
@@ -225,7 +225,7 @@ Styleguide 5
         top: 0;
         left: 0;
         @include scale(2);
-        @extend %text-align-center;
+        text-align: center;
         @include opacity(0);
       }
       img {
@@ -343,7 +343,7 @@ Styleguide 5
       figcaption {
         top: 0;
         left: 0;
-        @extend %text-align-center;
+        text-align: center;
         @include opacity(0);
         height: 100%;
       }
@@ -365,11 +365,11 @@ Styleguide 5
       figcaption {
         top: 0;
         left: 0;
-        @extend %text-align-center;
+        text-align: center;
         height: 100%;
       }
       img {
-        @extend %display-block;
+        display: block;
         position:relative;
         z-index:10;
         transition: $caption-animations-duration;
@@ -385,12 +385,12 @@ Styleguide 5
       figcaption {
         top: 0;
         left: 0;
-        @extend %text-align-center;
+        text-align: center;
         height: 100%;
         @include translateY(100%);
       }
       img {
-        @extend %display-block;
+        display: block;
         position:relative;
         transition: $caption-animations-duration;
       }

@@ -162,7 +162,7 @@ Styleguide 15.2
         visibility: visible;
 
         &::after {
-          @extend %display-none;
+          display: none;
         }
       }
 
@@ -198,7 +198,7 @@ Styleguide 15.2
         z-index: 1;
 
         &::after {
-          @extend %display-none;
+          display: none;
         }
       }
     }
@@ -227,7 +227,7 @@ Styleguide 15.2
         @include translate3d($if-3d, 0, 0);
 
         &::after {
-          @extend %display-none;
+          display: none;
         }
       }
     }
@@ -257,7 +257,7 @@ Styleguide 15.2
         @include translate3d($if-3d/2, 0, 0);
 
         &::after {
-          @extend %display-none;
+          display: none;
         }
       }
     }

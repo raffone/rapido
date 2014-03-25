@@ -50,16 +50,16 @@ Styleguide 21
         margin-bottom: rhythm();
 
         .etabs {
-            @extend %no-margin;
-            @extend %no-padding;
+            margin: 0;
+            padding: 0;
             @extend %tab__nav !optional;
 
             li {
-                @extend %inline-block;
+                @include inline-block;
 
                 a {
                     line-height: 1em;
-                    @extend %display-block;
+                    display: block;
                     padding: $tabs-tab-padding;
                     outline: none;
                     @include border-radius($base-border-radius $base-border-radius 0 0);
@@ -79,7 +79,7 @@ Styleguide 21
                         &:after {
                             @include position(absolute, 0 0px -1px 0px);
                             height: 2px;
-                            @extend %display-block;
+                            display: block;
                             content: "";
                         }
                     }

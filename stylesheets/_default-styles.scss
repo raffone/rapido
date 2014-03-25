@@ -215,10 +215,10 @@ Styleguide 32.3
     %btn--scripts {
         @include alpha-color(#000, .6, background);
         color: #fff;
-        @extend %cursor-pointer;
-        @extend %display-block;
-        @extend %text-align-center;
-        @extend %text-decoration-none;
+        cursor: pointer;
+        display: block;
+        text-align: center;
+        text-decoration: none;
 
         &:hover {
             color: #fff;
@@ -282,7 +282,7 @@ Styleguide 32.6
 
         > li > a:hover,
         > li > a:focus {
-            @extend %text-decoration-none;
+            text-decoration: none;
             background-color: $grayLight;
         }
     }

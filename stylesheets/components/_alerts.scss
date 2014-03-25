@@ -21,7 +21,7 @@ Styleguide 1
     margin-bottom: rhythm();
     @extend %alert;
 
-    p { @extend %no-margin; }
+    p { margin: 0; }
 
     .close {
       position: relative;
