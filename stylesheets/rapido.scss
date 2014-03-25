@@ -4,6 +4,11 @@
 
 @import "normalize";
 
+// External Frameworks
+
+@import 'bourbon/bourbon';
+@import "neat/neat";
+
 // Functions
 
 @import	"functions";
@@ -15,13 +20,6 @@
 @import "settings/dimensions";
 @import "settings/components";
 @import "settings/effects";
-
-// External Frameworks
-
-@import "compass";
-@import "susy";
-@import "breakpoint";
-@import "compass-placeholders";
 
 // Utilities
 
