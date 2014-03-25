@@ -700,11 +700,20 @@ Styleguide 26.21
     ) {
 
     @if ($media) {
+
+      // Failback for =< 2.2.1
+      @if $media == 'palm'      { $media: $palm }
+      @if $media == 'lap'       { $media: $lap }
+      @if $media == 'lap-and-up'{ $media: $lap-and-up }
+      @if $media == 'portable'  { $media: $portable }
+      @if $media == 'desk'      { $media: $desk }
+
       @include breakpoint($media) {
         @include span($cols of $cols-container $from);
         @if $omega { @include omega; }
         @if $nth-omega { @include nth-omega($nth-omega); }
       }
+
     } @else {
       @include span($cols of $cols-container $from);
       @if $omega { @include omega; }
