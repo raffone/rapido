@@ -83,10 +83,20 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         options: {
-          style: 'expanded'
+          style: 'expanded',
+          require: ['sass-globbing', 'sass-media_query_combiner']
         },
         files: {
           'dist/css/rapido.css': 'stylesheets/rapido.scss',
+        }
+      },
+      min: {
+        options: {
+          style: 'compressed',
+          require: ['sass-globbing', 'sass-media_query_combiner']
+        },
+        files: {
+          'dist/css/rapido.min.css': 'stylesheets/rapido.scss',
         }
       }
     },
