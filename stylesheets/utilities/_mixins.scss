@@ -11,24 +11,6 @@ Styleguide 26
 
 /*
 
-Create a rectangle
-
-    @include size($height, $width);
-
-* `$height`: Height of the rectangle
-* `$width`: Width of the rectangle
-
-Styleguide 26.1
-
-*/
-
-@mixin size($height, $width) {
-    width: $width;
-    height: $height;
-}
-
-/*
-
 Create a square
 
     @include square($size);
@@ -40,73 +22,30 @@ Styleguide 26.2
 */
 
 @mixin square($size) {
-    @include size($size, $size);
+    @include size($size);
 }
 
 /*
 
-Position an element
+Opacity
 
-    @include position ($position, $coordinates);
+Add opacity to element with IE8 failback.
 
-* `$position`: fixed, relative, absolute
-* `$coordinates`: 0 = null, 0px or more is a value used in the css.
-
-Example:
-
-    @include position (absolute, 0 0px 0px 0);
+    @include opacity(.5);
 
 Become:
 
-    position: absolute;
-    right: 0px;
-    bottom: 0px;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+    opacity: .5;
 
-Styleguide 26.3
+Styleguide 26.4
 
 */
 
-@mixin position ($position: relative, $coordinates: 0 0 0 0) {
 
-    @if type-of($position) == list {
-        $coordinates: $position;
-        $position: relative;
-    }
-
-    $top: nth($coordinates, 1);
-    $right: nth($coordinates, 2);
-    $bottom: nth($coordinates, 3);
-    $left: nth($coordinates, 4);
-
-    position: $position;
-
-    @if $top == auto {
-        top: $top;
-    }
-    @else if not(unitless($top)) {
-        top: $top;
-    }
-
-    @if $right == auto {
-        right: $right;
-    }
-    @else if not(unitless($right)) {
-        right: $right;
-    }
-
-    @if $bottom == auto {
-        bottom: $bottom;
-    }
-    @else if not(unitless($bottom)) {
-        bottom: $bottom;
-    }
-
-    @if $left == auto {
-        left: $left;
-    }
-    @else if not(unitless($left)) {
-        left: $left;
-    }
+@mixin opacity($opacity) {
+  filter: unquote("progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($opacity * 100)})");
+  opacity: $opacity;
 }
 
 /*
@@ -147,7 +86,8 @@ Styleguide 26.5
 
 @mixin center() {
   @include position(absolute, 50% 0 0 50%);
-  @include translate(-50%, -50%);
+  @include transform(translateX(-50%));
+          @include transform(translateY(-50%));
 }
 
 
@@ -178,43 +118,6 @@ Styleguide 26.6
 
 /*
 
-Placeholder
-
-    @include placeholder($color);
-
-* `$color`: Set color of the placeholder of an input.
-
-Styleguide 26.7
-
-*/
-
-@mixin placeholder($color: $gray) {
-
-  ::-webkit-input-placeholder {
-    color: $color;
-  }
-
-  :-moz-placeholder {
-    color: $color;
-  }
-
-  ::-moz-placeholder {
-    color: $color;
-  }
-
-  :-ms-input-placeholder {
-    color: $color;
-  }
-
-  ::placeholder {
-    color: $color;
-  }
-
-}
-
-
-/*
-
 Text overflow
 
 Wrap text with ellipsis (modern browsers only).
@@ -236,63 +139,6 @@ Styleguide 26.8
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-}
-
-
-/*
-
-Triangle
-
-Create a css-only triangle.
-
-    @include triangle($size, $color, $direction);
-
-* `$size`: Width of the triangle
-* `$color`: Color of the triangle
-* `$direction`: There are available up, up-right, right, down-right, down, down-left, left, up-left
-
-Styleguide 26.9
-
-*/
-
-@mixin triangle ($size, $color, $direction) {
-    @include square(0);
-
-    @if ($direction == up) or ($direction == down) or ($direction == right) or ($direction == left) {
-        border-color: transparent;
-        border-style: solid;
-        border-width: $size / 2;
-
-        @if $direction == up {
-            border-bottom-color: $color;
-        } @else if $direction == right {
-            border-left-color:  $color;
-        } @else if $direction == down {
-            border-top-color:   $color;
-        } @else if $direction == left {
-            border-right-color:  $color;
-        }
-    }
-
-    @else if ($direction == up-right) or ($direction == up-left) {
-        border-top: $size solid $color;
-
-        @if $direction == up-right {
-            border-left:  $size solid transparent;
-        } @else if $direction == up-left {
-            border-right: $size solid transparent;
-        }
-    }
-
-    @else if ($direction == down-right) or ($direction == down-left) {
-        border-bottom: $size solid $color;
-
-        @if $direction == down-right {
-            border-left:  $size solid transparent;
-        } @else if $direction == down-left {
-            border-right: $size solid transparent;
-        }
-    }
 }
 
 
@@ -349,26 +195,6 @@ Styleguide 26.10
     }
 }
 
-/*
-
-Text inset shadow
-
-    @include text-inset-shadow($bg, $textcolor, $contrast);
-
-* `$bg`: Background color of the text
-* `$textcolor`: Color of the text
-* `$contrast`: How much stronger the inset will be
-
-Styleguide 26.11
-
-*/
-
-@mixin text-inset-shadow($bg: #fff, $textcolor: #054d4a, $contrast:  #f43059) {
-    $shadow: darken($textcolor, 30%);
-
-    color: rgba($textcolor, 0.8);
-    text-shadow: 1px 5px 7px $bg, 0 0 0 rgba($shadow,.8);
-}
 
 /*
 
@@ -400,38 +226,6 @@ Styleguide 26.12
     #{$attribute}: rgba($color, $alpha);
 }
 
-/*
-
-Keyframes support
-
-Used for creating custom animations.
-
-    @include keyframes($name) {
-      ...keyframes...
-    }
-
-* `$name`: Name of the keyframe
-
-Styleguide 26.13
-
-*/
-
-@mixin keyframes($name) {
-    @-webkit-keyframes #{$name} {
-        @content;
-    }
-
-    @-moz-keyframes #{$name} {
-        @content;
-    }
-
-    @-o-keyframes #{$name} {
-        @content;
-    }
-    @keyframes #{$name} {
-        @content;
-    }
-}
 
 /*
 
@@ -480,7 +274,7 @@ Styleguide 26.15
     $lightColor: lighten($color, 8);
     $degree: $size/1px;
 
-    @include box-shadow(0 1px 3px $color);
+    box-shadow: 0 1px 3px $color;
     border:5px solid #fff;
     @include inline-block;
     line-height: 0;
@@ -497,7 +291,7 @@ Styleguide 26.15
         bottom: $distance;
         width: 70%;
         height: 55%;
-        @include box-shadow(0 $size $size+1 $lightColor);
+        box-shadow: 0 $size $size+1 $lightColor;
         @include transform(skew(-15deg) rotate(-6deg));
     }
 
@@ -531,19 +325,19 @@ Styleguide 26.16
     $size: $size*2;
 
     @if $position == 'top' {
-        @include box-shadow(inset 0 $size $size $size $color)
+        box-shadow: inset 0 $size $size $size $color;
     }
 
     @if $position == 'right' {
-        @include box-shadow(inset neg($size) 0 $size neg($size) $color)
+        box-shadow: inset neg($size) 0 $size neg($size) $color;
     }
 
     @if $position == 'bottom' {
-        @include box-shadow(inset 0 neg($size) $size neg($size) $color)
+        box-shadow: inset 0 neg($size) $size neg($size) $color;
     }
 
     @if $position == 'left' {
-        @include box-shadow(inset $size 0 $size $size $color)
+        box-shadow: inset $size 0 $size $size $color;
     }
 
 
@@ -553,7 +347,7 @@ Styleguide 26.16
 
 Side Shadow
 
-Add Side Shadows to multi-line padded text for consistend side padding (Fabien Doiron's box-shadow Method).
+Add Side Shadows to multi-line padded text for consistend side padding (Fabien Doiron's box-shadow:  Method).
 
     @include side-shadow($size, $color);
 
@@ -565,7 +359,7 @@ Styleguide 26.17
 */
 
 @mixin side-shadow($size: 10px, $color: #000) {
-    @include box-shadow($size 0 0 $color, neg($size) 0 0 $color);
+    box-shadow: $size 0 0 $color, neg($size) 0 0 $color;
     margin-left: $size;
     margin-right: $size;
 }
@@ -596,47 +390,6 @@ Styleguide 26.18
     content: "#{$char}";
 }
 
-/*
-
-Media Queries
-
-Add media queries to css width simple naming convention.
-
-    @include media(<$media>) {...};
-
-You can set the start/and with of each step from usins the variables `$lap-start`, `$desk-start`, `$desk-end`.
-
-* `$media`:
-    * `$palm`: Only Palm
-    * `$lap`:  Only Lap
-    * `$lap-and-up`: Lap + Desktop
-    * `$portable`: Lap + Palm
-    * `$desk`: Only Desktop
-
-Styleguide 26.19
-
-*/
-
-@mixin media($media-query:null){
-
-    // Failback for =< 2.2.1
-    @if $media-query == 'palm'      { $media-query: $palm }
-    @if $media-query == 'lap'       { $media-query: $lap }
-    @if $media-query == 'lap-and-up'{ $media-query: $lap-and-up }
-    @if $media-query == 'portable'  { $media-query: $portable }
-    @if $media-query == 'desk'      { $media-query: $desk }
-
-    @if $media-query {
-        @include breakpoint($media-query) {
-            @content;
-        }
-    }
-
-    @else {
-        @content;
-    }
-
-}
 
 /*
 
@@ -708,16 +461,16 @@ Styleguide 26.21
       @if $media == 'portable'  { $media: $portable }
       @if $media == 'desk'      { $media: $desk }
 
-      @include breakpoint($media) {
-        @include span($cols of $cols-container $from);
+      @include media($media) {
+        @include span-columns($cols of $cols-container);
         @if $omega { @include omega; }
-        @if $nth-omega { @include nth-omega($nth-omega); }
+        @if $nth-omega { @include omega($nth-omega); }
       }
 
     } @else {
-      @include span($cols of $cols-container $from);
+      @include span-columns($cols of $cols-container);
       @if $omega { @include omega; }
-      @if $nth-omega { @include nth-omega($nth-omega); }
+      @if $nth-omega { @include omega($nth-omega); }
     }
 
 }
@@ -745,7 +498,7 @@ Styleguide 26.22
   $function: $animations-function,
   $mode: $animations-mode
 ) {
-    @include experimental(animation, $name $duration $delay toBezier($function) $mode);
+    @include animation($name $duration $delay $function $mode);
 }
 
 /*
@@ -804,9 +557,28 @@ Styleguide 26.23
     @for $i from 1 through $iterations {
       $delay-seq: ( $delay * $i ) + $delay-offset;
       #{$selector}:nth-child(#{$i}) {
-        @include animate($name, $duration, $delay-seq, $function, $mode);
+        @include animation($name $duration $delay-seq $function $mode);
       }
     }
 }
 
+
+// Failbacks
+// ----------------------------------------------------------------------------
+
+@mixin border-radius($n: $base-border-radius) {
+  border-radius: $n;
+}
+
+@mixin translateX($n) {
+  @include transform(translateX($n));
+}
+
+@mixin translateY($n) {
+  @include transform(translateY($n));
+}
+
+@mixin translateZ($n) {
+  @include transform(translateZ($n));
+}
 

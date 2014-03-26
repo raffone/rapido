@@ -15,7 +15,7 @@ Styleguide 6
     .close {
         float: right;
         font-size: 1em;
-        @extend %font-weight-bold;
+        font-weight: bold;
         color: $black;
         @include opacity(20);
         &:hover,
@@ -32,7 +32,7 @@ Styleguide 6
         cursor: pointer;
         background: none;
         border: 0; 
-        appearance: none;
+        @include appearance(none);
     }
 
 }

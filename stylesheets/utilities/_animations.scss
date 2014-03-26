@@ -64,48 +64,48 @@ $tada               : false   !default;
 // Enable animation from the settings
 
 @each $animation in $animations {
-    @if $animation == 'fadeIn'               {$fadeIn             : true !global;}
-    @if $animation == 'fadeOut'              {$fadeOut            : true !global;}
-    @if $animation == 'fadeInUp'             {$fadeInUp           : true !global;}
-    @if $animation == 'fadeOutUp'            {$fadeOutUp          : true !global;}
-    @if $animation == 'fadeInDown'           {$fadeInDown         : true !global;}
-    @if $animation == 'fadeOutDown'          {$fadeOutDown        : true !global;}
-    @if $animation == 'fadeInRight'          {$fadeInRight        : true !global;}
-    @if $animation == 'fadeOutLeft'          {$fadeOutLeft        : true !global;}
-    @if $animation == 'fadeInLeft'           {$fadeInLeft         : true !global;}
-    @if $animation == 'fadeOutRight'         {$fadeOutRight       : true !global;}
-    @if $animation == 'fadeInUpBig'          {$fadeInUpBig        : true !global;}
-    @if $animation == 'fadeOutUpBig'         {$fadeOutUpBig       : true !global;}
-    @if $animation == 'fadeInDownBig'        {$fadeInDownBig      : true !global;}
-    @if $animation == 'fadeOutDownBig'       {$fadeOutDownBig     : true !global;}
-    @if $animation == 'fadeInRightBig'       {$fadeInRightBig     : true !global;}
-    @if $animation == 'fadeOutLeftBig'       {$fadeOutLeftBig     : true !global;}
-    @if $animation == 'fadeInLeftBig'        {$fadeInLeftBig      : true !global;}
-    @if $animation == 'fadeOutRightBig'      {$fadeOutRightBig    : true !global;}
-    @if $animation == 'bounceIn'             {$bounceIn           : true !global;}
-    @if $animation == 'bounceInDown'         {$bounceInDown       : true !global;}
-    @if $animation == 'bounceInUp'           {$bounceInUp         : true !global;}
-    @if $animation == 'bounceInRight'        {$bounceInRight      : true !global;}
-    @if $animation == 'bounceInLeft'         {$bounceInLeft       : true !global;}
-    @if $animation == 'bounceOut'            {$bounceOut          : true !global;}
-    @if $animation == 'bounceOutUp'          {$bounceOutUp        : true !global;}
-    @if $animation == 'bounceOutDown'        {$bounceOutDown      : true !global;}
-    @if $animation == 'bounceOutLeft'        {$bounceOutLeft      : true !global;}
-    @if $animation == 'bounceOutRight'       {$bounceOutRight     : true !global;}
-    @if $animation == 'flash'                {$flash              : true !global;}
-    @if $animation == 'bounce'               {$bounce             : true !global;}
-    @if $animation == 'shake'                {$shake              : true !global;}
-    @if $animation == 'rotateInDownLeft'     {$rotateInDownLeft   : true !global;}
-    @if $animation == 'rotateInUpLeft'       {$rotateInUpLeft     : true !global;}
-    @if $animation == 'rotateInUpRight'      {$rotateInUpRight    : true !global;}
-    @if $animation == 'rotateInDownRight'    {$rotateInDownRight  : true !global;}
-    @if $animation == 'rotateOutDownLeft'    {$rotateOutDownLeft  : true !global;}
-    @if $animation == 'rotateOutUpLeft'      {$rotateOutUpLeft    : true !global;}
-    @if $animation == 'rotateOutDownRight'   {$rotateOutDownRight : true !global;}
-    @if $animation == 'rotateOutUpRight'     {$rotateOutUpRight   : true !global;}
-    @if $animation == 'rotateIn'             {$rotateIn           : true !global;}
-    @if $animation == 'rotateOut'            {$rotateOut          : true !global;}
-    @if $animation == 'tada'                 {$tada               : true !global;}
+    @if $animation == 'fadeIn'               {$fadeIn             : true;}
+    @if $animation == 'fadeOut'              {$fadeOut            : true;}
+    @if $animation == 'fadeInUp'             {$fadeInUp           : true;}
+    @if $animation == 'fadeOutUp'            {$fadeOutUp          : true;}
+    @if $animation == 'fadeInDown'           {$fadeInDown         : true;}
+    @if $animation == 'fadeOutDown'          {$fadeOutDown        : true;}
+    @if $animation == 'fadeInRight'          {$fadeInRight        : true;}
+    @if $animation == 'fadeOutLeft'          {$fadeOutLeft        : true;}
+    @if $animation == 'fadeInLeft'           {$fadeInLeft         : true;}
+    @if $animation == 'fadeOutRight'         {$fadeOutRight       : true;}
+    @if $animation == 'fadeInUpBig'          {$fadeInUpBig        : true;}
+    @if $animation == 'fadeOutUpBig'         {$fadeOutUpBig       : true;}
+    @if $animation == 'fadeInDownBig'        {$fadeInDownBig      : true;}
+    @if $animation == 'fadeOutDownBig'       {$fadeOutDownBig     : true;}
+    @if $animation == 'fadeInRightBig'       {$fadeInRightBig     : true;}
+    @if $animation == 'fadeOutLeftBig'       {$fadeOutLeftBig     : true;}
+    @if $animation == 'fadeInLeftBig'        {$fadeInLeftBig      : true;}
+    @if $animation == 'fadeOutRightBig'      {$fadeOutRightBig    : true;}
+    @if $animation == 'bounceIn'             {$bounceIn           : true;}
+    @if $animation == 'bounceInDown'         {$bounceInDown       : true;}
+    @if $animation == 'bounceInUp'           {$bounceInUp         : true;}
+    @if $animation == 'bounceInRight'        {$bounceInRight      : true;}
+    @if $animation == 'bounceInLeft'         {$bounceInLeft       : true;}
+    @if $animation == 'bounceOut'            {$bounceOut          : true;}
+    @if $animation == 'bounceOutUp'          {$bounceOutUp        : true;}
+    @if $animation == 'bounceOutDown'        {$bounceOutDown      : true;}
+    @if $animation == 'bounceOutLeft'        {$bounceOutLeft      : true;}
+    @if $animation == 'bounceOutRight'       {$bounceOutRight     : true;}
+    @if $animation == 'flash'                {$flash              : true;}
+    @if $animation == 'bounce'               {$bounce             : true;}
+    @if $animation == 'shake'                {$shake              : true;}
+    @if $animation == 'rotateInDownLeft'     {$rotateInDownLeft   : true;}
+    @if $animation == 'rotateInUpLeft'       {$rotateInUpLeft     : true;}
+    @if $animation == 'rotateInUpRight'      {$rotateInUpRight    : true;}
+    @if $animation == 'rotateInDownRight'    {$rotateInDownRight  : true;}
+    @if $animation == 'rotateOutDownLeft'    {$rotateOutDownLeft  : true;}
+    @if $animation == 'rotateOutUpLeft'      {$rotateOutUpLeft    : true;}
+    @if $animation == 'rotateOutDownRight'   {$rotateOutDownRight : true;}
+    @if $animation == 'rotateOutUpRight'     {$rotateOutUpRight   : true;}
+    @if $animation == 'rotateIn'             {$rotateIn           : true;}
+    @if $animation == 'rotateOut'            {$rotateOut          : true;}
+    @if $animation == 'tada'                 {$tada               : true;}
 }
 
 
@@ -152,7 +152,7 @@ Styleguide 24.4
     @each $delay in $delays {
         $delays-class: strip_units($delay)*100;
         .delay-#{$delays-class} {
-            @include experimental(animation-delay, $delay);
+            @include animation-delay($delay);
         }
     }
 }

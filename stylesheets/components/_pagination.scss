@@ -32,8 +32,8 @@ Styleguide 14
         clear: both;
 
         > * {
-            @extend %pie-clearfix;
-            @include border-radius($base-border-radius);
+            @include clearfix;
+            border-radius: $base-border-radius;
             @include inline-block;
             margin-bottom: 0;
             margin-left: $input-border;

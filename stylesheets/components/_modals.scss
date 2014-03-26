@@ -149,7 +149,7 @@ Styleguide 11
         max-height: 100%;
         z-index:($zindex-modal + 5);
         position: relative;
-        // @include border-radius($base-border-radius);
+        // border-radius: $base-border-radius;
     }
 
 
@@ -166,14 +166,14 @@ Styleguide 11
     .fancybox-close {
         /*@extend %modal__btn !optional;*/
         @extend %modal__close !optional;
-        // @include border-radius($base-border-radius);
+        // border-radius: $base-border-radius;
         z-index: ($zindex-modal + 3);
     }
 
     .fancybox-nav {
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         @include position(absolute, 0px 0 0 0);
-        @include size(100%, 40%);
+        @include size(40% 100%);
         z-index: ($zindex-modal + 2);
 
         span {
@@ -219,12 +219,12 @@ Styleguide 11
 
         .child {
             @include alpha-color(#000, .8, background);
-            @include border-radius($base-border-radius);
+            border-radius: $base-border-radius;
             @include inline-block;
             margin-right: -100%;
             padding: em(2px) em($input-padding-side);
             color: #FFF;
-            @extend %font-weight-bold;
+            font-weight: bold;
             white-space: nowrap;
         }
     }

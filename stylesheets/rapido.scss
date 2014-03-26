@@ -6,8 +6,8 @@
 
 // External Frameworks
 
-@import 'bourbon/bourbon';
-@import "neat/neat";
+@import '../bourbon/bourbon';
+@import "../neat/neat";
 
 // Functions
 
@@ -23,12 +23,12 @@
 
 // Utilities
 
+@import	"utilities/vertical-rhythm";
 @import	"utilities/mixins";
 @import	"utilities/helper-classes";
 @import	"utilities/debug";
 @import	"utilities/animations";
 @import	"utilities/icon-fonts";
-@import	"utilities/susy-old-syntax";
 
 // Components
 

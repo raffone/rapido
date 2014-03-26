@@ -8,10 +8,13 @@ Styleguide 22
 
 // Base
 
+
 *, *:before, *:after {
     @include box-sizing(border-box);
     outline: none;
 }
+
+@include establish-baseline;
 
 html {
     @if $responsive-font-size {
@@ -89,8 +92,8 @@ p           { margin: 0 0 rhythm(1);}
 
 small         { @include adjust-font-size-to($small-size); }
 
-strong        { @extend %font-weight-bold; }
-em            { @extend %font-style-italic; }
+strong        { font-weight: bold; }
+em            { font-style: italic; }
 cite          { font-style: normal; }
 
 /*
@@ -115,7 +118,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
 
     small {
-        @extend %font-weight-normal;
+        font-weight: normal;
         line-height: rhythm();
         color: $grayLight;
     }
@@ -184,7 +187,7 @@ Styleguide 22.3
 
 .list_style_none,
 .list-style-none {
-    @extend %list-style-none;
+    list-style: none;
     margin: 0;
     padding: 0;
 }
@@ -236,7 +239,7 @@ Styleguide 22.4
 
 dl      { margin-bottom: rhythm(1); }
 dt, dd  { }
-dt      { @extend %font-weight-bold; }
+dt      { font-weight: bold; }
 dd      { margin-left: 0; }
 
 /*
@@ -256,7 +259,7 @@ Styleguide 22.4.1
 */
 
 .dl-horizontal {
-    @extend %pie-clearfix;
+    @include clearfix;
     dt {
         @include text-overflow();
         clear: left;
@@ -293,7 +296,7 @@ abbr[data-original-title] {
 }
 abbr.initialism {
     font-size: 90%;
-    @extend %text-transform-uppercase;
+    text-transform: uppercase;
 }
 
 /*

@@ -18,7 +18,7 @@ Styleguide 4
 @if $button-groups {
 
     .btn-group {
-        @extend %pie-clearfix;
+        @include clearfix;
         @include inline-block;
         margin: 0;
 
@@ -41,7 +41,7 @@ Styleguide 4
         > .btn,
         > li .btn {
             float: left;
-            @include border-radius(0);
+            border-radius: 0;
         }
 
         > li + li { margin-left: -$input-border; }
@@ -60,7 +60,7 @@ Styleguide 4
 
     .btn-group > li:first-child .btn                    { @include border-left-radius($base-border-radius); }
     .btn-group > li:last-child .btn                     { @include border-right-radius($base-border-radius);    }
-    div.btn-group .btn                                  { @include border-radius($base-border-radius); }
+    div.btn-group .btn                                  { border-radius: $base-border-radius; }
 
 // In Forms
 

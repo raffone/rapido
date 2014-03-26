@@ -23,8 +23,8 @@ Styleguide 10
         white-space: nowrap;
     }
 
-    .badge { @include border-radius($base-border-radius); }
-    .pill { @include border-radius(500em); }
+    .badge { border-radius: $base-border-radius; }
+    .pill { border-radius: 500em; }
 
     .badge, .pill {
         &:empty { display: none; }

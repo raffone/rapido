@@ -62,7 +62,7 @@ Styleguide 21
                     display: block;
                     padding: $tabs-tab-padding;
                     outline: none;
-                    @include border-radius($base-border-radius $base-border-radius 0 0);
+                    border-radius: $base-border-radius $base-border-radius 0 0;
                     @extend %tab__btn !optional;
 
                     &:hover {
@@ -73,7 +73,7 @@ Styleguide 21
                 &.active {
                     a {
                         position: relative;
-                        @extend %font-weight-bold;
+                        font-weight: bold;
                         @extend %tab__btn__current !optional;
 
                         &:after {
@@ -91,7 +91,7 @@ Styleguide 21
 
         .panel-container {
             @extend %tab__container !optional;
-            @include border-radius(0 $base-border-radius $base-border-radius );
+            border-radius: 0 $base-border-radius $base-border-radius ;
             > div {padding: $tabs-content-padding;}
         }
 

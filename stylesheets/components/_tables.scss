@@ -53,7 +53,7 @@ Styleguide 20
             vertical-align: top;
         }
 
-        th { @extend %font-weight-bold; }
+        th { font-weight: bold; }
 
         thead th { vertical-align: bottom; }
 

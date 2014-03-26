@@ -127,7 +127,7 @@ Styleguide 7.2
         > li > label {
             clear: both;
             display: block;
-            @extend %font-weight-normal;
+            font-weight: normal;
             white-space: nowrap;
         }
 

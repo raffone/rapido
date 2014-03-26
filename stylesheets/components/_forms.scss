@@ -34,7 +34,7 @@ Styleguide 8
 @if $forms {
 
 form {
-    @extend %pie-clearfix;
+    @include clearfix;
     margin: 0 0 rhythm();
 }
 
@@ -49,7 +49,7 @@ legend {
     display: block;
     padding: 0;
     width: 100%;
-    @extend %font-weight-bold;
+    font-weight: bold;
     border: 0;
     padding-bottom: rhythm(.5);
     margin-bottom: rhythm(.5);
@@ -65,7 +65,7 @@ button,
 select,
 textarea {
     font-family: $base-font-family;
-    @include border-radius($base-border-radius);
+    border-radius: $base-border-radius;
 }
 
 label {
@@ -98,6 +98,7 @@ input[type="color"] {
     line-height/*\**/: #{$input-height}\9; // Ugly IE8 Hack
     @extend %input !optional; // Backward compatibility
     @extend %form__input !optional;
+    @include placeholder() { color: $placeholder-color; }
 
     &:focus {outline: 0;}
 }
@@ -143,7 +144,6 @@ select[size] {
     height: auto;
 }
 
-@include placeholder($placeholder-color);
 
 input[readonly],
 select[readonly],
@@ -179,7 +179,7 @@ select:focus:invalid {
 .form__group + .form__group { margin-top: em($control-margin-bottom); }
 
 .form__controls {
-  @extend %pie-clearfix;
+  @include clearfix;
   position: relative;
   @include inline-block;
 }
@@ -198,7 +198,7 @@ Styleguide 8.1
 */
 
 .form__label {
-    @extend %font-weight-bold;
+    font-weight: bold;
     margin-bottom: em($label-margin-bottom);
     cursor: auto;
     @extend %form__label !optional;
@@ -229,7 +229,7 @@ Styleguide 8.2
 .form__checkbox,
 .form__select {
     padding-left: em($checkbox-padding-left);
-    @extend %font-weight-normal;
+    font-weight: normal;
     cursor: pointer;
     display: block;
 }
@@ -288,7 +288,7 @@ Styleguide 8.3
     @extend %caret !optional;
     @extend %select !optional; // Backward compatibility
     @extend %form__select !optional;
-    @include border-radius($base-border-radius);
+    border-radius: $base-border-radius;
     @include inline-block;
     border-style: solid;
     border-width: $input-border;
@@ -301,11 +301,11 @@ Styleguide 8.3
     width: 240px;
 
     select {
-        appearance: none;
+        @include appearance(none);
         background-color:transparent;
         background-image:none;
         border:none;
-        box-shadow:none;
+        box-shadow: none;
         cursor: pointer;
         position: relative;
         width:100%;
@@ -503,7 +503,7 @@ Styleguide 8.8
     min-width: em(16px);
     padding: $input-padding;
     line-height: 1em;
-    @extend %font-weight-normal;
+    font-weight: normal;
     float: left;
     height: $input-height;
     text-align: center;
@@ -518,12 +518,12 @@ Styleguide 8.8
 
     > [type],
     > [class] {
-        @include border-radius(0);
+        border-radius: 0;
         float: left;
         margin-left: -$input-border;
 
-        &:first-child   { @include border-radius($base-border-radius 0 0 $base-border-radius); }
-        &:last-child   { @include border-radius(0 $base-border-radius $base-border-radius 0); }
+        &:first-child   { border-radius: $base-border-radius 0 0 $base-border-radius; }
+        &:last-child   { border-radius: 0 $base-border-radius $base-border-radius 0; }
     }
 
     > ul.btn-group + * {
@@ -561,7 +561,7 @@ Styleguide 8.9
     margin-bottom: rhythm(1);
     border-top: 1px solid #e5e5e5;
     clear: both;
-    @extend %pie-clearfix;
+    @include clearfix;
 }
 
 .form__group.form__actions {
@@ -690,7 +690,7 @@ Styleguide 8.10
             padding-left: em($horizontal-offset);
         }
 
-        @include breakpoint($palm) {
+        @include media($palm) {
             .form__label {
                 width: 100%;
                 float: none;
@@ -783,6 +783,12 @@ Styleguide 8.10.1
         .form__group {
             padding: 0;
             @include inline-block;
+
+        }
+
+        .form__radio,
+        .form__checkbox {
+          vertical-align: middle;
         }
 
         .form__group + .form__group {

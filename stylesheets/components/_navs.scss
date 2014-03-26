@@ -36,13 +36,13 @@ Styleguide 12
 @if $navs {
 
     .nav {
-        @extend %pie-clearfix;
+        @include clearfix;
         @include inline-block;
         margin-bottom: rhythm();
         position: relative;
 
         &, ul {
-            @extend %pie-clearfix;
+            @include clearfix;
             @extend .list-style-none;
             margin-bottom: 0;
         }
@@ -100,10 +100,10 @@ Styleguide 12
         @include adjust-font-size-to($small-size);
         color: $gray;
         display: block;
-        @extend %font-weight-bold;
+        font-weight: bold;
         padding: $navs-padding;
         padding-left: 0;
-        @extend %text-transform-uppercase;
+        text-transform: uppercase;
     }
 
 // Horizontal nav
@@ -163,7 +163,7 @@ Styleguide 12
 
     .nav--pills {
         > li > a {
-            @include border-radius($base-border-radius);
+            border-radius: $base-border-radius;
             margin-right: .25em;
         }
 
