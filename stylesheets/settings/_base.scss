@@ -51,6 +51,7 @@ $browser-default-font-size:             16px;
 $base-rhythm-unit:                      $base-line-height / $base-font-size * $font-unit;
 $base-leader:                           ($base-line-height - $base-font-size) * $font-unit / $base-font-size;
 $base-half-leader:                      $base-leader / 2;
+$em-base:                               $base-font-size                                                      !default;
 
 /*
 
@@ -67,9 +68,9 @@ Styleguide 28.3
 
 */
 
-$font-sans:                             "Helvetica Neue", Helvetica, Arial, sans-serif                      !default;
-$font-serif:                            Georgia, "Times New Roman", Times, serif                            !default;
-$font-mono:                             Monaco, Menlo, Consolas, "Courier New", monospace                   !default;
+$font-sans:                             $helvetica                                                          !default;
+$font-serif:                            $georgia                                                            !default;
+$font-mono:                             $monospace                                                          !default;
 
 $base-font-family:                      $font-sans                                                          !default;
 $titles-font-family:                    $font-sans                                                          !default;
@@ -86,6 +87,8 @@ Styleguide 27.1
 
 */
 
-@function em($to-size, $from-size: $base-font-size) {
-    @return ($to-size / $from-size) + 0em;
-}
+/*
+ *@function em($to-size, $from-size: $base-font-size) {
+ *    @return ($to-size / $from-size) + 0em;
+ *}
+ */
