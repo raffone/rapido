@@ -32,76 +32,66 @@ Styleguide 19
 
 @if $tooltips {
 
+  $tooltip-triangle-size: em($tooltip-triangle-size);
+  $tooltip-triangle-size-neg: neg($tooltip-triangle-size);
+  $tooltip-triangle-size-half:  $tooltip-triangle-size / 2;
+  $tooltip-triangle-size-half-neg:  neg($tooltip-triangle-size-half);
+  
   [data-tooltip-position="top"] + .tooltip {
     @include transform(translateX(0) translateY(-.50em));
-    /*
-     *@include transform(translateY(-.50em));
-     */
     &:after {
-      @include triangle(em($tooltip-triangle-size), $tooltip-background, down);
+      @include triangle($tooltip-triangle-size $tooltip-triangle-size-half, $tooltip-background, down);
       left: 50%;
-      margin-left: (neg(em($tooltip-triangle-size)) / 2);
-      bottom: neg(em($tooltip-triangle-size));
+      margin-left: $tooltip-triangle-size-half-neg;
+      bottom: $tooltip-triangle-size-half-neg;
     }
   }
 
   [data-tooltip-position="bottom"] + .tooltip {
     @include transform(translateX(0) translateY(.50em));
-    /*
-     *@include transform(translateY(.50em));
-     */
     &:after {
-      @include triangle(em($tooltip-triangle-size), $tooltip-background, up);
+      @include triangle($tooltip-triangle-size $tooltip-triangle-size-half, $tooltip-background, up);
       left: 50%;
-      margin-left: (neg(em($tooltip-triangle-size)) / 2);
-      top: neg(em($tooltip-triangle-size));
+      top: $tooltip-triangle-size-half-neg;
+      margin-left: $tooltip-triangle-size-half-neg;
     }
   }
 
   [data-tooltip-position="left"] + .tooltip {
     @include transform(translateX(-.50em) translateY(0));
-    /*
-     *@include transform(translateY(0));
-     */
     &:after {
-      @include triangle(em($tooltip-triangle-size), $tooltip-background, right);
-      right: neg(em($tooltip-triangle-size));
+      @include triangle($tooltip-triangle-size $tooltip-triangle-size-half, $tooltip-background, right);
       top: 50%;
-      margin-top: (neg(em($tooltip-triangle-size)) / 2);
+      right: $tooltip-triangle-size-half-neg;
+      margin-top: $tooltip-triangle-size-half-neg;
     }
   }
 
   [data-tooltip-position="right"] + .tooltip {
     @include transform(translateX(.50em) translateY(0));
-    /*
-     *@include transform(translateY(0));
-     */
     &:after {
-      @include triangle(em($tooltip-triangle-size), $tooltip-background, left);
-      left: neg(em($tooltip-triangle-size));
+      @include triangle($tooltip-triangle-size $tooltip-triangle-size-half, $tooltip-background, left);
       top: 50%;
-      margin-top: (neg(em($tooltip-triangle-size)) / 2);
+      left: $tooltip-triangle-size-half-neg;
+      margin-top: $tooltip-triangle-size-half-neg;
     }
   }
 
   .tooltip {
     @extend %tooltip !optional;
-    border-radius: $base-border-radius;
     @include opacity(0);
     @include transition($tooltip-transition-duration);
     background: $tooltip-background;
+    border-radius: $base-border-radius;
     color: $tooltip-color;
+    max-width: 300px;
     padding: $tooltips-padding;
     position: absolute;
     visibility: hidden;
-    max-width: 300px;
 
     &.open {
       @include opacity(1);
       @include transform(translateX(0) translateY(0));
-      /*
-       *@include transform(translateY(0));
-       */
       max-height: $dropdowns-height;
       visibility: visible;
     }
