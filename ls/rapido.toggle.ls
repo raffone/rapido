@@ -51,11 +51,8 @@ let $ = jQuery, window, document
         # Get id of current content block
         id = $(el).data 'toggle-content'
 
-        # Sum all the height of all the children elements
-        $(el).children!.each (i, el) !-> height += $(el).outerHeight!
-
-        # Round height
-        height = height |> Math.ceil
+        # Sum all the rounded heights of all the children elements
+        $(el).children!.each (i, el) !-> height += $(el).outerHeight! |> Math.ceil
 
         # Create object with heights of all contents
         @options.contentsHeight <<< "#id": height + 'px'

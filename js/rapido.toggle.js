@@ -57,10 +57,9 @@
         height = 0;
         id = $(el).data('toggle-content');
         $(el).children().each(function(i, el){
-          height += $(el).outerHeight();
+          height += Math.ceil(
+          $(el).outerHeight());
         });
-        height = Math.ceil(
-        height);
         this$.options.contentsHeight[id + ""] = height + 'px';
       });
     };
