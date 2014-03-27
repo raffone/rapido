@@ -101,6 +101,7 @@ module.exports = function(grunt) {
       }
     },
 
+    /*
     compass: {
       dist: {
         options: {
@@ -125,7 +126,7 @@ module.exports = function(grunt) {
         }
       }
     },
-
+    */
 
     // CSS - Create documentation
     kss: {
