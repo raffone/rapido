@@ -4,7 +4,7 @@ Captions
 
 Captions effects adapted from [Effect.css](https://github.com/h5bp/Effect.css).
 
-Effects availables (first example is without effect): `cover-push-right`, `cover-slide-top`, `guillotine-reverse`, `half-slide`, `offset`, `quarter-appear`, `quarter-fall-in`, `quarter-slide-side`, `quarter-slide-up`, `quarter-two-step`, `quarter-zoom`, `revolving-door-bottom`, `revolving-door-left`, `revolving-door-right`, `revolving-door-top`.
+Effects availables (first example is without effect): `quarter-appear`, `quarter-slide-up`, `quarter-slide-side`, `cover-fade`, `quarter-fall-in`, `quarter-two-step`, `cover-push-right`, `cover-slide-top`, `quarter-zoom`, `revolving-door-left`, `revolving-door-right`, `revolving-door-top`, `revolving-door-bottom`, `offset`, `guillotine-reverse`, `half-slide`.
 
 Markup:
 <figure class="caption" data-effect-type="{$modifiers}">
@@ -17,22 +17,22 @@ Markup:
   </figcaption>
 </figure>
 
-quarter-appear - quarter-appear
-quarter-slide-up - quarter-slide-up
-quarter-slide-side - quarter-slide-side
-cover-fade - cover-fade
-quarter-fall-in - quarter-fall-in
-quarter-two-step - quarter-two-step
-cover-push-right - cover-push-right
-cover-slide-top - cover-slide-top
-quarter-zoom - quarter-zoom
-revolving-door-left - revolving-door-left
-revolving-door-right - revolving-door-right
-revolving-door-top - revolving-door-top
-revolving-door-bottom - revolving-door-bottom
-offset - offset
-guillotine-reverse - guillotine-reverse
-half-slide - half-slide
+quarter-appear - Quarter Appear
+quarter-slide-up - Quarter Slide Up
+quarter-slide-side - Quarter Slide Side
+cover-fade - Cover Fade
+quarter-fall-in - Quarter Fall In
+quarter-two-step - Quarter Two Step
+cover-push-right - Cover Push Right
+cover-slide-top - Cover Slide Top
+quarter-zoom - Quarter Zoom
+revolving-door-left - Revolving Door Left
+revolving-door-right - Revolving Door Right
+revolving-door-top - Revolving Door Top
+revolving-door-bottom - Revolving Door Bottom
+offset - Offset
+guillotine-reverse - Guillotine Reverse
+half-slide - Half Slide
 
 Styleguide 5
 
@@ -61,7 +61,7 @@ Styleguide 5
       }
 
     }
-    
+
 
     // Effect 1: Appear
     &[data-effect-type="quarter-appear"] {
