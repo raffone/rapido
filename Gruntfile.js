@@ -35,6 +35,12 @@ module.exports = function(grunt) {
           message: 'Compilato con successo',
         }
       },
+      sass: {
+        options: {
+          title: 'Sass',
+          message: 'Compilato con successo',
+        }
+      },
     },
 
     // Compile LiveScript
@@ -194,7 +200,7 @@ module.exports = function(grunt) {
       },
       css: {
         files: ['stylesheets/**/*.scss'],
-        tasks: ['sass', 'copy:cssToRapidoIE']
+        tasks: ['sass:dist', 'copy:cssToRapidoIE', 'notify:sass']
       },
       html: {
         files: ['tests/*.html'],
