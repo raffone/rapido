@@ -32,62 +32,62 @@ Styleguide 19
 
 @if $tooltips {
 
-  $tooltip-triangle-size: em($tooltip-triangle-size);
-  $tooltip-triangle-size-neg: neg($tooltip-triangle-size);
-  $tooltip-triangle-size-half:  $tooltip-triangle-size / 2;
-  $tooltip-triangle-size-half-neg:  neg($tooltip-triangle-size-half);
-  
+  $_tooltip-triangle-size: em($tooltip-triangle-size);
+  $_tooltip-triangle-size-neg: neg($_tooltip-triangle-size);
+  $_tooltip-triangle-size-half:  $_tooltip-triangle-size / 2;
+  $_tooltip-triangle-size-half-neg:  neg($_tooltip-triangle-size-half);
+
   [data-tooltip-position="top"] + .tooltip {
     @include transform(translateX(0) translateY(-.50em));
     &:after {
-      @include triangle($tooltip-triangle-size $tooltip-triangle-size-half, $tooltip-background, down);
+      @include triangle($_tooltip-triangle-size $_tooltip-triangle-size-half, $tooltip-background, down);
       left: 50%;
-      margin-left: $tooltip-triangle-size-half-neg;
-      bottom: $tooltip-triangle-size-half-neg;
+      margin-left: $_tooltip-triangle-size-half-neg;
+      bottom: $_tooltip-triangle-size-half-neg;
     }
   }
 
   [data-tooltip-position="bottom"] + .tooltip {
     @include transform(translateX(0) translateY(.50em));
     &:after {
-      @include triangle($tooltip-triangle-size $tooltip-triangle-size-half, $tooltip-background, up);
+      @include triangle($_tooltip-triangle-size $_tooltip-triangle-size-half, $tooltip-background, up);
       left: 50%;
-      top: $tooltip-triangle-size-half-neg;
-      margin-left: $tooltip-triangle-size-half-neg;
+      top: $_tooltip-triangle-size-half-neg;
+      margin-left: $_tooltip-triangle-size-half-neg;
     }
   }
 
   [data-tooltip-position="left"] + .tooltip {
     @include transform(translateX(-.50em) translateY(0));
     &:after {
-      @include triangle($tooltip-triangle-size $tooltip-triangle-size-half, $tooltip-background, right);
+      @include triangle($_tooltip-triangle-size $_tooltip-triangle-size-half, $tooltip-background, right);
       top: 50%;
-      right: $tooltip-triangle-size-half-neg;
-      margin-top: $tooltip-triangle-size-half-neg;
+      right: $_tooltip-triangle-size-half-neg;
+      margin-top: $_tooltip-triangle-size-half-neg;
     }
   }
 
   [data-tooltip-position="right"] + .tooltip {
     @include transform(translateX(.50em) translateY(0));
     &:after {
-      @include triangle($tooltip-triangle-size $tooltip-triangle-size-half, $tooltip-background, left);
+      @include triangle($_tooltip-triangle-size $_tooltip-triangle-size-half, $tooltip-background, left);
       top: 50%;
-      left: $tooltip-triangle-size-half-neg;
-      margin-top: $tooltip-triangle-size-half-neg;
+      left: $_tooltip-triangle-size-half-neg;
+      margin-top: $_tooltip-triangle-size-half-neg;
     }
   }
 
   .tooltip {
     @extend %tooltip !optional;
+    border-radius: $base-border-radius;
     @include opacity(0);
     @include transition($tooltip-transition-duration);
     background: $tooltip-background;
-    border-radius: $base-border-radius;
     color: $tooltip-color;
-    max-width: 300px;
     padding: $tooltips-padding;
     position: absolute;
     visibility: hidden;
+    max-width: 300px;
 
     &.open {
       @include opacity(1);
