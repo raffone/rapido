@@ -33,8 +33,10 @@ Styleguide 19
 @if $tooltips {
 
   [data-tooltip-position="top"] + .tooltip {
-    @include transform(translateX(0));
-    @include transform(translateY(-.50em));
+    @include transform(translateX(0) translateY(-.50em));
+    /*
+     *@include transform(translateY(-.50em));
+     */
     &:after {
       @include triangle(em($tooltip-triangle-size), $tooltip-background, down);
       left: 50%;
@@ -44,8 +46,10 @@ Styleguide 19
   }
 
   [data-tooltip-position="bottom"] + .tooltip {
-    @include transform(translateX(0));
-    @include transform(translateY(.50em));
+    @include transform(translateX(0) translateY(.50em));
+    /*
+     *@include transform(translateY(.50em));
+     */
     &:after {
       @include triangle(em($tooltip-triangle-size), $tooltip-background, up);
       left: 50%;
@@ -55,8 +59,10 @@ Styleguide 19
   }
 
   [data-tooltip-position="left"] + .tooltip {
-    @include transform(translateX(-.50em));
-    @include transform(translateY(0));
+    @include transform(translateX(-.50em) translateY(0));
+    /*
+     *@include transform(translateY(0));
+     */
     &:after {
       @include triangle(em($tooltip-triangle-size), $tooltip-background, right);
       right: neg(em($tooltip-triangle-size));
@@ -66,8 +72,10 @@ Styleguide 19
   }
 
   [data-tooltip-position="right"] + .tooltip {
-    @include transform(translateX(.50em));
-    @include transform(translateY(0));
+    @include transform(translateX(.50em) translateY(0));
+    /*
+     *@include transform(translateY(0));
+     */
     &:after {
       @include triangle(em($tooltip-triangle-size), $tooltip-background, left);
       left: neg(em($tooltip-triangle-size));
@@ -90,8 +98,10 @@ Styleguide 19
 
     &.open {
       @include opacity(1);
-      @include transform(translateX(0));
-      @include transform(translateY(0));
+      @include transform(translateX(0) translateY(0));
+      /*
+       *@include transform(translateY(0));
+       */
       max-height: $dropdowns-height;
       visibility: visible;
     }
