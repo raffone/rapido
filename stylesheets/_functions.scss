@@ -32,22 +32,6 @@ Styleguide 27.2
 }
 
 
-/*
-
-strip_units()
-
-Remove eny type of unit from a number, more info:
-[StackOverflow](http://stackoverflow.com/questions/12328259/how-do-you-strip-the-unit-from-any-number-in-sass).
-
-Styleguide 27.5
-
-*/
-
-
-@function strip_units($number) {
-    @return $number / ($number * 0 + 1);
-}
-
 
 // Failbacks
 // ----------------------------------------------------------------------------
