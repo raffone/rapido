@@ -31,7 +31,7 @@ Styleguide 25.1
 */
 
 .clearfix     { @include clearfix; }
-.transition   { @include transition(); }
+.transition   { @include transition(all $default-transition-duration $default-transition-function); }
 .divider      { @include nav-divider(); }
 .left         { float: left; }
 .right        { float: right; }
