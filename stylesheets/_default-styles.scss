@@ -472,7 +472,7 @@ Styleguide 32.12
 
     %modal__close {
         $offset: neg(em($modal-btn-size));
-        @include position(absolute, $offset .5em 0 0);
+        @include position(absolute, $offset .5em null null);
         color: #CCCCCC;
         &:hover {
           color: #FFFFFF;
@@ -538,7 +538,7 @@ Styleguide 32.13
 
     // Pager
     %slider__pager {
-        @include position(absolute, 0 0 -30px 0);
+        @include position(absolute, null null -30px null);
         padding-top: 20px;
         .bx-pager-item {
             a {
@@ -676,7 +676,7 @@ Styleguide 32.17
 
 
     %overlay__close {
-        @include position(absolute, 2em 2em 0 0);
+        @include position(absolute, 2em 2em null null);
         color: #CCCCCC;
         &:hover {
           color: #FFFFFF;

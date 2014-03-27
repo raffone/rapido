@@ -85,7 +85,7 @@ Styleguide 26.5
 */
 
 @mixin center() {
-  @include position(absolute, 50% 0 0 50%);
+  @include position(absolute, 50% null null 50%);
   @include transform(translateX(-50%));
           @include transform(translateY(-50%));
 }

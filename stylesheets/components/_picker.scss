@@ -92,7 +92,7 @@ Styleguide 8.7
 
     .picker__nav--prev,
     .picker__nav--next {
-      @include position(absolute, 0em 0 0em 0);
+      @include position(absolute, 0em null 0em null);
       @extend .btn--link;
       @extend .btn;
       color: $text-color;
@@ -140,7 +140,7 @@ Styleguide 8.7
     .picker__day--today {
       position: relative;
       &:before {
-        @include position(absolute, 2px 2px 0 0);
+        @include position(absolute, 2px 2px null null);
         @include triangle(8px, rgba(0,0,0,.3), up-right);
         display: block;
         content: "";

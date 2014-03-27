@@ -315,8 +315,8 @@ Styleguide 8.3
     }
 
     &:after {
-        /*@include position(absolute, em($input-padding-top) em($input-padding-side) 0 0);*/
-        @include position(absolute, 0em 0em 0em 0);
+        /*@include position(absolute, em($input-padding-top) em($input-padding-side) null null);*/
+        @include position(absolute, 0em 0em 0em null);
         display: block;
         line-height: $input-height;
         padding-right: $input-padding-side;
@@ -344,7 +344,7 @@ Styleguide 8.4
 */
 
 .form__icon {
-    @include position(absolute, em($input-padding-top) 0 0 em($input-padding-side));
+    @include position(absolute, em($input-padding-top) null null em($input-padding-side));
 
     + input {
       padding-left: em(30px);

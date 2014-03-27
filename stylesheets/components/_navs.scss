@@ -113,7 +113,7 @@ Styleguide 12
         > ul > li { float: left;}
 
         li ul {
-          @include position(absolute, 100% 0 0 0px);
+          @include position(absolute, 100% null null 0px);
           min-width: 10em;
         }
     }

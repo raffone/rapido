@@ -53,7 +53,7 @@ Styleguide 16
     .bx-controls-direction {
         a {
             @extend %slider__btn !optional;
-            @include position(absolute, 50% 0 0 0);
+            @include position(absolute, 50% null null null);
 
             z-index: 200;
 
@@ -89,7 +89,7 @@ Styleguide 16
 
     .bx-loading {
         @include square(100%);
-        @include position(absolute, 0px 0 0 0px);
+        @include position(absolute, 0px null null 0px);
         @extend %slider__loading-style  !optional;
         z-index: 2000;
     }
@@ -98,7 +98,7 @@ Styleguide 16
 // Captions
 
     .bx-caption {
-        @include position(absolute, 0 0 0px 0px);
+        @include position(absolute, null null 0px 0px);
         width: 100%;
 
         span {

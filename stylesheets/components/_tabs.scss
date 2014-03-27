@@ -77,7 +77,7 @@ Styleguide 21
                         @extend %tab__btn__current !optional;
 
                         &:after {
-                            @include position(absolute, 0 0px -1px 0px);
+                            @include position(absolute, null 0px -1px 0px);
                             height: 2px;
                             display: block;
                             content: "";

@@ -86,7 +86,7 @@ Styleguide 15.2
 
     &::after {
       @include opacity(0);
-      @include position(absolute, 0px $if-left 0 $if-right);
+      @include position(absolute, 0px $if-left null $if-right);
       @include square(0);
       @include transition(opacity $offcanvas-animations-duration, width $offcanvas-animations-duration);
       content: '';
@@ -131,7 +131,7 @@ Styleguide 15.2
 
   .offcanvas__menu {
     @extend %nav--offcanvas !optional;
-    @include position(absolute, 0px $if-right 0 $if-left);
+    @include position(absolute, 0px $if-right null $if-left);
     @include size($offcanvas-width 100%);
     @include transition(all $offcanvas-animations-duration);
     overflow-y: auto;
@@ -140,7 +140,7 @@ Styleguide 15.2
 
     &::after {
       @include opacity(1);
-      @include position(absolute, 0px $if-left 0 $if-right);
+      @include position(absolute, 0px $if-left null $if-right);
       @include square(100%);
       @include transition(opacity $offcanvas-animations-duration);
       content: '';

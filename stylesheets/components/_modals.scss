@@ -57,7 +57,7 @@ Styleguide 11
     // Overlay | 1st level
     .fancybox-overlay {
         @extend %modal__overlay !optional;
-        @include position(absolute, 0px 0 0 0px);
+        @include position(absolute, 0px null null 0px);
         display: none;
         overflow: hidden;
         z-index: ($zindex-modal - 1);
@@ -68,7 +68,7 @@ Styleguide 11
 
         // Wrap | 2nd Level
         .fancybox-wrap {
-            @include position(absolute, 0px 0 0 0px);
+            @include position(absolute, 0px null null 0px);
             z-index: $zindex-modal;
 
             &.fancybox-opened { z-index: ($zindex-modal + 1); }
@@ -115,7 +115,7 @@ Styleguide 11
 // Backtground temp
 
     .fancybox-tmp {
-        @include position(absolute, -9999px 0 0 -9999px);
+        @include position(absolute, -9999px null null -9999px);
         visibility: hidden;
         max-width: 99999px;
         max-height: 99999px;
@@ -172,14 +172,14 @@ Styleguide 11
 
     .fancybox-nav {
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-        @include position(absolute, 0px 0 0 0);
+        @include position(absolute, 0px null null null);
         @include size(40% 100%);
         z-index: ($zindex-modal + 2);
 
         span {
             @extend %modal__btn !optional;
             @extend %modal__nav !optional;
-            @include position(absolute, 50% 0 0 0);
+            @include position(absolute, 50% null null null);
             /*@include opacity(0);*/
             z-index: ($zindex-modal + 2);
         }
@@ -212,7 +212,7 @@ Styleguide 11
     }
 
     .fancybox-title-float-wrap {
-        @include position(absolute, 0 50% 0px 0);
+        @include position(absolute, null 50% 0px null);
         margin-bottom: em(-35px);
         text-align: center;
         z-index: ($zindex-modal + 3);
@@ -236,7 +236,7 @@ Styleguide 11
     }
 
     .fancybox-title-over-wrap {
-        @include position(absolute, 0 0 0px 0px);
+        @include position(absolute, null null 0px 0px);
         @extend %modal__caption !optional;
     }
 
@@ -300,7 +300,7 @@ Styleguide 11.1
                     @extend %modal__btn !optional;
                     position: relative;
                     &:hover { @include opacity(1); }
-                    &:after { @include position(absolute, 0px 0px 0 0px); }
+                    &:after { @include position(absolute, 0px 0px null 0px); }
                 }
             }
         }
