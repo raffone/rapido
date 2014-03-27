@@ -43,15 +43,15 @@
 // Mixins
 // ----------------------------------------------------------------------------
 
-@mixin establish-baseline($font-size: $base-font-size) {
-  * html {
-    font-size: 100% * ($font-size / $browser-default-font-size);
-  }
-  html {
-    font-size: $font-size;
-    @include adjust-leading-to(1, if($relative-font-sizing, $font-size, $base-font-size));
-  }
-}
+/*@mixin establish-baseline($font-size: $base-font-size) {*/
+  /** html {*/
+    /*font-size: 100% * ($font-size / $browser-default-font-size);*/
+  /*}*/
+  /*html {*/
+    /*font-size: $font-size;*/
+    /*@include adjust-leading-to(1, if($relative-font-sizing, $font-size, $base-font-size));*/
+  /*}*/
+/*}*/
 
 @mixin adjust-font-size-to($to-size, $lines: lines-for-font-size($to-size), $from-size: $base-font-size) {
   @if not $relative-font-sizing and $from-size != $base-font-size {
