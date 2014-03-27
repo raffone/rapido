@@ -5,7 +5,8 @@
   defaults = {
     delay: 500,
     closeClass: '.overlay-close',
-    backgroundClass: '.overlay-background'
+    backgroundClass: '.overlay-background',
+    offsetClass: '.offcanvas__content'
   };
   Overlay = (function(){
     Overlay.displayName = 'Overlay';
@@ -18,10 +19,12 @@
       x$ = this.options = $.extend({}, defaults, options);
       x$.id = $(this.el).data("overlay-ref");
       x$.selector = '[data-overlay-content="' + this.options.id + '"]';
+      x$.isOffset = !!$(this.options.offsetClass).length;
+      x$.isOldIE = $("html").hasClass("no-csstransitions");
       this.init();
     }
     prototype.init = function(){
-      if ($("html").hasClass("no-csstransitions")) {
+      if (this.options.isOldIE) {
         this.options.delay = 0;
       }
       this.addOverlay();
@@ -33,8 +36,10 @@
       return $(window).height();
     };
     prototype.addOverlay = function(){
+      var backgroundTarget;
       if ($(this.options.backgroundClass).length === 0) {
-        $('<div />').addClass(this.options.backgroundClass.slice(1)).appendTo('body');
+        backgroundTarget = this.options.isOffset ? this.options.offsetClass : 'body';
+        $('<div />').addClass(this.options.backgroundClass.slice(1)).appendTo(backgroundTarget);
       }
     };
     prototype.addClose = function(){

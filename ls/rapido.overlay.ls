@@ -8,6 +8,7 @@ let $ = jQuery, window, document
     delay: 500
     closeClass: '.overlay-close'
     backgroundClass: '.overlay-background'
+    offsetClass: '.offcanvas__content'
 
   class Overlay
     (@el, options) !->
@@ -16,10 +17,12 @@ let $ = jQuery, window, document
       @options = $.extend {}, defaults, options
         ..id = $(@el).data("overlay-ref")
         ..selector = '[data-overlay-content="' + @options.id + '"]'
+        ..isOffset = !!$(@options.offsetClass).length
+        ..isOldIE = $("html").hasClass("no-csstransitions")
       @init!
 
     init: !->
-      if $("html").hasClass("no-csstransitions") then @options.delay = 0
+      if @options.isOldIE then @options.delay = 0
       @addOverlay!
       @addClose!
       @openOverlay!
@@ -32,10 +35,13 @@ let $ = jQuery, window, document
       # If there isn't a .overlay-background element, add it
       if $(@options.backgroundClass).length is 0
 
+        backgroundTarget =
+          if @options.isOffset then @options.offsetClass else 'body'
+
         # Add overlay element
         $('<div />')
           .addClass @options.backgroundClass.slice(1)
-          .appendTo 'body'
+          .appendTo backgroundTarget
 
     # Add close button to overlay
     addClose: !->
