@@ -582,3 +582,28 @@ Styleguide 26.23
   @include transform(translateZ($n));
 }
 
+@mixin inline-block {
+  display: inline-block;
+  vertical-align: middle;
+  zoom: 1;
+  *display: inline;
+  *vertical-align: auto;
+}
+
+@mixin old-position($position: relative, $coordinates: 0 0 0 0) {
+
+  $top: nth($coordinates, 1);
+  $right: nth($coordinates, 2);
+  $bottom: nth($coordinates, 3);
+  $left: nth($coordinates, 4);
+
+
+  @if $top == 0 and unitless($top) {       $top: null; }
+  @if $right == 0 and unitless($right) {   $right: null; }
+  @if $bottom == 0 and unitless($bottom) { $bottom: null; }
+  @if $left == 0 and unitless($left) {     $left: null; }
+
+  @include position($position, $top $right $bottom $left)
+}
+
+
