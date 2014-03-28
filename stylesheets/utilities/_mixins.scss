@@ -570,6 +570,10 @@ Styleguide 26.23
   border-radius: $n;
 }
 
+@mixin box-shadow($n) {
+  box-shadow: $n;
+}
+
 @mixin translateX($n) {
   @include transform(translateX($n));
 }
