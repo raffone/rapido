@@ -20,7 +20,7 @@ Icon Fonts
     }
 
     .branico {
-      @extend %inline-block;
+      @include inline-block;
       font-family: 'branico';
     }
 }
@@ -40,7 +40,7 @@ Icon Fonts
     }
 
     .entypo {
-      @extend %inline-block;
+      @include inline-block;
       font-family: 'entypo';
     }
 }
@@ -60,7 +60,7 @@ Icon Fonts
     }
 
     .fontawesome {
-      @extend %inline-block;
+      @include inline-block;
       font-family: 'FontAwesome';
     }
 }
@@ -80,7 +80,7 @@ Icon Fonts
     }
 
     .fontelico {
-      @extend %inline-block;
+      @include inline-block;
       font-family: 'fontelico';
     }
 }
@@ -100,7 +100,7 @@ Icon Fonts
     }
 
     .maki {
-      @extend %inline-block;
+      @include inline-block;
       font-family: 'maki';
     }
 }
@@ -120,7 +120,7 @@ Icon Fonts
     }
 
     .openwebicons {
-      @extend %inline-block;
+      @include inline-block;
       font-family: 'OpenWeb Icons';
     }
 }
@@ -140,7 +140,7 @@ Icon Fonts
     }
 
     .typicons {
-      @extend %inline-block;
+      @include inline-block;
       font-family: 'Typicons';
     }
 }
@@ -160,7 +160,7 @@ Icon Fonts
     }
 
     .zocial {
-      @extend %inline-block;
+      @include inline-block;
       font-family: 'zocial';
     }
 }

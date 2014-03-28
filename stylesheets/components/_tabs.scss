@@ -50,19 +50,19 @@ Styleguide 21
         margin-bottom: rhythm();
 
         .etabs {
-            @extend %no-margin;
-            @extend %no-padding;
+            margin: 0;
+            padding: 0;
             @extend %tab__nav !optional;
 
             li {
-                @extend %inline-block;
+                @include inline-block;
 
                 a {
                     line-height: 1em;
-                    @extend %display-block;
+                    display: block;
                     padding: $tabs-tab-padding;
                     outline: none;
-                    @include border-radius($base-border-radius $base-border-radius 0 0);
+                    border-radius: $base-border-radius $base-border-radius 0 0;
                     @extend %tab__btn !optional;
 
                     &:hover {
@@ -73,13 +73,13 @@ Styleguide 21
                 &.active {
                     a {
                         position: relative;
-                        @extend %font-weight-bold;
+                        font-weight: bold;
                         @extend %tab__btn__current !optional;
 
                         &:after {
-                            @include position(absolute, 0 0px -1px 0px);
+                            @include position(absolute, null 0px -1px 0px);
                             height: 2px;
-                            @extend %display-block;
+                            display: block;
                             content: "";
                         }
                     }
@@ -91,7 +91,7 @@ Styleguide 21
 
         .panel-container {
             @extend %tab__container !optional;
-            @include border-radius(0 $base-border-radius $base-border-radius );
+            border-radius: 0 $base-border-radius $base-border-radius ;
             > div {padding: $tabs-content-padding;}
         }
 

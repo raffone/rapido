@@ -25,12 +25,12 @@ Styleguide 8.7
       z-index: $zindex-dropdown;
     }
 
-    .picker__input { @extend %cursor-default; }
+    .picker__input { cursor: default; }
 
     .picker__holder {
       -webkit-overflow-scrolling: touch;
       @extend %form__picker !optional;
-      @include border-radius(0 0 $base-border-radius $base-border-radius);
+      border-radius: 0 0 $base-border-radius $base-border-radius;
       @include opacity(0);
       @include transition(all 0.15s ease-out, max-height 0 0.15s, border-width 0 0.15s);
       border-style: solid;
@@ -57,25 +57,25 @@ Styleguide 8.7
 
     .picker__header {
       position: relative;
-      @extend %text-align-center;
+      text-align: center;
     }
 
     .picker__year,
     .picker__month,
     .picker__select--year
     .picker__select--month {
-      @extend %inline-block;
+      @include inline-block;
       margin: 0 .25em;
     }
 
     .picker__month {
-      @extend %font-weight-bold;
+      font-weight: bold;
       @include adjust-font-size-to($h5-size);
     }
 
     .picker__year {
       color: $gray;
-      @extend %font-style-italic;
+      font-style: italic;
       @include adjust-font-size-to($small-size);
     }
 
@@ -92,7 +92,7 @@ Styleguide 8.7
 
     .picker__nav--prev,
     .picker__nav--next {
-      @include position(absolute, 0em 0 0em 0);
+      @include position(absolute, 0em null 0em null);
       @extend .btn--link;
       @extend .btn;
       color: $text-color;
@@ -109,7 +109,7 @@ Styleguide 8.7
     .picker__nav--disabled:hover,
     .picker__nav--disabled:before,
     .picker__nav--disabled:before:hover {
-      @extend %cursor-default;
+      cursor: default;
       background: none;
     }
 
@@ -119,12 +119,12 @@ Styleguide 8.7
       margin: nth($picker-padding, 1) 0;
       width: 100%;
       table-layout: fixed;
-      @extend %text-align-center;
+      text-align: center;
       border-collapse: collapse;
       border-spacing: 0;
       td {
-        @extend %no-margin;
-        @extend %no-padding;
+        margin: 0;
+        padding: 0;
       }
     }
 
@@ -140,9 +140,9 @@ Styleguide 8.7
     .picker__day--today {
       position: relative;
       &:before {
-        @include position(absolute, 2px 2px 0 0);
+        @include position(absolute, 2px 2px null null);
         @include triangle(8px, rgba(0,0,0,.3), up-right);
-        @extend %display-block;
+        display: block;
         content: "";
       }
     }
@@ -155,7 +155,7 @@ Styleguide 8.7
     .picker__day--infocus:hover,
     .picker__day--outfocus:hover {
       @extend %form__picker--hover;
-      @extend %cursor-pointer;
+      cursor: pointer;
     }
 
     .picker__day--highlighted:hover,
@@ -166,7 +166,7 @@ Styleguide 8.7
     .picker__day--disabled,
     .picker__day--disabled:hover {
       @extend %form__picker--disabled;
-      @extend %cursor-default;
+      cursor: default;
     }
 
     .picker__day--highlighted.picker__day--disabled,
@@ -183,7 +183,7 @@ Styleguide 8.7
       @extend .btn;
       @extend .btn--link;
       color: $text-color;
-      @extend %font-weight-bold;
+      font-weight: bold;
       width: 50%;
 
       &:hover { @extend %form__picker--hover }

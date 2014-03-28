@@ -4,6 +4,11 @@
 
 @import "normalize";
 
+// External Frameworks
+
+@import '../bower_components/bourbon/dist/bourbon';
+@import '../bower_components/neat/app/assets/stylesheets/neat';
+
 // Functions
 
 @import	"functions";
@@ -16,21 +21,14 @@
 @import "settings/components";
 @import "settings/effects";
 
-// External Frameworks
-
-@import "compass";
-@import "susy";
-@import "breakpoint";
-@import "compass-placeholders";
-
 // Utilities
 
+@import	"utilities/vertical-rhythm";
 @import	"utilities/mixins";
 @import	"utilities/helper-classes";
 @import	"utilities/debug";
 @import	"utilities/animations";
 @import	"utilities/icon-fonts";
-@import	"utilities/susy-old-syntax";
 
 // Components
 

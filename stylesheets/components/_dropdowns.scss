@@ -56,7 +56,7 @@ Styleguide 7
     .dropdown,
     .dropdown__toggle {
         position: relative;
-        @extend %inline-block;
+        @include inline-block;
     }
 
     .dropdown__toggle:focus { outline: 0; }
@@ -101,11 +101,11 @@ Styleguide 7.2
         @extend .transition;
         @include border-bottom-radius($base-border-radius);
         @include opacity(0);
-        @include position(absolute, 100% 0 0 0px);
+        @include position(absolute, 100% null null 0px);
         border-style: solid;
         border-width: $input-border;
         display/*\**/: none\9; // Ugly IE8 Hack
-        @extend %float-left;
+        float: left;
         list-style: none;
         margin: -$input-border 0 0 0;
         max-height: 0;
@@ -126,8 +126,8 @@ Styleguide 7.2
         > li > a,
         > li > label {
             clear: both;
-            @extend %display-block;
-            @extend %font-weight-normal;
+            display: block;
+            font-weight: normal;
             white-space: nowrap;
         }
 
@@ -143,13 +143,13 @@ Styleguide 7.2
 
     .dropdown__menu > li > a:hover,
     .dropdown__menu > li > a:focus {
-        @extend %text-decoration-none;
+        text-decoration: none;
     }
 
     .dropdown__menu > .active > a,
     .dropdown__menu > .active > a:hover,
     .dropdown__menu > .active > a:focus {
-        @extend %text-decoration-none;
+        text-decoration: none;
         outline: 0;
     }
 
@@ -161,10 +161,10 @@ Styleguide 7.2
 
     .dropdown__menu > .disabled > a:hover,
     .dropdown__menu > .disabled > a:focus {
-        @extend %text-decoration-none;
+        text-decoration: none;
         background-color: transparent;
         background-image: none;
-        @extend %cursor-default;
+        cursor: default;
     }
 
 // Dropdown open

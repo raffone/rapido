@@ -1,4 +1,5 @@
 module.exports = function(grunt) {
+  require('time-grunt')(grunt);
 
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-kss');
@@ -10,6 +11,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-livescript');
   grunt.loadNpmTasks('grunt-notify');
+  grunt.loadNpmTasks('grunt-contrib-sass');
 
   grunt.initConfig({
 
@@ -27,14 +29,15 @@ module.exports = function(grunt) {
     },
 
     notify: {
-      task_name: {
-        options: {
-          // Task-specific options go here.
-        }
-      },
       livescript: {
         options: {
           title: 'LiveScript',
+          message: 'Compilato con successo',
+        }
+      },
+      sass: {
+        options: {
+          title: 'Sass',
           message: 'Compilato con successo',
         }
       },
@@ -75,12 +78,36 @@ module.exports = function(grunt) {
         banner: "<%= meta.banner %>"
       },
       min: {
-         src: "dist/js/rapido.js",
-         dest: "dist/js/rapido.min.js"
+        src: "dist/js/rapido.js",
+        dest: "dist/js/rapido.min.js"
       }
     },
 
+
+
     // CSS - Compile css
+    sass: {
+      dist: {
+        options: {
+          style: 'expanded',
+          require: ['sass-globbing', 'sass-media_query_combiner']
+        },
+        files: {
+          'dist/css/rapido.css': 'stylesheets/rapido.scss',
+        }
+      },
+      min: {
+        options: {
+          style: 'compressed',
+          require: ['sass-globbing', 'sass-media_query_combiner']
+        },
+        files: {
+          'dist/css/rapido.min.css': 'stylesheets/rapido.scss',
+        }
+      }
+    },
+
+    /*
     compass: {
       dist: {
         options: {
@@ -105,7 +132,7 @@ module.exports = function(grunt) {
         }
       }
     },
-
+    */
 
     // CSS - Create documentation
     kss: {
@@ -143,13 +170,23 @@ module.exports = function(grunt) {
         },
         ]
       },
-      toRapidoIE: {
+      jsToRapidoIE: {
         files: [
           {
           expand: true,
           cwd: 'dist/js',
           src: ['rapido.js'],
           dest: '../../server/sites/rapido-ie/assets/js'
+        },
+        ]
+      },
+      cssToRapidoIE: {
+        files: [
+          {
+          expand: true,
+          cwd: 'dist/css',
+          src: ['rapido.css'],
+          dest: '../../server/sites/rapido-ie/'
         },
         ]
       }
@@ -163,23 +200,24 @@ module.exports = function(grunt) {
       },
       css: {
         files: ['stylesheets/**/*.scss'],
-        tasks: ['compass:dist']
+        tasks: ['sass:dist', 'copy:cssToRapidoIE', 'notify:sass']
       },
       html: {
         files: ['tests/*.html'],
       },
       livescript: {
         files: ['ls/*.ls'],
-        tasks: ['js', 'copy:toRapidoIE']
+        tasks: ['js', 'copy:jsToRapidoIE']
       },
     },
 
   });
 
-  grunt.registerTask('css',  ['compass']);
+  grunt.registerTask('css',  ['sass:dist']);
   grunt.registerTask('js',   ['livescript:src', 'uglify', 'notify:livescript']);
-  grunt.registerTask('docs', ['compass:dist', 'js', 'copy:js', 'kss']);
-  grunt.registerTask('site', ['compass:dist', 'kss', 'copy']);
+  grunt.registerTask('docs', ['sass:dist', 'js', 'copy:js', 'kss']);
+  grunt.registerTask('site', ['sass:dist', 'kss', 'copy']);
+  grunt.registerTask('test', ['sass:dist', 'kss']);
   grunt.registerTask('default', 'watch');
 
 };

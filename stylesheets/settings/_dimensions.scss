@@ -251,11 +251,13 @@ $palm-end:                          $lap-start - 1px;
 $lap-end:                           $desk-start - 1px;
 
 // Failback for =< 2.2.1
-$palm:                              $palm-end max-width                                                     !default;
-$lap:                               $lap-start $lap-end                                                     !default;
-$lap-and-up:                        $lap-start                                                              !default;
-$portable:                          $lap-end max-width                                                      !default;
-$desk:                              $desk-start                                                             !default;
+$palm:                              max-width $palm-end                                                     !default;
+$lap:                               min-width $lap-start max-width $lap-end                                 !default;
+$lap-and-up:                        min-width $lap-start                                                    !default;
+$portable:                          max-width $lap-end                                                      !default;
+$desk:                              min-width $desk-start                                                   !default;
+
+$responsive-font-size:              $lap-and-up $base-font-size, $palm 16px                                 !default;
 
 /*
 
@@ -272,13 +274,14 @@ Styleguide 31.8
 */
 
 
-// Failback for =< 2.2.1
+// Failback for =< 2.2.5
 $total-columns:                     12                                                                      !default;
 $column-width:                      50px                                                                    !default;
 $gutter-width:                      30px                                                                    !default;
 
-$susy: ( columns: $total-columns, gutters: $gutter-width / $column-width )                                  !default;;
-
+$grid-columns:                      $total-columns                                                          !default;
+$column:                            $column-width                                                           !default;
+$gutter:                            $gutter-width                                                           !default;
 
 /*
 

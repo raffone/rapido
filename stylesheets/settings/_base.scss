@@ -41,11 +41,18 @@ Styleguide 28.2
 */
 
 $base-font-size:                        14px                                                                !default;
-$base-line-height:                      $base-font-size * 1.5                                               !default;
+$base-line-height:                      modular-scale($base-font-size,  1, $golden)                         !default;
+
+// For Vertical Rhythm
+
+$relative-font-sizing:                  true                                                                !default;
 $round-to-nearest-half-line:            true                                                                !default;
+$min-line-padding:                      2px                                                                 !default;
+$font-unit:                             if($relative-font-sizing, 1em, $base-font-size)                     !default;
 
-$responsive-font-size:                  lap-and-up $base-font-size, palm 16px                               !default;
+// For Bourbon
 
+$em-base:                               $base-font-size;
 
 /*
 
@@ -81,6 +88,6 @@ Styleguide 27.1
 
 */
 
-@function em($to-size, $from-size: $base-font-size) {
-    @return ($to-size / $from-size) + 0em;
-}
+/*@function em($to-size, $from-size: $base-font-size) {*/
+    /*@return ($to-size / $from-size) + 0em;*/
+/*}*/

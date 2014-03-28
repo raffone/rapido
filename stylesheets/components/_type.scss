@@ -8,6 +8,7 @@ Styleguide 22
 
 // Base
 
+
 *, *:before, *:after {
     @include box-sizing(border-box);
     outline: none;
@@ -29,28 +30,27 @@ html {
 
 body {
     @include adjust-font-size-to($base-font-size);
-    @extend %no-margin;
+    margin: 0;
     font-family: $base-font-family;
     color: $text-color;
 }
 
 img {
     max-width: 100%;
-    @extend %inline-block;
+    @include inline-block;
 }
 
-a, button, textarea, input { outline: none; }
 
 // Links
 
 a {
     color: $link-color;
-    @extend %text-decoration-none;
+    text-decoration: none;
 
     &:hover,
     &:focus {
         color: $link-color-hover;
-        @extend %text-decoration-none;
+        text-decoration: none;
     }
 
 }
@@ -89,8 +89,8 @@ p           { margin: 0 0 rhythm(1);}
 
 small         { @include adjust-font-size-to($small-size); }
 
-strong        { @extend %font-weight-bold; }
-em            { @extend %font-style-italic; }
+strong        { font-weight: bold; }
+em            { font-style: italic; }
 cite          { font-style: normal; }
 
 /*
@@ -115,7 +115,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
 
     small {
-        @extend %font-weight-normal;
+        font-weight: normal;
         line-height: rhythm();
         color: $grayLight;
     }
@@ -124,37 +124,37 @@ h1, h2, h3, h4, h5, h6 {
 h1, .h1 {
     @include adjust-font-size-to($h1-size, $h1-line-height);
     @extend %h1 !optional;
-    margin-bottom: rhythm(1, $font-size: $h1-size);
+    margin-bottom: rhythm(1, $h1-size);
 }
 
 h2, .h2 {
     @include adjust-font-size-to($h2-size, $h2-line-height);
     @extend %h2 !optional;
-    margin-bottom: rhythm(1, $font-size: $h2-size);
+    margin-bottom: rhythm(1, $h2-size);
 }
 
 h3, .h3 {
     @include adjust-font-size-to($h3-size, $h3-line-height);
     @extend %h3 !optional;
-    margin-bottom: rhythm(1, $font-size: $h3-size);
+    margin-bottom: rhythm(1, $h3-size);
 }
 
 h4, .h4 {
     @include adjust-font-size-to($h4-size, $h4-line-height);
     @extend %h4 !optional;
-    margin-bottom: rhythm(1, $font-size: $h4-size);
+    margin-bottom: rhythm(1, $h4-size);
 }
 
 h5, .h5 {
     @include adjust-font-size-to($h5-size, $h5-line-height);
     @extend %h5 !optional;
-    margin-bottom: rhythm(1, $font-size: $h5-size);
+    margin-bottom: rhythm(1, $h5-size);
 }
 
 h6, .h6 {
     @include adjust-font-size-to($h6-size, $h6-line-height);
     @extend %h6 !optional;
-    margin-bottom: rhythm(1, $font-size: $h6-size);
+    margin-bottom: rhythm(1, $h6-size);
 }
 
 h1 small { @include adjust-font-size-to($h3-size); }
@@ -184,15 +184,15 @@ Styleguide 22.3
 
 .list_style_none,
 .list-style-none {
-    @extend %list-style-none;
-    @extend %no-margin;
-    @extend %no-padding;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 // Unordered and Ordered lists
 
 ul, ol {
-    @extend %no-padding;
+    padding: 0;
     margin: 0 0 rhythm(1) 25px;
 }
 
@@ -214,7 +214,7 @@ ol.inline {
     margin-left: 0;
     list-style: none;
     > li {
-        @extend %inline-block;
+        @include inline-block;
     }
 }
 
@@ -236,7 +236,7 @@ Styleguide 22.4
 
 dl      { margin-bottom: rhythm(1); }
 dt, dd  { }
-dt      { @extend %font-weight-bold; }
+dt      { font-weight: bold; }
 dd      { margin-left: 0; }
 
 /*
@@ -256,12 +256,12 @@ Styleguide 22.4.1
 */
 
 .dl-horizontal {
-    @extend %pie-clearfix;
+    @include clearfix;
     dt {
         @include text-overflow();
         clear: left;
-        @extend %float-left;
-        @extend %text-align-right;
+        float: left;
+        text-align: right;
         width: em($horizontal-offset) - 20;
     }
 
@@ -280,7 +280,7 @@ Styleguide 22.5
 
 hr {
     margin: rhythm(1) 0;
-    @extend %no-border;
+    border: 0;
     border-bottom: 1px solid $gray;
 }
 
@@ -293,7 +293,7 @@ abbr[data-original-title] {
 }
 abbr.initialism {
     font-size: 90%;
-    @extend %text-transform-uppercase;
+    text-transform: uppercase;
 }
 
 /*
@@ -312,7 +312,7 @@ Styleguide 22.6
 
 blockquote {
     padding: 0 0 0 rhythm(1);
-    @extend %no-margin;
+    margin: 0;
     margin: 0 0 rhythm(1);
     border-left: 5px solid $grayLighter;
 
@@ -322,7 +322,7 @@ blockquote {
     }
 
     cite {
-        @extend %display-block;
+        display: block;
         color: $grayLight;
         &:before {
             content: '\2014 \00A0';
@@ -330,7 +330,7 @@ blockquote {
     }
 
     &.pull-right {
-        @extend %float-right;
+        float: right;
         padding-right: 15px;
         padding-left: 0;
         border-right: 5px solid $grayLighter;
@@ -338,7 +338,7 @@ blockquote {
 
         p,
         small {
-            @extend %text-align-right;
+            text-align: right;
         }
 
         small {
@@ -360,7 +360,7 @@ blockquote:after {
 // Addresses
 
 address {
-    @extend %display-block;
+    display: block;
     margin-bottom: rhythm(1);
     font-style: normal;
     line-height: rhythm(1);

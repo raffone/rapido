@@ -8,59 +8,6 @@ Styleguide 27
 
 */
 
-/*
-
-Easing
-
-There are lots of easing options available, from the basic ``linear`` or ``ease-in`` to more complex like ``easeInOutCirc``. For an example of all of these in use see [Easings.net](http://easings.net).
-
-* **Base**: linear, ease, ease-in, ease-out, ease-in-out
-* **easeIn**: easeInQuad, easeInCubic, easeInQuart, easeInQuint, easeInSine, easeInExpo, easeInCirc, easeInBack
-* **easeOut**: easeOutQuad, easeOutCubic, easeOutQuart, easeOutQuint, easeOutSine, easeOutExpo, easeOutCirc, easeOutBack
-* **easeInOut**: easeInOutQuad, easeInOutCubic, easeInOutQuart, easeInOutQuint, easeInOutSine, easeInOutExpo, easeInOutCirc, easeInOutBack
-
-Styleguide 23.2
-
-*/
-
-@function toBezier($easing) {
-
-    @if     $easing == linear         { @return linear; }
-    @elseif $easing == ease           { @return ease; }
-    @elseif $easing == ease-in        { @return ease-in; }
-    @elseif $easing == ease-out       { @return ease-out; }
-    @elseif $easing == ease-in-out    { @return ease-in-out; }
-
-    @elseif $easing == easeInQuad     { @return cubic-bezier(0.550, 0.085, 0.680, 0.530); }
-    @elseif $easing == easeInCubic    { @return cubic-bezier(0.550, 0.055, 0.675, 0.190); }
-    @elseif $easing == easeInQuart    { @return cubic-bezier(0.895, 0.030, 0.685, 0.220); }
-    @elseif $easing == easeInQuint    { @return cubic-bezier(0.755, 0.050, 0.855, 0.060); }
-    @elseif $easing == easeInSine     { @return cubic-bezier(0.470, 0.000, 0.745, 0.715); }
-    @elseif $easing == easeInExpo     { @return cubic-bezier(0.950, 0.050, 0.795, 0.035); }
-    @elseif $easing == easeInCirc     { @return cubic-bezier(0.600, 0.040, 0.980, 0.335); }
-    @elseif $easing == easeInBack     { @return cubic-bezier(.600, -0.280, 0.735, 0.045); }
-
-    @elseif $easing == easeOutQuad    { @return cubic-bezier(0.250, 0.460, 0.450, 0.940); }
-    @elseif $easing == easeOutCubic   { @return cubic-bezier(0.215, 0.610, 0.355, 1.000); }
-    @elseif $easing == easeOutQuart   { @return cubic-bezier(0.165, 0.840, 0.440, 1.000); }
-    @elseif $easing == easeOutQuint   { @return cubic-bezier(0.230, 1.000, 0.320, 1.000); }
-    @elseif $easing == easeOutSine    { @return cubic-bezier(0.390, 0.575, 0.565, 1.000); }
-    @elseif $easing == easeOutExpo    { @return cubic-bezier(0.190, 1.000, 0.220, 1.000); }
-    @elseif $easing == easeOutCirc    { @return cubic-bezier(0.075, 0.820, 0.165, 1.000); }
-    @elseif $easing == easeOutBack    { @return cubic-bezier(0.175, 0.885, 0.320, 1.275); }
-
-    @elseif $easing == easeInOutQuad  { @return cubic-bezier(0.455, 0.030, 0.515, 0.955); }
-    @elseif $easing == easeInOutCubic { @return cubic-bezier(0.645, 0.045, 0.355, 1.000); }
-    @elseif $easing == easeInOutQuart { @return cubic-bezier(0.770, 0.000, 0.175, 1.000); }
-    @elseif $easing == easeInOutQuint { @return cubic-bezier(0.860, 0.000, 0.070, 1.000); }
-    @elseif $easing == easeInOutSine  { @return cubic-bezier(0.445, 0.050, 0.550, 0.950); }
-    @elseif $easing == easeInOutExpo  { @return cubic-bezier(1.000, 0.000, 0.000, 1.000); }
-    @elseif $easing == easeInOutCirc  { @return cubic-bezier(0.785, 0.135, 0.150, 0.860); }
-    @elseif $easing == easeInOutBack  { @return cubic-bezier(.680, -0.550, 0.265, 1.550); }
-    @else                             { @return null; }
-
-}
-
 
 /*
 
@@ -84,57 +31,51 @@ Styleguide 27.2
     @return (0 - $n);
 }
 
-/*
 
-rhythm_neg()
 
-Create a negative `rhythm()` value. More info about the rhythm function: [
-Vertical Rhythm](http://compass-style.org/reference/compass/typography/vertical_rhythm/#function-rhythm).
+// Failbacks
+// ----------------------------------------------------------------------------
 
-Example:
+@function columns-width(
+  $columns  : $grid-columns
+) {
+  @if round($columns) != $columns {
+    @warn "Susy works best with integer column-spans.
+    For partial-columns, you may need to finesse the math by hand using functions directly.";
+  }
+  @return ($columns * $column) + (if($columns >= 1, ceil($columns - 1), 0) * $gutter);
+}
 
-    margin-left: rhythm_neg(1);
+@function relative-width(
+  $width,
+  $context : $grid-columns
+) {
+  @return percentage($width / columns-width($context));
+}
 
-Become:
+@function column(
+  $context  : $grid-columns
+) {
+  @return relative-width($column, $context);
+}
 
-    margin-left: -1.42857em;
+@function columns(
+  $columns,
+  $context  : $grid-columns
+) {
+  @return relative-width(columns-width($columns), $context);
+}
 
-Styleguide 27.3
-
-*/
-
-@function rhythm_neg($i: 1) {
-    @return -(rhythm($i));
+@function gutter(
+  $context  : $grid-columns
+) {
+  @return relative-width($gutter, $context);
 }
 
 
-/*
-
-space_neg()
-
-Similar to `rhythm_neg()` but for Susy's `space()` function, more info:
-[Susy Reference](http://susy.oddbird.net/guides/reference/#ref-space).
-
-Styleguide 27.4
-
-*/
-
-@function space_neg($w: 1, $c: 12) {
-    @return -(space($w, $c));
-}
-
-/*
-
-strip_units()
-
-Remove eny type of unit from a number, more info:
-[StackOverflow](http://stackoverflow.com/questions/12328259/how-do-you-strip-the-unit-from-any-number-in-sass).
-
-Styleguide 27.5
-
-*/
-
-
-@function strip_units($number) {
-    @return $number / ($number * 0 + 1);
+@function space(
+  $columns,
+  $context  : $grid-columns
+) {
+  @return columns($columns, $context) + if($columns >= 1, gutter($context), 0);
 }

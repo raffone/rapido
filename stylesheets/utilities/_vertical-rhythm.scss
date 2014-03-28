@@ -1,0 +1,66 @@
+// Functions
+// ----------------------------------------------------------------------------
+@function relative-unit($number) {
+  @return unit($number) == "%" or unit($number) == "em" or unit($number) == "rem"
+}
+
+@function absolute-unit($number) {
+  @return not (relative-unit($number) or unitless($number));
+}
+
+@function rhythm(
+  $lines: 1,
+  $font-size: $base-font-size,
+  $offset: 0
+  ) {
+  @if not $relative-font-sizing and $font-size != $base-font-size {
+    @warn "$relative-font-sizing is false but a relative font size was passed to the rhythm function";
+  }
+  $rhythm: $font-unit * ($lines * $base-line-height - $offset) / $font-size;
+
+  @if unit($rhythm) == px {
+    $rhythm: floor($rhythm);
+  }
+  @return $rhythm;
+}
+
+@function lines-for-font-size($font-size) {
+  $lines: if($round-to-nearest-half-line,
+    ceil(2 * $font-size / $base-line-height) / 2,
+    ceil($font-size / $base-line-height));
+  @if $lines * $base-line-height - $font-size < $min-line-padding * 2 {
+    $lines: $lines + if($round-to-nearest-half-line, 0.5, 1);
+  }
+  @return $lines;
+}
+
+// Warn
+// ----------------------------------------------------------------------------
+@if $relative-font-sizing and not relative-unit($font-unit) {
+  @warn "$relative-font-sizing is true but $font-unit is set to #{$font-unit} which is not a relative unit.";
+}
+
+// Mixins
+// ----------------------------------------------------------------------------
+
+/*@mixin establish-baseline($font-size: $base-font-size) {*/
+  /** html {*/
+    /*font-size: 100% * ($font-size / $browser-default-font-size);*/
+  /*}*/
+  /*html {*/
+    /*font-size: $font-size;*/
+    /*@include adjust-leading-to(1, if($relative-font-sizing, $font-size, $base-font-size));*/
+  /*}*/
+/*}*/
+
+@mixin adjust-font-size-to($to-size, $lines: lines-for-font-size($to-size), $from-size: $base-font-size) {
+  @if not $relative-font-sizing and $from-size != $base-font-size {
+    @warn "$relative-font-sizing is false but a relative font size was passed to adjust-font-size-to";
+  }
+  font-size: $font-unit * $to-size / $from-size;
+  @include adjust-leading-to($lines, if($relative-font-sizing, $to-size, $base-font-size));
+}
+
+@mixin adjust-leading-to($lines, $font-size: $base-font-size) {
+  line-height: rhythm($lines, $font-size);
+}

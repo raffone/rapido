@@ -49,11 +49,11 @@ Styleguide 20
         td {
             padding: $tables-padding;
             line-height: rhythm(1);
-            @extend %text-align-left;
+            text-align: left;
             vertical-align: top;
         }
 
-        th { @extend %font-weight-bold; }
+        th { font-weight: bold; }
 
         thead th { vertical-align: bottom; }
 
@@ -115,11 +115,11 @@ Styleguide 20
 
         thead {
             th {
-                @extend %cursor-pointer;
+                cursor: pointer;
 
                 &.sorting-asc:after,
                 &.sorting-desc:after {
-                    @extend %float-right;
+                    float: right;
                 }
             }
         }

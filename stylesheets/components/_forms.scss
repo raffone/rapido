@@ -34,23 +34,23 @@ Styleguide 8
 @if $forms {
 
 form {
-    @extend %pie-clearfix;
+    @include clearfix;
     margin: 0 0 rhythm();
 }
 
 fieldset {
-    @extend %no-padding;
-    @extend %no-margin;
-    @extend %no-border;
+    padding: 0;
+    margin: 0;
+    border: 0;
 }
 
 legend {
     @include adjust-font-size-to($h5-size);
-    @extend %display-block;
-    @extend %no-padding;
+    display: block;
+    padding: 0;
     width: 100%;
-    @extend %font-weight-bold;
-    @extend %no-border;
+    font-weight: bold;
+    border: 0;
     padding-bottom: rhythm(.5);
     margin-bottom: rhythm(.5);
     border-bottom: 1px solid #e5e5e5;
@@ -65,12 +65,12 @@ button,
 select,
 textarea {
     font-family: $base-font-family;
-    @include border-radius($base-border-radius);
+    border-radius: $base-border-radius;
 }
 
 label {
     line-height: $input-height/2;
-    @extend %display-block;
+    display: block;
 }
 
 .input-text,
@@ -90,7 +90,7 @@ input[type="url"],
 input[type="search"],
 input[type="tel"],
 input[type="color"] {
-    @extend %inline-block;
+    @include inline-block;
     padding: 0 $input-padding-side;
     height: $input-height;
     border-width: $input-border;
@@ -98,12 +98,13 @@ input[type="color"] {
     line-height/*\**/: #{$input-height}\9; // Ugly IE8 Hack
     @extend %input !optional; // Backward compatibility
     @extend %form__input !optional;
+    @include placeholder() { color: $placeholder-color; }
 
     &:focus {outline: 0;}
 }
 
 select {
-    @extend %inline-block;
+    @include inline-block;
 }
 
 input,
@@ -143,12 +144,11 @@ select[size] {
     height: auto;
 }
 
-@include placeholder($placeholder-color);
 
 input[readonly],
 select[readonly],
 textarea[readonly] {
-  @extend %cursor-default;
+  cursor: default;
 }
 
 input[disabled],
@@ -179,9 +179,9 @@ select:focus:invalid {
 .form__group + .form__group { margin-top: em($control-margin-bottom); }
 
 .form__controls {
-  @extend %pie-clearfix;
+  @include clearfix;
   position: relative;
-  @extend %inline-block;
+  @include inline-block;
 }
 
 
@@ -198,7 +198,7 @@ Styleguide 8.1
 */
 
 .form__label {
-    @extend %font-weight-bold;
+    font-weight: bold;
     margin-bottom: em($label-margin-bottom);
     cursor: auto;
     @extend %form__label !optional;
@@ -229,21 +229,21 @@ Styleguide 8.2
 .form__checkbox,
 .form__select {
     padding-left: em($checkbox-padding-left);
-    @extend %font-weight-normal;
-    @extend %cursor-pointer;
-    @extend %display-block;
+    font-weight: normal;
+    cursor: pointer;
+    display: block;
 }
 
 .form__select {padding-left: 0;}
 
 .form__radio input[type="radio"],
 .form__checkbox input[type="checkbox"] {
-    @extend %float-left;
+    float: left;
     margin-left: -20px;
 }
 .form__radio.inline,
 .form__checkbox.inline {
-    @extend %inline-block;
+    @include inline-block;
 }
 .form__radio.inline + .form__radio.inline,
 .form__checkbox.inline + .form__checkbox.inline {
@@ -288,11 +288,11 @@ Styleguide 8.3
     @extend %caret !optional;
     @extend %select !optional; // Backward compatibility
     @extend %form__select !optional;
-    @include border-radius($base-border-radius);
-    @extend %inline-block;
+    border-radius: $base-border-radius;
+    @include inline-block;
     border-style: solid;
     border-width: $input-border;
-    @extend %cursor-pointer;
+    cursor: pointer;
     height: $input-height;
     line-height: 1em;
     margin-bottom: 0;
@@ -301,12 +301,12 @@ Styleguide 8.3
     width: 240px;
 
     select {
-        @extend %appearance-none;
+        @include appearance(none);
         background-color:transparent;
         background-image:none;
         border:none;
-        box-shadow:none;
-        @extend %cursor-pointer;
+        box-shadow: none;
+        cursor: pointer;
         position: relative;
         width:100%;
         z-index: 3;
@@ -315,9 +315,9 @@ Styleguide 8.3
     }
 
     &:after {
-        /*@include position(absolute, em($input-padding-top) em($input-padding-side) 0 0);*/
-        @include position(absolute, 0em 0em 0em 0);
-        @extend %display-block;
+        /*@include position(absolute, em($input-padding-top) em($input-padding-side) null null);*/
+        @include position(absolute, 0em 0em 0em null);
+        display: block;
         line-height: $input-height;
         padding-right: $input-padding-side;
     }
@@ -344,7 +344,7 @@ Styleguide 8.4
 */
 
 .form__icon {
-    @include position(absolute, em($input-padding-top) 0 0 em($input-padding-side));
+    @include position(absolute, em($input-padding-top) null null em($input-padding-side));
 
     + input {
       padding-left: em(30px);
@@ -387,11 +387,11 @@ Styleguide 8.5
     color: lighten($text-color, 15%);
 }
 .form__help--block {
-    @extend %display-block;
+    display: block;
     padding: rhythm(.5) 0 0;
 }
 .form__help--inline {
-    @extend %inline-block;
+    @include inline-block;
     vertical-align: middle;
     padding-left: 5px;
 }
@@ -451,12 +451,12 @@ Styleguide 8.6
   }
 
   a {
-    @extend %display-block;
+    display: block;
   }
 
   > * {
     padding: $input-padding;
-    @extend %display-block;
+    display: block;
   }
 
   > * + * {
@@ -464,7 +464,7 @@ Styleguide 8.6
   }
 
   ul {
-    @extend %no-margin;
+    margin: 0;
     list-style: none;
   }
 }
@@ -498,15 +498,15 @@ Styleguide 8.8
 */
 
 .form__addon {
-    @extend %inline-block;
+    @include inline-block;
     width: auto;
     min-width: em(16px);
     padding: $input-padding;
     line-height: 1em;
-    @extend %font-weight-normal;
-    @extend %float-left;
+    font-weight: normal;
+    float: left;
     height: $input-height;
-    @extend %text-align-center;
+    text-align: center;
     border-width: $input-border;
     border-style: solid;
     @extend %input-addon !optional; // Backward compatibility
@@ -518,12 +518,12 @@ Styleguide 8.8
 
     > [type],
     > [class] {
-        @include border-radius(0);
-        @extend %float-left;
+        border-radius: 0;
+        float: left;
         margin-left: -$input-border;
 
-        &:first-child   { @include border-radius($base-border-radius 0 0 $base-border-radius); }
-        &:last-child   { @include border-radius(0 $base-border-radius $base-border-radius 0); }
+        &:first-child   { border-radius: $base-border-radius 0 0 $base-border-radius; }
+        &:last-child   { border-radius: 0 $base-border-radius $base-border-radius 0; }
     }
 
     > ul.btn-group + * {
@@ -561,11 +561,11 @@ Styleguide 8.9
     margin-bottom: rhythm(1);
     border-top: 1px solid #e5e5e5;
     clear: both;
-    @extend %pie-clearfix;
+    @include clearfix;
 }
 
 .form__group.form__actions {
-    @extend %no-border;
+    border: 0;
     clear: none;
     margin-bottom: 0;
     margin-top: 0;
@@ -666,10 +666,10 @@ Styleguide 8.10
     .form--aligned {
 
         .form__label {
-            @extend %float-left;
+            float: left;
             width: em($horizontal-offset) - em(20px);
             padding-top: em($input-padding-top);
-            @extend %text-align-right;
+            text-align: right;
         }
 
         .form__controls { margin-left: em(20px); }
@@ -690,7 +690,7 @@ Styleguide 8.10
             padding-left: em($horizontal-offset);
         }
 
-        @include breakpoint($palm) {
+        @include media($palm) {
             .form__label {
                 width: 100%;
                 float: none;
@@ -751,7 +751,7 @@ Styleguide 8.10.1
         }
 
         .form__label {
-          @extend %inline-block;
+          @include inline-block;
           padding-right: 1em;
           margin-bottom: 0;
         }
@@ -781,8 +781,9 @@ Styleguide 8.10.1
         }
 
         .form__group {
-            @extend %no-padding;
-            @extend %inline-block;
+            padding: 0;
+            @include inline-block;
+
         }
 
         .form__group + .form__group {
@@ -790,10 +791,10 @@ Styleguide 8.10.1
         }
 
         .form__actions {
-            @extend %no-border;
-            @extend %no-padding;
-            @extend %no-margin;
-            @extend %inline-block;
+            border: 0;
+            padding: 0;
+            margin: 0;
+            @include inline-block;
         }
 
     }

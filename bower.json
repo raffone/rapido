@@ -1,8 +1,8 @@
 {
   "name": "rapido",
   "title": "Rapido",
-  "version": "0.2.4",
-  "description": "An easy and quick Sass + Compass + Susy + OOCSS + BEM prototyping framework.",
+  "version": "1.0.0",
+  "description": "An easy and quick Sass + Bourbon + Neat + OOCSS + BEM prototyping framework.",
   "homepage": "https://github.com/raffone/rapido",
   "authors": "Raffaele Rasini <raffaele.rasini@gmail.com>",
   "main": [
@@ -21,6 +21,8 @@
   ],
   "dependencies": {
     "jquery": "~1.10.2",
-    "modernizr": "~2.7.1"
+    "modernizr": "~2.7.2",
+    "bourbon": "~4.0.0-RC.1",
+    "neat": "v1.6.0.pre2"
   }
 }

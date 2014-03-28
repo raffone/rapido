@@ -29,7 +29,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-buttons.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.easytabs/3.2.0/jquery.easytabs.min.js"></script>
 
-    <script src="http://rawgithub.com/wandoledzep/bxslider-4/master/jquery.bxslider.min.js"></script>
+    <script src="http://cdn.jsdelivr.net/bxslider/4.1.1/jquery.bxslider.js"></script>
     <script src="http://cdn.jsdelivr.net/jquery.pickadate.js/3.1.4/picker.js"></script>
     <script src="http://cdn.jsdelivr.net/jquery.pickadate.js/3.1.4/picker.date.js"></script>
 
@@ -119,15 +119,11 @@
               
               
               
-              <li class="kss-menu-item"><a href="#section-26.1"><span class="kss-ref">26.1</span><span class="kss-name">Create a rectangle</span></a></li>
-              
-              
-              
               <li class="kss-menu-item"><a href="#section-26.2"><span class="kss-ref">26.2</span><span class="kss-name">Create a square</span></a></li>
               
               
               
-              <li class="kss-menu-item"><a href="#section-26.3"><span class="kss-ref">26.3</span><span class="kss-name">Position an element</span></a></li>
+              <li class="kss-menu-item"><a href="#section-26.4"><span class="kss-ref">26.4</span><span class="kss-name">Opacity</span></a></li>
               
               
               
@@ -143,15 +139,7 @@
               
               
               
-              <li class="kss-menu-item"><a href="#section-26.7"><span class="kss-ref">26.7</span><span class="kss-name">Placeholder</span></a></li>
-              
-              
-              
               <li class="kss-menu-item"><a href="#section-26.8"><span class="kss-ref">26.8</span><span class="kss-name">Text overflow</span></a></li>
-              
-              
-              
-              <li class="kss-menu-item"><a href="#section-26.9"><span class="kss-ref">26.9</span><span class="kss-name">Triangle</span></a></li>
               
               
               
@@ -159,15 +147,7 @@
               
               
               
-              <li class="kss-menu-item"><a href="#section-26.11"><span class="kss-ref">26.11</span><span class="kss-name">Text inset shadow</span></a></li>
-              
-              
-              
               <li class="kss-menu-item"><a href="#section-26.12"><span class="kss-ref">26.12</span><span class="kss-name">Alpha Color</span></a></li>
-              
-              
-              
-              <li class="kss-menu-item"><a href="#section-26.13"><span class="kss-ref">26.13</span><span class="kss-name">Keyframes support</span></a></li>
               
               
               
@@ -184,10 +164,6 @@
               
               
               <li class="kss-menu-item"><a href="#section-26.17"><span class="kss-ref">26.17</span><span class="kss-name">Side Shadow</span></a></li>
-              
-              
-              
-              <li class="kss-menu-item"><a href="#section-26.19"><span class="kss-ref">26.19</span><span class="kss-name">Media Queries</span></a></li>
               
               
               
@@ -228,22 +204,6 @@ marked in bold.</p>
             
           </section>
           
-          <section id="section-26.1" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">26.1</span> Create a rectangle</h1>
-            
-            
-            <div class="kss-description">
-              <pre><code>@include size($height, $width);</code></pre>
-<ul>
-<li><code>$height</code>: Height of the rectangle</li>
-<li><code>$width</code>: Width of the rectangle</li>
-</ul>
-
-            </div>
-            
-            
-          </section>
-          
           <section id="section-26.2" class="kss-section kss-depth-2">
             <h1 class="kss-title"><span class="kss-ref">26.2</span> Create a square</h1>
             
@@ -259,26 +219,20 @@ marked in bold.</p>
             
           </section>
           
-          <section id="section-26.3" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">26.3</span> Position an element</h1>
+          <section id="section-26.4" class="kss-section kss-depth-2">
+            <h1 class="kss-title"><span class="kss-ref">26.4</span> Opacity</h1>
             
             
             <div class="kss-description">
-              <pre><code>@include position ($position, $coordinates);</code></pre>
-<ul>
-<li><code>$position</code>: fixed, relative, absolute</li>
-<li><code>$coordinates</code>: 0 = null, 0px or more is a value used in the css.</li>
-</ul>
-<p>Example:
+              <p>Add opacity to element with IE8 failback.
 
 </p>
-<pre><code>@include position (absolute, 0 0px 0px 0);</code></pre>
+<pre><code>@include opacity(.5);</code></pre>
 <p>Become:
 
 </p>
-<pre><code>position: absolute;
-right: 0px;
-bottom: 0px;</code></pre>
+<pre><code>filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+opacity: .5;</code></pre>
 
             </div>
             
@@ -297,7 +251,7 @@ bottom: 0px;</code></pre>
 <p>Become:
 
 </p>
-<pre><code>@extend %display-block;
+<pre><code>display: block;
 margin-left: auto;
 margin-right: auto;</code></pre>
 
@@ -340,21 +294,6 @@ margin-right: auto;</code></pre>
             
           </section>
           
-          <section id="section-26.7" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">26.7</span> Placeholder</h1>
-            
-            
-            <div class="kss-description">
-              <pre><code>@include placeholder($color);</code></pre>
-<ul>
-<li><code>$color</code>: Set color of the placeholder of an input.</li>
-</ul>
-
-            </div>
-            
-            
-          </section>
-          
           <section id="section-26.8" class="kss-section kss-depth-2">
             <h1 class="kss-title"><span class="kss-ref">26.8</span> Text overflow</h1>
             
@@ -376,26 +315,6 @@ white-space: nowrap;</code></pre>
             
           </section>
           
-          <section id="section-26.9" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">26.9</span> Triangle</h1>
-            
-            
-            <div class="kss-description">
-              <p>Create a css-only triangle.
-
-</p>
-<pre><code>@include triangle($size, $color, $direction);</code></pre>
-<ul>
-<li><code>$size</code>: Width of the triangle</li>
-<li><code>$color</code>: Color of the triangle</li>
-<li><code>$direction</code>: There are available up, up-right, right, down-right, down, down-left, left, up-left</li>
-</ul>
-
-            </div>
-            
-            
-          </section>
-          
           <section id="section-26.10" class="kss-section kss-depth-2">
             <h1 class="kss-title"><span class="kss-ref">26.10</span> Triangle with Borders</h1>
             
@@ -411,23 +330,6 @@ white-space: nowrap;</code></pre>
 <li><code>$border-color</code>: Border color of the triangle</li>
 <li><code>$border-width</code>: Border width of the triangle</li>
 <li><code>$direction</code>: left or right</li>
-</ul>
-
-            </div>
-            
-            
-          </section>
-          
-          <section id="section-26.11" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">26.11</span> Text inset shadow</h1>
-            
-            
-            <div class="kss-description">
-              <pre><code>@include text-inset-shadow($bg, $textcolor, $contrast);</code></pre>
-<ul>
-<li><code>$bg</code>: Background color of the text</li>
-<li><code>$textcolor</code>: Color of the text</li>
-<li><code>$contrast</code>: How much stronger the inset will be</li>
 </ul>
 
             </div>
@@ -458,26 +360,6 @@ white-space: nowrap;</code></pre>
 </p>
 <pre><code>color: #000;
 color: rgba(0,0,0,.5);</code></pre>
-
-            </div>
-            
-            
-          </section>
-          
-          <section id="section-26.13" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">26.13</span> Keyframes support</h1>
-            
-            
-            <div class="kss-description">
-              <p>Used for creating custom animations.
-
-</p>
-<pre><code>@include keyframes($name) {
-  ...keyframes...
-}</code></pre>
-<ul>
-<li><code>$name</code>: Name of the keyframe</li>
-</ul>
 
             </div>
             
@@ -543,41 +425,13 @@ color: rgba(0,0,0,.5);</code></pre>
             
             
             <div class="kss-description">
-              <p>Add Side Shadows to multi-line padded text for consistend side padding (Fabien Doiron&apos;s box-shadow Method).
+              <p>Add Side Shadows to multi-line padded text for consistend side padding (Fabien Doiron&apos;s box-shadow:  Method).
 
 </p>
 <pre><code>@include side-shadow($size, $color);</code></pre>
 <ul>
 <li><code>$size</code>: Size of the shadow</li>
 <li><code>$color</code>: Color of the shadow</li>
-</ul>
-
-            </div>
-            
-            
-          </section>
-          
-          <section id="section-26.19" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">26.19</span> Media Queries</h1>
-            
-            
-            <div class="kss-description">
-              <p>Add media queries to css width simple naming convention.
-
-</p>
-<pre><code>@include media(&lt;$media&gt;) {...};</code></pre>
-<p>You can set the start/and with of each step from usins the variables <code>$lap-start</code>, <code>$desk-start</code>, <code>$desk-end</code>.
-
-</p>
-<ul>
-<li><code>$media</code>:<ul>
-<li><code>$palm</code>: Only Palm</li>
-<li><code>$lap</code>:  Only Lap</li>
-<li><code>$lap-and-up</code>: Lap + Desktop</li>
-<li><code>$portable</code>: Lap + Palm</li>
-<li><code>$desk</code>: Only Desktop</li>
-</ul>
-</li>
 </ul>
 
             </div>

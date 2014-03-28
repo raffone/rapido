@@ -64,48 +64,48 @@ $tada               : false   !default;
 // Enable animation from the settings
 
 @each $animation in $animations {
-    @if $animation == 'fadeIn'               {$fadeIn             : true !global;}
-    @if $animation == 'fadeOut'              {$fadeOut            : true !global;}
-    @if $animation == 'fadeInUp'             {$fadeInUp           : true !global;}
-    @if $animation == 'fadeOutUp'            {$fadeOutUp          : true !global;}
-    @if $animation == 'fadeInDown'           {$fadeInDown         : true !global;}
-    @if $animation == 'fadeOutDown'          {$fadeOutDown        : true !global;}
-    @if $animation == 'fadeInRight'          {$fadeInRight        : true !global;}
-    @if $animation == 'fadeOutLeft'          {$fadeOutLeft        : true !global;}
-    @if $animation == 'fadeInLeft'           {$fadeInLeft         : true !global;}
-    @if $animation == 'fadeOutRight'         {$fadeOutRight       : true !global;}
-    @if $animation == 'fadeInUpBig'          {$fadeInUpBig        : true !global;}
-    @if $animation == 'fadeOutUpBig'         {$fadeOutUpBig       : true !global;}
-    @if $animation == 'fadeInDownBig'        {$fadeInDownBig      : true !global;}
-    @if $animation == 'fadeOutDownBig'       {$fadeOutDownBig     : true !global;}
-    @if $animation == 'fadeInRightBig'       {$fadeInRightBig     : true !global;}
-    @if $animation == 'fadeOutLeftBig'       {$fadeOutLeftBig     : true !global;}
-    @if $animation == 'fadeInLeftBig'        {$fadeInLeftBig      : true !global;}
-    @if $animation == 'fadeOutRightBig'      {$fadeOutRightBig    : true !global;}
-    @if $animation == 'bounceIn'             {$bounceIn           : true !global;}
-    @if $animation == 'bounceInDown'         {$bounceInDown       : true !global;}
-    @if $animation == 'bounceInUp'           {$bounceInUp         : true !global;}
-    @if $animation == 'bounceInRight'        {$bounceInRight      : true !global;}
-    @if $animation == 'bounceInLeft'         {$bounceInLeft       : true !global;}
-    @if $animation == 'bounceOut'            {$bounceOut          : true !global;}
-    @if $animation == 'bounceOutUp'          {$bounceOutUp        : true !global;}
-    @if $animation == 'bounceOutDown'        {$bounceOutDown      : true !global;}
-    @if $animation == 'bounceOutLeft'        {$bounceOutLeft      : true !global;}
-    @if $animation == 'bounceOutRight'       {$bounceOutRight     : true !global;}
-    @if $animation == 'flash'                {$flash              : true !global;}
-    @if $animation == 'bounce'               {$bounce             : true !global;}
-    @if $animation == 'shake'                {$shake              : true !global;}
-    @if $animation == 'rotateInDownLeft'     {$rotateInDownLeft   : true !global;}
-    @if $animation == 'rotateInUpLeft'       {$rotateInUpLeft     : true !global;}
-    @if $animation == 'rotateInUpRight'      {$rotateInUpRight    : true !global;}
-    @if $animation == 'rotateInDownRight'    {$rotateInDownRight  : true !global;}
-    @if $animation == 'rotateOutDownLeft'    {$rotateOutDownLeft  : true !global;}
-    @if $animation == 'rotateOutUpLeft'      {$rotateOutUpLeft    : true !global;}
-    @if $animation == 'rotateOutDownRight'   {$rotateOutDownRight : true !global;}
-    @if $animation == 'rotateOutUpRight'     {$rotateOutUpRight   : true !global;}
-    @if $animation == 'rotateIn'             {$rotateIn           : true !global;}
-    @if $animation == 'rotateOut'            {$rotateOut          : true !global;}
-    @if $animation == 'tada'                 {$tada               : true !global;}
+    @if $animation == 'fadeIn'               {$fadeIn             : true !global; }
+    @if $animation == 'fadeOut'              {$fadeOut            : true !global; }
+    @if $animation == 'fadeInUp'             {$fadeInUp           : true !global; }
+    @if $animation == 'fadeOutUp'            {$fadeOutUp          : true !global; }
+    @if $animation == 'fadeInDown'           {$fadeInDown         : true !global; }
+    @if $animation == 'fadeOutDown'          {$fadeOutDown        : true !global; }
+    @if $animation == 'fadeInRight'          {$fadeInRight        : true !global; }
+    @if $animation == 'fadeOutLeft'          {$fadeOutLeft        : true !global; }
+    @if $animation == 'fadeInLeft'           {$fadeInLeft         : true !global; }
+    @if $animation == 'fadeOutRight'         {$fadeOutRight       : true !global; }
+    @if $animation == 'fadeInUpBig'          {$fadeInUpBig        : true !global; }
+    @if $animation == 'fadeOutUpBig'         {$fadeOutUpBig       : true !global; }
+    @if $animation == 'fadeInDownBig'        {$fadeInDownBig      : true !global; }
+    @if $animation == 'fadeOutDownBig'       {$fadeOutDownBig     : true !global; }
+    @if $animation == 'fadeInRightBig'       {$fadeInRightBig     : true !global; }
+    @if $animation == 'fadeOutLeftBig'       {$fadeOutLeftBig     : true !global; }
+    @if $animation == 'fadeInLeftBig'        {$fadeInLeftBig      : true !global; }
+    @if $animation == 'fadeOutRightBig'      {$fadeOutRightBig    : true !global; }
+    @if $animation == 'bounceIn'             {$bounceIn           : true !global; }
+    @if $animation == 'bounceInDown'         {$bounceInDown       : true !global; }
+    @if $animation == 'bounceInUp'           {$bounceInUp         : true !global; }
+    @if $animation == 'bounceInRight'        {$bounceInRight      : true !global; }
+    @if $animation == 'bounceInLeft'         {$bounceInLeft       : true !global; }
+    @if $animation == 'bounceOut'            {$bounceOut          : true !global; }
+    @if $animation == 'bounceOutUp'          {$bounceOutUp        : true !global; }
+    @if $animation == 'bounceOutDown'        {$bounceOutDown      : true !global; }
+    @if $animation == 'bounceOutLeft'        {$bounceOutLeft      : true !global; }
+    @if $animation == 'bounceOutRight'       {$bounceOutRight     : true !global; }
+    @if $animation == 'flash'                {$flash              : true !global; }
+    @if $animation == 'bounce'               {$bounce             : true !global; }
+    @if $animation == 'shake'                {$shake              : true !global; }
+    @if $animation == 'rotateInDownLeft'     {$rotateInDownLeft   : true !global; }
+    @if $animation == 'rotateInUpLeft'       {$rotateInUpLeft     : true !global; }
+    @if $animation == 'rotateInUpRight'      {$rotateInUpRight    : true !global; }
+    @if $animation == 'rotateInDownRight'    {$rotateInDownRight  : true !global; }
+    @if $animation == 'rotateOutDownLeft'    {$rotateOutDownLeft  : true !global; }
+    @if $animation == 'rotateOutUpLeft'      {$rotateOutUpLeft    : true !global; }
+    @if $animation == 'rotateOutDownRight'   {$rotateOutDownRight : true !global; }
+    @if $animation == 'rotateOutUpRight'     {$rotateOutUpRight   : true !global; }
+    @if $animation == 'rotateIn'             {$rotateIn           : true !global; }
+    @if $animation == 'rotateOut'            {$rotateOut          : true !global; }
+    @if $animation == 'tada'                 {$tada               : true !global; }
 }
 
 
@@ -150,9 +150,9 @@ Styleguide 24.4
 @if $animations-classes {
     $delays: 0s, 0.25s, 0.50s, 0.75s, 1.00s, 1.25s, 1.50s, 1.75s, 2.00s, 2.25s, 2.50s, 2.75s, 3.00s;
     @each $delay in $delays {
-        $delays-class: strip_units($delay)*100;
+        $delays-class: strip-units($delay)*100;
         .delay-#{$delays-class} {
-            @include experimental(animation-delay, $delay);
+            @include animation-delay($delay);
         }
     }
 }
@@ -184,11 +184,10 @@ Styleguide 24.5
 
 */
 
-.cssanimations {
-  [data-animation*="fadeIn"] {
-    @include opacity(0);
-  }
+[data-animation*="fadeIn"] {
+  @include opacity(0);
 }
+
 
 /*
 
@@ -614,12 +613,12 @@ Styleguide 24.6
 @if $rotateInDownLeft == true {
     @include keyframes(rotateInDownLeft) {
         0% {
-            @include transform-origin(left, bottom);
+            @include transform-origin(left bottom);
             @include transform(rotate(-90deg));
             @include opacity(0);
         }
         100% {
-            @include transform-origin(left, bottom);
+            @include transform-origin(left bottom);
             @include transform(rotate(0));
             @include opacity(1);
         }
@@ -628,12 +627,12 @@ Styleguide 24.6
 @if $rotateInUpLeft == true {
     @include keyframes(rotateInUpLeft) {
         0% {
-            @include transform-origin(left, bottom);
+            @include transform-origin(left bottom);
             @include transform(rotate(90deg));
             @include opacity(0);
         }
         100% {
-            @include transform-origin(left, bottom);
+            @include transform-origin(left bottom);
             @include transform(rotate(0));
             @include opacity(1);
         }
@@ -642,12 +641,12 @@ Styleguide 24.6
 @if $rotateInUpRight == true {
     @include keyframes(rotateInUpRight) {
         0% {
-            @include transform-origin(right, bottom);
+            @include transform-origin(right bottom);
             @include transform(rotate(-90deg));
             @include opacity(0);
         }
         100% {
-            @include transform-origin(right, bottom);
+            @include transform-origin(right bottom);
             @include transform(rotate(0));
             @include opacity(1);
         }
@@ -656,12 +655,12 @@ Styleguide 24.6
 @if $rotateInDownRight == true {
     @include keyframes(rotateInDownRight) {
         0% {
-            @include transform-origin(right, bottom);
+            @include transform-origin(right bottom);
             @include transform(rotate(90deg));
             @include opacity(0);
         }
         100% {
-            @include transform-origin(right, bottom);
+            @include transform-origin(right bottom);
             @include transform(rotate(0));
             @include opacity(1);
         }
@@ -670,12 +669,12 @@ Styleguide 24.6
 @if $rotateOutDownLeft == true {
     @include keyframes(rotateOutDownLeft) {
         0% {
-            @include transform-origin(left, bottom);
+            @include transform-origin(left bottom);
             @include transform(rotate(0));
             @include opacity(1);
         }
         100% {
-            @include transform-origin(left, bottom);
+            @include transform-origin(left bottom);
             @include transform(rotate(90deg));
             @include opacity(0);
         }
@@ -684,12 +683,12 @@ Styleguide 24.6
 @if $rotateOutUpLeft == true {
     @include keyframes(rotateOutUpLeft) {
         0% {
-            @include transform-origin(left, bottom);
+            @include transform-origin(left bottom);
             @include transform(rotate(0));
             @include opacity(1);
         }
         100% {
-            @include transform-origin(left, bottom);
+            @include transform-origin(left bottom);
             @include transform(rotate(-90deg));
             @include opacity(0);
         }
@@ -698,12 +697,12 @@ Styleguide 24.6
 @if $rotateOutDownRight == true {
     @include keyframes(rotateOutDownRight) {
         0% {
-            @include transform-origin(right, bottom);
+            @include transform-origin(right bottom);
             @include transform(rotate(0));
             @include opacity(1);
         }
         100% {
-            @include transform-origin(right, bottom);
+            @include transform-origin(right bottom);
             @include transform(rotate(-90deg));
             @include opacity(0);
         }
@@ -712,12 +711,12 @@ Styleguide 24.6
 @if $rotateOutUpRight == true {
     @include keyframes(rotateOutUpRight) {
         0% {
-            @include transform-origin(right, bottom);
+            @include transform-origin(right bottom);
             @include transform(rotate(0));
             @include opacity(1);
         }
         100% {
-            @include transform-origin(right, bottom);
+            @include transform-origin(right bottom);
             @include transform(rotate(90deg));
             @include opacity(0);
         }
@@ -726,12 +725,12 @@ Styleguide 24.6
 @if $rotateIn == true {
     @include keyframes(rotateIn) {
         0% {
-            @include transform-origin(center, center);
+            @include transform-origin(center center);
             @include transform(rotate(-200deg));
             @include opacity(0);
         }
         100% {
-            @include transform-origin(center, center);
+            @include transform-origin(center center);
             @include transform(rotate(0));
             @include opacity(1);
         }
@@ -740,12 +739,12 @@ Styleguide 24.6
 @if $rotateOut == true {
     @include keyframes(rotateOut) {
         0% {
-            @include transform-origin(center, center);
+            @include transform-origin(center center);
             @include transform(rotate(0));
             @include opacity(1);
         }
         100% {
-            @include transform-origin(center, center);
+            @include transform-origin(center center);
             @include transform(rotate(200deg));
             @include opacity(0);
         }

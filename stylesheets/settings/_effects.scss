@@ -43,7 +43,7 @@ $animations-function:               ease-out                                    
 $animations-mode:                   both                                                                    !default;
 
 $default-transition-duration:       .15s                                                                    !default;
-$default-transition-function:       toBezier($animations-function)                                          !default;
+$default-transition-function:       $animations-function                                                    !default;
 
 $caption-animations-duration:       .50s                                                                    !default;
 $offcanvas-animations-duration:     .40s                                                                    !default;

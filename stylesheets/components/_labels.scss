@@ -17,17 +17,17 @@ Styleguide 10
     .badge,
     .pill {
         @extend %pill !optional;
-        @extend %inline-block;
+        @include inline-block;
         padding: $pills-padding;
         vertical-align: baseline;
         white-space: nowrap;
     }
 
-    .badge { @include border-radius($base-border-radius); }
-    .pill { @include border-radius(500em); }
+    .badge { border-radius: $base-border-radius; }
+    .pill { border-radius: 500em; }
 
     .badge, .pill {
-        &:empty { @extend %display-none; }
+        &:empty { display: none; }
     }
 
     a {
@@ -36,8 +36,8 @@ Styleguide 10
         &.badge:hover,
         &.badge:focus {
             color: $white;
-            @extend %text-decoration-none;
-            @extend %cursor-pointer;
+            text-decoration: none;
+            cursor: pointer;
         }
     }
 

@@ -42,6 +42,7 @@ Styleguide 15.2
 */
 
 
+
 @if $offcanvas {
 
   $if-left: null;
@@ -79,15 +80,15 @@ Styleguide 15.2
 
   .offcanvas__pusher {
     @include position(relative, 0 $if-right 0 $if-left);
-    @include transition(transform $offcanvas-animations-duration);
+    @include transition(all $offcanvas-animations-duration);
     z-index: $zindex-offcanvas;
 
 
     &::after {
       @include opacity(0);
-      @include position(absolute, 0px $if-left 0 $if-right);
+      @include position(absolute, 0px $if-left null $if-right);
       @include square(0);
-      @include transition(opacity $offcanvas-animations-duration, width $offcanvas-animations-duration/4 $offcanvas-animations-duration);
+      @include transition(opacity $offcanvas-animations-duration, width $offcanvas-animations-duration);
       content: '';
       z-index: ($zindex-offcanvas + 1);
 
@@ -124,14 +125,14 @@ Styleguide 15.2
     .offcanvas__menu::after {
       @include opacity(0);
       @include square(0);
-      @include transition(opacity $offcanvas-animations-duration, width $offcanvas-animations-duration/4 $offcanvas-animations-duration);
+      @include transition(opacity $offcanvas-animations-duration, width $offcanvas-animations-duration);
     }
   }
 
   .offcanvas__menu {
     @extend %nav--offcanvas !optional;
-    @include position(absolute, 0px $if-right 0 $if-left);
-    @include size(100%, $offcanvas-width);
+    @include position(absolute, 0px $if-right null $if-left);
+    @include size($offcanvas-width 100%);
     @include transition(all $offcanvas-animations-duration);
     overflow-y: auto;
     visibility: hidden;
@@ -139,7 +140,7 @@ Styleguide 15.2
 
     &::after {
       @include opacity(1);
-      @include position(absolute, 0px $if-left 0 $if-right);
+      @include position(absolute, 0px $if-left null $if-right);
       @include square(100%);
       @include transition(opacity $offcanvas-animations-duration);
       content: '';
@@ -151,6 +152,7 @@ Styleguide 15.2
 
   }
 
+
   // ----------------------------------------------------------------------------
 
   @if $offcanvas-effect == 'cover' {
@@ -158,18 +160,18 @@ Styleguide 15.2
     .offcanvas__container {
 
       .offcanvas__menu {
-        @include translate3d($if-3d, 0, 0);
+        @include transform(translate3d($if-3d, 0, 0));
         visibility: visible;
 
         &::after {
-          @extend %display-none;
+          display: none;
         }
       }
 
       &.offcanvas__menu--open {
 
         .offcanvas__menu {
-          @include translate3d(0, 0, 0);
+          @include transform(translate3d(0, 0, 0));
           visibility: visible;
         }
       }
@@ -185,11 +187,11 @@ Styleguide 15.2
       &.offcanvas__menu--open {
 
         .offcanvas__pusher {
-          @include translate3d($if-width, 0, 0);
+          @include transform(translate3d($if-width, 0, 0));
         }
 
         .offcanvas__menu {
-          @include transition(transform $offcanvas-animations-duration);
+          @include transition(all $offcanvas-animations-duration);
           visibility: visible;
         }
       }
@@ -198,7 +200,7 @@ Styleguide 15.2
         z-index: 1;
 
         &::after {
-          @extend %display-none;
+          display: none;
         }
       }
     }
@@ -213,21 +215,21 @@ Styleguide 15.2
       &.offcanvas__menu--open {
 
         .offcanvas__pusher {
-          @include translate3d($if-width, 0, 0);
+          @include transform(translate3d($if-width, 0, 0));
         }
 
         .offcanvas__menu {
-          @include transition(transform $offcanvas-animations-duration);
+          @include transition(all $offcanvas-animations-duration);
           visibility: visible;
-          @include translate3d(0, 0, 0);
+          @include transform(translate3d(0, 0, 0));
         }
       }
 
       .offcanvas__menu {
-        @include translate3d($if-3d, 0, 0);
+        @include transform(translate3d($if-3d, 0, 0));
 
         &::after {
-          @extend %display-none;
+          display: none;
         }
       }
     }
@@ -242,22 +244,22 @@ Styleguide 15.2
       &.offcanvas__menu--open {
 
         .offcanvas__pusher {
-          @include translate3d($if-width, 0, 0);
+          @include transform(translate3d($if-width, 0, 0));
         }
 
         .offcanvas__menu {
-          @include transition(transform $offcanvas-animations-duration);
-          @include translate3d(0, 0, 0);
+          @include transition(all $offcanvas-animations-duration);
+          @include transform(translate3d(0, 0, 0));
           visibility: visible;
         }
       }
 
       .offcanvas__menu {
         z-index: 1;
-        @include translate3d($if-3d/2, 0, 0);
+        @include transform(translate3d($if-3d/2, 0, 0));
 
         &::after {
-          @extend %display-none;
+          display: none;
         }
       }
     }

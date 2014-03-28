@@ -62,7 +62,7 @@ Styleguide 32.2
     %form__input {
         border-color: $gray;
         background-color: $grayLighter;
-        @include box-shadow(inset 0 1px 0 #fff);
+        box-shadow: inset 0 1px 0 #fff;
         @include background-image(linear-gradient(bottom, $white 0%, $grayLighter 100%));
 
         &:focus {
@@ -97,7 +97,7 @@ Styleguide 32.2
     %form__picker {
         border-color: $gray;
         background-color: $white;
-        @include box-shadow(0 6px 18px 1px rgba(0, 0, 0, 0.12));
+        box-shadow: 0 6px 18px 1px rgba(0, 0, 0, 0.12);
     }
 
     %form__picker--hover {
@@ -138,7 +138,7 @@ Styleguide 32.3
         color: $text-color;
         border-color: $gray;
         background-color: $grayLight;
-        @include box-shadow(inset 0 1px 0 rgba(255,255,255,.5));
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.5);
         @include background-image(linear-gradient(bottom, $grayLight 0%, $grayLighter 100%));
 
         // Hover/focus state
@@ -163,7 +163,7 @@ Styleguide 32.3
     }
 
     %btn__current {
-        @include box-shadow(0 0 0);
+        box-shadow: 0 0 0;
         background: $gray;
         color: $white;
     }
@@ -215,10 +215,10 @@ Styleguide 32.3
     %btn--scripts {
         @include alpha-color(#000, .6, background);
         color: #fff;
-        @extend %cursor-pointer;
-        @extend %display-block;
-        @extend %text-align-center;
-        @extend %text-decoration-none;
+        cursor: pointer;
+        display: block;
+        text-align: center;
+        text-decoration: none;
 
         &:hover {
             color: #fff;
@@ -254,7 +254,7 @@ Styleguide 32.5
 */
 
     %pill {
-        @include alpha-color(#000, .35);
+        @include alpha-color(#000, .35, background);
         color: $white;
     }
 
@@ -282,7 +282,7 @@ Styleguide 32.6
 
         > li > a:hover,
         > li > a:focus {
-            @extend %text-decoration-none;
+            text-decoration: none;
             background-color: $grayLight;
         }
     }
@@ -472,7 +472,7 @@ Styleguide 32.12
 
     %modal__close {
         $offset: neg(em($modal-btn-size));
-        @include position(absolute, $offset .5em 0 0);
+        @include position(absolute, $offset .5em null null);
         color: #CCCCCC;
         &:hover {
           color: #FFFFFF;
@@ -480,7 +480,7 @@ Styleguide 32.12
     }
 
     %modal__btnbar-size {
-      @include size(em($modal-btn-size), em($modal-btn-size) * 5);
+      @include size((em($modal-btn-size) * 5) em($modal-btn-size));
     }
 
     // Other styles
@@ -489,8 +489,8 @@ Styleguide 32.12
     }
 
     %modal__skin {
-        @include box-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
-        @include border-radius($base-border-radius);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        border-radius: $base-border-radius;
         background: #fff;
 
     }
@@ -538,11 +538,11 @@ Styleguide 32.13
 
     // Pager
     %slider__pager {
-        @include position(absolute, 0 0 -30px 0);
+        @include position(absolute, null null -30px null);
         padding-top: 20px;
         .bx-pager-item {
             a {
-                @include border-radius(5px);
+                border-radius: 5px;
                 @include square(10px);
                 @include hide-text;
                 background: $grayLight;
@@ -676,7 +676,7 @@ Styleguide 32.17
 
 
     %overlay__close {
-        @include position(absolute, 2em 2em 0 0);
+        @include position(absolute, 2em 2em null null);
         color: #CCCCCC;
         &:hover {
           color: #FFFFFF;
