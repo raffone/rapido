@@ -1,942 +1,723 @@
-/*
- *  Rapido - v0.2.3
- *  An easy and quick Sass + Compass + Susy + OOCSS + BEM prototyping framework.
- *  https://github.com/raffone/rapido
- *
- *  Made by Raffaele Rasini <raffaele.rasini@gmail.com>
- *  Under MIT License
- */
-(function($, window, document, undefined) {
-
-  if (!$.Rapido) {
-    $.Rapido = {};
-  }
-
-  $.Rapido.Animation = function(el, options) {
-    var base = this;
-
-    base.$el = $(el);
-    base.el = el;
-
-    base.$el.data('Rapido.Animation', base);
-
-    base.init = function() {
-      base.options = $.extend({},$.Rapido.Animation.defaultOptions, options);
-
-      addClass();
-    };
-
-    function addClass() {
-      var animation, offset, scrollbar, container, isOffsetLayout, added = false;
-
-      // Get the animation to apply
-      animation = base.$el.data('animation');
-
-      // Check if is using the offset layout
-      isOffsetLayout = $.rapido_Utilities.elemExist(base.options.offsetClass);
-
-      // Set corrent container of the content
-      if (isOffsetLayout) {
-        container = base.options.offsetClass;
-      } else {
-        container = window;
-      }
-
-      // Get offset of element to animate
-      offset = base.$el.position();
-      offset = offset.top - base.options.offset;
-
-      $(container).scroll(function(e) {
-
-        // On scroll udate scroll value fro comparison
-        if (isOffsetLayout) {
-          scrollbar = $(base.options.offsetClass).scrollTop();
-        } else {
-          scrollbar = $(document).scrollTop();
-        }
-
-        // Check if current container offset is less or equal the
-        // element's offset and it's not animated already
-        if (offset <= scrollbar && !added) {
-          base.$el.addClass(animation);
-          added = true;
-        }
-
-      });
-    }
-
-    base.init();
-  };
-
-  $.Rapido.Animation.defaultOptions = {
+(function($, window, document){
+  'use strict';
+  var pluginName, defaults, Animation;
+  pluginName = "Animation";
+  defaults = {
     offset: 500,
     offsetClass: '.offcanvas__content'
   };
-
-  $.fn.rapido_Animation = function(options) {
-    return this.each(function() {
-      (new $.Rapido.Animation(this, options));
-    });
-  };
-
-})(jQuery, window, document);
-
-(function($, window, document, undefined) {
-
-  if (!$.Rapido) {
-    $.Rapido = {};
-  }
-
-  $.Rapido.Dropdown = function(el, options) {
-    var base = this;
-
-    base.$el = $(el);
-    base.el = el;
-
-    base.$el.data('Rapido.Dropdown', base);
-
-    base.init = function() {
-      base.options = $.extend({},$.Rapido.Dropdown.defaultOptions, options);
-
-      if (base.options.event == 'hover') {
-        toggleHover();
+  Animation = (function(){
+    Animation.displayName = 'Animation';
+    var prototype = Animation.prototype, constructor = Animation;
+    function Animation(el, options){
+      var x$;
+      this.el = el;
+      this._defaults = defaults;
+      this._name = pluginName;
+      x$ = this.options = $.extend({}, defaults, options);
+      x$.animationName = $(this.el).data('animation');
+      x$.isOffset = !!$(this.options.offsetClass).length;
+      x$.added = false;
+      this.init();
+    }
+    prototype.init = function(){
+      if (this.options.isOffset) {
+        this.options.container = this.options.offsetClass;
       } else {
-        toggleClick();
+        this.options.container = window;
       }
-
-      close();
+      this.scrollEvent();
     };
-
-    // Event: Click
-    var toggleClick = function() {
-
-      base.$el.on(base.options.event, function(e) {
-
-        if ($(this).hasClass('open')) {
-          $(this).removeClass('open');
-        } else {
-          $(base.options.wrapperClass).removeClass('open');
-          $(this).addClass('open');
+    prototype.getOffset = function(){
+      return $(this.el).position().top - this.options.offset;
+    };
+    prototype.scrollEvent = function(){
+      var this$ = this;
+      $(this.options.container).scroll(function(){
+        if (this$.getOffset() < 0 && !this$.options.added) {
+          $(this$.el).addClass(this$.options.animationName);
+          this$.options.added = true;
         }
       });
-
-      base.$el.on(base.options.event, base.options.togglerClass, function(e) {
-        e.preventDefault();
-      });
-
     };
-
-    // Event: Hover
-    var toggleHover = function() {
-
-      base.options.event = 'mouseenter mouseleave';
-
-      base.$el.on(base.options.event, function() {
-        $(this).toggleClass('open');
-      });
-
-    };
-
-    // Close dropdown when mouse click outside of element
-    var close = function() {
-
-      $('html').click(function() {
-        base.$el.removeClass('open');
-      });
-
-      base.$el.click(function(e) {
-        e.stopPropagation();
-      });
-
-    };
-
-    base.init();
+    return Animation;
+  }());
+  $.fn.rapido_Animation = function(options){
+    return this.each(function(){
+      if (!$.data(this, "plugin_" + pluginName)) {
+        return $.data(this, "plugin_" + pluginName, new Animation(this, options));
+      }
+    });
   };
-
-  $.Rapido.Dropdown.defaultOptions = {
+}.call(this, jQuery, window, document));
+(function($, window, document){
+  'use strict';
+  var pluginName, defaults, Dropdown;
+  pluginName = "Dropdown";
+  defaults = {
     event: 'click',
     wrapperClass: '.dropdown',
     togglerClass: '.dropdown__toggle'
   };
-
-  $.fn.rapido_Dropdown = function(options) {
-    return this.each(function() {
-      (new $.Rapido.Dropdown(this, options));
+  Dropdown = (function(){
+    Dropdown.displayName = 'Dropdown';
+    var prototype = Dropdown.prototype, constructor = Dropdown;
+    function Dropdown(el, options){
+      this.el = el;
+      this._defaults = defaults;
+      this._name = pluginName;
+      this.options = $.extend({}, defaults, options);
+      this.init();
+    }
+    prototype.init = function(){
+      if (this.options.event === 'hover') {
+        this.toggleHover();
+      } else {
+        this.toggleClick();
+      }
+      this.closeEvent();
+    };
+    prototype.toggleClick = function(){
+      var options;
+      options = this.options;
+      $(this.el).on(this.options.event, function(e){
+        if ($(this).hasClass('open')) {
+          $(this).removeClass('open');
+        } else {
+          $(options.wrapperClass).removeClass('open');
+          $(this).addClass('open');
+        }
+      });
+      $(this.el).on(this.options.event, this.options.togglerClass, function(it){
+        return it.preventDefault();
+      });
+    };
+    prototype.toggleHover = function(){
+      this.options.event = 'mouseenter mouseleave';
+      $(this.el).on(this.options.event, function(){
+        $(this).toggleClass('open');
+      });
+    };
+    prototype.closeEvent = function(){
+      var this$ = this;
+      $('html').click(function(){
+        $(this$.el).removeClass('open');
+      });
+      $(this.el).click(function(it){
+        return it.stopPropagation();
+      });
+    };
+    return Dropdown;
+  }());
+  $.fn.rapido_Dropdown = function(options){
+    return this.each(function(){
+      if (!$.data(this, "plugin_" + pluginName)) {
+        return $.data(this, "plugin_" + pluginName, new Dropdown(this, options));
+      }
     });
   };
-
-})(jQuery, window, document);
-
-(function($, window, document, undefined) {
-
-  if (!$.Rapido) {
-    $.Rapido = {};
-  }
-
-  $.Rapido.Move = function(el, options) {
-    var base = this;
-
-    base.$el = $(el);
-    base.el = el;
-
-    base.$el.data('Rapido.Move', base);
-
-    base.init = function() {
-      base.options = $.extend({},$.Rapido.Move.defaultOptions, options);
-      base.options.origin = '.' + base.el.parentNode.className;
-
-      // Assign width options to aliases
-      var max = base.options.maxWidth;
-      var min = base.options.minWidth;
-
-      // On ready and resize call function
-      $(window).on('ready resize', function() {
-
-        // Get current window width
-        var w = $(window).width();
-
-        // Call move function
-        move(w, max, min);
-
-      });
-
-    };
-
-    var move = function(w, max, min) {
-
-      // If max-width and min-height are set and match window
-      if (max && min && w <= max && w >= min) {
-        $(base.options.destination).append(base.el);
-
-      // If only max-width is set and match window
-      } else if (max && !min && w <= max) {
-        $(base.options.destination).append(base.el);
-
-      // If only min-width is set and match window
-      } else if (min && !max && w >= min) {
-        $(base.options.destination).append(base.el);
-
-      // If none match window
-      } else {
-        $(base.options.origin).append(base.el);
-
-      }
-
-    };
-
-    base.init();
-  };
-
-  $.Rapido.Move.defaultOptions = {
+}.call(this, jQuery, window, document));
+(function($, window, document){
+  'use strict';
+  var pluginName, defaults, Move;
+  pluginName = "Move";
+  defaults = {
     destination: null,
     maxWidth: null,
     minWidth: null
   };
-
-  $.fn.rapido_Move = function(options) {
-    return this.each(function() {
-      (new $.Rapido.Move(this, options));
+  Move = (function(){
+    Move.displayName = 'Move';
+    var prototype = Move.prototype, constructor = Move;
+    function Move(el, options){
+      var x$;
+      this.el = el;
+      this._defaults = defaults;
+      this._name = pluginName;
+      x$ = this.options = $.extend({}, defaults, options);
+      x$.origin = '.' + this.el.parentNode.className;
+      this.min = this.options.minWidth;
+      this.max = this.options.maxWidth;
+      this.init();
+    }
+    prototype.init = function(){
+      $.rapido.onResize(this, this.moveElement);
+    };
+    prototype.getWidth = function(){
+      return $(window).width();
+    };
+    prototype.moveElement = function(){
+      var w;
+      w = this.getWidth();
+      if (this.max && this.min && w <= this.max && w >= this.min || this.max && !this.min && w <= this.max || this.min && !this.max && w >= this.min) {
+        $(this.options.destination).append(this.el);
+      } else {
+        $(this.options.origin).append(this.el);
+      }
+    };
+    return Move;
+  }());
+  $.fn.rapido_Move = function(options){
+    return this.each(function(){
+      if (!$.data(this, "plugin_" + pluginName)) {
+        return $.data(this, "plugin_" + pluginName, new Move(this, options));
+      }
     });
   };
-
-})(jQuery, window, document);
-
-(function($, window, document, undefined) {
-
-  if (!$.Rapido) {
-    $.Rapido = {};
-  }
-
-  $.Rapido.Offcanvas = function(el, options) {
-    var base = this;
-
-    base.$el = $(el);
-    base.el = el;
-
-    base.$el.data('Rapido.Offcanvas', base);
-
-    base.init = function() {
-      base.options = $.extend({},$.Rapido.Offcanvas.defaultOptions, options);
-
-      toggleClick();
-      close();
-    };
-
-    var toggleClick = function() {
-
-      // Click on toggle button add class to container
-      base.$el.on('click', function() {
-        $(base.options.containerClass).addClass(base.options.toggleClass);
-      });
-
-    };
-
-    var close = function() {
-
-      // Click on dim area close remove class from container
-      $('html').on('click', function(e) {
-        $(base.options.containerClass).removeClass(base.options.toggleClass);
-      });
-
-      // Prevent from closing if clicking inside the sidebar
-      base.$el.on('click', function(e) {
-        e.stopPropagation();
-      });
-
-      // Prevent from closing if clicking the toggle button
-      $(base.options.menuClass).on('click', function(e) {
-        e.stopPropagation();
-      });
-
-    };
-
-    base.init();
-  };
-
-  $.Rapido.Offcanvas.defaultOptions = {
-    toggleClass: 'offcanvas__menu--open',
+}.call(this, jQuery, window, document));
+(function($, window, document){
+  'use strict';
+  var pluginName, defaults, Offcanvas;
+  pluginName = "Offcanvas";
+  defaults = {
+    toggleClass: '.offcanvas__menu--open',
     containerClass: '.offcanvas__container',
     menuClass: '.offcanvas__menu'
   };
-
-  $.fn.rapido_Offcanvas = function(options) {
-    return this.each(function() {
-      (new $.Rapido.Offcanvas(this, options));
+  Offcanvas = (function(){
+    Offcanvas.displayName = 'Offcanvas';
+    var prototype = Offcanvas.prototype, constructor = Offcanvas;
+    function Offcanvas(el, options){
+      this.el = el;
+      this._defaults = defaults;
+      this._name = pluginName;
+      this.options = $.extend({}, defaults, options);
+      this.init();
+    }
+    prototype.init = function(){
+      this.openEvent();
+      this.closeEvent();
+    };
+    prototype.openEvent = function(){
+      var this$ = this;
+      $(this.el).click(function(){
+        return $(this$.options.containerClass).addClass(this$.options.toggleClass.slice(1));
+      });
+    };
+    prototype.closeEvent = function(){
+      var this$ = this;
+      $('html').click(function(){
+        return $(this$.options.containerClass).removeClass(this$.options.toggleClass.slice(1));
+      });
+      $(this.el).click(function(it){
+        return it.stopPropagation();
+      });
+      $(this.options.menuClass).click(function(it){
+        return it.stopPropagation();
+      });
+    };
+    return Offcanvas;
+  }());
+  $.fn.rapido_Offcanvas = function(options){
+    return this.each(function(){
+      if (!$.data(this, "plugin_" + pluginName)) {
+        return $.data(this, "plugin_" + pluginName, new Offcanvas(this, options));
+      }
     });
   };
-
-})(jQuery, window, document);
-
-(function($, window, document, undefined) {
-
-  if (!$.Rapido) {
-    $.Rapido = {};
-  }
-
-  $.Rapido.Overlay = function(el, options) {
-    var base = this;
-
-    base.$el = $(el);
-    base.el = el;
-
-    base.$el.data('Rapido.Overlay', base);
-
-    base.init = function() {
-      base.options = $.extend({},$.Rapido.Overlay.defaultOptions, options);
-
-      // Remove delay if browser doesn't support css animations
-      if ($('html').hasClass('no-csstransitions')) {
-        base.options.delay = 0;
+}.call(this, jQuery, window, document));
+(function($, window, document){
+  'use strict';
+  var pluginName, defaults, Overlay;
+  pluginName = "Overlay";
+  defaults = {
+    delay: 500,
+    closeClass: '.overlay-close',
+    backgroundClass: '.overlay-background',
+    offsetClass: '.offcanvas__content'
+  };
+  Overlay = (function(){
+    Overlay.displayName = 'Overlay';
+    var prototype = Overlay.prototype, constructor = Overlay;
+    function Overlay(el, options){
+      var x$;
+      this.el = el;
+      this._defaults = defaults;
+      this._name = pluginName;
+      x$ = this.options = $.extend({}, defaults, options);
+      x$.id = $(this.el).data("overlay-ref");
+      x$.selector = '[data-overlay-content="' + this.options.id + '"]';
+      x$.isOffset = !!$(this.options.offsetClass).length;
+      x$.isOldIE = $("html").hasClass("no-csstransitions");
+      this.init();
+    }
+    prototype.init = function(){
+      if (this.options.isOldIE) {
+        this.options.delay = 0;
       }
-
-
-      var id = base.$el.data('overlay-ref');
-
-      // Methods
-      addOverlay();
-      addClose(id);
-      openOverlay(id);
-      closeOverlay(id);
-
+      this.addOverlay();
+      this.addClose();
+      this.openOverlay();
+      this.closeOverlay();
     };
-
-    var addOverlay = function() {
-      var present = $(base.options.backgroundClass).length;
-
-      // If there isn't a .overlay-background element, add it
-      if (present === 0) {
-        // Add overlay element
-        $('<div />')
-          .addClass($.rapido_Utilities.dotlessClass(base.options.backgroundClass))
-          .appendTo('body');
+    prototype.getHeight = function(){
+      return $(window).height();
+    };
+    prototype.addOverlay = function(){
+      var backgroundTarget;
+      if ($(this.options.backgroundClass).length === 0) {
+        backgroundTarget = this.options.isOffset ? this.options.offsetClass : 'body';
+        $('<div />').addClass(this.options.backgroundClass.slice(1)).appendTo(backgroundTarget);
       }
     };
-
-    var addClose = function(id) {
-      // Add close button to overlay
-      $('<span>Close</span>')
-        .addClass($.rapido_Utilities.dotlessClass(base.options.closeClass))
-        .prependTo('[data-overlay-content="' + id + '"]');
+    prototype.addClose = function(){
+      $('<span>Close</span>').addClass(this.options.closeClass.slice(1)).prependTo(this.options.selector);
     };
-
-    var openOverlay = function(id) {
-
-      base.$el.on('click', function(e) {
-        var offset, height;
-
-        height = $(window).height();
-
-        // Set ovewrflow:hidden to backgroudn page
+    prototype.openOverlay = function(){
+      var this$ = this;
+      $(this.el).on('click', function(it){
         $('html').css({
-          'overflow': 'hidden',
-          'height': 'auto'
+          overflow: 'hidden',
+          height: 'auto'
         });
-
-        // Add scrollbar offset only if desktop browser
         $('html.no-touch').css({
           'border-right': '15px solid #f2f2f2'
         });
-
-        // Set class to open and add offset
-        $('[data-overlay-content="' + id + '"], ' + base.options.backgroundClass)
-          .removeClass('close')
-          .addClass('open')
-          .css({'top': '0', 'height': height});
-
-        // If window is resized update offset
-        $(window).on('resize', function() {
-          height = $(window).height();
-          $('[data-overlay-content="' + id + '"].open, ' + base.options.backgroundClass + '.open')
-            .css({'top': '0', 'height': height});
+        $(this$.options.selector + ', ' + this$.options.backgroundClass).removeClass('close').addClass('open').css({
+          top: '0',
+          height: this$.getHeight()
         });
-
-        e.preventDefault();
+        $(window).resize(function(){
+          $(this$.options.selector + '.open, ' + this$.options.backgroundClass + '.open').css({
+            height: this$.getHeight()
+          });
+        });
+        return it.preventDefault();
       });
     };
-
-    var closeOverlay = function(id) {
-      $(base.options.closeClass).on('click', function(e) {
-
-        // Remove overflow:hidden
-        $('html, body')
-          .delay(base.options.delay)
-          .queue(function(next) {
-              $(this).removeAttr('style');
-              next();
-            });
-
-        // Set overlay class to close
-        $('[data-overlay-content="' + id + '"], ' + base.options.backgroundClass)
-          .addClass('close')
-          .delay(base.options.delay)
-          .queue(function(next) {
-              $(this)
-              .removeClass('open close')
-              .removeAttr('style');
-              next();
-            });
-
+    prototype.closeOverlay = function(){
+      var this$ = this;
+      $(this.options.closeClass).on('click', function(){
+        $(this$.options.selector + ', ' + this$.options.backgroundClass).addClass('close').delay(this$.options.delay).queue(function(next){
+          $(this).removeClass('open close').removeAttr("style");
+          next();
+        });
+        $('html, body').delay(this$.options.delay).queue(function(next){
+          $(this).removeAttr('style');
+          next();
+        });
       });
     };
-
-    base.init();
-  };
-
-  $.Rapido.Overlay.defaultOptions = {
-    delay: 500,
-    closeClass: '.overlay-close',
-    backgroundClass: '.overlay-background'
-  };
-
-  $.fn.rapido_Overlay = function(options) {
-    return this.each(function() {
-      (new $.Rapido.Overlay(this, options));
+    return Overlay;
+  }());
+  $.fn.rapido_Overlay = function(options){
+    return this.each(function(){
+      if (!$.data(this, "plugin_" + pluginName)) {
+        return $.data(this, "plugin_" + pluginName, new Overlay(this, options));
+      }
     });
   };
-
-})(jQuery, window, document);
-
-
-(function($, window, document, undefined) {
-
-  if (!$.Rapido) {
-    $.Rapido = {};
-  }
-
-  $.Rapido.Scroll = function(el, options) {
-    var base = this;
-
-    base.$el = $(el);
-    base.el = el;
-
-    base.$el.data('Rapido.Scroll', base);
-
-    base.init = function() {
-      base.options = $.extend({},$.Rapido.Scroll.defaultOptions, options);
-
-      scroll();
-    };
-
-    var scroll = function() {
-      var container, offset, target, isOffsetLayout;
-
-      // Get id of target
-      target = base.$el.attr('href');
-
-      // Check if is using the offset layout
-      isOffsetLayout = $.rapido_Utilities.elemExist(base.options.offsetClass);
-
-      // Set corrent container of the content
-      if (isOffsetLayout) {
-        container = '.offcanvas__content';
-      } else {
-        container = 'html, body';
-      }
-
-      // Add offset to taget position
-      offset = $(target).offset().top - base.options.offset;
-
-      // On click go to taget
-      base.$el.on('click', function(e) {
-
-        $(container).animate({
-          scrollTop: offset
-        }, base.options.duration);
-
-        e.preventDefault();
-
-      });
-
-    };
-
-    base.init();
-  };
-
-  $.Rapido.Scroll.defaultOptions = {
+}.call(this, jQuery, window, document));
+(function($, window, document){
+  'use strict';
+  var pluginName, defaults, Scroll;
+  pluginName = "Scroll";
+  defaults = {
     duration: 1600,
     offset: 20,
     offsetClass: '.offcanvas__content'
   };
-
-  $.fn.rapido_Scroll = function(options) {
-    return this.each(function() {
-      (new $.Rapido.Scroll(this, options));
+  Scroll = (function(){
+    Scroll.displayName = 'Scroll';
+    var prototype = Scroll.prototype, constructor = Scroll;
+    function Scroll(el, options){
+      var x$;
+      this.el = el;
+      this._defaults = defaults;
+      this._name = pluginName;
+      x$ = this.options = $.extend({}, defaults, options);
+      x$.target = $(this.el).attr('href');
+      x$.isOffset = !!$(this.options.offsetClass).length;
+      this.init();
+    }
+    prototype.init = function(){
+      if (this.options.isOffset) {
+        this.options.container = this.options.offsetClass;
+      } else {
+        this.options.container = 'html, body';
+      }
+      this.clickEvent();
+    };
+    prototype.getOffset = function(){
+      return $(this.options.target).offset().top - this.options.offset;
+    };
+    prototype.clickEvent = function(){
+      var this$ = this;
+      $(this.el).click(function(it){
+        $(this$.options.container).animate({
+          scrollTop: this$.getOffset()
+        }, this$.options.duration);
+        return it.preventDefault();
+      });
+    };
+    return Scroll;
+  }());
+  $.fn.rapido_Scroll = function(options){
+    return this.each(function(){
+      if (!$.data(this, "plugin_" + pluginName)) {
+        return $.data(this, "plugin_" + pluginName, new Scroll(this, options));
+      }
     });
   };
-
-})(jQuery, window, document);
-
-(function($, window, document, undefined) {
-
-  if (!$.Rapido) {
-    $.Rapido = {};
-  }
-
-  $.Rapido.Select = function(options) {
-    var base = this;
-
-    base.init = function() {
-      base.options = $.extend({},$.Rapido.Select.defaultOptions, options);
-
-      var selectClass = $.rapido_Utilities.dotlessClass(base.options.selectClass);
-
-
-      // Find all select
-      $('select').each(function(i, el) {
-
-        var $this = $(el);
-        var $select = $this.parent();
-        var is_added = $select[0].className === selectClass ? true : false;
-
-        // Check if the select has already the wrapper class
-        if (!is_added) {
-          $(this).wrap('<span class="' + selectClass + '" />');
-          $select = $(this).parent();
-        }
-
-        // Open select (only work with webkit)
-        $select.on('click', function() {
-          var e = document.createEvent('MouseEvents');
-          e.initMouseEvent('mousedown');
-          $this[0].dispatchEvent(e);
-        });
-
-      });
-
-      // Refresh all event binded to window resize
-      $(window).trigger('resize');
-
-    };
-
-    base.init();
-  };
-
-  $.Rapido.Select.defaultOptions = {
+}.call(this, jQuery, window, document));
+(function($, window, document){
+  'use strict';
+  var pluginName, defaults, Select;
+  pluginName = "Select";
+  defaults = {
     selectClass: '.form__select'
   };
-
-  $.rapido_Select = function(options) {
-    new $.Rapido.Select(options);
+  Select = (function(){
+    Select.displayName = 'Select';
+    var prototype = Select.prototype, constructor = Select;
+    function Select(el, options){
+      this.el = el;
+      this._defaults = defaults;
+      this._name = pluginName;
+      this.options = $.extend({}, defaults, options);
+      this.init();
+    }
+    prototype.init = function(){
+      this.wrapSelect();
+    };
+    prototype.wrapSelect = function(){
+      if (!$(this.el).parent().hasClass(this.options.selectClass.slice(1))) {
+        $(this.el).wrap('<span class="' + this.options.selectClass.slice(1) + '" />');
+      }
+    };
+    return Select;
+  }());
+  $.rapido_Select = function(options){
+    return $('select').each(function(){
+      if (!$.data(this, "plugin_" + pluginName)) {
+        return $.data(this, "plugin_" + pluginName, new Select(this, options));
+      }
+    });
   };
-
-})(jQuery, window, document);
-
-
-(function($, window, document, undefined) {
-
-  if (!$.Rapido) {
-    $.Rapido = {};
-  }
-
-  $.Rapido.Suggest = function(options) {
-    var base = this;
-
-    base.init = function() {
-      base.options = $.extend({},$.Rapido.Suggest.defaultOptions, options);
-
-      $(window).on('ready resize', function() {
-        setSize();
-      });
-
-      compileInput();
-
-    };
-
-    var setSize = function() {
-      $(base.options.suggestClass).each(function() {
-
-        var $suggest = $(this);
-        var $input = $(this).parents(base.options.containerClass).children('input[type = "text"]');
-
-        // Get position of the input and position the suggest accordingly
-        $suggest.css({
-          'top': ($input.position().top + $input.height()) + 'px',
-          'left': $input.position().left + 'px',
-          'width': $input.outerWidth() + 'px'
-        });
-
-        // Toggle class on :focus
-        $input.focus(function() {
-          $(base.options.suggestClass).removeClass('open');
-          $suggest.addClass('open');
-        });
-      });
-    };
-
-    var compileInput = function() {
-      $(base.options.suggestClass).on('click', 'a', function(e) {
-
-        var value = $(this).attr(base.options.suggestAttr);
-        var $input = $(this).parents(base.options.containerClass).children('input[type = "text"]');
-        var $parent = $(this).parents(base.options.suggestClass);
-
-        $input.val(value);
-        $parent.removeClass('open');
-
-        e.preventDefault();
-      });
-
-      $('html, body').on('click', function() {
-        $(base.options.suggestClass).removeClass('open');
-      });
-
-      $('input').on('click', function(e) {
-        e.stopPropagation();
-      });
-    };
-
-
-
-    base.init();
-  };
-
-  $.Rapido.Suggest.defaultOptions = {
+}.call(this, jQuery, window, document));
+(function($, window, document){
+  'use strict';
+  var pluginName, defaults, Suggest;
+  pluginName = "Suggest";
+  defaults = {
     containerClass: '.form__controls',
     suggestClass: '.form__suggest',
     suggestAttr: 'title'
   };
-
-  $.rapido_Suggest = function(options) {
-    new $.Rapido.Suggest(options);
-  };
-
-})(jQuery, window, document);
-
-
-(function($, window, document, undefined) {
-
-  if (!$.Rapido) {
-    $.Rapido = {};
-  }
-
-  $.Rapido.Toggle = function(el, options) {
-    var base = this,
-        titleClass,
-        titlesLoop,
-        contentClass,
-        contentsLoop,
-        id,
-        description,
-        baseClass,
-        contentsHeight = {},
-        height;
-
-    base.$el = $(el);
-    base.el = el;
-
-    base.$el.data('Rapido.Toggle', base);
-
-    base.init = function() {
-      base.options = $.extend({},$.Rapido.Toggle.defaultOptions, options);
-
-      titleClass = base.options.titleClass.replace(/(\[|\])/gi, '');
-      contentClass = base.options.contentClass.replace(/(\[|\])/gi, '');
-
-      // Create selector for the loops
-      baseClass = $.rapido_Utilities.getClass(base.el) + ' ';
-      titlesLoop = baseClass + base.options.titleClass;
-      contentsLoop = baseClass + base.options.contentClass;
-
-      // add max-height to container if addMaxHeight is set to true
-      if (base.options.addMaxHeight) {
-        $(window).on('ready resize', function() {
-          height = [];
-
-          $(contentsLoop).each(function(i, el) {
-            height.push($(el).height());
-          });
-
-          base.$el.css(base.options.positionMaxHeight, Math.max.apply(null, height) + 'px');
-        });
-      }
-
-      // Calculate max-height on load and resize
-      if (base.options.addHeight) {
-        $(window).on('ready resize', function() {
-          $(contentsLoop).each(function(i, el) {
-            height = 0;
-
-            $(el).children().each(function(i, el) {
-              height += Math.ceil($(el).outerHeight());
-            });
-
-            contentsHeight[$(el).data('toggle-content')] = height + 'px';
-          });
-        });
-      }
-
-      // Set default open panel
-      if (base.options.defaultOpen !== false) {
-        $(titlesLoop).eq(base.options.defaultOpen).addClass('open');
-        $(contentsLoop).eq(base.options.defaultOpen).addClass('open');
-      }
-
-      // For each titleClass attach click event
-      $(titlesLoop).each(function(i, el) {
-        toggle(el, baseClass);
-      });
-
+  Suggest = (function(){
+    Suggest.displayName = 'Suggest';
+    var prototype = Suggest.prototype, constructor = Suggest;
+    function Suggest(el, options){
+      var x$;
+      this.el = el;
+      this._defaults = defaults;
+      this._name = pluginName;
+      x$ = this.options = $.extend({}, defaults, options);
+      x$.input = $(this.el).parents(this.options.containerClass).children('input[type="text"]');
+      this.init();
+    }
+    prototype.init = function(){
+      $.rapido.onResize(this, this.setSize);
+      this.focusEvent();
+      this.clickEvent();
     };
-
-    var toggle = function(el, baseClass) {
-
-      $(el).click(function() {
-
-        id = $(this).attr(titleClass);
-        description = '[' + contentClass + '="' + id + '"]';
-
-        // If target panel is already open and is closable then close it
-        if ($(description).hasClass('open')) {
-          if (base.options.closable) {
-            $(description).removeClass('open');
-
-            if (base.options.addHeight) {
-              $(description).removeAttr('style');
-            }
-
-            $(this).removeClass('open');
-          }
-
-        // If no panel is open then open it
-        } else if (!$(baseClass + '*').hasClass('open')) {
-          $(description).addClass('open');
-
-          if (base.options.addHeight) {
-            $(description).css({'min-height': contentsHeight[id]});
-          }
-
-          $(this).addClass('open');
-
-        // If there is already an open panel then close it and open the target panel
-        } else {
-          $(baseClass + base.options.titleClass).removeClass('open');
-          $(baseClass + base.options.contentClass).removeClass('open');
-
-          if (base.options.addHeight) {
-            $(baseClass + base.options.contentClass).removeAttr('style');
-          }
-
-          $(description)
-            .delay(base.options.delay)
-            .queue(function(next) {
-                $(this).addClass('open');
-                next();
-              });
-          if (base.options.addHeight) {
-            $(description).removeAttr('style');
-          }
-
-          $(this).addClass('open');
-        }
-
-        return false;
+    prototype.setSize = function(){
+      $(this.el).css({
+        top: this.options.input.position().top + this.options.input.height() + 'px',
+        left: this.options.input.position().left + 'px',
+        width: this.options.input.outerWidth() + 'px'
       });
-
-
     };
-
-    base.init();
+    prototype.focusEvent = function(){
+      var this$ = this;
+      this.options.input.focus(function(){
+        $(this$.options.suggestClass).removeClass('open');
+        $(this$.el).addClass('open');
+      });
+    };
+    prototype.clickEvent = function(){
+      var this$ = this;
+      $(this.el).on('click', 'a', function(it){
+        this$.options.input.val($(it.toElement).attr(this$.options.suggestAttr));
+        $(this$.el).removeClass('open');
+        return it.preventDefault();
+      });
+      $('html, body').click(function(){
+        return $(this$.options.suggestClass).removeClass('open');
+      });
+      $('input').click(function(e){
+        return e.stopPropagation();
+      });
+    };
+    return Suggest;
+  }());
+  $.rapido_Suggest = function(options){
+    return $(defaults.suggestClass).each(function(){
+      if (!$.data(this, "plugin_" + pluginName)) {
+        return $.data(this, "plugin_" + pluginName, new Suggest(this, options));
+      }
+    });
   };
-
-  $.Rapido.Toggle.defaultOptions = {
+}.call(this, jQuery, window, document));
+(function($, window, document){
+  'use strict';
+  var pluginName, defaults, Toggle;
+  pluginName = "Toggle";
+  defaults = {
     titleClass: '[data-toggle-name]',
     contentClass: '[data-toggle-content]',
     delay: 500,
     closable: true,
+    addHeight: false,
     addMaxHeight: false,
     positionMaxHeight: 'padding-top',
-    defaultOpen: 0,
-    addHeight: false
+    defaultOpen: 0
   };
-
-  $.fn.rapido_Toggle = function(options) {
-    return this.each(function() {
-      (new $.Rapido.Toggle(this, options));
+  Toggle = (function(){
+    Toggle.displayName = 'Toggle';
+    var prototype = Toggle.prototype, constructor = Toggle;
+    function Toggle(el, options){
+      var x$;
+      this.el = el;
+      this._defaults = defaults;
+      this._name = pluginName;
+      x$ = this.options = $.extend({}, defaults, options);
+      x$.selector = $.rapido.getClass(this.el) + ' ';
+      x$.titles = this.options.selector + this.options.titleClass;
+      x$.contents = this.options.selector + this.options.contentClass;
+      x$.contentsHeight = {};
+      this.init();
+    }
+    prototype.init = function(){
+      var this$ = this;
+      if (this.options.addMaxHeight) {
+        $.rapido.onResize(this, this.setMaxHeight);
+      }
+      if (this.options.addHeight) {
+        $.rapido.onResize(this, this.setHeight);
+      }
+      if (this.options.defaultOpen !== false) {
+        $.rapido.onResize(this, this.setOpenPanel);
+      }
+      $(this.options.titles).each(function(i, el){
+        return this$.clickEvent(el);
+      });
+    };
+    prototype.setMaxHeight = function(){
+      var height;
+      height = [];
+      $(this.options.contents).each(function(i, el){
+        height.push($(el).height());
+      });
+      $(this.el).css(this.options.positionMaxHeight, Math.max.apply(null, height) + 'px');
+    };
+    prototype.setHeight = function(){
+      var this$ = this;
+      $(this.options.contents).each(function(i, el){
+        var height, id;
+        height = 0;
+        id = $(el).data('toggle-content');
+        $(el).children().each(function(i, el){
+          height += Math.ceil(
+          $(el).outerHeight());
+        });
+        this$.options.contentsHeight[id + ""] = height + 'px';
+      });
+    };
+    prototype.setOpenPanel = function(){
+      $(this.options.titles).eq(this.options.defaultOpen).addClass('open');
+      $(this.options.contents).eq(this.options.defaultOpen).addClass('open');
+    };
+    prototype.clickEvent = function(el){
+      var this$ = this;
+      $(el).click(function(it){
+        var id, name, description;
+        id = $(it.toElement).attr('data-toggle-name');
+        name = "[data-toggle-name=\"" + id + "\"]";
+        description = "[data-toggle-content=\"" + id + "\"]";
+        if ($(description).hasClass('open')) {
+          if (this$.options.closable) {
+            $(description).removeClass('open');
+            $(name).removeClass('open');
+            if (this$.options.addHeight) {
+              $(description).removeAttr('style');
+            }
+          }
+        } else if (!$(this$.options.selector + '*').hasClass('open')) {
+          $(description).addClass('open');
+          $(name).addClass('open');
+          if (this$.options.addHeight) {
+            $(description).css({
+              'min-height': this$.options.contentsHeight[id]
+            });
+          }
+        } else {
+          $(this$.options.titles).removeClass('open');
+          $(this$.options.contents).removeClass('open');
+          if (this$.options.addHeight) {
+            $(this$.options.contents).removeAttr('style');
+          }
+          $(description).delay(this$.options.delay).queue(function(next){
+            $(description).addClass('open');
+            next();
+          });
+          if (this$.options.addHeight) {
+            $(description).css({
+              'min-height': this$.options.contentsHeight[id]
+            });
+          }
+          $(name).addClass('open');
+        }
+        return it.preventDefault();
+      });
+    };
+    return Toggle;
+  }());
+  $.fn.rapido_Toggle = function(options){
+    return this.each(function(){
+      if (!$.data(this, "plugin_" + pluginName)) {
+        return $.data(this, "plugin_" + pluginName, new Toggle(this, options));
+      }
     });
   };
-
-})(jQuery, window, document);
-
-(function($, window, document, undefined) {
-
-  if (!$.Rapido) {
-    $.Rapido = {};
-  }
-
-  $.Rapido.Tooltip = function(el, options) {
-    var base = this;
-
-    base.$el = $(el);
-    base.el = el;
-
-    base.$el.data('Rapido.Tooltip', base);
-
-    var target = {};
-    var tooltip = {};
-    var content = base.$el.data('tooltip-content');
-    var position = base.$el.data('tooltip-position');
-    var is = {
-      top: position.indexOf('top') >= 0,
-      right: position.indexOf('right') >= 0,
-      bottom: position.indexOf('bottom') >= 0,
-      left: position.indexOf('left') >= 0,
-      center: position.indexOf('center') >= 0
-    };
-
-    base.init = function() {
-      base.options = $.extend({},$.Rapido.Tooltip.defaultOptions, options);
-
-      addTooltip();
-    };
-
-    // Get position of target
-    var getTargetData = function() {
-      target.top = base.$el.position().top + base.$el.parent().scrollTop();
-      target.left = base.$el.position().left;
-      target.height = base.$el.outerHeight();
-      target.width = base.$el.outerWidth();
-    };
-
-    // Get size of tooltip
-    var getTooltipData = function() {
-      tooltip.height = base.$el.next().outerHeight();
-      tooltip.width = base.$el.next().outerWidth();
-    };
-
-    // Calculate positioning
-    var setTooltipPositioning = function() {
-      if (is.top) {
-        tooltip.top = target.top - tooltip.height - base.options.margin;
-      }
-      if (is.right) {
-        tooltip.left = target.left + target.width + base.options.margin;
-      }
-      if (is.bottom) {
-        tooltip.top = target.top + target.height + base.options.margin;
-      }
-      if (is.left) {
-        tooltip.left = target.left - tooltip.width - base.options.margin;
-      }
-      if (is.top || is.bottom) {
-        tooltip.left = target.left + (target.width / 2) - (tooltip.width / 2);
-      }
-      if (is.left || is.right) {
-        tooltip.top = target.top + (target.height / 2) - (tooltip.height / 2);
-      }
-
-      // Reset width and height, we don't need them anymore
-      tooltip.height = null;
-      tooltip.width = null;
-    };
-
-    // Add tooltip to html
-    var addTooltip = function() {
-      $('<span class="tooltip" />').html(content).insertAfter(base.el);
-
-      // Get and set correct positioning
-      $(window).on('ready resize', function() {
-        getTargetData();
-        getTooltipData();
-        setTooltipPositioning();
-      });
-
-      // Add css positioning to tooltip
-      $(window).on('ready resize', function() {
-        base.$el.next().css(tooltip);
-      });
-
-      // Toggle on :hover
-      base.$el.on('mouseenter mouseleave', function() {
-        $(this).next().toggleClass('open');
-      });
-
-      // Prevent from closing if tooltip is hovered
-      base.$el.next().on('mouseenter mouseleave', function() {
-        $(this).toggleClass('open');
-      });
-
-    };
-
-    base.init();
-  };
-
-  $.Rapido.Tooltip.defaultOptions = {
+}.call(this, jQuery, window, document));
+(function($, window, document){
+  'use strict';
+  var pluginName, defaults, Tooltip;
+  pluginName = "Tooltip";
+  defaults = {
     margin: 15
   };
-
-  $.fn.rapido_Tooltip = function(options) {
-    return this.each(function() {
-      (new $.Rapido.Tooltip(this, options));
+  Tooltip = (function(){
+    Tooltip.displayName = 'Tooltip';
+    var prototype = Tooltip.prototype, constructor = Tooltip;
+    function Tooltip(el, options){
+      this.el = el;
+      this._defaults = defaults;
+      this._name = pluginName;
+      this.options = $.extend({}, defaults, options);
+      this.init();
+    }
+    prototype.init = function(){
+      this.options.content = $(this.el).data('tooltip-content');
+      this.options.position = $(this.el).data('tooltip-position');
+      this.is = {
+        top: this.options.position.indexOf('top') >= 0,
+        right: this.options.position.indexOf('right') >= 0,
+        bottom: this.options.position.indexOf('bottom') >= 0,
+        left: this.options.position.indexOf('left') >= 0,
+        center: this.options.position.indexOf('center') >= 0
+      };
+      $.rapido.onResize(this, [this.getTargetData, this.getTooltipData, this.setTooltipPositioning]);
+      this.addTooltip();
+      this.hoverEvent();
+    };
+    prototype.getTargetData = function(){
+      return this.target = {
+        top: $(this.el).position().top,
+        left: $(this.el).position().left,
+        height: $(this.el).outerHeight(),
+        width: $(this.el).outerWidth()
+      };
+    };
+    prototype.getTooltipData = function(){
+      return this.tooltip = {
+        height: $(this.el).next().outerHeight(),
+        width: $(this.el).next().outerWidth()
+      };
+    };
+    prototype.setTooltipPositioning = function(){
+      this.style = {};
+      if (this.is.top) {
+        this.style.top = this.target.top - this.tooltip.height - this.options.margin;
+      }
+      if (this.is.left) {
+        this.style.left = this.target.left - this.tooltip.width - this.options.margin;
+      }
+      if (this.is.bottom) {
+        this.style.top = this.target.top + this.target.height + this.options.margin;
+      }
+      if (this.is.right) {
+        this.style.left = this.target.left + this.target.width + this.options.margin;
+      }
+      if (this.is.top || this.is.bottom) {
+        this.style.left = this.target.left + this.target.width / 2 - this.tooltip.width / 2;
+      }
+      if (this.is.left || this.is.right) {
+        this.style.top = this.target.top + this.target.height / 2 - this.tooltip.height / 2;
+      }
+      if (this.style.left < 0) {
+        return this.style.left = 0;
+      }
+    };
+    prototype.addTooltip = function(){
+      $('<span class="tooltip" />').html(this.options.content).insertAfter(this.el);
+      $.rapido.onResize(this, function(){
+        return $(this.el).next().css(this.style);
+      });
+    };
+    prototype.hoverEvent = function(){
+      $(this.el).on('mouseenter mouseleave', function(){
+        return $(this).next().toggleClass('open');
+      });
+      $(this.el).next().on('mouseenter mouseleave', function(){
+        return $(this).toggleClass('open');
+      });
+    };
+    return Tooltip;
+  }());
+  $.fn.rapido_Tooltip = function(options){
+    return this.each(function(){
+      if (!$.data(this, "plugin_" + pluginName)) {
+        return $.data(this, "plugin_" + pluginName, new Tooltip(this, options));
+      }
     });
   };
-
-})(jQuery, window, document);
-
-
-(function($, window, document, undefined) {
-
-  $.rapido_Utilities = {
-
-    // Get class of element object
-    getClass: function(el) {
-      var attr = $(el).attr('class');
-      if (typeof attr !== 'undefined' && attr !== false) {
-        el = $.trim($(el).attr('class'));
-        return '.' + el.split(' ').join('.');
-      }
+}.call(this, jQuery, window, document));
+var toString$ = {}.toString;
+(function($, window, document){
+  'use strict';
+  var self;
+  self = $.rapido = {
+    getClass: function(el){
+      el = $.trim(
+      $(el).attr('class'));
+      return '.' + el.split(' ').join('.');
     },
-
-    // Remove dot from class
-    dotlessClass: function(string) {
+    dotlessClass: function(string){
       return string.slice(1);
     },
-
-    // Check if an element exist
-    elemExist: function(string) {
-      return $(string).length !== 0;
+    elemExist: function(string){
+      return $(string) != null;
+    },
+    debounce: function(func, wait, immediate){
+      var timeout;
+      return function(){
+        var args, this$ = this;
+        args = arguments;
+        clearTimeout(timeout);
+        timeout = setTimeout(function(){
+          timeout = null;
+          if (!immediate) {
+            return func.apply(this$, args);
+          }
+        }, wait);
+        if (immediate && !timeout) {
+          return func.apply(this, args);
+        }
+      };
+    },
+    onResize: function(bind, func, delay){
+      delay == null && (delay = 300);
+      if (toString$.call(func).slice(8, -1) === 'Array') {
+        return func.forEach(function(it){
+          self.debounce(it, delay).bind(bind)();
+          return $(window).resize(self.debounce(it, delay).bind(bind));
+        });
+      } else {
+        self.debounce(func, delay).bind(bind)();
+        return $(window).resize(self.debounce(func, delay).bind(bind));
+      }
     }
-
   };
-
-})(jQuery, window, document);
-
+}.call(this, jQuery, window, document));
