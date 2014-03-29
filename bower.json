@@ -12,12 +12,10 @@
   "license": "MIT",
   "ignore": [
     "**/.*",
+    "Gemfile.lock",
     "docs",
-    "lib",
-    "templates",
     "node_modules",
-    "bower_components",
-    "tests"
+    "bower_components"
   ],
   "dependencies": {
     "jquery": "~1.10.2",
