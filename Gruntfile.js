@@ -19,7 +19,7 @@ module.exports = function(grunt) {
 
     meta: {
       banner: "/*\n" +
-        " *  <%= pkg.title || pkg.name %> - v<%= pkg.version %>\n" +
+        " *  <%= pkg.title || pkg.name %>\n" +
         " *  <%= pkg.description %>\n" +
         " *  <%= pkg.homepage %>\n" +
         " *\n" +
