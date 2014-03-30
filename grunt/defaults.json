@@ -1,0 +1,58 @@
+{
+  "modules": [],
+  "debug": false,
+  "time": false,
+  "sass": {
+    "source": "assets/sass/style.sass",
+    "target": "assets/css/style.css"
+  },
+  "sprites": {
+    "source": [
+      "assets/images/s/*.png",
+      "assets/images/sprites/*.png"
+    ],
+    "target": "assets/images/sprites.png",
+    "stylesheet": "assets/sass/sprites.sass"
+  },
+  "svgsprite": {
+    "source": "assets/images/svg-sprites/",
+    "target": "assets/images/",
+    "stylesheet": "../sass/svg-sprites.scss"
+  },
+  "svg2png": {
+    "source": "assets/images/svg/*.svg",
+    "target": "assets/images/svg/"
+  },
+  "js": {
+    "sources": {
+      "ie": [
+        "bower_components/html5shiv/dist/html5shiv.js",
+        "bower_components/selectivizr/selectivizr.js",
+        "bower_components/respond/dest/respond.src.js"
+      ],
+      "vendor": [
+        "bower_components/jquery/jquery.js",
+        "bower_components/rapido/dist/js/rapido.js"
+      ],
+      "modernizr": [
+        "bower_components/modernizr/modernizr.js"
+      ],
+      "app": [
+        "assets/js/app.js"
+      ]
+    },
+    "target": {
+      "ie": "assets/js/ie.min.js",
+      "vendor": "assets/js/vendor.min.js",
+      "modernizr": "assets/js/modernizr.min.js",
+      "app": "assets/js/app.min.js"
+    }
+  },
+  "ls": {
+    "sources": [
+      "assets/js/app.ls"
+    ],
+    "target": "assets/js/app.min.js"
+  }
+}
+
