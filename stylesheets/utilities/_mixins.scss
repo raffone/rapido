@@ -601,7 +601,6 @@ Styleguide 26.23
   $bottom: nth($coordinates, 3);
   $left: nth($coordinates, 4);
 
-
   @if $top == 0 and unitless($top) {       $top: null; }
   @if $right == 0 and unitless($right) {   $right: null; }
   @if $bottom == 0 and unitless($bottom) { $bottom: null; }
@@ -610,4 +609,6 @@ Styleguide 26.23
   @include position($position, $top $right $bottom $left)
 }
 
-
+@mixin old-size($height, $width) {
+  @include size($width $height);
+}
