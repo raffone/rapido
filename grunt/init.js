@@ -33,7 +33,6 @@ config = {
 config.watch = {
   options: {
     livereload: true,
-    spawn: false,
     interrupt: true,
   },
   template: {
