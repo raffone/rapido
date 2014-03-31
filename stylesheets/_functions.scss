@@ -39,10 +39,6 @@ Styleguide 27.2
 @function columns-width(
   $columns  : $grid-columns
 ) {
-  @if round($columns) != $columns {
-    @warn "Susy works best with integer column-spans.
-    For partial-columns, you may need to finesse the math by hand using functions directly.";
-  }
   @return ($columns * $column) + (if($columns >= 1, ceil($columns - 1), 0) * $gutter);
 }
 
