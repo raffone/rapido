@@ -93,7 +93,6 @@ if (project.modules.indexOf('svgsprite') !== -1) {
       dims: true,
       spritedir: '../images',
       sprite: 'svg-sprites',
-      padding: 6,
       render: {
         css: false,
         scss: {
