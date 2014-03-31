@@ -41,7 +41,7 @@ let $ = jQuery, window, document
     clickEvent: !->
       $(@el).on 'click', 'a', ~>
         # Get value of clicked link and add it to input
-        @options.input.val $(it.toElement).attr @options.suggestAttr
+        @options.input.val $(it.currentTarget).attr @options.suggestAttr
 
         # Close suggest dropdown
         $(@el).removeClass 'open'

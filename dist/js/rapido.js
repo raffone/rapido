@@ -438,7 +438,7 @@
     prototype.clickEvent = function(){
       var this$ = this;
       $(this.el).on('click', 'a', function(it){
-        this$.options.input.val($(it.toElement).attr(this$.options.suggestAttr));
+        this$.options.input.val($(it.currentTarget).attr(this$.options.suggestAttr));
         $(this$.el).removeClass('open');
         return it.preventDefault();
       });
@@ -471,7 +471,8 @@
     addHeight: false,
     addMaxHeight: false,
     positionMaxHeight: 'padding-top',
-    defaultOpen: 0
+    defaultOpen: 0,
+    debug: false
   };
   Toggle = (function(){
     Toggle.displayName = 'Toggle';
@@ -500,6 +501,9 @@
         $.rapido.onResize(this, this.setOpenPanel);
       }
       $(this.options.titles).each(function(i, el){
+        if (this$.options.debug) {
+          console.log(el);
+        }
         return this$.clickEvent(el);
       });
     };
@@ -532,9 +536,15 @@
       var this$ = this;
       $(el).click(function(it){
         var id, name, description;
-        id = $(it.toElement).attr('data-toggle-name');
+        id = $(it.currentTarget).attr('data-toggle-name');
         name = "[data-toggle-name=\"" + id + "\"]";
         description = "[data-toggle-content=\"" + id + "\"]";
+        if (this$.options.debug) {
+          console.log(it);
+          console.log(id);
+          console.log(name);
+          console.log(description);
+        }
         if ($(description).hasClass('open')) {
           if (this$.options.closable) {
             $(description).removeClass('open');

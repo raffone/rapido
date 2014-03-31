@@ -13,6 +13,7 @@ let $ = jQuery, window, document
     addMaxHeight: false
     positionMaxHeight: 'padding-top'
     defaultOpen: 0
+    debug: false
 
   class Toggle
     (@el, options) ->
@@ -31,7 +32,9 @@ let $ = jQuery, window, document
       if @options.defaultOpen != false  then $.rapido.onResize @, @setOpenPanel
 
       # For each titleClass attach click event
-      $(@options.titles).each (i, el) ~> @clickEvent el
+      $(@options.titles).each (i, el) ~>
+        if @options.debug then console.log el
+        @clickEvent el
 
     # add max-height to container if addMaxHeight is set to true
     setMaxHeight: !->
@@ -66,9 +69,15 @@ let $ = jQuery, window, document
       $(el).click ~>
 
         # Extract ID of clicked element and create selectors
-        id = $(it.toElement).attr 'data-toggle-name'
+        id = $(it.currentTarget).attr 'data-toggle-name'
         name = "[data-toggle-name=\"#{id}\"]"
         description = "[data-toggle-content=\"#{id}\"]"
+
+        if @options.debug then
+          console.log it
+          console.log id
+          console.log name
+          console.log description
 
         # If target panel is already open and is closable then close it
         if $(description).hasClass 'open'

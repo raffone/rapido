@@ -41,7 +41,7 @@
     prototype.clickEvent = function(){
       var this$ = this;
       $(this.el).on('click', 'a', function(it){
-        this$.options.input.val($(it.toElement).attr(this$.options.suggestAttr));
+        this$.options.input.val($(it.currentTarget).attr(this$.options.suggestAttr));
         $(this$.el).removeClass('open');
         return it.preventDefault();
       });
