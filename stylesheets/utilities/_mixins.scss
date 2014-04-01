@@ -593,6 +593,22 @@ Styleguide 26.23
   @include transform(rotate($n));
 }
 
+@mixin border-top-right-radius($n) {
+  border-top-right-radius: $n;
+}
+
+@mixin border-top-left-radius($n) {
+  border-top-left-radius: $n;
+}
+
+@mixin border-bottom-left-radius($n) {
+  border-bottom-left-radius: $n;
+}
+
+@mixin border-bottom-right-radius($n) {
+  border-bottom-right-radius: $n;
+}
+
 @mixin inline-block {
   display: inline-block;
   vertical-align: middle;
