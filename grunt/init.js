@@ -67,7 +67,7 @@ if (project.modules.indexOf('sprite') !== -1) {
 
   config.sprite = {
     all: {
-      src: ['<%= project.sprite.sources %>'],
+      src: '<%= project.sprite.source %>',
       destImg: '<%= project.sprite.target %>',
       destCSS: '<%= project.sprite.stylesheet %>',
       padding: 6,
@@ -76,7 +76,7 @@ if (project.modules.indexOf('sprite') !== -1) {
   };
 
   config.watch.sprites = {
-    files: ['<%= project.sprite.source %>'],
+    files: '<%= project.sprite.source %>',
     tasks: ['sprite', 'sass', 'notify:sass']
   };
 }

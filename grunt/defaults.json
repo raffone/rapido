@@ -8,10 +8,7 @@
     "target": "assets/css/style.css"
   },
   "sprite": {
-    "sources": [
-      "assets/images/s/*.png",
-      "assets/images/sprites/*.png"
-    ],
+    "source": "assets/images/s/*.png",
     "target": "assets/images/sprites.png",
     "stylesheet": "assets/sass/sprites.sass"
   },
