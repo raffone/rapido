@@ -7,8 +7,8 @@
     "source": "assets/sass/style.sass",
     "target": "assets/css/style.css"
   },
-  "sprites": {
-    "source": [
+  "sprite": {
+    "sources": [
       "assets/images/s/*.png",
       "assets/images/sprites/*.png"
     ],
