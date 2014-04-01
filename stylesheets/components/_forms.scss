@@ -315,11 +315,9 @@ Styleguide 8.3
     }
 
     &:after {
-        /*@include position(absolute, em($input-padding-top) em($input-padding-side) null null);*/
-        @include position(absolute, 0em 0em 0em null);
+        @include position(absolute, 0 $input-padding-side 0 null);
         display: block;
         line-height: $input-height;
-        padding-right: $input-padding-side;
     }
 
 
