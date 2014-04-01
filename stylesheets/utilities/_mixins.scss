@@ -589,6 +589,10 @@ Styleguide 26.23
   @include transform(scale($n));
 }
 
+@mixin rotate($n) {
+  @include transform(rotate($n));
+}
+
 @mixin inline-block {
   display: inline-block;
   vertical-align: middle;
