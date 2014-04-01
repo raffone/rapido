@@ -569,7 +569,7 @@ Styleguide 26.23
   border-radius: $n;
 }
 
-@mixin box-shadow($n) {
+@mixin box-shadow($n...) {
   box-shadow: $n;
 }
 
