@@ -609,7 +609,7 @@ Styleguide 26.23
   border-bottom-right-radius: $n;
 }
 
-@mixin background-size($n..) {
+@mixin background-size($n...) {
   background-size: $n;
 }
 
