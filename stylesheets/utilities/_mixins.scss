@@ -613,6 +613,11 @@ Styleguide 26.23
   background-size: $n;
 }
 
+@mixin sprite-size($n) {
+  @include sprite-width($n);
+  @include sprite-height($n);
+}
+
 @mixin inline-block {
   display: inline-block;
   vertical-align: middle;
