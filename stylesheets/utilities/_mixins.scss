@@ -589,6 +589,18 @@ Styleguide 26.23
   @include transform(scale($n));
 }
 
+@mixin scaleX($n) {
+  @include transform(scaleX($n));
+}
+
+@mixin scaleY($n) {
+  @include transform(scaleY($n));
+}
+
+@mixin scaleZ($n) {
+  @include transform(scaleZ($n));
+}
+
 @mixin rotate($n) {
   @include transform(rotate($n));
 }
