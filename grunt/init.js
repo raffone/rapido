@@ -43,8 +43,8 @@ if (project.modules.indexOf('sass') !== -1) {
   config.sass = {
     all: {
       options: {
-        sourcemap: 'compressed',
-        style: '<%= project.sass.target %>',
+        style: 'compressed',
+        sourcemap: <%= project.sass.sourcemap %>,
         require: ['sass-globbing', 'sass-media_query_combiner']
       },
       files: {
