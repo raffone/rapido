@@ -19,7 +19,7 @@ Styleguide 1
   .alert {
     padding: $alerts-padding;
     margin-bottom: rhythm();
-    @extend %alert;
+    @extend %alert !optional;
 
     p { margin: 0; }
 
