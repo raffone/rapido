@@ -609,6 +609,10 @@ Styleguide 26.23
   border-bottom-right-radius: $n;
 }
 
+@mixin background-size($n..) {
+  background-size: $n;
+}
+
 @mixin inline-block {
   display: inline-block;
   vertical-align: middle;
