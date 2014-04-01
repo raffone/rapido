@@ -447,7 +447,7 @@ Styleguide 26.21
     $cols-container: $total-columns,
     $omega: false,
     $nth-omega: false,
-    $from: ltr,
+    $from: false,
     $media: null
     ) {
 
@@ -464,12 +464,14 @@ Styleguide 26.21
         @include span-columns($cols of $cols-container);
         @if $omega { @include omega; }
         @if $nth-omega { @include omega($nth-omega); }
+        @if $from { float: $from; }
       }
 
     } @else {
       @include span-columns($cols of $cols-container);
       @if $omega { @include omega; }
       @if $nth-omega { @include omega($nth-omega); }
+      @if $from { float: $from; }
     }
 
 }
