@@ -142,7 +142,7 @@ Styleguide 25.5
 */
 
 .s {
-    @include transition(none);
+    @include transition(all $default-transition-duration $default-transition-function,  background-position 0s);
     content: "";
     @include inline-block;
     font-style:normal;
