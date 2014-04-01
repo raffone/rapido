@@ -1,12 +1,5 @@
-grunt.loadNpmTasks('grunt-contrib-uglify');
-grunt.loadNpmTasks('grunt-contrib-concat');
 grunt.loadNpmTasks('grunt-contrib-watch');
-grunt.loadNpmTasks('grunt-livescript');
 grunt.loadNpmTasks('grunt-notify');
-grunt.loadNpmTasks('grunt-contrib-sass');
-grunt.loadNpmTasks('grunt-spritesmith');
-grunt.loadNpmTasks('grunt-svg2png');
-grunt.loadNpmTasks('grunt-svg-sprite');
 
 // Merge Local Settings w/ Defaults
 // ------------------------------------------------------------------------
@@ -45,10 +38,13 @@ config.watch = {
 // ------------------------------------------------------------------------
 if (project.modules.indexOf('sass') !== -1) {
 
+  grunt.loadNpmTasks('grunt-contrib-sass');
+
   config.sass = {
     all: {
       options: {
-        style: 'compressed',
+        sourcemap: 'compressed',
+        style: '<%= project.sass.target %>',
         require: ['sass-globbing', 'sass-media_query_combiner']
       },
       files: {
@@ -67,18 +63,20 @@ if (project.modules.indexOf('sass') !== -1) {
 // ------------------------------------------------------------------------
 if (project.modules.indexOf('sprite') !== -1) {
 
+  grunt.loadNpmTasks('grunt-spritesmith');
+
   config.sprite = {
     all: {
-      src: ['<%= project.sprites.source %>'],
-      destImg: '<%= project.sprites.target %>',
-      destCSS: '<%= project.sprites.stylesheet %>',
+      src: ['<%= project.sprite.sources %>'],
+      destImg: '<%= project.sprite.target %>',
+      destCSS: '<%= project.sprite.stylesheet %>',
       padding: 6,
       cssTemplate: 'bower_components/rapido/grunt/sprites.sass.mustache',
     }
   };
 
   config.watch.sprites = {
-    files: ['<%= project.sprites.source %>'],
+    files: ['<%= project.sprite.source %>'],
     tasks: ['sprite', 'sass', 'notify:sass']
   };
 }
@@ -86,6 +84,8 @@ if (project.modules.indexOf('sprite') !== -1) {
 // Svg Sprites
 // ------------------------------------------------------------------------
 if (project.modules.indexOf('svgsprite') !== -1) {
+
+  grunt.loadNpmTasks('grunt-svg-sprite');
 
   config.svgsprite = {
     options: {
@@ -115,6 +115,8 @@ if (project.modules.indexOf('svgsprite') !== -1) {
 // ------------------------------------------------------------------------
 if (project.modules.indexOf('svg2png') !== -1) {
 
+  grunt.loadNpmTasks('grunt-svg2png');
+
   config.svg2png = {
     all: {
       files: [{
@@ -132,6 +134,8 @@ if (project.modules.indexOf('svg2png') !== -1) {
 // Concat Js Files
 // ------------------------------------------------------------------------
 if (project.modules.indexOf('concat') !== -1) {
+
+  grunt.loadNpmTasks('grunt-contrib-concat');
 
   config.concat = {
     ie: {
@@ -163,6 +167,8 @@ if (project.modules.indexOf('concat') !== -1) {
 // ------------------------------------------------------------------------
 if (project.modules.indexOf('uglify') !== -1) {
 
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+
   config.uglify = {
     options: {
       mangle: {
@@ -189,6 +195,8 @@ if (project.modules.indexOf('uglify') !== -1) {
 // Concat & Compile Ls Files
 // ------------------------------------------------------------------------
 if (project.modules.indexOf('livescript') !== -1) {
+
+  grunt.loadNpmTasks('grunt-livescript');
 
   config.livescript = {
     options: {
