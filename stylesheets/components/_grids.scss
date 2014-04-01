@@ -68,6 +68,7 @@ Styleguide 9.1
             .#{$name}-hide { display: none !important; }
             .#{$name}-show { display: block !important; }
             .#{$name}-omega { @include omega(); }
+            .#{$name}-reverse { @include omega(); float: right; }
         }
     }
 }
