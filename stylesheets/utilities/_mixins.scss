@@ -585,6 +585,10 @@ Styleguide 26.23
   @include transform(translateZ($n));
 }
 
+@mixin scale($n) {
+  @include transform(scale($n));
+}
+
 @mixin inline-block {
   display: inline-block;
   vertical-align: middle;
