@@ -644,6 +644,10 @@ Styleguide 26.23
   @include sprite-height($n);
 }
 
+@mixin default-transition() {
+  @include transition($default-transition-duration);
+}
+
 @mixin inline-block {
   display: inline-block;
   vertical-align: middle;
