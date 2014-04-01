@@ -98,12 +98,12 @@ Styleguide 8.7
       color: $text-color;
       width: (100% / 7);
 
-      &:hover { @extend %form__picker--hover }
+      &:hover { @extend %form__picker--hover !optional;}
       &:before { @include center(); }
     }
 
-    .picker__nav--prev { left: 0;  @extend %picker__nav--prev }
-    .picker__nav--next { right: 0; @extend %picker__nav--next }
+    .picker__nav--prev { left: 0;  @extend %picker__nav--prev !optional; }
+    .picker__nav--next { right: 0; @extend %picker__nav--next !optional; }
 
     .picker__nav--disabled,
     .picker__nav--disabled:hover,
@@ -154,18 +154,18 @@ Styleguide 8.7
     .picker__day--highlighted,
     .picker__day--infocus:hover,
     .picker__day--outfocus:hover {
-      @extend %form__picker--hover;
+      @extend %form__picker--hover !optional;
       cursor: pointer;
     }
 
     .picker__day--highlighted:hover,
     .picker--focused .picker__day--highlighted {
-      @extend %form__picker--highlighted;
+      @extend %form__picker--highlighted !optional;
     }
 
     .picker__day--disabled,
     .picker__day--disabled:hover {
-      @extend %form__picker--disabled;
+      @extend %form__picker--disabled !optional;
       cursor: default;
     }
 
@@ -186,7 +186,7 @@ Styleguide 8.7
       font-weight: bold;
       width: 50%;
 
-      &:hover { @extend %form__picker--hover }
+      &:hover { @extend %form__picker--hover !optional; }
     }
 
 }
