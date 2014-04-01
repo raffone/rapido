@@ -645,7 +645,7 @@ Styleguide 26.23
 }
 
 @mixin default-transition() {
-  @include transition($default-transition-duration);
+  @include transition(all $default-transition-duration $default-transition-function);
 }
 
 @mixin inline-block {
