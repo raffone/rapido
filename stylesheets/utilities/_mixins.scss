@@ -593,6 +593,18 @@ Styleguide 26.23
   @include transform(rotate($n));
 }
 
+@mixin rotateX($n) {
+  @include transform(rotateX($n));
+}
+
+@mixin rotateY($n) {
+  @include transform(rotateY($n));
+}
+
+@mixin rotateZ($n) {
+  @include transform(rotate($n));
+}
+
 @mixin border-top-right-radius($n) {
   border-top-right-radius: $n;
 }
