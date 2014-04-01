@@ -67,8 +67,11 @@ Styleguide 9.1
         @include media($device) {
             .#{$name}-hide { display: none !important; }
             .#{$name}-show { display: block !important; }
-            .#{$name}-omega { @include omega(); }
-            .#{$name}-reverse { @include omega(); float: right; }
+            .#{$name}-omega { @include omega() !important; }
+            .#{$name}-reverse {
+              @extend .#{$name}-omega;
+              float: right !important;
+            }
         }
     }
 }
