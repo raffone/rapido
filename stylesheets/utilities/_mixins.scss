@@ -644,6 +644,15 @@ Styleguide 26.23
   @include sprite-height($n);
 }
 
+@mixin sprite-size($n) {
+  @include sprite-width($n);
+  @include sprite-height($n);
+}
+
+@mixin s-sprite-dimensions($n) {
+  @warn "This mixin is not available anymore";
+}
+
 @mixin default-transition() {
   @include transition(all $default-transition-duration $default-transition-function);
 }

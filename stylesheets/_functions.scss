@@ -75,3 +75,13 @@ Styleguide 27.2
 ) {
   @return columns($columns, $context) + if($columns >= 1, gutter($context), 0);
 }
+
+
+@function s-sprite-height($n) {
+  @warn "This function is not available anymore";
+}
+
+@function s-sprite-width($n) {
+  @warn "This function is not available anymore";
+}
+
