@@ -448,7 +448,7 @@ Styleguide 26.21
     $omega: false,
     $nth-omega: false,
     $from: false,
-    $media: null
+    $media: false
     ) {
 
     @if ($media) {
