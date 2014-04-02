@@ -1193,9 +1193,9 @@ Styleguide 25.5
 
 */
 .s {
-  -webkit-transition: none;
-  -moz-transition: none;
-  transition: none;
+  -webkit-transition: all 0.15s ease-out, background-position 0s;
+  -moz-transition: all 0.15s ease-out, background-position 0s;
+  transition: all 0.15s ease-out, background-position 0s;
   content: "";
   display: inline-block;
   vertical-align: middle;
@@ -2709,14 +2709,12 @@ Styleguide 8.3
   text-overflow: '';
 }
 .form__select:after {
-  /*@include position(absolute, em($input-padding-top) em($input-padding-side) null null);*/
   position: absolute;
-  top: 0em;
-  right: 0em;
-  bottom: 0em;
+  top: 0;
+  right: 10px;
+  bottom: 0;
   display: block;
   line-height: 2.57143em;
-  padding-right: 10px;
 }
 
 /*
@@ -5664,16 +5662,11 @@ Styleguide 8.7
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  transform: translateX(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
 }
 
 .picker__nav--prev {
@@ -6628,8 +6621,12 @@ Styleguide 32.18
     display: block !important;
   }
 
-  .palm-omega {
-    margin-right: 0;
+  .palm-omega, .palm-reverse {
+    margin-right: 0 !important;
+  }
+
+  .palm-reverse {
+    float: right !important;
   }
 }
 
@@ -6766,8 +6763,12 @@ Styleguide 32.18
     display: block !important;
   }
 
-  .lap-and-up-omega {
-    margin-right: 0;
+  .lap-and-up-omega, .lap-and-up-reverse {
+    margin-right: 0 !important;
+  }
+
+  .lap-and-up-reverse {
+    float: right !important;
   }
 }
 
@@ -6900,8 +6901,12 @@ Styleguide 32.18
     display: block !important;
   }
 
-  .lap-omega {
-    margin-right: 0;
+  .lap-omega, .lap-reverse {
+    margin-right: 0 !important;
+  }
+
+  .lap-reverse {
+    float: right !important;
   }
 }
 
@@ -7034,8 +7039,12 @@ Styleguide 32.18
     display: block !important;
   }
 
-  .portable-omega {
-    margin-right: 0;
+  .portable-omega, .portable-reverse {
+    margin-right: 0 !important;
+  }
+
+  .portable-reverse {
+    float: right !important;
   }
 }
 
@@ -7168,7 +7177,11 @@ Styleguide 32.18
     display: block !important;
   }
 
-  .desk-omega {
-    margin-right: 0;
+  .desk-omega, .desk-reverse {
+    margin-right: 0 !important;
+  }
+
+  .desk-reverse {
+    float: right !important;
   }
 }
