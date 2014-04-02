@@ -18,7 +18,15 @@ html {
     @if $responsive-font-size {
 
         @each $step in $responsive-font-size {
-            @include media(nth($step, 1)) {
+            $media: nth($step, 1);
+
+            @if ($media == 'palm') { $media: $palm; }
+            @if ($media == 'lap') { $media: $lap; }
+            @if ($media == 'desk') { $media: $desk; }
+            @if ($media == 'portable') { $media: $portable; }
+            @if ($media == 'lap-and-up') { $media: $lap-and-up; }
+
+            @include media($media) {
                 font-size: 100% * nth($step, 2) / 16px;
             }
         }
