@@ -213,7 +213,7 @@ module.exports = function(grunt) {
 
   });
 
-  grunt.registerTask('css',  ['sass:dist']);
+  grunt.registerTask('css',  ['sass:dist', 'sass:min']);
   grunt.registerTask('js',   ['livescript:src', 'uglify', 'notify:livescript']);
   grunt.registerTask('docs', ['sass:dist', 'js', 'copy:js', 'kss']);
   grunt.registerTask('site', ['sass:dist', 'kss', 'copy']);
