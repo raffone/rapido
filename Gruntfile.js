@@ -217,7 +217,7 @@ module.exports = function(grunt) {
   grunt.registerTask('js',   ['livescript:src', 'uglify', 'notify:livescript']);
   grunt.registerTask('docs', ['sass:dist', 'js', 'copy:js', 'kss']);
   grunt.registerTask('site', ['sass:dist', 'kss', 'copy']);
-  grunt.registerTask('test', ['sass:dist', 'kss']);
+  grunt.registerTask('test', ['sass:dist', 'copy:cssToRapidoIE', 'notify:sass']);
   grunt.registerTask('default', 'watch');
 
 };
