@@ -104,6 +104,15 @@ module.exports = function(grunt) {
         files: {
           'dist/css/rapido.min.css': 'stylesheets/rapido.scss',
         }
+      },
+      kss: {
+        options: {
+          style: 'compressed',
+          require: ['sass-globbing', 'sass-media_query_combiner']
+        },
+        files: {
+          '../../forks/kss-node-template/template/public/theme.css': '../../forks/kss-node-template/template/public/theme.sass',
+        }
       }
     },
 
@@ -137,9 +146,9 @@ module.exports = function(grunt) {
     // CSS - Create documentation
     kss: {
       options: {
-        includeType: 'css',
+        //includeType: 'css',
         template: '../../forks/kss-node-template/template/',
-        includePath: 'dist/css/rapido.css',
+        //includePath: 'dist/css/rapido.css',
       },
       dist: {
         files: {
@@ -189,6 +198,16 @@ module.exports = function(grunt) {
           dest: '../../server/sites/rapido-ie/'
         },
         ]
+      },
+      kss: {
+        files: [
+          {
+          expand: true,
+          cwd: '../../forks/kss-node-template/template/public/',
+          src: ['theme.css'],
+          dest: 'docs/public/'
+        },
+        ]
       }
     },
 
@@ -202,12 +221,17 @@ module.exports = function(grunt) {
         files: ['stylesheets/**/*.scss'],
         tasks: ['sass:dist', 'copy:cssToRapidoIE', 'notify:sass']
       },
-      html: {
-        files: ['tests/*.html'],
-      },
       livescript: {
         files: ['ls/*.ls'],
         tasks: ['js', 'copy:jsToRapidoIE']
+      },
+      kssCss: {
+        files: ['../../forks/kss-node-template/template/public/theme.sass'],
+        tasks: ['sass:kss', 'copy:kss']
+      },
+      kssJs: {
+        files: ['../../forks/kss-node-template/template/public/*.js', '../../forks/kss-node-template/template/index.html'],
+        tasks: ['kss']
       },
     },
 
