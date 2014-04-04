@@ -66,9 +66,12 @@ let $ = jQuery, window, document
       if @is.left or @is.right then
         @style.top = @target.top + @target.height / 2 - @tooltip.height / 2
 
-      # Correct offscreen positions
-      if @style.left < 0 then @style.left = 0
-      #if @style.left + @tooltip.width > window.width then @style.left = window.width - @tooltip.width
+      # Correct if offscreen left position
+      if @style.left < 0 then
+        @style.left = @target.left
+        $(@el).next!.addClass 'left-offset'
+      else
+        $(@el).next!.removeClass 'left-offset'
 
     # Add tooltip to html
     addTooltip: !->
