@@ -17,7 +17,7 @@ Create a square
 
 * `$size`: Dimension used both for width and height
 
-Styleguide 26.2
+Styleguide 26.1
 
 */
 
@@ -38,7 +38,7 @@ Become:
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
     opacity: .5;
 
-Styleguide 26.4
+Styleguide 26.2
 
 */
 
@@ -62,7 +62,7 @@ Become:
     margin-left: auto;
     margin-right: auto;
 
-Styleguide 26.4
+Styleguide 26.3
 
 */
 
@@ -80,7 +80,7 @@ Vertical and horizontal centering with absolute positioning, using the position 
 
     @include center();
 
-Styleguide 26.5
+Styleguide 26.4
 
 */
 
@@ -101,7 +101,7 @@ Abbrieviantion for extendingt normal class (.) or a placeholder class (%) when u
 * `$name`: Name of the class
 * `$silent`: Set to true if it's a placeholder class
 
-Styleguide 26.6
+Styleguide 26.5
 
 */
 
@@ -129,7 +129,7 @@ Become
     text-overflow: ellipsis;
     white-space: nowrap;
 
-Styleguide 26.8
+Styleguide 26.6
 
 */
 
@@ -155,7 +155,7 @@ Add a css-only triangle width side borders, usefull for tooltips. For now only s
 * `$border-width`: Border width of the triangle
 * `$direction`: left or right
 
-Styleguide 26.10
+Styleguide 26.7
 
 */
 
@@ -216,7 +216,7 @@ Become
     color: #000;
     color: rgba(0,0,0,.5);
 
-Styleguide 26.12
+Styleguide 26.8
 
 */
 
@@ -235,7 +235,7 @@ Nav divider
 * `$top`: Color of the top border
 * `$bottom`: Color of the bottom border
 
-Styleguide 26.14
+Styleguide 26.9
 
 */
 
@@ -264,7 +264,7 @@ Comicbook Shadow
 * `$size`: Size of the shadow
 * `$distance`: Distance of the shadow from the image
 
-Styleguide 26.15
+Styleguide 26.10
 
 */
 
@@ -315,13 +315,13 @@ Usefull for adding inset shadows to sidebars or large block where the shadow is 
 * `$size`: Size of the shadow
 * `$color`: Color of the shadow
 
-Styleguide 26.16
+Styleguide 26.11
 
 */
 
 @mixin inset-shadow($position: right, $size: 10px, $color: #000) {
 
-    $size: $size*2;
+    /*$size: $size*2;*/
 
     @if $position == 'top' {
         box-shadow: inset 0 $size $size $size $color;
@@ -336,7 +336,7 @@ Styleguide 26.16
     }
 
     @if $position == 'left' {
-        box-shadow: inset $size 0 $size $size $color;
+        box-shadow: inset $size 0 $size 0 $color;
     }
 
 
@@ -353,7 +353,7 @@ Add Side Shadows to multi-line padded text for consistend side padding (Fabien D
 * `$size`: Size of the shadow
 * `$color`: Color of the shadow
 
-Styleguide 26.17
+Styleguide 26.12
 
 */
 
@@ -379,7 +379,7 @@ Use the unicode character from an icon font to insert it wherever you want.
 ‡ Fonts available: Fontawesome, Brandico, Entypo, Fontelico, Maki, Openweb-icons, Typicons, Zocial
 
 
-Styleguide 26.18
+Styleguide 26.13
 
 */
 
@@ -394,13 +394,8 @@ Styleguide 26.18
 
 Sprites
 
-Rapido use the compass' [Sprites Mixin](http://compass-style.org/help/tutorials/spriting/) that make including sprites easily both in the html and directly in the css,
-for more info see the full documentation from the link.
-
-First you need to add to your scss file an import to import all of the seperate icons that will be compiled in a single image.
-For example if you have a folder named `s` inside the main `images` folder add this line:
-
-    @import 's/ *.png';
+Rapido uses [grunt-spritesmith ](https://github.com/Ensighten/grunt-spritesmith) that make including sprites easily both in the html and directly in the css,
+for more info see the full documentation from the link. First you need to create a sass o scss file with spritesmith, then import it in your main sass file.
 
 Then add you have two options:
 
@@ -416,7 +411,7 @@ Or via `@include` from the scss:
 
 The result is the same.
 
-Styleguide 26.20
+Styleguide 26.14
 
 */
 
@@ -438,7 +433,7 @@ Responsive grid
 * `$from`: Direction, ltr or rtl
 * `$media`: Media query to to use, for responsive grids
 
-Styleguide 26.21
+Styleguide 26.15
 
 */
 
@@ -488,7 +483,7 @@ Animations
 * `$function`: Easing, see 20.2 for a list of all easing options available
 * `$mode`: animation-fill-mode (http://mzl.la/1g6ixCc), default to *both*
 
-Styleguide 26.22
+Styleguide 26.16
 
 */
 
@@ -538,7 +533,7 @@ Will be compiled to:
       animation: fadeIn 0.5s 2s ease-out both;
     }
 
-Styleguide 26.23
+Styleguide 26.17
 
 */
 

@@ -78,11 +78,11 @@ $titles-font-family:                    $font-sans                              
 
 /*
 
-em()
+Em
 
 To convert `PX` to `EM` using the `$base-font-size` as font size.
 
-    width: em(20px);
+    em(<$value> [, <$context>])
 
 Styleguide 27.1
 

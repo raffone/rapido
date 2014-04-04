@@ -21,7 +21,7 @@ Markup:
 <div class="desk-3 lap-6 palm-12">7</div>
 <div class="desk-3 lap-6 palm-12">8</div>
 
-Styleguide 9
+Styleguide 11
 
 */
 
@@ -57,8 +57,20 @@ There're also available some helper classes:
     * `.portable-show`
     * `.lap-and-up-show`
     * `.desk-show`
+* **Omega element**: Used to apply a margin: 0 on the last item on the row
+    * `.palm-omega`
+    * `.lap-omega`
+    * `.portable-omega`
+    * `.lap-and-up-somega`
+    * `.desk-omega`
+* **Reverse element**: Used to reverse the direction
+    * `.palm-reverse`
+    * `.lap-reverse`
+    * `.portable-reverse`
+    * `.lap-and-up-reverse`
+    * `.desk-reverse`    
 
-Styleguide 9.1
+Styleguide 11.1
 
 */
 

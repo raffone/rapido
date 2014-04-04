@@ -26,7 +26,7 @@ Include this js after including rapido.js.
 
     margin:            15
 
-Styleguide 19
+Styleguide 22
 
 */
 
@@ -94,6 +94,10 @@ Styleguide 19
       @include transform(translateX(0) translateY(0));
       max-height: $dropdowns-height;
       visibility: visible;
+    }
+
+    &.left-offset:after {
+      left: 2em !important
     }
 
     &:after {

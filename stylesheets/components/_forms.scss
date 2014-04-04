@@ -27,7 +27,7 @@ stacked, left-aligned labels on top of form controls.
         * **`.form__help--inline`**: Inline help text that appears aside form controls.
 * **`.form__actions`**: End a form with a group of actions (buttons). When placed within a `.form__actions`, the buttons will automatically indent to line up with the form controls.
 
-Styleguide 8
+Styleguide 10
 
 */
 
@@ -193,7 +193,7 @@ Main labels for the form using `.form__label`
 
 Markup: <label class="form__label">Label</label>
 
-Styleguide 8.1
+Styleguide 10.1
 
 */
 
@@ -221,7 +221,7 @@ Markup:
 
 .inline - Inline alignment with `.inline`
 
-Styleguide 8.2
+Styleguide 10.2
 
 */
 
@@ -280,7 +280,7 @@ Include this js after including rapido.js.
 
     selectClass:      .form__select
 
-Styleguide 8.3
+Styleguide 10.3
 
 */
 
@@ -329,15 +329,15 @@ Custom icons in inputs
 
 Markup:
 <div class="form__controls">
-  <span class="form__icon fontawesome">&#xf02b;</span>
+  <span class="form__icon"><i class="fa fa-leaf"></i></span>
   <input type="text">
 </div>
 <div class="form__controls">
-  <span class="form__icon fontawesome pull-right">&#xf040;</span>
+  <span class="form__icon pull-right"><i class="fa fa-tag"></i></span>
   <input type="text">
 </div>
 
-Styleguide 8.4
+Styleguide 10.4
 
 */
 
@@ -376,7 +376,7 @@ Markup:
 .form__help--block - Block Help
 .form__help--inline - Help Inline
 
-Styleguide 8.5
+Styleguide 10.5
 
 */
 
@@ -432,7 +432,7 @@ Include this js after including rapido.js.
     suggestClass:     .form__suggest
     suggestAttr:      title
 
-Styleguide 8.6
+Styleguide 10.6
 
 */
 
@@ -473,7 +473,7 @@ Append & Prepend
 
 Markup:
 <div class="form__controls form__controls--multi">
-  <span class="form__addon fontawesome">&#xf06c;</span>
+  <span class="form__addon"><i class="fa fa-leaf"></i></span>
   <span class="form__addon">$</span>
   <input type="text">
   <div class="form__suggest">
@@ -491,7 +491,7 @@ Markup:
   <button type="submit" class="btn btn--default form__addon">Search</button>
 </div>
 
-Styleguide 8.8
+Styleguide 10.8
 
 */
 
@@ -549,7 +549,7 @@ Markup:
   <button type="button" class="btn btn--default btn--secondary">Cancel</button>
 </div>
 
-Styleguide 8.9
+Styleguide 10.9
 
 */
 
@@ -618,7 +618,7 @@ Markup:
 .form--aligned - Right align labels and float them to the left to make them appear on the same line as controls.
 .form--inline - For left-aligned labels and inline-block controls for a compact layout. This layout doesn't support `.form__group`, `.form__addon`, `.form__actions`
 
-Styleguide 8.10
+Styleguide 10.10
 
 */
 
@@ -734,7 +734,7 @@ Markup:
 
 </form>
 
-Styleguide 8.10.1
+Styleguide 10.10.1
 
 */
 

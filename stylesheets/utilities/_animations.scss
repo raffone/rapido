@@ -4,15 +4,15 @@ Animations
 
 All the animations in [theCSSguru](https://twitter.com/theCSSguru)'s [Animate mixin](http://thecssguru.freeiz.com/animate/) are available with the same mixin:
 
-* **Attention seekers:** flash, bounce, shake, tada
-* **Fading entrances:** , fadeIn, fadeInUp, fadeInDown, fadeInLeft, fadeInRight, fadeInUpBig, fadeInDownBig, fadeInLeftBig, fadeInRightBig
-* **Fading exits**: fadeOut, fadeOutUp, fadeOutDown, fadeOutLeft, fadeOutRight, fadeOutUpBig, fadeOutDownBig, fadeOutLeftBig, fadeOutRightBig
-* **Bouncing entrances:** bounceIn, bounceInDown, bounceInUp, bounceInLeft, bounceInRight
-* **Bouncing exits:** bounceOut, bounceOutDown, bounceOutUp, bounceOutLeft, bounceOutRight
-* **Rotating entrances:** rotateIn, rotateInDownLeft, rotateInDownRight, rotateInUpLeft, rotateInUpRight
-* **Rotating exits:** rotateOut, rotateOutDownLeft, rotateOutDownRight, rotateOutUpLeft, rotateOutUpRight
+* **Attention seekers:** `flash` `bounce` `shake` `tada`
+* **Fading entrances:** `fadeIn` `fadeInUp` `fadeInDown` `fadeInLeft` `fadeInRight` `fadeInUpBig` `fadeInDownBig` `fadeInLeftBig` `fadeInRightBig`
+* **Fading exits**: `fadeOut` `fadeOutUp` `fadeOutDown` `fadeOutLeft` `fadeOutRight` `fadeOutUpBig` `fadeOutDownBig` `fadeOutLeftBig` `fadeOutRightBig`
+* **Bouncing entrances:** `bounceIn` `bounceInDown` `bounceInUp` `bounceInLeft` `bounceInRight`
+* **Bouncing exits:** `bounceOut` `bounceOutDown` `bounceOutUp` `bounceOutLeft` `bounceOutRight`
+* **Rotating entrances:** `rotateIn` `rotateInDownLeft` `rotateInDownRight` `rotateInUpLeft` `rotateInUpRight`
+* **Rotating exits:** `rotateOut` `rotateOutDownLeft` `rotateOutDownRight` `rotateOutUpLeft` `rotateOutUpRight`
 
-Styleguide 24
+Styleguide 2
 
 */
 
@@ -119,7 +119,7 @@ Example:
 
     @extend .fadeIn;
 
-Styleguide 24.3
+Styleguide 2.3
 
 */
 
@@ -135,15 +135,14 @@ Styleguide 24.3
 
 Classes for delays
 
-Like classes for the animations are also available 8 classes for delays.
-Available delays: .delay-25, .delay-50, .delay-75, .delay-100, .delay-125,
-.delay-150, .delay-175, .delay-200.
+Like classes for the animations are also available 13 classes for delays.
+Available delays: `.delay-0` `.delay-25` `.delay-50` `.delay-75` `.delay-100` `.delay-125` `.delay-150` `.delay-175` `.delay-200` `.delay-225` `.delay-250` `.delay-275` `.delay-300`.
 
 Example:
 
     @extend .delay-50;
 
-Styleguide 24.4
+Styleguide 2.4
 
 */
 
@@ -168,9 +167,9 @@ Include this js after including rapido.js.
 
     $('.articles').rapido_Animation();
 
-**Options** (with default values):
+**Options** `(with` d`efault` values)`:`
 
-    offset:     500
+`    offset`: `    500`
     offsetClass: .offcanvas__content (if using an offset layout with a custom class)
 
 Example:
@@ -180,7 +179,7 @@ Example:
     </section>
 
 
-Styleguide 24.5
+Styleguide 2.5
 
 */
 
@@ -193,10 +192,10 @@ Styleguide 24.5
 
 Animation mixin
 
-Also available is an "animate" mixin, for more information see the Mixins
+Also available is an `animate` mixin, for more information see the Mixins
 section.
 
-Styleguide 24.6
+Styleguide 2.6
 
 */
 
