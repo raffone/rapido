@@ -91,6 +91,7 @@ input[type="search"],
 input[type="tel"],
 input[type="color"] {
     @include inline-block;
+    @extend .transition;
     padding: 0 $input-padding-side;
     height: $input-height;
     border-width: $input-border;
@@ -443,6 +444,7 @@ Styleguide 10.6
   overflow: hidden;
   position: absolute;
   z-index: 999;
+  border-radius: 0 0 $base-border-radius $base-border-radius;
 
   &.open {
     max-height: $dropdowns-height;

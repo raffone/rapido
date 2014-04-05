@@ -76,7 +76,7 @@ Styleguide 26.3
 
 Center
 
-Vertical and horizontal centering with absolute positioning, using the position 
+Vertical and horizontal centering with absolute positioning, using the position
 absolute and negative translate.
 
     @include center();
@@ -95,7 +95,7 @@ Styleguide 26.4
 
 Extend
 
-Abbrieviantion for extendingt normal class (.) or a placeholder class (%) 
+Abbrieviantion for extendingt normal class (.) or a placeholder class (%)
 when using SASS syntax.
 
      +e($name, $silent);
@@ -147,7 +147,7 @@ Styleguide 26.6
 
 Triangle with Borders
 
-Add a css-only triangle width side borders, usefull for tooltips. For now only 
+Add a css-only triangle width side borders, usefull for tooltips. For now only
 side triangles with border are suported.
 
     @include triangle_border($size, $color, $border-color, $border-width, $direction);
@@ -310,7 +310,7 @@ Styleguide 26.10
 
 Box Inset Shadow
 
-Usefull for adding inset shadows to sidebars or large block where the shadow 
+Usefull for adding inset shadows to sidebars or large block where the shadow
 is only on one side and full width/height.
 
     @include inset-shadow($position, $size, $color);
@@ -350,7 +350,7 @@ Styleguide 26.11
 
 Side Shadow
 
-Add Side Shadows to multi-line padded text for consistend side padding 
+Add Side Shadows to multi-line padded text for consistend side padding
 (Fabien Doiron's box-shadow:  Method).
 
     @include side-shadow($size, $color);
@@ -399,9 +399,9 @@ Styleguide 26.13
 
 Sprites
 
-Rapido uses [grunt-spritesmith ](https://github.com/Ensighten/grunt-spritesmith) 
+Rapido uses [grunt-spritesmith ](https://github.com/Ensighten/grunt-spritesmith)
 that make including sprites easily both in the html and directly in the css,
-for more info see the full documentation from the link. First you need to create 
+for more info see the full documentation from the link. First you need to create
 a sass o scss file with spritesmith, then import it in your main sass file.
 
 Then add you have two options:
@@ -570,7 +570,7 @@ Styleguide 26.17
 
 Compass shortcuts
 
-These are some mixin not available to Bourbon (inspired by Compass) that help as 
+These are some mixin not available to Bourbon (inspired by Compass) that help as
 aliases for longer mixin calls.
 
 Tranform shortcuts:
@@ -666,7 +666,7 @@ Styleguide 26.20
 
 Compass failbacks
 
-These mixins still exist for backward compatibility with old versions of Rapido 
+These mixins still exist for backward compatibility with old versions of Rapido
 but they serve only as an alias for the plan css attributes without prefixes.
 
     @include border-radius($n)
@@ -713,11 +713,11 @@ Styleguide 26.21
 
 Bourbon alternatives
 
-In the latest version of Bourbon the mixin 'position' changed behaviour from 
-usin 0 for null values to actually use null, because is not backward compatible 
+In the latest version of Bourbon the mixin 'position' changed behaviour from
+usin 0 for null values to actually use null, because is not backward compatible
 this is an alias to the old version.
 
-    @include old-position(relative, 1em 0 0 1em)    
+    @include old-position(relative, 1em 0 0 1em)
 
 It's the same as:
 

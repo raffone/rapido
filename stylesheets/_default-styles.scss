@@ -60,13 +60,16 @@ Styleguide 32.2
     %form__label {}
 
     %form__input {
-        border-color: $gray;
-        background-color: $grayLighter;
-        box-shadow: inset 0 1px 0 #fff;
-        @include background-image(linear-gradient(bottom, $white 0%, $grayLighter 100%));
+        border-color: #ccc;
+        background-color: $white;
+        /*box-shadow: inset 0 1px 0 #fff;*/
+        /*@include background-image(linear-gradient(bottom, $white 0%, $grayLighter 100%));*/
 
         &:focus {
-            @include background-image(linear-gradient(bottom, $white 50%, $grayLighter 100%));
+            /*@include background-image(linear-gradient(bottom, $white 50%, $grayLighter 100%));*/
+            border-color: #00a7e1;
+            @include box-shadow(0 0 5px rgba(0,168,225,.2));
+
         }
     }
 
@@ -81,16 +84,18 @@ Styleguide 32.2
     }
 
     %form__suggest {
+        @include box-shadow(0 0 5px rgba(#000,.1));
         @include opacity(0);
-        background-color: $gray;
+        background-color: $white;
+        border: 1px solid #ccc;
 
       &.open {
           @include opacity(1);
       }
 
-      a {
-          color: white;
-      }
+      /*a {*/
+          /*color: white;*/
+      /*}*/
 
     }
 
@@ -132,34 +137,42 @@ Buttons
 Styleguide 32.3
 
 */
+    %btn {
+        color: #fff;
+
+        &:hover,
+        &.hover,
+        &:focus {
+            color: #fff;
+        }
+
+        &.active,
+        &:active {
+          @include box-shadow(inset 0 3px 5px rgba(0,0,0,.3));
+        }
+
+    }
 
     // Default
     %btn--default {
-        color: $text-color;
-        border-color: $gray;
-        background-color: $grayLight;
-        box-shadow: inset 0 1px 0 rgba(255,255,255,.5);
-        @include background-image(linear-gradient(bottom, $grayLight 0%, $grayLighter 100%));
+        border-color: #00a8e1;
+        background-color: #00a8e1;
 
         // Hover/focus state
         &:hover,
         &.hover,
         &:focus {
-            color: inherit;
-            @include background-image(linear-gradient(bottom, $grayLight 0%, $white 100%));
+            border-color: shade(#00a8e1, 10);
+            background-color: shade(#00a8e1, 10);
         }
 
         // Active state
-        &.active,
-        &:active {
-            @include background-image(linear-gradient(top, $grayLight 0%, $grayLighter 100%));
-        }
     }
 
     %btn__disabled {
         color: $grayLight;
         border-color: $grayLight;
-        background: #FFF;
+        background-color: #FFF;
     }
 
     %btn__current {
@@ -169,45 +182,29 @@ Styleguide 32.3
     }
 
     %btn--primary {
-        color: #fff;
-        border-color: darken(green, 10%);
-        background-color: green;
-        @include background-image(linear-gradient(bottom, darken(green, 10%) 0%, green 100%));
+        border-color: #66bc29;
+        background-color: #66bc29;
 
         // Hover/focus state
         &:hover,
         &.hover,
         &:focus {
-            color: #fff;
-            @include background-image(linear-gradient(bottom, darken(green, 10%) 0%, lighten(green, 6) 100%));
-        }
-
-        // Active state
-        &.active,
-        &:active {
-            @include background-image(linear-gradient(top, darken(green, 10%) 0%, green 100%));
+            border-color: shade(#66bc29, 10);
+            background-color: shade(#66bc29, 10);
         }
     }
 
     %btn--secondary {
-        color: #fff;
-        border-color: darken(red, 10%);
-        background-color: red;
-        @include background-image(linear-gradient(bottom, darken(red, 10%) 0%, red 100%));
+
+        border-color: #f32837;
+        background-color: #f32837;
 
         // Hover/focus state
         &:hover,
         &.hover,
         &:focus {
-            color: #fff;
-            @include background-image(linear-gradient(bottom, darken(red, 10%) 0%, lighten(red, 20) 100%));
-        }
-
-        // Active state
-        &.active,
-        &.hover,
-        &:active {
-            @include background-image(linear-gradient(bottom, darken(red, 10%) 0%, red 100%));
+            border-color: shade(#f32837, 10);
+            background-color: shade(#f32837, 10);
         }
     }
 
@@ -272,25 +269,29 @@ Styleguide 32.6
 
 
     %dropdown {
-        background: $grayLighter;
-        border-color: $gray;
+        @include box-shadow(0 0 5px rgba(#000,.1));
+        background-color: $white;
+        border: 1px solid #ccc;
 
-        .divider { @include nav-divider($gray); margin-top: -1px }
+        &:before {
+          @include position(absolute, -8px null null 2em);
+          @include triangle(16px 8px, #ccc, up);
+          content: "";
+        }
+
+        .divider { @include nav-divider(#ccc); margin-top: -1px }
 
         > li > a,
-        > li > label { border-bottom: 1px dotted $gray; }
+        > li > label { border-bottom: 1px dotted #ccc; }
 
         > li > a:hover,
         > li > a:focus {
             text-decoration: none;
-            background-color: $grayLight;
+            background: #f8f8f8;
         }
     }
 
-    %dropdown--open {
-        background: $grayLighter;
-        border-bottom: 1px solid $grayLighter;
-    }
+    %dropdown--open {}
 
 
 /*
