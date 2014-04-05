@@ -405,7 +405,7 @@ Styleguide 32.10
 
 
 
-    %pagination--btn            { @extend %btn--default;  }
+    %pagination--btn            { @extend %btn; @extend %btn--default;  }
     %pagination--btn__hover     { @extend %btn--default:hover;}
     %pagination--btn__active    { }
     %pagination--btn__current   { @extend %btn__current; }
@@ -424,7 +424,7 @@ Styleguide 32.11
 
 */
 
-    %pager--btn                 { @extend %btn--default; }
+    %pager--btn                 { @extend %btn; @extend %btn--default; }
     %pager--btn__hover          { }
     %pager--btn__active         { }
     %pager--btn__disabled       { @extend %btn__disabled; }
