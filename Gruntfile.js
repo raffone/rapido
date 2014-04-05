@@ -116,33 +116,6 @@ module.exports = function(grunt) {
       }
     },
 
-    /*
-    compass: {
-      dist: {
-        options: {
-          require: ['susy', 'sass-media_query_combiner', 'breakpoint', 'compass-placeholders'],
-          sassDir: 'stylesheets',
-          cssDir: 'dist/css',
-          specify: 'stylesheets/rapido.scss',
-          noLineComments: true,
-          environment: 'development',
-          outputStyle: 'expanded'
-        }
-      },
-      min: {
-        options: {
-          require: ['susy', 'sass-media_query_combiner', 'breakpoint', 'compass-placeholders'],
-          sassDir: 'stylesheets',
-          cssDir: 'dist/css',
-          specify: 'stylesheets/rapido.min.scss',
-          noLineComments: true,
-          environment: 'production',
-          outputStyle: 'compressed'
-        }
-      }
-    },
-    */
-
     // CSS - Create documentation
     kss: {
       options: {
@@ -152,7 +125,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'docs': ['stylesheets']
+          '../../server/sites/raffone/rapido': ['stylesheets']
         }
       }
     },
@@ -163,7 +136,7 @@ module.exports = function(grunt) {
         files: [
           {
           expand: true,
-          cwd: 'docs/',
+          cwd: '../../server/sites/raffone/rapido/',
           src: ['**'],
           dest: '../../server/sites/raffone/rapido'
         },
@@ -205,7 +178,7 @@ module.exports = function(grunt) {
           expand: true,
           cwd: '../../forks/kss-node-template/template/public/',
           src: ['theme.css'],
-          dest: 'docs/public/'
+          dest: '../../server/sites/raffone/rapido/public/'
         },
         ]
       }
@@ -239,8 +212,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('css',  ['sass:dist', 'sass:min']);
   grunt.registerTask('js',   ['livescript:src', 'uglify', 'notify:livescript']);
-  grunt.registerTask('docs', ['sass:dist', 'js', 'copy:js', 'kss']);
-  grunt.registerTask('site', ['sass:dist', 'kss', 'copy']);
+  grunt.registerTask('docs', ['sass:kss', 'copy:kss', 'js', 'copy:js', 'kss']);
   grunt.registerTask('test', ['sass:dist', 'copy:cssToRapidoIE', 'notify:sass']);
   grunt.registerTask('default', 'watch');
 
