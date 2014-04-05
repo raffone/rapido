@@ -17,7 +17,7 @@ $horizontal-offset:                 180px                                       
 
 Text Size
 
-Font sizes you can used with the compass mixin `adjust-font-size-to()`. Naming convention from [Inuit](http://inuitcss.com/).
+Font sizes you can used with the mixin `adjust-font-size-to()`. Naming convention from [Inuit](http://inuitcss.com/).
 
     $giga-size:                     $base-font-size * 7     # 98px
     $mega-size:                     $base-font-size * 5     # 70px
@@ -261,13 +261,13 @@ $responsive-font-size:              $lap-and-up $base-font-size, $palm 16px     
 
 /*
 
-Grid (Susy)
+Grid (Neat)
 
-Default settings for susy grid. More info: [Susy](http://susy.oddbird.net/).
+Default settings for neat grid. More info: [Neat](http://neat.bourbon.io/).
 
-    $total-columns:                 12          # Number of columns
-    $column-width:                  50px        # Columns width
-    $gutter-width:                  30px        # Gutter width
+    $$grid-columns:                 12          # Number of columns
+    $column:                  		50px        # Columns width
+    $gutter:                  		30px        # Gutter width
 
 Styleguide 31.8
 

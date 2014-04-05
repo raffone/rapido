@@ -76,7 +76,8 @@ Styleguide 26.3
 
 Center
 
-Vertical and horizontal centering with absolute positioning, using the position absolute and negative translate.
+Vertical and horizontal centering with absolute positioning, using the position 
+absolute and negative translate.
 
     @include center();
 
@@ -94,7 +95,8 @@ Styleguide 26.4
 
 Extend
 
-Abbrieviantion for extendingt normal class (.) or a placeholder class (%) when using SASS syntax.
+Abbrieviantion for extendingt normal class (.) or a placeholder class (%) 
+when using SASS syntax.
 
      +e($name, $silent);
 
@@ -145,7 +147,8 @@ Styleguide 26.6
 
 Triangle with Borders
 
-Add a css-only triangle width side borders, usefull for tooltips. For now only side triangles with border are suported.
+Add a css-only triangle width side borders, usefull for tooltips. For now only 
+side triangles with border are suported.
 
     @include triangle_border($size, $color, $border-color, $border-width, $direction);
 
@@ -307,7 +310,8 @@ Styleguide 26.10
 
 Box Inset Shadow
 
-Usefull for adding inset shadows to sidebars or large block where the shadow is only on one side and full width/height.
+Usefull for adding inset shadows to sidebars or large block where the shadow 
+is only on one side and full width/height.
 
     @include inset-shadow($position, $size, $color);
 
@@ -346,7 +350,8 @@ Styleguide 26.11
 
 Side Shadow
 
-Add Side Shadows to multi-line padded text for consistend side padding (Fabien Doiron's box-shadow:  Method).
+Add Side Shadows to multi-line padded text for consistend side padding 
+(Fabien Doiron's box-shadow:  Method).
 
     @include side-shadow($size, $color);
 
@@ -394,8 +399,10 @@ Styleguide 26.13
 
 Sprites
 
-Rapido uses [grunt-spritesmith ](https://github.com/Ensighten/grunt-spritesmith) that make including sprites easily both in the html and directly in the css,
-for more info see the full documentation from the link. First you need to create a sass o scss file with spritesmith, then import it in your main sass file.
+Rapido uses [grunt-spritesmith ](https://github.com/Ensighten/grunt-spritesmith) 
+that make including sprites easily both in the html and directly in the css,
+for more info see the full documentation from the link. First you need to create 
+a sass o scss file with spritesmith, then import it in your main sass file.
 
 Then add you have two options:
 
@@ -559,16 +566,36 @@ Styleguide 26.17
 }
 
 
-// Failbacks
-// ----------------------------------------------------------------------------
+/*
 
-@mixin border-radius($n: $base-border-radius) {
-  border-radius: $n;
-}
+Compass shortcuts
 
-@mixin box-shadow($n...) {
-  box-shadow: $n;
-}
+These are some mixin not available to Bourbon (inspired by Compass) that help as 
+aliases for longer mixin calls.
+
+Tranform shortcuts:
+
+    @include translateX(5em)              # @include transform(translateX($n))
+    @include translateY(5em)              # @include transform(translateY($n))
+    @include translateZ(5em)              # @include transform(translateZ($n))
+    @include scale(1.5)                   # @include transform(scale($n))
+    @include scaleX(1.5)                  # @include transform(scaleX($n))
+    @include scaleY(1.5)                  # @include transform(scaleY($n))
+    @include scaleZ(1.5)                  # @include transform(scaleZ($n))
+    @include rotate(90deg)                # @include transform(rotate($n))
+    @include rotateX(90deg)               # @include transform(rotateX($n))
+    @include rotateY(90deg)               # @include transform(rotateY($n))
+    @include rotateZ(90deg)               # @include transform(rotate($n))
+
+Others shortcuts:
+
+    @include sprite-size( sprite_name )   # Include size of sprite
+    @include default-transition()         # Add the default transition
+    @include inline-block()               # Overwite the Bourbon's one with a better version
+
+Styleguide 26.20
+
+*/
 
 @mixin translateX($n) {
   @include transform(translateX($n));
@@ -614,31 +641,6 @@ Styleguide 26.17
   @include transform(rotate($n));
 }
 
-@mixin border-top-right-radius($n) {
-  border-top-right-radius: $n;
-}
-
-@mixin border-top-left-radius($n) {
-  border-top-left-radius: $n;
-}
-
-@mixin border-bottom-left-radius($n) {
-  border-bottom-left-radius: $n;
-}
-
-@mixin border-bottom-right-radius($n) {
-  border-bottom-right-radius: $n;
-}
-
-@mixin background-size($n...) {
-  background-size: $n;
-}
-
-@mixin sprite-size($n) {
-  @include sprite-width($n);
-  @include sprite-height($n);
-}
-
 @mixin sprite-size($n) {
   @include sprite-width($n);
   @include sprite-height($n);
@@ -659,6 +661,71 @@ Styleguide 26.17
   *display: inline;
   *vertical-align: auto;
 }
+
+/*
+
+Compass failbacks
+
+These mixins still exist for backward compatibility with old versions of Rapido 
+but they serve only as an alias for the plan css attributes without prefixes.
+
+    @include border-radius($n)
+    @include box-shadow($n..)
+    @include border-top-right-radius($n)
+    @include border-top-left-radius($n)
+    @include border-bottom-left-radius($n)
+    @include border-bottom-right-radius($n)
+
+Styleguide 26.21
+
+*/
+
+@mixin border-radius($n: $base-border-radius) {
+  border-radius: $n;
+}
+
+@mixin box-shadow($n...) {
+  box-shadow: $n;
+}
+
+@mixin border-top-right-radius($n) {
+  border-top-right-radius: $n;
+}
+
+@mixin border-top-left-radius($n) {
+  border-top-left-radius: $n;
+}
+
+@mixin border-bottom-left-radius($n) {
+  border-bottom-left-radius: $n;
+}
+
+@mixin border-bottom-right-radius($n) {
+  border-bottom-right-radius: $n;
+}
+
+@mixin background-size($n...) {
+  background-size: $n;
+}
+
+
+/*
+
+Bourbon alternatives
+
+In the latest version of Bourbon the mixin 'position' changed behaviour from 
+usin 0 for null values to actually use null, because is not backward compatible 
+this is an alias to the old version.
+
+    @include old-position(relative, 1em 0 0 1em)    
+
+It's the same as:
+
+    @include position(relative, 1em null null 1em)
+
+Styleguide 26.22
+
+*/
 
 @mixin old-position($position: relative, $coordinates: 0 0 0 0) {
 

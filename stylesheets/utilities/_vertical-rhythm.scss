@@ -8,6 +8,25 @@
   @return not (relative-unit($number) or unitless($number));
 }
 
+/*
+
+Rhythm
+
+Calculate rhythm units. [Vertical Rhythm](http://compass-style.org/reference/compass/typography/vertical_rhythm/).
+
+    rhythm(<$lines> [, <$font-size>, <$offset>])
+
+* `$lines`: Number of lines
+* `$font-size`: Context font size (default: $base-font-size) 
+* `$offset`: Offset value (default: 0) 
+
+
+    .item { height: rhythm(4); }
+
+Styleguide 27.6
+
+*/
+
 @function rhythm(
   $lines: 1,
   $font-size: $base-font-size,
@@ -40,18 +59,22 @@
   @warn "$relative-font-sizing is true but $font-unit is set to #{$font-unit} which is not a relative unit.";
 }
 
-// Mixins
-// ----------------------------------------------------------------------------
+/*
 
-/*@mixin establish-baseline($font-size: $base-font-size) {*/
-  /** html {*/
-    /*font-size: 100% * ($font-size / $browser-default-font-size);*/
-  /*}*/
-  /*html {*/
-    /*font-size: $font-size;*/
-    /*@include adjust-leading-to(1, if($relative-font-sizing, $font-size, $base-font-size));*/
-  /*}*/
-/*}*/
+Adjust font size to
+
+Adjust a block to have a different font size and line height to maintain the 
+rhythm. Taken from [Vertical Rhythm](http://compass-style.org/reference/compass/typography/vertical_rhythm/).
+
+    @include adjust-font-size-to(<$to-size> [, <$lines: lines-for-font-size($to-size)>, <$from-size: $base-font-size> ])
+
+* `$to-size`: Target size
+* `$lines`:  $lines specifies how many multiples of the baseline rhythm each line of this font should use up
+* `$from-size`: Use $from-size to adjust from a font-size other than the base font-size.
+
+Styleguide 26.19
+
+*/
 
 @mixin adjust-font-size-to($to-size, $lines: lines-for-font-size($to-size), $from-size: $base-font-size) {
   @if not $relative-font-sizing and $from-size != $base-font-size {

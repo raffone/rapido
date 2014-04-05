@@ -75,19 +75,3 @@ $font-mono:                             Monaco, Menlo, Consolas, "Courier New", 
 
 $base-font-family:                      $font-sans                                                          !default;
 $titles-font-family:                    $font-sans                                                          !default;
-
-/*
-
-Em
-
-To convert `PX` to `EM` using the `$base-font-size` as font size.
-
-    em(<$value> [, <$context>])
-
-Styleguide 27.1
-
-*/
-
-/*@function em($to-size, $from-size: $base-font-size) {*/
-    /*@return ($to-size / $from-size) + 0em;*/
-/*}*/
