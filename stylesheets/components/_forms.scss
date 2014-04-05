@@ -17,15 +17,15 @@ stacked, left-aligned labels on top of form controls.
       |         +–– .form__addon
       +–– .form__actions
 
-* **`.form__group`**: Main container of a section of the form
-    * **`.form__label`**: Main labels for the form.
-    * **`.form__controls`**: Container of inputs, buttons and addons
-        * **`.form__checkbox`**, **`.form__radio`**: Stacked list of checkboxes and radios.
-        * **`.form__checkbox.inline`**, **`.form__radio.inline`**: Inline list of checkboxes and radios.
-        * **`.form__select`**: Create custom style selects.
-        * **`.form__help--block`**: Block help text that appears under form controls.
-        * **`.form__help--inline`**: Inline help text that appears aside form controls.
-* **`.form__actions`**: End a form with a group of actions (buttons). When placed within a `.form__actions`, the buttons will automatically indent to line up with the form controls.
+* `.form__group`: Main container of a section of the form
+    * `.form__label`: Main labels for the form.
+    * `.form__controls`: Container of inputs, buttons and addons
+        * `.form__checkbox`, `.form__radio`: Stacked list of checkboxes and radios.
+        * `.form__checkbox.inline`, `.form__radio.inline`: Inline list of checkboxes and radios.
+        * `.form__select`: Create custom style selects.
+        * `.form__help--block`: Block help text that appears under form controls.
+        * `.form__help--inline`: Inline help text that appears aside form controls.
+* `.form__actions`: End a form with a group of actions (buttons). When placed within a `.form__actions`, the buttons will automatically indent to line up with the form controls.
 
 Styleguide 10
 
