@@ -554,16 +554,12 @@ Styleguide 10.9
 */
 
 .form__actions {
-    padding-top: rhythm(1);
     margin-top: rhythm(1);
-    margin-bottom: rhythm(1);
-    border-top: 1px solid #e5e5e5;
     clear: both;
     @include clearfix;
 }
 
 .form__group.form__actions {
-    border: 0;
     clear: none;
     margin-bottom: 0;
     margin-top: 0;
