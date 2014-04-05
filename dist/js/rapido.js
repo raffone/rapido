@@ -657,7 +657,10 @@
         this.style.top = this.target.top + this.target.height / 2 - this.tooltip.height / 2;
       }
       if (this.style.left < 0) {
-        return this.style.left = 0;
+        this.style.left = this.target.left;
+        return $(this.el).next().addClass('left-offset');
+      } else {
+        return $(this.el).next().removeClass('left-offset');
       }
     };
     prototype.addTooltip = function(){

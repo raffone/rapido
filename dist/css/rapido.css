@@ -181,26 +181,89 @@ table {
 
 Functions
 
-For 99% of the framework I used Compass' and Susy's functions but I've made some for covering edge cases.
+For 99% of the framework I used Bourbon' and Neat's functions but I've made some for covering edge cases.
 
 Styleguide 27
 
 */
 /*
 
-neg()
+Em
+
+To convert `PX` to `EM` using the `$base-font-size` as font size.
+
+    em(<$value> [, <$context>])
+
+* `$value`: The value to convert
+* `$context`: The context. (default: $base-font-size).
+
+Styleguide 27.1
+
+
+/*
+
+Neg
 
 Convert a value to negative.
 
-Example:
+    neg(<$value>)
 
-    left: neg(10em);
-
-Become:
-
-    left: -10em
+* `$value`: The value to convert
 
 Styleguide 27.2
+
+*/
+/*
+
+Columns
+
+Similar to span-columns mixin, but returns the math-ready % multiplier. Taken from [Susy One](http://susydocs.oddbird.net/en/latest/susyone/#functions).
+
+    columns(<$columns> [, <$context>, <$style>])
+
+* `$columns`: The number of columns to span.
+* `$context`: The Context. (default: $total-columns).
+* `$style`: Optionally return static lengths for grid calculations. (default: $container-style).
+
+
+    .item { width: columns(3,6); }
+
+Styleguide 27.3
+
+*/
+/*
+
+Gutter
+
+The % width of one gutter in any given context. Taken from [Susy One](http://susydocs.oddbird.net/en/latest/susyone/#functions).
+
+    gutter([<$context>, <$style>])
+
+* `$context`: The Context. (default: $total-columns).
+* `$style`: Optionally return static lengths for grid calculations. (default: $container-style).
+
+
+    .item { margin-right: gutter(6) + columns(3,6); }
+
+Styleguide 27.4
+
+*/
+/*
+
+Space
+
+Total % space taken by Columns, including internal AND external gutters. Taken from [Susy One](http://susydocs.oddbird.net/en/latest/susyone/#functions).
+
+    space(<$columns> [, <$context>, <$style>])
+
+* `$columns`: The number of Columns to span,
+* `$context`: The Context. (default: $total-columns).
+* `$style`: Optionally return static lengths for grid calculations. (default: $container-style).
+
+
+    .item { margin-right: space(3,6); }
+
+Styleguide 27.5
 
 */
 /*
@@ -253,20 +316,6 @@ Styleguide 28.3
 */
 /*
 
-em()
-
-To convert `PX` to `EM` using the `$base-font-size` as font size.
-
-    width: em(20px);
-
-Styleguide 27.1
-
-*/
-/*@function em($to-size, $from-size: $base-font-size) {*/
-/*@return ($to-size / $from-size) + 0em;*/
-/*}*/
-/*
-
 Base Colors
 
 Used for scaffolding
@@ -317,7 +366,7 @@ Styleguide 31
 
 Text Size
 
-Font sizes you can used with the compass mixin `adjust-font-size-to()`. Naming convention from [Inuit](http://inuitcss.com/).
+Font sizes you can used with the mixin `adjust-font-size-to()`. Naming convention from [Inuit](http://inuitcss.com/).
 
     $giga-size:                     $base-font-size * 7     # 98px
     $mega-size:                     $base-font-size * 5     # 70px
@@ -456,13 +505,13 @@ Styleguide 31.7
 */
 /*
 
-Grid (Susy)
+Grid (Neat)
 
-Default settings for susy grid. More info: [Susy](http://susy.oddbird.net/).
+Default settings for neat grid. More info: [Neat](http://neat.bourbon.io/).
 
-    $total-columns:                 12          # Number of columns
-    $column-width:                  50px        # Columns width
-    $gutter-width:                  30px        # Gutter width
+    $$grid-columns:                 12          # Number of columns
+    $column:                  		50px        # Columns width
+    $gutter:                  		30px        # Gutter width
 
 Styleguide 31.8
 
@@ -598,18 +647,43 @@ Durations specifics for some  modules.
     $offcanvas-animations-duration:     .40s
     $tooltip-transition-duration:       .30s
 
-Styleguide 24.1
+Styleguide 2.1
 
 */
-/*@mixin establish-baseline($font-size: $base-font-size) {*/
-/** html {*/
-/*font-size: 100% * ($font-size / $browser-default-font-size);*/
-/*}*/
-/*html {*/
-/*font-size: $font-size;*/
-/*@include adjust-leading-to(1, if($relative-font-sizing, $font-size, $base-font-size));*/
-/*}*/
-/*}*/
+/*
+
+Rhythm
+
+Calculate rhythm units. [Vertical Rhythm](http://compass-style.org/reference/compass/typography/vertical_rhythm/).
+
+    rhythm(<$lines> [, <$font-size>, <$offset>])
+
+* `$lines`: Number of lines
+* `$font-size`: Context font size (default: $base-font-size) 
+* `$offset`: Offset value (default: 0) 
+
+
+    .item { height: rhythm(4); }
+
+Styleguide 27.6
+
+*/
+/*
+
+Adjust font size to
+
+Adjust a block to have a different font size and line height to maintain the 
+rhythm. Taken from [Vertical Rhythm](http://compass-style.org/reference/compass/typography/vertical_rhythm/).
+
+    @include adjust-font-size-to(<$to-size> [, <$lines: lines-for-font-size($to-size)>, <$from-size: $base-font-size> ])
+
+* `$to-size`: Target size
+* `$lines`:  $lines specifies how many multiples of the baseline rhythm each line of this font should use up
+* `$from-size`: Use $from-size to adjust from a font-size other than the base font-size.
+
+Styleguide 26.19
+
+*/
 /*
 
 Mixins
@@ -628,7 +702,7 @@ Create a square
 
 * `$size`: Dimension used both for width and height
 
-Styleguide 26.2
+Styleguide 26.1
 
 */
 /*
@@ -644,7 +718,7 @@ Become:
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
     opacity: .5;
 
-Styleguide 26.4
+Styleguide 26.2
 
 */
 /*
@@ -661,32 +735,34 @@ Become:
     margin-left: auto;
     margin-right: auto;
 
-Styleguide 26.4
+Styleguide 26.3
 
 */
 /*
 
 Center
 
-Vertical and horizontal centering with absolute positioning, using the position absolute and negative translate.
+Vertical and horizontal centering with absolute positioning, using the position 
+absolute and negative translate.
 
     @include center();
 
-Styleguide 26.5
+Styleguide 26.4
 
 */
 /*
 
 Extend
 
-Abbrieviantion for extendingt normal class (.) or a placeholder class (%) when using SASS syntax.
+Abbrieviantion for extendingt normal class (.) or a placeholder class (%) 
+when using SASS syntax.
 
      +e($name, $silent);
 
 * `$name`: Name of the class
 * `$silent`: Set to true if it's a placeholder class
 
-Styleguide 26.6
+Styleguide 26.5
 
 */
 /*
@@ -703,14 +779,15 @@ Become
     text-overflow: ellipsis;
     white-space: nowrap;
 
-Styleguide 26.8
+Styleguide 26.6
 
 */
 /*
 
 Triangle with Borders
 
-Add a css-only triangle width side borders, usefull for tooltips. For now only side triangles with border are suported.
+Add a css-only triangle width side borders, usefull for tooltips. For now only 
+side triangles with border are suported.
 
     @include triangle_border($size, $color, $border-color, $border-width, $direction);
 
@@ -720,7 +797,7 @@ Add a css-only triangle width side borders, usefull for tooltips. For now only s
 * `$border-width`: Border width of the triangle
 * `$direction`: left or right
 
-Styleguide 26.10
+Styleguide 26.7
 
 */
 /*
@@ -744,7 +821,7 @@ Become
     color: #000;
     color: rgba(0,0,0,.5);
 
-Styleguide 26.12
+Styleguide 26.8
 
 */
 /*
@@ -756,7 +833,7 @@ Nav divider
 * `$top`: Color of the top border
 * `$bottom`: Color of the bottom border
 
-Styleguide 26.14
+Styleguide 26.9
 
 */
 /*
@@ -770,14 +847,15 @@ Comicbook Shadow
 * `$size`: Size of the shadow
 * `$distance`: Distance of the shadow from the image
 
-Styleguide 26.15
+Styleguide 26.10
 
 */
 /*
 
 Box Inset Shadow
 
-Usefull for adding inset shadows to sidebars or large block where the shadow is only on one side and full width/height.
+Usefull for adding inset shadows to sidebars or large block where the shadow 
+is only on one side and full width/height.
 
     @include inset-shadow($position, $size, $color);
 
@@ -785,21 +863,22 @@ Usefull for adding inset shadows to sidebars or large block where the shadow is 
 * `$size`: Size of the shadow
 * `$color`: Color of the shadow
 
-Styleguide 26.16
+Styleguide 26.11
 
 */
 /*
 
 Side Shadow
 
-Add Side Shadows to multi-line padded text for consistend side padding (Fabien Doiron's box-shadow:  Method).
+Add Side Shadows to multi-line padded text for consistend side padding 
+(Fabien Doiron's box-shadow:  Method).
 
     @include side-shadow($size, $color);
 
 * `$size`: Size of the shadow
 * `$color`: Color of the shadow
 
-Styleguide 26.17
+Styleguide 26.12
 
 */
 /*
@@ -818,20 +897,17 @@ Use the unicode character from an icon font to insert it wherever you want.
 ‡ Fonts available: Fontawesome, Brandico, Entypo, Fontelico, Maki, Openweb-icons, Typicons, Zocial
 
 
-Styleguide 26.18
+Styleguide 26.13
 
 */
 /*
 
 Sprites
 
-Rapido use the compass' [Sprites Mixin](http://compass-style.org/help/tutorials/spriting/) that make including sprites easily both in the html and directly in the css,
-for more info see the full documentation from the link.
-
-First you need to add to your scss file an import to import all of the seperate icons that will be compiled in a single image.
-For example if you have a folder named `s` inside the main `images` folder add this line:
-
-    @import 's/ *.png';
+Rapido uses [grunt-spritesmith ](https://github.com/Ensighten/grunt-spritesmith) 
+that make including sprites easily both in the html and directly in the css,
+for more info see the full documentation from the link. First you need to create 
+a sass o scss file with spritesmith, then import it in your main sass file.
 
 Then add you have two options:
 
@@ -847,7 +923,7 @@ Or via `@include` from the scss:
 
 The result is the same.
 
-Styleguide 26.20
+Styleguide 26.14
 
 */
 /*
@@ -863,7 +939,7 @@ Responsive grid
 * `$from`: Direction, ltr or rtl
 * `$media`: Media query to to use, for responsive grids
 
-Styleguide 26.21
+Styleguide 26.15
 
 */
 /*
@@ -878,7 +954,7 @@ Animations
 * `$function`: Easing, see 20.2 for a list of all easing options available
 * `$mode`: animation-fill-mode (http://mzl.la/1g6ixCc), default to *both*
 
-Styleguide 26.22
+Styleguide 26.16
 
 */
 /*
@@ -917,7 +993,71 @@ Will be compiled to:
       animation: fadeIn 0.5s 2s ease-out both;
     }
 
-Styleguide 26.23
+Styleguide 26.17
+
+*/
+/*
+
+Compass shortcuts
+
+These are some mixin not available to Bourbon (inspired by Compass) that help as 
+aliases for longer mixin calls.
+
+Tranform shortcuts:
+
+    @include translateX(5em)              # @include transform(translateX($n))
+    @include translateY(5em)              # @include transform(translateY($n))
+    @include translateZ(5em)              # @include transform(translateZ($n))
+    @include scale(1.5)                   # @include transform(scale($n))
+    @include scaleX(1.5)                  # @include transform(scaleX($n))
+    @include scaleY(1.5)                  # @include transform(scaleY($n))
+    @include scaleZ(1.5)                  # @include transform(scaleZ($n))
+    @include rotate(90deg)                # @include transform(rotate($n))
+    @include rotateX(90deg)               # @include transform(rotateX($n))
+    @include rotateY(90deg)               # @include transform(rotateY($n))
+    @include rotateZ(90deg)               # @include transform(rotate($n))
+
+Others shortcuts:
+
+    @include sprite-size( sprite_name )   # Include size of sprite
+    @include default-transition()         # Add the default transition
+    @include inline-block()               # Overwite the Bourbon's one with a better version
+
+Styleguide 26.20
+
+*/
+/*
+
+Compass failbacks
+
+These mixins still exist for backward compatibility with old versions of Rapido 
+but they serve only as an alias for the plan css attributes without prefixes.
+
+    @include border-radius($n)
+    @include box-shadow($n..)
+    @include border-top-right-radius($n)
+    @include border-top-left-radius($n)
+    @include border-bottom-left-radius($n)
+    @include border-bottom-right-radius($n)
+
+Styleguide 26.21
+
+*/
+/*
+
+Bourbon alternatives
+
+In the latest version of Bourbon the mixin 'position' changed behaviour from 
+usin 0 for null values to actually use null, because is not backward compatible 
+this is an alias to the old version.
+
+    @include old-position(relative, 1em 0 0 1em)    
+
+It's the same as:
+
+    @include position(relative, 1em null null 1em)
+
+Styleguide 26.22
 
 */
 /*
@@ -926,7 +1066,7 @@ Helper Classes
 
 There are provided some helper classes usually used with `@extend` for applying effects or common styles.
 
-Styleguide 25
+Styleguide 24
 
 */
 /*
@@ -947,7 +1087,7 @@ Others:
     .right
     .inline-block
 
-Styleguide 25.1
+Styleguide 24.1
 
 */
 .clearfix:after {
@@ -999,7 +1139,7 @@ Same a `.wrapper` but with fixed width.
     .fixed-wrapper
     .fw
 
-Styleguide 25.2
+Styleguide 24.2
 
 */
 .wrapper, .w {
@@ -1042,7 +1182,7 @@ Corrispond to:
 
     width: 50% !important;
 
-Styleguide 25.3
+Styleguide 24.3
 
 */
 [data-width="5"] {
@@ -1149,7 +1289,7 @@ Some common classes for fixing the typography, to be used sparingly.
     .text-right     # text-align: right
     .text-center    # text-align: center
 
-Styleguide 25.4
+Styleguide 24.4
 
 */
 .lead {
@@ -1189,7 +1329,7 @@ Simple class used for spriting.
 
     .s
 
-Styleguide 25.5
+Styleguide 24.5
 
 */
 .s {
@@ -1221,7 +1361,7 @@ All the text replacement classes from from [html5boilerplate](http://html5boiler
     .visuallyhidden
     .invisible
 
-Styleguide 25.6
+Styleguide 24.6
 
 */
 .ir {
@@ -1279,7 +1419,7 @@ and finding errors. Taken form [Inuit](https://github.com/csswizardry/inuit.css)
 
 Enable it with `$debug-html: true;`.
 
-Styleguide 23
+Styleguide 25
 
 */
 /*
@@ -1292,7 +1432,7 @@ Taken form [Pesticide](https://github.com/mrmrs/pesticide).
 
 Enable it with `$debug-outlines: true;`.
 
-Styleguide 23.1
+Styleguide 25.1
 
 */
 /*
@@ -1301,15 +1441,15 @@ Animations
 
 All the animations in [theCSSguru](https://twitter.com/theCSSguru)'s [Animate mixin](http://thecssguru.freeiz.com/animate/) are available with the same mixin:
 
-* **Attention seekers:** flash, bounce, shake, tada
-* **Fading entrances:** , fadeIn, fadeInUp, fadeInDown, fadeInLeft, fadeInRight, fadeInUpBig, fadeInDownBig, fadeInLeftBig, fadeInRightBig
-* **Fading exits**: fadeOut, fadeOutUp, fadeOutDown, fadeOutLeft, fadeOutRight, fadeOutUpBig, fadeOutDownBig, fadeOutLeftBig, fadeOutRightBig
-* **Bouncing entrances:** bounceIn, bounceInDown, bounceInUp, bounceInLeft, bounceInRight
-* **Bouncing exits:** bounceOut, bounceOutDown, bounceOutUp, bounceOutLeft, bounceOutRight
-* **Rotating entrances:** rotateIn, rotateInDownLeft, rotateInDownRight, rotateInUpLeft, rotateInUpRight
-* **Rotating exits:** rotateOut, rotateOutDownLeft, rotateOutDownRight, rotateOutUpLeft, rotateOutUpRight
+* **Attention seekers:** `flash` `bounce` `shake` `tada`
+* **Fading entrances:** `fadeIn` `fadeInUp` `fadeInDown` `fadeInLeft` `fadeInRight` `fadeInUpBig` `fadeInDownBig` `fadeInLeftBig` `fadeInRightBig`
+* **Fading exits**: `fadeOut` `fadeOutUp` `fadeOutDown` `fadeOutLeft` `fadeOutRight` `fadeOutUpBig` `fadeOutDownBig` `fadeOutLeftBig` `fadeOutRightBig`
+* **Bouncing entrances:** `bounceIn` `bounceInDown` `bounceInUp` `bounceInLeft` `bounceInRight`
+* **Bouncing exits:** `bounceOut` `bounceOutDown` `bounceOutUp` `bounceOutLeft` `bounceOutRight`
+* **Rotating entrances:** `rotateIn` `rotateInDownLeft` `rotateInDownRight` `rotateInUpLeft` `rotateInUpRight`
+* **Rotating exits:** `rotateOut` `rotateOutDownLeft` `rotateOutDownRight` `rotateOutUpLeft` `rotateOutUpRight`
 
-Styleguide 24
+Styleguide 2
 
 */
 /*
@@ -1322,7 +1462,7 @@ Example:
 
     @extend .fadeIn;
 
-Styleguide 24.3
+Styleguide 2.3
 
 */
 .fadeIn, .overlay-background.open {
@@ -1353,15 +1493,14 @@ Styleguide 24.3
 
 Classes for delays
 
-Like classes for the animations are also available 8 classes for delays.
-Available delays: .delay-25, .delay-50, .delay-75, .delay-100, .delay-125,
-.delay-150, .delay-175, .delay-200.
+Like classes for the animations are also available 13 classes for delays.
+Available delays: `.delay-0` `.delay-25` `.delay-50` `.delay-75` `.delay-100` `.delay-125` `.delay-150` `.delay-175` `.delay-200` `.delay-225` `.delay-250` `.delay-275` `.delay-300`.
 
 Example:
 
     @extend .delay-50;
 
-Styleguide 24.4
+Styleguide 2.4
 
 */
 .delay-0 {
@@ -1453,9 +1592,9 @@ Include this js after including rapido.js.
 
     $('.articles').rapido_Animation();
 
-**Options** (with default values):
+**Options** `(with` d`efault` values)`:`
 
-    offset:     500
+`    offset`: `    500`
     offsetClass: .offcanvas__content (if using an offset layout with a custom class)
 
 Example:
@@ -1465,7 +1604,7 @@ Example:
     </section>
 
 
-Styleguide 24.5
+Styleguide 2.5
 
 */
 [data-animation*="fadeIn"] {
@@ -1477,10 +1616,10 @@ Styleguide 24.5
 
 Animation mixin
 
-Also available is an "animate" mixin, for more information see the Mixins
+Also available is an `animate` mixin, for more information see the Mixins
 section.
 
-Styleguide 24.6
+Styleguide 2.6
 
 */
 @-webkit-keyframes fadeIn {
@@ -1714,7 +1853,7 @@ Markup:
   <li><button class="btn btn--default">Right</button></li>
 </ul>
 
-Styleguide 4
+Styleguide 6
 
 */
 .btn-group {
@@ -1849,7 +1988,7 @@ Markup:
 :active - Selected element style, also available with `.active`
 .disabled - Disabled state style.
 
-Styleguide 3
+Styleguide 5
 
 */
 .btn, .picker__nav--prev,
@@ -1904,20 +2043,12 @@ Styleguide 3
 
 Buttons with Icons
 
-To add an icon to a button (or eny other type of element) just enable the font
-(see 27.2), add a class with the name of the font and use the unicode of
-the character.
-
-It's not a pretty way of doing it, if you prefer more fine control i suggest
-to ditch the icon font integration and use the tools and resources made
-available on the fonts sites.
-
 Markup:
-<a href="#" class="btn btn--default fontawesome">&#xf02b;</a>
-<a href="#" class="btn btn--default fontawesome">&#xf040;</a>
-<a href="#" class="btn btn--default fontawesome">&#xf06c;</a>
+<a href="#" class="btn btn--default"><i class="fa fa-leaf"></i></a>
+<a href="#" class="btn btn--default"><i class="fa fa-tag"></i></a>
+<a href="#" class="btn btn--default"><i class="fa fa-heart"></i></a>
 
-Styleguide 3.1
+Styleguide 5.1
 
 */
 /*
@@ -1929,7 +2060,7 @@ Markup:
 <a href="#" class="btn btn--primary">Link Button</a>
 <a href="#" class="btn btn--secondary">Link Button</a>
 
-Styleguide 3.2
+Styleguide 5.2
 
 */
 /*
@@ -1942,7 +2073,7 @@ Markup:
 <a href="#" class="btn btn--default btn--small">Link Button</a>
 <a href="#" class="btn btn--default btn--mini">Link Button</a>
 
-Styleguide 3.3
+Styleguide 5.3
 
 */
 .btn, .picker__nav--prev,
@@ -1988,7 +2119,7 @@ Markup:
 .btn--pill - Button width rounded full corners.
 .btn--link - Deemphasize a button by making it look like a link while maintaining button behavior.
 
-Styleguide 3.4
+Styleguide 5.4
 
 */
 .btn--block {
@@ -2016,7 +2147,7 @@ Markup:
 <a href="#" class="btn btn--link ">Link Button</a>
 <button class="btn btn--link">Button Element</button>
 
-Styleguide 3.5
+Styleguide 5.5
 
 */
 .btn--link, .picker__nav--prev,
@@ -2062,7 +2193,7 @@ Markup:
 <a href="#" class="close">&times;</a>
 <button type="button" class="close">&times;</button>
 
-Styleguide 6
+Styleguide 8
 
 */
 .close {
@@ -2142,7 +2273,7 @@ Include this js after including rapido.js.
     wrapperClass:  .dropdown
     togglerClass:  .dropdown__toggle
 
-Styleguide 7
+Styleguide 9
 
 */
 .dropdown,
@@ -2167,7 +2298,7 @@ A simple helper class is available to add an arrow for the dropdown button.
 
 Markup: <span class="dropdown__caret"></span>
 
-Styleguide 7.1
+Styleguide 9.1
 
 */
 /*
@@ -2185,7 +2316,7 @@ List of the links to show in the dropdown.
       <li><a tabindex="-1" href="#">Separated link</a></li>
     </ul>
 
-Styleguide 7.2
+Styleguide 9.2
 
 */
 .dropdown__menu {
@@ -2303,7 +2434,7 @@ stacked, left-aligned labels on top of form controls.
         * **`.form__help--inline`**: Inline help text that appears aside form controls.
 * **`.form__actions`**: End a form with a group of actions (buttons). When placed within a `.form__actions`, the buttons will automatically indent to line up with the form controls.
 
-Styleguide 8
+Styleguide 10
 
 */
 form {
@@ -2580,7 +2711,7 @@ Main labels for the form using `.form__label`
 
 Markup: <label class="form__label">Label</label>
 
-Styleguide 8.1
+Styleguide 10.1
 
 */
 .form__label {
@@ -2605,7 +2736,7 @@ Markup:
 
 .inline - Inline alignment with `.inline`
 
-Styleguide 8.2
+Styleguide 10.2
 
 */
 .form__radio,
@@ -2671,7 +2802,7 @@ Include this js after including rapido.js.
 
     selectClass:      .form__select
 
-Styleguide 8.3
+Styleguide 10.3
 
 */
 .form__select {
@@ -2723,15 +2854,15 @@ Custom icons in inputs
 
 Markup:
 <div class="form__controls">
-  <span class="form__icon fontawesome">&#xf02b;</span>
+  <span class="form__icon"><i class="fa fa-leaf"></i></span>
   <input type="text">
 </div>
 <div class="form__controls">
-  <span class="form__icon fontawesome pull-right">&#xf040;</span>
+  <span class="form__icon pull-right"><i class="fa fa-tag"></i></span>
   <input type="text">
 </div>
 
-Styleguide 8.4
+Styleguide 10.4
 
 */
 .form__icon {
@@ -2766,7 +2897,7 @@ Markup:
 .form__help--block - Block Help
 .form__help--inline - Help Inline
 
-Styleguide 8.5
+Styleguide 10.5
 
 */
 .form__help--block,
@@ -2825,7 +2956,7 @@ Include this js after including rapido.js.
     suggestClass:     .form__suggest
     suggestAttr:      title
 
-Styleguide 8.6
+Styleguide 10.6
 
 */
 .form__suggest {
@@ -2858,7 +2989,7 @@ Append & Prepend
 
 Markup:
 <div class="form__controls form__controls--multi">
-  <span class="form__addon fontawesome">&#xf06c;</span>
+  <span class="form__addon"><i class="fa fa-leaf"></i></span>
   <span class="form__addon">$</span>
   <input type="text">
   <div class="form__suggest">
@@ -2876,7 +3007,7 @@ Markup:
   <button type="submit" class="btn btn--default form__addon">Search</button>
 </div>
 
-Styleguide 8.8
+Styleguide 10.8
 
 */
 .form__addon {
@@ -2935,7 +3066,7 @@ Markup:
   <button type="button" class="btn btn--default btn--secondary">Cancel</button>
 </div>
 
-Styleguide 8.9
+Styleguide 10.9
 
 */
 .form__actions {
@@ -3006,7 +3137,7 @@ Markup:
 .form--aligned - Right align labels and float them to the left to make them appear on the same line as controls.
 .form--inline - For left-aligned labels and inline-block controls for a compact layout. This layout doesn't support `.form__group`, `.form__addon`, `.form__actions`
 
-Styleguide 8.10
+Styleguide 10.10
 
 */
 .form--grid .form__group {
@@ -3090,7 +3221,7 @@ Markup:
 
 </form>
 
-Styleguide 8.10.1
+Styleguide 10.10.1
 
 */
 .form--inline > * {
@@ -3173,7 +3304,7 @@ Markup:
   });
 </script>
 
-Styleguide 11
+Styleguide 12
 
 */
 .modal {
@@ -3400,7 +3531,7 @@ Markup:
   });
 </script>
 
-Styleguide 11.1
+Styleguide 12.1
 
 */
 #fancybox-buttons {
@@ -3478,7 +3609,7 @@ Markup:
   });
 </script>
 
-Styleguide 11.2
+Styleguide 12.2
 
 */
 #fancybox-thumbs {
@@ -3551,7 +3682,7 @@ Markup:
 .nav--inline.nav--btn.nav--pills -  Horizontal and blocky links with rounded corners.
 .nav--vertical.nav--btn - Vertical nav layout and blocky links
 
-Styleguide 12
+Styleguide 13
 
 */
 .nav {
@@ -3680,7 +3811,7 @@ Script required: **rapido.js**.
       </div>
     </div>
 
-Styleguide 15
+Styleguide 14
 
 */
 /*
@@ -3699,7 +3830,7 @@ Include this js after including rapido.js.
 
 For opening and closing the sidebar add the class `offcanvas__menu--toggle` to a link or button.
 
-Styleguide 15.2
+Styleguide 14.2
 
 */
 html,
@@ -3842,9 +3973,9 @@ Script required:
 
 Markup:
 <ul class="slider">
-  <li><img src="http://placehold.it/800x300/c7e843/fff.jpg" /></li>
-  <li><img src="http://placehold.it/800x300/f6ab48/fff.jpg" /></li>
-  <li><img src="http://placehold.it/800x300/3dced4/fff.jpg" /></li>
+  <li><img src="http://placehold.it/1000x300/c7e843/fff.jpg" /></li>
+  <li><img src="http://placehold.it/1000x300/f6ab48/fff.jpg" /></li>
+  <li><img src="http://placehold.it/1000x300/3dced4/fff.jpg" /></li>
 </ul>
 <script type="text/javascript">
   $(document).ready(function() {
@@ -3855,7 +3986,7 @@ Markup:
   });
 </script>
 
-Styleguide 16
+Styleguide 18
 
 */
 .bx-wrapper {
@@ -3964,7 +4095,7 @@ Markup:
 .table--hover - Enable a hover state on table rows within a `<tbody>`.
 .table--condensed - Makes tables more compact by cutting cell padding in half.
 
-Styleguide 20
+Styleguide 19
 
 */
 table {
@@ -4053,7 +4184,7 @@ Markup:
   });
 </script>
 
-Styleguide 21
+Styleguide 20
 
 */
 .tabs {
@@ -4136,14 +4267,14 @@ default styling, es:
     [data-toggle-content]       { display: none; }
     [data-toggle-content].open  { display: block; }
 
-Styleguide 17
+Styleguide 21
 
 */
 /*
 
 Type
 
-Styleguide 22
+Styleguide 23
 
 */
 *, *:before, *:after {
@@ -4198,7 +4329,7 @@ Markup:
 <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec id elit non mi porta gravida at eget metus.</p>
 <small><p>Tight pants next level keffiyeh. Photo booth beard raw denim letterpress vegan messenger bag stumptown.</small>
 
-Styleguide 22.1
+Styleguide 23.1
 
 */
 p {
@@ -4234,7 +4365,7 @@ Markup:
 <h5>h5. This is a small header. h1.</h5>
 <h6>h6. This is a tiny header. h1.</h6>
 
-Styleguide 22.2
+Styleguide 23.2
 
 */
 h1, h2, h3, h4, h5, h6 {
@@ -4320,7 +4451,7 @@ Markup:
   <li>Ordered list item</li>
 </ol>
 
-Styleguide 22.3
+Styleguide 23.3
 
 */
 .list_style_none, .bx-wrapper ul,
@@ -4376,7 +4507,7 @@ Markup:
   <dd>A geologist’s hammer, rock hammer, rock pick or geological pick is a hammer used for splitting and breaking rocks.</dd>
 </dl>
 
-Styleguide 22.4
+Styleguide 23.4
 
 */
 dl {
@@ -4403,7 +4534,7 @@ Markup:
   <dd>A geologist’s hammer, rock hammer, rock pick or geological pick is a hammer used for splitting and breaking rocks.</dd>
 </dl>
 
-Styleguide 22.4.1
+Styleguide 23.4.1
 
 */
 .dl-horizontal:after {
@@ -4430,7 +4561,7 @@ Horizontal line
 
 Markup: <hr />
 
-Styleguide 22.5
+Styleguide 23.5
 
 */
 hr {
@@ -4460,7 +4591,7 @@ Markup:
   <small><cite>Rock Hammer</cite></small>
 </blockquote>
 
-Styleguide 22.6
+Styleguide 23.6
 
 */
 blockquote {
@@ -4527,7 +4658,7 @@ Markup:
 
 **`.active`**: Selected element style
 
-Styleguide 2
+Styleguide 4
 
 */
 .breadcrumbs {
@@ -4548,7 +4679,7 @@ Captions
 
 Captions effects adapted from [Effect.css](https://github.com/h5bp/Effect.css).
 
-Effects availables (first example is without effect): `quarter-appear`, `quarter-slide-up`, `quarter-slide-side`, `cover-fade`, `quarter-fall-in`, `quarter-two-step`, `cover-push-right`, `cover-slide-top`, `quarter-zoom`, `revolving-door-left`, `revolving-door-right`, `revolving-door-top`, `revolving-door-bottom`, `offset`, `guillotine-reverse`, `half-slide`.
+Effects availables (first example is without effect): `quarter-appear` `quarter-slide-up` `quarter-slide-side` `cover-fade` `quarter-fall-in` `quarter-two-step` `cover-push-right` `cover-slide-top` `quarter-zoom` `revolving-door-left` `revolving-door-right` `revolving-door-top` `revolving-door-bottom` `offset` `guillotine-reverse` `half-slide`.
 
 Markup:
 <figure class="caption" data-effect-type="{$modifiers}">
@@ -4578,7 +4709,7 @@ offset - Offset
 guillotine-reverse - Guillotine Reverse
 half-slide - Half Slide
 
-Styleguide 5
+Styleguide 7
 
 */
 .caption {
@@ -5063,7 +5194,7 @@ Markup:
 <div class="desk-3 lap-6 palm-12">7</div>
 <div class="desk-3 lap-6 palm-12">8</div>
 
-Styleguide 9
+Styleguide 11
 
 *//*
 
@@ -5083,8 +5214,20 @@ There're also available some helper classes:
     * `.portable-show`
     * `.lap-and-up-show`
     * `.desk-show`
+* **Omega element**: Used to apply a margin: 0 on the last item on the row
+    * `.palm-omega`
+    * `.lap-omega`
+    * `.portable-omega`
+    * `.lap-and-up-somega`
+    * `.desk-omega`
+* **Reverse element**: Used to reverse the direction
+    * `.palm-reverse`
+    * `.lap-reverse`
+    * `.portable-reverse`
+    * `.lap-and-up-reverse`
+    * `.desk-reverse`    
 
-Styleguide 9.1
+Styleguide 11.1
 
 *//*
 
@@ -5096,7 +5239,7 @@ Markup:
 <span class="badge">Badge Label</span>
 <span class="pill">Pill label</span>
 
-Styleguide 10
+Styleguide 3
 
 */
 .badge,
@@ -5137,7 +5280,7 @@ Markup:
 <button class="btn btn--default">Action <span class="badge">2</span></button>
 <button class="btn btn--default btn--pill">Action <span class="pill">2</span></button>
 
-Styleguide 10.1
+Styleguide 3.1
 
 */
 .btn .badge, .picker__nav--prev .badge,
@@ -5188,7 +5331,7 @@ Include this js after including rapido.js.
     closeClass:       .overlay-close
     backgroundClass:  .overlay-background
 
-Styleguide 18
+Styleguide 15
 
 */
 [data-overlay-content] {
@@ -5241,7 +5384,7 @@ Markup:
   <li><a href="#">Next</a></li>
 </ul>
 
-Styleguide 13
+Styleguide 16
 
 */
 .pager {
@@ -5260,7 +5403,7 @@ Styleguide 13
     <li class="next"><a href="#">Next</a></li>
   </ul>
   
-  Styleguide 13.1
+  Styleguide 16.1
   
   */
   /*
@@ -5275,7 +5418,7 @@ Styleguide 13
     <li class="next"><a href="#">Newer →</a></li>
   </ul>
   
-  Styleguide 13.2
+  Styleguide 16.2
   
   */
 }
@@ -5340,7 +5483,7 @@ Markup:
 .pagination--right - Right aligned pagination.
 .pagination--rounded - Rounded sides.
 
-Styleguide 14
+Styleguide 17
 
 */
 .pagination {
@@ -5440,7 +5583,7 @@ Include this js after including rapido.js.
 
     margin:            15
 
-Styleguide 19
+Styleguide 22
 
 */
 [data-tooltip-position="top"] + .tooltip {
@@ -5540,6 +5683,9 @@ Styleguide 19
   max-height: 600px;
   visibility: visible;
 }
+.tooltip.left-offset:after {
+  left: 2em !important;
+}
 .tooltip:after {
   content: "";
   display: block;
@@ -5561,7 +5707,7 @@ Markup:
   });
 </script>
 
-Styleguide 8.7
+Styleguide 10.7
 
 */
 .picker {
