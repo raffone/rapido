@@ -16,18 +16,19 @@ Markup:
     <li class='tab'><a href="#tabs1-js">Required JS</a></li>
     <li class='tab'><a href="#tabs1-css">Example CSS</a></li>
   </ul>
-   <div class='panel-container'>
-  <div id="tabs1-html">
-    <h5>HTML Markup for these tabs</h5>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-  </div>
-  <div id="tabs1-js">
-    <h5>JS for these tabs</h5>
-    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-  </div>
-  <div id="tabs1-css">
-    <h5>CSS Styles for these tabs</h5>
-    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+  <div class='panel-container'>
+    <div id="tabs1-html">
+      <h5>HTML Markup for these tabs</h5>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div id="tabs1-js">
+      <h5>JS for these tabs</h5>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    <div id="tabs1-css">
+      <h5>CSS Styles for these tabs</h5>
+      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+    </div>
   </div>
 </div>
 <script type="text/javascript">
@@ -42,59 +43,57 @@ Styleguide 20
 
 */
 
-
-
 @if $tabs {
 
-    .tabs {
-        margin-bottom: rhythm();
+  .tabs {
+    margin-bottom: rhythm();
 
-        .etabs {
-            margin: 0;
-            padding: 0;
-            @extend %tab__nav !optional;
+    .etabs {
+      margin: 0;
+      padding: 0;
+      @extend %tab__nav !optional;
 
-            li {
-                @include inline-block;
+      li {
+        @include inline-block;
 
-                a {
-                    line-height: 1em;
-                    display: block;
-                    padding: $tabs-tab-padding;
-                    outline: none;
-                    border-radius: $base-border-radius $base-border-radius 0 0;
-                    @extend %tab__btn !optional;
+        a {
+          line-height: 1em;
+          display: block;
+          padding: $tabs-tab-padding;
+          outline: none;
+          border-radius: $base-border-radius $base-border-radius 0 0;
+          @extend %tab__btn !optional;
 
-                    &:hover {
-                        @extend %tab__btn__hover !optional;
-                    }
-                }
+          &:hover {
+            @extend %tab__btn__hover !optional;
+          }
+        }
 
-                &.active {
-                    a {
-                        position: relative;
-                        font-weight: bold;
-                        @extend %tab__btn__current !optional;
+        &.active {
+          a {
+            position: relative;
+            font-weight: bold;
+            @extend %tab__btn__current !optional;
 
-                        &:after {
-                            @include position(absolute, null 0px -1px 0px);
-                            height: 2px;
-                            display: block;
-                            content: "";
-                        }
-                    }
-
-                }
-
+            &:after {
+              @include position(absolute, null 0px -1px 0px);
+              height: 2px;
+              display: block;
+              content: "";
             }
+          }
+
         }
 
-        .panel-container {
-            @extend %tab__container !optional;
-            border-radius: 0 $base-border-radius $base-border-radius ;
-            > div {padding: $tabs-content-padding;}
-        }
-
+      }
     }
+
+    .panel-container {
+      @extend %tab__container !optional;
+      border-radius: 0 $base-border-radius $base-border-radius ;
+      > div {padding: $tabs-content-padding;}
+    }
+
+  }
 
 }

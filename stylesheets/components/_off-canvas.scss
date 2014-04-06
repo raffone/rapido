@@ -41,8 +41,6 @@ Styleguide 14.2
 
 */
 
-
-
 @if $offcanvas {
 
   $if-left: null;
@@ -82,7 +80,6 @@ Styleguide 14.2
     @include position(relative, 0 $if-right 0 $if-left);
     @include transition(all $offcanvas-animations-duration);
     z-index: $zindex-offcanvas;
-
 
     &::after {
       @include opacity(0);
@@ -151,7 +148,6 @@ Styleguide 14.2
     }
 
   }
-
 
   // ----------------------------------------------------------------------------
 

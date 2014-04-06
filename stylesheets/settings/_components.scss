@@ -40,7 +40,6 @@ Styleguide 30
 
 */
 
-
 $alerts:                            true   !default;
 $breadcrumbs:                       true   !default;
 $button-groups:                     true   !default;
@@ -87,14 +86,12 @@ Styleguide 30.1
 $s-sprite-dimensions:               true   !default;
 $s-layout:                          smart  !default;
 
-
 /*
 
 Icon Fonts
 
 Icon Fonts ready to use with the mixin `icon-font`.
 Font files are not required, is used the [We Love Icon Fonts](http://weloveiconfonts.com/) CDN.
-
 
     $use-fontawesome:               false  # http://fortawesome.github.io/Font-Awesome/
     $use-brandico:                  false  # http://fontello.github.io/brandico.font/demo.html

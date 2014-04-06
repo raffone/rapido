@@ -14,60 +14,57 @@ Styleguide 25
 
 @if $debug-html {
 
-    :empty { outline:5px solid yellow;}
+  :empty { outline:5px solid yellow;}
 
-    img {outline: 5px solid red;}
-    img[alt] {outline: none;}
-    img[alt=""] {outline: 5px solid yellow;}
+  img {outline: 5px solid red;}
+  img[alt] {outline: none;}
+  img[alt=""] {outline: 5px solid yellow;}
 
-    a {outline: 5px solid yellow;}
+  a {outline: 5px solid yellow;}
 
-    a[title] {outline: none;}
-    a[href="#"], a[href*="javascript"] {outline: 5px solid yellow;}
+  a[title] {outline: none;}
+  a[href="#"], a[href*="javascript"] {outline: 5px solid yellow;}
 
+  a[target] {outline: 5px solid yellow;}
 
-    a[target] {outline: 5px solid yellow;}
-
-    ul, ol {
-        > *:not(li){
-            outline:5px solid red;
-        }
+  ul, ol {
+    > *:not(li){
+      outline:5px solid red;
     }
+  }
 
-    th {outline: 5px solid yellow;}
-    th[scope] {outline: none;}
-    table > tr {outline: 5px solid yellow;}
-    tbody + tfoot {outline: 5px solid yellow;}
+  th {outline: 5px solid yellow;}
+  th[scope] {outline: none;}
+  table > tr {outline: 5px solid yellow;}
+  tbody + tfoot {outline: 5px solid yellow;}
 
+  form {outline: 5px solid red;}
+  form[action] {outline: none;}
 
-    form {outline: 5px solid red;}
-    form[action] {outline: none;}
+  textarea, input {outline: 5px solid red;}
+  input[type] {outline: none;}
+  textarea[rows][cols] {outline: none;}
+  input[type=submit] {outline: 5px solid red;}
+  input[type=submit][value] {outline: none;}
 
-    textarea, input {outline: 5px solid red;}
-    input[type] {outline: none;}
-    textarea[rows][cols] {outline: none;}
-    input[type=submit] {outline: 5px solid red;}
-    input[type=submit][value] {outline: none;}
-
-    [style] {outline: 5px solid yellow;}
-    [id] {outline: 5px solid yellow;}
-
+  [style] {outline: 5px solid yellow;}
+  [id] {outline: 5px solid yellow;}
 
 // btn-groups
 //
-    .btn-group > li:first-child .btn                    { background: YellowGreen   !important; }
-    .btn-group > li:last-child .btn                     { background: Wheat !important; }
-    div.btn-group .btn                                  { background: Tomato    !important; }
+  .btn-group > li:first-child .btn                    { background: YellowGreen   !important; }
+  .btn-group > li:last-child .btn                     { background: Wheat !important; }
+  div.btn-group .btn                                  { background: Tomato    !important; }
 
-    .form__controls--multi {
-        .btn-group:first-child > li:first-child .btn    { background: red !important; }
-        .btn-group:first-child > li:last-child .btn     { background: blue !important; }
-        div.btn-group:first-child .btn                  { background: green !important; }
+  .form__controls--multi {
+    .btn-group:first-child > li:first-child .btn    { background: red !important; }
+    .btn-group:first-child > li:last-child .btn     { background: blue !important; }
+    div.btn-group:first-child .btn                  { background: green !important; }
 
-        .btn-group:last-child > li:first-child .btn     { background: purple !important; }
-        .btn-group:last-child > li:last-child .btn      { background: yellow !important; }
-        div.btn-group:last-child > .btn                 { background: teal !important; }
-    }
+    .btn-group:last-child > li:first-child .btn     { background: purple !important; }
+    .btn-group:last-child > li:last-child .btn      { background: yellow !important; }
+    div.btn-group:last-child > .btn                 { background: teal !important; }
+  }
 
 }
 
@@ -85,17 +82,16 @@ Styleguide 25.1
 
 */
 
-
 @if $debug-outlines == true {
-    $selector: a,  abbr, address, article, blockquote, caption, code, div, dl, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hr, img, input, label, legend, li, nav, ol, option, p, pre, progress, s, samp, sbd, section, select, code, small, span, sub, submit, sup, table, tbody, td, textarea, tfoot, th, thead, time, tr, ul, var;
-    $color: crimson,  aqua, aquamarine, blueviolet, cadetblue, cornflowerblue, coral, orchid, darkcyan, darkmagenta, darkorange, deeppink, gold, goldenrod, greenyellow, lavender, lightblue, lightcoral, lightcyan, lightgreen, lightsalmon, lightseagreen, lightskyblue, mediumaquamarine, mediumorchid, orangered, palevioletred, plum, purple, royalblue, tomato, turquoise, violet, yellow, sandybrown, brown, powderblue, palegreen, navy, mediumpurple, mediumslateblue, mintcream, mistyrose, moccasin, black, gray, dodgerblue, dimgray, deepskyblue, green, lightsteelblue, lightslategray, lime, limegreen, firebrick;
-    #{$selector} {
-        outline-width: 1px;
-        outline-style: solid;
+  $selector: a,  abbr, address, article, blockquote, caption, code, div, dl, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hr, img, input, label, legend, li, nav, ol, option, p, pre, progress, s, samp, sbd, section, select, code, small, span, sub, submit, sup, table, tbody, td, textarea, tfoot, th, thead, time, tr, ul, var;
+  $color: crimson,  aqua, aquamarine, blueviolet, cadetblue, cornflowerblue, coral, orchid, darkcyan, darkmagenta, darkorange, deeppink, gold, goldenrod, greenyellow, lavender, lightblue, lightcoral, lightcyan, lightgreen, lightsalmon, lightseagreen, lightskyblue, mediumaquamarine, mediumorchid, orangered, palevioletred, plum, purple, royalblue, tomato, turquoise, violet, yellow, sandybrown, brown, powderblue, palegreen, navy, mediumpurple, mediumslateblue, mintcream, mistyrose, moccasin, black, gray, dodgerblue, dimgray, deepskyblue, green, lightsteelblue, lightslategray, lime, limegreen, firebrick;
+  #{$selector} {
+    outline-width: 1px;
+    outline-style: solid;
+  }
+  @for $i from 0 to length($selector) {
+    #{nth($selector, ($i + 1))} {
+      outline-color: nth($color, ($i + 1));
     }
-    @for $i from 0 to length($selector) {
-        #{nth($selector, ($i + 1))} {
-            outline-color: nth($color, ($i + 1));
-        }
-    }
+  }
 }

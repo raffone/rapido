@@ -35,93 +35,93 @@ Styleguide 19
 
 @if $tables {
 
-    table {
-        max-width: 100%;
-        border-collapse: collapse;
-        border-spacing: 0;
+  table {
+    max-width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  .table {
+    width: 100%;
+    margin-bottom: rhythm(1);
+
+    th,
+    td {
+      padding: $tables-padding;
+      line-height: rhythm(1);
+      text-align: left;
+      vertical-align: top;
     }
 
-    .table {
-        width: 100%;
-        margin-bottom: rhythm(1);
+    th { font-weight: bold; }
 
-        th,
-        td {
-            padding: $tables-padding;
-            line-height: rhythm(1);
-            text-align: left;
-            vertical-align: top;
-        }
+    thead th { vertical-align: bottom; }
 
-        th { font-weight: bold; }
-
-        thead th { vertical-align: bottom; }
-
-        caption + thead tr:first-child th,
-        caption + thead tr:first-child td,
-        colgroup + thead tr:first-child th,
-        colgroup + thead tr:first-child td,
-        thead:first-child tr:first-child th,
-        thead:first-child tr:first-child td {
-            border-top: 0;
-
-        }
-
-        tbody + tbody { border-top: 2px solid $grayLight; }
+    caption + thead tr:first-child th,
+    caption + thead tr:first-child td,
+    colgroup + thead tr:first-child th,
+    colgroup + thead tr:first-child td,
+    thead:first-child tr:first-child th,
+    thead:first-child tr:first-child td {
+      border-top: 0;
 
     }
+
+    tbody + tbody { border-top: 2px solid $grayLight; }
+
+  }
 
 // Condensed Table w/ Half Padding
 
-    .table--condensed {
-        $half-top: nth($tables-padding, 1) / 2;
-        $half-side: nth($tables-padding, 2) / 2;
+  .table--condensed {
+    $half-top: nth($tables-padding, 1) / 2;
+    $half-side: nth($tables-padding, 2) / 2;
 
-        th, td { padding: $half-top $half-side; }
-    }
+    th, td { padding: $half-top $half-side; }
+  }
 
 // Zebra-striping
 
-    .table--striped {
-        tbody {
-            > tr:nth-child(odd) > td,
-            > tr:nth-child(odd) > th {
-                @extend %table--striped !optional;
-            }
-        }
+  .table--striped {
+    tbody {
+      > tr:nth-child(odd) > td,
+      > tr:nth-child(odd) > th {
+        @extend %table--striped !optional;
+      }
     }
+  }
 
 // Bordered Version
 
-    .table--bordered {
-        @extend %table--bordered !optional;
-    }
+  .table--bordered {
+    @extend %table--bordered !optional;
+  }
 
 // Hover effect
 
-    .table--hover {
-        tbody {
-            tr:hover > td,
-            tr:hover > th {
-                @extend %table--hover !optional;
-            }
-        }
+  .table--hover {
+    tbody {
+      tr:hover > td,
+      tr:hover > th {
+        @extend %table--hover !optional;
+      }
     }
+  }
 
 // Sortable
 
-    .table--sortable {
-        @extend %table--sortable !optional;
+  .table--sortable {
+    @extend %table--sortable !optional;
 
-        thead {
-            th {
-                cursor: pointer;
+    thead {
+      th {
+        cursor: pointer;
 
-                &.sorting-asc:after,
-                &.sorting-desc:after {
-                    float: right;
-                }
-            }
+        &.sorting-asc:after,
+        &.sorting-desc:after {
+          float: right;
         }
+      }
     }
+  }
 }

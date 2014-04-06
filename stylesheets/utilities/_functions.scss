@@ -21,7 +21,6 @@ To convert `PX` to `EM` using the `$base-font-size` as font size.
 
 Styleguide 27.1
 
-
 /*
 
 Neg
@@ -40,8 +39,6 @@ Styleguide 27.2
     @return (0 - $n);
 }
 
-
-
 // Failbacks Susy One
 // ----------------------------------------------------------------------------
 
@@ -58,7 +55,6 @@ Styleguide 27.2
   @return percentage($width / columns-width($context));
 }
 
-
 /*
 
 Columns
@@ -71,13 +67,11 @@ Similar to span-columns mixin, but returns the math-ready % multiplier. Taken fr
 * `$context`: The Context. (default: $total-columns).
 * `$style`: Optionally return static lengths for grid calculations. (default: $container-style).
 
-
     .item { width: columns(3,6); }
 
 Styleguide 27.3
 
 */
-
 
 @function column(
   $context  : $grid-columns
@@ -103,7 +97,6 @@ The % width of one gutter in any given context. Taken from [Susy One](http://sus
 * `$context`: The Context. (default: $total-columns).
 * `$style`: Optionally return static lengths for grid calculations. (default: $container-style).
 
-
     .item { margin-right: gutter(6) + columns(3,6); }
 
 Styleguide 27.4
@@ -128,7 +121,6 @@ Total % space taken by Columns, including internal AND external gutters. Taken f
 * `$context`: The Context. (default: $total-columns).
 * `$style`: Optionally return static lengths for grid calculations. (default: $container-style).
 
-
     .item { margin-right: space(3,6); }
 
 Styleguide 27.5
@@ -145,7 +137,6 @@ Styleguide 27.5
 // Failbacks Compass
 // ----------------------------------------------------------------------------
 
-
 @function s-sprite-height($n) {
   @warn "This function is not available anymore";
 }
@@ -153,4 +144,3 @@ Styleguide 27.5
 @function s-sprite-width($n) {
   @warn "This function is not available anymore";
 }
-

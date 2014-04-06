@@ -11,28 +11,28 @@ Script required: *rapido.js*.
 Markup:
 <div class="dropdown">
   <a href="#" class="btn btn--default dropdown__toggle " data-toggle="dropdown">
-    Dropdown
-    <span class="dropdown__caret"></span>
+  Dropdown
+  <span class="dropdown__caret"></span>
   </a>
   <ul class="dropdown__menu ">
-    <li><a tabindex="-1" href="#">Action</a></li>
-    <li><a tabindex="-1" href="#">Another action</a></li>
-    <li><a tabindex="-1" href="#">Something else here</a></li>
-    <li class="divider"></li>
-    <li><a tabindex="-1" href="#">Separated link</a></li>
+  <li><a tabindex="-1" href="#">Action</a></li>
+  <li><a tabindex="-1" href="#">Another action</a></li>
+  <li><a tabindex="-1" href="#">Something else here</a></li>
+  <li class="divider"></li>
+  <li><a tabindex="-1" href="#">Separated link</a></li>
   </ul>
 </div>
 <div class="dropdown">
   <a href="#" class="btn btn--default dropdown__toggle " data-toggle="dropdown">
-    Dropdown
-    <span class="dropdown__caret"></span>
+  Dropdown
+  <span class="dropdown__caret"></span>
   </a>
   <ul class="dropdown__menu pull-right ">
-    <li><a tabindex="-1" href="#">Action</a></li>
-    <li><a tabindex="-1" href="#">Another action</a></li>
-    <li><a tabindex="-1" href="#">Something else here</a></li>
-    <li class="divider"></li>
-    <li><a tabindex="-1" href="#">Separated link</a></li>
+  <li><a tabindex="-1" href="#">Action</a></li>
+  <li><a tabindex="-1" href="#">Another action</a></li>
+  <li><a tabindex="-1" href="#">Something else here</a></li>
+  <li class="divider"></li>
+  <li><a tabindex="-1" href="#">Separated link</a></li>
   </ul>
 </div>
 <script>$('.dropdown').rapido_Dropdown();</script>
@@ -53,13 +53,13 @@ Styleguide 9
 
 @if $dropdowns {
 
-    .dropdown,
-    .dropdown__toggle {
-        position: relative;
-        @include inline-block;
-    }
+  .dropdown,
+  .dropdown__toggle {
+    position: relative;
+    @include inline-block;
+  }
 
-    .dropdown__toggle:focus { outline: 0; }
+  .dropdown__toggle:focus { outline: 0; }
 
 /*
 
@@ -73,16 +73,15 @@ Styleguide 9.1
 
 */
 
-    .dropdown__caret {
-        @extend %caret !optional;
-    }
+  .dropdown__caret {
+    @extend %caret !optional;
+  }
 
 /*
 
 Dropdown menu
 
 List of the links to show in the dropdown.
-
 
     <ul class="dropdown__menu ">
       <li><a tabindex="-1" href="#">Action</a></li>
@@ -96,102 +95,100 @@ Styleguide 9.2
 
 */
 
-    .dropdown__menu {
-        @extend %dropdown !optional;
-        @extend .transition;
-        @include border-radius($base-border-radius);
-        @include opacity(0);
-        @include position(absolute, 150% null null 0);
-        border-style: solid;
-        border-width: $input-border;
-        display/*\**/: none\9; // Ugly IE8 Hack
-        float: left;
-        list-style: none;
-        margin: -$input-border 0 0 0;
-        max-height: 0;
-        max-width: em($dropdowns-width);
-        min-width: 10em;
-        visibility: hidden;
-        z-index: $zindex-dropdown;
+  .dropdown__menu {
+    @extend %dropdown !optional;
+    @extend .transition;
+    @include border-radius($base-border-radius);
+    @include opacity(0);
+    @include position(absolute, 150% null null 0);
+    border-style: solid;
+    border-width: $input-border;
+    display/*\**/: none\9; // Ugly IE8 Hack
+    float: left;
+    list-style: none;
+    margin: -$input-border 0 0 0;
+    max-height: 0;
+    max-width: em($dropdowns-width);
+    min-width: 10em;
+    visibility: hidden;
+    z-index: $zindex-dropdown;
 
+    &[data-content] { min-width: em(600px); }
 
-        &[data-content] { min-width: em(600px); }
+    &.pull-right {
+      right: 0;
+      left: auto;
 
-        &.pull-right {
-            right: 0;
-            left: auto;
-
-            &:before {
-              left: auto;
-              right: 2em;
-            }
-
-        }
-
-        // Links list inside the dropdown
-        > li > a,
-        > li > label {
-            clear: both;
-            display: block;
-            font-weight: normal;
-            white-space: nowrap;
-        }
-
-        > li > a { padding: $dropdowns-padding;}
-        > li > label { padding: nth($dropdowns-padding, 1) nth($dropdowns-padding, 2) nth($dropdowns-padding, 1) (nth($dropdowns-padding, 2) + em($checkbox-padding-left) ) ;}
-
-        > li:last-child > a,
-        > li:last-child > label {
-            border-bottom: 0;
-        }
+      &:before {
+        left: auto;
+        right: 2em;
+      }
 
     }
 
-    .dropdown__menu > li > a:hover,
-    .dropdown__menu > li > a:focus {
-        text-decoration: none;
+    // Links list inside the dropdown
+    > li > a,
+    > li > label {
+      clear: both;
+      display: block;
+      font-weight: normal;
+      white-space: nowrap;
     }
 
-    .dropdown__menu > .active > a,
-    .dropdown__menu > .active > a:hover,
-    .dropdown__menu > .active > a:focus {
-        text-decoration: none;
-        outline: 0;
+    > li > a { padding: $dropdowns-padding;}
+    > li > label { padding: nth($dropdowns-padding, 1) nth($dropdowns-padding, 2) nth($dropdowns-padding, 1) (nth($dropdowns-padding, 2) + em($checkbox-padding-left) ) ;}
+
+    > li:last-child > a,
+    > li:last-child > label {
+      border-bottom: 0;
     }
 
-    .dropdown__menu > .disabled > a,
-    .dropdown__menu > .disabled > a:hover,
-    .dropdown__menu > .disabled > a:focus {
-        color: $grayLight;
-    }
+  }
 
-    .dropdown__menu > .disabled > a:hover,
-    .dropdown__menu > .disabled > a:focus {
-        text-decoration: none;
-        background-color: transparent;
-        background-image: none;
-        cursor: default;
-    }
+  .dropdown__menu > li > a:hover,
+  .dropdown__menu > li > a:focus {
+    text-decoration: none;
+  }
+
+  .dropdown__menu > .active > a,
+  .dropdown__menu > .active > a:hover,
+  .dropdown__menu > .active > a:focus {
+    text-decoration: none;
+    outline: 0;
+  }
+
+  .dropdown__menu > .disabled > a,
+  .dropdown__menu > .disabled > a:hover,
+  .dropdown__menu > .disabled > a:focus {
+    color: $grayLight;
+  }
+
+  .dropdown__menu > .disabled > a:hover,
+  .dropdown__menu > .disabled > a:focus {
+    text-decoration: none;
+    background-color: transparent;
+    background-image: none;
+    cursor: default;
+  }
 
 // Dropdown open
 
-    .dropdown.open {
-        z-index: $zindex-dropdown ;
+  .dropdown.open {
+    z-index: $zindex-dropdown ;
 
-        .dropdown__toggle {
-            @extend %dropdown--open !optional;
-            z-index: $zindex-dropdown + 1;
-        }
+    .dropdown__toggle {
+      @extend %dropdown--open !optional;
+      z-index: $zindex-dropdown + 1;
+    }
 
-        .dropdown__menu {
-            @include opacity(1);
-            display/*\**/: block\9; // Ugly IE8 Hack
-            max-height: em($dropdowns-height);
-            visibility: visible;
-
-        }
+    .dropdown__menu {
+      @include opacity(1);
+      display/*\**/: block\9; // Ugly IE8 Hack
+      max-height: em($dropdowns-height);
+      visibility: visible;
 
     }
 
+  }
 
 }

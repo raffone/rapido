@@ -64,50 +64,49 @@ $tada               : false   !default;
 // Enable animation from the settings
 
 @each $animation in $animations {
-    @if $animation == 'fadeIn'               {$fadeIn             : true !global; }
-    @if $animation == 'fadeOut'              {$fadeOut            : true !global; }
-    @if $animation == 'fadeInUp'             {$fadeInUp           : true !global; }
-    @if $animation == 'fadeOutUp'            {$fadeOutUp          : true !global; }
-    @if $animation == 'fadeInDown'           {$fadeInDown         : true !global; }
-    @if $animation == 'fadeOutDown'          {$fadeOutDown        : true !global; }
-    @if $animation == 'fadeInRight'          {$fadeInRight        : true !global; }
-    @if $animation == 'fadeOutLeft'          {$fadeOutLeft        : true !global; }
-    @if $animation == 'fadeInLeft'           {$fadeInLeft         : true !global; }
-    @if $animation == 'fadeOutRight'         {$fadeOutRight       : true !global; }
-    @if $animation == 'fadeInUpBig'          {$fadeInUpBig        : true !global; }
-    @if $animation == 'fadeOutUpBig'         {$fadeOutUpBig       : true !global; }
-    @if $animation == 'fadeInDownBig'        {$fadeInDownBig      : true !global; }
-    @if $animation == 'fadeOutDownBig'       {$fadeOutDownBig     : true !global; }
-    @if $animation == 'fadeInRightBig'       {$fadeInRightBig     : true !global; }
-    @if $animation == 'fadeOutLeftBig'       {$fadeOutLeftBig     : true !global; }
-    @if $animation == 'fadeInLeftBig'        {$fadeInLeftBig      : true !global; }
-    @if $animation == 'fadeOutRightBig'      {$fadeOutRightBig    : true !global; }
-    @if $animation == 'bounceIn'             {$bounceIn           : true !global; }
-    @if $animation == 'bounceInDown'         {$bounceInDown       : true !global; }
-    @if $animation == 'bounceInUp'           {$bounceInUp         : true !global; }
-    @if $animation == 'bounceInRight'        {$bounceInRight      : true !global; }
-    @if $animation == 'bounceInLeft'         {$bounceInLeft       : true !global; }
-    @if $animation == 'bounceOut'            {$bounceOut          : true !global; }
-    @if $animation == 'bounceOutUp'          {$bounceOutUp        : true !global; }
-    @if $animation == 'bounceOutDown'        {$bounceOutDown      : true !global; }
-    @if $animation == 'bounceOutLeft'        {$bounceOutLeft      : true !global; }
-    @if $animation == 'bounceOutRight'       {$bounceOutRight     : true !global; }
-    @if $animation == 'flash'                {$flash              : true !global; }
-    @if $animation == 'bounce'               {$bounce             : true !global; }
-    @if $animation == 'shake'                {$shake              : true !global; }
-    @if $animation == 'rotateInDownLeft'     {$rotateInDownLeft   : true !global; }
-    @if $animation == 'rotateInUpLeft'       {$rotateInUpLeft     : true !global; }
-    @if $animation == 'rotateInUpRight'      {$rotateInUpRight    : true !global; }
-    @if $animation == 'rotateInDownRight'    {$rotateInDownRight  : true !global; }
-    @if $animation == 'rotateOutDownLeft'    {$rotateOutDownLeft  : true !global; }
-    @if $animation == 'rotateOutUpLeft'      {$rotateOutUpLeft    : true !global; }
-    @if $animation == 'rotateOutDownRight'   {$rotateOutDownRight : true !global; }
-    @if $animation == 'rotateOutUpRight'     {$rotateOutUpRight   : true !global; }
-    @if $animation == 'rotateIn'             {$rotateIn           : true !global; }
-    @if $animation == 'rotateOut'            {$rotateOut          : true !global; }
-    @if $animation == 'tada'                 {$tada               : true !global; }
+  @if $animation == 'fadeIn'               {$fadeIn             : true !global; }
+  @if $animation == 'fadeOut'              {$fadeOut            : true !global; }
+  @if $animation == 'fadeInUp'             {$fadeInUp           : true !global; }
+  @if $animation == 'fadeOutUp'            {$fadeOutUp          : true !global; }
+  @if $animation == 'fadeInDown'           {$fadeInDown         : true !global; }
+  @if $animation == 'fadeOutDown'          {$fadeOutDown        : true !global; }
+  @if $animation == 'fadeInRight'          {$fadeInRight        : true !global; }
+  @if $animation == 'fadeOutLeft'          {$fadeOutLeft        : true !global; }
+  @if $animation == 'fadeInLeft'           {$fadeInLeft         : true !global; }
+  @if $animation == 'fadeOutRight'         {$fadeOutRight       : true !global; }
+  @if $animation == 'fadeInUpBig'          {$fadeInUpBig        : true !global; }
+  @if $animation == 'fadeOutUpBig'         {$fadeOutUpBig       : true !global; }
+  @if $animation == 'fadeInDownBig'        {$fadeInDownBig      : true !global; }
+  @if $animation == 'fadeOutDownBig'       {$fadeOutDownBig     : true !global; }
+  @if $animation == 'fadeInRightBig'       {$fadeInRightBig     : true !global; }
+  @if $animation == 'fadeOutLeftBig'       {$fadeOutLeftBig     : true !global; }
+  @if $animation == 'fadeInLeftBig'        {$fadeInLeftBig      : true !global; }
+  @if $animation == 'fadeOutRightBig'      {$fadeOutRightBig    : true !global; }
+  @if $animation == 'bounceIn'             {$bounceIn           : true !global; }
+  @if $animation == 'bounceInDown'         {$bounceInDown       : true !global; }
+  @if $animation == 'bounceInUp'           {$bounceInUp         : true !global; }
+  @if $animation == 'bounceInRight'        {$bounceInRight      : true !global; }
+  @if $animation == 'bounceInLeft'         {$bounceInLeft       : true !global; }
+  @if $animation == 'bounceOut'            {$bounceOut          : true !global; }
+  @if $animation == 'bounceOutUp'          {$bounceOutUp        : true !global; }
+  @if $animation == 'bounceOutDown'        {$bounceOutDown      : true !global; }
+  @if $animation == 'bounceOutLeft'        {$bounceOutLeft      : true !global; }
+  @if $animation == 'bounceOutRight'       {$bounceOutRight     : true !global; }
+  @if $animation == 'flash'                {$flash              : true !global; }
+  @if $animation == 'bounce'               {$bounce             : true !global; }
+  @if $animation == 'shake'                {$shake              : true !global; }
+  @if $animation == 'rotateInDownLeft'     {$rotateInDownLeft   : true !global; }
+  @if $animation == 'rotateInUpLeft'       {$rotateInUpLeft     : true !global; }
+  @if $animation == 'rotateInUpRight'      {$rotateInUpRight    : true !global; }
+  @if $animation == 'rotateInDownRight'    {$rotateInDownRight  : true !global; }
+  @if $animation == 'rotateOutDownLeft'    {$rotateOutDownLeft  : true !global; }
+  @if $animation == 'rotateOutUpLeft'      {$rotateOutUpLeft    : true !global; }
+  @if $animation == 'rotateOutDownRight'   {$rotateOutDownRight : true !global; }
+  @if $animation == 'rotateOutUpRight'     {$rotateOutUpRight   : true !global; }
+  @if $animation == 'rotateIn'             {$rotateIn           : true !global; }
+  @if $animation == 'rotateOut'            {$rotateOut          : true !global; }
+  @if $animation == 'tada'                 {$tada               : true !global; }
 }
-
 
 /*
 
@@ -124,11 +123,11 @@ Styleguide 2.3
 */
 
 @if $animations-classes {
-    @each $animation in $animations {
-        .#{$animation} {
-            @include animate($animation);
-        }
+  @each $animation in $animations {
+    .#{$animation} {
+      @include animate($animation);
     }
+  }
 }
 
 /*
@@ -147,13 +146,13 @@ Styleguide 2.4
 */
 
 @if $animations-classes {
-    $delays: 0s, 0.25s, 0.50s, 0.75s, 1.00s, 1.25s, 1.50s, 1.75s, 2.00s, 2.25s, 2.50s, 2.75s, 3.00s;
-    @each $delay in $delays {
-        $delays-class: strip-units($delay)*100;
-        .delay-#{$delays-class} {
-            @include animation-delay($delay);
-        }
+  $delays: 0s, 0.25s, 0.50s, 0.75s, 1.00s, 1.25s, 1.50s, 1.75s, 2.00s, 2.25s, 2.50s, 2.75s, 3.00s;
+  @each $delay in $delays {
+    $delays-class: strip-units($delay)*100;
+    .delay-#{$delays-class} {
+      @include animation-delay($delay);
     }
+  }
 }
 
 /*
@@ -167,9 +166,9 @@ Include this js after including rapido.js.
 
     $('.articles').rapido_Animation();
 
-**Options** `(with` d`efault` values)`:`
+**Options** (with default values):
 
-`    offset`: `    500`
+    offset:      500
     offsetClass: .offcanvas__content (if using an offset layout with a custom class)
 
 Example:
@@ -178,7 +177,6 @@ Example:
       ...
     </section>
 
-
 Styleguide 2.5
 
 */
@@ -186,7 +184,6 @@ Styleguide 2.5
 [data-animation*="fadeIn"] {
   @include opacity(0);
 }
-
 
 /*
 
@@ -199,568 +196,567 @@ Styleguide 2.6
 
 */
 
-
 // Keyframes
 
 @if $fadeIn == true {
-    @include keyframes(fadeIn) {
-        0% {        @include opacity(0); }
-        100% {  @include opacity(1); }
-    }
+  @include keyframes(fadeIn) {
+    0% {        @include opacity(0); }
+    100% {  @include opacity(1); }
+  }
 }
 @if $fadeOut == true {
-    @include keyframes(fadeOut) {
-        0% {        @include opacity(1); }
-        100% {  @include opacity(0); }
-    }
+  @include keyframes(fadeOut) {
+    0% {        @include opacity(1); }
+    100% {  @include opacity(0); }
+  }
 }
 @if $fadeInUp == true {
-    @include keyframes(fadeInUp) {
-        0% {
-            @include transform(translateY(20px));
-            @include opacity(0);
-        }
-        100% {
-            @include transform(translateY(0));
-            @include opacity(1);
-        }
+  @include keyframes(fadeInUp) {
+    0% {
+      @include transform(translateY(20px));
+      @include opacity(0);
     }
+    100% {
+      @include transform(translateY(0));
+      @include opacity(1);
+    }
+  }
 }
 @if $fadeOutUp == true {
-    @include keyframes(fadeOutUp) {
-        0% {
-            @include transform(translateY(0));
-            @include opacity(1);
-        }
-        100% {
-            @include transform(translateY(-20px));
-            @include opacity(0);
-        }
+  @include keyframes(fadeOutUp) {
+    0% {
+      @include transform(translateY(0));
+      @include opacity(1);
     }
+    100% {
+      @include transform(translateY(-20px));
+      @include opacity(0);
+    }
+  }
 }
 @if $fadeInDown == true {
-    @include keyframes(fadeInDown) {
-        0% {
-            @include transform(translateY(-20px));
-            @include opacity(0);
-        }
-        100% {
-            @include transform(translateY(0));
-            @include opacity(1);
-        }
+  @include keyframes(fadeInDown) {
+    0% {
+      @include transform(translateY(-20px));
+      @include opacity(0);
     }
+    100% {
+      @include transform(translateY(0));
+      @include opacity(1);
+    }
+  }
 }
 @if $fadeOutDown == true {
-    @include keyframes(fadeOutDown) {
-        0% {
-            @include transform(translateY(0));
-            @include opacity(1);
-        }
-        100% {
-            @include transform(translateY(20px));
-            @include opacity(0);
-        }
+  @include keyframes(fadeOutDown) {
+    0% {
+      @include transform(translateY(0));
+      @include opacity(1);
     }
+    100% {
+      @include transform(translateY(20px));
+      @include opacity(0);
+    }
+  }
 }
 @if $fadeInRight == true {
-    @include keyframes(fadeInRight) {
-        0% {
-            @include transform(translateX(20px));
-            @include opacity(0);
-        }
-        100% {
-            @include transform(translateX(0));
-            @include opacity(1);
-        }
+  @include keyframes(fadeInRight) {
+    0% {
+      @include transform(translateX(20px));
+      @include opacity(0);
     }
+    100% {
+      @include transform(translateX(0));
+      @include opacity(1);
+    }
+  }
 }
 @if $fadeOutLeft == true {
-    @include keyframes(fadeOutLeft) {
-        0% {
-            @include transform(translateX(0));
-            @include opacity(1);
-        }
-        100% {
-            @include transform(translateX(-20px));
-            @include opacity(0);
-        }
+  @include keyframes(fadeOutLeft) {
+    0% {
+      @include transform(translateX(0));
+      @include opacity(1);
     }
+    100% {
+      @include transform(translateX(-20px));
+      @include opacity(0);
+    }
+  }
 }
 @if $fadeInLeft == true {
-    @include keyframes(fadeInLeft) {
-        0% {
-            @include transform(translateX(-20px));
-            @include opacity(0);
-        }
-        100% {
-            @include transform(translateX(0));
-            @include opacity(1);
-        }
+  @include keyframes(fadeInLeft) {
+    0% {
+      @include transform(translateX(-20px));
+      @include opacity(0);
     }
+    100% {
+      @include transform(translateX(0));
+      @include opacity(1);
+    }
+  }
 }
 @if $fadeOutRight == true {
-    @include keyframes(fadeOutRight) {
-        0% {
-            @include transform(translateX(0));
-            @include opacity(1);
-        }
-        100% {
-            @include transform(translateX(20px));
-            @include opacity(0);
-        }
+  @include keyframes(fadeOutRight) {
+    0% {
+      @include transform(translateX(0));
+      @include opacity(1);
     }
+    100% {
+      @include transform(translateX(20px));
+      @include opacity(0);
+    }
+  }
 }
 @if $fadeInUpBig == true {
-    @include keyframes(fadeInUpBig) {
-        0% {
-            @include transform(translateY(2000px));
-            @include opacity(0);
-        }
-        100% {
-            @include transform(translateY(0));
-            @include opacity(1);
-        }
+  @include keyframes(fadeInUpBig) {
+    0% {
+      @include transform(translateY(2000px));
+      @include opacity(0);
     }
+    100% {
+      @include transform(translateY(0));
+      @include opacity(1);
+    }
+  }
 }
 @if $fadeOutUpBig == true {
-    @include keyframes(fadeOutUpBig) {
-        0% {
-            @include transform(translateY(0));
-            @include opacity(1);
-        }
-        100% {
-            @include transform(translateY(-2000px));
-            @include opacity(0);
-        }
+  @include keyframes(fadeOutUpBig) {
+    0% {
+      @include transform(translateY(0));
+      @include opacity(1);
     }
+    100% {
+      @include transform(translateY(-2000px));
+      @include opacity(0);
+    }
+  }
 }
 @if $fadeInDownBig == true {
-    @include keyframes(fadeInDownBig) {
-        0% {
-            @include transform(translateY(-2000px));
-            @include opacity(0);
-        }
-        100% {
-            @include transform(translateY(0));
-            @include opacity(1);
-        }
+  @include keyframes(fadeInDownBig) {
+    0% {
+      @include transform(translateY(-2000px));
+      @include opacity(0);
     }
+    100% {
+      @include transform(translateY(0));
+      @include opacity(1);
+    }
+  }
 }
 @if $fadeOutDownBig == true {
-    @include keyframes(fadeOutDownBig) {
-        0% {
-            @include transform(translateY(0));
-            @include opacity(1);
-        }
-        100% {
-            @include transform(translateY(2000px));
-            @include opacity(0);
-        }
+  @include keyframes(fadeOutDownBig) {
+    0% {
+      @include transform(translateY(0));
+      @include opacity(1);
     }
+    100% {
+      @include transform(translateY(2000px));
+      @include opacity(0);
+    }
+  }
 }
 @if $fadeInRightBig == true {
-    @include keyframes(fadeInRightBig) {
-        0% {
-            @include transform(translateX(2000px));
-            @include opacity(0);
-        }
-        100% {
-            @include transform(translateX(0));
-            @include opacity(1);
-        }
+  @include keyframes(fadeInRightBig) {
+    0% {
+      @include transform(translateX(2000px));
+      @include opacity(0);
     }
+    100% {
+      @include transform(translateX(0));
+      @include opacity(1);
+    }
+  }
 }
 @if $fadeOutLeftBig == true {
-    @include keyframes(fadeOutLeftBig) {
-        0% {
-            @include transform(translateX(0));
-            @include opacity(1);
-        }
-        100% {
-            @include transform(translateX(-2000px));
-            @include opacity(0);
-        }
+  @include keyframes(fadeOutLeftBig) {
+    0% {
+      @include transform(translateX(0));
+      @include opacity(1);
     }
+    100% {
+      @include transform(translateX(-2000px));
+      @include opacity(0);
+    }
+  }
 }
 @if $fadeInLeftBig == true {
-    @include keyframes(fadeInLeftBig) {
-        0% {
-            @include transform(translateX(-2000px));
-            @include opacity(0);
-        }
-        100% {
-            @include transform(translateX(0));
-            @include opacity(1);
-        }
+  @include keyframes(fadeInLeftBig) {
+    0% {
+      @include transform(translateX(-2000px));
+      @include opacity(0);
     }
+    100% {
+      @include transform(translateX(0));
+      @include opacity(1);
+    }
+  }
 }
 @if $fadeOutRightBig == true {
-    @include keyframes(fadeOutRightBig) {
-        0% {
-            @include transform(translateX(0));
-            @include opacity(1);
-        }
-        100% {
-            @include transform(translateX(2000px));
-            @include opacity(0);
-        }
+  @include keyframes(fadeOutRightBig) {
+    0% {
+      @include transform(translateX(0));
+      @include opacity(1);
     }
+    100% {
+      @include transform(translateX(2000px));
+      @include opacity(0);
+    }
+  }
 }
 @if $bounceIn == true {
-    @include keyframes(bounceIn) {
-        0% {
-            @include transform(scale(0.3));
-            @include opacity(0);
-        }
-        50% {
-            @include transform(scale(1.05));
-            @include opacity(1);
-        }
-        70% {
-            @include transform(scale(0.9));
-        }
-        100% {
-            @include transform(scale(1));
-        }
+  @include keyframes(bounceIn) {
+    0% {
+      @include transform(scale(0.3));
+      @include opacity(0);
     }
+    50% {
+      @include transform(scale(1.05));
+      @include opacity(1);
+    }
+    70% {
+      @include transform(scale(0.9));
+    }
+    100% {
+      @include transform(scale(1));
+    }
+  }
 }
 @if $bounceInDown == true {
-    @include keyframes(bounceInDown) {
-        0% {
-            @include transform(translateY(-2000px));
-            @include opacity(0);
-        }
-        60% {
-            @include transform(translateY(30px));
-            @include opacity(1);
-        }
-        80% {
-            @include transform(translateY(-10px));
-        }
-        100% {
-            @include transform(translateY(0));
-        }
+  @include keyframes(bounceInDown) {
+    0% {
+      @include transform(translateY(-2000px));
+      @include opacity(0);
     }
+    60% {
+      @include transform(translateY(30px));
+      @include opacity(1);
+    }
+    80% {
+      @include transform(translateY(-10px));
+    }
+    100% {
+      @include transform(translateY(0));
+    }
+  }
 }
 @if $bounceInUp == true {
-    @include keyframes(bounceInUp) {
-        0% {
-            @include transform(translateY(2000px));
-            @include opacity(0);
-        }
-        60% {
-            @include transform(translateY(-30px));
-            @include opacity(1);
-        }
-        80% {
-            @include transform(translateY(10px));
-        }
-        100% {
-            @include transform(translateY(0));
-        }
+  @include keyframes(bounceInUp) {
+    0% {
+      @include transform(translateY(2000px));
+      @include opacity(0);
     }
+    60% {
+      @include transform(translateY(-30px));
+      @include opacity(1);
+    }
+    80% {
+      @include transform(translateY(10px));
+    }
+    100% {
+      @include transform(translateY(0));
+    }
+  }
 }
 @if $bounceInRight == true {
-    @include keyframes(bounceInRight) {
-        0% {
-            @include transform(translateX(2000px));
-            @include opacity(0);
-        }
-        60% {
-            @include transform(translateX(-30px));
-            @include opacity(1);
-        }
-        80% {
-            @include transform(translateX(10px));
-        }
-        100% {
-            @include transform(translateX(0));
-        }
+  @include keyframes(bounceInRight) {
+    0% {
+      @include transform(translateX(2000px));
+      @include opacity(0);
     }
+    60% {
+      @include transform(translateX(-30px));
+      @include opacity(1);
+    }
+    80% {
+      @include transform(translateX(10px));
+    }
+    100% {
+      @include transform(translateX(0));
+    }
+  }
 }
 @if $bounceInLeft == true {
-    @include keyframes(bounceInLeft) {
-        0% {
-            @include transform(translateX(-2000px));
-            @include opacity(0);
-        }
-        60% {
-            @include transform(translateX(30px));
-            @include opacity(1);
-        }
-        80% {
-            @include transform(translateX(-10px));
-        }
-        100% {
-            @include transform(translateX(0));
-        }
+  @include keyframes(bounceInLeft) {
+    0% {
+      @include transform(translateX(-2000px));
+      @include opacity(0);
     }
+    60% {
+      @include transform(translateX(30px));
+      @include opacity(1);
+    }
+    80% {
+      @include transform(translateX(-10px));
+    }
+    100% {
+      @include transform(translateX(0));
+    }
+  }
 }
 @if $bounceOut == true {
-    @include keyframes(bounceOut) {
-        0% {
-            @include transform(scale(1));
-        }
-        25% {
-            @include transform(scale(0.95));
-        }
-        50% {
-            @include transform(scale(1.1));
-            @include opacity(1);
-        }
-        100% {
-            @include transform(scale(0.3));
-            @include opacity(0);
-        }
+  @include keyframes(bounceOut) {
+    0% {
+      @include transform(scale(1));
     }
+    25% {
+      @include transform(scale(0.95));
+    }
+    50% {
+      @include transform(scale(1.1));
+      @include opacity(1);
+    }
+    100% {
+      @include transform(scale(0.3));
+      @include opacity(0);
+    }
+  }
 }
 @if $bounceOutUp == true {
-    @include keyframes(bounceOutUp) {
-        0% {
-            @include transform(translateY(0));
-        }
-        20% {
-            @include transform(translateY(20px));
-            @include opacity(1);
-        }
-        100% {
-            @include transform(translateY(-2000px));
-            @include opacity(0);
-        }
+  @include keyframes(bounceOutUp) {
+    0% {
+      @include transform(translateY(0));
     }
+    20% {
+      @include transform(translateY(20px));
+      @include opacity(1);
+    }
+    100% {
+      @include transform(translateY(-2000px));
+      @include opacity(0);
+    }
+  }
 }
 @if $bounceOutDown == true {
-    @include keyframes(bounceOutDown) {
-        0% {
-            @include transform(translateY(0));
-        }
-        20% {
-            @include transform(translateY(-20px));
-            @include opacity(1);
-        }
-        100% {
-            @include transform(translateY(2000px));
-            @include opacity(0);
-        }
+  @include keyframes(bounceOutDown) {
+    0% {
+      @include transform(translateY(0));
     }
+    20% {
+      @include transform(translateY(-20px));
+      @include opacity(1);
+    }
+    100% {
+      @include transform(translateY(2000px));
+      @include opacity(0);
+    }
+  }
 }
 @if $bounceOutLeft == true {
-    @include keyframes(bounceOutLeft) {
-        0% {
-            @include transform(translateX(0));
-        }
-        20% {
-            @include transform(translateX(20px));
-            @include opacity(1);
-        }
-        100% {
-            @include transform(translateX(-2000px));
-            @include opacity(0);
-        }
+  @include keyframes(bounceOutLeft) {
+    0% {
+      @include transform(translateX(0));
     }
+    20% {
+      @include transform(translateX(20px));
+      @include opacity(1);
+    }
+    100% {
+      @include transform(translateX(-2000px));
+      @include opacity(0);
+    }
+  }
 }
 @if $bounceOutRight == true {
-    @include keyframes(bounceOutRight) {
-        0% {
-            @include transform(translateX(0));
-        }
-        20% {
-            @include transform(translateX(-20px));
-            @include opacity(1);
-        }
-        100% {
-            @include transform(translateX(2000px));
-            @include opacity(0);
-        }
+  @include keyframes(bounceOutRight) {
+    0% {
+      @include transform(translateX(0));
     }
+    20% {
+      @include transform(translateX(-20px));
+      @include opacity(1);
+    }
+    100% {
+      @include transform(translateX(2000px));
+      @include opacity(0);
+    }
+  }
 }
 @if $flash == true {
-    @include keyframes(flash) {
-        0% {        @include opacity(1); }
-        25% {    @include opacity(0); }
-        50% {    @include opacity(1); }
-        75% {    @include opacity(0); }
-        100% {  @include opacity(1); }
-    }
+  @include keyframes(flash) {
+    0% {        @include opacity(1); }
+    25% {    @include opacity(0); }
+    50% {    @include opacity(1); }
+    75% {    @include opacity(0); }
+    100% {  @include opacity(1); }
+  }
 }
 @if $bounce == true {
-    @include keyframes(bounce) {
-        0% {        @include transform(translateY(0));              }
-        20% {    @include transform(translateY(0));             }
-        40% {    @include transform(translateY(-30px));     }
-        50% {    @include transform(translateY(0));             }
-        60% {    @include transform(translateY(-15px));     }
-        80% {    @include transform(translateY(0));             }
-        100% {  @include transform(translateY(0));              }
-    }
+  @include keyframes(bounce) {
+    0% {        @include transform(translateY(0));              }
+    20% {    @include transform(translateY(0));             }
+    40% {    @include transform(translateY(-30px));     }
+    50% {    @include transform(translateY(0));             }
+    60% {    @include transform(translateY(-15px));     }
+    80% {    @include transform(translateY(0));             }
+    100% {  @include transform(translateY(0));              }
+  }
 }
 @if $shake == true {
-    @include keyframes(shake) {
-        0% {        @include transform(translateX(0));               }
-        10% {    @include transform(translateX(-10px));      }
-        20% {    @include transform(translateX(10px));          }
-        30% {    @include transform(translateX(-10px));      }
-        40% {    @include transform(translateX(10px));          }
-        50% {    @include transform(translateX(-10px));      }
-        60% {    @include transform(translateX(10px));          }
-        70% {    @include transform(translateX(-10px));      }
-        80% {    @include transform(translateX(10px));          }
-        90% {    @include transform(translateX(-10px));      }
-        100% {  @include transform(translateX(0));               }
-    }
+  @include keyframes(shake) {
+    0% {        @include transform(translateX(0));               }
+    10% {    @include transform(translateX(-10px));      }
+    20% {    @include transform(translateX(10px));          }
+    30% {    @include transform(translateX(-10px));      }
+    40% {    @include transform(translateX(10px));          }
+    50% {    @include transform(translateX(-10px));      }
+    60% {    @include transform(translateX(10px));          }
+    70% {    @include transform(translateX(-10px));      }
+    80% {    @include transform(translateX(10px));          }
+    90% {    @include transform(translateX(-10px));      }
+    100% {  @include transform(translateX(0));               }
+  }
 }
 @if $rotateInDownLeft == true {
-    @include keyframes(rotateInDownLeft) {
-        0% {
-            @include transform-origin(left bottom);
-            @include transform(rotate(-90deg));
-            @include opacity(0);
-        }
-        100% {
-            @include transform-origin(left bottom);
-            @include transform(rotate(0));
-            @include opacity(1);
-        }
+  @include keyframes(rotateInDownLeft) {
+    0% {
+      @include transform-origin(left bottom);
+      @include transform(rotate(-90deg));
+      @include opacity(0);
     }
+    100% {
+      @include transform-origin(left bottom);
+      @include transform(rotate(0));
+      @include opacity(1);
+    }
+  }
 }
 @if $rotateInUpLeft == true {
-    @include keyframes(rotateInUpLeft) {
-        0% {
-            @include transform-origin(left bottom);
-            @include transform(rotate(90deg));
-            @include opacity(0);
-        }
-        100% {
-            @include transform-origin(left bottom);
-            @include transform(rotate(0));
-            @include opacity(1);
-        }
+  @include keyframes(rotateInUpLeft) {
+    0% {
+      @include transform-origin(left bottom);
+      @include transform(rotate(90deg));
+      @include opacity(0);
     }
+    100% {
+      @include transform-origin(left bottom);
+      @include transform(rotate(0));
+      @include opacity(1);
+    }
+  }
 }
 @if $rotateInUpRight == true {
-    @include keyframes(rotateInUpRight) {
-        0% {
-            @include transform-origin(right bottom);
-            @include transform(rotate(-90deg));
-            @include opacity(0);
-        }
-        100% {
-            @include transform-origin(right bottom);
-            @include transform(rotate(0));
-            @include opacity(1);
-        }
+  @include keyframes(rotateInUpRight) {
+    0% {
+      @include transform-origin(right bottom);
+      @include transform(rotate(-90deg));
+      @include opacity(0);
     }
+    100% {
+      @include transform-origin(right bottom);
+      @include transform(rotate(0));
+      @include opacity(1);
+    }
+  }
 }
 @if $rotateInDownRight == true {
-    @include keyframes(rotateInDownRight) {
-        0% {
-            @include transform-origin(right bottom);
-            @include transform(rotate(90deg));
-            @include opacity(0);
-        }
-        100% {
-            @include transform-origin(right bottom);
-            @include transform(rotate(0));
-            @include opacity(1);
-        }
+  @include keyframes(rotateInDownRight) {
+    0% {
+      @include transform-origin(right bottom);
+      @include transform(rotate(90deg));
+      @include opacity(0);
     }
+    100% {
+      @include transform-origin(right bottom);
+      @include transform(rotate(0));
+      @include opacity(1);
+    }
+  }
 }
 @if $rotateOutDownLeft == true {
-    @include keyframes(rotateOutDownLeft) {
-        0% {
-            @include transform-origin(left bottom);
-            @include transform(rotate(0));
-            @include opacity(1);
-        }
-        100% {
-            @include transform-origin(left bottom);
-            @include transform(rotate(90deg));
-            @include opacity(0);
-        }
+  @include keyframes(rotateOutDownLeft) {
+    0% {
+      @include transform-origin(left bottom);
+      @include transform(rotate(0));
+      @include opacity(1);
     }
+    100% {
+      @include transform-origin(left bottom);
+      @include transform(rotate(90deg));
+      @include opacity(0);
+    }
+  }
 }
 @if $rotateOutUpLeft == true {
-    @include keyframes(rotateOutUpLeft) {
-        0% {
-            @include transform-origin(left bottom);
-            @include transform(rotate(0));
-            @include opacity(1);
-        }
-        100% {
-            @include transform-origin(left bottom);
-            @include transform(rotate(-90deg));
-            @include opacity(0);
-        }
+  @include keyframes(rotateOutUpLeft) {
+    0% {
+      @include transform-origin(left bottom);
+      @include transform(rotate(0));
+      @include opacity(1);
     }
+    100% {
+      @include transform-origin(left bottom);
+      @include transform(rotate(-90deg));
+      @include opacity(0);
+    }
+  }
 }
 @if $rotateOutDownRight == true {
-    @include keyframes(rotateOutDownRight) {
-        0% {
-            @include transform-origin(right bottom);
-            @include transform(rotate(0));
-            @include opacity(1);
-        }
-        100% {
-            @include transform-origin(right bottom);
-            @include transform(rotate(-90deg));
-            @include opacity(0);
-        }
+  @include keyframes(rotateOutDownRight) {
+    0% {
+      @include transform-origin(right bottom);
+      @include transform(rotate(0));
+      @include opacity(1);
     }
+    100% {
+      @include transform-origin(right bottom);
+      @include transform(rotate(-90deg));
+      @include opacity(0);
+    }
+  }
 }
 @if $rotateOutUpRight == true {
-    @include keyframes(rotateOutUpRight) {
-        0% {
-            @include transform-origin(right bottom);
-            @include transform(rotate(0));
-            @include opacity(1);
-        }
-        100% {
-            @include transform-origin(right bottom);
-            @include transform(rotate(90deg));
-            @include opacity(0);
-        }
+  @include keyframes(rotateOutUpRight) {
+    0% {
+      @include transform-origin(right bottom);
+      @include transform(rotate(0));
+      @include opacity(1);
     }
+    100% {
+      @include transform-origin(right bottom);
+      @include transform(rotate(90deg));
+      @include opacity(0);
+    }
+  }
 }
 @if $rotateIn == true {
-    @include keyframes(rotateIn) {
-        0% {
-            @include transform-origin(center center);
-            @include transform(rotate(-200deg));
-            @include opacity(0);
-        }
-        100% {
-            @include transform-origin(center center);
-            @include transform(rotate(0));
-            @include opacity(1);
-        }
+  @include keyframes(rotateIn) {
+    0% {
+      @include transform-origin(center center);
+      @include transform(rotate(-200deg));
+      @include opacity(0);
     }
+    100% {
+      @include transform-origin(center center);
+      @include transform(rotate(0));
+      @include opacity(1);
+    }
+  }
 }
 @if $rotateOut == true {
-    @include keyframes(rotateOut) {
-        0% {
-            @include transform-origin(center center);
-            @include transform(rotate(0));
-            @include opacity(1);
-        }
-        100% {
-            @include transform-origin(center center);
-            @include transform(rotate(200deg));
-            @include opacity(0);
-        }
+  @include keyframes(rotateOut) {
+    0% {
+      @include transform-origin(center center);
+      @include transform(rotate(0));
+      @include opacity(1);
     }
+    100% {
+      @include transform-origin(center center);
+      @include transform(rotate(200deg));
+      @include opacity(0);
+    }
+  }
 }
 @if $tada == true {
-    @include keyframes(tada) {
-        0% {        @include transform(scale(1));                }
-        10% {    @include transform(scale(0.9) rotate(-3deg));   }
-        20% {    @include transform(scale(0.9) rotate(-3deg)); }
-        30% {    @include transform(scale(1.1) rotate(3deg));   }
-        40% {    @include transform(scale(1.1) rotate(-3deg)); }
-        50% {    @include transform(scale(1.1) rotate(3deg));   }
-        60% {    @include transform(scale(1.1) rotate(-3deg)); }
-        70% {    @include transform(scale(1.1) rotate(3deg));   }
-        80% {    @include transform(scale(1.1) rotate(-3deg)); }
-        90% {    @include transform(scale(1.1) rotate(3deg));   }
-        100% {  @include transform(scale(1) rotate(0));              }
-    }
+  @include keyframes(tada) {
+    0% {        @include transform(scale(1));                }
+    10% {    @include transform(scale(0.9) rotate(-3deg));   }
+    20% {    @include transform(scale(0.9) rotate(-3deg)); }
+    30% {    @include transform(scale(1.1) rotate(3deg));   }
+    40% {    @include transform(scale(1.1) rotate(-3deg)); }
+    50% {    @include transform(scale(1.1) rotate(3deg));   }
+    60% {    @include transform(scale(1.1) rotate(-3deg)); }
+    70% {    @include transform(scale(1.1) rotate(3deg));   }
+    80% {    @include transform(scale(1.1) rotate(-3deg)); }
+    90% {    @include transform(scale(1.1) rotate(3deg));   }
+    100% {  @include transform(scale(1) rotate(0));              }
+  }
 }

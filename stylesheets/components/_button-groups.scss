@@ -17,62 +17,61 @@ Styleguide 6
 
 @if $button-groups {
 
-    .btn-group {
-        @include clearfix;
-        @include inline-block;
-        margin: 0;
+  .btn-group {
+    @include clearfix;
+    @include inline-block;
+    margin: 0;
 
-        > * {
-            float: left;
-            list-style-type: none;
-        }
-
-        &[data-width] .btn,
-        > *[data-width] .btn {
-            @extend %width-100;
-            padding-left: 0;
-            padding-right: 0;
-        }
-
-        // Space multiple inline groups
-        + .btn-group { margin-left: em(5px); }
-
-        // Float button and reapply border radius
-        > .btn,
-        > li .btn {
-            float: left;
-            border-radius: 0;
-        }
-
-        > li + li { margin-left: -$input-border; }
-
-        // On hover/focus/active, bring the proper btn to front
-        > .btn:hover,
-        > .btn:focus,
-        > .btn:active,
-        > .btn.active {
-            z-index: 2;
-        }
-
+    > * {
+      float: left;
+      list-style-type: none;
     }
+
+    &[data-width] .btn,
+    > *[data-width] .btn {
+      @extend %width-100;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    // Space multiple inline groups
+    + .btn-group { margin-left: em(5px); }
+
+    // Float button and reapply border radius
+    > .btn,
+    > li .btn {
+      float: left;
+      border-radius: 0;
+    }
+
+    > li + li { margin-left: -$input-border; }
+
+    // On hover/focus/active, bring the proper btn to front
+    > .btn:hover,
+    > .btn:focus,
+    > .btn:active,
+    > .btn.active {
+      z-index: 2;
+    }
+
+  }
 
 // Generic
 
-    .btn-group > li:first-child .btn                    { @include border-left-radius($base-border-radius); }
-    .btn-group > li:last-child .btn                     { @include border-right-radius($base-border-radius);    }
-    div.btn-group .btn                                  { border-radius: $base-border-radius; }
+  .btn-group > li:first-child .btn                    { @include border-left-radius($base-border-radius); }
+  .btn-group > li:last-child .btn                     { @include border-right-radius($base-border-radius);    }
+  div.btn-group .btn                                  { border-radius: $base-border-radius; }
 
 // In Forms
 
-    .form__controls--multi {
-        .btn-group:first-child > li:first-child .btn    { }
-        .btn-group:first-child > li:last-child .btn     { @include border-right-radius(0); }
-        div.btn-group:first-child .btn                  { @include border-right-radius(0); }
+  .form__controls--multi {
+    .btn-group:first-child > li:first-child .btn    { }
+    .btn-group:first-child > li:last-child .btn     { @include border-right-radius(0); }
+    div.btn-group:first-child .btn                  { @include border-right-radius(0); }
 
-        .btn-group:last-child > li:first-child .btn     { @include border-left-radius(0); }
-        .btn-group:last-child > li:last-child .btn      { }
-        div.btn-group:last-child > .btn                 { @include border-left-radius(0); }
-    }
+    .btn-group:last-child > li:first-child .btn     { @include border-left-radius(0); }
+    .btn-group:last-child > li:last-child .btn      { }
+    div.btn-group:last-child > .btn                 { @include border-left-radius(0); }
+  }
 
 }
-

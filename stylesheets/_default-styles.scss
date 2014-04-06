@@ -29,12 +29,12 @@ Styleguide 32.1
 
 */
 
-    %h1 {}
-    %h2 {}
-    %h3 {}
-    %h4 {}
-    %h5 {}
-    %h6 {}
+  %h1 {}
+  %h2 {}
+  %h3 {}
+  %h4 {}
+  %h5 {}
+  %h6 {}
 
 /*
 
@@ -57,70 +57,63 @@ Styleguide 32.2
 
 */
 
-    %form__label {}
+  %form__label {}
 
-    %form__input {
-        border-color: #ccc;
-        background-color: $white;
-        /*box-shadow: inset 0 1px 0 #fff;*/
-        /*@include background-image(linear-gradient(bottom, $white 0%, $grayLighter 100%));*/
+  %form__input {
+    border-color: #ccc;
+    background-color: $white;
 
-        &:focus {
-            /*@include background-image(linear-gradient(bottom, $white 50%, $grayLighter 100%));*/
-            border-color: #00a7e1;
-            @include box-shadow(0 0 5px rgba(0,168,225,.2));
-
-        }
-    }
-
-    %form__addon {
-        color: $text-color;
-        border-color: $grayLight;
-        background-color: $grayLighter;
-    }
-
-    %form__select {
-        @extend %form__input;
-    }
-
-    %form__suggest {
-        @include box-shadow(0 0 5px rgba(#000,.1));
-        @include opacity(0);
-        background-color: $white;
-        border: 1px solid #ccc;
-
-      &.open {
-          @include opacity(1);
-      }
-
-      /*a {*/
-          /*color: white;*/
-      /*}*/
+    &:focus {
+      @include box-shadow(0 0 5px rgba(0,168,225,.2));
+      border-color: #00a7e1;
 
     }
+  }
 
-    %form__picker {
-        border-color: $gray;
-        background-color: $white;
-        box-shadow: 0 6px 18px 1px rgba(0, 0, 0, 0.12);
+  %form__addon {
+    color: $text-color;
+    border-color: $grayLight;
+    background-color: $grayLighter;
+  }
+
+  %form__select {
+    @extend %form__input;
+  }
+
+  %form__suggest {
+    @include box-shadow(0 0 5px rgba(#000,.1));
+    @include opacity(0);
+    background-color: $white;
+    border: 1px solid #ccc;
+
+    &.open {
+      @include opacity(1);
     }
 
-    %form__picker--hover {
-      background: lighten($link-color, 50);
-    }
+  }
 
-    %form__picker--highlighted {
-      background: $link-color;
-      color: $white;
-    }
+  %form__picker {
+    border-color: $gray;
+    background-color: $white;
+    box-shadow: 0 6px 18px 1px rgba(0, 0, 0, 0.12);
+  }
 
-    %form__picker--disabled {
-      background: $grayLighter;
-      color: $grayLight;
-    }
+  %form__picker--hover {
+    background: lighten($link-color, 50);
+  }
 
-    %picker__nav--prev:before { content: "◀"; }
-    %picker__nav--next:before { content: "▶"; }
+  %form__picker--highlighted {
+    background: $link-color;
+    color: $white;
+  }
+
+  %form__picker--disabled {
+    background: $grayLighter;
+    color: $grayLight;
+  }
+
+  %picker__nav--prev:before { content: "◀"; }
+  %picker__nav--next:before { content: "▶"; }
 
 /*
 
@@ -137,93 +130,88 @@ Buttons
 Styleguide 32.3
 
 */
-    %btn {
-        @extend .transition;
-        color: #fff;
+  %btn {
+    @extend .transition;
+    color: #fff;
 
-        &:hover,
-        &.hover,
-        &:focus {
-            color: #fff;
-        }
-
-        &.active,
-        &:active {
-          @include box-shadow(inset 0 3px 5px rgba(0,0,0,.3));
-        }
-
+    &:hover,
+    &.hover,
+    &:focus {
+      color: #fff;
     }
 
-    // Default
-    %btn--default {
-        border-color: #00a8e1;
-        background-color: #00a8e1;
-
-        // Hover/focus state
-        &:hover,
-        &.hover,
-        &:focus {
-            border-color: shade(#00a8e1, 10);
-            background-color: shade(#00a8e1, 10);
-        }
-
-        // Active state
+    &.active,
+    &:active {
+      @include box-shadow(inset 0 3px 5px rgba(0,0,0,.3));
     }
 
-    %btn__disabled {
-        color: $grayLight;
-        border-color: $grayLight;
-        background-color: #FFF;
+  }
+
+  // Default
+  %btn--default {
+    border-color: #00a8e1;
+    background-color: #00a8e1;
+
+    // Hover/focus state
+    &:hover,
+    &.hover,
+    &:focus {
+      border-color: shade(#00a8e1, 10);
+      background-color: shade(#00a8e1, 10);
     }
+  }
 
-    %btn__current {
-        box-shadow: 0 0 0;
-        background: $gray;
-        color: $white;
+  %btn__disabled {
+    color: $grayLight;
+    border-color: $grayLight;
+    background-color: #FFF;
+  }
+
+  %btn__current {
+    background-color: shade(#00a8e1, 10);
+    color: $white;
+  }
+
+  %btn--primary {
+    border-color: #66bc29;
+    background-color: #66bc29;
+
+    // Hover/focus state
+    &:hover,
+    &.hover,
+    &:focus {
+      border-color: shade(#66bc29, 10);
+      background-color: shade(#66bc29, 10);
     }
+  }
 
-    %btn--primary {
-        border-color: #66bc29;
-        background-color: #66bc29;
+  %btn--secondary {
+    border-color: #f32837;
+    background-color: #f32837;
 
-        // Hover/focus state
-        &:hover,
-        &.hover,
-        &:focus {
-            border-color: shade(#66bc29, 10);
-            background-color: shade(#66bc29, 10);
-        }
+    // Hover/focus state
+    &:hover,
+    &.hover,
+    &:focus {
+      border-color: shade(#f32837, 10);
+      background-color: shade(#f32837, 10);
     }
+  }
 
-    %btn--secondary {
+  // Generic style for buttons For the scripts
+  %btn--scripts {
+    @include alpha-color(#000, .6, background);
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    text-decoration: none;
 
-        border-color: #f32837;
-        background-color: #f32837;
-
-        // Hover/focus state
-        &:hover,
-        &.hover,
-        &:focus {
-            border-color: shade(#f32837, 10);
-            background-color: shade(#f32837, 10);
-        }
+    &:hover {
+      color: #fff;
+      @include alpha-color(#000, .8, background);
     }
-
-    // Generic style for buttons For the scripts
-    %btn--scripts {
-        @include alpha-color(#000, .6, background);
-        color: #fff;
-        cursor: pointer;
-        display: block;
-        text-align: center;
-        text-decoration: none;
-
-        &:hover {
-            color: #fff;
-            @include alpha-color(#000, .8, background);
-        }
-    }
-
+  }
 
 /*
 
@@ -235,11 +223,11 @@ Styleguide 32.4
 
 */
 
-    %caption {
-        @include alpha-color(#000, .8, background);
-        color: #fff;
-        padding: $captions-padding;
-    }
+  %caption {
+    @include alpha-color(#000, .8, background);
+    color: #fff;
+    padding: $captions-padding;
+  }
 
 /*
 
@@ -251,10 +239,10 @@ Styleguide 32.5
 
 */
 
-    %pill {
-        @include alpha-color(#000, .35, background);
-        color: $white;
-    }
+  %pill {
+    @include alpha-color(#000, .35, background);
+    color: $white;
+  }
 
 /*
 
@@ -267,33 +255,30 @@ Styleguide 32.6
 
 */
 
+  %dropdown {
+    @include box-shadow(0 0 5px rgba(#000,.1));
+    background-color: $white;
+    border: 1px solid #ccc;
 
-
-    %dropdown {
-        @include box-shadow(0 0 5px rgba(#000,.1));
-        background-color: $white;
-        border: 1px solid #ccc;
-
-        &:before {
-          @include position(absolute, -8px null null 2em);
-          @include triangle(16px 8px, #ccc, up);
-          content: "";
-        }
-
-        .divider { @include nav-divider(#ccc); margin-top: -1px }
-
-        > li > a,
-        > li > label { border-bottom: 1px dotted #ccc; }
-
-        > li > a:hover,
-        > li > a:focus {
-            text-decoration: none;
-            background: #f8f8f8;
-        }
+    &:before {
+      @include position(absolute, -8px null null 2em);
+      @include triangle(16px 8px, #ccc, up);
+      content: "";
     }
 
-    %dropdown--open {}
+    .divider { @include nav-divider(#ccc); margin-top: -1px }
 
+    > li > a,
+    > li > label { border-bottom: 1px dotted #ccc; }
+
+    > li > a:hover,
+    > li > a:focus {
+      text-decoration: none;
+      background: #f8f8f8;
+    }
+  }
+
+  %dropdown--open {}
 
 /*
 
@@ -308,33 +293,31 @@ Styleguide 32.7
 
 */
 
-
-
-    %table--bordered {
-        thead {
-            th, td {
-                background-color: $gray;
-                color: #FFF;
-            }
-        }
-        tbody {
-            td { border-bottom: 1px solid $grayLight; }
-        }
+  %table--bordered {
+    thead {
+      th, td {
+        background-color: $gray;
+        color: #FFF;
+      }
     }
-
-    %table--striped { background-color: $grayLighter;}
-
-    %table--hover { background-color: $grayLighter;}
-
-    %table--sortable {
-        thead {
-            th {
-                &:hover {background: $grayDark }
-                &.sorting-asc:after {content: "\25BC"; }
-                &.sorting-desc:after {content: "\25B2";}
-            }
-        }
+    tbody {
+      td { border-bottom: 1px solid $grayLight; }
     }
+  }
+
+  %table--striped { background-color: $grayLighter;}
+
+  %table--hover { background-color: $grayLighter;}
+
+  %table--sortable {
+    thead {
+      th {
+        &:hover {background: $grayDark }
+        &.sorting-asc:after {content: "\25BC"; }
+        &.sorting-desc:after {content: "\25B2";}
+      }
+    }
+  }
 
 /*
 
@@ -349,17 +332,16 @@ Styleguide 32.8
 
 */
 
-    %nav--btn {}
+  %nav--btn {}
 
-    %nav--btn__hover { background-color: $grayLighter;}
+  %nav--btn__hover { background-color: $grayLighter;}
 
-    %nav--btn__active {
-        color: $white;
-        background-color: $link-color;
-    }
+  %nav--btn__active {
+    color: $white;
+    background-color: $link-color;
+  }
 
-    %nav--btn__disabled {color: $grayLight;}
-
+  %nav--btn__disabled {color: $grayLight;}
 
 /*
 
@@ -372,23 +354,23 @@ Styleguide 32.9
 
 */
 
-    %breadcrumbs {
-        > li {
-            &:after {
-                color: #ccc;
-                content: "›";
-                padding: 0 10px;
-            }
-            &:last-child {
-                &:after {
-                    content: "";
-                    padding-right: 0;
-                }
-            }
+  %breadcrumbs {
+    > li {
+      &:after {
+        color: #ccc;
+        content: "›";
+        padding: 0 10px;
+      }
+      &:last-child {
+        &:after {
+          content: "";
+          padding-right: 0;
         }
+      }
     }
+  }
 
-    %breadcrumbs__current { color: $grayLight; }
+  %breadcrumbs__current { color: $grayLight; }
 
 /*
 
@@ -404,13 +386,11 @@ Styleguide 32.10
 
 */
 
-
-
-    %pagination--btn            { @extend %btn; @extend %btn--default;  }
-    %pagination--btn__hover     { @extend %btn--default:hover;}
-    %pagination--btn__active    { }
-    %pagination--btn__current   { @extend %btn__current; }
-    %pagination--btn__disabled  { @extend %btn__disabled; }
+  %pagination--btn            { @extend %btn; @extend %btn--default;  }
+  %pagination--btn__hover     { @extend %btn--default:hover;}
+  %pagination--btn__active    { }
+  %pagination--btn__current   { @extend %btn__current; }
+  %pagination--btn__disabled  { @extend %btn__disabled; }
 
 /*
 
@@ -425,10 +405,10 @@ Styleguide 32.11
 
 */
 
-    %pager--btn                 { @extend %btn; @extend %btn--default; }
-    %pager--btn__hover          { }
-    %pager--btn__active         { }
-    %pager--btn__disabled       { @extend %btn__disabled; }
+  %pager--btn                 { @extend %btn; @extend %btn--default; }
+  %pager--btn__hover          { }
+  %pager--btn__active         { }
+  %pager--btn__disabled       { @extend %btn__disabled; }
 
 /*
 
@@ -447,72 +427,71 @@ Styleguide 32.12
 
 */
 
-    // Buttons
+  // Buttons
 
-    .btnPlay:after              { content: "▶" }
-    .btnPlayOn:after            { content: "‖" }
-    .btnToggle:after            { content: "◉" }
-    .btnToggleOn:after          { content: "⦿" }
-    .btnPrev:after              { content: "≪" }
-    .btnNext:after              { content: "≫" }
-    .btnClose:after             { content: "×" }
-    .fancybox-close:after       { content: "×" }
+  .btnPlay:after              { content: "▶" }
+  .btnPlayOn:after            { content: "‖" }
+  .btnToggle:after            { content: "◉" }
+  .btnToggleOn:after          { content: "⦿" }
+  .btnPrev:after              { content: "≪" }
+  .btnNext:after              { content: "≫" }
+  .btnClose:after             { content: "×" }
+  .fancybox-close:after       { content: "×" }
 
-    .fancybox-prev {
-      span:after   { content: "<" }
+  .fancybox-prev {
+    span:after   { content: "<" }
+  }
+
+  .fancybox-next {
+    span:after   { content: ">" }
+  }
+
+  %modal__btn {
+    @extend %btn--scripts;
+    @include square(em($modal-btn-size));
+    line-height: em($modal-btn-size);
+  }
+
+  %modal__close {
+    $offset: neg(em($modal-btn-size));
+    @include position(absolute, $offset .5em null null);
+    color: #CCCCCC;
+    &:hover {
+      color: #FFFFFF;
     }
+  }
 
-    .fancybox-next {
-      span:after   { content: ">" }
-    }
+  %modal__btnbar-size {
+    @include size((em($modal-btn-size) * 5) em($modal-btn-size));
+  }
 
-    %modal__btn {
-        @extend %btn--scripts;
-        @include square(em($modal-btn-size));
-        line-height: em($modal-btn-size);
-    }
+  // Other styles
+  %modal__overlay {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNiqAcAAIgAgoGu+rEAAAAASUVORK5CYII=');
+  }
 
-    %modal__close {
-        $offset: neg(em($modal-btn-size));
-        @include position(absolute, $offset .5em null null);
-        color: #CCCCCC;
-        &:hover {
-          color: #FFFFFF;
-        }
-    }
+  %modal__skin {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    border-radius: $base-border-radius;
+    background: #fff;
 
-    %modal__btnbar-size {
-      @include size((em($modal-btn-size) * 5) em($modal-btn-size));
-    }
+  }
 
-    // Other styles
-    %modal__overlay {
-        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNiqAcAAIgAgoGu+rEAAAAASUVORK5CYII=');
-    }
+  %modal__nav { margin-top: (0 - (em($modal-btn-size) / 2)); }
 
-    %modal__skin {
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-        border-radius: $base-border-radius;
-        background: #fff;
+  %modal__caption { @extend %caption; }
+
+  %modal__loading {
+    margin-top: -($loader-ico-size / 2);
+    margin-left: -($loader-ico-size / 2);
+    @include opacity(.8);
+
+    div {
+      @extend %loader-ico;
+      @include square($loader-ico-size);
 
     }
-
-    %modal__nav { margin-top: (0 - (em($modal-btn-size) / 2)); }
-
-    %modal__caption { @extend %caption; }
-
-    %modal__loading {
-        margin-top: -($loader-ico-size / 2);
-        margin-left: -($loader-ico-size / 2);
-        @include opacity(.8);
-
-        div {
-            @extend %loader-ico;
-            @include square($loader-ico-size);
-
-        }
-    }
-
+  }
 
 /*
 
@@ -527,41 +506,41 @@ Styleguide 32.13
 
 */
 
-    // Buttons
-    %slider__btn {
-        @extend %btn--scripts;
-        @include square(em($slider-btn-size));
-        line-height: em($slider-btn-size);
-        margin-top: neg((em($slider-btn-size) / 2));
+  // Buttons
+  %slider__btn {
+    @extend %btn--scripts;
+    @include square(em($slider-btn-size));
+    line-height: em($slider-btn-size);
+    margin-top: neg((em($slider-btn-size) / 2));
 
-        &.bx-prev i:after { content: "<" }
-        &.bx-next i:after { content: ">" }
+    &.bx-prev i:after { content: "<" }
+    &.bx-next i:after { content: ">" }
+  }
+
+  // Pager
+  %slider__pager {
+    @include position(absolute, null null -30px null);
+    padding-top: 20px;
+    .bx-pager-item {
+      a {
+        border-radius: 5px;
+        @include square(10px);
+        @include hide-text;
+        background: $grayLight;
+        margin: 0 5px;
+        &:hover, &.active { background: $gray; }
+      }
     }
+  }
 
-    // Pager
-    %slider__pager {
-        @include position(absolute, null null -30px null);
-        padding-top: 20px;
-        .bx-pager-item {
-            a {
-                border-radius: 5px;
-                @include square(10px);
-                @include hide-text;
-                background: $grayLight;
-                margin: 0 5px;
-                &:hover, &.active { background: $gray; }
-            }
-        }
-    }
+  // Other styles
+  %slider__caption { @extend %caption; }
 
-    // Other styles
-    %slider__caption { @extend %caption; }
-
-    %slider__loading {
-        @extend %loader-ico;
-        @include alpha-color(#000, .60);
-        min-height: $loader-ico-size;
-    }
+  %slider__loading {
+    @extend %loader-ico;
+    @include alpha-color(#000, .60);
+    min-height: $loader-ico-size;
+  }
 
 /*
 
@@ -577,30 +556,29 @@ Styleguide 32.14
 
 */
 
-    %tab__nav { }
+  %tab__nav { }
 
-    %tab__btn {
-        background: $grayLighter;
-        border: solid 1px $grayLight;
-        border-bottom: none;
-    }
+  %tab__btn {
+    background: $grayLighter;
+    border: solid 1px $grayLight;
+    border-bottom: none;
+  }
 
-    %tab__btn__hover {
-        background: $grayLighter;
-        border: solid 1px $grayLight;
-        border-bottom: none;
-    }
+  %tab__btn__hover {
+    background: $grayLighter;
+    border: solid 1px $grayLight;
+    border-bottom: none;
+  }
 
-    %tab__btn__current {
-        border-color: $gray;
-        &:after { background: $grayLighter; }
-    }
+  %tab__btn__current {
+    border-color: $gray;
+    &:after { background: $grayLighter; }
+  }
 
-    %tab__container {
-        border: solid 1px $gray;
-        background: $grayLighter;
-    }
-
+  %tab__container {
+    border: solid 1px $gray;
+    background: $grayLighter;
+  }
 
 /*
 
@@ -612,10 +590,10 @@ Styleguide 32.15
 
 */
 
-    %alert {
-        background-color: $grayLighter;
-        border: 1px solid $grayLight;
-    }
+  %alert {
+    background-color: $grayLighter;
+    border: 1px solid $grayLight;
+  }
 
 /*
 
@@ -629,34 +607,31 @@ Styleguide 32.16
 
 */
 
+  %nav--offcanvas {
+    background-color: $grayDark;
+    padding: em($wrapper-padding);
+    color: $white;
 
-    %nav--offcanvas {
-        background-color: $grayDark;
-        padding: em($wrapper-padding);
-        color: $white;
+    a {
+      color: $white;
+    }
+  }
 
-        a {
-            color: $white;
-        }
+  %nav--offcanvas__dim {
+    background: rgba(0,0,0,0.2);
+  }
+
+  %nav--offcanvas__toggle {
+    @extend .btn;
+
+    span {
+      @extend .visuallyhidden;
     }
 
-    %nav--offcanvas__dim {
-        background: rgba(0,0,0,0.2);
+    &:before {
+      content: "≡"
     }
-
-    %nav--offcanvas__toggle {
-        @extend .btn;
-
-        span {
-            @extend .visuallyhidden;
-        }
-
-        &:before {
-            content: "≡"
-        }
-    }
-
-
+  }
 
 /*
 
@@ -676,28 +651,27 @@ Styleguide 32.17
 
 */
 
-
-    %overlay__close {
-        @include position(absolute, 2em 2em null null);
-        color: #CCCCCC;
-        &:hover {
-          color: #FFFFFF;
-        }
-
+  %overlay__close {
+    @include position(absolute, 2em 2em null null);
+    color: #CCCCCC;
+    &:hover {
+      color: #FFFFFF;
     }
 
-    %overlay__content {
-      color: $white;
-    }
+  }
 
-    %overlay__background {
-        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNiqAcAAIgAgoGu+rEAAAAASUVORK5CYII=');
-    }
+  %overlay__content {
+    color: $white;
+  }
 
-    %overlay__content--open       { @extend .fadeInDown; }
-    %overlay__content--close      { @extend .fadeOutUp; }
-    %overlay__background--open    { @extend .fadeIn; }
-    %overlay__background--close   { @extend .fadeOut; }
+  %overlay__background {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNiqAcAAIgAgoGu+rEAAAAASUVORK5CYII=');
+  }
+
+  %overlay__content--open       { @extend .fadeInDown; }
+  %overlay__content--close      { @extend .fadeOutUp; }
+  %overlay__background--open    { @extend .fadeIn; }
+  %overlay__background--close   { @extend .fadeOut; }
 
 /*
 
@@ -708,23 +682,23 @@ Classes For other classes of generic elements
     %caret                          # Side triangle For Dropdowns and Selects
     %loader-ico                     # Generic loader icon For all scripts
     %tooltip                        # Additional style for tooltips.
-                                      To change the colors see the 'colors' sections
+
+To change the colors see the 'colors' sections
 
 Styleguide 32.18
 
 */
 
-    %caret {
-        &:after {
-          content: "▼"
-        }
+  %caret {
+    &:after {
+      content: "▼"
     }
+  }
 
-    %loader-ico {
-        background: url('//cdn.jsdelivr.net/wp-advanced-ajax-page-loader/2.5.12/loaders/SMALL%20-%20Spinning%20Arrows.gif') center center no-repeat;
-    }
+  %loader-ico {
+    background: url('//cdn.jsdelivr.net/wp-advanced-ajax-page-loader/2.5.12/loaders/SMALL%20-%20Spinning%20Arrows.gif') center center no-repeat;
+  }
 
-    %tooltip { }
+  %tooltip { }
 
 }
-

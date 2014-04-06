@@ -22,7 +22,7 @@ Styleguide 26.1
 */
 
 @mixin square($size) {
-    @include size($size);
+  @include size($size);
 }
 
 /*
@@ -41,7 +41,6 @@ Become:
 Styleguide 26.2
 
 */
-
 
 @mixin opacity($opacity) {
   filter: unquote("progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($opacity * 100)})");
@@ -67,9 +66,9 @@ Styleguide 26.3
 */
 
 @mixin center-block() {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*
@@ -90,7 +89,6 @@ Styleguide 26.4
   @include transform(translateX(-50%) translateY(-50%));
 }
 
-
 /*
 
 Extend
@@ -98,7 +96,7 @@ Extend
 Abbrieviantion for extendingt normal class (.) or a placeholder class (%)
 when using SASS syntax.
 
-     +e($name, $silent);
+    +e($name, $silent);
 
 * `$name`: Name of the class
 * `$silent`: Set to true if it's a placeholder class
@@ -108,14 +106,12 @@ Styleguide 26.5
 */
 
 @mixin e($name, $silent: false) {
-    @if ($silent == true) {
-        @extend %#{$name};
-    } @else {
-        @extend .#{$name};
-    }
-
+  @if ($silent == true) {
+    @extend %#{$name};
+  } @else {
+    @extend .#{$name};
+  }
 }
-
 
 /*
 
@@ -135,13 +131,11 @@ Styleguide 26.6
 
 */
 
-
 @mixin text-overflow() {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-
 
 /*
 
@@ -164,39 +158,38 @@ Styleguide 26.7
 
 @mixin triangle_border($size, $color, $border-color, $border-width, $direction) {
 
-    $border-width-fix: '';
+  $border-width-fix: '';
 
-    @if $border-width == 1px {
-        $border-width-fix: $border-width * 4;
-    } @else {
-        $border-width-fix: $border-width * 2;
-    }
+  @if $border-width == 1px {
+    $border-width-fix: $border-width * 4;
+  } @else {
+    $border-width-fix: $border-width * 2;
+  }
 
-    $bg-size: $size + $border-width-fix;
+  $bg-size: $size + $border-width-fix;
 
-    &:before, &:after {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 50%;
+  &:before, &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
 
-        @if $direction == 'right' { left: -($border-width); }
-        @if $direction == 'left' { right: -($border-width); }
-    }
+    @if $direction == 'right' { left: -($border-width); }
+    @if $direction == 'left' { right: -($border-width); }
+  }
 
-    &:before {
-        @include triangle($size, $color, $direction);
-        margin-top: -($size / 2);
-        z-index: 2;
-    }
+  &:before {
+    @include triangle($size, $color, $direction);
+    margin-top: -($size / 2);
+    z-index: 2;
+  }
 
-    &:after {
-        @include triangle($bg-size, $border-color, $direction);
-        margin-top: -($bg-size / 2);
-        zoom: 1;
-    }
+  &:after {
+    @include triangle($bg-size, $border-color, $direction);
+    margin-top: -($bg-size / 2);
+    zoom: 1;
+  }
 }
-
 
 /*
 
@@ -224,10 +217,9 @@ Styleguide 26.8
 */
 
 @mixin alpha-color($color: #fff, $alpha: .5, $attribute: color) {
-    #{$attribute}: $color;
-    #{$attribute}: rgba($color, $alpha);
+  #{$attribute}: $color;
+  #{$attribute}: rgba($color, $alpha);
 }
-
 
 /*
 
@@ -243,17 +235,17 @@ Styleguide 26.9
 */
 
 @mixin nav-divider($top: #e5e5e5, $bottom: false) {
-    *width: 100%;
+  *width: 100%;
 
-    @if $bottom {
-        height: 2px;
-    } @else {
-        height: 1px;
-    }
+  @if $bottom {
+    height: 2px;
+  } @else {
+    height: 1px;
+  }
 
-    overflow: hidden;
-    background-color: $top;
-    @if $bottom { border-bottom: 1px solid $bottom; }
+  overflow: hidden;
+  background-color: $top;
+  @if $bottom { border-bottom: 1px solid $bottom; }
 }
 
 /*
@@ -273,38 +265,37 @@ Styleguide 26.10
 
 @mixin shadow-comicbook($padding: 5px, $color: #bbb, $size: 15px, $distance: 10px) {
 
-    $lightColor: lighten($color, 8);
-    $degree: $size/1px;
+  $lightColor: lighten($color, 8);
+  $degree: $size/1px;
 
-    box-shadow: 0 1px 3px $color;
-    border:5px solid #fff;
-    @include inline-block;
-    line-height: 0;
-    position: relative;
+  box-shadow: 0 1px 3px $color;
+  border:5px solid #fff;
+  @include inline-block;
+  line-height: 0;
+  position: relative;
 
-    &:before,
-    &:after {
-        // border: 0;
-        background-color: $lightColor;
-        content: '';
-        z-index: -1;
-        position: absolute;
-        left: $distance;
-        bottom: $distance;
-        width: 70%;
-        height: 55%;
-        box-shadow: 0 $size $size+1 $lightColor;
-        @include transform(skew(-15deg) rotate(-6deg));
-    }
+  &:before,
+  &:after {
+    // border: 0;
+    background-color: $lightColor;
+    content: '';
+    z-index: -1;
+    position: absolute;
+    left: $distance;
+    bottom: $distance;
+    width: 70%;
+    height: 55%;
+    box-shadow: 0 $size $size+1 $lightColor;
+    @include transform(skew(-15deg) rotate(-6deg));
+  }
 
-    &:after {
-        left: auto;
-        right: $distance+1;
-        @include transform(skew(15deg) rotate(6deg));
+  &:after {
+    left: auto;
+    right: $distance+1;
+    @include transform(skew(15deg) rotate(6deg));
 
-    }
+  }
 }
-
 
 /*
 
@@ -325,24 +316,23 @@ Styleguide 26.11
 
 @mixin inset-shadow($position: right, $size: 10px, $color: #000) {
 
-    /*$size: $size*2;*/
+  /*$size: $size*2;*/
 
-    @if $position == 'top' {
-        box-shadow: inset 0 $size $size $size $color;
-    }
+  @if $position == 'top' {
+    box-shadow: inset 0 $size $size $size $color;
+  }
 
-    @if $position == 'right' {
-        box-shadow: inset neg($size) 0 $size neg($size) $color;
-    }
+  @if $position == 'right' {
+    box-shadow: inset neg($size) 0 $size neg($size) $color;
+  }
 
-    @if $position == 'bottom' {
-        box-shadow: inset 0 neg($size) $size neg($size) $color;
-    }
+  @if $position == 'bottom' {
+    box-shadow: inset 0 neg($size) $size neg($size) $color;
+  }
 
-    @if $position == 'left' {
-        box-shadow: inset $size 0 $size 0 $color;
-    }
-
+  @if $position == 'left' {
+    box-shadow: inset $size 0 $size 0 $color;
+  }
 
 }
 
@@ -363,9 +353,9 @@ Styleguide 26.12
 */
 
 @mixin side-shadow($size: 10px, $color: #000) {
-    box-shadow: $size 0 0 $color, neg($size) 0 0 $color;
-    margin-left: $size;
-    margin-right: $size;
+  box-shadow: $size 0 0 $color, neg($size) 0 0 $color;
+  margin-left: $size;
+  margin-right: $size;
 }
 
 /*
@@ -383,17 +373,15 @@ Use the unicode character from an icon font to insert it wherever you want.
 
 ‡ Fonts available: Fontawesome, Brandico, Entypo, Fontelico, Maki, Openweb-icons, Typicons, Zocial
 
-
 Styleguide 26.13
 
 */
 
 @mixin icon-font($char: '\f013', $font: 'FontAwesome') {
-    @include inline-block;
-    font-family: $font;
-    content: "#{$char}";
+  @include inline-block;
+  font-family: $font;
+  content: "#{$char}";
 }
-
 
 /*
 
@@ -413,7 +401,7 @@ Add the sprite in the html with (where `icon_name` is the filename of the icon).
 Or via `@include` from the scss:
 
     a:before {
-        @include s(icon_name)
+      @include s(icon_name)
     }
 
 The result is the same.
@@ -423,8 +411,8 @@ Styleguide 26.14
 */
 
 @mixin s($name) {
-    @extend .s;
-    @extend .s-#{$name};
+  @extend .s;
+  @extend .s-#{$name};
 }
 
 /*
@@ -445,36 +433,36 @@ Styleguide 26.15
 */
 
 @mixin columns (
-    $cols,
-    $cols-container: $total-columns,
-    $omega: false,
-    $nth-omega: false,
-    $from: false,
-    $media: false
-    ) {
+  $cols,
+  $cols-container: $total-columns,
+  $omega: false,
+  $nth-omega: false,
+  $from: false,
+  $media: false
+  ) {
 
-    @if ($media) {
+  @if ($media) {
 
-      // Failback for =< 2.2.1
-      @if $media == 'palm'      { $media: $palm }
-      @if $media == 'lap'       { $media: $lap }
-      @if $media == 'lap-and-up'{ $media: $lap-and-up }
-      @if $media == 'portable'  { $media: $portable }
-      @if $media == 'desk'      { $media: $desk }
+    // Failback for =< 2.2.1
+    @if $media == 'palm'      { $media: $palm }
+    @if $media == 'lap'       { $media: $lap }
+    @if $media == 'lap-and-up'{ $media: $lap-and-up }
+    @if $media == 'portable'  { $media: $portable }
+    @if $media == 'desk'      { $media: $desk }
 
-      @include media($media) {
-        @include span-columns($cols of $cols-container);
-        @if $omega { @include omega; }
-        @if $nth-omega { @include omega($nth-omega); }
-        @if $from { float: $from; }
-      }
-
-    } @else {
-      @include span-columns($cols of $cols-container);
-      @if $omega { @include omega; }
-      @if $nth-omega { @include omega($nth-omega); }
-      @if $from { float: $from; }
+    @include media($media) {
+    @include span-columns($cols of $cols-container);
+    @if $omega { @include omega; }
+    @if $nth-omega { @include omega($nth-omega); }
+    @if $from { float: $from; }
     }
+
+  } @else {
+    @include span-columns($cols of $cols-container);
+    @if $omega { @include omega; }
+    @if $nth-omega { @include omega($nth-omega); }
+    @if $from { float: $from; }
+  }
 
 }
 
@@ -501,7 +489,7 @@ Styleguide 26.16
   $function: $animations-function,
   $mode: $animations-mode
 ) {
-    @include animation($name $duration $delay $function $mode);
+  @include animation($name $duration $delay $function $mode);
 }
 
 /*
@@ -554,17 +542,16 @@ Styleguide 26.17
   $function: $animations-function,
   $mode: $animations-mode
 ) {
-    @if $delay-offset == null {
-      $delay-offset: 0;
+  @if $delay-offset == null {
+    $delay-offset: 0;
+  }
+  @for $i from 1 through $iterations {
+    $delay-seq: ( $delay * $i ) + $delay-offset;
+    #{$selector}:nth-child(#{$i}) {
+    @include animation($name $duration $delay-seq $function $mode);
     }
-    @for $i from 1 through $iterations {
-      $delay-seq: ( $delay * $i ) + $delay-offset;
-      #{$selector}:nth-child(#{$i}) {
-        @include animation($name $duration $delay-seq $function $mode);
-      }
-    }
+  }
 }
-
 
 /*
 
@@ -707,7 +694,6 @@ Styleguide 26.21
 @mixin background-size($n...) {
   background-size: $n;
 }
-
 
 /*
 

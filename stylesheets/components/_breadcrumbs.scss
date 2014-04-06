@@ -5,11 +5,11 @@ Breadcrumbs
 Add a breadcrumb with a list with class `.breadcrumb`.
 
 Markup:
-    <ul class="breadcrumbs">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Library</a></li>
-      <li class="current">Data</li>
-    </ul>
+<ul class="breadcrumbs">
+  <li><a href="#">Home</a></li>
+  <li><a href="#">Library</a></li>
+  <li class="current">Data</li>
+</ul>
 
 `.active`: Selected element style
 
@@ -17,17 +17,16 @@ Styleguide 4
 
 */
 
-
 @if $breadcrumbs {
 
-    .breadcrumbs {
-        margin: 0 0 rhythm();
-        list-style: none;
-        @extend %breadcrumbs !optional;
+  .breadcrumbs {
+    margin: 0 0 rhythm();
+    list-style: none;
+    @extend %breadcrumbs !optional;
 
-        > li { @include inline-block; }
+    > li { @include inline-block; }
 
-        .current {@extend %breadcrumbs__current !optional;}
-    }
+    .current {@extend %breadcrumbs__current !optional;}
+  }
 
 }

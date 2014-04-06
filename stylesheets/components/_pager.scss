@@ -18,35 +18,34 @@ Styleguide 16
 
 @if $pager {
 
+  .pager {
+    @include clearfix;
+    list-style: none;
+    margin: rhythm() 0;
+    text-align: center;
 
-    .pager {
-        @include clearfix;
-        list-style: none;
-        margin: rhythm() 0;
-        text-align: center;
+    li {
+      display: inline;
 
-        li {
-            display: inline;
+      a,
+      span {
+        border-radius: $base-border-radius;
+        border-style: solid;
+        border-width: 1px;
+        @include inline-block;
+        line-height: 1em;
+        padding: $pager-padding;
+        @extend %pager--btn !optional;
+      }
 
-            a,
-            span {
-                border-radius: $base-border-radius;
-                border-style: solid;
-                border-width: 1px;
-                @include inline-block;
-                line-height: 1em;
-                padding: $pager-padding;
-                @extend %pager--btn !optional;
-            }
-
-            a:hover,
-            a:focus {
-                @extend %pager--btn__hover !optional;
-            }
-            a:active {
-                @extend %pager--btn__active !optional;
-            }
-        }
+      a:hover,
+      a:focus {
+        @extend %pager--btn__hover !optional;
+      }
+      a:active {
+        @extend %pager--btn__active !optional;
+      }
+    }
 
 /*
 
@@ -64,17 +63,17 @@ Styleguide 16.1
 
 */
 
-        [rel="next"],
-        .next > a,
-        .next > span {
-            float: right;
-        }
+    [rel="next"],
+    .next > a,
+    .next > span {
+      float: right;
+    }
 
-        [rel="prev"],
-        .previous > a,
-        .previous > span {
-            float: left;
-        }
+    [rel="prev"],
+    .previous > a,
+    .previous > span {
+      float: left;
+    }
 
 /*
 
@@ -92,15 +91,14 @@ Styleguide 16.2
 
 */
 
-        .disabled > a,
-        .disabled > a:hover,
-        .disabled > a:focus,
-        .disabled > span {
-            cursor: default;
-            @extend %pager--btn__disabled !optional;
-        }
-
+    .disabled > a,
+    .disabled > a:hover,
+    .disabled > a:focus,
+    .disabled > span {
+      cursor: default;
+      @extend %pager--btn__disabled !optional;
     }
 
+  }
 
 }

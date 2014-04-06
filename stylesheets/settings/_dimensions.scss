@@ -9,7 +9,6 @@ Styleguide 31
 
 */
 
-
 $base-border-radius:                4px                                                                     !default;
 $horizontal-offset:                 180px                                                                   !default;
 
@@ -117,7 +116,6 @@ $input-padding:                     em($input-padding-top) em($input-padding-sid
 $input-height:                      em($base-font-size + ($input-padding-top * 2) + ($input-border * 2))    !default;
 $control-min-height:                em($base-line-height + $label-margin-bottom) + $input-height - em(5px)  !default;
 
-
 /*
 
 Paddings
@@ -179,7 +177,6 @@ $tabs-tab-padding:                  $input-padding                              
 $tooltips-padding:                  $input-padding                                                          !default;
 $picker-padding:                    1em 1em                                                                 !default;
 
-
 /*
 
 Sizes
@@ -212,7 +209,6 @@ Styleguide 31.5
 $dropdowns-width:                   160px                                                                   !default;
 $tooltips-width:                    200px                                                                   !default;
 
-
 /*
 
 Heights
@@ -224,7 +220,6 @@ Some elements need to have a max-height specified for smoother animations, like 
 Styleguide 31.6
 
 */
-
 
 $dropdowns-height:                  600px                                                                   !default;
 
@@ -241,7 +236,6 @@ Set the width of the three steps of the layout.
 Styleguide 31.7
 
 */
-
 
 $lap-start:                         481px                                                                   !default;
 $desk-start:                        768px                                                                   !default;
@@ -273,7 +267,6 @@ Styleguide 31.8
 
 */
 
-
 // Failback for =< 2.2.5
 $total-columns:                     12                                                                      !default;
 $column-width:                      50px                                                                    !default;
@@ -296,7 +289,6 @@ Styleguide 15.1
 
 */
 
-
 $offcanvas-width:                   300px                                                                   !default;
 $offcanvas-direction:               left                                                                    !default;
 $offcanvas-dim:                     true                                                                    !default;
@@ -318,7 +310,6 @@ Default settings for overlay components, taken from Bootstrap.
 Styleguide 31.9
 
 */
-
 
 $zindex-offcanvas:                  990                                                                     !default;
 $zindex-dropdown:                   1000                                                                    !default;

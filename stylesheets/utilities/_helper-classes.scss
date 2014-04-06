@@ -56,17 +56,17 @@ Styleguide 24.2
 */
 
 .wrapper, .w {
-    @include clearfix;
-    margin: 0 auto;
-    max-width: $desk-end;
-    padding-left: em($wrapper-padding);
-    padding-right: em($wrapper-padding);
+  @include clearfix;
+  margin: 0 auto;
+  max-width: $desk-end;
+  padding-left: em($wrapper-padding);
+  padding-right: em($wrapper-padding);
 }
 
 .fixed-wrapper, .fw {
-    @include clearfix;
-    margin: 0 auto;
-    width: $desk-end;
+  @include clearfix;
+  margin: 0 auto;
+  width: $desk-end;
 }
 
 /*
@@ -92,11 +92,11 @@ Styleguide 24.3
 */
 
 @for $j from 1 through 20 {
-    $i: 5 * $j;
-    %width-#{$i} { width: $i * 1% !important; }
-    @if $width-helper-classes {
-        [data-width="#{$i}"] { @extend %width-#{$i}; }
-    }
+  $i: 5 * $j;
+  %width-#{$i} { width: $i * 1% !important; }
+  @if $width-helper-classes {
+    [data-width="#{$i}"] { @extend %width-#{$i}; }
+  }
 }
 
 /*
@@ -142,13 +142,13 @@ Styleguide 24.5
 */
 
 .s {
-    @include transition(all $default-transition-duration $default-transition-function,  background-position 0s);
-    content: "";
-    @include inline-block;
-    font-style:normal;
-    overflow:hidden;
-    text-align:center;
-    text-indent:-9999px;
+  @include transition(all $default-transition-duration $default-transition-function,  background-position 0s);
+  content: "";
+  @include inline-block;
+  font-style:normal;
+  overflow:hidden;
+  text-align:center;
+  text-indent:-9999px;
 }
 
 /*

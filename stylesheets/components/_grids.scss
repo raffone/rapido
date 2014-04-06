@@ -28,15 +28,15 @@ Styleguide 11
 $media-queries: (palm: $palm, lap: $lap, portable: $portable, lap-and-up: $lap-and-up, desk: $desk);
 
 @if $grids {
-    @each $name, $device in $media-queries {
-        @include media($device) {
-             @for $i from 1 through $total-columns {
-                .#{$name}-#{$i} {
-                    @include span-columns($i);
-                }
-            }
+  @each $name, $device in $media-queries {
+    @include media($device) {
+       @for $i from 1 through $total-columns {
+        .#{$name}-#{$i} {
+          @include span-columns($i);
         }
+      }
     }
+  }
 }
 
 /*
@@ -46,44 +46,44 @@ Show and Hide
 There're also available some helper classes:
 
 * **Hide element**: Used to hide an element at a breackpoint
-    * `.palm-hide`
-    * `.lap-hide`
-    * `.portable-hide`
-    * `.lap-and-up-hide`
-    * `.desk-hide`
+  * `.palm-hide`
+  * `.lap-hide`
+  * `.portable-hide`
+  * `.lap-and-up-hide`
+  * `.desk-hide`
 * **Show element**: Used to show an element at a breackpoint
-    * `.palm-show`
-    * `.lap-show`
-    * `.portable-show`
-    * `.lap-and-up-show`
-    * `.desk-show`
+  * `.palm-show`
+  * `.lap-show`
+  * `.portable-show`
+  * `.lap-and-up-show`
+  * `.desk-show`
 * **Omega element**: Used to apply a margin: 0 on the last item on the row
-    * `.palm-omega`
-    * `.lap-omega`
-    * `.portable-omega`
-    * `.lap-and-up-somega`
-    * `.desk-omega`
+  * `.palm-omega`
+  * `.lap-omega`
+  * `.portable-omega`
+  * `.lap-and-up-somega`
+  * `.desk-omega`
 * **Reverse element**: Used to reverse the direction
-    * `.palm-reverse`
-    * `.lap-reverse`
-    * `.portable-reverse`
-    * `.lap-and-up-reverse`
-    * `.desk-reverse`    
+  * `.palm-reverse`
+  * `.lap-reverse`
+  * `.portable-reverse`
+  * `.lap-and-up-reverse`
+  * `.desk-reverse`    
 
 Styleguide 11.1
 
 */
 
 @if $grids-helpers {
-    @each $name, $device in $media-queries {
-        @include media($device) {
-            .#{$name}-hide { display: none !important; }
-            .#{$name}-show { display: block !important; }
-            .#{$name}-omega { margin-right: 0 !important; }
-            .#{$name}-reverse {
-              @extend .#{$name}-omega;
-              float: right !important;
-            }
-        }
+  @each $name, $device in $media-queries {
+    @include media($device) {
+      .#{$name}-hide { display: none !important; }
+      .#{$name}-show { display: block !important; }
+      .#{$name}-omega { margin-right: 0 !important; }
+      .#{$name}-reverse {
+        @extend .#{$name}-omega;
+        float: right !important;
+      }
     }
+  }
 }

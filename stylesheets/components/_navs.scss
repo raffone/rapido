@@ -35,140 +35,138 @@ Styleguide 13
 
 @if $navs {
 
-    .nav {
-        @include clearfix;
+  .nav {
+    @include clearfix;
+    @include inline-block;
+    margin-bottom: rhythm();
+    position: relative;
+
+    &, ul {
+      @include clearfix;
+      @extend .list-style-none;
+      margin-bottom: 0;
+    }
+
+    li {
+      position: relative;
+
+      > a {
+        @extend .transition;
         @include inline-block;
-        margin-bottom: rhythm();
-        position: relative;
+        line-height: 1em;
 
-        &, ul {
-            @include clearfix;
-            @extend .list-style-none;
-            margin-bottom: 0;
+        &:hover, &:focus {
+          text-decoration: none;
         }
 
-        li {
-            position: relative;
+        img { max-width: none; }
+      }
 
-            > a {
-                @extend .transition;
-                @include inline-block;
-                line-height: 1em;
+      &.disabled > a:hover,
+      &.disabled > a:focus {
+        text-decoration: none;
+        background-color: transparent;
+        cursor: default;
+      }
 
-                &:hover, &:focus {
-                    text-decoration: none;
-                }
-
-                img { max-width: none; }
-            }
-
-            &.disabled > a:hover,
-            &.disabled > a:focus {
-                text-decoration: none;
-                background-color: transparent;
-                cursor: default;
-            }
-
-            // Disabled
-            &.disabled > a { @extend %nav--btn__disabled !optional; }
-
-        }
-
-        // Dropdown
-
-        li ul {
-          @extend .transition;
-          @include opacity(0);
-          display/*\**/: none\9; // Ugly IE8 Hack
-          max-height: 0;
-          overflow: hidden;
-          z-index: 2;
-        }
-
-        li:hover ul,
-        li ul:hover {
-          @include opacity(1);
-          display/*\**/: block\9; // Ugly IE8 Hack
-          max-height: $dropdowns-height;
-        }
+      // Disabled
+      &.disabled > a { @extend %nav--btn__disabled !optional; }
 
     }
+
+    // Dropdown
+
+    li ul {
+      @extend .transition;
+      @include opacity(0);
+      display/*\**/: none\9; // Ugly IE8 Hack
+      max-height: 0;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    li:hover ul,
+    li ul:hover {
+      @include opacity(1);
+      display/*\**/: block\9; // Ugly IE8 Hack
+      max-height: $dropdowns-height;
+    }
+
+  }
 
 // Nav Title
 
-    .nav__title {
-        @include adjust-font-size-to($small-size);
-        color: $gray;
-        display: block;
-        font-weight: bold;
-        padding: $navs-padding;
-        padding-left: 0;
-        text-transform: uppercase;
-    }
+  .nav__title {
+    @include adjust-font-size-to($small-size);
+    color: $gray;
+    display: block;
+    font-weight: bold;
+    padding: $navs-padding;
+    padding-left: 0;
+    text-transform: uppercase;
+  }
 
 // Horizontal nav
 
-    .nav--inline {
-        & > li,
-        > ul > li { float: left;}
+  .nav--inline {
+    & > li,
+    > ul > li { float: left;}
 
-        li ul {
-          @include position(absolute, 100% null null 0px);
-          min-width: 10em;
-        }
+    li ul {
+      @include position(absolute, 100% null null 0px);
+      min-width: 10em;
     }
+  }
 
 // Vertical nav
 
-    .nav--vertical {
-        width: 100%;
+  .nav--vertical {
+    width: 100%;
 
-        li > a {
-            display: block;
-        }
+    li > a {
+      display: block;
     }
-
+  }
 
 // Nav with blocky links
 
-    .nav--btn {
-        li {
-            > a {
-                padding: $navs-padding;
-                @extend %nav--btn !optional;
+  .nav--btn {
+    li {
+      > a {
+        padding: $navs-padding;
+        @extend %nav--btn !optional;
 
-                &:hover, &:focus {
-                    @extend %nav--btn__hover !optional;
-                }
-            }
-
-            ul a { display: block; }
-
-            &.current > a,
-            &.current > a:hover,
-            &.current > a:focus {
-                @extend %nav--btn__current  !optional;
-            }
-
-            ul,
-            &:hover > a {
-              @extend %nav--btn__hover !optional;
-            }
-
+        &:hover, &:focus {
+          @extend %nav--btn__hover !optional;
         }
-    }
+      }
 
+      ul a { display: block; }
+
+      &.current > a,
+      &.current > a:hover,
+      &.current > a:focus {
+        @extend %nav--btn__current  !optional;
+      }
+
+      ul,
+      &:hover > a {
+        @extend %nav--btn__hover !optional;
+      }
+
+    }
+  }
 
 // Nav with pills as links
 
-    .nav--pills {
-        > li > a {
-            border-radius: $base-border-radius;
-            margin-right: .25em;
-        }
-
-        &[class*="vertical"] > li > a { margin-bottom: .25em;  }
-        &[class*="vertical"] > li:last-child > a { margin-bottom: 0; }
+  .nav--pills {
+    > li > a {
+      border-radius: $base-border-radius;
+      margin-right: .25em;
     }
+
+    &[class*="vertical"] > li > a { margin-bottom: .25em;  }
+    &[class*="vertical"] > li:last-child > a { margin-bottom: 0; }
+  }
 
 }
