@@ -138,6 +138,7 @@ Styleguide 32.3
 
 */
     %btn {
+        @extend .transition;
         color: #fff;
 
         &:hover,
