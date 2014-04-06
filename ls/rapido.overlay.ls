@@ -54,7 +54,7 @@ let $ = jQuery, window, document
 
         # Set ovewrflow:hidden to backgroudn page
         $('html')
-          .css overflow: 'hidden' height: 'auto'
+          .css overflow: 'hidden' height: '100%'
 
         # Add scrollbar offset only if desktop browser
         $('html.no-touch')
