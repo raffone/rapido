@@ -199,7 +199,6 @@ To convert `PX` to `EM` using the `$base-font-size` as font size.
 
 Styleguide 27.1
 
-
 /*
 
 Neg
@@ -225,7 +224,6 @@ Similar to span-columns mixin, but returns the math-ready % multiplier. Taken fr
 * `$context`: The Context. (default: $total-columns).
 * `$style`: Optionally return static lengths for grid calculations. (default: $container-style).
 
-
     .item { width: columns(3,6); }
 
 Styleguide 27.3
@@ -241,7 +239,6 @@ The % width of one gutter in any given context. Taken from [Susy One](http://sus
 
 * `$context`: The Context. (default: $total-columns).
 * `$style`: Optionally return static lengths for grid calculations. (default: $container-style).
-
 
     .item { margin-right: gutter(6) + columns(3,6); }
 
@@ -259,7 +256,6 @@ Total % space taken by Columns, including internal AND external gutters. Taken f
 * `$columns`: The number of Columns to span,
 * `$context`: The Context. (default: $total-columns).
 * `$style`: Optionally return static lengths for grid calculations. (default: $container-style).
-
 
     .item { margin-right: space(3,6); }
 
@@ -366,7 +362,8 @@ Styleguide 31
 
 Text Size
 
-Font sizes you can used with the mixin `adjust-font-size-to()`. Naming convention from [Inuit](http://inuitcss.com/).
+Font sizes you can used with the mixin `adjust-font-size-to()`.
+Naming convention from [Inuit](http://inuitcss.com/).
 
     $giga-size:                     $base-font-size * 7     # 98px
     $mega-size:                     $base-font-size * 5     # 70px
@@ -390,8 +387,9 @@ Styleguide 31.1
 
 Line-Height
 
-By default all titles have a line-height based on the font-size, to ensure that it will allways respect the vertical rhythm.
-Sometimes this result is not what we expect/want so it's possible to override the default proportion width these.
+By default all titles have a line-height based on the font-size, to ensure that
+it will allways respect the vertical rhythm. Sometimes this result is not what
+we expect/want so it's possible to override the default proportion width these.
 
 These values mean: n times the base line-height.
 
@@ -483,9 +481,15 @@ Styleguide 31.5
 
 Heights
 
-Some elements need to have a max-height specified for smoother animations, like dropdowns:
+Some elements need to have a max-height specified for smoother animations,
+like dropdowns:
 
     $dropdowns-height:              600px
+
+Sometimes some elements that use a font with incorrect vertical centering need to
+be fixed with an offset:
+
+    $offset-select:                 0px
 
 Styleguide 31.6
 
@@ -602,7 +606,6 @@ Icon Fonts
 Icon Fonts ready to use with the mixin `icon-font`.
 Font files are not required, is used the [We Love Icon Fonts](http://weloveiconfonts.com/) CDN.
 
-
     $use-fontawesome:               false  # http://fortawesome.github.io/Font-Awesome/
     $use-brandico:                  false  # http://fontello.github.io/brandico.font/demo.html
     $use-entypo:                    false  # http://www.entypo.com/
@@ -661,7 +664,6 @@ Calculate rhythm units. [Vertical Rhythm](http://compass-style.org/reference/com
 * `$lines`: Number of lines
 * `$font-size`: Context font size (default: $base-font-size) 
 * `$offset`: Offset value (default: 0) 
-
 
     .item { height: rhythm(4); }
 
@@ -742,7 +744,7 @@ Styleguide 26.3
 
 Center
 
-Vertical and horizontal centering with absolute positioning, using the position 
+Vertical and horizontal centering with absolute positioning, using the position
 absolute and negative translate.
 
     @include center();
@@ -754,10 +756,10 @@ Styleguide 26.4
 
 Extend
 
-Abbrieviantion for extendingt normal class (.) or a placeholder class (%) 
+Abbrieviantion for extendingt normal class (.) or a placeholder class (%)
 when using SASS syntax.
 
-     +e($name, $silent);
+    +e($name, $silent);
 
 * `$name`: Name of the class
 * `$silent`: Set to true if it's a placeholder class
@@ -786,7 +788,7 @@ Styleguide 26.6
 
 Triangle with Borders
 
-Add a css-only triangle width side borders, usefull for tooltips. For now only 
+Add a css-only triangle width side borders, usefull for tooltips. For now only
 side triangles with border are suported.
 
     @include triangle_border($size, $color, $border-color, $border-width, $direction);
@@ -854,7 +856,7 @@ Styleguide 26.10
 
 Box Inset Shadow
 
-Usefull for adding inset shadows to sidebars or large block where the shadow 
+Usefull for adding inset shadows to sidebars or large block where the shadow
 is only on one side and full width/height.
 
     @include inset-shadow($position, $size, $color);
@@ -870,7 +872,7 @@ Styleguide 26.11
 
 Side Shadow
 
-Add Side Shadows to multi-line padded text for consistend side padding 
+Add Side Shadows to multi-line padded text for consistend side padding
 (Fabien Doiron's box-shadow:  Method).
 
     @include side-shadow($size, $color);
@@ -896,7 +898,6 @@ Use the unicode character from an icon font to insert it wherever you want.
 
 ‡ Fonts available: Fontawesome, Brandico, Entypo, Fontelico, Maki, Openweb-icons, Typicons, Zocial
 
-
 Styleguide 26.13
 
 */
@@ -904,9 +905,9 @@ Styleguide 26.13
 
 Sprites
 
-Rapido uses [grunt-spritesmith ](https://github.com/Ensighten/grunt-spritesmith) 
+Rapido uses [grunt-spritesmith ](https://github.com/Ensighten/grunt-spritesmith)
 that make including sprites easily both in the html and directly in the css,
-for more info see the full documentation from the link. First you need to create 
+for more info see the full documentation from the link. First you need to create
 a sass o scss file with spritesmith, then import it in your main sass file.
 
 Then add you have two options:
@@ -918,7 +919,7 @@ Add the sprite in the html with (where `icon_name` is the filename of the icon).
 Or via `@include` from the scss:
 
     a:before {
-        @include s(icon_name)
+      @include s(icon_name)
     }
 
 The result is the same.
@@ -1000,7 +1001,7 @@ Styleguide 26.17
 
 Compass shortcuts
 
-These are some mixin not available to Bourbon (inspired by Compass) that help as 
+These are some mixin not available to Bourbon (inspired by Compass) that help as
 aliases for longer mixin calls.
 
 Tranform shortcuts:
@@ -1030,7 +1031,7 @@ Styleguide 26.20
 
 Compass failbacks
 
-These mixins still exist for backward compatibility with old versions of Rapido 
+These mixins still exist for backward compatibility with old versions of Rapido
 but they serve only as an alias for the plan css attributes without prefixes.
 
     @include border-radius($n)
@@ -1047,11 +1048,11 @@ Styleguide 26.21
 
 Bourbon alternatives
 
-In the latest version of Bourbon the mixin 'position' changed behaviour from 
-usin 0 for null values to actually use null, because is not backward compatible 
+In the latest version of Bourbon the mixin 'position' changed behaviour from
+usin 0 for null values to actually use null, because is not backward compatible
 this is an alias to the old version.
 
-    @include old-position(relative, 1em 0 0 1em)    
+    @include old-position(relative, 1em 0 0 1em)
 
 It's the same as:
 
@@ -1096,7 +1097,27 @@ Styleguide 24.1
   clear: both;
 }
 
-.transition, .dropdown__menu, .form__suggest, .nav li > a, .nav li ul {
+.transition, .dropdown__menu, .input-text,
+.form__input,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"], .form__suggest, .nav li > a, .nav li ul, .btn, .picker__nav--prev,
+.picker__nav--next, .picker__button--today,
+.picker__button--clear, .offcanvas__menu--toggle, .pagination > * li a,
+.pagination > * li span, .pager li a,
+.pager li span {
   -webkit-transition: all 0.15s ease-out;
   -moz-transition: all 0.15s ease-out;
   transition: all 0.15s ease-out;
@@ -1592,9 +1613,9 @@ Include this js after including rapido.js.
 
     $('.articles').rapido_Animation();
 
-**Options** `(with` d`efault` values)`:`
+**Options** (with default values):
 
-`    offset`: `    500`
+    offset:      500
     offsetClass: .offcanvas__content (if using an offset layout with a custom class)
 
 Example:
@@ -1602,7 +1623,6 @@ Example:
     <section class="articles" data-animation="fadeIn">
       ...
     </section>
-
 
 Styleguide 2.5
 
@@ -1994,15 +2014,15 @@ Styleguide 5
 .btn, .picker__nav--prev,
 .picker__nav--next, .picker__button--today,
 .picker__button--clear, .offcanvas__menu--toggle {
-  border-radius: 4px;
-  border-style: solid;
-  border-width: 1px;
-  cursor: pointer;
   display: inline-block;
   vertical-align: middle;
   zoom: 1;
   *display: inline;
   *vertical-align: auto;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
   line-height: 1em;
   margin-bottom: 0;
   text-align: center;
@@ -2117,7 +2137,6 @@ Markup:
 
 .btn--block - Create block level buttons—those that span the full width of a parent.
 .btn--pill - Button width rounded full corners.
-.btn--link - Deemphasize a button by making it look like a link while maintaining button behavior.
 
 Styleguide 5.4
 
@@ -2156,7 +2175,7 @@ Styleguide 5.5
   border-radius: 0;
   border-color: transparent;
   background: none;
-  color: #0074d9;
+  color: #0074d9 !important;
   cursor: pointer;
 }
 .btn--link:hover, .picker__nav--prev:hover,
@@ -2174,7 +2193,7 @@ Styleguide 5.5
 [disabled].picker__button--clear {
   background-color: transparent;
   background-image: none;
-  box-shadow: none;
+  box-shadow: none !important;
 }
 .btn--link[disabled]:hover, [disabled].picker__nav--prev:hover,
 [disabled].picker__nav--next:hover, [disabled].picker__button--today:hover,
@@ -2237,28 +2256,28 @@ Script required: *rapido.js*.
 Markup:
 <div class="dropdown">
   <a href="#" class="btn btn--default dropdown__toggle " data-toggle="dropdown">
-    Dropdown
-    <span class="dropdown__caret"></span>
+  Dropdown
+  <span class="dropdown__caret"></span>
   </a>
   <ul class="dropdown__menu ">
-    <li><a tabindex="-1" href="#">Action</a></li>
-    <li><a tabindex="-1" href="#">Another action</a></li>
-    <li><a tabindex="-1" href="#">Something else here</a></li>
-    <li class="divider"></li>
-    <li><a tabindex="-1" href="#">Separated link</a></li>
+  <li><a tabindex="-1" href="#">Action</a></li>
+  <li><a tabindex="-1" href="#">Another action</a></li>
+  <li><a tabindex="-1" href="#">Something else here</a></li>
+  <li class="divider"></li>
+  <li><a tabindex="-1" href="#">Separated link</a></li>
   </ul>
 </div>
 <div class="dropdown">
   <a href="#" class="btn btn--default dropdown__toggle " data-toggle="dropdown">
-    Dropdown
-    <span class="dropdown__caret"></span>
+  Dropdown
+  <span class="dropdown__caret"></span>
   </a>
   <ul class="dropdown__menu pull-right ">
-    <li><a tabindex="-1" href="#">Action</a></li>
-    <li><a tabindex="-1" href="#">Another action</a></li>
-    <li><a tabindex="-1" href="#">Something else here</a></li>
-    <li class="divider"></li>
-    <li><a tabindex="-1" href="#">Separated link</a></li>
+  <li><a tabindex="-1" href="#">Action</a></li>
+  <li><a tabindex="-1" href="#">Another action</a></li>
+  <li><a tabindex="-1" href="#">Something else here</a></li>
+  <li class="divider"></li>
+  <li><a tabindex="-1" href="#">Separated link</a></li>
   </ul>
 </div>
 <script>$('.dropdown').rapido_Dropdown();</script>
@@ -2307,7 +2326,6 @@ Dropdown menu
 
 List of the links to show in the dropdown.
 
-
     <ul class="dropdown__menu ">
       <li><a tabindex="-1" href="#">Action</a></li>
       <li><a tabindex="-1" href="#">Another action</a></li>
@@ -2320,13 +2338,12 @@ Styleguide 9.2
 
 */
 .dropdown__menu {
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
+  border-radius: 4px;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
   position: absolute;
-  top: 100%;
-  left: 0px;
+  top: 150%;
+  left: 0;
   border-style: solid;
   border-width: 1px;
   display/*\**/: none\9;
@@ -2334,10 +2351,10 @@ Styleguide 9.2
   list-style: none;
   margin: -1px 0 0 0;
   max-height: 0;
-  min-width: 10em;
-  overflow: hidden;
-  z-index: 1000;
   max-width: 11.42857em;
+  min-width: 10em;
+  visibility: hidden;
+  z-index: 1000;
 }
 .dropdown__menu[data-content] {
   min-width: 42.85714em;
@@ -2345,6 +2362,10 @@ Styleguide 9.2
 .dropdown__menu.pull-right {
   right: 0;
   left: auto;
+}
+.dropdown__menu.pull-right:before {
+  left: auto;
+  right: 2em;
 }
 .dropdown__menu > li > a,
 .dropdown__menu > li > label {
@@ -2394,8 +2415,6 @@ Styleguide 9.2
   z-index: 1000;
 }
 .dropdown.open .dropdown__toggle {
-  border-bottom-left-radius: 0 !important;
-  border-bottom-right-radius: 0 !important;
   z-index: 1001;
 }
 .dropdown.open .dropdown__menu {
@@ -2403,6 +2422,7 @@ Styleguide 9.2
   opacity: 1;
   display/*\**/: block\9;
   max-height: 42.85714em;
+  visibility: visible;
 }
 
 /*
@@ -2424,15 +2444,15 @@ stacked, left-aligned labels on top of form controls.
       |         +–– .form__addon
       +–– .form__actions
 
-* **`.form__group`**: Main container of a section of the form
-    * **`.form__label`**: Main labels for the form.
-    * **`.form__controls`**: Container of inputs, buttons and addons
-        * **`.form__checkbox`**, **`.form__radio`**: Stacked list of checkboxes and radios.
-        * **`.form__checkbox.inline`**, **`.form__radio.inline`**: Inline list of checkboxes and radios.
-        * **`.form__select`**: Create custom style selects.
-        * **`.form__help--block`**: Block help text that appears under form controls.
-        * **`.form__help--inline`**: Inline help text that appears aside form controls.
-* **`.form__actions`**: End a form with a group of actions (buttons). When placed within a `.form__actions`, the buttons will automatically indent to line up with the form controls.
+* `.form__group`: Main container of a section of the form
+  * `.form__label`: Main labels for the form.
+  * `.form__controls`: Container of inputs, buttons and addons
+    * `.form__checkbox`, `.form__radio`: Stacked list of checkboxes and radios.
+    * `.form__checkbox.inline`, `.form__radio.inline`: Inline list of checkboxes and radios.
+    * `.form__select`: Create custom style selects.
+    * `.form__help--block`: Block help text that appears under form controls.
+    * `.form__help--inline`: Inline help text that appears aside form controls.
+* `.form__actions`: End a form with a group of actions (buttons). When placed within a `.form__actions`, the buttons will automatically indent to line up with the form controls.
 
 Styleguide 10
 
@@ -2727,10 +2747,10 @@ Radio & Checkbox
 Markup:
 <div class="form__controls">
   <label class="form__radio {$modifiers}">
-    <input type="radio" value="option1" checked> Option one is this
+  <input type="radio" value="option1" checked> Option one is this
   </label>
   <label class="form__radio {$modifiers}">
-    <input type="radio" value="option2"> Option two can be something else
+  <input type="radio" value="option2"> Option two can be something else
   </label>
 </div>
 
@@ -2782,12 +2802,12 @@ with class `.form__select`.
 Markup:
 <span class="form__select">
   <select>
-    <option selected="selected">Select Country</option>
-    <option>United States</option>
-    <option>United Kingdom</option>
-    <option>Italy</option>
-    <option>France</option>
-    <option>Germany</option>
+  <option selected="selected">Select Country</option>
+  <option>United States</option>
+  <option>United Kingdom</option>
+  <option>Italy</option>
+  <option>France</option>
+  <option>Germany</option>
   </select>
 </span>
 
@@ -2838,6 +2858,7 @@ Styleguide 10.3
   z-index: 3;
   text-indent: 1px;
   text-overflow: '';
+  top: 0px;
 }
 .form__select:after {
   position: absolute;
@@ -2933,16 +2954,16 @@ Markup:
 <div class="form__controls">
   <input type="text">
   <div class="form__suggest">
-    <ul>
-        <li><a href="#" title="First line">First line</a></li>
-        <li><a href="#" title="Second line">Second line</a></li>
-        <li><a href="#" title="Third line">Third line</a></li>
-    </ul>
+  <ul>
+    <li><a href="#" title="First line">First line</a></li>
+    <li><a href="#" title="Second line">Second line</a></li>
+    <li><a href="#" title="Third line">Third line</a></li>
+  </ul>
   </div>
 </div>
 <script type="text/javascript">
   $(document).ready(function() {
-    $.rapido_Suggest();
+  $.rapido_Suggest();
   });
 </script>
 
@@ -2964,6 +2985,7 @@ Styleguide 10.6
   overflow: hidden;
   position: absolute;
   z-index: 999;
+  border-radius: 0 0 4px 4px;
 }
 .form__suggest.open {
   max-height: 600px;
@@ -2993,11 +3015,11 @@ Markup:
   <span class="form__addon">$</span>
   <input type="text">
   <div class="form__suggest">
-    <ul>
-        <li><a href="#">Fist line</a></li>
-        <li><a href="#">Second line</a></li>
-        <li><a href="#">Third line</a></li>
-    </ul>
+  <ul>
+    <li><a href="#">Fist line</a></li>
+    <li><a href="#">Second line</a></li>
+    <li><a href="#">Third line</a></li>
+  </ul>
   </div>
   <span class="form__addon">.00</span>
 </div>
@@ -3070,10 +3092,7 @@ Styleguide 10.9
 
 */
 .form__actions {
-  padding-top: 1.618em;
   margin-top: 1.618em;
-  margin-bottom: 1.618em;
-  border-top: 1px solid #e5e5e5;
   clear: both;
 }
 .form__actions:after {
@@ -3083,7 +3102,6 @@ Styleguide 10.9
 }
 
 .form__group.form__actions {
-  border: 0;
   clear: none;
   margin-bottom: 0;
   margin-top: 0;
@@ -3097,39 +3115,39 @@ Form Layouts
 Markup:
 <form class="{$modifiers}">
   <div class="form__group">
-    <label class="form__label">Label</label>
-    <div class="form__controls">
-      <input type="text" placeholder="Type something…">
-    </div>
+  <label class="form__label">Label</label>
+  <div class="form__controls">
+    <input type="text" placeholder="Type something…">
+  </div>
   </div>
   <div class="form__group">
-    <label class="form__label">Label</label>
-    <div class="form__controls">
-      <label class="form__radio inline">
-        <input type="radio" value="option1" checked> Option one
-      </label>
-      <label class="form__radio inline">
-        <input type="radio" value="option1" checked> Option two
-      </label>
-    </div>
+  <label class="form__label">Label</label>
+  <div class="form__controls">
+    <label class="form__radio inline">
+    <input type="radio" value="option1" checked> Option one
+    </label>
+    <label class="form__radio inline">
+    <input type="radio" value="option1" checked> Option two
+    </label>
+  </div>
   </div>
   <div class="form__group">
-    <label class="form__label">Label</label>
-    <div class="form__controls">
-      <span class="form__select">
-        <select>
-          <option selected="selected">Select Country</option>
-          <option>United States</option>
-          <option>United Kingdom</option>
-          <option>Italy</option>
-          <option>France</option>
-          <option>Germany</option>
-        </select>
-      </span>
-    </div>
+  <label class="form__label">Label</label>
+  <div class="form__controls">
+    <span class="form__select">
+    <select>
+      <option selected="selected">Select Country</option>
+      <option>United States</option>
+      <option>United Kingdom</option>
+      <option>Italy</option>
+      <option>France</option>
+      <option>Germany</option>
+    </select>
+    </span>
+  </div>
   </div>
   <div class="form__actions">
-    <button type="submit" class="btn btn--default ">Save changes</button>
+  <button type="submit" class="btn btn--default ">Save changes</button>
   </div>
 </form>
 
@@ -3199,26 +3217,24 @@ The inline layout can also be used width a samplified markup.
 Markup:
 <form class="form--inline">
   <label class="form__label">Label</label>
-    <input type="text" placeholder="Type something…">
-    <label class="form__radio inline">
-      <input type="radio" value="option1" checked> Option one
-    </label>
-    <label class="form__radio inline">
-      <input type="radio" value="option1" checked> Option two
-    </label>
-    <span class="form__select">
-      <select>
-        <option selected="selected">Select Country</option>
-        <option>United States</option>
-        <option>United Kingdom</option>
-        <option>Italy</option>
-        <option>France</option>
-        <option>Germany</option>
-      </select>
-    </span>
+  <input type="text" placeholder="Type something…">
+  <label class="form__radio inline">
+    <input type="radio" value="option1" checked> Option one
+  </label>
+  <label class="form__radio inline">
+    <input type="radio" value="option1" checked> Option two
+  </label>
+  <span class="form__select">
+    <select>
+    <option selected="selected">Select Country</option>
+    <option>United States</option>
+    <option>United Kingdom</option>
+    <option>Italy</option>
+    <option>France</option>
+    <option>Germany</option>
+    </select>
+  </span>
   <button type="submit" class="btn btn--default ">Save changes</button>
-</form>
-
 </form>
 
 Styleguide 10.10.1
@@ -3524,8 +3540,8 @@ Markup:
       closeBtn   : false,
       margin: [20, 60, 20, 60],
       helpers    : {
-        title    : { type : 'inside' },
-        buttons  : {}
+      title    : { type : 'inside' },
+      buttons  : {}
       }
     });
   });
@@ -3597,13 +3613,13 @@ Markup:
       nextEffect : 'none',
       margin: [20, 60, 20, 60],
       helpers    : {
-        title    : {
-          type: 'outside'
-        },
-        thumbs   : {
-          width  : 60,
-          height : 60
-        }
+      title    : {
+        type: 'outside'
+      },
+      thumbs   : {
+        width  : 60,
+        height : 60
+      }
       }
     });
   });
@@ -4162,18 +4178,19 @@ Markup:
     <li class='tab'><a href="#tabs1-js">Required JS</a></li>
     <li class='tab'><a href="#tabs1-css">Example CSS</a></li>
   </ul>
-   <div class='panel-container'>
-  <div id="tabs1-html">
-    <h5>HTML Markup for these tabs</h5>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-  </div>
-  <div id="tabs1-js">
-    <h5>JS for these tabs</h5>
-    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-  </div>
-  <div id="tabs1-css">
-    <h5>CSS Styles for these tabs</h5>
-    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+  <div class='panel-container'>
+    <div id="tabs1-html">
+      <h5>HTML Markup for these tabs</h5>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div id="tabs1-js">
+      <h5>JS for these tabs</h5>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    <div id="tabs1-css">
+      <h5>CSS Styles for these tabs</h5>
+      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+    </div>
   </div>
 </div>
 <script type="text/javascript">
@@ -4650,13 +4667,13 @@ Breadcrumbs
 Add a breadcrumb with a list with class `.breadcrumb`.
 
 Markup:
-    <ul class="breadcrumbs">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Library</a></li>
-      <li class="current">Data</li>
-    </ul>
+<ul class="breadcrumbs">
+  <li><a href="#">Home</a></li>
+  <li><a href="#">Library</a></li>
+  <li class="current">Data</li>
+</ul>
 
-**`.active`**: Selected element style
+`.active`: Selected element style
 
 Styleguide 4
 
@@ -5186,13 +5203,13 @@ In this example the columns width is 3 on desktop, 6 on tablet and 12 on smartph
 
 Markup:
 <div class="desk-3 lap-6 palm-12">1</div>
-<div class="desk-3 lap-6 palm-12">2</div>
+<div class="desk-3 lap-6 lap-omega palm-12">2</div>
 <div class="desk-3 lap-6 palm-12">3</div>
-<div class="desk-3 lap-6 palm-12">4</div>
+<div class="desk-3 desk-omega lap-6 lap-omega palm-12">4</div>
 <div class="desk-3 lap-6 palm-12">5</div>
-<div class="desk-3 lap-6 palm-12">6</div>
+<div class="desk-3 lap-6 lap-omega palm-12">6</div>
 <div class="desk-3 lap-6 palm-12">7</div>
-<div class="desk-3 lap-6 palm-12">8</div>
+<div class="desk-3 desk-omega lap-6 lap-omega palm-12">8</div>
 
 Styleguide 11
 
@@ -5203,29 +5220,29 @@ Show and Hide
 There're also available some helper classes:
 
 * **Hide element**: Used to hide an element at a breackpoint
-    * `.palm-hide`
-    * `.lap-hide`
-    * `.portable-hide`
-    * `.lap-and-up-hide`
-    * `.desk-hide`
+  * `.palm-hide`
+  * `.lap-hide`
+  * `.portable-hide`
+  * `.lap-and-up-hide`
+  * `.desk-hide`
 * **Show element**: Used to show an element at a breackpoint
-    * `.palm-show`
-    * `.lap-show`
-    * `.portable-show`
-    * `.lap-and-up-show`
-    * `.desk-show`
+  * `.palm-show`
+  * `.lap-show`
+  * `.portable-show`
+  * `.lap-and-up-show`
+  * `.desk-show`
 * **Omega element**: Used to apply a margin: 0 on the last item on the row
-    * `.palm-omega`
-    * `.lap-omega`
-    * `.portable-omega`
-    * `.lap-and-up-somega`
-    * `.desk-omega`
+  * `.palm-omega`
+  * `.lap-omega`
+  * `.portable-omega`
+  * `.lap-and-up-somega`
+  * `.desk-omega`
 * **Reverse element**: Used to reverse the direction
-    * `.palm-reverse`
-    * `.lap-reverse`
-    * `.portable-reverse`
-    * `.lap-and-up-reverse`
-    * `.desk-reverse`    
+  * `.palm-reverse`
+  * `.lap-reverse`
+  * `.portable-reverse`
+  * `.lap-and-up-reverse`
+  * `.desk-reverse`
 
 Styleguide 11.1
 
@@ -5963,11 +5980,8 @@ input[type="url"],
 input[type="search"],
 input[type="tel"],
 input[type="color"], .form__select {
-  border-color: #999999;
-  background-color: #f2f2f2;
-  box-shadow: inset 0 1px 0 #fff;
-  background-image: -webkit-linear-gradient(bottom, white 0%, #f2f2f2 100%);
-  background-image: linear-gradient(to top, white 0%, #f2f2f2 100%);
+  border-color: #ccc;
+  background-color: white;
 }
 .input-text:focus,
 .form__input:focus,
@@ -5986,8 +6000,8 @@ input[type="url"]:focus,
 input[type="search"]:focus,
 input[type="tel"]:focus,
 input[type="color"]:focus, .form__select:focus {
-  background-image: -webkit-linear-gradient(bottom, white 50%, #f2f2f2 100%);
-  background-image: linear-gradient(to top, white 50%, #f2f2f2 100%);
+  box-shadow: 0 0 5px rgba(0, 168, 225, 0.2);
+  border-color: #00a7e1;
 }
 
 .form__addon {
@@ -5997,16 +6011,15 @@ input[type="color"]:focus, .form__select:focus {
 }
 
 .form__suggest {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
-  background-color: #999999;
+  background-color: white;
+  border: 1px solid #ccc;
 }
 .open.form__suggest {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
-}
-.form__suggest a {
-  color: white;
 }
 
 .picker__holder {
@@ -6058,15 +6071,45 @@ Buttons
 Styleguide 32.3
 
 */
+.btn, .picker__nav--prev,
+.picker__nav--next, .picker__button--today,
+.picker__button--clear, .offcanvas__menu--toggle, .pagination > * li a,
+.pagination > * li span, .pager li a,
+.pager li span {
+  color: #fff;
+}
+.btn:hover, .picker__nav--prev:hover,
+.picker__nav--next:hover, .picker__button--today:hover,
+.picker__button--clear:hover, .offcanvas__menu--toggle:hover, .pagination > * li a:hover,
+.pagination > * li span:hover, .pager li a:hover,
+.pager li span:hover, .hover.btn, .hover.picker__nav--prev,
+.hover.picker__nav--next, .hover.picker__button--today,
+.hover.picker__button--clear, .hover.offcanvas__menu--toggle, .pagination > * li a.hover,
+.pagination > * li span.hover, .pager li a.hover,
+.pager li span.hover, .btn:focus, .picker__nav--prev:focus,
+.picker__nav--next:focus, .picker__button--today:focus,
+.picker__button--clear:focus, .offcanvas__menu--toggle:focus, .pagination > * li a:focus,
+.pagination > * li span:focus, .pager li a:focus,
+.pager li span:focus {
+  color: #fff;
+}
+.active.btn, .active.picker__nav--prev,
+.active.picker__nav--next, .active.picker__button--today,
+.active.picker__button--clear, .active.offcanvas__menu--toggle, .pagination > * li a.active,
+.pagination > * li span.active, .pager li a.active,
+.pager li span.active, .btn:active, .picker__nav--prev:active,
+.picker__nav--next:active, .picker__button--today:active,
+.picker__button--clear:active, .offcanvas__menu--toggle:active, .pagination > * li a:active,
+.pagination > * li span:active, .pager li a:active,
+.pager li span:active {
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+
 .btn--default, .pagination > * li a,
 .pagination > * li span, .pager li a,
 .pager li span {
-  color: #262626;
-  border-color: #999999;
-  background-color: #d9d9d9;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
-  background-image: -webkit-linear-gradient(bottom, #d9d9d9 0%, #f2f2f2 100%);
-  background-image: linear-gradient(to top, #d9d9d9 0%, #f2f2f2 100%);
+  border-color: #00a8e1;
+  background-color: #00a8e1;
 }
 .btn--default:hover, .pagination > * li a:hover,
 .pagination > * li span:hover, .pager li a:hover,
@@ -6075,20 +6118,19 @@ Styleguide 32.3
 .pager li span.hover, .btn--default:focus, .pagination > * li a:focus,
 .pagination > * li span:focus, .pager li a:focus,
 .pager li span:focus {
-  color: inherit;
-  background-image: -webkit-linear-gradient(bottom, #d9d9d9 0%, white 100%);
-  background-image: linear-gradient(to top, #d9d9d9 0%, white 100%);
-}
-.active.btn--default, .pagination > * li a.active,
-.pagination > * li span.active, .pager li a.active,
-.pager li span.active, .btn--default:active, .pagination > * li a:active,
-.pagination > * li span:active, .pager li a:active,
-.pager li span:active {
-  background-image: -webkit-linear-gradient(top, #d9d9d9 0%, #f2f2f2 100%);
-  background-image: linear-gradient(to bottom, #d9d9d9 0%, #f2f2f2 100%);
+  border-color: #0097ca;
+  background-color: #0097ca;
 }
 
-.pagination > * .disabled > span,
+.btn.disabled, .disabled.picker__nav--prev,
+.disabled.picker__nav--next, .disabled.picker__button--today,
+.disabled.picker__button--clear, .disabled.offcanvas__menu--toggle, .btn.disabled:hover, .disabled.picker__nav--prev:hover,
+.disabled.picker__nav--next:hover, .disabled.picker__button--today:hover,
+.disabled.picker__button--clear:hover, .disabled.offcanvas__menu--toggle:hover, .btn[disabled], [disabled].picker__nav--prev,
+[disabled].picker__nav--next, [disabled].picker__button--today,
+[disabled].picker__button--clear, [disabled].offcanvas__menu--toggle, .btn[disabled]:hover, [disabled].picker__nav--prev:hover,
+[disabled].picker__nav--next:hover, [disabled].picker__button--today:hover,
+[disabled].picker__button--clear:hover, [disabled].offcanvas__menu--toggle:hover, .pagination > * .disabled > span,
 .pagination > * .disabled > a,
 .pagination > * .disabled > a:hover,
 .pagination > * .disabled > a:focus, .pager .disabled > a,
@@ -6097,50 +6139,33 @@ Styleguide 32.3
 .pager .disabled > span {
   color: #d9d9d9;
   border-color: #d9d9d9;
-  background: #FFF;
+  background-color: #FFF;
 }
 
 .pagination > * li.current a,
 .pagination > * li.current a:hover,
 .pagination > * a.current,
 .pagination > * a.current:hover {
-  box-shadow: 0 0 0;
-  background: #999999;
+  background-color: #0097ca;
   color: white;
 }
 
 .btn--primary {
-  color: #fff;
-  border-color: #004d00;
-  background-color: green;
-  background-image: -webkit-linear-gradient(bottom, #004d00 0%, green 100%);
-  background-image: linear-gradient(to top, #004d00 0%, green 100%);
+  border-color: #66bc29;
+  background-color: #66bc29;
 }
 .btn--primary:hover, .hover.btn--primary, .btn--primary:focus {
-  color: #fff;
-  background-image: -webkit-linear-gradient(bottom, #004d00 0%, #009f00 100%);
-  background-image: linear-gradient(to top, #004d00 0%, #009f00 100%);
-}
-.active.btn--primary, .btn--primary:active {
-  background-image: -webkit-linear-gradient(top, #004d00 0%, green 100%);
-  background-image: linear-gradient(to bottom, #004d00 0%, green 100%);
+  border-color: #5ba924;
+  background-color: #5ba924;
 }
 
 .btn--secondary {
-  color: #fff;
-  border-color: #cc0000;
-  background-color: red;
-  background-image: -webkit-linear-gradient(bottom, #cc0000 0%, red 100%);
-  background-image: linear-gradient(to top, #cc0000 0%, red 100%);
+  border-color: #f32837;
+  background-color: #f32837;
 }
 .btn--secondary:hover, .hover.btn--secondary, .btn--secondary:focus {
-  color: #fff;
-  background-image: -webkit-linear-gradient(bottom, #cc0000 0%, #ff6666 100%);
-  background-image: linear-gradient(to top, #cc0000 0%, #ff6666 100%);
-}
-.active.btn--secondary, .hover.btn--secondary, .btn--secondary:active {
-  background-image: -webkit-linear-gradient(bottom, #cc0000 0%, red 100%);
-  background-image: linear-gradient(to top, #cc0000 0%, red 100%);
+  border-color: #da2431;
+  background-color: #da2431;
 }
 
 .fancybox-nav span, #fancybox-buttons ul li a, .bx-controls-direction a {
@@ -6201,29 +6226,36 @@ Styleguide 32.6
 
 */
 .dropdown__menu {
-  background: #f2f2f2;
-  border-color: #999999;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border: 1px solid #ccc;
+}
+.dropdown__menu:before {
+  position: absolute;
+  top: -8px;
+  left: 2em;
+  height: 0;
+  width: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #cccccc;
+  content: "";
 }
 .dropdown__menu .divider {
   *width: 100%;
   height: 1px;
   overflow: hidden;
-  background-color: #999999;
+  background-color: #cccccc;
   margin-top: -1px;
 }
 .dropdown__menu > li > a,
 .dropdown__menu > li > label {
-  border-bottom: 1px dotted #999999;
+  border-bottom: 1px dotted #ccc;
 }
 .dropdown__menu > li > a:hover,
 .dropdown__menu > li > a:focus {
   text-decoration: none;
-  background-color: #d9d9d9;
-}
-
-.dropdown.open .dropdown__toggle {
-  background: #f2f2f2;
-  border-bottom: 1px solid #f2f2f2;
+  background: #f8f8f8;
 }
 
 /*
@@ -6608,7 +6640,8 @@ Classes For other classes of generic elements
     %caret                          # Side triangle For Dropdowns and Selects
     %loader-ico                     # Generic loader icon For all scripts
     %tooltip                        # Additional style for tooltips.
-                                      To change the colors see the 'colors' sections
+
+To change the colors see the 'colors' sections
 
 Styleguide 32.18
 

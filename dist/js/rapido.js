@@ -268,7 +268,7 @@
       $(this.el).on('click', function(it){
         $('html').css({
           overflow: 'hidden',
-          height: 'auto'
+          height: '100%'
         });
         $('html.no-touch').css({
           'border-right': '15px solid #f2f2f2'
