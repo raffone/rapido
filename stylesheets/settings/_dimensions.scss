@@ -16,7 +16,8 @@ $horizontal-offset:                 180px                                       
 
 Text Size
 
-Font sizes you can used with the mixin `adjust-font-size-to()`. Naming convention from [Inuit](http://inuitcss.com/).
+Font sizes you can used with the mixin `adjust-font-size-to()`.
+Naming convention from [Inuit](http://inuitcss.com/).
 
     $giga-size:                     $base-font-size * 7     # 98px
     $mega-size:                     $base-font-size * 5     # 70px
@@ -64,8 +65,9 @@ $micro-size:                        $smaller-size                               
 
 Line-Height
 
-By default all titles have a line-height based on the font-size, to ensure that it will allways respect the vertical rhythm.
-Sometimes this result is not what we expect/want so it's possible to override the default proportion width these.
+By default all titles have a line-height based on the font-size, to ensure that
+it will allways respect the vertical rhythm. Sometimes this result is not what
+we expect/want so it's possible to override the default proportion width these.
 
 These values mean: n times the base line-height.
 
@@ -213,16 +215,22 @@ $tooltips-width:                    200px                                       
 
 Heights
 
-Some elements need to have a max-height specified for smoother animations, like dropdowns:
+Some elements need to have a max-height specified for smoother animations,
+like dropdowns:
 
     $dropdowns-height:              600px
+
+Sometimes some elements that use a font with incorrect vertical centering need to
+be fixed with an offset:
+
+    $offset-select:                 0px
 
 Styleguide 31.6
 
 */
 
 $dropdowns-height:                  600px                                                                   !default;
-
+$offset-select:                     0px                                                                     !default;
 /*
 
 Media Queries
