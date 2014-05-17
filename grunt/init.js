@@ -19,7 +19,8 @@ config = {
     sass: { options: { message: 'Sass compiled' } },
     js: { options: { message: 'Javascript changed' } },
     ls: { options: { message: 'LiveScript compiled' } },
-    template: { options: { message: 'Template changed' } }
+    template: { options: { message: 'Template changed' } },
+    sprite: { options: { message: 'Sprites updated' } }
   }
 };
 
@@ -76,8 +77,9 @@ if (project.modules.indexOf('sprite') !== -1) {
   };
 
   config.watch.sprites = {
+    options: { interrupt: false },
     files: '<%= project.sprite.source %>',
-    tasks: ['sprite', 'sass', 'notify:sass']
+    tasks: ['sprite', 'notify:sprite']
   };
 }
 
@@ -106,8 +108,9 @@ if (project.modules.indexOf('svgsprite') !== -1) {
   };
 
   config.watch.svgsprite = {
-    files: ['<%= project.svgsprite.source %>'],
-    tasks: ['svgsprite']
+    options: { interrupt: false },
+    files: ['<%= project.svgsprite.watch %>'],
+    tasks: ['svgsprite', 'notify:sprite']
   };
 }
 
