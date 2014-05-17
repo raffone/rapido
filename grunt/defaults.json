@@ -10,13 +10,13 @@
   "sprite": {
     "source": "assets/images/s/*.png",
     "target": "assets/images/sprites.png",
-    "stylesheet": "assets/sass/sprites.sass"
+    "stylesheet": "assets/sass/_sprites.sass"
   },
   "svgsprite": {
     "source": "assets/images/svg-sprites/",
     "watch": "assets/images/svg-sprites/*.svg",
     "target": "assets/images/",
-    "stylesheet": "../sass/svg-sprites.scss"
+    "stylesheet": "../sass/_svg-sprites.scss"
   },
   "svg2png": {
     "source": "assets/images/svg/*.svg",
