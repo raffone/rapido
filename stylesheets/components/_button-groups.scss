@@ -15,7 +15,7 @@ Styleguide 6
 
 */
 
-@if $button-groups {
+@if map-get($components, button-groups) {
 
   .btn-group {
     @include clearfix;

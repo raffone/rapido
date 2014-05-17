@@ -12,7 +12,7 @@ Styleguide 3
 
 */
 
-@if $labels {
+@if map-get($components, labels) {
 
   .badge,
   .pill {

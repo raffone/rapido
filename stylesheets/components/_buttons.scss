@@ -18,7 +18,7 @@ Styleguide 5
 
 */
 
-@if $buttons {
+@if map-get($components, buttons) {
 
   .btn {
     @extend %btn !optional;

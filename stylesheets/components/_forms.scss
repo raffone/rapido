@@ -31,7 +31,7 @@ Styleguide 10
 
 */
 
-@if $forms {
+@if map-get($components, forms) {
 
 form {
   @include clearfix;
@@ -612,7 +612,7 @@ Styleguide 10.10
 
 // Form Grid
 
-@if $forms-grid {
+@if map-get($components, forms-grid) {
   .form--grid {
     .form__group {
       min-height: $control-min-height;
@@ -647,7 +647,7 @@ Styleguide 10.10
 
 // Form Aligned
 
-@if $forms-aligned {
+@if map-get($components, forms-aligned) {
 
   .form--aligned {
 
@@ -725,7 +725,7 @@ Styleguide 10.10.1
 
 // Form Inline
 
-@if $forms-inline {
+@if map-get($components, forms-inline) {
 
   .form--inline {
 

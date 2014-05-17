@@ -38,7 +38,7 @@ Styleguide 15
 
 */
 
-@if $overlays {
+@if map-get($components, overlays) {
 
   [data-overlay-content] {
     @extend %overlay__content !optional;

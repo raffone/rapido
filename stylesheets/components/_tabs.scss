@@ -43,7 +43,7 @@ Styleguide 20
 
 */
 
-@if $tabs {
+@if map-get($components, tabs) {
 
   .tabs {
     margin-bottom: rhythm();

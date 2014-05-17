@@ -30,7 +30,7 @@ Styleguide 22
 
 */
 
-@if $tooltips {
+@if map-get($components, tooltips) {
 
   $_tooltip-triangle-size: em($tooltip-triangle-size);
   $_tooltip-triangle-size-neg: neg($_tooltip-triangle-size);

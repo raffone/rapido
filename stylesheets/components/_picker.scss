@@ -17,7 +17,7 @@ Styleguide 10.7
 
 */
 
-@if $picker {
+@if map-get($components, picker) {
 
     .picker {
       position: relative;

@@ -14,7 +14,7 @@ Styleguide 1
 
 */
 
-@if $alerts {
+@if map-get($components, alerts) {
 
   .alert {
     padding: $alerts-padding;

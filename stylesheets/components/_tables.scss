@@ -33,7 +33,7 @@ Styleguide 19
 
 */
 
-@if $tables {
+@if map-get($components, tables) {
 
   table {
     max-width: 100%;

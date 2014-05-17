@@ -33,7 +33,7 @@ Styleguide 13
 
 */
 
-@if $navs {
+@if map-get($components, navs) {
 
   .nav {
     @include clearfix;

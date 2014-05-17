@@ -94,7 +94,7 @@ Styleguide 24.3
 @for $j from 1 through 20 {
   $i: 5 * $j;
   %width-#{$i} { width: $i * 1% !important; }
-  @if $width-helper-classes {
+  @if map-get($components, width-helper-classes) {
     [data-width="#{$i}"] { @extend %width-#{$i}; }
   }
 }

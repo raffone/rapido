@@ -41,7 +41,7 @@ Styleguide 14.2
 
 */
 
-@if $offcanvas {
+@if map-get($components, offcanvas) {
 
   $if-left: null;
   $if-right: null;

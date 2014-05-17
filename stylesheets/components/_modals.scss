@@ -28,7 +28,7 @@ Styleguide 12
 
 .modal { display: none; }
 
-@if $modal {
+@if map-get($components, modal) {
 
 // Resets
 
@@ -274,7 +274,7 @@ Styleguide 12.1
 
 */
 
-@if $modal-buttons {
+@if map-get($components, modal-buttons) {
 
   #fancybox-buttons {
     @include position(fixed, 0 0 0 0px);
@@ -343,7 +343,7 @@ Styleguide 12.2
 
 */
 
-@if $modal-thumbs {
+@if map-get($components, modal-thumbs) {
 
   #fancybox-thumbs {
     @include position(fixed, 0 0 0 0px);

@@ -27,7 +27,7 @@ Styleguide 11
 
 $media-queries: (palm: $palm, lap: $lap, portable: $portable, lap-and-up: $lap-and-up, desk: $desk);
 
-@if $grids {
+@if map-get($components, grids) {
   @each $name, $device in $media-queries {
     @include media($device) {
        @for $i from 1 through $total-columns {
@@ -74,7 +74,7 @@ Styleguide 11.1
 
 */
 
-@if $grids-helpers {
+@if map-get($components, grids-helpers) {
   @each $name, $device in $media-queries {
     @include media($device) {
       .#{$name}-hide { display: none !important; }

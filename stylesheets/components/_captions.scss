@@ -38,7 +38,7 @@ Styleguide 7
 
 */
 
-@if $captions {
+@if map-get($components, captions) {
 
   .caption {
     position: relative;

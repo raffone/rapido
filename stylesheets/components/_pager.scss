@@ -16,7 +16,7 @@ Styleguide 16
 
 */
 
-@if $pager {
+@if map-get($components, pager) {
 
   .pager {
     @include clearfix;

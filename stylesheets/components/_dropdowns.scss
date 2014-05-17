@@ -51,7 +51,7 @@ Styleguide 9
 
 */
 
-@if $dropdowns {
+@if map-get($components, dropdowns) {
 
   .dropdown,
   .dropdown__toggle {

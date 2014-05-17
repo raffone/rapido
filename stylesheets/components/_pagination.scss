@@ -25,7 +25,7 @@ Styleguide 17
 
 */
 
-@if $pagination {
+@if map-get($components, pagination) {
 
   .pagination {
     margin: rhythm() 0;

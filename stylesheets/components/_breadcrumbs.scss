@@ -17,7 +17,7 @@ Styleguide 4
 
 */
 
-@if $breadcrumbs {
+@if map-get($components, breadcrumbs) {
 
   .breadcrumbs {
     margin: 0 0 rhythm();

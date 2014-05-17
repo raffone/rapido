@@ -28,7 +28,7 @@ Styleguide 18
 
 */
 
-@if $slider {
+@if map-get($components, slider) {
 
   .bx-wrapper {
     position: relative;

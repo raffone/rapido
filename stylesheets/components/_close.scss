@@ -10,7 +10,7 @@ Styleguide 8
 
 */
 
-@if $close {
+@if map-get($components, close) {
 
   .close {
     float: right;
