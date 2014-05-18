@@ -85,6 +85,9 @@ $components: (
 
 }
 
+// Failbacks for < 1.0.6
+@import	"../failbacks/modules";
+
 /*
 
 Sprites

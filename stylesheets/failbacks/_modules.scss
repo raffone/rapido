@@ -1,0 +1,120 @@
+@if variable-exists('alerts') { 
+  $components: map-merge($components, (alerts: $alerts)) !global; 
+}
+
+@if variable-exists('breadcrumbs') { 
+  $components: map-merge($components, (breadcrumbs: $breadcrumbs)) !global; 
+}
+
+@if variable-exists('button-groups') { 
+  $components: map-merge($components, (button-groups: $button-groups)) !global; 
+}
+
+@if variable-exists('buttons') { 
+  $components: map-merge($components, (buttons: $buttons)) !global; 
+}
+
+@if variable-exists('captions') { 
+  $components: map-merge($components, (captions: $captions)) !global; 
+}
+
+@if variable-exists('close') { 
+  $components: map-merge($components, (close: $close)) !global; 
+}
+
+@if variable-exists('dropdowns') { 
+  $components: map-merge($components, (dropdowns: $dropdowns)) !global; 
+}
+
+@if variable-exists('forms-aligned') { 
+  $components: map-merge($components, (forms-aligned: $forms-aligned)) !global; 
+}
+
+@if variable-exists('forms-append') { 
+  $components: map-merge($components, (forms-append: $forms-append)) !global; 
+}
+
+@if variable-exists('forms-grid') { 
+  $components: map-merge($components, (forms-grid: $forms-grid)) !global; 
+}
+
+@if variable-exists('forms-inline') { 
+  $components: map-merge($components, (forms-inline: $forms-inline)) !global; 
+}
+
+@if variable-exists('forms') { 
+  $components: map-merge($components, (forms: $forms)) !global; 
+}
+
+@if variable-exists('grids-helpers') { 
+  $components: map-merge($components, (grids-helpers: $grids-helpers)) !global; 
+}
+
+@if variable-exists('grids') { 
+  $components: map-merge($components, (grids: $grids)) !global; 
+}
+
+@if variable-exists('labels') { 
+  $components: map-merge($components, (labels: $labels)) !global; 
+}
+
+@if variable-exists('modal-buttons') { 
+  $components: map-merge($components, (modal-buttons: $modal-buttons)) !global; 
+}
+
+@if variable-exists('modal-thumbs') { 
+  $components: map-merge($components, (modal-thumbs: $modal-thumbs)) !global; 
+}
+
+@if variable-exists('modal') { 
+  $components: map-merge($components, (modal: $modal)) !global; 
+}
+
+@if variable-exists('navs') { 
+  $components: map-merge($components, (navs: $navs)) !global; 
+}
+
+@if variable-exists('offcanvas') { 
+  $components: map-merge($components, (offcanvas: $offcanvas)) !global; 
+}
+
+@if variable-exists('overlays') { 
+  $components: map-merge($components, (overlays: $overlays)) !global; 
+}
+
+@if variable-exists('pager') { 
+  $components: map-merge($components, (pager: $pager)) !global; 
+}
+
+@if variable-exists('pagination') { 
+  $components: map-merge($components, (pagination: $pagination)) !global; 
+}
+
+@if variable-exists('picker') { 
+  $components: map-merge($components, (picker: $picker)) !global; 
+}
+
+@if variable-exists('slider') { 
+  $components: map-merge($components, (slider: $slider)) !global; 
+}
+
+@if variable-exists('sprites') { 
+  $components: map-merge($components, (sprites: $sprites)) !global; 
+}
+
+@if variable-exists('tables') { 
+  $components: map-merge($components, (tables: $tables)) !global; 
+}
+
+@if variable-exists('tabs') { 
+  $components: map-merge($components, (tabs: $tabs)) !global; 
+}
+
+@if variable-exists('tooltips') { 
+  $components: map-merge($components, (tooltips: $tooltips)) !global; 
+}
+
+@if variable-exists('width-helper-classes') { 
+  $components: map-merge($components, (width-helper-classes: $width-helper-classes)) !global; 
+}
+
