@@ -46,8 +46,7 @@ module.exports = function(grunt) {
     // Compile LiveScript
     livescript: {
       options: {
-        bare: true,
-        prelude: true
+        bare: true
       },
 
       src: {
@@ -87,10 +86,12 @@ module.exports = function(grunt) {
 
     // CSS - Compile css
     sass: {
+      options: {
+        require: ['sass-globbing', 'sass-media_query_combiner']
+      },
       dist: {
         options: {
           style: 'expanded',
-          require: ['sass-globbing', 'sass-media_query_combiner']
         },
         files: {
           'dist/css/rapido.css': 'stylesheets/rapido.scss',
@@ -99,7 +100,6 @@ module.exports = function(grunt) {
       min: {
         options: {
           style: 'compressed',
-          require: ['sass-globbing', 'sass-media_query_combiner']
         },
         files: {
           'dist/css/rapido.min.css': 'stylesheets/rapido.scss',
@@ -108,7 +108,6 @@ module.exports = function(grunt) {
       kss: {
         options: {
           style: 'compressed',
-          require: ['sass-globbing', 'sass-media_query_combiner']
         },
         files: {
           '../../forks/kss-node-template/template/public/theme.css': '../../forks/kss-node-template/template/public/theme.sass',
@@ -119,9 +118,7 @@ module.exports = function(grunt) {
     // CSS - Create documentation
     kss: {
       options: {
-        //includeType: 'css',
         template: '../../forks/kss-node-template/template/',
-        //includePath: 'dist/css/rapido.css',
       },
       dist: {
         files: {

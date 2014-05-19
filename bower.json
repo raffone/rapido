@@ -18,9 +18,9 @@
     "bower_components"
   ],
   "dependencies": {
-    "jquery": "~1.10.2",
+    "jquery": "1.10.2",
     "modernizr": "~2.7.2",
-    "bourbon": "~4.0.0-RC.1",
-    "neat": "v1.6.0.pre2"
+    "bourbon": ">=4.0.1",
+    "neat": ">=1.6.0"
   }
 }
