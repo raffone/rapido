@@ -19,8 +19,11 @@
   ],
   "dependencies": {
     "jquery": "1.10.2",
-    "modernizr": "~2.7.2",
-    "bourbon": ">=4.0.1",
-    "neat": ">=1.6.0"
+    "modernizr": "*",
+    "bourbon": "*",
+    "neat": "*",
+    "html5shiv": "*",
+    "respond": "*",
+    "selectivizr": "git://github.com/keithclark/selectivizr#ed2f5e3e56f059ad256cc921e24ecc0e1855f18a"
   }
 }
