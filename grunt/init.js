@@ -27,7 +27,7 @@ config = {
 config.watch = {
   options: {
     livereload: true,
-    interrupt: true,
+    interrupt: true
   },
   template: {
     files: ['*.php', '*.html', '**/*.php', '**/*.html'],
@@ -72,7 +72,7 @@ if (project.modules.indexOf('sprite') !== -1) {
       destImg: '<%= project.sprite.target %>',
       destCSS: '<%= project.sprite.stylesheet %>',
       padding: 6,
-      cssTemplate: 'bower_components/rapido/grunt/sprites.sass.mustache',
+      cssTemplate: 'bower_components/rapido/grunt/sprites.sass.mustache'
     }
   };
 
@@ -152,14 +152,17 @@ if (project.modules.indexOf('concat') !== -1) {
     modernizr: {
       src: ['<%= project.js.sources.modernizr %>'],
       dest: '<%= project.js.target.modernizr %>'
-    },
-    app: {
-      src: ['<%= project.js.sources.app %>'],
-      dest: '<%= project.js.target.app %>'
     }
   };
-  config.watch.js = {
 
+  if (project.js.target.app) {
+    config.concat.app = {
+      src: ['<%= project.js.sources.app %>'],
+      dest: '<%= project.js.target.app %>'
+    };
+  }
+
+  config.watch.js = {
     files: ['<%= project.js.sources.app %>'],
     tasks: ['concat', 'notify:js']
 
@@ -182,16 +185,18 @@ if (project.modules.indexOf('uglify') !== -1) {
       files: {
         '<%= project.js.target.ie %>': ['<%= project.js.sources.ie %>'],
         '<%= project.js.target.vendor %>': ['<%= project.js.sources.vendor %>'],
-        '<%= project.js.target.modernizr %>': ['<%= project.js.sources.modernizr %>'],
-        '<%= project.js.target.app %>': ['<%= project.js.sources.app %>']
+        '<%= project.js.target.modernizr %>': ['<%= project.js.sources.modernizr %>']
       }
     }
   };
-  config.watch.js = {
 
+  if (project.js.target.app) {
+    config.uglify.all.files['<%= project.js.target.app %>'] = ['<%= project.js.sources.app %>'];
+  }
+
+  config.watch.js = {
     files: ['<%= project.js.sources.app %>'],
     tasks: ['uglify', 'notify:js']
-
   };
 }
 
