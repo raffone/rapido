@@ -218,7 +218,7 @@ if (project.modules.indexOf('livescript') !== -1) {
   };
   config.watch.ls = {
     files: ['<%= project.ls.sources %>'],
-    tasks: ['uglify', 'notify:js']
+    tasks: ['livescript', 'notify:js']
   };
 }
 
