@@ -64,6 +64,9 @@ module.exports = function(grunt) {
           'js/rapido.utilities.js': 'ls/rapido.utilities.ls',
 
           'dist/js/rapido.js': 'ls/*.ls',
+
+          'grunt/index.js': 'grunt/index.ls',
+          'grunt/plugins.js': 'grunt/plugins.ls',
         }
       }
     },
@@ -192,7 +195,7 @@ module.exports = function(grunt) {
         tasks: ['sass:dist', 'copy:cssToRapidoIE', 'notify:sass']
       },
       livescript: {
-        files: ['ls/*.ls'],
+        files: ['**/*.ls'],
         tasks: ['js', 'copy:jsToRapidoIE']
       },
       kssCss: {
