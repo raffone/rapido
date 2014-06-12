@@ -155,7 +155,7 @@ module.exports.uglify = function(grunt){
   config.uglify = {
     options: {
       mangle: {
-        except: ['jQuery']
+        except: ['jQuery', 'Angular', 'Backbone']
       }
     },
     all: {
