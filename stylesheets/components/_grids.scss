@@ -12,26 +12,24 @@ just for that.
 In this example the columns width is 3 on desktop, 6 on tablet and 12 on smartphone.
 
 Markup:
-<div class="desk-3 lap-6 palm-12">1</div>
-<div class="desk-3 lap-6 lap-omega palm-12">2</div>
-<div class="desk-3 lap-6 palm-12">3</div>
-<div class="desk-3 desk-omega lap-6 lap-omega palm-12">4</div>
-<div class="desk-3 lap-6 palm-12">5</div>
-<div class="desk-3 lap-6 lap-omega palm-12">6</div>
-<div class="desk-3 lap-6 palm-12">7</div>
-<div class="desk-3 desk-omega lap-6 lap-omega palm-12">8</div>
+<div class="desk__3 lap__6 palm__12">1</div>
+<div class="desk__3 lap__6 lap__omega palm__12">2</div>
+<div class="desk__3 lap__6 palm__12">3</div>
+<div class="desk__3 desk__omega lap__6 lap__omega palm__12">4</div>
+<div class="desk__3 lap__6 palm__12">5</div>
+<div class="desk__3 lap__6 lap__omega palm__12">6</div>
+<div class="desk__3 lap__6 palm__12">7</div>
+<div class="desk__3 desk__omega lap__6 lap__omega palm__12">8</div>
 
 Styleguide 11
 
 */
 
-$media-queries: (palm: $palm, lap: $lap, portable: $portable, lap-and-up: $lap-and-up, desk: $desk);
-
 @if map-get($components, grids) {
   @each $name, $device in $media-queries {
     @include media($device) {
        @for $i from 1 through $total-columns {
-        .#{$name}-#{$i} {
+        .#{$name}__#{$i} {
           @include span-columns($i);
         }
       }
@@ -77,13 +75,16 @@ Styleguide 11.1
 @if map-get($components, grids-helpers) {
   @each $name, $device in $media-queries {
     @include media($device) {
-      .#{$name}-hide { display: none !important; }
-      .#{$name}-show { display: block !important; }
-      .#{$name}-omega { margin-right: 0 !important; }
-      .#{$name}-reverse {
+      .#{$name}__hide { display: none !important; }
+      .#{$name}__show { display: block !important; }
+      .#{$name}__omega { margin-right: 0 !important; }
+      .#{$name}__reverse {
         @extend .#{$name}-omega;
         float: right !important;
       }
+      .#{$name}__left { float: left; }
+      .#{$name}__center { margin: 0 auto; }
+      .#{$name}__right { float: right; }
     }
   }
 }
