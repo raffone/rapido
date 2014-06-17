@@ -259,6 +259,15 @@ $lap-and-up:                        min-width $lap-start                        
 $portable:                          max-width $lap-end                                                      !default;
 $desk:                              min-width $desk-start                                                   !default;
 
+$media-queries: (
+  palm: $palm,
+  lap: $lap,
+  portable: $portable,
+  lap-and-up: $lap-and-up,
+  desk: $desk,
+  all: min-width 0px
+);
+
 $responsive-font-size:              $lap-and-up $base-font-size, $palm 16px                                 !default;
 
 /*
