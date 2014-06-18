@@ -7,7 +7,7 @@ module.exports = function(grunt, custom, options){
   modules = {};
   defaults = JSON.parse(fs.readFileSync('./bower_components/rapido/grunt/defaults.json', 'utf8'));
   settings = JSON.parse(fs.readFileSync('./project.json', 'utf8'));
-  project = _.merge(settings, defaults, function(a, b){
+  project = _.merge(defaults, settings, function(a, b){
     if (_.isArray(a)) {
       return a.concat(b);
     } else {
@@ -163,7 +163,7 @@ module.exports = function(grunt, custom, options){
         dest: '<%= project.js.target.modernizr %>'
       }
     };
-    if (project.js.sources.app) {
+    if (project.js.target.app) {
       config.concat.app = {
         src: ['<%= project.js.sources.app %>'],
         dest: '<%= project.js.target.app %>'
@@ -191,7 +191,7 @@ module.exports = function(grunt, custom, options){
         }
       }
     };
-    if (project.js.sources.app) {
+    if (project.js.target.app) {
       config.uglify.all.files['<%= project.js.target.app %>'] = ['<%= project.js.sources.app %>'];
       config.watch.js = {
         files: ['<%= project.js.sources.app %>'],
