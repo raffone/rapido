@@ -79,7 +79,7 @@ Styleguide 11.1
       .#{$name}__show { display: block !important; }
       .#{$name}__omega { margin-right: 0 !important; }
       .#{$name}__reverse {
-        @extend .#{$name}-omega;
+        @extend .#{$name}__omega;
         float: right !important;
       }
       .#{$name}__left { float: left; }
