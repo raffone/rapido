@@ -2852,13 +2852,14 @@ Styleguide 10.3
   background-image: none;
   border: none;
   box-shadow: none;
+  color: inherit;
   cursor: pointer;
   position: relative;
-  width: 100%;
-  z-index: 3;
   text-indent: 1px;
   text-overflow: '';
   top: 0px;
+  width: 100%;
+  /*z-index: 3;*/
 }
 .form__select:after {
   position: absolute;
@@ -4277,6 +4278,11 @@ when you have two animation that you don't wont to start at the same time.
     contentClass:  [data-toggle-content]
     delay:         500
     closable:      true        # Enable/disable the ability to close all panels
+    addHeight:     false
+    addMaxHeight:  false
+    positionMaxHeight: 'padding-top'
+    defaultOpen:   0
+    debug:         false
 
 Remeber to add closed and open state in the css, this module doesn't have
 default styling, es:
@@ -4613,9 +4619,7 @@ Styleguide 23.6
 */
 blockquote {
   padding: 0 0 0 1.618em;
-  margin: 0;
   margin: 0 0 1.618em;
-  border-left: 5px solid #f2f2f2;
 }
 blockquote p {
   margin-bottom: 0;
@@ -4623,17 +4627,11 @@ blockquote p {
 }
 blockquote cite {
   display: block;
-  color: #d9d9d9;
-}
-blockquote cite:before {
-  content: '\2014 \00A0';
 }
 blockquote.pull-right {
   float: right;
   padding-right: 15px;
   padding-left: 0;
-  border-right: 5px solid #f2f2f2;
-  border-left: 0;
 }
 blockquote.pull-right p,
 blockquote.pull-right small {
@@ -5202,14 +5200,14 @@ just for that.
 In this example the columns width is 3 on desktop, 6 on tablet and 12 on smartphone.
 
 Markup:
-<div class="desk-3 lap-6 palm-12">1</div>
-<div class="desk-3 lap-6 lap-omega palm-12">2</div>
-<div class="desk-3 lap-6 palm-12">3</div>
-<div class="desk-3 desk-omega lap-6 lap-omega palm-12">4</div>
-<div class="desk-3 lap-6 palm-12">5</div>
-<div class="desk-3 lap-6 lap-omega palm-12">6</div>
-<div class="desk-3 lap-6 palm-12">7</div>
-<div class="desk-3 desk-omega lap-6 lap-omega palm-12">8</div>
+<div class="desk__3 lap__6 palm__12">1</div>
+<div class="desk__3 lap__6 lap__omega palm__12">2</div>
+<div class="desk__3 lap__6 palm__12">3</div>
+<div class="desk__3 desk__omega lap__6 lap__omega palm__12">4</div>
+<div class="desk__3 lap__6 palm__12">5</div>
+<div class="desk__3 lap__6 lap__omega palm__12">6</div>
+<div class="desk__3 lap__6 palm__12">7</div>
+<div class="desk__3 desk__omega lap__6 lap__omega palm__12">8</div>
 
 Styleguide 11
 
@@ -5730,6 +5728,7 @@ Styleguide 10.7
 .picker {
   position: relative;
   width: 100%;
+  min-width: 300px;
   z-index: 1000;
 }
 
@@ -5943,6 +5942,20 @@ Titles
 Styleguide 32.1
 
 */
+blockquote {
+  border-left: 5px solid #f2f2f2;
+}
+blockquote cite {
+  color: #d9d9d9;
+}
+blockquote cite:before {
+  content: '\2014 \00A0';
+}
+blockquote.pull-right {
+  border-right: 5px solid #f2f2f2;
+  border-left: 0;
+}
+
 /*
 
 Inputs and Selects
@@ -6144,6 +6157,8 @@ Styleguide 32.3
 
 .pagination > * li.current a,
 .pagination > * li.current a:hover,
+.pagination > * span.current,
+.pagination > * span.current:hover,
 .pagination > * a.current,
 .pagination > * a.current:hover {
   background-color: #0097ca;
@@ -6672,139 +6687,153 @@ Styleguide 32.18
     font-size: 100%;
   }
 
-  .palm-1 {
+  .palm__1 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 6.17215%;
   }
-  .palm-1:last-child {
+  .palm__1:last-child {
     margin-right: 0;
   }
 
-  .palm-2 {
+  .palm__2 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 14.70196%;
   }
-  .palm-2:last-child {
+  .palm__2:last-child {
     margin-right: 0;
   }
 
-  .palm-3 {
+  .palm__3 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 23.23176%;
   }
-  .palm-3:last-child {
+  .palm__3:last-child {
     margin-right: 0;
   }
 
-  .palm-4 {
+  .palm__4 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 31.76157%;
   }
-  .palm-4:last-child {
+  .palm__4:last-child {
     margin-right: 0;
   }
 
-  .palm-5 {
+  .palm__5 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 40.29137%;
   }
-  .palm-5:last-child {
+  .palm__5:last-child {
     margin-right: 0;
   }
 
-  .palm-6 {
+  .palm__6 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 48.82117%;
   }
-  .palm-6:last-child {
+  .palm__6:last-child {
     margin-right: 0;
   }
 
-  .palm-7 {
+  .palm__7 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 57.35098%;
   }
-  .palm-7:last-child {
+  .palm__7:last-child {
     margin-right: 0;
   }
 
-  .palm-8 {
+  .palm__8 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 65.88078%;
   }
-  .palm-8:last-child {
+  .palm__8:last-child {
     margin-right: 0;
   }
 
-  .palm-9 {
+  .palm__9 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 74.41059%;
   }
-  .palm-9:last-child {
+  .palm__9:last-child {
     margin-right: 0;
   }
 
-  .palm-10 {
+  .palm__10 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 82.94039%;
   }
-  .palm-10:last-child {
+  .palm__10:last-child {
     margin-right: 0;
   }
 
-  .palm-11 {
+  .palm__11 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 91.4702%;
   }
-  .palm-11:last-child {
+  .palm__11:last-child {
     margin-right: 0;
   }
 
-  .palm-12 {
+  .palm__12 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 100%;
   }
-  .palm-12:last-child {
+  .palm__12:last-child {
     margin-right: 0;
   }
 
-  .palm-hide {
+  .palm__hide {
     display: none !important;
   }
 
-  .palm-show {
+  .palm__show {
     display: block !important;
   }
 
-  .palm-omega, .palm-reverse {
+  .palm__omega, .palm__reverse {
     margin-right: 0 !important;
   }
 
-  .palm-reverse {
+  .palm__reverse {
+    float: right !important;
+  }
+
+  .palm__left {
+    float: left !important;
+  }
+
+  .palm__center {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    float: none !important;
+  }
+
+  .palm__right {
     float: right !important;
   }
 }
@@ -6814,553 +6843,761 @@ Styleguide 32.18
     font-size: 87.5%;
   }
 
-  .lap-and-up-1 {
+  .lap-and-up__1 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 6.17215%;
   }
-  .lap-and-up-1:last-child {
+  .lap-and-up__1:last-child {
     margin-right: 0;
   }
 
-  .lap-and-up-2 {
+  .lap-and-up__2 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 14.70196%;
   }
-  .lap-and-up-2:last-child {
+  .lap-and-up__2:last-child {
     margin-right: 0;
   }
 
-  .lap-and-up-3 {
+  .lap-and-up__3 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 23.23176%;
   }
-  .lap-and-up-3:last-child {
+  .lap-and-up__3:last-child {
     margin-right: 0;
   }
 
-  .lap-and-up-4 {
+  .lap-and-up__4 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 31.76157%;
   }
-  .lap-and-up-4:last-child {
+  .lap-and-up__4:last-child {
     margin-right: 0;
   }
 
-  .lap-and-up-5 {
+  .lap-and-up__5 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 40.29137%;
   }
-  .lap-and-up-5:last-child {
+  .lap-and-up__5:last-child {
     margin-right: 0;
   }
 
-  .lap-and-up-6 {
+  .lap-and-up__6 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 48.82117%;
   }
-  .lap-and-up-6:last-child {
+  .lap-and-up__6:last-child {
     margin-right: 0;
   }
 
-  .lap-and-up-7 {
+  .lap-and-up__7 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 57.35098%;
   }
-  .lap-and-up-7:last-child {
+  .lap-and-up__7:last-child {
     margin-right: 0;
   }
 
-  .lap-and-up-8 {
+  .lap-and-up__8 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 65.88078%;
   }
-  .lap-and-up-8:last-child {
+  .lap-and-up__8:last-child {
     margin-right: 0;
   }
 
-  .lap-and-up-9 {
+  .lap-and-up__9 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 74.41059%;
   }
-  .lap-and-up-9:last-child {
+  .lap-and-up__9:last-child {
     margin-right: 0;
   }
 
-  .lap-and-up-10 {
+  .lap-and-up__10 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 82.94039%;
   }
-  .lap-and-up-10:last-child {
+  .lap-and-up__10:last-child {
     margin-right: 0;
   }
 
-  .lap-and-up-11 {
+  .lap-and-up__11 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 91.4702%;
   }
-  .lap-and-up-11:last-child {
+  .lap-and-up__11:last-child {
     margin-right: 0;
   }
 
-  .lap-and-up-12 {
+  .lap-and-up__12 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 100%;
   }
-  .lap-and-up-12:last-child {
+  .lap-and-up__12:last-child {
     margin-right: 0;
   }
 
-  .lap-and-up-hide {
+  .lap-and-up__hide {
     display: none !important;
   }
 
-  .lap-and-up-show {
+  .lap-and-up__show {
     display: block !important;
   }
 
-  .lap-and-up-omega, .lap-and-up-reverse {
+  .lap-and-up__omega, .lap-and-up__reverse {
     margin-right: 0 !important;
   }
 
-  .lap-and-up-reverse {
+  .lap-and-up__reverse {
+    float: right !important;
+  }
+
+  .lap-and-up__left {
+    float: left !important;
+  }
+
+  .lap-and-up__center {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    float: none !important;
+  }
+
+  .lap-and-up__right {
     float: right !important;
   }
 }
 
 @media screen and (min-width: 481px) and (max-width: 767px) {
-  .lap-1 {
+  .lap__1 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 6.17215%;
   }
-  .lap-1:last-child {
+  .lap__1:last-child {
     margin-right: 0;
   }
 
-  .lap-2 {
+  .lap__2 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 14.70196%;
   }
-  .lap-2:last-child {
+  .lap__2:last-child {
     margin-right: 0;
   }
 
-  .lap-3 {
+  .lap__3 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 23.23176%;
   }
-  .lap-3:last-child {
+  .lap__3:last-child {
     margin-right: 0;
   }
 
-  .lap-4 {
+  .lap__4 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 31.76157%;
   }
-  .lap-4:last-child {
+  .lap__4:last-child {
     margin-right: 0;
   }
 
-  .lap-5 {
+  .lap__5 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 40.29137%;
   }
-  .lap-5:last-child {
+  .lap__5:last-child {
     margin-right: 0;
   }
 
-  .lap-6 {
+  .lap__6 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 48.82117%;
   }
-  .lap-6:last-child {
+  .lap__6:last-child {
     margin-right: 0;
   }
 
-  .lap-7 {
+  .lap__7 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 57.35098%;
   }
-  .lap-7:last-child {
+  .lap__7:last-child {
     margin-right: 0;
   }
 
-  .lap-8 {
+  .lap__8 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 65.88078%;
   }
-  .lap-8:last-child {
+  .lap__8:last-child {
     margin-right: 0;
   }
 
-  .lap-9 {
+  .lap__9 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 74.41059%;
   }
-  .lap-9:last-child {
+  .lap__9:last-child {
     margin-right: 0;
   }
 
-  .lap-10 {
+  .lap__10 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 82.94039%;
   }
-  .lap-10:last-child {
+  .lap__10:last-child {
     margin-right: 0;
   }
 
-  .lap-11 {
+  .lap__11 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 91.4702%;
   }
-  .lap-11:last-child {
+  .lap__11:last-child {
     margin-right: 0;
   }
 
-  .lap-12 {
+  .lap__12 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 100%;
   }
-  .lap-12:last-child {
+  .lap__12:last-child {
     margin-right: 0;
   }
 
-  .lap-hide {
+  .lap__hide {
     display: none !important;
   }
 
-  .lap-show {
+  .lap__show {
     display: block !important;
   }
 
-  .lap-omega, .lap-reverse {
+  .lap__omega, .lap__reverse {
     margin-right: 0 !important;
   }
 
-  .lap-reverse {
+  .lap__reverse {
+    float: right !important;
+  }
+
+  .lap__left {
+    float: left !important;
+  }
+
+  .lap__center {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    float: none !important;
+  }
+
+  .lap__right {
     float: right !important;
   }
 }
 
 @media screen and (max-width: 767px) {
-  .portable-1 {
+  .portable__1 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 6.17215%;
   }
-  .portable-1:last-child {
+  .portable__1:last-child {
     margin-right: 0;
   }
 
-  .portable-2 {
+  .portable__2 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 14.70196%;
   }
-  .portable-2:last-child {
+  .portable__2:last-child {
     margin-right: 0;
   }
 
-  .portable-3 {
+  .portable__3 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 23.23176%;
   }
-  .portable-3:last-child {
+  .portable__3:last-child {
     margin-right: 0;
   }
 
-  .portable-4 {
+  .portable__4 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 31.76157%;
   }
-  .portable-4:last-child {
+  .portable__4:last-child {
     margin-right: 0;
   }
 
-  .portable-5 {
+  .portable__5 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 40.29137%;
   }
-  .portable-5:last-child {
+  .portable__5:last-child {
     margin-right: 0;
   }
 
-  .portable-6 {
+  .portable__6 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 48.82117%;
   }
-  .portable-6:last-child {
+  .portable__6:last-child {
     margin-right: 0;
   }
 
-  .portable-7 {
+  .portable__7 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 57.35098%;
   }
-  .portable-7:last-child {
+  .portable__7:last-child {
     margin-right: 0;
   }
 
-  .portable-8 {
+  .portable__8 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 65.88078%;
   }
-  .portable-8:last-child {
+  .portable__8:last-child {
     margin-right: 0;
   }
 
-  .portable-9 {
+  .portable__9 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 74.41059%;
   }
-  .portable-9:last-child {
+  .portable__9:last-child {
     margin-right: 0;
   }
 
-  .portable-10 {
+  .portable__10 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 82.94039%;
   }
-  .portable-10:last-child {
+  .portable__10:last-child {
     margin-right: 0;
   }
 
-  .portable-11 {
+  .portable__11 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 91.4702%;
   }
-  .portable-11:last-child {
+  .portable__11:last-child {
     margin-right: 0;
   }
 
-  .portable-12 {
+  .portable__12 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 100%;
   }
-  .portable-12:last-child {
+  .portable__12:last-child {
     margin-right: 0;
   }
 
-  .portable-hide {
+  .portable__hide {
     display: none !important;
   }
 
-  .portable-show {
+  .portable__show {
     display: block !important;
   }
 
-  .portable-omega, .portable-reverse {
+  .portable__omega, .portable__reverse {
     margin-right: 0 !important;
   }
 
-  .portable-reverse {
+  .portable__reverse {
+    float: right !important;
+  }
+
+  .portable__left {
+    float: left !important;
+  }
+
+  .portable__center {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    float: none !important;
+  }
+
+  .portable__right {
     float: right !important;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .desk-1 {
+  .desk__1 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 6.17215%;
   }
-  .desk-1:last-child {
+  .desk__1:last-child {
     margin-right: 0;
   }
 
-  .desk-2 {
+  .desk__2 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 14.70196%;
   }
-  .desk-2:last-child {
+  .desk__2:last-child {
     margin-right: 0;
   }
 
-  .desk-3 {
+  .desk__3 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 23.23176%;
   }
-  .desk-3:last-child {
+  .desk__3:last-child {
     margin-right: 0;
   }
 
-  .desk-4 {
+  .desk__4 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 31.76157%;
   }
-  .desk-4:last-child {
+  .desk__4:last-child {
     margin-right: 0;
   }
 
-  .desk-5 {
+  .desk__5 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 40.29137%;
   }
-  .desk-5:last-child {
+  .desk__5:last-child {
     margin-right: 0;
   }
 
-  .desk-6 {
+  .desk__6 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 48.82117%;
   }
-  .desk-6:last-child {
+  .desk__6:last-child {
     margin-right: 0;
   }
 
-  .desk-7 {
+  .desk__7 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 57.35098%;
   }
-  .desk-7:last-child {
+  .desk__7:last-child {
     margin-right: 0;
   }
 
-  .desk-8 {
+  .desk__8 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 65.88078%;
   }
-  .desk-8:last-child {
+  .desk__8:last-child {
     margin-right: 0;
   }
 
-  .desk-9 {
+  .desk__9 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 74.41059%;
   }
-  .desk-9:last-child {
+  .desk__9:last-child {
     margin-right: 0;
   }
 
-  .desk-10 {
+  .desk__10 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 82.94039%;
   }
-  .desk-10:last-child {
+  .desk__10:last-child {
     margin-right: 0;
   }
 
-  .desk-11 {
+  .desk__11 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 91.4702%;
   }
-  .desk-11:last-child {
+  .desk__11:last-child {
     margin-right: 0;
   }
 
-  .desk-12 {
+  .desk__12 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 100%;
   }
-  .desk-12:last-child {
+  .desk__12:last-child {
     margin-right: 0;
   }
 
-  .desk-hide {
+  .desk__hide {
     display: none !important;
   }
 
-  .desk-show {
+  .desk__show {
     display: block !important;
   }
 
-  .desk-omega, .desk-reverse {
+  .desk__omega, .desk__reverse {
     margin-right: 0 !important;
   }
 
-  .desk-reverse {
+  .desk__reverse {
+    float: right !important;
+  }
+
+  .desk__left {
+    float: left !important;
+  }
+
+  .desk__center {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    float: none !important;
+  }
+
+  .desk__right {
+    float: right !important;
+  }
+}
+
+@media screen and (min-width: 0px) {
+  .all__1 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 6.17215%;
+  }
+  .all__1:last-child {
+    margin-right: 0;
+  }
+
+  .all__2 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 14.70196%;
+  }
+  .all__2:last-child {
+    margin-right: 0;
+  }
+
+  .all__3 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 23.23176%;
+  }
+  .all__3:last-child {
+    margin-right: 0;
+  }
+
+  .all__4 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 31.76157%;
+  }
+  .all__4:last-child {
+    margin-right: 0;
+  }
+
+  .all__5 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 40.29137%;
+  }
+  .all__5:last-child {
+    margin-right: 0;
+  }
+
+  .all__6 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%;
+  }
+  .all__6:last-child {
+    margin-right: 0;
+  }
+
+  .all__7 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 57.35098%;
+  }
+  .all__7:last-child {
+    margin-right: 0;
+  }
+
+  .all__8 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 65.88078%;
+  }
+  .all__8:last-child {
+    margin-right: 0;
+  }
+
+  .all__9 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 74.41059%;
+  }
+  .all__9:last-child {
+    margin-right: 0;
+  }
+
+  .all__10 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 82.94039%;
+  }
+  .all__10:last-child {
+    margin-right: 0;
+  }
+
+  .all__11 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 91.4702%;
+  }
+  .all__11:last-child {
+    margin-right: 0;
+  }
+
+  .all__12 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%;
+  }
+  .all__12:last-child {
+    margin-right: 0;
+  }
+
+  .all__hide {
+    display: none !important;
+  }
+
+  .all__show {
+    display: block !important;
+  }
+
+  .all__omega, .all__reverse {
+    margin-right: 0 !important;
+  }
+
+  .all__reverse {
+    float: right !important;
+  }
+
+  .all__left {
+    float: left !important;
+  }
+
+  .all__center {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    float: none !important;
+  }
+
+  .all__right {
     float: right !important;
   }
 }
