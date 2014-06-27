@@ -30,6 +30,11 @@ when you have two animation that you don't wont to start at the same time.
     contentClass:  [data-toggle-content]
     delay:         500
     closable:      true        # Enable/disable the ability to close all panels
+    addHeight:     false
+    addMaxHeight:  false
+    positionMaxHeight: 'padding-top'
+    defaultOpen:   0
+    debug:         false
 
 Remeber to add closed and open state in the css, this module doesn't have
 default styling, es:
