@@ -302,13 +302,14 @@ Styleguide 10.3
     background-image:none;
     border:none;
     box-shadow: none;
+    color: inherit;
     cursor: pointer;
     position: relative;
-    width:100%;
-    z-index: 3;
     text-indent: 1px;
     text-overflow: '';
     top: $offset-select;
+    width:100%;
+    /*z-index: 3;*/
   }
 
   &:after {
