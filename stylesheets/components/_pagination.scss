@@ -72,6 +72,8 @@ Styleguide 17
       li.current a:hover,
 
       // WP Paginate
+      span.current,
+      span.current:hover,
       a.current,
       a.current:hover {
         @extend %pagination--btn__current !optional;
