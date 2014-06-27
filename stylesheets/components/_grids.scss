@@ -82,9 +82,9 @@ Styleguide 11.1
         @extend .#{$name}__omega;
         float: right !important;
       }
-      .#{$name}__left { float: left; }
-      .#{$name}__center { margin: 0 auto; }
-      .#{$name}__right { float: right; }
+      .#{$name}__left { float: left !important; }
+      .#{$name}__center { margin-left: auto !important; margin-right: auto !important; float: none !important;}
+      .#{$name}__right { float: right !important; }
     }
   }
 }
