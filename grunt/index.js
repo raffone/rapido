@@ -169,7 +169,7 @@ module.exports = function(grunt, custom, options){
         dest: '<%= project.js.target.app %>'
       };
       config.watch.js = {
-        config: ['<%= project.js.sources.app %>'],
+        files: ['<%= project.js.sources.app %>'],
         tasks: ['js', 'notify:js']
       };
     }
