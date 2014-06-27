@@ -14,6 +14,7 @@ let $ = jQuery, window, document
     positionMaxHeight: 'padding-top'
     defaultOpen: 0
     debug: false
+    heightProperty: 'min-height'
 
   class Toggle
     (@el, options) ->
@@ -24,6 +25,7 @@ let $ = jQuery, window, document
         ..titles =  @options.selector + @options.titleClass
         ..contents = @options.selector + @options.contentClass
         ..contentsHeight = {}
+        ..firstRun = true
       @init!
 
     init: !->
@@ -32,9 +34,9 @@ let $ = jQuery, window, document
       if @options.defaultOpen != false  then $.rapido.onResize @, @setOpenPanel
 
       # For each titleClass attach click event
-      $(@options.titles).each (i, el) ~>
-        if @options.debug then console.log el
-        @clickEvent el
+      $(@options.titles).each (i, el) ~> @clickEvent el
+
+      if @options.debug then console.log @
 
     # add max-height to container if addMaxHeight is set to true
     setMaxHeight: !->
@@ -59,6 +61,12 @@ let $ = jQuery, window, document
 
         # Create object with heights of all contents
         @options.contentsHeight <<< "#id": height + 'px'
+
+        # Add height to default open
+        if @options.firstRun
+          if i is @options.defaultOpen then
+            $(el).css @options.heightProperty, @options.contentsHeight[id]
+            @options.firstRun = false
 
     # Set default open panel
     setOpenPanel: !->
@@ -95,7 +103,7 @@ let $ = jQuery, window, document
 
           # Add min-height if required
           if @options.addHeight
-            $(description).css 'min-height': @options.contentsHeight[id]
+            $(description).css @options.heightProperty, @options.contentsHeight[id]
 
         # If there is already an open panel then close it and open the target
         # panel (with delay if set)
@@ -117,7 +125,7 @@ let $ = jQuery, window, document
 
           # Update min-height
           if @options.addHeight
-            $(description).css 'min-height': @options.contentsHeight[id]
+            $(description).css @options.heightProperty, @options.contentsHeight[id]
 
           # Finally add class to toggler
           $(name).addClass 'open'

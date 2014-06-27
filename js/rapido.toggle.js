@@ -11,7 +11,8 @@
     addMaxHeight: false,
     positionMaxHeight: 'padding-top',
     defaultOpen: 0,
-    debug: false
+    debug: false,
+    heightProperty: 'min-height'
   };
   Toggle = (function(){
     Toggle.displayName = 'Toggle';
@@ -26,6 +27,7 @@
       x$.titles = this.options.selector + this.options.titleClass;
       x$.contents = this.options.selector + this.options.contentClass;
       x$.contentsHeight = {};
+      x$.firstRun = true;
       this.init();
     }
     prototype.init = function(){
@@ -40,11 +42,11 @@
         $.rapido.onResize(this, this.setOpenPanel);
       }
       $(this.options.titles).each(function(i, el){
-        if (this$.options.debug) {
-          console.log(el);
-        }
         return this$.clickEvent(el);
       });
+      if (this.options.debug) {
+        console.log(this);
+      }
     };
     prototype.setMaxHeight = function(){
       var height;
@@ -65,6 +67,12 @@
           $(el).outerHeight());
         });
         this$.options.contentsHeight[id + ""] = height + 'px';
+        if (this$.options.firstRun) {
+          if (i === this$.options.defaultOpen) {
+            $(el).css(this$.options.heightProperty, this$.options.contentsHeight[id]);
+            this$.options.firstRun = false;
+          }
+        }
       });
     };
     prototype.setOpenPanel = function(){
@@ -96,9 +104,7 @@
           $(description).addClass('open');
           $(name).addClass('open');
           if (this$.options.addHeight) {
-            $(description).css({
-              'min-height': this$.options.contentsHeight[id]
-            });
+            $(description).css(this$.options.heightProperty, this$.options.contentsHeight[id]);
           }
         } else {
           $(this$.options.titles).removeClass('open');
@@ -111,9 +117,7 @@
             next();
           });
           if (this$.options.addHeight) {
-            $(description).css({
-              'min-height': this$.options.contentsHeight[id]
-            });
+            $(description).css(this$.options.heightProperty, this$.options.contentsHeight[id]);
           }
           $(name).addClass('open');
         }
