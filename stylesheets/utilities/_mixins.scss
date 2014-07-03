@@ -731,3 +731,11 @@ Styleguide 26.22
 @mixin old-size($height, $width) {
   @include size($width $height);
 }
+
+
+@mixin safari-flicker-fix() {
+  -webkit-transform-style:preserve-3d;
+  -webkit-backface-visibility:hidden;
+}
+
+
