@@ -22,7 +22,7 @@ Styleguide 10.7
     .picker {
       position: relative;
       width: 100%;
-      z-index: $zindex-dropdown;
+      z-index: $zindex-picker;
     }
 
     .picker__input { cursor: default; }
