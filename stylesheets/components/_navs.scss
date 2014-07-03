@@ -109,8 +109,11 @@ Styleguide 13
 // Horizontal nav
 
   .nav--inline {
+    //& > li,
+    //> ul > li { float: left;}
+
     & > li,
-    > ul > li { float: left;}
+    > ul > li { display: inline-block;}
 
     li ul {
       @include position(absolute, 100% null null 0px);
