@@ -282,17 +282,17 @@ Styleguide 10.3
 
 .form__select {
   @extend %caret !optional;
-  @extend %select !optional; // Backward compatibility
   @extend %form__select !optional;
-  border-radius: $base-border-radius;
+  @extend %select !optional; // Backward compatibility
   @include inline-block;
+  border-radius: $base-border-radius;
   border-style: solid;
   border-width: $input-border;
   cursor: pointer;
   height: $input-height;
   line-height: 1em;
   margin-bottom: 0;
-  padding: $input-padding;
+  padding: ( nth($input-padding, 1) - em( $input-border ) ) nth($input-padding, 2);
   position: relative;
   width: 240px;
 
@@ -309,7 +309,8 @@ Styleguide 10.3
     text-overflow: '';
     top: $offset-select;
     width:100%;
-    /*z-index: 3;*/
+    z-index: 3;
+    vertical-align: top;
   }
 
   &:after {
@@ -625,6 +626,7 @@ Styleguide 10.10
     .form__controls,
     .input-text,
     .form__select,
+    select,
     textarea,
     input[type="text"],
     input[type="password"],
