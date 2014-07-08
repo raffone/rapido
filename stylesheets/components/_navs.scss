@@ -86,7 +86,8 @@ Styleguide 13
     }
 
     li:hover ul,
-    li ul:hover {
+    li ul:hover,
+    li.open ul {
       @include opacity(1);
       display/*\**/: block\9; // Ugly IE8 Hack
       max-height: $dropdowns-height;
