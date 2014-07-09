@@ -680,19 +680,19 @@ Styleguide 26.21
   text-shadow: $n;
 }
 
-@mixin border-top-right-radius($n) {
+@mixin border-top-right-radius($n: $base-border-radius) {
   border-top-right-radius: $n;
 }
 
-@mixin border-top-left-radius($n) {
+@mixin border-top-left-radius($n: $base-border-radius) {
   border-top-left-radius: $n;
 }
 
-@mixin border-bottom-left-radius($n) {
+@mixin border-bottom-left-radius($n: $base-border-radius) {
   border-bottom-left-radius: $n;
 }
 
-@mixin border-bottom-right-radius($n) {
+@mixin border-bottom-right-radius($n: $base-border-radius) {
   border-bottom-right-radius: $n;
 }
 
