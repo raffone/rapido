@@ -658,6 +658,7 @@ but they serve only as an alias for the plan css attributes without prefixes.
 
     @include border-radius($n)
     @include box-shadow($n..)
+    @include text-shadow($n..)
     @include border-top-right-radius($n)
     @include border-top-left-radius($n)
     @include border-bottom-left-radius($n)
@@ -673,6 +674,10 @@ Styleguide 26.21
 
 @mixin box-shadow($n...) {
   box-shadow: $n;
+}
+
+@mixin text-shadow($n...) {
+  text-shadow: $n;
 }
 
 @mixin border-top-right-radius($n) {
