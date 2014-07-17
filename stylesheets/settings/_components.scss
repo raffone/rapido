@@ -71,6 +71,7 @@ $components: (
   tabs:                             true,
   tooltips:                         true,
   width-helper-classes:             true,
+  default-styles:                   true,
 );
 
 @if global-variable-exists('modules') {

@@ -12,7 +12,7 @@ Styleguide 32
 
 */
 
-@if $default-styles {
+@if map-get($components, default-styles) {
 
 /*
 
