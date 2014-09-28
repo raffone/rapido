@@ -200,7 +200,7 @@ Styleguide 2.6
 
 @if $fadeIn == true {
   @include keyframes(fadeIn) {
-    0% {        @include opacity(0); }
+    0% {    @include opacity(0); }
     100% {  @include opacity(1); }
   }
 }

@@ -2,14 +2,15 @@ module.exports = (grunt, custom, options) !->
 
   # Load modules
   # ----------------------------------------------------------------------------
+
   require! {
     fs
     _: lodash
   }
 
-
   # Settings
   # ----------------------------------------------------------------------------
+
   custom = custom or {}
   options = options or {}
   modules = {}
@@ -143,7 +144,7 @@ module.exports = (grunt, custom, options) !->
       files: ['<%= project.svgsprite.watch %>']
       tasks: ['svgsprite', 'notify:sprite']
 
-  # Svg Failbacks (svg !-> Png)
+  # Svg Failbacks (Svg -> Png)
   # ------------------------------------------------------------------------
 
   modules.svg2png = !->
