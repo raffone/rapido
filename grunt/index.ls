@@ -1,16 +1,12 @@
 module.exports = (grunt, custom, options) !->
 
+
   # Load modules
   # ----------------------------------------------------------------------------
-
-  require! {
-    fs
-    _: lodash
-  }
+  require! [fs, lodash]
 
   # Settings
   # ----------------------------------------------------------------------------
-
   custom = custom or {}
   options = options or {}
   modules = {}
@@ -18,8 +14,8 @@ module.exports = (grunt, custom, options) !->
   # Grab settings
   defaults = JSON.parse fs.readFileSync './bower_components/rapido/grunt/defaults.json', 'utf8'
   settings = JSON.parse fs.readFileSync './project.json', 'utf8'
-  project = _.merge defaults, settings, (a, b) ->
-    if _.isArray a then
+  project = lodash.merge defaults, settings, (a, b) ->
+    if lodash.isArray a then
       a.concat b
     else
       undefined
@@ -144,7 +140,7 @@ module.exports = (grunt, custom, options) !->
       files: ['<%= project.svgsprite.watch %>']
       tasks: ['svgsprite', 'notify:sprite']
 
-  # Svg Failbacks (Svg -> Png)
+  # Svg Failbacks (svg !-> Png)
   # ------------------------------------------------------------------------
 
   modules.svg2png = !->
@@ -163,6 +159,7 @@ module.exports = (grunt, custom, options) !->
 
   # Concat Js Files
   # ------------------------------------------------------------------------
+  # To deactivate the app watch use: js {target: { app: false }}
 
   modules.concat = !->
     grunt.loadNpmTasks 'grunt-contrib-concat'
@@ -193,6 +190,7 @@ module.exports = (grunt, custom, options) !->
 
   # Concat & Minify Js Files
   # ------------------------------------------------------------------------
+  # To deactivate the app watch use: js {target: { app: false }}
 
   modules.uglify = !->
     grunt.loadNpmTasks 'grunt-contrib-uglify'
@@ -233,6 +231,24 @@ module.exports = (grunt, custom, options) !->
       files: ['<%= project.ls.sources %>']
       tasks: ['livescript', 'notify:js']
 
+  # Browserify
+  # ------------------------------------------------------------------------
+
+  modules.browserify = !->
+    grunt.loadNpmTasks 'grunt-browserify'
+
+    config.browserify =
+      options:
+        transform: ['liveify']
+      all:
+        files:
+          '<%= project.browserify.target %>': ['<%= project.browserify.sources %>'],
+
+    config.watch.ls =
+      files: ['<%= project.browserify.sources %>']
+      tasks: ['browserify', 'notify:js']
+
+
   # Debug
   # ----------------------------------------------------------------------------
 
@@ -257,7 +273,7 @@ module.exports = (grunt, custom, options) !->
     if isEnabled key then value!
 
   # Merge rapido config with custom config
-  merged = _.merge config, custom
+  merged = lodash.merge config, custom
 
   # Include debug modules if necessary
   if options.debug then modules.debug!
