@@ -30,7 +30,7 @@
         "bower_components/respond/dest/respond.src.js"
       ],
       "vendor": [
-        "bower_components/jquery/jquery.js",
+        "bower_components/jquery/dist/jquery.js",
         "bower_components/rapido/dist/js/rapido.js"
       ],
       "modernizr": [

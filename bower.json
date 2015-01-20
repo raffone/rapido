@@ -16,7 +16,7 @@
     "bower_components"
   ],
   "dependencies": {
-    "jquery": "1.10.2",
+    "jquery": "^1.11.2",
     "modernizr": "latest",
     "bourbon": "latest",
     "neat": "latest",
