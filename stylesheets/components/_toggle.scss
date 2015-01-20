@@ -35,6 +35,7 @@ when you have two animation that you don't wont to start at the same time.
     positionMaxHeight: 'padding-top'
     defaultOpen:   0
     debug:         false
+    heightProperty: 'min-height'
 
 Remeber to add closed and open state in the css, this module doesn't have
 default styling, es:
