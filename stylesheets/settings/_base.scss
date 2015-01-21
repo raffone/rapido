@@ -38,7 +38,7 @@ Styleguide 28.2
 */
 
 $base-font-size:                        14px                                                                !default;
-$base-line-height:                      modular-scale($base-font-size,  1, $golden)                         !default;
+$base-line-height:                      golden-ratio($base-font-size,  1)                                   !default;
 
 // For Vertical Rhythm
 
