@@ -6,7 +6,8 @@
     delay: 500,
     closeClass: '.overlay-close',
     backgroundClass: '.overlay-background',
-    offsetClass: '.offcanvas__content'
+    offsetClass: '.offcanvas__content',
+    closeButtonHtml: '<span>Close</span>'
   };
   Overlay = (function(){
     Overlay.displayName = 'Overlay';
@@ -43,7 +44,7 @@
       }
     };
     prototype.addClose = function(){
-      $('<span>Close</span>').addClass(this.options.closeClass.slice(1)).prependTo(this.options.selector);
+      $(this.options.closeButtonHtml).addClass(this.options.closeClass.slice(1)).prependTo(this.options.selector);
     };
     prototype.openOverlay = function(){
       var this$ = this;

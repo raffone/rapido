@@ -9,6 +9,7 @@ let $ = jQuery, window, document
     closeClass: '.overlay-close'
     backgroundClass: '.overlay-background'
     offsetClass: '.offcanvas__content'
+    closeButtonHtml: '<span>Close</span>'
 
   class Overlay
     (@el, options) !->
@@ -45,7 +46,7 @@ let $ = jQuery, window, document
 
     # Add close button to overlay
     addClose: !->
-      $('<span>Close</span>')
+      $( @options.closeButtonHtml)
         .addClass @options.closeClass.slice(1)
         .prependTo @options.selector
 
