@@ -62,8 +62,7 @@ module.exports = function(grunt) {
           'js/rapido.toggle.js': 'ls/rapido.toggle.ls',
           'js/rapido.tooltip.js': 'ls/rapido.tooltip.ls',
           'js/rapido.utilities.js': 'ls/rapido.utilities.ls',
-          'dist/js/rapido.js': 'ls/*.ls',
-          'grunt/index.js': 'grunt/index.ls'
+          'dist/js/rapido.js': 'ls/*.ls'
         }
       }
     },

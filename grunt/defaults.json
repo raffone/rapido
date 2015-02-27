@@ -3,7 +3,7 @@
   "debug": false,
   "time": false,
   "sass": {
-    "sourcemap": false,
+    "sourcemap": "auto",
     "source": "assets/sass/style.sass",
     "target": "assets/css/style.css",
     "style": "compressed",

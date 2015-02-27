@@ -80,7 +80,7 @@ module.exports = (grunt, custom, options) !->
         options:
           style: '<%= project.sass.style %>'
           sourcemap: '<%= project.sass.sourcemap %>'
-          require: ['<%= project.sass.require %>']
+          require: '<%= project.sass.require %>'
 
         files:
           '<%= project.sass.target %>': '<%= project.sass.source %>'
@@ -228,7 +228,7 @@ module.exports = (grunt, custom, options) !->
           '<%= project.ls.target %>': ['<%= project.ls.sources %>']
 
     config.watch.ls =
-      files: ['<%= project.ls.sources %>']
+      files: '<%= project.ls.sources %>'
       tasks: ['livescript', 'notify:js']
 
   # Browserify
