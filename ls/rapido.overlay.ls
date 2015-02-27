@@ -76,8 +76,8 @@ let $ = jQuery, window, document
 
         # If window is resized update offset
         $(window).resize !~>
-          $(@options.selector + '.open, ' + @options.backgroundClass + '.open')
-            .css height: @getHeight!
+          $(@options.selector) .css height: @getHeight!
+          $(@options.backgroundClass) .css height: @getHeight!
 
         it.preventDefault!
 

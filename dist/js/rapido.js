@@ -286,7 +286,10 @@
           height: this$.getHeight()
         }).fadeIn();
         $(window).resize(function(){
-          $(this$.options.selector + '.open, ' + this$.options.backgroundClass + '.open').css({
+          $(this$.options.selector).css({
+            height: this$.getHeight()
+          });
+          $(this$.options.backgroundClass).css({
             height: this$.getHeight()
           });
         });
