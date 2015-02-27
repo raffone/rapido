@@ -78,9 +78,9 @@ module.exports = (grunt, custom, options) !->
     config.sass =
       all:
         options:
-          style: 'compressed'
+          style: '<%= project.sass.style %>'
           sourcemap: '<%= project.sass.sourcemap %>'
-          require: ['sass-globbing', 'sass-media_query_combiner']
+          require: ['<%= project.sass.require %>']
 
         files:
           '<%= project.sass.target %>': '<%= project.sass.source %>'

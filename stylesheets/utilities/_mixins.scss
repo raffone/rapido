@@ -84,9 +84,19 @@ Styleguide 26.4
 
 */
 
-@mixin center() {
-  @include position(absolute, 50% null null 50%);
-  @include transform(translateX(-50%) translateY(-50%));
+@mixin center($direction: all) {
+  @if $direction == all {
+    @include position(absolute, 50% null null 50%);
+    @include transform(translateX(-50%) translateY(-50%));
+  }
+  @if $direction == horizontal {
+    @include position(absolute, null null null 50%);
+    @include transform(translateX(-50%));
+  }
+  @if $direction == vertical {
+    @include position(absolute, 50% null null null);
+    @include transform(translateY(-50%));
+  }
 }
 
 /*

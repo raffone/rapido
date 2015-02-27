@@ -7,7 +7,8 @@
     closeClass: '.overlay-close',
     backgroundClass: '.overlay-background',
     offsetClass: '.offcanvas__content',
-    closeButtonHtml: '<span>Close</span>'
+    closeButtonHtml: '<span>Close</span>',
+    addSidebarBorder: true
   };
   Overlay = (function(){
     Overlay.displayName = 'Overlay';
@@ -53,9 +54,11 @@
           overflow: 'hidden',
           height: '100%'
         });
-        $('html.no-touch').css({
-          'border-right': '15px solid #f2f2f2'
-        });
+        if (this$.options.addSidebarBorder) {
+          $('html.no-touch').css({
+            'border-right': '15px solid #f2f2f2'
+          });
+        }
         $(this$.options.selector + ', ' + this$.options.backgroundClass).removeClass('close').addClass('open').css({
           top: '0',
           height: this$.getHeight()
@@ -71,10 +74,11 @@
     prototype.closeOverlay = function(){
       var this$ = this;
       $(this.options.closeClass).on('click', function(){
-        $(this$.options.selector + ', ' + this$.options.backgroundClass).addClass('close').delay(this$.options.delay).queue(function(next){
-          $(this).removeClass('open close').removeAttr("style");
+        $(this$.options.selector).addClass('close').delay(this$.options.delay).queue(function(next){
+          $(this).removeClass('open').removeClass('close').removeAttr('style');
           next();
         });
+        $(this$.options.backgroundClass).removeClass('open');
         $('html, body').delay(this$.options.delay).queue(function(next){
           $(this).removeAttr('style');
           next();

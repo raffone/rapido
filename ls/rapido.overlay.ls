@@ -10,6 +10,7 @@ let $ = jQuery, window, document
     backgroundClass: '.overlay-background'
     offsetClass: '.offcanvas__content'
     closeButtonHtml: '<span>Close</span>'
+    addSidebarBorder: true
 
   class Overlay
     (@el, options) !->
@@ -46,20 +47,21 @@ let $ = jQuery, window, document
 
     # Add close button to overlay
     addClose: !->
-      $( @options.closeButtonHtml)
+      $(@options.closeButtonHtml)
         .addClass @options.closeClass.slice(1)
         .prependTo @options.selector
 
     openOverlay: !->
       $(@el).on 'click', ~>
 
-        # Set ovewrflow:hidden to backgroudn page
+        # Set overflow:hidden to background page
         $('html')
           .css overflow: 'hidden' height: '100%'
 
         # Add scrollbar offset only if desktop browser
-        $('html.no-touch')
-          .css 'border-right': '15px solid #f2f2f2'
+        if @options.addSidebarBorder
+          $('html.no-touch')
+            .css 'border-right': '15px solid #f2f2f2'
 
         # Set class to open and add offset
         $(@options.selector + ', ' + @options.backgroundClass)
@@ -78,14 +80,18 @@ let $ = jQuery, window, document
       $(@options.closeClass).on 'click', !~>
 
         # Set overlay class to close
-        $(@options.selector + ', ' + @options.backgroundClass)
+        $(@options.selector)
           .addClass 'close'
           .delay @options.delay
           .queue (next) !->
             $(@)
-              .removeClass 'open close'
-              .removeAttr "style"
-              next!
+              .removeClass 'open'
+              .removeClass 'close'
+              .removeAttr 'style'
+            next!
+
+        $(@options.backgroundClass)
+          .removeClass 'open'
 
         # Remove overflow:hidden
         $('html, body')

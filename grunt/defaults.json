@@ -5,7 +5,9 @@
   "sass": {
     "sourcemap": false,
     "source": "assets/sass/style.sass",
-    "target": "assets/css/style.css"
+    "target": "assets/css/style.css",
+    "style": "compressed",
+    "require": ["sass-globbing", "sass-media_query_combiner"]
   },
   "sprite": {
     "source": "assets/images/s/*.png",
@@ -51,7 +53,7 @@
     "sources": [
       "assets/ls/**/*.ls"
     ],
-    "target": "assets/js/app.js"
+    "target": "assets/js/*.js"
   },
   "browserify": {
     "sources": [
