@@ -59,10 +59,14 @@
             'border-right': '15px solid #f2f2f2'
           });
         }
-        $(this$.options.selector + ', ' + this$.options.backgroundClass).removeClass('close').addClass('open').css({
+        $(this$.options.selector).css({
           top: '0',
           height: this$.getHeight()
-        });
+        }).fadeIn();
+        $(this$.options.backgroundClass).css({
+          top: '0',
+          height: this$.getHeight()
+        }).fadeIn();
         $(window).resize(function(){
           $(this$.options.selector + '.open, ' + this$.options.backgroundClass + '.open').css({
             height: this$.getHeight()
@@ -74,15 +78,9 @@
     prototype.closeOverlay = function(){
       var this$ = this;
       $(this.options.closeClass).on('click', function(){
-        $(this$.options.selector).addClass('close').delay(this$.options.delay).queue(function(next){
-          $(this).removeClass('open').removeClass('close').removeAttr('style');
-          next();
-        });
-        $(this$.options.backgroundClass).removeClass('open');
-        $('html, body').delay(this$.options.delay).queue(function(next){
-          $(this).removeAttr('style');
-          next();
-        });
+        $(this$.options.selector).fadeOut();
+        $(this$.options.backgroundClass).fadeOut();
+        $('html, body').removeAttr('style');
       });
     };
     return Overlay;

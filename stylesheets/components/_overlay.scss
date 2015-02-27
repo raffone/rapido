@@ -46,18 +46,9 @@ Styleguide 15
     @extend %overlay__content !optional;
     @include position(fixed, -100% 0em 0em 0em);
     height: 0;
-    overflow: hidden;
-    visibility: hidden;
-    &.open {
-      @extend %overlay__content--open !optional;
-      overflow: auto;
-      visibility: visible;
-      z-index: $zindex-modal;
-    }
-    &.close {
-      @extend %overlay__content--close !optional;
-
-    }
+    display: none;
+    z-index: $zindex-modal;
+    overflow: auto;
   }
 
   .overlay-background {
@@ -66,14 +57,8 @@ Styleguide 15
     height: 0;
     overflow: hidden;
     width: 100%;
-    &.open {
-      @extend %overlay__background--open !optional;
-      overflow: auto;
-      z-index: $zindex-modal - 1;
-    }
-    &.close {
-      @extend %overlay__background--close !optional;
-    }
+    z-index: $zindex-modal - 1;
+    display: none;
   }
 
   .overlay-close {

@@ -64,10 +64,15 @@ let $ = jQuery, window, document
             .css 'border-right': '15px solid #f2f2f2'
 
         # Set class to open and add offset
-        $(@options.selector + ', ' + @options.backgroundClass)
-          .removeClass 'close'
-          .addClass 'open'
+        $(@options.selector)
+          #.toggleClass 'open'
           .css top: '0' height: @getHeight!
+          .fadeIn!
+
+
+        $(@options.backgroundClass)
+          .css top: '0' height: @getHeight!
+          .fadeIn!
 
         # If window is resized update offset
         $(window).resize !~>
@@ -81,24 +86,16 @@ let $ = jQuery, window, document
 
         # Set overlay class to close
         $(@options.selector)
-          .addClass 'close'
-          .delay @options.delay
-          .queue (next) !->
-            $(@)
-              .removeClass 'open'
-              .removeClass 'close'
-              .removeAttr 'style'
-            next!
+          .fadeOut!
+          #.toggleClass 'open'
 
         $(@options.backgroundClass)
-          .removeClass 'open'
+          #.toggleClass 'open'
+          .fadeOut!
 
         # Remove overflow:hidden
         $('html, body')
-          .delay(@options.delay)
-          .queue (next) !->
-            $(@).removeAttr 'style'
-            next!
+          .removeAttr 'style'
 
   $.fn.rapido_Overlay = (options) ->
     @.each ->
