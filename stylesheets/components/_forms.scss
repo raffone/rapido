@@ -207,10 +207,10 @@ Radio & Checkbox
 
 Markup:
 <div class="form__controls">
-  <label class="form__radio {$modifiers}">
+  <label class="form__radio {{modifier_class}}">
   <input type="radio" value="option1" checked> Option one is this
   </label>
-  <label class="form__radio {$modifiers}">
+  <label class="form__radio {{modifier_class}}">
   <input type="radio" value="option2"> Option two can be something else
   </label>
 </div>
@@ -367,7 +367,7 @@ Add an help text block
 Markup:
 <div class="form__controls">
   <input type="text">
-  <span class="{$modifiers}">This is an example help text</span>
+  <span class="{{modifier_class}}">This is an example help text</span>
 </div>
 
 .form__help--block - Block Help
@@ -566,7 +566,7 @@ Styleguide 10.9
 Form Layouts
 
 Markup:
-<form class="{$modifiers}">
+<form class="{{modifier_class}}">
   <div class="form__group">
   <label class="form__label">Label</label>
   <div class="form__controls">

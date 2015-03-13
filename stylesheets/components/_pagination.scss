@@ -7,7 +7,7 @@ Simple pagination inspired by Rdio, great for apps and search results. The large
 Default pagination with `.pagination`, it also support [WP-Paginate](http://wordpress.org/plugins/wp-paginate/).
 
 Markup:
-<div class="pagination {$modifiers}">
+<div class="pagination {{modifier_class}}">
   <ul>
     <li><a href="#">Prev</a></li>
     <li><a href="#">1</a></li>

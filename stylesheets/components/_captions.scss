@@ -7,7 +7,7 @@ Captions effects adapted from [Effect.css](https://github.com/h5bp/Effect.css).
 Effects availables (first example is without effect): `quarter-appear` `quarter-slide-up` `quarter-slide-side` `cover-fade` `quarter-fall-in` `quarter-two-step` `cover-push-right` `cover-slide-top` `quarter-zoom` `revolving-door-left` `revolving-door-right` `revolving-door-top` `revolving-door-bottom` `offset` `guillotine-reverse` `half-slide`.
 
 Markup:
-<figure class="caption" data-effect-type="{$modifiers}">
+<figure class="caption" data-effect-type="{{modifier_class}}">
   <img src=http://dummyimage.com/300x200/afe600/ffffff" alt="">
   <figcaption>
     <div class="effect-figcaption-wrap">

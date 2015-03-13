@@ -172,14 +172,10 @@ table {
 }
 
 html {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-*, *:before, *:after {
-  -webkit-box-sizing: inherit;
-  -moz-box-sizing: inherit;
+*, *::after, *::before {
   box-sizing: inherit;
 }
 
@@ -1492,25 +1488,25 @@ Example:
 Styleguide 2.3
 
 */
-.fadeIn, .overlay-background.open {
+.fadeIn {
   -webkit-animation: fadeIn 0.5s ease-out both;
   -moz-animation: fadeIn 0.5s ease-out both;
   animation: fadeIn 0.5s ease-out both;
 }
 
-.fadeOut, .overlay-background.close {
+.fadeOut {
   -webkit-animation: fadeOut 0.5s ease-out both;
   -moz-animation: fadeOut 0.5s ease-out both;
   animation: fadeOut 0.5s ease-out both;
 }
 
-.fadeInDown, [data-overlay-content].open {
+.fadeInDown {
   -webkit-animation: fadeInDown 0.5s ease-out both;
   -moz-animation: fadeInDown 0.5s ease-out both;
   animation: fadeInDown 0.5s ease-out both;
 }
 
-.fadeOutUp, [data-overlay-content].close {
+.fadeOutUp {
   -webkit-animation: fadeOutUp 0.5s ease-out both;
   -moz-animation: fadeOutUp 0.5s ease-out both;
   animation: fadeOutUp 0.5s ease-out both;
@@ -4318,8 +4314,6 @@ Styleguide 23
 
 */
 *, *:before, *:after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   outline: none;
 }
@@ -6284,11 +6278,12 @@ Include this js after including rapido.js.
 
 **Options** (with default values):
 
-    delay:            500
+    duration:         500
     closeClass:       .overlay-close
     backgroundClass:  .overlay-background
     offsetClass:      .offcanvas__content
     closeButtonHtml:  <span>Close</span>
+    addSidebarBorder: true
 
 Styleguide 15
 
@@ -6300,13 +6295,9 @@ Styleguide 15
   bottom: 0em;
   left: 0em;
   height: 0;
-  overflow: hidden;
-  visibility: hidden;
-}
-[data-overlay-content].open {
-  overflow: auto;
-  visibility: visible;
+  display: none;
   z-index: 1050;
+  overflow: auto;
 }
 
 .overlay-background {
@@ -6318,10 +6309,8 @@ Styleguide 15
   height: 0;
   overflow: hidden;
   width: 100%;
-}
-.overlay-background.open {
-  overflow: auto;
   z-index: 1049;
+  display: none;
 }
 
 .overlay-close {
@@ -6573,9 +6562,9 @@ Styleguide 22
 [data-tooltip-position="bottom"] + .tooltip:after {
   height: 0;
   width: 0;
+  border-bottom: 0.5em solid rgba(0, 0, 0, 0.75);
   border-left: 0.5em solid transparent;
   border-right: 0.5em solid transparent;
-  border-bottom: 0.5em solid rgba(0, 0, 0, 0.75);
   left: 50%;
   top: -0.5em;
   margin-left: -0.5em;
@@ -6591,9 +6580,9 @@ Styleguide 22
 [data-tooltip-position="left"] + .tooltip:after {
   height: 0;
   width: 0;
-  border-top: 0.5em solid transparent;
   border-bottom: 0.5em solid transparent;
   border-left: 0.5em solid rgba(0, 0, 0, 0.75);
+  border-top: 0.5em solid transparent;
   top: 50%;
   right: -0.5em;
   margin-top: -0.5em;
@@ -6609,9 +6598,9 @@ Styleguide 22
 [data-tooltip-position="right"] + .tooltip:after {
   height: 0;
   width: 0;
-  border-top: 0.5em solid transparent;
   border-bottom: 0.5em solid transparent;
   border-right: 0.5em solid rgba(0, 0, 0, 0.75);
+  border-top: 0.5em solid transparent;
   top: 50%;
   left: -0.5em;
   margin-top: -0.5em;
@@ -7194,9 +7183,9 @@ Styleguide 32.6
   left: 2em;
   height: 0;
   width: 0;
+  border-bottom: 8px solid #ccc;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
-  border-bottom: 8px solid #ccc;
   content: "";
 }
 .dropdown__menu .divider {
@@ -7461,17 +7450,11 @@ Styleguide 32.13
   border-radius: 5px;
   height: 10px;
   width: 10px;
-  height: 1em;
-  line-height: 1.5;
   overflow: hidden;
+  text-indent: 101%;
+  white-space: nowrap;
   background: #d9d9d9;
   margin: 0 5px;
-}
-.bx-pager .bx-pager-item a::before {
-  content: "";
-  display: block;
-  width: 0;
-  height: 100%;
 }
 .bx-pager .bx-pager-item a:hover, .bx-pager .bx-pager-item a.active {
   background: #999999;

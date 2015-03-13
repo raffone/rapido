@@ -5,7 +5,7 @@ Tables
 For basic styling—light padding and only horizontal dividers—add the base class `.table` to any `<table>`.
 
 Markup:
-<table class="table {$modifiers}">
+<table class="table {{modifier_class}}">
   <thead>
     <tr>
       <th>Test</th>

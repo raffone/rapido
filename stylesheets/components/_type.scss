@@ -9,7 +9,7 @@ Styleguide 23
 // Base
 
 *, *:before, *:after {
-  @include box-sizing(border-box);
+  box-sizing: border-box;
   outline: none;
 }
 

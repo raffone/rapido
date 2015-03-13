@@ -30,11 +30,12 @@ Include this js after including rapido.js.
 
 **Options** (with default values):
 
-    delay:            500
+    duration:         500
     closeClass:       .overlay-close
     backgroundClass:  .overlay-background
     offsetClass:      .offcanvas__content
     closeButtonHtml:  <span>Close</span>
+    addSidebarBorder: true
 
 Styleguide 15
 

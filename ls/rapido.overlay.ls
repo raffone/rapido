@@ -5,7 +5,7 @@ let $ = jQuery, window, document
   pluginName = "Overlay"
 
   defaults =
-    delay: 500
+    duration: 500
     closeClass: '.overlay-close'
     backgroundClass: '.overlay-background'
     offsetClass: '.offcanvas__content'
@@ -67,12 +67,12 @@ let $ = jQuery, window, document
         $(@options.selector)
           #.toggleClass 'open'
           .css top: '0' height: @getHeight!
-          .fadeIn!
+          .fadeIn @options.duration
 
 
         $(@options.backgroundClass)
           .css top: '0' height: @getHeight!
-          .fadeIn!
+          .fadeIn @options.duration
 
         # If window is resized update offset
         $(window).resize !~>
@@ -86,12 +86,12 @@ let $ = jQuery, window, document
 
         # Set overlay class to close
         $(@options.selector)
-          .fadeOut!
+          .fadeOut @options.duration
           #.toggleClass 'open'
 
         $(@options.backgroundClass)
           #.toggleClass 'open'
-          .fadeOut!
+          .fadeOut @options.duration
 
         # Remove overflow:hidden
         $('html, body')

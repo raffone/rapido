@@ -128,6 +128,8 @@ module.exports = function(grunt) {
 
     // CSS - Copy docs files to website repository
     copy: {
+
+      // Documentation site
       main: {
         files: [
           {
@@ -148,6 +150,18 @@ module.exports = function(grunt) {
         },
         ]
       },
+      kss: {
+        files: [
+          {
+          expand: true,
+          cwd: '../../forks/kss-node-template/template/public/',
+          src: ['theme.css'],
+          dest: '../../server/sites/raffone/rapido/public/'
+        },
+        ]
+      },
+
+      // Testing site
       jsToRapidoIE: {
         files: [
           {
@@ -165,16 +179,6 @@ module.exports = function(grunt) {
           cwd: 'dist/css',
           src: ['rapido.css'],
           dest: '../../server/sites/rapido-ie/'
-        },
-        ]
-      },
-      kss: {
-        files: [
-          {
-          expand: true,
-          cwd: '../../forks/kss-node-template/template/public/',
-          src: ['theme.css'],
-          dest: '../../server/sites/raffone/rapido/public/'
         },
         ]
       }

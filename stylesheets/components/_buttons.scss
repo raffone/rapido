@@ -7,8 +7,8 @@ However, typically you'll want to apply these to only `<a>` and `<button>`
 elements for the best rendering.
 
 Markup:
-<a href="#" class="btn btn--default {$modifiers}">Link Button</a>
-<button class="btn btn--default {$modifiers}">Button Element</button>
+<a href="#" class="btn btn--default {{modifier_class}}">Link Button</a>
+<button class="btn btn--default {{modifier_class}}">Button Element</button>
 
 :hover - Mouse hover state style, also available with `.hover`
 :active - Selected element style, also available with `.active`
@@ -123,8 +123,8 @@ Modifiers
 Create block level buttons—those that span the full width of a parent.
 
 Markup:
-<a href="#" class="btn btn--default {$modifiers}">Link Button</a>
-<button class="btn btn--default {$modifiers}">Button Element</button>
+<a href="#" class="btn btn--default {{modifier_class}}">Link Button</a>
+<button class="btn btn--default {{modifier_class}}">Button Element</button>
 
 .btn--block - Create block level buttons—those that span the full width of a parent.
 .btn--pill - Button width rounded full corners.

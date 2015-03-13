@@ -10,7 +10,7 @@ All nav components here share the same base markup and styles through the `.nav`
 * `.divider`: Add horizontal line as a divider
 
 Markup:
-<ul class="nav {$modifiers}">
+<ul class="nav {{modifier_class}}">
   <li class="nav__title">Nav header</li>
   <li class="current"><a href="#">Home</a></li>
   <li><a href="#">Messages</a>
