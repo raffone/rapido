@@ -51,7 +51,7 @@
   },
   "ls": {
     "sources": "assets/ls/**/*.ls",
-    "target": "assets/js/*.js"
+    "target": "assets/js/app.js"
   },
   "browserify": {
     "sources": [
