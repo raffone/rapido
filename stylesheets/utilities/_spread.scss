@@ -1,0 +1,115 @@
+// strip-units required by spread mixin
+// http://stackoverflow.com/questions/12328259/how-do-you-strip-the-unit-from-any-number-in-sass
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+// pow and sqrt required by ease function
+// adapted from https://github.com/at-import/Sassy-math/blob/master/sass/math.scss
+@function pow($base, $exponent) {
+  $value: $base;
+
+  @if $exponent > 1 {
+    @for $i from 2 through $exponent {
+      $value: $value * $base;
+    }
+  }
+
+  @if $exponent < 1 {
+    @for $i from 0 through -$exponent {
+      $value: $value / $base;
+    }
+  }
+
+  @return $value;
+}
+
+@function sqrt($number) {
+  $root: 4;
+
+  @for $i from 1 through 50 {
+    $root: $root - (pow($root, 2) - $number) / (2 * $root);
+  }
+
+  @return $root;
+}
+
+// adapted from http://www.kirupa.com/forum/showthread.php?378287-Robert-Penner-s-Easing-Equations-in-Pure-JS-%28no-jQuery%29
+@function ease($iteration, $start-value, $change, $total-iterations, $ease) {
+  $progress: $iteration / $total-iterations;
+
+  // value increases evenly
+  @if $ease == linear {
+    @return $change * $progress + $start-value;
+  }
+
+  // value increases on a curve, accelerating
+  @if $ease == in-quad {
+    @return $change * $progress * $progress + $start-value;
+  }
+
+  // value increases on a curve, decelerating
+  @if $ease == out-quad {
+    @return -$change * $progress * ($progress - 2) + $start-value;
+  }
+
+  // value accelerates sharply
+  @if $ease == in-cubic {
+    @return $change * pow($progress, 3) + $start-value;
+  }
+
+  // value decelerates sharply
+  @if $ease == out-cubic {
+    @return $change * (pow($progress - 1, 3) + 1) + $start-value;
+  }
+
+  // value accelerates more sharply
+  @if $ease == in-quart {
+    @return $change * pow($progress, 4) + $start-value;
+  }
+
+  // value decelerates more sharply
+  @if $ease == out-quart {
+    @return -$change * (pow($progress - 1, 4) - 1) + $start-value;
+  }
+
+  // value accelerates very sharply
+  @if $ease == in-quint {
+    @return $change * pow($progress, 5) + $start-value;
+  }
+
+  // value decelerates very sharply
+  @if $ease == out-quint {
+    @return $change * (pow($progress - 1, 5) + 1) + $start-value;
+  }
+}
+
+// spreads a property value from min to max across media queries
+//   $property:      CSS property to set
+//   $property-min:  min value of the property
+//   $property-max:  max value of the property
+//   $dimension:     media query dimension - min-width, min-height, max-width, max-height
+//   $dimension-min: first media query of the chosen dimension
+//   $dimension-max: final media query of the chosen dimension
+//   $default-value: true/false (defaults to true).
+//                   Should a default value (min for min-width/height,
+//                   max for max-width/height) be included outside the query?
+//   $precision:     how many pixels each media query should cover
+//   $ease:          easing function to use when calculating value
+//                   helpful for fine-tuning some widths in the mid-range
+@mixin spread($property, $property-min, $property-max, $dimension: min-width, $dimension-min: $lap-start, $dimension-max: $desk-end, $default-value: true, $precision: 50px, $ease: linear) {
+  $total-iterations: abs(strip-units(ceil(($dimension-max - $dimension-min) / $precision))) - 1;
+  $max-dimension: $dimension == max-width or $dimension == max-height;
+
+  @if $default-value {
+    #{$property}: if($max-dimension, $property-max, $property-min);
+  }
+
+  @for $iteration from 0 through $total-iterations {
+    $iteration: if($max-dimension, $total-iterations - $iteration, $iteration);
+
+    @media (#{$dimension}: $dimension-min + $iteration * $precision) {
+      #{$property}: ease($iteration, $property-min, $property-max - $property-min, $total-iterations, $ease);
+    }
+  }
+}
