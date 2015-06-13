@@ -61,8 +61,14 @@ module.exports = (grunt, custom, options) !->
         files: [
           '*.php'
           '*.html'
+          '*.css'
+          '*.js'
+          '*.handlebars'
           '**/*.php'
           '**/*.html'
+          '**/*.css'
+          '**/*.js'
+          '**/*.handlebars'
           '!**/bower_components/**'
           '!**/node_modules/**'
         ]
@@ -86,6 +92,9 @@ module.exports = (grunt, custom, options) !->
           '<%= project.sass.target %>': '<%= project.sass.source %>'
 
     config.watch.sass =
+      options:
+        livereload: false
+
       files: [
         '**/*.sass'
         '**/*.scss'
@@ -228,6 +237,9 @@ module.exports = (grunt, custom, options) !->
           '<%= project.ls.target %>': ['<%= project.ls.sources %>']
 
     config.watch.ls =
+      options:
+        livereload: false
+
       files: '<%= project.ls.sources %>'
       tasks: ['livescript', 'notify:js']
 
