@@ -38,6 +38,7 @@ module.exports = (grunt, custom, options) !->
   modules.notify = !->
     grunt.loadNpmTasks 'grunt-notify'
     config.notify = {
+      css: {options: {message: 'Css changed'}}
       sass: {options: {message: 'Sass compiled'}}
       js: {options: {message: 'Javascript changed'}}
       ls: {options: {message: 'LiveScript compiled'}}
@@ -61,19 +62,31 @@ module.exports = (grunt, custom, options) !->
         files: [
           '*.php'
           '*.html'
-          '*.css'
-          '*.js'
           '*.handlebars'
           '**/*.php'
           '**/*.html'
-          '**/*.css'
-          '**/*.js'
           '**/*.handlebars'
           '!**/bower_components/**'
           '!**/node_modules/**'
         ]
 
         tasks: ['notify:template']
+
+      css:
+        files: [
+          '*.css'
+          '**/*.css'
+        ]
+
+        tasks: ['notify:css']
+
+      js:
+        files: [
+          '*.js'
+          '**/*.js'
+        ]
+
+        tasks: ['notify:js']
 
   # Compile Sass Files
   # ------------------------------------------------------------------------
@@ -98,8 +111,6 @@ module.exports = (grunt, custom, options) !->
       files: [
         '**/*.sass'
         '**/*.scss'
-        '!**/bower_components/**'
-        '!**/node_modules/**'
       ]
 
       tasks: ['sass', 'notify:sass']
@@ -241,7 +252,7 @@ module.exports = (grunt, custom, options) !->
         livereload: false
 
       files: '<%= project.ls.sources %>'
-      tasks: ['livescript', 'notify:js']
+      tasks: ['livescript', 'notify:ls']
 
   # Browserify
   # ------------------------------------------------------------------------

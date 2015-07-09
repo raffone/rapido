@@ -97,7 +97,17 @@
 //   $precision:     how many pixels each media query should cover
 //   $ease:          easing function to use when calculating value
 //                   helpful for fine-tuning some widths in the mid-range
-@mixin spread($property, $property-min, $property-max, $dimension: min-width, $dimension-min: $lap-start, $dimension-max: $desk-end, $default-value: true, $precision: 50px, $ease: linear) {
+@mixin spread(
+  $property,
+  $property-min,
+  $property-max,
+  $dimension: min-width,
+  $dimension-min: $lap-start,
+  $dimension-max: $desk-end,
+  $default-value: true,
+  $precision: 50px,
+  $ease: linear
+){
   $total-iterations: abs(strip-units(ceil(($dimension-max - $dimension-min) / $precision))) - 1;
   $max-dimension: $dimension == max-width or $dimension == max-height;
 
@@ -112,4 +122,21 @@
       #{$property}: ease($iteration, $property-min, $property-max - $property-min, $total-iterations, $ease);
     }
   }
+}
+
+@mixin spread-font-size(
+  $property-min,
+  $property-max,
+  $dimension: min-width,
+  $dimension-min: $lap-start,
+  $dimension-max: $desk-end,
+  $default-value: true,
+  $precision: 50px,
+  $ease: linear,
+  $from-size: $base-font-size
+) {
+
+  @include spread(font-size, ($font-unit * $property-min / $from-size), ($font-unit * $property-max / $from-size), $dimension, $dimension-min, $dimension-max, $default-value, $precision, $ease);
+  @include spread(line-height, rhythm(lines-for-font-size($property-min), $property-min), rhythm(lines-for-font-size($property-max), $property-max), $dimension, $dimension-min, $dimension-max, $default-value, $precision, $ease);
+
 }

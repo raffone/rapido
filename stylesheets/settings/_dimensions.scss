@@ -252,13 +252,21 @@ $desk-end:                          1080px                                      
 $palm-end:                          $lap-start - 1px;
 $lap-end:                           $desk-start - 1px;
 
-// Failback for =< 2.2.1
+// Default media query breakpoints
 $palm:                              max-width $palm-end                                                     !default;
 $lap:                               min-width $lap-start max-width $lap-end                                 !default;
 $lap-and-up:                        min-width $lap-start                                                    !default;
 $portable:                          max-width $lap-end                                                      !default;
 $desk:                              min-width $desk-start                                                   !default;
 
+// Breakpoints sizes from Formstone
+$xs:                                max-width 300px                                                         !default;
+$sm:                                max-width 740px                                                         !default;
+$md:                                min-width 741px max-width 980px                                         !default;
+$lg:                                min-width 981px max-width 1220px                                        !default;
+$xl:                                min-width 1221px                                                        !default;
+
+// Object used in grids.scss for generating grid and utility classes
 $media-queries: (
   palm: $palm,
   lap: $lap,

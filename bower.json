@@ -22,6 +22,7 @@
     "neat": "latest",
     "html5shiv": "latest",
     "respond": "latest",
+    "SassyLists": "~2.2.4",
     "selectivizr": "git://github.com/keithclark/selectivizr#ed2f5e3e56f059ad256cc921e24ecc0e1855f18a"
   }
 }
