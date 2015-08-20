@@ -73,15 +73,19 @@ Styleguide 24.2
   @include media($device) {
     .#{$name}__wrapper,
     .#{$name}__w {
+      @include clearfix;
+      margin: 0 auto;
       max-width: $desk-end;
       padding-left: $wrapper-padding;
       padding-right: $wrapper-padding;
     }
     .#{$name}__nowrapper,
     .#{$name}__nw {
-      width: 100% !important;
-      padding-right: 0 !important;
+      @include clearfix;
+      margin: 0 auto;
       padding-left: 0 !important;
+      padding-right: 0 !important;
+      width: 100% !important;
     }
   }
 }
