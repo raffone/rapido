@@ -59,8 +59,8 @@ Styleguide 24.2
   @include clearfix;
   margin: 0 auto;
   max-width: $desk-end;
-  padding-left: em($wrapper-padding);
-  padding-right: em($wrapper-padding);
+  padding-left: $wrapper-padding;
+  padding-right: $wrapper-padding;
 }
 
 .fixed-wrapper, .fw {

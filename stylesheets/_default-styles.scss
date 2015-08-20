@@ -625,7 +625,7 @@ Styleguide 32.16
 
   %nav--offcanvas {
     background-color: $grayDark;
-    padding: em($wrapper-padding);
+    padding: $wrapper-padding;
     color: $white;
 
     a {
