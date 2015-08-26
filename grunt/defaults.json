@@ -54,10 +54,13 @@
     "target": "assets/js/app.js"
   },
   "browserify": {
+    "transform": [],
     "sources": [
       "assets/ls/**/*.ls"
     ],
     "target": "assets/js/app.js"
   }
 }
+
+
 

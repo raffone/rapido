@@ -1,7 +1,7 @@
 {
   "name": "rapido",
   "title": "Rapido",
-  "version": "1.1.10",
+  "version": "1.1.11",
   "description": "An easy and quick Sass + Bourbon + Neat + OOCSS + BEM prototyping framework.",
   "homepage": "https://github.com/raffone/rapido",
   "authors": "Raffaele Rasini <raffaele.rasini@gmail.com>",

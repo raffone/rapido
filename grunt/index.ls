@@ -262,7 +262,7 @@ module.exports = (grunt, custom, options) !->
 
     config.browserify =
       options:
-        transform: ['liveify']
+        transform: '<%= project.browserify.transform %>'
       all:
         files:
           '<%= project.browserify.target %>': ['<%= project.browserify.sources %>'],
@@ -304,3 +304,5 @@ module.exports = (grunt, custom, options) !->
 
   # Initialize grunt
   grunt.initConfig merged
+
+
